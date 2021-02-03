@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_ft_20180713Targets.cmake")
+check_required_components("alibabacloud_ft_20180713")
