@@ -1,0 +1,7 @@
+2021-03-01 Version: 1.13.0
+- Support TableStructSync Order API.
+- Support Upload File API.
+- Support GetOwnerApplyOrderDetail, GetPermApplyOrderDetail API.
+- Support ListDBTaskSQLJob, ListDBTaskSQLJobDetail API.
+- Support GetDataCorrectSQLFile API.
+
