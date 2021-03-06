@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_imagerecog_20190930Targets.cmake")
+check_required_components("alibabacloud_imagerecog_20190930")
