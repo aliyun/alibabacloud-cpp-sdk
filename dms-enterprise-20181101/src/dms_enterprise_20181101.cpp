@@ -142,6 +142,27 @@ GetDataCorrectSQLFileResponse Alibabacloud_Dms-enterprise20181101::Client::getDa
   return getDataCorrectSQLFileWithOptions(request, runtime);
 }
 
+CreateFreeLockCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createFreeLockCorrectOrderWithOptions(shared_ptr<CreateFreeLockCorrectOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateFreeLockCorrectOrderShrinkRequest> request = make_shared<CreateFreeLockCorrectOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->relatedUserList)) {
+    request->relatedUserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relatedUserList, make_shared<string>("RelatedUserList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateFreeLockCorrectOrderRequestParam>(tmpReq->param)) {
+    request->paramShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->param->toMap()), make_shared<string>("Param"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateFreeLockCorrectOrderResponse(doRPCRequest(make_shared<string>("CreateFreeLockCorrectOrder"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateFreeLockCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createFreeLockCorrectOrder(shared_ptr<CreateFreeLockCorrectOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFreeLockCorrectOrderWithOptions(request, runtime);
+}
+
 CreateOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createOrderWithOptions(shared_ptr<CreateOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateOrderShrinkRequest> request = make_shared<CreateOrderShrinkRequest>();
@@ -451,14 +472,17 @@ GetApprovalDetailResponse Alibabacloud_Dms-enterprise20181101::Client::getApprov
   return getApprovalDetailWithOptions(request, runtime);
 }
 
-GetUserActiveTenantResponse Alibabacloud_Dms-enterprise20181101::Client::getUserActiveTenantWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+GetUserActiveTenantResponse Alibabacloud_Dms-enterprise20181101::Client::getUserActiveTenantWithOptions(shared_ptr<GetUserActiveTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
   return GetUserActiveTenantResponse(doRPCRequest(make_shared<string>("GetUserActiveTenant"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-GetUserActiveTenantResponse Alibabacloud_Dms-enterprise20181101::Client::getUserActiveTenant() {
+GetUserActiveTenantResponse Alibabacloud_Dms-enterprise20181101::Client::getUserActiveTenant(shared_ptr<GetUserActiveTenantRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getUserActiveTenantWithOptions(runtime);
+  return getUserActiveTenantWithOptions(request, runtime);
 }
 
 RegisterUserResponse Alibabacloud_Dms-enterprise20181101::Client::registerUserWithOptions(shared_ptr<RegisterUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -526,6 +550,19 @@ ListLogicTablesResponse Alibabacloud_Dms-enterprise20181101::Client::listLogicTa
   return listLogicTablesWithOptions(request, runtime);
 }
 
+GetTableTopologyResponse Alibabacloud_Dms-enterprise20181101::Client::getTableTopologyWithOptions(shared_ptr<GetTableTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetTableTopologyResponse(doRPCRequest(make_shared<string>("GetTableTopology"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetTableTopologyResponse Alibabacloud_Dms-enterprise20181101::Client::getTableTopology(shared_ptr<GetTableTopologyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTableTopologyWithOptions(request, runtime);
+}
+
 GetDataExportDownloadURLResponse Alibabacloud_Dms-enterprise20181101::Client::getDataExportDownloadURLWithOptions(shared_ptr<GetDataExportDownloadURLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -537,6 +574,27 @@ GetDataExportDownloadURLResponse Alibabacloud_Dms-enterprise20181101::Client::ge
 GetDataExportDownloadURLResponse Alibabacloud_Dms-enterprise20181101::Client::getDataExportDownloadURL(shared_ptr<GetDataExportDownloadURLRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getDataExportDownloadURLWithOptions(request, runtime);
+}
+
+CreateDataCronClearOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataCronClearOrderWithOptions(shared_ptr<CreateDataCronClearOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataCronClearOrderShrinkRequest> request = make_shared<CreateDataCronClearOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->relatedUserList)) {
+    request->relatedUserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relatedUserList, make_shared<string>("RelatedUserList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateDataCronClearOrderRequestParam>(tmpReq->param)) {
+    request->paramShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->param->toMap()), make_shared<string>("Param"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateDataCronClearOrderResponse(doRPCRequest(make_shared<string>("CreateDataCronClearOrder"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateDataCronClearOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataCronClearOrder(shared_ptr<CreateDataCronClearOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataCronClearOrderWithOptions(request, runtime);
 }
 
 CreatePublishGroupTaskResponse Alibabacloud_Dms-enterprise20181101::Client::createPublishGroupTaskWithOptions(shared_ptr<CreatePublishGroupTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -630,6 +688,19 @@ DeleteUserResponse Alibabacloud_Dms-enterprise20181101::Client::deleteUser(share
   return deleteUserWithOptions(request, runtime);
 }
 
+GetDataCronClearTaskDetailListResponse Alibabacloud_Dms-enterprise20181101::Client::getDataCronClearTaskDetailListWithOptions(shared_ptr<GetDataCronClearTaskDetailListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetDataCronClearTaskDetailListResponse(doRPCRequest(make_shared<string>("GetDataCronClearTaskDetailList"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetDataCronClearTaskDetailListResponse Alibabacloud_Dms-enterprise20181101::Client::getDataCronClearTaskDetailList(shared_ptr<GetDataCronClearTaskDetailListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDataCronClearTaskDetailListWithOptions(request, runtime);
+}
+
 GetStructSyncJobAnalyzeResultResponse Alibabacloud_Dms-enterprise20181101::Client::getStructSyncJobAnalyzeResultWithOptions(shared_ptr<GetStructSyncJobAnalyzeResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -656,6 +727,19 @@ ApproveOrderResponse Alibabacloud_Dms-enterprise20181101::Client::approveOrder(s
   return approveOrderWithOptions(request, runtime);
 }
 
+GetDataCorrectTaskDetailResponse Alibabacloud_Dms-enterprise20181101::Client::getDataCorrectTaskDetailWithOptions(shared_ptr<GetDataCorrectTaskDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetDataCorrectTaskDetailResponse(doRPCRequest(make_shared<string>("GetDataCorrectTaskDetail"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetDataCorrectTaskDetailResponse Alibabacloud_Dms-enterprise20181101::Client::getDataCorrectTaskDetail(shared_ptr<GetDataCorrectTaskDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDataCorrectTaskDetailWithOptions(request, runtime);
+}
+
 CreateUploadFileJobResponse Alibabacloud_Dms-enterprise20181101::Client::createUploadFileJobWithOptions(shared_ptr<CreateUploadFileJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -680,6 +764,27 @@ ListLogicDatabasesResponse Alibabacloud_Dms-enterprise20181101::Client::listLogi
 ListLogicDatabasesResponse Alibabacloud_Dms-enterprise20181101::Client::listLogicDatabases(shared_ptr<ListLogicDatabasesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listLogicDatabasesWithOptions(request, runtime);
+}
+
+CreateDataImportOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataImportOrderWithOptions(shared_ptr<CreateDataImportOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataImportOrderShrinkRequest> request = make_shared<CreateDataImportOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->relatedUserList)) {
+    request->relatedUserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relatedUserList, make_shared<string>("RelatedUserList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateDataImportOrderRequestParam>(tmpReq->param)) {
+    request->paramShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->param->toMap()), make_shared<string>("Param"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateDataImportOrderResponse(doRPCRequest(make_shared<string>("CreateDataImportOrder"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateDataImportOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataImportOrder(shared_ptr<CreateDataImportOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataImportOrderWithOptions(request, runtime);
 }
 
 CloseOrderResponse Alibabacloud_Dms-enterprise20181101::Client::closeOrderWithOptions(shared_ptr<CloseOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -734,14 +839,17 @@ GetOrderBaseInfoResponse Alibabacloud_Dms-enterprise20181101::Client::getOrderBa
   return getOrderBaseInfoWithOptions(request, runtime);
 }
 
-ListUserTenantsResponse Alibabacloud_Dms-enterprise20181101::Client::listUserTenantsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+ListUserTenantsResponse Alibabacloud_Dms-enterprise20181101::Client::listUserTenantsWithOptions(shared_ptr<ListUserTenantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
   return ListUserTenantsResponse(doRPCRequest(make_shared<string>("ListUserTenants"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-ListUserTenantsResponse Alibabacloud_Dms-enterprise20181101::Client::listUserTenants() {
+ListUserTenantsResponse Alibabacloud_Dms-enterprise20181101::Client::listUserTenants(shared_ptr<ListUserTenantsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listUserTenantsWithOptions(runtime);
+  return listUserTenantsWithOptions(request, runtime);
 }
 
 SetOwnersResponse Alibabacloud_Dms-enterprise20181101::Client::setOwnersWithOptions(shared_ptr<SetOwnersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -755,6 +863,27 @@ SetOwnersResponse Alibabacloud_Dms-enterprise20181101::Client::setOwnersWithOpti
 SetOwnersResponse Alibabacloud_Dms-enterprise20181101::Client::setOwners(shared_ptr<SetOwnersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setOwnersWithOptions(request, runtime);
+}
+
+CreateDataCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataCorrectOrderWithOptions(shared_ptr<CreateDataCorrectOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDataCorrectOrderShrinkRequest> request = make_shared<CreateDataCorrectOrderShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->relatedUserList)) {
+    request->relatedUserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->relatedUserList, make_shared<string>("RelatedUserList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateDataCorrectOrderRequestParam>(tmpReq->param)) {
+    request->paramShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->param->toMap()), make_shared<string>("Param"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateDataCorrectOrderResponse(doRPCRequest(make_shared<string>("CreateDataCorrectOrder"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateDataCorrectOrderResponse Alibabacloud_Dms-enterprise20181101::Client::createDataCorrectOrder(shared_ptr<CreateDataCorrectOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDataCorrectOrderWithOptions(request, runtime);
 }
 
 GetLogicDatabaseResponse Alibabacloud_Dms-enterprise20181101::Client::getLogicDatabaseWithOptions(shared_ptr<GetLogicDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
