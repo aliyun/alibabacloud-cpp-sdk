@@ -10335,6 +10335,7 @@ public:
 class DescribeClusterNamespacesResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<vector<string>> body{};
 
   DescribeClusterNamespacesResponse() {}
 
@@ -10346,12 +10347,18 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
   }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
     }
     return res;
   }
@@ -10364,6 +10371,16 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["body"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      body = make_shared<vector<string>>(toVec1);
     }
   }
 

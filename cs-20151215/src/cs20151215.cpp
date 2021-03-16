@@ -1463,7 +1463,7 @@ DescribeClusterNamespacesResponse Alibabacloud_CS20151215::Client::describeClust
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
-  return DescribeClusterNamespacesResponse(doROARequest(make_shared<string>("DescribeClusterNamespaces"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/k8s/") + string(*ClusterId) + string("/namespaces")), make_shared<string>("none"), req, runtime));
+  return DescribeClusterNamespacesResponse(doROARequest(make_shared<string>("DescribeClusterNamespaces"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/k8s/") + string(*ClusterId) + string("/namespaces")), make_shared<string>("array"), req, runtime));
 }
 
 DeleteKubernetesTriggerResponse Alibabacloud_CS20151215::Client::deleteKubernetesTrigger(shared_ptr<string> Id) {
