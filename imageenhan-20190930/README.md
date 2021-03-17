@@ -98,7 +98,7 @@ sh imageenhan-20190930/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[Alibaba Cloud OpenAPI Portal]: https://next.api.aliyun.com
+[open-api]: https://api.aliyun.com
 [latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

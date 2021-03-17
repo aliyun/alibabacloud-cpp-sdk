@@ -3702,6 +3702,8 @@ public:
 class MakeSuperResolutionImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> upscaleFactor{};
 
   MakeSuperResolutionImageRequest() {}
 
@@ -3716,12 +3718,24 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (upscaleFactor) {
+      res["UpscaleFactor"] = boost::any(*upscaleFactor);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("UpscaleFactor") != m.end() && !m["UpscaleFactor"].empty()) {
+      upscaleFactor = make_shared<long>(boost::any_cast<long>(m["UpscaleFactor"]));
     }
   }
 
@@ -3731,6 +3745,8 @@ public:
 class MakeSuperResolutionImageAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> urlObject{};
+  shared_ptr<string> mode{};
+  shared_ptr<long> upscaleFactor{};
 
   MakeSuperResolutionImageAdvanceRequest() {}
 
@@ -3749,12 +3765,24 @@ public:
     if (urlObject) {
       res["UrlObject"] = boost::any(*urlObject);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (upscaleFactor) {
+      res["UpscaleFactor"] = boost::any(*upscaleFactor);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("UrlObject") != m.end() && !m["UrlObject"].empty()) {
       urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["UrlObject"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("UpscaleFactor") != m.end() && !m["UpscaleFactor"].empty()) {
+      upscaleFactor = make_shared<long>(boost::any_cast<long>(m["UpscaleFactor"]));
     }
   }
 
