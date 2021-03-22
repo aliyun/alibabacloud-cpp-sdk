@@ -158,6 +158,8 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> instanceName{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
 
   CreateEaiRequest() {}
 
@@ -181,6 +183,12 @@ public:
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
     }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     return res;
   }
 
@@ -196,6 +204,12 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
   }
 
