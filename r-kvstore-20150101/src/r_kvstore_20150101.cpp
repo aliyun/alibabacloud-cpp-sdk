@@ -306,6 +306,19 @@ DescribeAuditRecordsResponse Alibabacloud_R-kvstore20150101::Client::describeAud
   return describeAuditRecordsWithOptions(request, runtime);
 }
 
+DescribeAvailableResourceResponse Alibabacloud_R-kvstore20150101::Client::describeAvailableResourceWithOptions(shared_ptr<DescribeAvailableResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeAvailableResourceResponse(doRPCRequest(make_shared<string>("DescribeAvailableResource"), make_shared<string>("2015-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeAvailableResourceResponse Alibabacloud_R-kvstore20150101::Client::describeAvailableResource(shared_ptr<DescribeAvailableResourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeAvailableResourceWithOptions(request, runtime);
+}
+
 DescribeBackupPolicyResponse Alibabacloud_R-kvstore20150101::Client::describeBackupPolicyWithOptions(shared_ptr<DescribeBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
