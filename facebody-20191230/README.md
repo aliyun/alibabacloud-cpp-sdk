@@ -87,7 +87,7 @@ sh facebody-20191230/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Explorer][open-api]
+* [OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
