@@ -85,7 +85,7 @@ sh threedvision-20210131/scripts/install.sh
 
 ## 相关
 
-* [OpenAPI Explorer][open-api]
+* [OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
