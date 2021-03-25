@@ -87,7 +87,7 @@ sh eais-20190624/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
