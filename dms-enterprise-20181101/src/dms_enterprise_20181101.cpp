@@ -259,6 +259,19 @@ GetUserUploadFileJobResponse Alibabacloud_Dms-enterprise20181101::Client::getUse
   return getUserUploadFileJobWithOptions(request, runtime);
 }
 
+ListDDLPublishRecordsResponse Alibabacloud_Dms-enterprise20181101::Client::listDDLPublishRecordsWithOptions(shared_ptr<ListDDLPublishRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDDLPublishRecordsResponse(doRPCRequest(make_shared<string>("ListDDLPublishRecords"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDDLPublishRecordsResponse Alibabacloud_Dms-enterprise20181101::Client::listDDLPublishRecords(shared_ptr<ListDDLPublishRecordsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDDLPublishRecordsWithOptions(request, runtime);
+}
+
 GetStructSyncJobDetailResponse Alibabacloud_Dms-enterprise20181101::Client::getStructSyncJobDetailWithOptions(shared_ptr<GetStructSyncJobDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
