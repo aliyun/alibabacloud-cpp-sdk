@@ -776,7 +776,6 @@ public:
 };
 class RecognizeFaceRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeFaceRequest() {}
@@ -789,9 +788,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -799,9 +795,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -813,7 +806,6 @@ public:
 class RecognizeFaceAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeFaceAdvanceRequest() {}
 
@@ -832,18 +824,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -1527,12 +1513,10 @@ public:
 };
 class DetectIPCPedestrianRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> continueOnError{};
   shared_ptr<string> imageData{};
   shared_ptr<long> width{};
   shared_ptr<long> height{};
   shared_ptr<string> imageURL{};
-  shared_ptr<string> dataId{};
 
   DetectIPCPedestrianRequest() {}
 
@@ -1544,9 +1528,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (continueOnError) {
-      res["ContinueOnError"] = boost::any(*continueOnError);
-    }
     if (imageData) {
       res["ImageData"] = boost::any(*imageData);
     }
@@ -1559,16 +1540,10 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
-    if (dataId) {
-      res["DataId"] = boost::any(*dataId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ContinueOnError") != m.end() && !m["ContinueOnError"].empty()) {
-      continueOnError = make_shared<bool>(boost::any_cast<bool>(m["ContinueOnError"]));
-    }
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
       imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
@@ -1581,9 +1556,6 @@ public:
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
-    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
-      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
-    }
   }
 
 
@@ -1592,11 +1564,9 @@ public:
 class DetectIPCPedestrianAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<bool> continueOnError{};
   shared_ptr<string> imageData{};
   shared_ptr<long> width{};
   shared_ptr<long> height{};
-  shared_ptr<string> dataId{};
 
   DetectIPCPedestrianAdvanceRequest() {}
 
@@ -1615,9 +1585,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (continueOnError) {
-      res["ContinueOnError"] = boost::any(*continueOnError);
-    }
     if (imageData) {
       res["ImageData"] = boost::any(*imageData);
     }
@@ -1627,18 +1594,12 @@ public:
     if (height) {
       res["Height"] = boost::any(*height);
     }
-    if (dataId) {
-      res["DataId"] = boost::any(*dataId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ContinueOnError") != m.end() && !m["ContinueOnError"].empty()) {
-      continueOnError = make_shared<bool>(boost::any_cast<bool>(m["ContinueOnError"]));
     }
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
       imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
@@ -1648,9 +1609,6 @@ public:
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
-    }
-    if (m.find("DataId") != m.end() && !m["DataId"].empty()) {
-      dataId = make_shared<string>(boost::any_cast<string>(m["DataId"]));
     }
   }
 
@@ -2102,7 +2060,6 @@ public:
 class CompareFaceRequest : public Darabonba::Model {
 public:
   shared_ptr<double> qualityScoreThreshold{};
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURLA{};
   shared_ptr<string> imageURLB{};
   shared_ptr<vector<uint8_t>> imageDataA{};
@@ -2120,9 +2077,6 @@ public:
     map<string, boost::any> res;
     if (qualityScoreThreshold) {
       res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
-    }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
     }
     if (imageURLA) {
       res["ImageURLA"] = boost::any(*imageURLA);
@@ -2142,9 +2096,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
       qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
       imageURLA = make_shared<string>(boost::any_cast<string>(m["ImageURLA"]));
@@ -2259,7 +2210,6 @@ class CompareFaceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<CompareFaceResponseBodyData> data{};
-  shared_ptr<string> code{};
 
   CompareFaceResponseBody() {}
 
@@ -2277,9 +2227,6 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     return res;
   }
 
@@ -2293,9 +2240,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<CompareFaceResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
   }
 
@@ -4099,7 +4043,6 @@ public:
 };
 class DetectFaceRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   DetectFaceRequest() {}
@@ -4112,9 +4055,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -4122,9 +4062,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -4136,7 +4073,6 @@ public:
 class DetectFaceAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   DetectFaceAdvanceRequest() {}
 
@@ -4155,18 +4091,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -5654,6 +5584,7 @@ public:
 class DetectLivingFaceRequestTasks : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<vector<uint8_t>> imageData{};
 
   DetectLivingFaceRequestTasks() {}
 
@@ -5668,12 +5599,18 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
     }
   }
 
@@ -12520,6 +12457,7 @@ public:
 class RecognizePublicFaceRequestTask : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<vector<uint8_t>> imageData{};
 
   RecognizePublicFaceRequestTask() {}
 
@@ -12534,12 +12472,18 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
     }
   }
 
@@ -13189,6 +13133,7 @@ public:
 class AddBodyTraceRequestImages : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<vector<uint8_t>> imageData{};
 
   AddBodyTraceRequestImages() {}
 
@@ -13203,12 +13148,18 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
     }
   }
 
@@ -13453,6 +13404,7 @@ public:
 class SearchBodyTraceRequestImages : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<vector<uint8_t>> imageData{};
 
   SearchBodyTraceRequestImages() {}
 
@@ -13467,12 +13419,18 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
     }
   }
 
@@ -15068,6 +15026,445 @@ public:
 
   virtual ~BodyPostureResponse() = default;
 };
+class MonitorExaminationRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> type{};
+  shared_ptr<string> imageURL{};
+
+  MonitorExaminationRequest() {}
+
+  explicit MonitorExaminationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationRequest() = default;
+};
+class MonitorExaminationAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<long> type{};
+
+  MonitorExaminationAdvanceRequest() {}
+
+  explicit MonitorExaminationAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURLObject"] = boost::any(*imageURLObject);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationAdvanceRequest() = default;
+};
+class MonitorExaminationResponseBodyDataFaceInfoPose : public Darabonba::Model {
+public:
+  shared_ptr<double> pitch{};
+  shared_ptr<double> roll{};
+  shared_ptr<double> yaw{};
+
+  MonitorExaminationResponseBodyDataFaceInfoPose() {}
+
+  explicit MonitorExaminationResponseBodyDataFaceInfoPose(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pitch) {
+      res["Pitch"] = boost::any(*pitch);
+    }
+    if (roll) {
+      res["Roll"] = boost::any(*roll);
+    }
+    if (yaw) {
+      res["Yaw"] = boost::any(*yaw);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pitch") != m.end() && !m["Pitch"].empty()) {
+      pitch = make_shared<double>(boost::any_cast<double>(m["Pitch"]));
+    }
+    if (m.find("Roll") != m.end() && !m["Roll"].empty()) {
+      roll = make_shared<double>(boost::any_cast<double>(m["Roll"]));
+    }
+    if (m.find("Yaw") != m.end() && !m["Yaw"].empty()) {
+      yaw = make_shared<double>(boost::any_cast<double>(m["Yaw"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyDataFaceInfoPose() = default;
+};
+class MonitorExaminationResponseBodyDataFaceInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> completeness{};
+  shared_ptr<long> faceNumber{};
+  shared_ptr<MonitorExaminationResponseBodyDataFaceInfoPose> pose{};
+
+  MonitorExaminationResponseBodyDataFaceInfo() {}
+
+  explicit MonitorExaminationResponseBodyDataFaceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completeness) {
+      res["Completeness"] = boost::any(*completeness);
+    }
+    if (faceNumber) {
+      res["FaceNumber"] = boost::any(*faceNumber);
+    }
+    if (pose) {
+      res["Pose"] = pose ? boost::any(pose->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completeness") != m.end() && !m["Completeness"].empty()) {
+      completeness = make_shared<long>(boost::any_cast<long>(m["Completeness"]));
+    }
+    if (m.find("FaceNumber") != m.end() && !m["FaceNumber"].empty()) {
+      faceNumber = make_shared<long>(boost::any_cast<long>(m["FaceNumber"]));
+    }
+    if (m.find("Pose") != m.end() && !m["Pose"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Pose"].type()) {
+        MonitorExaminationResponseBodyDataFaceInfoPose model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Pose"]));
+        pose = make_shared<MonitorExaminationResponseBodyDataFaceInfoPose>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyDataFaceInfo() = default;
+};
+class MonitorExaminationResponseBodyDataPersonInfoCellPhone : public Darabonba::Model {
+public:
+  shared_ptr<double> score{};
+  shared_ptr<double> threshold{};
+
+  MonitorExaminationResponseBodyDataPersonInfoCellPhone() {}
+
+  explicit MonitorExaminationResponseBodyDataPersonInfoCellPhone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<double>(boost::any_cast<double>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyDataPersonInfoCellPhone() = default;
+};
+class MonitorExaminationResponseBodyDataPersonInfoEarPhone : public Darabonba::Model {
+public:
+  shared_ptr<double> score{};
+  shared_ptr<double> threshold{};
+
+  MonitorExaminationResponseBodyDataPersonInfoEarPhone() {}
+
+  explicit MonitorExaminationResponseBodyDataPersonInfoEarPhone(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<double>(boost::any_cast<double>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyDataPersonInfoEarPhone() = default;
+};
+class MonitorExaminationResponseBodyDataPersonInfo : public Darabonba::Model {
+public:
+  shared_ptr<MonitorExaminationResponseBodyDataPersonInfoCellPhone> cellPhone{};
+  shared_ptr<MonitorExaminationResponseBodyDataPersonInfoEarPhone> earPhone{};
+  shared_ptr<long> personNumber{};
+
+  MonitorExaminationResponseBodyDataPersonInfo() {}
+
+  explicit MonitorExaminationResponseBodyDataPersonInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cellPhone) {
+      res["CellPhone"] = cellPhone ? boost::any(cellPhone->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (earPhone) {
+      res["EarPhone"] = earPhone ? boost::any(earPhone->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (personNumber) {
+      res["PersonNumber"] = boost::any(*personNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CellPhone") != m.end() && !m["CellPhone"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CellPhone"].type()) {
+        MonitorExaminationResponseBodyDataPersonInfoCellPhone model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CellPhone"]));
+        cellPhone = make_shared<MonitorExaminationResponseBodyDataPersonInfoCellPhone>(model1);
+      }
+    }
+    if (m.find("EarPhone") != m.end() && !m["EarPhone"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EarPhone"].type()) {
+        MonitorExaminationResponseBodyDataPersonInfoEarPhone model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EarPhone"]));
+        earPhone = make_shared<MonitorExaminationResponseBodyDataPersonInfoEarPhone>(model1);
+      }
+    }
+    if (m.find("PersonNumber") != m.end() && !m["PersonNumber"].empty()) {
+      personNumber = make_shared<long>(boost::any_cast<long>(m["PersonNumber"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyDataPersonInfo() = default;
+};
+class MonitorExaminationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<MonitorExaminationResponseBodyDataFaceInfo> faceInfo{};
+  shared_ptr<MonitorExaminationResponseBodyDataPersonInfo> personInfo{};
+  shared_ptr<double> chatScore{};
+  shared_ptr<double> threshold{};
+
+  MonitorExaminationResponseBodyData() {}
+
+  explicit MonitorExaminationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceInfo) {
+      res["FaceInfo"] = faceInfo ? boost::any(faceInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (personInfo) {
+      res["PersonInfo"] = personInfo ? boost::any(personInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (chatScore) {
+      res["ChatScore"] = boost::any(*chatScore);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceInfo") != m.end() && !m["FaceInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FaceInfo"].type()) {
+        MonitorExaminationResponseBodyDataFaceInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FaceInfo"]));
+        faceInfo = make_shared<MonitorExaminationResponseBodyDataFaceInfo>(model1);
+      }
+    }
+    if (m.find("PersonInfo") != m.end() && !m["PersonInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PersonInfo"].type()) {
+        MonitorExaminationResponseBodyDataPersonInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PersonInfo"]));
+        personInfo = make_shared<MonitorExaminationResponseBodyDataPersonInfo>(model1);
+      }
+    }
+    if (m.find("ChatScore") != m.end() && !m["ChatScore"].empty()) {
+      chatScore = make_shared<double>(boost::any_cast<double>(m["ChatScore"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<double>(boost::any_cast<double>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBodyData() = default;
+};
+class MonitorExaminationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<MonitorExaminationResponseBodyData> data{};
+
+  MonitorExaminationResponseBody() {}
+
+  explicit MonitorExaminationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        MonitorExaminationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<MonitorExaminationResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponseBody() = default;
+};
+class MonitorExaminationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<MonitorExaminationResponseBody> body{};
+
+  MonitorExaminationResponse() {}
+
+  explicit MonitorExaminationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MonitorExaminationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MonitorExaminationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MonitorExaminationResponse() = default;
+};
 class CreateBodyDbRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -15371,6 +15768,9 @@ public:
   BodyPostureResponse bodyPostureWithOptions(shared_ptr<BodyPostureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BodyPostureResponse bodyPosture(shared_ptr<BodyPostureRequest> request);
   BodyPostureResponse bodyPostureAdvance(shared_ptr<BodyPostureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MonitorExaminationResponse monitorExaminationWithOptions(shared_ptr<MonitorExaminationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MonitorExaminationResponse monitorExamination(shared_ptr<MonitorExaminationRequest> request);
+  MonitorExaminationResponse monitorExaminationAdvance(shared_ptr<MonitorExaminationAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBodyDbResponse createBodyDbWithOptions(shared_ptr<CreateBodyDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBodyDbResponse createBodyDb(shared_ptr<CreateBodyDbRequest> request);
 
