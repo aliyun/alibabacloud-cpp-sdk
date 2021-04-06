@@ -53,7 +53,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh imageprocess-20200320/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/imageprocess-20200320.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,7 +62,7 @@ sh imageprocess-20200320/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/imageprocess-20200320
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/imageprocess-20200320.git
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
@@ -87,7 +87,7 @@ sh imageprocess-20200320/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]

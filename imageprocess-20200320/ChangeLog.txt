@@ -1,3 +1,6 @@
+2021-04-06 Version: 1.0.1
+- Update ScreenChestCT DetectRibFracture.
+
 2021-03-03 Version: 1.0.0
 - Update ScreenChestCT.
 

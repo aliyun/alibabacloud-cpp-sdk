@@ -403,7 +403,6 @@ public:
 };
 class DetectLungNoduleRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -420,9 +419,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -446,9 +442,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -879,7 +872,6 @@ public:
 };
 class RunCTRegistrationRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -897,9 +889,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -930,9 +919,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -1655,7 +1641,6 @@ public:
 };
 class CalcCACSRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -1672,9 +1657,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -1698,9 +1680,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -3042,7 +3021,6 @@ public:
 };
 class GetAsyncJobResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> jobId{};
 
   GetAsyncJobResultRequest() {}
@@ -3055,9 +3033,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
@@ -3065,9 +3040,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
@@ -3256,7 +3228,6 @@ public:
 };
 class DetectRibFractureRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -3273,9 +3244,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -3299,9 +3267,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -3339,6 +3304,8 @@ public:
   shared_ptr<vector<long>> coordinateImage{};
   shared_ptr<double> fractureConfidence{};
   shared_ptr<string> fractureCategory{};
+  shared_ptr<string> fractureLocation{};
+  shared_ptr<long> fractureSegment{};
 
   DetectRibFractureResponseBodyDataDetections() {}
 
@@ -3364,6 +3331,12 @@ public:
     }
     if (fractureCategory) {
       res["FractureCategory"] = boost::any(*fractureCategory);
+    }
+    if (fractureLocation) {
+      res["FractureLocation"] = boost::any(*fractureLocation);
+    }
+    if (fractureSegment) {
+      res["FractureSegment"] = boost::any(*fractureSegment);
     }
     return res;
   }
@@ -3397,6 +3370,12 @@ public:
     }
     if (m.find("FractureCategory") != m.end() && !m["FractureCategory"].empty()) {
       fractureCategory = make_shared<string>(boost::any_cast<string>(m["FractureCategory"]));
+    }
+    if (m.find("FractureLocation") != m.end() && !m["FractureLocation"].empty()) {
+      fractureLocation = make_shared<string>(boost::any_cast<string>(m["FractureLocation"]));
+    }
+    if (m.find("FractureSegment") != m.end() && !m["FractureSegment"].empty()) {
+      fractureSegment = make_shared<long>(boost::any_cast<long>(m["FractureSegment"]));
     }
   }
 
@@ -3604,7 +3583,6 @@ public:
 };
 class DetectCovid19CadRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -3620,9 +3598,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -3643,9 +3618,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -3853,7 +3825,6 @@ public:
 };
 class ScreenChestCTRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
@@ -3869,9 +3840,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -3892,9 +3860,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -4270,6 +4235,8 @@ public:
   shared_ptr<long> fractureCategory{};
   shared_ptr<vector<long>> coordinates{};
   shared_ptr<vector<long>> coordinateImage{};
+  shared_ptr<string> fractureLocation{};
+  shared_ptr<long> fractureSegment{};
 
   ScreenChestCTResponseBodyDataDetectRibFractureDetections() {}
 
@@ -4295,6 +4262,12 @@ public:
     }
     if (coordinateImage) {
       res["CoordinateImage"] = boost::any(*coordinateImage);
+    }
+    if (fractureLocation) {
+      res["FractureLocation"] = boost::any(*fractureLocation);
+    }
+    if (fractureSegment) {
+      res["FractureSegment"] = boost::any(*fractureSegment);
     }
     return res;
   }
@@ -4328,6 +4301,12 @@ public:
         }
       }
       coordinateImage = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("FractureLocation") != m.end() && !m["FractureLocation"].empty()) {
+      fractureLocation = make_shared<string>(boost::any_cast<string>(m["FractureLocation"]));
+    }
+    if (m.find("FractureSegment") != m.end() && !m["FractureSegment"].empty()) {
+      fractureSegment = make_shared<long>(boost::any_cast<long>(m["FractureSegment"]));
     }
   }
 
