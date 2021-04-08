@@ -2109,6 +2109,7 @@ public:
   shared_ptr<long> width{};
   shared_ptr<long> height{};
   shared_ptr<vector<DetectVideoIPCObjectResponseBodyDataFrames>> frames{};
+  shared_ptr<string> inputFile{};
 
   DetectVideoIPCObjectResponseBodyData() {}
 
@@ -2133,6 +2134,9 @@ public:
       }
       res["Frames"] = boost::any(temp1);
     }
+    if (inputFile) {
+      res["InputFile"] = boost::any(*inputFile);
+    }
     return res;
   }
 
@@ -2155,6 +2159,9 @@ public:
         }
         frames = make_shared<vector<DetectVideoIPCObjectResponseBodyDataFrames>>(expect1);
       }
+    }
+    if (m.find("InputFile") != m.end() && !m["InputFile"].empty()) {
+      inputFile = make_shared<string>(boost::any_cast<string>(m["InputFile"]));
     }
   }
 
