@@ -53,7 +53,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh threedvision-20210131/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/threedvision-20210131.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,7 +62,7 @@ sh threedvision-20210131/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/threedvision-20210131
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/threedvision-20210131.git
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
@@ -87,7 +87,7 @@ sh threedvision-20210131/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
@@ -98,7 +98,7 @@ sh threedvision-20210131/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[Alibaba Cloud OpenAPI Portal]: https://next.api.aliyun.com
+[open-api]: https://next.api.aliyun.com
 [latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

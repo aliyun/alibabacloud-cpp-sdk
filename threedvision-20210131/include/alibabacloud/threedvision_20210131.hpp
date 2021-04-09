@@ -203,6 +203,381 @@ public:
 
   virtual ~ReconstructBodyBySingleImageResponse() = default;
 };
+class ReconstructThreeDMultiViewRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> zipFileUrl{};
+  shared_ptr<string> mode{};
+
+  ReconstructThreeDMultiViewRequest() {}
+
+  explicit ReconstructThreeDMultiViewRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (zipFileUrl) {
+      res["ZipFileUrl"] = boost::any(*zipFileUrl);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ZipFileUrl") != m.end() && !m["ZipFileUrl"].empty()) {
+      zipFileUrl = make_shared<string>(boost::any_cast<string>(m["ZipFileUrl"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+  }
+
+
+  virtual ~ReconstructThreeDMultiViewRequest() = default;
+};
+class ReconstructThreeDMultiViewAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> zipFileUrlObject{};
+  shared_ptr<string> mode{};
+
+  ReconstructThreeDMultiViewAdvanceRequest() {}
+
+  explicit ReconstructThreeDMultiViewAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!zipFileUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("zipFileUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (zipFileUrlObject) {
+      res["ZipFileUrlObject"] = boost::any(*zipFileUrlObject);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ZipFileUrlObject") != m.end() && !m["ZipFileUrlObject"].empty()) {
+      zipFileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ZipFileUrlObject"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+  }
+
+
+  virtual ~ReconstructThreeDMultiViewAdvanceRequest() = default;
+};
+class ReconstructThreeDMultiViewResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> pointCloudURL{};
+
+  ReconstructThreeDMultiViewResponseBodyData() {}
+
+  explicit ReconstructThreeDMultiViewResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pointCloudURL) {
+      res["PointCloudURL"] = boost::any(*pointCloudURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PointCloudURL") != m.end() && !m["PointCloudURL"].empty()) {
+      pointCloudURL = make_shared<string>(boost::any_cast<string>(m["PointCloudURL"]));
+    }
+  }
+
+
+  virtual ~ReconstructThreeDMultiViewResponseBodyData() = default;
+};
+class ReconstructThreeDMultiViewResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<ReconstructThreeDMultiViewResponseBodyData> data{};
+
+  ReconstructThreeDMultiViewResponseBody() {}
+
+  explicit ReconstructThreeDMultiViewResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ReconstructThreeDMultiViewResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ReconstructThreeDMultiViewResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReconstructThreeDMultiViewResponseBody() = default;
+};
+class ReconstructThreeDMultiViewResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ReconstructThreeDMultiViewResponseBody> body{};
+
+  ReconstructThreeDMultiViewResponse() {}
+
+  explicit ReconstructThreeDMultiViewResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ReconstructThreeDMultiViewResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ReconstructThreeDMultiViewResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ReconstructThreeDMultiViewResponse() = default;
+};
+class GetAsyncJobResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  GetAsyncJobResultRequest() {}
+
+  explicit GetAsyncJobResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~GetAsyncJobResultRequest() = default;
+};
+class GetAsyncJobResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> result{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> jobId{};
+
+  GetAsyncJobResultResponseBodyData() {}
+
+  explicit GetAsyncJobResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~GetAsyncJobResultResponseBodyData() = default;
+};
+class GetAsyncJobResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetAsyncJobResultResponseBodyData> data{};
+
+  GetAsyncJobResultResponseBody() {}
+
+  explicit GetAsyncJobResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAsyncJobResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAsyncJobResultResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAsyncJobResultResponseBody() = default;
+};
+class GetAsyncJobResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetAsyncJobResultResponseBody> body{};
+
+  GetAsyncJobResultResponse() {}
+
+  explicit GetAsyncJobResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAsyncJobResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAsyncJobResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAsyncJobResultResponse() = default;
+};
 class EstimateMonocularImageDepthRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -570,6 +945,11 @@ public:
   ReconstructBodyBySingleImageResponse reconstructBodyBySingleImageWithOptions(shared_ptr<ReconstructBodyBySingleImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReconstructBodyBySingleImageResponse reconstructBodyBySingleImage(shared_ptr<ReconstructBodyBySingleImageRequest> request);
   ReconstructBodyBySingleImageResponse reconstructBodyBySingleImageAdvance(shared_ptr<ReconstructBodyBySingleImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReconstructThreeDMultiViewResponse reconstructThreeDMultiViewWithOptions(shared_ptr<ReconstructThreeDMultiViewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReconstructThreeDMultiViewResponse reconstructThreeDMultiView(shared_ptr<ReconstructThreeDMultiViewRequest> request);
+  ReconstructThreeDMultiViewResponse reconstructThreeDMultiViewAdvance(shared_ptr<ReconstructThreeDMultiViewAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAsyncJobResultResponse getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAsyncJobResultResponse getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request);
   EstimateMonocularImageDepthResponse estimateMonocularImageDepthWithOptions(shared_ptr<EstimateMonocularImageDepthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstimateMonocularImageDepthResponse estimateMonocularImageDepth(shared_ptr<EstimateMonocularImageDepthRequest> request);
   EstimateMonocularImageDepthResponse estimateMonocularImageDepthAdvance(shared_ptr<EstimateMonocularImageDepthAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
