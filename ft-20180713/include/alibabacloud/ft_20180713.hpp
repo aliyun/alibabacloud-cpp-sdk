@@ -598,6 +598,223 @@ public:
 
   virtual ~FtDynamicAddressHsfResponse() = default;
 };
+class FtDynamicAddressHttpVpcRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> stringValue{};
+  shared_ptr<map<string, boost::any>> defaultValue{};
+  shared_ptr<map<string, boost::any>> otherParam{};
+  shared_ptr<bool> booleanParam{};
+  shared_ptr<string> p1{};
+
+  FtDynamicAddressHttpVpcRequest() {}
+
+  explicit FtDynamicAddressHttpVpcRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (stringValue) {
+      res["StringValue"] = boost::any(*stringValue);
+    }
+    if (defaultValue) {
+      res["DefaultValue"] = boost::any(*defaultValue);
+    }
+    if (otherParam) {
+      res["OtherParam"] = boost::any(*otherParam);
+    }
+    if (booleanParam) {
+      res["BooleanParam"] = boost::any(*booleanParam);
+    }
+    if (p1) {
+      res["P1"] = boost::any(*p1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StringValue") != m.end() && !m["StringValue"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["StringValue"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      stringValue = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DefaultValue"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      defaultValue = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("OtherParam") != m.end() && !m["OtherParam"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["OtherParam"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      otherParam = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("BooleanParam") != m.end() && !m["BooleanParam"].empty()) {
+      booleanParam = make_shared<bool>(boost::any_cast<bool>(m["BooleanParam"]));
+    }
+    if (m.find("P1") != m.end() && !m["P1"].empty()) {
+      p1 = make_shared<string>(boost::any_cast<string>(m["P1"]));
+    }
+  }
+
+
+  virtual ~FtDynamicAddressHttpVpcRequest() = default;
+};
+class FtDynamicAddressHttpVpcShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> stringValueShrink{};
+  shared_ptr<string> defaultValueShrink{};
+  shared_ptr<string> otherParamShrink{};
+  shared_ptr<bool> booleanParam{};
+  shared_ptr<string> p1{};
+
+  FtDynamicAddressHttpVpcShrinkRequest() {}
+
+  explicit FtDynamicAddressHttpVpcShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (stringValueShrink) {
+      res["StringValue"] = boost::any(*stringValueShrink);
+    }
+    if (defaultValueShrink) {
+      res["DefaultValue"] = boost::any(*defaultValueShrink);
+    }
+    if (otherParamShrink) {
+      res["OtherParam"] = boost::any(*otherParamShrink);
+    }
+    if (booleanParam) {
+      res["BooleanParam"] = boost::any(*booleanParam);
+    }
+    if (p1) {
+      res["P1"] = boost::any(*p1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StringValue") != m.end() && !m["StringValue"].empty()) {
+      stringValueShrink = make_shared<string>(boost::any_cast<string>(m["StringValue"]));
+    }
+    if (m.find("DefaultValue") != m.end() && !m["DefaultValue"].empty()) {
+      defaultValueShrink = make_shared<string>(boost::any_cast<string>(m["DefaultValue"]));
+    }
+    if (m.find("OtherParam") != m.end() && !m["OtherParam"].empty()) {
+      otherParamShrink = make_shared<string>(boost::any_cast<string>(m["OtherParam"]));
+    }
+    if (m.find("BooleanParam") != m.end() && !m["BooleanParam"].empty()) {
+      booleanParam = make_shared<bool>(boost::any_cast<bool>(m["BooleanParam"]));
+    }
+    if (m.find("P1") != m.end() && !m["P1"].empty()) {
+      p1 = make_shared<string>(boost::any_cast<string>(m["P1"]));
+    }
+  }
+
+
+  virtual ~FtDynamicAddressHttpVpcShrinkRequest() = default;
+};
+class FtDynamicAddressHttpVpcResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> serviceRpcSign{};
+  shared_ptr<string> params{};
+
+  FtDynamicAddressHttpVpcResponseBody() {}
+
+  explicit FtDynamicAddressHttpVpcResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (serviceRpcSign) {
+      res["ServiceRpcSign"] = boost::any(*serviceRpcSign);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServiceRpcSign") != m.end() && !m["ServiceRpcSign"].empty()) {
+      serviceRpcSign = make_shared<string>(boost::any_cast<string>(m["ServiceRpcSign"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
+    }
+  }
+
+
+  virtual ~FtDynamicAddressHttpVpcResponseBody() = default;
+};
+class FtDynamicAddressHttpVpcResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<FtDynamicAddressHttpVpcResponseBody> body{};
+
+  FtDynamicAddressHttpVpcResponse() {}
+
+  explicit FtDynamicAddressHttpVpcResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FtDynamicAddressHttpVpcResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FtDynamicAddressHttpVpcResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FtDynamicAddressHttpVpcResponse() = default;
+};
 class FtEagleEyeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -1654,6 +1871,8 @@ public:
   FtDynamicAddressDubboResponse ftDynamicAddressDubbo(shared_ptr<FtDynamicAddressDubboRequest> request);
   FtDynamicAddressHsfResponse ftDynamicAddressHsfWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FtDynamicAddressHsfResponse ftDynamicAddressHsf();
+  FtDynamicAddressHttpVpcResponse ftDynamicAddressHttpVpcWithOptions(shared_ptr<FtDynamicAddressHttpVpcRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FtDynamicAddressHttpVpcResponse ftDynamicAddressHttpVpc(shared_ptr<FtDynamicAddressHttpVpcRequest> request);
   FtEagleEyeResponse ftEagleEyeWithOptions(shared_ptr<FtEagleEyeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FtEagleEyeResponse ftEagleEye(shared_ptr<FtEagleEyeRequest> request);
   FtFlowSpecialResponse ftFlowSpecialWithOptions(shared_ptr<FtFlowSpecialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

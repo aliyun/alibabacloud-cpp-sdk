@@ -139,6 +139,30 @@ FtDynamicAddressHsfResponse Alibabacloud_Ft20180713::Client::ftDynamicAddressHsf
   return ftDynamicAddressHsfWithOptions(runtime);
 }
 
+FtDynamicAddressHttpVpcResponse Alibabacloud_Ft20180713::Client::ftDynamicAddressHttpVpcWithOptions(shared_ptr<FtDynamicAddressHttpVpcRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<FtDynamicAddressHttpVpcShrinkRequest> request = make_shared<FtDynamicAddressHttpVpcShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->stringValue)) {
+    request->stringValueShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->stringValue, make_shared<string>("StringValue"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->defaultValue)) {
+    request->defaultValueShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->defaultValue, make_shared<string>("DefaultValue"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->otherParam)) {
+    request->otherParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->otherParam, make_shared<string>("OtherParam"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return FtDynamicAddressHttpVpcResponse(doRPCRequest(make_shared<string>("FtDynamicAddressHttpVpc"), make_shared<string>("2018-07-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+FtDynamicAddressHttpVpcResponse Alibabacloud_Ft20180713::Client::ftDynamicAddressHttpVpc(shared_ptr<FtDynamicAddressHttpVpcRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return ftDynamicAddressHttpVpcWithOptions(request, runtime);
+}
+
 FtEagleEyeResponse Alibabacloud_Ft20180713::Client::ftEagleEyeWithOptions(shared_ptr<FtEagleEyeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
