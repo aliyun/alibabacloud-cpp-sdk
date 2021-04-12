@@ -6606,6 +6606,332 @@ public:
 
   virtual ~SearchDatabaseResponse() = default;
 };
+class GetDBTopologyRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> logicDbId{};
+  shared_ptr<long> tid{};
+
+  GetDBTopologyRequest() {}
+
+  explicit GetDBTopologyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logicDbId) {
+      res["LogicDbId"] = boost::any(*logicDbId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogicDbId") != m.end() && !m["LogicDbId"].empty()) {
+      logicDbId = make_shared<long>(boost::any_cast<long>(m["LogicDbId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDBTopologyRequest() = default;
+};
+class GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList : public Darabonba::Model {
+public:
+  shared_ptr<long> dbId{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> searchName{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> envType{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> instanceResourceId{};
+  shared_ptr<string> instanceSource{};
+
+  GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList() {}
+
+  explicit GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (instanceResourceId) {
+      res["InstanceResourceId"] = boost::any(*instanceResourceId);
+    }
+    if (instanceSource) {
+      res["InstanceSource"] = boost::any(*instanceSource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("InstanceResourceId") != m.end() && !m["InstanceResourceId"].empty()) {
+      instanceResourceId = make_shared<string>(boost::any_cast<string>(m["InstanceResourceId"]));
+    }
+    if (m.find("InstanceSource") != m.end() && !m["InstanceSource"].empty()) {
+      instanceSource = make_shared<string>(boost::any_cast<string>(m["InstanceSource"]));
+    }
+  }
+
+
+  virtual ~GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList() = default;
+};
+class GetDBTopologyResponseBodyDBTopology : public Darabonba::Model {
+public:
+  shared_ptr<long> logicDbId{};
+  shared_ptr<string> logicDbName{};
+  shared_ptr<string> searchName{};
+  shared_ptr<string> alias{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> envType{};
+  shared_ptr<vector<GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList>> DBTopologyInfoList{};
+
+  GetDBTopologyResponseBodyDBTopology() {}
+
+  explicit GetDBTopologyResponseBodyDBTopology(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logicDbId) {
+      res["LogicDbId"] = boost::any(*logicDbId);
+    }
+    if (logicDbName) {
+      res["LogicDbName"] = boost::any(*logicDbName);
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (DBTopologyInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*DBTopologyInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DBTopologyInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogicDbId") != m.end() && !m["LogicDbId"].empty()) {
+      logicDbId = make_shared<long>(boost::any_cast<long>(m["LogicDbId"]));
+    }
+    if (m.find("LogicDbName") != m.end() && !m["LogicDbName"].empty()) {
+      logicDbName = make_shared<string>(boost::any_cast<string>(m["LogicDbName"]));
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("DBTopologyInfoList") != m.end() && !m["DBTopologyInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DBTopologyInfoList"].type()) {
+        vector<GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DBTopologyInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DBTopologyInfoList = make_shared<vector<GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetDBTopologyResponseBodyDBTopology() = default;
+};
+class GetDBTopologyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<GetDBTopologyResponseBodyDBTopology> DBTopology{};
+
+  GetDBTopologyResponseBody() {}
+
+  explicit GetDBTopologyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (DBTopology) {
+      res["DBTopology"] = DBTopology ? boost::any(DBTopology->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("DBTopology") != m.end() && !m["DBTopology"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DBTopology"].type()) {
+        GetDBTopologyResponseBodyDBTopology model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DBTopology"]));
+        DBTopology = make_shared<GetDBTopologyResponseBodyDBTopology>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDBTopologyResponseBody() = default;
+};
+class GetDBTopologyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetDBTopologyResponseBody> body{};
+
+  GetDBTopologyResponse() {}
+
+  explicit GetDBTopologyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDBTopologyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDBTopologyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDBTopologyResponse() = default;
+};
 class SyncDatabaseMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<long> tid{};
@@ -22699,6 +23025,8 @@ public:
   CreateUploadOSSFileJobResponse createUploadOSSFileJob(shared_ptr<CreateUploadOSSFileJobRequest> request);
   SearchDatabaseResponse searchDatabaseWithOptions(shared_ptr<SearchDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchDatabaseResponse searchDatabase(shared_ptr<SearchDatabaseRequest> request);
+  GetDBTopologyResponse getDBTopologyWithOptions(shared_ptr<GetDBTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDBTopologyResponse getDBTopology(shared_ptr<GetDBTopologyRequest> request);
   SyncDatabaseMetaResponse syncDatabaseMetaWithOptions(shared_ptr<SyncDatabaseMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SyncDatabaseMetaResponse syncDatabaseMeta(shared_ptr<SyncDatabaseMetaRequest> request);
   GetUserResponse getUserWithOptions(shared_ptr<GetUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
