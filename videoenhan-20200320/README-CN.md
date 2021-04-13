@@ -85,7 +85,7 @@ sh videoenhan-20200320/scripts/install.sh
 
 ## 相关
 
-* [OpenAPI Developer Portal][open-api]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
@@ -96,7 +96,7 @@ sh videoenhan-20200320/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[OpenAPI 开发者门户]: https://next.api.aliyun.com
+[open-api]: https://next.api.aliyun.com
 [latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

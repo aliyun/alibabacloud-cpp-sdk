@@ -60,11 +60,15 @@ ToneSdrVideoResponse Alibabacloud_Videoenhan20200320::Client::toneSdrVideoAdvanc
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -132,11 +136,15 @@ EnhanceVideoQualityResponse Alibabacloud_Videoenhan20200320::Client::enhanceVide
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -204,11 +212,15 @@ InterpolateVideoFrameResponse Alibabacloud_Videoenhan20200320::Client::interpola
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -276,11 +288,15 @@ EraseVideoLogoResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoLogoAd
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -348,11 +364,15 @@ ConvertHdrVideoResponse Alibabacloud_Videoenhan20200320::Client::convertHdrVideo
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -420,11 +440,15 @@ AdjustVideoColorResponse Alibabacloud_Videoenhan20200320::Client::adjustVideoCol
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -492,11 +516,15 @@ ChangeVideoSizeResponse Alibabacloud_Videoenhan20200320::Client::changeVideoSize
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -564,11 +592,15 @@ SuperResolveVideoResponse Alibabacloud_Videoenhan20200320::Client::superResolveV
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -632,6 +664,82 @@ GetAsyncJobResultResponse Alibabacloud_Videoenhan20200320::Client::getAsyncJobRe
   return getAsyncJobResultWithOptions(request, runtime);
 }
 
+AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVideoTemplateWithOptions(shared_ptr<AddFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AddFaceVideoTemplateResponse(doRPCRequest(make_shared<string>("AddFaceVideoTemplate"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVideoTemplate(shared_ptr<AddFaceVideoTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addFaceVideoTemplateWithOptions(request, runtime);
+}
+
+AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVideoTemplateAdvance(shared_ptr<AddFaceVideoTemplateAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("videoenhan"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<AddFaceVideoTemplateRequest> addFaceVideoTemplateReq = make_shared<AddFaceVideoTemplateRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, addFaceVideoTemplateReq);
+  authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+  ossConfig->accessKeyId = authResponse->accessKeyId;
+  ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+  ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+    {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+    {"content", !request->videoURLObject ? boost::any() : boost::any(*request->videoURLObject)},
+    {"contentType", boost::any(string(""))}
+  }));
+  ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+    {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+    {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+    {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+    {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+    {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+    {"successActionStatus", boost::any(string("201"))}
+  }));
+  uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+    {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+    {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+  }));
+  ossClient->postObject(uploadRequest, ossRuntime);
+  addFaceVideoTemplateReq->videoURL = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  shared_ptr<AddFaceVideoTemplateResponse> addFaceVideoTemplateResp = make_shared<AddFaceVideoTemplateResponse>(addFaceVideoTemplateWithOptions(addFaceVideoTemplateReq, runtime));
+  return *addFaceVideoTemplateResp;
+}
+
 GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoWithOptions(shared_ptr<GenerateVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -643,6 +751,32 @@ GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoWith
 GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideo(shared_ptr<GenerateVideoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return generateVideoWithOptions(request, runtime);
+}
+
+QueryFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::queryFaceVideoTemplateWithOptions(shared_ptr<QueryFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryFaceVideoTemplateResponse(doRPCRequest(make_shared<string>("QueryFaceVideoTemplate"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::queryFaceVideoTemplate(shared_ptr<QueryFaceVideoTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryFaceVideoTemplateWithOptions(request, runtime);
+}
+
+DeleteFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::deleteFaceVideoTemplateWithOptions(shared_ptr<DeleteFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeleteFaceVideoTemplateResponse(doRPCRequest(make_shared<string>("DeleteFaceVideoTemplate"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeleteFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::deleteFaceVideoTemplate(shared_ptr<DeleteFaceVideoTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteFaceVideoTemplateWithOptions(request, runtime);
 }
 
 AbstractEcommerceVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractEcommerceVideoWithOptions(shared_ptr<AbstractEcommerceVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -662,11 +796,15 @@ AbstractEcommerceVideoResponse Alibabacloud_Videoenhan20200320::Client::abstract
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -734,11 +872,15 @@ AbstractFilmVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractFilmV
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -806,11 +948,15 @@ EraseVideoSubtitlesResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoS
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
@@ -861,6 +1007,82 @@ EraseVideoSubtitlesResponse Alibabacloud_Videoenhan20200320::Client::eraseVideoS
   return *eraseVideoSubtitlesResp;
 }
 
+MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoModelFaceWithOptions(shared_ptr<MergeVideoModelFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return MergeVideoModelFaceResponse(doRPCRequest(make_shared<string>("MergeVideoModelFace"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoModelFace(shared_ptr<MergeVideoModelFaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mergeVideoModelFaceWithOptions(request, runtime);
+}
+
+MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoModelFaceAdvance(shared_ptr<MergeVideoModelFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("videoenhan"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<MergeVideoModelFaceRequest> mergeVideoModelFaceReq = make_shared<MergeVideoModelFaceRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, mergeVideoModelFaceReq);
+  authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+  ossConfig->accessKeyId = authResponse->accessKeyId;
+  ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+  ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+  fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+    {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+    {"content", !request->faceImageURLObject ? boost::any() : boost::any(*request->faceImageURLObject)},
+    {"contentType", boost::any(string(""))}
+  }));
+  ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+    {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+    {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+    {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+    {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+    {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+    {"successActionStatus", boost::any(string("201"))}
+  }));
+  uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+    {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+    {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+  }));
+  ossClient->postObject(uploadRequest, ossRuntime);
+  mergeVideoModelFaceReq->faceImageURL = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  shared_ptr<MergeVideoModelFaceResponse> mergeVideoModelFaceResp = make_shared<MergeVideoModelFaceResponse>(mergeVideoModelFaceWithOptions(mergeVideoModelFaceReq, runtime));
+  return *mergeVideoModelFaceResp;
+}
+
 MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceWithOptions(shared_ptr<MergeVideoFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -878,11 +1100,15 @@ MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceAd
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"type", boost::any(string("access_key"))},
-    {"endpoint", boost::any(string("openplatform.aliyuncs.com"))},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
   }));
