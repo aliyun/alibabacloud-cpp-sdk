@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_rtc_white_board_20201214Targets.cmake")
+check_required_components("alibabacloud_rtc_white_board_20201214")
