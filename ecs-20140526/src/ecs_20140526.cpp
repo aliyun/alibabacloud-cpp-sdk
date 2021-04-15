@@ -525,6 +525,19 @@ CreateCommandResponse Alibabacloud_Ecs20140526::Client::createCommand(shared_ptr
   return createCommandWithOptions(request, runtime);
 }
 
+CreateDedicatedBlockStorageClusterResponse Alibabacloud_Ecs20140526::Client::createDedicatedBlockStorageClusterWithOptions(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateDedicatedBlockStorageClusterResponse(doRPCRequest(make_shared<string>("CreateDedicatedBlockStorageCluster"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateDedicatedBlockStorageClusterResponse Alibabacloud_Ecs20140526::Client::createDedicatedBlockStorageCluster(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDedicatedBlockStorageClusterWithOptions(request, runtime);
+}
+
 CreateDedicatedHostClusterResponse Alibabacloud_Ecs20140526::Client::createDedicatedHostClusterWithOptions(shared_ptr<CreateDedicatedHostClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -575,6 +588,19 @@ CreateDiskResponse Alibabacloud_Ecs20140526::Client::createDiskWithOptions(share
 CreateDiskResponse Alibabacloud_Ecs20140526::Client::createDisk(shared_ptr<CreateDiskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDiskWithOptions(request, runtime);
+}
+
+CreateDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::createDiskReplicaPairWithOptions(shared_ptr<CreateDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateDiskReplicaPairResponse(doRPCRequest(make_shared<string>("CreateDiskReplicaPair"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::createDiskReplicaPair(shared_ptr<CreateDiskReplicaPairRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDiskReplicaPairWithOptions(request, runtime);
 }
 
 CreateElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::createElasticityAssuranceWithOptions(shared_ptr<CreateElasticityAssuranceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1045,6 +1071,19 @@ DeleteDiskResponse Alibabacloud_Ecs20140526::Client::deleteDisk(shared_ptr<Delet
   return deleteDiskWithOptions(request, runtime);
 }
 
+DeleteDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::deleteDiskReplicaPairWithOptions(shared_ptr<DeleteDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeleteDiskReplicaPairResponse(doRPCRequest(make_shared<string>("DeleteDiskReplicaPair"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeleteDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::deleteDiskReplicaPair(shared_ptr<DeleteDiskReplicaPairRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDiskReplicaPairWithOptions(request, runtime);
+}
+
 DeleteForwardEntryResponse Alibabacloud_Ecs20140526::Client::deleteForwardEntryWithOptions(shared_ptr<DeleteForwardEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1238,6 +1277,19 @@ DeletePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::deletePhysica
 DeletePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::deletePhysicalConnection(shared_ptr<DeletePhysicalConnectionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deletePhysicalConnectionWithOptions(request, runtime);
+}
+
+DeleteReplicaPairResponse Alibabacloud_Ecs20140526::Client::deleteReplicaPairWithOptions(shared_ptr<DeleteReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeleteReplicaPairResponse(doRPCRequest(make_shared<string>("DeleteReplicaPair"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeleteReplicaPairResponse Alibabacloud_Ecs20140526::Client::deleteReplicaPair(shared_ptr<DeleteReplicaPairRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteReplicaPairWithOptions(request, runtime);
 }
 
 DeleteRouteEntryResponse Alibabacloud_Ecs20140526::Client::deleteRouteEntryWithOptions(shared_ptr<DeleteRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1578,6 +1630,19 @@ DescribeCommandsResponse Alibabacloud_Ecs20140526::Client::describeCommands(shar
   return describeCommandsWithOptions(request, runtime);
 }
 
+DescribeDedicatedBlockStorageClustersResponse Alibabacloud_Ecs20140526::Client::describeDedicatedBlockStorageClustersWithOptions(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDedicatedBlockStorageClustersResponse(doRPCRequest(make_shared<string>("DescribeDedicatedBlockStorageClusters"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDedicatedBlockStorageClustersResponse Alibabacloud_Ecs20140526::Client::describeDedicatedBlockStorageClusters(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDedicatedBlockStorageClustersWithOptions(request, runtime);
+}
+
 DescribeDedicatedHostAutoRenewResponse Alibabacloud_Ecs20140526::Client::describeDedicatedHostAutoRenewWithOptions(shared_ptr<DescribeDedicatedHostAutoRenewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1680,6 +1745,19 @@ DescribeDiskMonitorDataResponse Alibabacloud_Ecs20140526::Client::describeDiskMo
 DescribeDiskMonitorDataResponse Alibabacloud_Ecs20140526::Client::describeDiskMonitorData(shared_ptr<DescribeDiskMonitorDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeDiskMonitorDataWithOptions(request, runtime);
+}
+
+DescribeDiskReplicaPairsResponse Alibabacloud_Ecs20140526::Client::describeDiskReplicaPairsWithOptions(shared_ptr<DescribeDiskReplicaPairsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDiskReplicaPairsResponse(doRPCRequest(make_shared<string>("DescribeDiskReplicaPairs"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDiskReplicaPairsResponse Alibabacloud_Ecs20140526::Client::describeDiskReplicaPairs(shared_ptr<DescribeDiskReplicaPairsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDiskReplicaPairsWithOptions(request, runtime);
 }
 
 DescribeDisksResponse Alibabacloud_Ecs20140526::Client::describeDisksWithOptions(shared_ptr<DescribeDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4149,6 +4227,19 @@ SendFileResponse Alibabacloud_Ecs20140526::Client::sendFile(shared_ptr<SendFileR
   return sendFileWithOptions(request, runtime);
 }
 
+StartDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::startDiskReplicaPairWithOptions(shared_ptr<StartDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return StartDiskReplicaPairResponse(doRPCRequest(make_shared<string>("StartDiskReplicaPair"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+StartDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::startDiskReplicaPair(shared_ptr<StartDiskReplicaPairRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startDiskReplicaPairWithOptions(request, runtime);
+}
+
 StartElasticityAssuranceResponse Alibabacloud_Ecs20140526::Client::startElasticityAssuranceWithOptions(shared_ptr<StartElasticityAssuranceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -4199,6 +4290,19 @@ StartInstancesResponse Alibabacloud_Ecs20140526::Client::startInstancesWithOptio
 StartInstancesResponse Alibabacloud_Ecs20140526::Client::startInstances(shared_ptr<StartInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startInstancesWithOptions(request, runtime);
+}
+
+StopDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::stopDiskReplicaPairWithOptions(shared_ptr<StopDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return StopDiskReplicaPairResponse(doRPCRequest(make_shared<string>("StopDiskReplicaPair"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+StopDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::stopDiskReplicaPair(shared_ptr<StopDiskReplicaPairRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopDiskReplicaPairWithOptions(request, runtime);
 }
 
 StopInstanceResponse Alibabacloud_Ecs20140526::Client::stopInstanceWithOptions(shared_ptr<StopInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
