@@ -2566,11 +2566,103 @@ public:
 
   virtual ~DetectKneeKeypointXRayResponse() = default;
 };
+class RunMedQARequestAnswerImageURLList : public Darabonba::Model {
+public:
+  shared_ptr<string> answerImageURL{};
+
+  RunMedQARequestAnswerImageURLList() {}
+
+  explicit RunMedQARequestAnswerImageURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerImageURL) {
+      res["AnswerImageURL"] = boost::any(*answerImageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerImageURL") != m.end() && !m["AnswerImageURL"].empty()) {
+      answerImageURL = make_shared<string>(boost::any_cast<string>(m["AnswerImageURL"]));
+    }
+  }
+
+
+  virtual ~RunMedQARequestAnswerImageURLList() = default;
+};
+class RunMedQARequestAnswerImageDataList : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> answerImageData{};
+
+  RunMedQARequestAnswerImageDataList() {}
+
+  explicit RunMedQARequestAnswerImageDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerImageData) {
+      res["AnswerImageData"] = boost::any(*answerImageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerImageData") != m.end() && !m["AnswerImageData"].empty()) {
+      answerImageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["AnswerImageData"]));
+    }
+  }
+
+
+  virtual ~RunMedQARequestAnswerImageDataList() = default;
+};
+class RunMedQARequestAnswerTextList : public Darabonba::Model {
+public:
+  shared_ptr<string> answerText{};
+
+  RunMedQARequestAnswerTextList() {}
+
+  explicit RunMedQARequestAnswerTextList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerText) {
+      res["AnswerText"] = boost::any(*answerText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerText") != m.end() && !m["AnswerText"].empty()) {
+      answerText = make_shared<string>(boost::any_cast<string>(m["AnswerText"]));
+    }
+  }
+
+
+  virtual ~RunMedQARequestAnswerTextList() = default;
+};
 class RunMedQARequest : public Darabonba::Model {
 public:
-  shared_ptr<string> question{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> department{};
+  shared_ptr<string> questionType{};
+  shared_ptr<vector<RunMedQARequestAnswerImageURLList>> answerImageURLList{};
+  shared_ptr<vector<RunMedQARequestAnswerImageDataList>> answerImageDataList{};
+  shared_ptr<vector<RunMedQARequestAnswerTextList>> answerTextList{};
 
   RunMedQARequest() {}
 
@@ -2582,27 +2674,99 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (question) {
-      res["Question"] = boost::any(*question);
-    }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
     }
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (questionType) {
+      res["QuestionType"] = boost::any(*questionType);
+    }
+    if (answerImageURLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerImageURLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerImageURLList"] = boost::any(temp1);
+    }
+    if (answerImageDataList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerImageDataList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerImageDataList"] = boost::any(temp1);
+    }
+    if (answerTextList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerTextList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerTextList"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Question") != m.end() && !m["Question"].empty()) {
-      question = make_shared<string>(boost::any_cast<string>(m["Question"]));
-    }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("QuestionType") != m.end() && !m["QuestionType"].empty()) {
+      questionType = make_shared<string>(boost::any_cast<string>(m["QuestionType"]));
+    }
+    if (m.find("AnswerImageURLList") != m.end() && !m["AnswerImageURLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerImageURLList"].type()) {
+        vector<RunMedQARequestAnswerImageURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerImageURLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQARequestAnswerImageURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerImageURLList = make_shared<vector<RunMedQARequestAnswerImageURLList>>(expect1);
+      }
+    }
+    if (m.find("AnswerImageDataList") != m.end() && !m["AnswerImageDataList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerImageDataList"].type()) {
+        vector<RunMedQARequestAnswerImageDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerImageDataList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQARequestAnswerImageDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerImageDataList = make_shared<vector<RunMedQARequestAnswerImageDataList>>(expect1);
+      }
+    }
+    if (m.find("AnswerTextList") != m.end() && !m["AnswerTextList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerTextList"].type()) {
+        vector<RunMedQARequestAnswerTextList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerTextList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQARequestAnswerTextList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerTextList = make_shared<vector<RunMedQARequestAnswerTextList>>(expect1);
+      }
     }
   }
 
@@ -2611,8 +2775,12 @@ public:
 };
 class RunMedQAResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<string> answer{};
-  shared_ptr<vector<string>> similarQuestion{};
+  shared_ptr<string> sessionId{};
+  shared_ptr<string> questionType{};
+  shared_ptr<string> question{};
+  shared_ptr<string> answerType{};
+  shared_ptr<vector<string>> options{};
+  shared_ptr<map<string, string>> reports{};
 
   RunMedQAResponseBodyData() {}
 
@@ -2624,28 +2792,57 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (answer) {
-      res["Answer"] = boost::any(*answer);
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
     }
-    if (similarQuestion) {
-      res["SimilarQuestion"] = boost::any(*similarQuestion);
+    if (questionType) {
+      res["QuestionType"] = boost::any(*questionType);
+    }
+    if (question) {
+      res["Question"] = boost::any(*question);
+    }
+    if (answerType) {
+      res["AnswerType"] = boost::any(*answerType);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
+    }
+    if (reports) {
+      res["Reports"] = boost::any(*reports);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Answer") != m.end() && !m["Answer"].empty()) {
-      answer = make_shared<string>(boost::any_cast<string>(m["Answer"]));
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
-    if (m.find("SimilarQuestion") != m.end() && !m["SimilarQuestion"].empty()) {
+    if (m.find("QuestionType") != m.end() && !m["QuestionType"].empty()) {
+      questionType = make_shared<string>(boost::any_cast<string>(m["QuestionType"]));
+    }
+    if (m.find("Question") != m.end() && !m["Question"].empty()) {
+      question = make_shared<string>(boost::any_cast<string>(m["Question"]));
+    }
+    if (m.find("AnswerType") != m.end() && !m["AnswerType"].empty()) {
+      answerType = make_shared<string>(boost::any_cast<string>(m["AnswerType"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
       vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["SimilarQuestion"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SimilarQuestion"]);
+      if (typeid(vector<boost::any>) == m["Options"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Options"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<string>(item));
         }
       }
-      similarQuestion = make_shared<vector<string>>(toVec1);
+      options = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Reports") != m.end() && !m["Reports"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Reports"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      reports = make_shared<map<string, string>>(toMap1);
     }
   }
 

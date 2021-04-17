@@ -86,7 +86,6 @@ sh https://github.com/alibabacloud-sdk-cpp/imageprocess-20200320.git/scripts/ins
 ## 相关
 
 * [Alibaba Cloud OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -97,6 +96,5 @@ sh https://github.com/alibabacloud-sdk-cpp/imageprocess-20200320.git/scripts/ins
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
 [open-api]: https://next.api.aliyun.com
-[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com
