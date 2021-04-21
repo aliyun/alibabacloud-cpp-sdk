@@ -141,6 +141,19 @@ CreateAppResponse Alibabacloud_Rtc-white-board20201214::Client::createApp(shared
   return createAppWithOptions(request, runtime);
 }
 
+SetUsersPermissionsResponse Alibabacloud_Rtc-white-board20201214::Client::setUsersPermissionsWithOptions(shared_ptr<SetUsersPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SetUsersPermissionsResponse(doRPCRequest(make_shared<string>("SetUsersPermissions"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SetUsersPermissionsResponse Alibabacloud_Rtc-white-board20201214::Client::setUsersPermissions(shared_ptr<SetUsersPermissionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setUsersPermissionsWithOptions(request, runtime);
+}
+
 CreateWhiteBoardResponse Alibabacloud_Rtc-white-board20201214::Client::createWhiteBoardWithOptions(shared_ptr<CreateWhiteBoardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
