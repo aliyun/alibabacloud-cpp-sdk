@@ -22233,6 +22233,369 @@ public:
 
   virtual ~UpdateUserResponse() = default;
 };
+class GetPhysicalDatabaseRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dbId{};
+  shared_ptr<long> tid{};
+
+  GetPhysicalDatabaseRequest() {}
+
+  explicit GetPhysicalDatabaseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseRequest() = default;
+};
+class GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ownerIds{};
+
+  GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList() {}
+
+  explicit GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerIds) {
+      res["OwnerIds"] = boost::any(*ownerIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerIds") != m.end() && !m["OwnerIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OwnerIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OwnerIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ownerIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList() = default;
+};
+class GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ownerNames{};
+
+  GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList() {}
+
+  explicit GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerNames) {
+      res["OwnerNames"] = boost::any(*ownerNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerNames") != m.end() && !m["OwnerNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OwnerNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OwnerNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ownerNames = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList() = default;
+};
+class GetPhysicalDatabaseResponseBodyDatabase : public Darabonba::Model {
+public:
+  shared_ptr<string> databaseId{};
+  shared_ptr<string> host{};
+  shared_ptr<string> catalogName{};
+  shared_ptr<string> dbaName{};
+  shared_ptr<string> state{};
+  shared_ptr<string> dbaId{};
+  shared_ptr<string> schemaName{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> port{};
+  shared_ptr<string> envType{};
+  shared_ptr<string> sid{};
+  shared_ptr<GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList> ownerIdList{};
+  shared_ptr<string> encoding{};
+  shared_ptr<string> dbType{};
+  shared_ptr<GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList> ownerNameList{};
+  shared_ptr<string> searchName{};
+
+  GetPhysicalDatabaseResponseBodyDatabase() {}
+
+  explicit GetPhysicalDatabaseResponseBodyDatabase(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseId) {
+      res["DatabaseId"] = boost::any(*databaseId);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (catalogName) {
+      res["CatalogName"] = boost::any(*catalogName);
+    }
+    if (dbaName) {
+      res["DbaName"] = boost::any(*dbaName);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (dbaId) {
+      res["DbaId"] = boost::any(*dbaId);
+    }
+    if (schemaName) {
+      res["SchemaName"] = boost::any(*schemaName);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (envType) {
+      res["EnvType"] = boost::any(*envType);
+    }
+    if (sid) {
+      res["Sid"] = boost::any(*sid);
+    }
+    if (ownerIdList) {
+      res["OwnerIdList"] = ownerIdList ? boost::any(ownerIdList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (encoding) {
+      res["Encoding"] = boost::any(*encoding);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (ownerNameList) {
+      res["OwnerNameList"] = ownerNameList ? boost::any(ownerNameList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseId") != m.end() && !m["DatabaseId"].empty()) {
+      databaseId = make_shared<string>(boost::any_cast<string>(m["DatabaseId"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("CatalogName") != m.end() && !m["CatalogName"].empty()) {
+      catalogName = make_shared<string>(boost::any_cast<string>(m["CatalogName"]));
+    }
+    if (m.find("DbaName") != m.end() && !m["DbaName"].empty()) {
+      dbaName = make_shared<string>(boost::any_cast<string>(m["DbaName"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("DbaId") != m.end() && !m["DbaId"].empty()) {
+      dbaId = make_shared<string>(boost::any_cast<string>(m["DbaId"]));
+    }
+    if (m.find("SchemaName") != m.end() && !m["SchemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["SchemaName"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
+      envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("Sid") != m.end() && !m["Sid"].empty()) {
+      sid = make_shared<string>(boost::any_cast<string>(m["Sid"]));
+    }
+    if (m.find("OwnerIdList") != m.end() && !m["OwnerIdList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OwnerIdList"].type()) {
+        GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OwnerIdList"]));
+        ownerIdList = make_shared<GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList>(model1);
+      }
+    }
+    if (m.find("Encoding") != m.end() && !m["Encoding"].empty()) {
+      encoding = make_shared<string>(boost::any_cast<string>(m["Encoding"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("OwnerNameList") != m.end() && !m["OwnerNameList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OwnerNameList"].type()) {
+        GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OwnerNameList"]));
+        ownerNameList = make_shared<GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList>(model1);
+      }
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseResponseBodyDatabase() = default;
+};
+class GetPhysicalDatabaseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetPhysicalDatabaseResponseBodyDatabase> database{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+
+  GetPhysicalDatabaseResponseBody() {}
+
+  explicit GetPhysicalDatabaseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (database) {
+      res["Database"] = database ? boost::any(database->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Database"].type()) {
+        GetPhysicalDatabaseResponseBodyDatabase model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Database"]));
+        database = make_shared<GetPhysicalDatabaseResponseBodyDatabase>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseResponseBody() = default;
+};
+class GetPhysicalDatabaseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetPhysicalDatabaseResponseBody> body{};
+
+  GetPhysicalDatabaseResponse() {}
+
+  explicit GetPhysicalDatabaseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPhysicalDatabaseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPhysicalDatabaseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPhysicalDatabaseResponse() = default;
+};
 class GetStructSyncExecSqlDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -23135,6 +23498,8 @@ public:
   ListSensitiveColumnsDetailResponse listSensitiveColumnsDetail(shared_ptr<ListSensitiveColumnsDetailRequest> request);
   UpdateUserResponse updateUserWithOptions(shared_ptr<UpdateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUserResponse updateUser(shared_ptr<UpdateUserRequest> request);
+  GetPhysicalDatabaseResponse getPhysicalDatabaseWithOptions(shared_ptr<GetPhysicalDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPhysicalDatabaseResponse getPhysicalDatabase(shared_ptr<GetPhysicalDatabaseRequest> request);
   GetStructSyncExecSqlDetailResponse getStructSyncExecSqlDetailWithOptions(shared_ptr<GetStructSyncExecSqlDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetStructSyncExecSqlDetailResponse getStructSyncExecSqlDetail(shared_ptr<GetStructSyncExecSqlDetailRequest> request);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<DeleteInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

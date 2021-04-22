@@ -13,6 +13,8 @@ Alibaba Cloud dms-enterprise SDK 是基于 [`Darabonba DSL`](https://github.com/
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 在使用这个 SDK 访问 API 之前，请先安装必备的依赖库。
 
@@ -86,7 +88,6 @@ sh https://github.com/alibabacloud-sdk-cpp/dms-enterprise-20181101.git/scripts/i
 ## 相关
 
 * [Alibaba Cloud OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -97,6 +98,5 @@ sh https://github.com/alibabacloud-sdk-cpp/dms-enterprise-20181101.git/scripts/i
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
 [open-api]: https://next.api.aliyun.com
-[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com
