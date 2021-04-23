@@ -932,6 +932,210 @@ public:
 
   virtual ~EstimateStereoImageDepthResponse() = default;
 };
+class EstimateStereoVideoDepthRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> videoURL{};
+  shared_ptr<string> sampleRate{};
+
+  EstimateStereoVideoDepthRequest() {}
+
+  explicit EstimateStereoVideoDepthRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoURL) {
+      res["VideoURL"] = boost::any(*videoURL);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
+      videoURL = make_shared<string>(boost::any_cast<string>(m["VideoURL"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~EstimateStereoVideoDepthRequest() = default;
+};
+class EstimateStereoVideoDepthAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> videoURLObject{};
+  shared_ptr<string> sampleRate{};
+
+  EstimateStereoVideoDepthAdvanceRequest() {}
+
+  explicit EstimateStereoVideoDepthAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!videoURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoURLObject) {
+      res["VideoURLObject"] = boost::any(*videoURLObject);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoURLObject") != m.end() && !m["VideoURLObject"].empty()) {
+      videoURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoURLObject"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<string>(boost::any_cast<string>(m["SampleRate"]));
+    }
+  }
+
+
+  virtual ~EstimateStereoVideoDepthAdvanceRequest() = default;
+};
+class EstimateStereoVideoDepthResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> depthUrl{};
+  shared_ptr<string> depthVisUrl{};
+
+  EstimateStereoVideoDepthResponseBodyData() {}
+
+  explicit EstimateStereoVideoDepthResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (depthUrl) {
+      res["DepthUrl"] = boost::any(*depthUrl);
+    }
+    if (depthVisUrl) {
+      res["DepthVisUrl"] = boost::any(*depthVisUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DepthUrl") != m.end() && !m["DepthUrl"].empty()) {
+      depthUrl = make_shared<string>(boost::any_cast<string>(m["DepthUrl"]));
+    }
+    if (m.find("DepthVisUrl") != m.end() && !m["DepthVisUrl"].empty()) {
+      depthVisUrl = make_shared<string>(boost::any_cast<string>(m["DepthVisUrl"]));
+    }
+  }
+
+
+  virtual ~EstimateStereoVideoDepthResponseBodyData() = default;
+};
+class EstimateStereoVideoDepthResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<EstimateStereoVideoDepthResponseBodyData> data{};
+
+  EstimateStereoVideoDepthResponseBody() {}
+
+  explicit EstimateStereoVideoDepthResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        EstimateStereoVideoDepthResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<EstimateStereoVideoDepthResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EstimateStereoVideoDepthResponseBody() = default;
+};
+class EstimateStereoVideoDepthResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<EstimateStereoVideoDepthResponseBody> body{};
+
+  EstimateStereoVideoDepthResponse() {}
+
+  explicit EstimateStereoVideoDepthResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EstimateStereoVideoDepthResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EstimateStereoVideoDepthResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EstimateStereoVideoDepthResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -955,6 +1159,9 @@ public:
   EstimateMonocularImageDepthResponse estimateMonocularImageDepthAdvance(shared_ptr<EstimateMonocularImageDepthAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstimateStereoImageDepthResponse estimateStereoImageDepthWithOptions(shared_ptr<EstimateStereoImageDepthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstimateStereoImageDepthResponse estimateStereoImageDepth(shared_ptr<EstimateStereoImageDepthRequest> request);
+  EstimateStereoVideoDepthResponse estimateStereoVideoDepthWithOptions(shared_ptr<EstimateStereoVideoDepthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EstimateStereoVideoDepthResponse estimateStereoVideoDepth(shared_ptr<EstimateStereoVideoDepthRequest> request);
+  EstimateStereoVideoDepthResponse estimateStereoVideoDepthAdvance(shared_ptr<EstimateStereoVideoDepthAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };

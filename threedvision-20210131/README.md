@@ -13,6 +13,8 @@ Alibaba Cloud threedvision SDK is based on the [`Darabonba DSL`](https://github.
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
@@ -88,7 +90,6 @@ sh https://github.com/alibabacloud-sdk-cpp/threedvision-20210131.git/scripts/ins
 ## Related
 
 * [Alibaba Cloud OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -99,6 +100,5 @@ sh https://github.com/alibabacloud-sdk-cpp/threedvision-20210131.git/scripts/ins
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
 [open-api]: https://next.api.aliyun.com
-[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com
