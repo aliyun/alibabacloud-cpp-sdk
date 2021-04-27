@@ -13,6 +13,8 @@ Alibaba Cloud Iot SDK is based on the [`Darabonba DSL`](https://github.com/aliyu
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
@@ -53,7 +55,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh iot-20180120/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/iot-20180120.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,7 +64,7 @@ sh iot-20180120/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/iot-20180120
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/iot-20180120.git
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
@@ -87,8 +89,7 @@ sh iot-20180120/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -98,7 +99,6 @@ sh iot-20180120/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[Alibaba Cloud OpenAPI Portal]: https://next.api.aliyun.com
-[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
+[open-api]: https://next.api.aliyun.com
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

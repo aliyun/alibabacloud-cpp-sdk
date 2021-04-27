@@ -13,6 +13,8 @@ Alibaba Cloud Iot SDK 是基于 [`Darabonba DSL`](https://github.com/aliyun/dara
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 在使用这个 SDK 访问 API 之前，请先安装必备的依赖库。
 
@@ -53,7 +55,7 @@ vcpkg install boost openssl-windows cpprestsdk
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh iot-20180120/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/iot-20180120.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,13 +64,13 @@ sh iot-20180120/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/iot-20180120
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/iot-20180120.git
   ```
 2. 使用 Visual Studio 进行编译:
   * 安装 [CMake](https://cmake.org/download/) 和 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
   * 在项目根目录下创建 `cmake_build` 文件夹
   * 打开 [CMake](https://cmake.org/download/) 软件, 然后进行以下操作
-    * 选择 `Browse Source` 为 `源代码目录(iot-20180120)`
+    * 选择 `Browse Source` 为 `源代码目录(https://github.com/alibabacloud-sdk-cpp/iot-20180120.git)`
     * 选择 `Browse build` 为 `构建目录(cmake_build)`
     * 点击 `configure`
     * 点击 `generate`, 构建 VS 解决方案。
@@ -85,8 +87,7 @@ sh iot-20180120/scripts/install.sh
 
 ## 相关
 
-* [OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -96,7 +97,6 @@ sh iot-20180120/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[OpenAPI 开发者门户]: https://next.api.aliyun.com
-[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
+[open-api]: https://next.api.aliyun.com
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com
