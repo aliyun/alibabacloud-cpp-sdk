@@ -124,6 +124,8 @@ public:
   shared_ptr<double> hairScore{};
   shared_ptr<string> lowerType{};
   shared_ptr<double> upperColorScore{};
+  shared_ptr<string> orientation{};
+  shared_ptr<double> orientationScore{};
 
   ExtractPedestrianFeatureAttrResponseBodyData() {}
 
@@ -189,6 +191,12 @@ public:
     if (upperColorScore) {
       res["UpperColorScore"] = boost::any(*upperColorScore);
     }
+    if (orientation) {
+      res["Orientation"] = boost::any(*orientation);
+    }
+    if (orientationScore) {
+      res["OrientationScore"] = boost::any(*orientationScore);
+    }
     return res;
   }
 
@@ -246,6 +254,12 @@ public:
     }
     if (m.find("UpperColorScore") != m.end() && !m["UpperColorScore"].empty()) {
       upperColorScore = make_shared<double>(boost::any_cast<double>(m["UpperColorScore"]));
+    }
+    if (m.find("Orientation") != m.end() && !m["Orientation"].empty()) {
+      orientation = make_shared<string>(boost::any_cast<string>(m["Orientation"]));
+    }
+    if (m.find("OrientationScore") != m.end() && !m["OrientationScore"].empty()) {
+      orientationScore = make_shared<double>(boost::any_cast<double>(m["OrientationScore"]));
     }
   }
 
@@ -980,7 +994,7 @@ public:
   shared_ptr<vector<double>> landmarks{};
   shared_ptr<long> landmarkCount{};
   shared_ptr<RecognizeFaceResponseBodyDataQualities> qualities{};
-  shared_ptr<vector<double>> beuatyList{};
+  shared_ptr<vector<double>> beautyList{};
   shared_ptr<vector<long>> hatList{};
   shared_ptr<vector<double>> faceProbabilityList{};
   shared_ptr<vector<long>> glasses{};
@@ -988,6 +1002,7 @@ public:
   shared_ptr<vector<double>> poseList{};
   shared_ptr<vector<long>> ageList{};
   shared_ptr<long> denseFeatureLength{};
+  shared_ptr<vector<long>> masks{};
 
   RecognizeFaceResponseBodyData() {}
 
@@ -1023,8 +1038,8 @@ public:
     if (qualities) {
       res["Qualities"] = qualities ? boost::any(qualities->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (beuatyList) {
-      res["BeuatyList"] = boost::any(*beuatyList);
+    if (beautyList) {
+      res["BeautyList"] = boost::any(*beautyList);
     }
     if (hatList) {
       res["HatList"] = boost::any(*hatList);
@@ -1046,6 +1061,9 @@ public:
     }
     if (denseFeatureLength) {
       res["DenseFeatureLength"] = boost::any(*denseFeatureLength);
+    }
+    if (masks) {
+      res["Masks"] = boost::any(*masks);
     }
     return res;
   }
@@ -1114,15 +1132,15 @@ public:
         qualities = make_shared<RecognizeFaceResponseBodyDataQualities>(model1);
       }
     }
-    if (m.find("BeuatyList") != m.end() && !m["BeuatyList"].empty()) {
+    if (m.find("BeautyList") != m.end() && !m["BeautyList"].empty()) {
       vector<double> toVec1;
-      if (typeid(vector<boost::any>) == m["BeuatyList"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BeuatyList"]);
+      if (typeid(vector<boost::any>) == m["BeautyList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BeautyList"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<double>(item));
         }
       }
-      beuatyList = make_shared<vector<double>>(toVec1);
+      beautyList = make_shared<vector<double>>(toVec1);
     }
     if (m.find("HatList") != m.end() && !m["HatList"].empty()) {
       vector<long> toVec1;
@@ -1186,6 +1204,16 @@ public:
     }
     if (m.find("DenseFeatureLength") != m.end() && !m["DenseFeatureLength"].empty()) {
       denseFeatureLength = make_shared<long>(boost::any_cast<long>(m["DenseFeatureLength"]));
+    }
+    if (m.find("Masks") != m.end() && !m["Masks"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Masks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Masks"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      masks = make_shared<vector<long>>(toVec1);
     }
   }
 
