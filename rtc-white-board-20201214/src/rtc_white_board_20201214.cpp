@@ -128,6 +128,19 @@ RefreshUsersPermissionsResponse Alibabacloud_Rtc-white-board20201214::Client::re
   return refreshUsersPermissionsWithOptions(request, runtime);
 }
 
+SetAppCallbackTypeResponse Alibabacloud_Rtc-white-board20201214::Client::setAppCallbackTypeWithOptions(shared_ptr<SetAppCallbackTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SetAppCallbackTypeResponse(doRPCRequest(make_shared<string>("SetAppCallbackType"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SetAppCallbackTypeResponse Alibabacloud_Rtc-white-board20201214::Client::setAppCallbackType(shared_ptr<SetAppCallbackTypeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setAppCallbackTypeWithOptions(request, runtime);
+}
+
 CreateAppResponse Alibabacloud_Rtc-white-board20201214::Client::createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({

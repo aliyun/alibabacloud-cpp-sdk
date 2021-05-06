@@ -72,6 +72,7 @@ public:
   shared_ptr<string> callbackUrl{};
   shared_ptr<string> domainNames{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> callbackType{};
 
   DescribeAppsResponseBodyResultAppList() {}
 
@@ -101,6 +102,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (callbackType) {
+      res["CallbackType"] = boost::any(*callbackType);
+    }
     return res;
   }
 
@@ -122,6 +126,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("CallbackType") != m.end() && !m["CallbackType"].empty()) {
+      callbackType = make_shared<string>(boost::any_cast<string>(m["CallbackType"]));
     }
   }
 
@@ -1469,6 +1476,151 @@ public:
 
   virtual ~RefreshUsersPermissionsResponse() = default;
 };
+class SetAppCallbackTypeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> appCallbackType{};
+
+  SetAppCallbackTypeRequest() {}
+
+  explicit SetAppCallbackTypeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (appCallbackType) {
+      res["AppCallbackType"] = boost::any(*appCallbackType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("AppCallbackType") != m.end() && !m["AppCallbackType"].empty()) {
+      appCallbackType = make_shared<string>(boost::any_cast<string>(m["AppCallbackType"]));
+    }
+  }
+
+
+  virtual ~SetAppCallbackTypeRequest() = default;
+};
+class SetAppCallbackTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<bool> result{};
+
+  SetAppCallbackTypeResponseBody() {}
+
+  explicit SetAppCallbackTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~SetAppCallbackTypeResponseBody() = default;
+};
+class SetAppCallbackTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SetAppCallbackTypeResponseBody> body{};
+
+  SetAppCallbackTypeResponse() {}
+
+  explicit SetAppCallbackTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetAppCallbackTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetAppCallbackTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetAppCallbackTypeResponse() = default;
+};
 class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
@@ -2146,6 +2298,8 @@ public:
   OpenWhiteBoardResponse openWhiteBoard(shared_ptr<OpenWhiteBoardRequest> request);
   RefreshUsersPermissionsResponse refreshUsersPermissionsWithOptions(shared_ptr<RefreshUsersPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshUsersPermissionsResponse refreshUsersPermissions(shared_ptr<RefreshUsersPermissionsRequest> request);
+  SetAppCallbackTypeResponse setAppCallbackTypeWithOptions(shared_ptr<SetAppCallbackTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetAppCallbackTypeResponse setAppCallbackType(shared_ptr<SetAppCallbackTypeRequest> request);
   CreateAppResponse createAppWithOptions(shared_ptr<CreateAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAppResponse createApp(shared_ptr<CreateAppRequest> request);
   SetUsersPermissionsResponse setUsersPermissionsWithOptions(shared_ptr<SetUsersPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
