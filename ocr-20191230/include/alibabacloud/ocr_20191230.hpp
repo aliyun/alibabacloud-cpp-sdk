@@ -16,7 +16,6 @@ using namespace std;
 namespace Alibabacloud_Ocr20191230 {
 class RecognizeDrivingLicenseRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> side{};
 
@@ -30,9 +29,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -43,9 +39,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -60,7 +53,6 @@ public:
 class RecognizeDrivingLicenseAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
   shared_ptr<string> side{};
 
   RecognizeDrivingLicenseAdvanceRequest() {}
@@ -80,9 +72,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (side) {
       res["Side"] = boost::any(*side);
     }
@@ -92,9 +81,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("Side") != m.end() && !m["Side"].empty()) {
       side = make_shared<string>(boost::any_cast<string>(m["Side"]));
@@ -759,7 +745,6 @@ public:
   shared_ptr<string> fileURL{};
   shared_ptr<string> fileType{};
   shared_ptr<string> outputType{};
-  shared_ptr<bool> async{};
 
   TrimDocumentRequest() {}
 
@@ -780,9 +765,6 @@ public:
     if (outputType) {
       res["OutputType"] = boost::any(*outputType);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     return res;
   }
 
@@ -796,9 +778,6 @@ public:
     if (m.find("OutputType") != m.end() && !m["OutputType"].empty()) {
       outputType = make_shared<string>(boost::any_cast<string>(m["OutputType"]));
     }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
   }
 
 
@@ -809,7 +788,6 @@ public:
   shared_ptr<Darabonba::Stream> fileURLObject{};
   shared_ptr<string> fileType{};
   shared_ptr<string> outputType{};
-  shared_ptr<bool> async{};
 
   TrimDocumentAdvanceRequest() {}
 
@@ -834,9 +812,6 @@ public:
     if (outputType) {
       res["OutputType"] = boost::any(*outputType);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     return res;
   }
 
@@ -849,9 +824,6 @@ public:
     }
     if (m.find("OutputType") != m.end() && !m["OutputType"].empty()) {
       outputType = make_shared<string>(boost::any_cast<string>(m["OutputType"]));
-    }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
     }
   }
 
@@ -981,7 +953,6 @@ public:
 };
 class RecognizeTableRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> outputFormat{};
   shared_ptr<bool> useFinanceModel{};
@@ -999,9 +970,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -1024,9 +992,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -1053,7 +1018,6 @@ public:
 class RecognizeTableAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
   shared_ptr<string> outputFormat{};
   shared_ptr<bool> useFinanceModel{};
   shared_ptr<bool> assureDirection{};
@@ -1077,9 +1041,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (outputFormat) {
       res["OutputFormat"] = boost::any(*outputFormat);
     }
@@ -1101,9 +1062,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("OutputFormat") != m.end() && !m["OutputFormat"].empty()) {
       outputFormat = make_shared<string>(boost::any_cast<string>(m["OutputFormat"]));
@@ -1461,7 +1419,6 @@ public:
 };
 class RecognizeIdentityCardRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> side{};
 
@@ -1475,9 +1432,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -1488,9 +1442,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -1505,7 +1456,6 @@ public:
 class RecognizeIdentityCardAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
   shared_ptr<string> side{};
 
   RecognizeIdentityCardAdvanceRequest() {}
@@ -1525,9 +1475,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (side) {
       res["Side"] = boost::any(*side);
     }
@@ -1537,9 +1484,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("Side") != m.end() && !m["Side"].empty()) {
       side = make_shared<string>(boost::any_cast<string>(m["Side"]));
@@ -2042,7 +1986,6 @@ public:
 };
 class RecognizeBusinessLicenseRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeBusinessLicenseRequest() {}
@@ -2055,9 +1998,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -2065,9 +2005,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -2079,7 +2016,6 @@ public:
 class RecognizeBusinessLicenseAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeBusinessLicenseAdvanceRequest() {}
 
@@ -2098,18 +2034,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -2546,7 +2476,6 @@ public:
 };
 class RecognizeBankCardRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeBankCardRequest() {}
@@ -2559,9 +2488,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -2569,9 +2495,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -2583,7 +2506,6 @@ public:
 class RecognizeBankCardAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeBankCardAdvanceRequest() {}
 
@@ -2602,18 +2524,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -2940,7 +2856,6 @@ public:
 };
 class RecognizeAccountPageRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeAccountPageRequest() {}
@@ -2953,9 +2868,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -2963,9 +2875,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -2977,7 +2886,6 @@ public:
 class RecognizeAccountPageAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeAccountPageAdvanceRequest() {}
 
@@ -2996,18 +2904,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -3538,7 +3440,6 @@ public:
 };
 class RecognizeCharacterRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
   shared_ptr<long> minHeight{};
   shared_ptr<bool> outputProbability{};
@@ -3553,9 +3454,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -3569,9 +3467,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -3589,7 +3484,6 @@ public:
 class RecognizeCharacterAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
   shared_ptr<long> minHeight{};
   shared_ptr<bool> outputProbability{};
 
@@ -3610,9 +3504,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (minHeight) {
       res["MinHeight"] = boost::any(*minHeight);
     }
@@ -3625,9 +3516,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("MinHeight") != m.end() && !m["MinHeight"].empty()) {
       minHeight = make_shared<long>(boost::any_cast<long>(m["MinHeight"]));
@@ -3881,7 +3769,6 @@ public:
 };
 class GetAsyncJobResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> jobId{};
 
   GetAsyncJobResultRequest() {}
@@ -3894,9 +3781,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
@@ -3904,9 +3788,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
@@ -4320,7 +4201,6 @@ public:
 };
 class RecognizeBusinessCardRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeBusinessCardRequest() {}
@@ -4333,9 +4213,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -4343,9 +4220,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -4357,7 +4231,6 @@ public:
 class RecognizeBusinessCardAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeBusinessCardAdvanceRequest() {}
 
@@ -4376,18 +4249,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -4892,7 +4759,6 @@ public:
 };
 class RecognizeDriverLicenseRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> side{};
 
@@ -4906,9 +4772,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -4919,9 +4782,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -4936,7 +4796,6 @@ public:
 class RecognizeDriverLicenseAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
   shared_ptr<string> side{};
 
   RecognizeDriverLicenseAdvanceRequest() {}
@@ -4956,9 +4815,6 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (side) {
       res["Side"] = boost::any(*side);
     }
@@ -4968,9 +4824,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
     if (m.find("Side") != m.end() && !m["Side"].empty()) {
       side = make_shared<string>(boost::any_cast<string>(m["Side"]));
@@ -4983,6 +4836,9 @@ public:
 class RecognizeDriverLicenseResponseBodyDataBackResult : public Darabonba::Model {
 public:
   shared_ptr<string> archiveNumber{};
+  shared_ptr<string> name{};
+  shared_ptr<string> cardNumber{};
+  shared_ptr<string> record{};
 
   RecognizeDriverLicenseResponseBodyDataBackResult() {}
 
@@ -4997,12 +4853,30 @@ public:
     if (archiveNumber) {
       res["ArchiveNumber"] = boost::any(*archiveNumber);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (cardNumber) {
+      res["CardNumber"] = boost::any(*cardNumber);
+    }
+    if (record) {
+      res["Record"] = boost::any(*record);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ArchiveNumber") != m.end() && !m["ArchiveNumber"].empty()) {
       archiveNumber = make_shared<string>(boost::any_cast<string>(m["ArchiveNumber"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("CardNumber") != m.end() && !m["CardNumber"].empty()) {
+      cardNumber = make_shared<string>(boost::any_cast<string>(m["CardNumber"]));
+    }
+    if (m.find("Record") != m.end() && !m["Record"].empty()) {
+      record = make_shared<string>(boost::any_cast<string>(m["Record"]));
     }
   }
 
@@ -5019,6 +4893,7 @@ public:
   shared_ptr<string> startDate{};
   shared_ptr<string> licenseNumber{};
   shared_ptr<string> name{};
+  shared_ptr<string> issueUnit{};
 
   RecognizeDriverLicenseResponseBodyDataFaceResult() {}
 
@@ -5054,6 +4929,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (issueUnit) {
+      res["IssueUnit"] = boost::any(*issueUnit);
+    }
     return res;
   }
 
@@ -5081,6 +4959,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("IssueUnit") != m.end() && !m["IssueUnit"].empty()) {
+      issueUnit = make_shared<string>(boost::any_cast<string>(m["IssueUnit"]));
     }
   }
 
@@ -5225,7 +5106,6 @@ public:
 };
 class RecognizeLicensePlateRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeLicensePlateRequest() {}
@@ -5238,9 +5118,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -5248,9 +5125,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -5262,7 +5136,6 @@ public:
 class RecognizeLicensePlateAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeLicensePlateAdvanceRequest() {}
 
@@ -5281,18 +5154,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -5349,6 +5216,42 @@ public:
 
   virtual ~RecognizeLicensePlateResponseBodyDataPlatesRoi() = default;
 };
+class RecognizeLicensePlateResponseBodyDataPlatesPositions : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeLicensePlateResponseBodyDataPlatesPositions() {}
+
+  explicit RecognizeLicensePlateResponseBodyDataPlatesPositions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeLicensePlateResponseBodyDataPlatesPositions() = default;
+};
 class RecognizeLicensePlateResponseBodyDataPlates : public Darabonba::Model {
 public:
   shared_ptr<double> plateTypeConfidence{};
@@ -5356,6 +5259,7 @@ public:
   shared_ptr<double> confidence{};
   shared_ptr<string> plateNumber{};
   shared_ptr<RecognizeLicensePlateResponseBodyDataPlatesRoi> roi{};
+  shared_ptr<vector<RecognizeLicensePlateResponseBodyDataPlatesPositions>> positions{};
 
   RecognizeLicensePlateResponseBodyDataPlates() {}
 
@@ -5382,6 +5286,13 @@ public:
     if (roi) {
       res["Roi"] = roi ? boost::any(roi->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (positions) {
+      vector<boost::any> temp1;
+      for(auto item1:*positions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Positions"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -5403,6 +5314,19 @@ public:
         RecognizeLicensePlateResponseBodyDataPlatesRoi model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Roi"]));
         roi = make_shared<RecognizeLicensePlateResponseBodyDataPlatesRoi>(model1);
+      }
+    }
+    if (m.find("Positions") != m.end() && !m["Positions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Positions"].type()) {
+        vector<RecognizeLicensePlateResponseBodyDataPlatesPositions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Positions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeLicensePlateResponseBodyDataPlatesPositions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        positions = make_shared<vector<RecognizeLicensePlateResponseBodyDataPlatesPositions>>(expect1);
       }
     }
   }
@@ -5547,7 +5471,6 @@ public:
 };
 class RecognizeStampRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeStampRequest() {}
@@ -5560,9 +5483,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -5570,9 +5490,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -5584,7 +5501,6 @@ public:
 class RecognizeStampAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeStampAdvanceRequest() {}
 
@@ -5603,18 +5519,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -5945,7 +5855,6 @@ public:
 };
 class RecognizeTaxiInvoiceRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeTaxiInvoiceRequest() {}
@@ -5958,9 +5867,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -5968,9 +5874,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -5982,7 +5885,6 @@ public:
 class RecognizeTaxiInvoiceAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeTaxiInvoiceAdvanceRequest() {}
 
@@ -6001,18 +5903,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -7346,7 +7242,6 @@ public:
 };
 class RecognizeTrainTicketRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeTrainTicketRequest() {}
@@ -7359,9 +7254,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -7369,9 +7261,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -7383,7 +7272,6 @@ public:
 class RecognizeTrainTicketAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeTrainTicketAdvanceRequest() {}
 
@@ -7402,18 +7290,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -8264,7 +8146,6 @@ public:
 };
 class RecognizeVINCodeRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeVINCodeRequest() {}
@@ -8277,9 +8158,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -8287,9 +8165,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -8301,7 +8176,6 @@ public:
 class RecognizeVINCodeAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeVINCodeAdvanceRequest() {}
 
@@ -8320,18 +8194,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
