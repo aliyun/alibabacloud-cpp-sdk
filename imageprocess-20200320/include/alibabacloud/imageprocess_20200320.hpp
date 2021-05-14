@@ -4026,6 +4026,7 @@ public:
   shared_ptr<string> orgName{};
   shared_ptr<string> orgId{};
   shared_ptr<vector<ScreenChestCTRequestURLList>> URLList{};
+  shared_ptr<long> mask{};
 
   ScreenChestCTRequest() {}
 
@@ -4053,6 +4054,9 @@ public:
       }
       res["URLList"] = boost::any(temp1);
     }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
     return res;
   }
 
@@ -4078,6 +4082,9 @@ public:
         }
         URLList = make_shared<vector<ScreenChestCTRequestURLList>>(expect1);
       }
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<long>(boost::any_cast<long>(m["Mask"]));
     }
   }
 
@@ -4594,6 +4601,7 @@ public:
   shared_ptr<ScreenChestCTResponseBodyDataCACS> CACS{};
   shared_ptr<ScreenChestCTResponseBodyDataCovid> covid{};
   shared_ptr<ScreenChestCTResponseBodyDataDetectRibFracture> detectRibFracture{};
+  shared_ptr<string> errorMessage{};
 
   ScreenChestCTResponseBodyData() {}
 
@@ -4616,6 +4624,9 @@ public:
     }
     if (detectRibFracture) {
       res["DetectRibFracture"] = detectRibFracture ? boost::any(detectRibFracture->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
     }
     return res;
   }
@@ -4648,6 +4659,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetectRibFracture"]));
         detectRibFracture = make_shared<ScreenChestCTResponseBodyDataDetectRibFracture>(model1);
       }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 

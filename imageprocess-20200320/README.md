@@ -13,6 +13,8 @@ Alibaba Cloud imageprocess SDK is based on the [`Darabonba DSL`](https://github.
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
