@@ -6272,7 +6272,7 @@ public:
 };
 class GetRealPersonVerificationResultResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<bool> pass{};
+  shared_ptr<bool> passed{};
   shared_ptr<string> identityInfo{};
   shared_ptr<string> materialMatch{};
 
@@ -6286,8 +6286,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (pass) {
-      res["Pass"] = boost::any(*pass);
+    if (passed) {
+      res["Passed"] = boost::any(*passed);
     }
     if (identityInfo) {
       res["IdentityInfo"] = boost::any(*identityInfo);
@@ -6299,8 +6299,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Pass") != m.end() && !m["Pass"].empty()) {
-      pass = make_shared<bool>(boost::any_cast<bool>(m["Pass"]));
+    if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
+      passed = make_shared<bool>(boost::any_cast<bool>(m["Passed"]));
     }
     if (m.find("IdentityInfo") != m.end() && !m["IdentityInfo"].empty()) {
       identityInfo = make_shared<string>(boost::any_cast<string>(m["IdentityInfo"]));
@@ -7542,6 +7542,203 @@ public:
 
 
   virtual ~MergeImageFaceResponse() = default;
+};
+class ExtractFingerPrintRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<vector<uint8_t>> imageData{};
+
+  ExtractFingerPrintRequest() {}
+
+  explicit ExtractFingerPrintRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+  }
+
+
+  virtual ~ExtractFingerPrintRequest() = default;
+};
+class ExtractFingerPrintAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<vector<uint8_t>> imageData{};
+
+  ExtractFingerPrintAdvanceRequest() {}
+
+  explicit ExtractFingerPrintAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURLObject"] = boost::any(*imageURLObject);
+    }
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+  }
+
+
+  virtual ~ExtractFingerPrintAdvanceRequest() = default;
+};
+class ExtractFingerPrintResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> fingerPrint{};
+
+  ExtractFingerPrintResponseBodyData() {}
+
+  explicit ExtractFingerPrintResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fingerPrint) {
+      res["FingerPrint"] = boost::any(*fingerPrint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FingerPrint") != m.end() && !m["FingerPrint"].empty()) {
+      fingerPrint = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["FingerPrint"]));
+    }
+  }
+
+
+  virtual ~ExtractFingerPrintResponseBodyData() = default;
+};
+class ExtractFingerPrintResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<ExtractFingerPrintResponseBodyData> data{};
+
+  ExtractFingerPrintResponseBody() {}
+
+  explicit ExtractFingerPrintResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ExtractFingerPrintResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ExtractFingerPrintResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExtractFingerPrintResponseBody() = default;
+};
+class ExtractFingerPrintResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ExtractFingerPrintResponseBody> body{};
+
+  ExtractFingerPrintResponse() {}
+
+  explicit ExtractFingerPrintResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExtractFingerPrintResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExtractFingerPrintResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExtractFingerPrintResponse() = default;
 };
 class DeleteBodyPersonRequest : public Darabonba::Model {
 public:
@@ -9416,6 +9613,7 @@ public:
 class GenerateHumanSketchStyleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<string> returnType{};
 
   GenerateHumanSketchStyleRequest() {}
 
@@ -9430,12 +9628,18 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (returnType) {
+      res["ReturnType"] = boost::any(*returnType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ReturnType") != m.end() && !m["ReturnType"].empty()) {
+      returnType = make_shared<string>(boost::any_cast<string>(m["ReturnType"]));
     }
   }
 
@@ -9445,6 +9649,7 @@ public:
 class GenerateHumanSketchStyleAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<string> returnType{};
 
   GenerateHumanSketchStyleAdvanceRequest() {}
 
@@ -9463,12 +9668,18 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
+    if (returnType) {
+      res["ReturnType"] = boost::any(*returnType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("ReturnType") != m.end() && !m["ReturnType"].empty()) {
+      returnType = make_shared<string>(boost::any_cast<string>(m["ReturnType"]));
     }
   }
 
@@ -15720,6 +15931,9 @@ public:
   MergeImageFaceResponse mergeImageFaceWithOptions(shared_ptr<MergeImageFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MergeImageFaceResponse mergeImageFace(shared_ptr<MergeImageFaceRequest> request);
   MergeImageFaceResponse mergeImageFaceAdvance(shared_ptr<MergeImageFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExtractFingerPrintResponse extractFingerPrintWithOptions(shared_ptr<ExtractFingerPrintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExtractFingerPrintResponse extractFingerPrint(shared_ptr<ExtractFingerPrintRequest> request);
+  ExtractFingerPrintResponse extractFingerPrintAdvance(shared_ptr<ExtractFingerPrintAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBodyPersonResponse deleteBodyPersonWithOptions(shared_ptr<DeleteBodyPersonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBodyPersonResponse deleteBodyPerson(shared_ptr<DeleteBodyPersonRequest> request);
   DetectPedestrianResponse detectPedestrianWithOptions(shared_ptr<DetectPedestrianRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
