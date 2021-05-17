@@ -17098,7 +17098,7 @@ public:
 };
 class DescribeInstallCaptchaResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> deadline{};
+  shared_ptr<string> deadline{};
   shared_ptr<string> requestId{};
   shared_ptr<string> captchaCode{};
 
@@ -17126,7 +17126,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Deadline") != m.end() && !m["Deadline"].empty()) {
-      deadline = make_shared<long>(boost::any_cast<long>(m["Deadline"]));
+      deadline = make_shared<string>(boost::any_cast<string>(m["Deadline"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
