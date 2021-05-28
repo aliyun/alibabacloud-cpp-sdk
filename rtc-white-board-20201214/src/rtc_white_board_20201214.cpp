@@ -31,8 +31,8 @@ string Alibabacloud_Rtc-white-board20201214::Client::getEndpoint(shared_ptr<stri
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -50,6 +50,19 @@ DescribeAppsResponse Alibabacloud_Rtc-white-board20201214::Client::describeApps(
   return describeAppsWithOptions(request, runtime);
 }
 
+PauseWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::pauseWhiteBoardRecordingWithOptions(shared_ptr<PauseWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return PauseWhiteBoardRecordingResponse(doRPCRequest(make_shared<string>("PauseWhiteBoardRecording"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+PauseWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::pauseWhiteBoardRecording(shared_ptr<PauseWhiteBoardRecordingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return pauseWhiteBoardRecordingWithOptions(request, runtime);
+}
+
 SetAppCallbackUrlResponse Alibabacloud_Rtc-white-board20201214::Client::setAppCallbackUrlWithOptions(shared_ptr<SetAppCallbackUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -61,6 +74,19 @@ SetAppCallbackUrlResponse Alibabacloud_Rtc-white-board20201214::Client::setAppCa
 SetAppCallbackUrlResponse Alibabacloud_Rtc-white-board20201214::Client::setAppCallbackUrl(shared_ptr<SetAppCallbackUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setAppCallbackUrlWithOptions(request, runtime);
+}
+
+StartWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::startWhiteBoardRecordingWithOptions(shared_ptr<StartWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return StartWhiteBoardRecordingResponse(doRPCRequest(make_shared<string>("StartWhiteBoardRecording"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+StartWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::startWhiteBoardRecording(shared_ptr<StartWhiteBoardRecordingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startWhiteBoardRecordingWithOptions(request, runtime);
 }
 
 SetAppNameResponse Alibabacloud_Rtc-white-board20201214::Client::setAppNameWithOptions(shared_ptr<SetAppNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -87,6 +113,19 @@ DescribeWhiteBoardsResponse Alibabacloud_Rtc-white-board20201214::Client::descri
 DescribeWhiteBoardsResponse Alibabacloud_Rtc-white-board20201214::Client::describeWhiteBoards(shared_ptr<DescribeWhiteBoardsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeWhiteBoardsWithOptions(request, runtime);
+}
+
+ResumeWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::resumeWhiteBoardRecordingWithOptions(shared_ptr<ResumeWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ResumeWhiteBoardRecordingResponse(doRPCRequest(make_shared<string>("ResumeWhiteBoardRecording"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ResumeWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::resumeWhiteBoardRecording(shared_ptr<ResumeWhiteBoardRecordingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return resumeWhiteBoardRecordingWithOptions(request, runtime);
 }
 
 SetAppDomainNamesResponse Alibabacloud_Rtc-white-board20201214::Client::setAppDomainNamesWithOptions(shared_ptr<SetAppDomainNamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -191,5 +230,18 @@ SetAppStatusResponse Alibabacloud_Rtc-white-board20201214::Client::setAppStatusW
 SetAppStatusResponse Alibabacloud_Rtc-white-board20201214::Client::setAppStatus(shared_ptr<SetAppStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setAppStatusWithOptions(request, runtime);
+}
+
+StopWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::stopWhiteBoardRecordingWithOptions(shared_ptr<StopWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return StopWhiteBoardRecordingResponse(doRPCRequest(make_shared<string>("StopWhiteBoardRecording"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+StopWhiteBoardRecordingResponse Alibabacloud_Rtc-white-board20201214::Client::stopWhiteBoardRecording(shared_ptr<StopWhiteBoardRecordingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopWhiteBoardRecordingWithOptions(request, runtime);
 }
 

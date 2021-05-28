@@ -305,6 +305,198 @@ public:
 
   virtual ~DescribeAppsResponse() = default;
 };
+class PauseWhiteBoardRecordingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> docKey{};
+  shared_ptr<string> recordId{};
+
+  PauseWhiteBoardRecordingRequest() {}
+
+  explicit PauseWhiteBoardRecordingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+  }
+
+
+  virtual ~PauseWhiteBoardRecordingRequest() = default;
+};
+class PauseWhiteBoardRecordingResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> pauseTime{};
+
+  PauseWhiteBoardRecordingResponseBodyResult() {}
+
+  explicit PauseWhiteBoardRecordingResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pauseTime) {
+      res["PauseTime"] = boost::any(*pauseTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PauseTime") != m.end() && !m["PauseTime"].empty()) {
+      pauseTime = make_shared<long>(boost::any_cast<long>(m["PauseTime"]));
+    }
+  }
+
+
+  virtual ~PauseWhiteBoardRecordingResponseBodyResult() = default;
+};
+class PauseWhiteBoardRecordingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<PauseWhiteBoardRecordingResponseBodyResult> result{};
+
+  PauseWhiteBoardRecordingResponseBody() {}
+
+  explicit PauseWhiteBoardRecordingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        PauseWhiteBoardRecordingResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<PauseWhiteBoardRecordingResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PauseWhiteBoardRecordingResponseBody() = default;
+};
+class PauseWhiteBoardRecordingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<PauseWhiteBoardRecordingResponseBody> body{};
+
+  PauseWhiteBoardRecordingResponse() {}
+
+  explicit PauseWhiteBoardRecordingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PauseWhiteBoardRecordingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PauseWhiteBoardRecordingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PauseWhiteBoardRecordingResponse() = default;
+};
 class SetAppCallbackUrlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appID{};
@@ -456,6 +648,198 @@ public:
 
 
   virtual ~SetAppCallbackUrlResponse() = default;
+};
+class StartWhiteBoardRecordingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> docKey{};
+
+  StartWhiteBoardRecordingRequest() {}
+
+  explicit StartWhiteBoardRecordingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+  }
+
+
+  virtual ~StartWhiteBoardRecordingRequest() = default;
+};
+class StartWhiteBoardRecordingResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> recordId{};
+  shared_ptr<long> startTime{};
+
+  StartWhiteBoardRecordingResponseBodyResult() {}
+
+  explicit StartWhiteBoardRecordingResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~StartWhiteBoardRecordingResponseBodyResult() = default;
+};
+class StartWhiteBoardRecordingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<StartWhiteBoardRecordingResponseBodyResult> result{};
+
+  StartWhiteBoardRecordingResponseBody() {}
+
+  explicit StartWhiteBoardRecordingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        StartWhiteBoardRecordingResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<StartWhiteBoardRecordingResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartWhiteBoardRecordingResponseBody() = default;
+};
+class StartWhiteBoardRecordingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<StartWhiteBoardRecordingResponseBody> body{};
+
+  StartWhiteBoardRecordingResponse() {}
+
+  explicit StartWhiteBoardRecordingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartWhiteBoardRecordingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartWhiteBoardRecordingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartWhiteBoardRecordingResponse() = default;
 };
 class SetAppNameRequest : public Darabonba::Model {
 public:
@@ -878,6 +1262,198 @@ public:
 
 
   virtual ~DescribeWhiteBoardsResponse() = default;
+};
+class ResumeWhiteBoardRecordingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> docKey{};
+  shared_ptr<string> recordId{};
+
+  ResumeWhiteBoardRecordingRequest() {}
+
+  explicit ResumeWhiteBoardRecordingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+  }
+
+
+  virtual ~ResumeWhiteBoardRecordingRequest() = default;
+};
+class ResumeWhiteBoardRecordingResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> resumeTime{};
+
+  ResumeWhiteBoardRecordingResponseBodyResult() {}
+
+  explicit ResumeWhiteBoardRecordingResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resumeTime) {
+      res["ResumeTime"] = boost::any(*resumeTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResumeTime") != m.end() && !m["ResumeTime"].empty()) {
+      resumeTime = make_shared<long>(boost::any_cast<long>(m["ResumeTime"]));
+    }
+  }
+
+
+  virtual ~ResumeWhiteBoardRecordingResponseBodyResult() = default;
+};
+class ResumeWhiteBoardRecordingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<ResumeWhiteBoardRecordingResponseBodyResult> result{};
+
+  ResumeWhiteBoardRecordingResponseBody() {}
+
+  explicit ResumeWhiteBoardRecordingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ResumeWhiteBoardRecordingResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ResumeWhiteBoardRecordingResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResumeWhiteBoardRecordingResponseBody() = default;
+};
+class ResumeWhiteBoardRecordingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ResumeWhiteBoardRecordingResponseBody> body{};
+
+  ResumeWhiteBoardRecordingResponse() {}
+
+  explicit ResumeWhiteBoardRecordingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResumeWhiteBoardRecordingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResumeWhiteBoardRecordingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResumeWhiteBoardRecordingResponse() = default;
 };
 class SetAppDomainNamesRequest : public Darabonba::Model {
 public:
@@ -2274,6 +2850,198 @@ public:
 
   virtual ~SetAppStatusResponse() = default;
 };
+class StopWhiteBoardRecordingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> docKey{};
+  shared_ptr<string> recordId{};
+
+  StopWhiteBoardRecordingRequest() {}
+
+  explicit StopWhiteBoardRecordingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+  }
+
+
+  virtual ~StopWhiteBoardRecordingRequest() = default;
+};
+class StopWhiteBoardRecordingResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> stopTime{};
+
+  StopWhiteBoardRecordingResponseBodyResult() {}
+
+  explicit StopWhiteBoardRecordingResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (stopTime) {
+      res["StopTime"] = boost::any(*stopTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StopTime") != m.end() && !m["StopTime"].empty()) {
+      stopTime = make_shared<long>(boost::any_cast<long>(m["StopTime"]));
+    }
+  }
+
+
+  virtual ~StopWhiteBoardRecordingResponseBodyResult() = default;
+};
+class StopWhiteBoardRecordingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<StopWhiteBoardRecordingResponseBodyResult> result{};
+
+  StopWhiteBoardRecordingResponseBody() {}
+
+  explicit StopWhiteBoardRecordingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        StopWhiteBoardRecordingResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<StopWhiteBoardRecordingResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopWhiteBoardRecordingResponseBody() = default;
+};
+class StopWhiteBoardRecordingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<StopWhiteBoardRecordingResponseBody> body{};
+
+  StopWhiteBoardRecordingResponse() {}
+
+  explicit StopWhiteBoardRecordingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopWhiteBoardRecordingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopWhiteBoardRecordingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopWhiteBoardRecordingResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2286,12 +3054,18 @@ public:
                      shared_ptr<string> endpoint);
   DescribeAppsResponse describeAppsWithOptions(shared_ptr<DescribeAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAppsResponse describeApps(shared_ptr<DescribeAppsRequest> request);
+  PauseWhiteBoardRecordingResponse pauseWhiteBoardRecordingWithOptions(shared_ptr<PauseWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PauseWhiteBoardRecordingResponse pauseWhiteBoardRecording(shared_ptr<PauseWhiteBoardRecordingRequest> request);
   SetAppCallbackUrlResponse setAppCallbackUrlWithOptions(shared_ptr<SetAppCallbackUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppCallbackUrlResponse setAppCallbackUrl(shared_ptr<SetAppCallbackUrlRequest> request);
+  StartWhiteBoardRecordingResponse startWhiteBoardRecordingWithOptions(shared_ptr<StartWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartWhiteBoardRecordingResponse startWhiteBoardRecording(shared_ptr<StartWhiteBoardRecordingRequest> request);
   SetAppNameResponse setAppNameWithOptions(shared_ptr<SetAppNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppNameResponse setAppName(shared_ptr<SetAppNameRequest> request);
   DescribeWhiteBoardsResponse describeWhiteBoardsWithOptions(shared_ptr<DescribeWhiteBoardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeWhiteBoardsResponse describeWhiteBoards(shared_ptr<DescribeWhiteBoardsRequest> request);
+  ResumeWhiteBoardRecordingResponse resumeWhiteBoardRecordingWithOptions(shared_ptr<ResumeWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResumeWhiteBoardRecordingResponse resumeWhiteBoardRecording(shared_ptr<ResumeWhiteBoardRecordingRequest> request);
   SetAppDomainNamesResponse setAppDomainNamesWithOptions(shared_ptr<SetAppDomainNamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppDomainNamesResponse setAppDomainNames(shared_ptr<SetAppDomainNamesRequest> request);
   OpenWhiteBoardResponse openWhiteBoardWithOptions(shared_ptr<OpenWhiteBoardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -2308,6 +3082,8 @@ public:
   CreateWhiteBoardResponse createWhiteBoard(shared_ptr<CreateWhiteBoardRequest> request);
   SetAppStatusResponse setAppStatusWithOptions(shared_ptr<SetAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppStatusResponse setAppStatus(shared_ptr<SetAppStatusRequest> request);
+  StopWhiteBoardRecordingResponse stopWhiteBoardRecordingWithOptions(shared_ptr<StopWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopWhiteBoardRecordingResponse stopWhiteBoardRecording(shared_ptr<StopWhiteBoardRecordingRequest> request);
 
   virtual ~Client() = default;
 };
