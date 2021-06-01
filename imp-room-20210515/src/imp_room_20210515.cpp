@@ -10,6 +10,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -92,5 +93,31 @@ CreateInstanceResponse Alibabacloud_Imp-room20210515::Client::createInstanceWith
 CreateInstanceResponse Alibabacloud_Imp-room20210515::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createInstanceWithOptions(request, runtime);
+}
+
+GetRoomDetailResponse Alibabacloud_Imp-room20210515::Client::getRoomDetailWithOptions(shared_ptr<GetRoomDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetRoomDetailResponse(doRPCRequest(make_shared<string>("GetRoomDetail"), make_shared<string>("2021-05-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetRoomDetailResponse Alibabacloud_Imp-room20210515::Client::getRoomDetail(shared_ptr<GetRoomDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRoomDetailWithOptions(request, runtime);
+}
+
+GetRoomListResponse Alibabacloud_Imp-room20210515::Client::getRoomListWithOptions(shared_ptr<GetRoomListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetRoomListResponse(doRPCRequest(make_shared<string>("GetRoomList"), make_shared<string>("2021-05-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetRoomListResponse Alibabacloud_Imp-room20210515::Client::getRoomList(shared_ptr<GetRoomListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRoomListWithOptions(request, runtime);
 }
 
