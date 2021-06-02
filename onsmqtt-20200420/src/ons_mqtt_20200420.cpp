@@ -31,8 +31,8 @@ string Alibabacloud_OnsMqtt20200420::Client::getEndpoint(shared_ptr<string> prod
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -113,6 +113,58 @@ ListGroupIdResponse Alibabacloud_OnsMqtt20200420::Client::listGroupIdWithOptions
 ListGroupIdResponse Alibabacloud_OnsMqtt20200420::Client::listGroupId(shared_ptr<ListGroupIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listGroupIdWithOptions(request, runtime);
+}
+
+QueryMqttTraceDeviceResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceDeviceWithOptions(shared_ptr<QueryMqttTraceDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryMqttTraceDeviceResponse(doRPCRequest(make_shared<string>("QueryMqttTraceDevice"), make_shared<string>("2020-04-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryMqttTraceDeviceResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceDevice(shared_ptr<QueryMqttTraceDeviceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMqttTraceDeviceWithOptions(request, runtime);
+}
+
+QueryMqttTraceMessageOfClientResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessageOfClientWithOptions(shared_ptr<QueryMqttTraceMessageOfClientRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryMqttTraceMessageOfClientResponse(doRPCRequest(make_shared<string>("QueryMqttTraceMessageOfClient"), make_shared<string>("2020-04-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryMqttTraceMessageOfClientResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessageOfClient(shared_ptr<QueryMqttTraceMessageOfClientRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMqttTraceMessageOfClientWithOptions(request, runtime);
+}
+
+QueryMqttTraceMessagePublishResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessagePublishWithOptions(shared_ptr<QueryMqttTraceMessagePublishRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryMqttTraceMessagePublishResponse(doRPCRequest(make_shared<string>("QueryMqttTraceMessagePublish"), make_shared<string>("2020-04-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryMqttTraceMessagePublishResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessagePublish(shared_ptr<QueryMqttTraceMessagePublishRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMqttTraceMessagePublishWithOptions(request, runtime);
+}
+
+QueryMqttTraceMessageSubscribeResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessageSubscribeWithOptions(shared_ptr<QueryMqttTraceMessageSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryMqttTraceMessageSubscribeResponse(doRPCRequest(make_shared<string>("QueryMqttTraceMessageSubscribe"), make_shared<string>("2020-04-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryMqttTraceMessageSubscribeResponse Alibabacloud_OnsMqtt20200420::Client::queryMqttTraceMessageSubscribe(shared_ptr<QueryMqttTraceMessageSubscribeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryMqttTraceMessageSubscribeWithOptions(request, runtime);
 }
 
 QuerySessionByClientIdResponse Alibabacloud_OnsMqtt20200420::Client::querySessionByClientIdWithOptions(shared_ptr<QuerySessionByClientIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

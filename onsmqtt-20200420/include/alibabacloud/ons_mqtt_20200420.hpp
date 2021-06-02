@@ -66,8 +66,8 @@ public:
 };
 class ApplyTokenResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<string> token{};
+  shared_ptr<string> requestId{};
 
   ApplyTokenResponseBody() {}
 
@@ -79,21 +79,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (token) {
       res["Token"] = boost::any(*token);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -791,10 +791,10 @@ public:
 class ListGroupIdResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> updateTime{};
+  shared_ptr<string> instanceId{};
   shared_ptr<bool> independentNaming{};
   shared_ptr<string> groupId{};
   shared_ptr<long> createTime{};
-  shared_ptr<string> instanceId{};
 
   ListGroupIdResponseBodyData() {}
 
@@ -809,6 +809,9 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (independentNaming) {
       res["IndependentNaming"] = boost::any(*independentNaming);
     }
@@ -818,15 +821,15 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("IndependentNaming") != m.end() && !m["IndependentNaming"].empty()) {
       independentNaming = make_shared<bool>(boost::any_cast<bool>(m["IndependentNaming"]));
@@ -836,9 +839,6 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
   }
 
@@ -947,6 +947,1024 @@ public:
 
   virtual ~ListGroupIdResponse() = default;
 };
+class QueryMqttTraceDeviceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mqttRegionId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<bool> reverse{};
+  shared_ptr<string> clientId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+
+  QueryMqttTraceDeviceRequest() {}
+
+  explicit QueryMqttTraceDeviceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mqttRegionId) {
+      res["MqttRegionId"] = boost::any(*mqttRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (reverse) {
+      res["Reverse"] = boost::any(*reverse);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MqttRegionId") != m.end() && !m["MqttRegionId"].empty()) {
+      mqttRegionId = make_shared<string>(boost::any_cast<string>(m["MqttRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Reverse") != m.end() && !m["Reverse"].empty()) {
+      reverse = make_shared<bool>(boost::any_cast<bool>(m["Reverse"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceDeviceRequest() = default;
+};
+class QueryMqttTraceDeviceResponseBodyDeviceInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> channelId{};
+  shared_ptr<string> time{};
+  shared_ptr<string> actionCode{};
+  shared_ptr<string> action{};
+  shared_ptr<string> actionInfo{};
+
+  QueryMqttTraceDeviceResponseBodyDeviceInfoList() {}
+
+  explicit QueryMqttTraceDeviceResponseBodyDeviceInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channelId) {
+      res["ChannelId"] = boost::any(*channelId);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (actionCode) {
+      res["ActionCode"] = boost::any(*actionCode);
+    }
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (actionInfo) {
+      res["ActionInfo"] = boost::any(*actionInfo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChannelId") != m.end() && !m["ChannelId"].empty()) {
+      channelId = make_shared<string>(boost::any_cast<string>(m["ChannelId"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+    if (m.find("ActionCode") != m.end() && !m["ActionCode"].empty()) {
+      actionCode = make_shared<string>(boost::any_cast<string>(m["ActionCode"]));
+    }
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ActionInfo") != m.end() && !m["ActionInfo"].empty()) {
+      actionInfo = make_shared<string>(boost::any_cast<string>(m["ActionInfo"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceDeviceResponseBodyDeviceInfoList() = default;
+};
+class QueryMqttTraceDeviceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+  shared_ptr<vector<QueryMqttTraceDeviceResponseBodyDeviceInfoList>> deviceInfoList{};
+
+  QueryMqttTraceDeviceResponseBody() {}
+
+  explicit QueryMqttTraceDeviceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (deviceInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("DeviceInfoList") != m.end() && !m["DeviceInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceInfoList"].type()) {
+        vector<QueryMqttTraceDeviceResponseBodyDeviceInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMqttTraceDeviceResponseBodyDeviceInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceInfoList = make_shared<vector<QueryMqttTraceDeviceResponseBodyDeviceInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceDeviceResponseBody() = default;
+};
+class QueryMqttTraceDeviceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryMqttTraceDeviceResponseBody> body{};
+
+  QueryMqttTraceDeviceResponse() {}
+
+  explicit QueryMqttTraceDeviceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryMqttTraceDeviceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryMqttTraceDeviceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceDeviceResponse() = default;
+};
+class QueryMqttTraceMessageOfClientRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mqttRegionId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> clientId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<bool> reverse{};
+
+  QueryMqttTraceMessageOfClientRequest() {}
+
+  explicit QueryMqttTraceMessageOfClientRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mqttRegionId) {
+      res["MqttRegionId"] = boost::any(*mqttRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (reverse) {
+      res["Reverse"] = boost::any(*reverse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MqttRegionId") != m.end() && !m["MqttRegionId"].empty()) {
+      mqttRegionId = make_shared<string>(boost::any_cast<string>(m["MqttRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Reverse") != m.end() && !m["Reverse"].empty()) {
+      reverse = make_shared<bool>(boost::any_cast<bool>(m["Reverse"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageOfClientRequest() = default;
+};
+class QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList : public Darabonba::Model {
+public:
+  shared_ptr<string> time{};
+  shared_ptr<string> action{};
+  shared_ptr<string> actionCode{};
+  shared_ptr<string> actionInfo{};
+  shared_ptr<string> msgId{};
+  shared_ptr<string> clientId{};
+
+  QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList() {}
+
+  explicit QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (actionCode) {
+      res["ActionCode"] = boost::any(*actionCode);
+    }
+    if (actionInfo) {
+      res["ActionInfo"] = boost::any(*actionInfo);
+    }
+    if (msgId) {
+      res["MsgId"] = boost::any(*msgId);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ActionCode") != m.end() && !m["ActionCode"].empty()) {
+      actionCode = make_shared<string>(boost::any_cast<string>(m["ActionCode"]));
+    }
+    if (m.find("ActionInfo") != m.end() && !m["ActionInfo"].empty()) {
+      actionInfo = make_shared<string>(boost::any_cast<string>(m["ActionInfo"]));
+    }
+    if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
+      msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList() = default;
+};
+class QueryMqttTraceMessageOfClientResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+  shared_ptr<vector<QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList>> messageOfClientList{};
+
+  QueryMqttTraceMessageOfClientResponseBody() {}
+
+  explicit QueryMqttTraceMessageOfClientResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (messageOfClientList) {
+      vector<boost::any> temp1;
+      for(auto item1:*messageOfClientList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MessageOfClientList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("MessageOfClientList") != m.end() && !m["MessageOfClientList"].empty()) {
+      if (typeid(vector<boost::any>) == m["MessageOfClientList"].type()) {
+        vector<QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MessageOfClientList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        messageOfClientList = make_shared<vector<QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageOfClientResponseBody() = default;
+};
+class QueryMqttTraceMessageOfClientResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryMqttTraceMessageOfClientResponseBody> body{};
+
+  QueryMqttTraceMessageOfClientResponse() {}
+
+  explicit QueryMqttTraceMessageOfClientResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryMqttTraceMessageOfClientResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryMqttTraceMessageOfClientResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageOfClientResponse() = default;
+};
+class QueryMqttTraceMessagePublishRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mqttRegionId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> msgId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<long> endTime{};
+
+  QueryMqttTraceMessagePublishRequest() {}
+
+  explicit QueryMqttTraceMessagePublishRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mqttRegionId) {
+      res["MqttRegionId"] = boost::any(*mqttRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (msgId) {
+      res["MsgId"] = boost::any(*msgId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MqttRegionId") != m.end() && !m["MqttRegionId"].empty()) {
+      mqttRegionId = make_shared<string>(boost::any_cast<string>(m["MqttRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
+      msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessagePublishRequest() = default;
+};
+class QueryMqttTraceMessagePublishResponseBodyMessageTraceLists : public Darabonba::Model {
+public:
+  shared_ptr<string> time{};
+  shared_ptr<string> action{};
+  shared_ptr<string> actionCode{};
+  shared_ptr<string> actionInfo{};
+  shared_ptr<string> msgId{};
+  shared_ptr<string> clientId{};
+
+  QueryMqttTraceMessagePublishResponseBodyMessageTraceLists() {}
+
+  explicit QueryMqttTraceMessagePublishResponseBodyMessageTraceLists(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (actionCode) {
+      res["ActionCode"] = boost::any(*actionCode);
+    }
+    if (actionInfo) {
+      res["ActionInfo"] = boost::any(*actionInfo);
+    }
+    if (msgId) {
+      res["MsgId"] = boost::any(*msgId);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ActionCode") != m.end() && !m["ActionCode"].empty()) {
+      actionCode = make_shared<string>(boost::any_cast<string>(m["ActionCode"]));
+    }
+    if (m.find("ActionInfo") != m.end() && !m["ActionInfo"].empty()) {
+      actionInfo = make_shared<string>(boost::any_cast<string>(m["ActionInfo"]));
+    }
+    if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
+      msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessagePublishResponseBodyMessageTraceLists() = default;
+};
+class QueryMqttTraceMessagePublishResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryMqttTraceMessagePublishResponseBodyMessageTraceLists>> messageTraceLists{};
+
+  QueryMqttTraceMessagePublishResponseBody() {}
+
+  explicit QueryMqttTraceMessagePublishResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (messageTraceLists) {
+      vector<boost::any> temp1;
+      for(auto item1:*messageTraceLists){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MessageTraceLists"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("MessageTraceLists") != m.end() && !m["MessageTraceLists"].empty()) {
+      if (typeid(vector<boost::any>) == m["MessageTraceLists"].type()) {
+        vector<QueryMqttTraceMessagePublishResponseBodyMessageTraceLists> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MessageTraceLists"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMqttTraceMessagePublishResponseBodyMessageTraceLists model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        messageTraceLists = make_shared<vector<QueryMqttTraceMessagePublishResponseBodyMessageTraceLists>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessagePublishResponseBody() = default;
+};
+class QueryMqttTraceMessagePublishResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryMqttTraceMessagePublishResponseBody> body{};
+
+  QueryMqttTraceMessagePublishResponse() {}
+
+  explicit QueryMqttTraceMessagePublishResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryMqttTraceMessagePublishResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryMqttTraceMessagePublishResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessagePublishResponse() = default;
+};
+class QueryMqttTraceMessageSubscribeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mqttRegionId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<bool> reverse{};
+  shared_ptr<string> clientId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> msgId{};
+
+  QueryMqttTraceMessageSubscribeRequest() {}
+
+  explicit QueryMqttTraceMessageSubscribeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mqttRegionId) {
+      res["MqttRegionId"] = boost::any(*mqttRegionId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (reverse) {
+      res["Reverse"] = boost::any(*reverse);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (msgId) {
+      res["MsgId"] = boost::any(*msgId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MqttRegionId") != m.end() && !m["MqttRegionId"].empty()) {
+      mqttRegionId = make_shared<string>(boost::any_cast<string>(m["MqttRegionId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Reverse") != m.end() && !m["Reverse"].empty()) {
+      reverse = make_shared<bool>(boost::any_cast<bool>(m["Reverse"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
+      msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageSubscribeRequest() = default;
+};
+class QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists : public Darabonba::Model {
+public:
+  shared_ptr<string> time{};
+  shared_ptr<string> action{};
+  shared_ptr<string> actionCode{};
+  shared_ptr<string> actionInfo{};
+  shared_ptr<string> msgId{};
+  shared_ptr<string> clientId{};
+
+  QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists() {}
+
+  explicit QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (actionCode) {
+      res["ActionCode"] = boost::any(*actionCode);
+    }
+    if (actionInfo) {
+      res["ActionInfo"] = boost::any(*actionInfo);
+    }
+    if (msgId) {
+      res["MsgId"] = boost::any(*msgId);
+    }
+    if (clientId) {
+      res["ClientId"] = boost::any(*clientId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ActionCode") != m.end() && !m["ActionCode"].empty()) {
+      actionCode = make_shared<string>(boost::any_cast<string>(m["ActionCode"]));
+    }
+    if (m.find("ActionInfo") != m.end() && !m["ActionInfo"].empty()) {
+      actionInfo = make_shared<string>(boost::any_cast<string>(m["ActionInfo"]));
+    }
+    if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
+      msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+    if (m.find("ClientId") != m.end() && !m["ClientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["ClientId"]));
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists() = default;
+};
+class QueryMqttTraceMessageSubscribeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+  shared_ptr<vector<QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists>> messageTraceLists{};
+
+  QueryMqttTraceMessageSubscribeResponseBody() {}
+
+  explicit QueryMqttTraceMessageSubscribeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (messageTraceLists) {
+      vector<boost::any> temp1;
+      for(auto item1:*messageTraceLists){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MessageTraceLists"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("MessageTraceLists") != m.end() && !m["MessageTraceLists"].empty()) {
+      if (typeid(vector<boost::any>) == m["MessageTraceLists"].type()) {
+        vector<QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MessageTraceLists"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        messageTraceLists = make_shared<vector<QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageSubscribeResponseBody() = default;
+};
+class QueryMqttTraceMessageSubscribeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryMqttTraceMessageSubscribeResponseBody> body{};
+
+  QueryMqttTraceMessageSubscribeResponse() {}
+
+  explicit QueryMqttTraceMessageSubscribeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryMqttTraceMessageSubscribeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryMqttTraceMessageSubscribeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMqttTraceMessageSubscribeResponse() = default;
+};
 class QuerySessionByClientIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -985,8 +2003,8 @@ public:
 };
 class QuerySessionByClientIdResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<bool> onlineStatus{};
+  shared_ptr<string> requestId{};
 
   QuerySessionByClientIdResponseBody() {}
 
@@ -998,21 +2016,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (onlineStatus) {
       res["OnlineStatus"] = boost::any(*onlineStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("OnlineStatus") != m.end() && !m["OnlineStatus"].empty()) {
       onlineStatus = make_shared<bool>(boost::any_cast<bool>(m["OnlineStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1109,8 +2127,8 @@ public:
 };
 class QueryTokenResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<bool> tokenStatus{};
+  shared_ptr<string> requestId{};
 
   QueryTokenResponseBody() {}
 
@@ -1122,21 +2140,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (tokenStatus) {
       res["TokenStatus"] = boost::any(*tokenStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("TokenStatus") != m.end() && !m["TokenStatus"].empty()) {
       tokenStatus = make_shared<bool>(boost::any_cast<bool>(m["TokenStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1741,8 +2759,8 @@ public:
 };
 class SendMessageResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<string> msgId{};
+  shared_ptr<string> requestId{};
 
   SendMessageResponseBody() {}
 
@@ -1754,21 +2772,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (msgId) {
       res["MsgId"] = boost::any(*msgId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("MsgId") != m.end() && !m["MsgId"].empty()) {
       msgId = make_shared<string>(boost::any_cast<string>(m["MsgId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1966,6 +2984,14 @@ public:
   GetDeviceCredentialResponse getDeviceCredential(shared_ptr<GetDeviceCredentialRequest> request);
   ListGroupIdResponse listGroupIdWithOptions(shared_ptr<ListGroupIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupIdResponse listGroupId(shared_ptr<ListGroupIdRequest> request);
+  QueryMqttTraceDeviceResponse queryMqttTraceDeviceWithOptions(shared_ptr<QueryMqttTraceDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryMqttTraceDeviceResponse queryMqttTraceDevice(shared_ptr<QueryMqttTraceDeviceRequest> request);
+  QueryMqttTraceMessageOfClientResponse queryMqttTraceMessageOfClientWithOptions(shared_ptr<QueryMqttTraceMessageOfClientRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryMqttTraceMessageOfClientResponse queryMqttTraceMessageOfClient(shared_ptr<QueryMqttTraceMessageOfClientRequest> request);
+  QueryMqttTraceMessagePublishResponse queryMqttTraceMessagePublishWithOptions(shared_ptr<QueryMqttTraceMessagePublishRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryMqttTraceMessagePublishResponse queryMqttTraceMessagePublish(shared_ptr<QueryMqttTraceMessagePublishRequest> request);
+  QueryMqttTraceMessageSubscribeResponse queryMqttTraceMessageSubscribeWithOptions(shared_ptr<QueryMqttTraceMessageSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryMqttTraceMessageSubscribeResponse queryMqttTraceMessageSubscribe(shared_ptr<QueryMqttTraceMessageSubscribeRequest> request);
   QuerySessionByClientIdResponse querySessionByClientIdWithOptions(shared_ptr<QuerySessionByClientIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySessionByClientIdResponse querySessionByClientId(shared_ptr<QuerySessionByClientIdRequest> request);
   QueryTokenResponse queryTokenWithOptions(shared_ptr<QueryTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
