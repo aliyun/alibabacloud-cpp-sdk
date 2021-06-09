@@ -5479,6 +5479,7 @@ public:
 class DescribeClusterUserKubeconfigRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> privateIpAddress{};
+  shared_ptr<long> temporaryDurationMinutes{};
 
   DescribeClusterUserKubeconfigRequest() {}
 
@@ -5493,12 +5494,18 @@ public:
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
+    if (temporaryDurationMinutes) {
+      res["TemporaryDurationMinutes"] = boost::any(*temporaryDurationMinutes);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<bool>(boost::any_cast<bool>(m["PrivateIpAddress"]));
+    }
+    if (m.find("TemporaryDurationMinutes") != m.end() && !m["TemporaryDurationMinutes"].empty()) {
+      temporaryDurationMinutes = make_shared<long>(boost::any_cast<long>(m["TemporaryDurationMinutes"]));
     }
   }
 
@@ -5508,6 +5515,7 @@ public:
 class DescribeClusterUserKubeconfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
+  shared_ptr<string> expiration{};
 
   DescribeClusterUserKubeconfigResponseBody() {}
 
@@ -5522,12 +5530,18 @@ public:
     if (config) {
       res["config"] = boost::any(*config);
     }
+    if (expiration) {
+      res["expiration"] = boost::any(*expiration);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("config") != m.end() && !m["config"].empty()) {
       config = make_shared<string>(boost::any_cast<string>(m["config"]));
+    }
+    if (m.find("expiration") != m.end() && !m["expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["expiration"]));
     }
   }
 

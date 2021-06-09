@@ -70,8 +70,8 @@ string Alibabacloud_CS20151215::Client::getEndpoint(shared_ptr<string> productId
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -568,6 +568,9 @@ DescribeClusterUserKubeconfigResponse Alibabacloud_CS20151215::Client::describeC
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->privateIpAddress)) {
     (*query)["PrivateIpAddress"] = *request->privateIpAddress;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->temporaryDurationMinutes)) {
+    (*query)["TemporaryDurationMinutes"] = *request->temporaryDurationMinutes;
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
