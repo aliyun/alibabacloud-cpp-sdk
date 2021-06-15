@@ -15,6 +15,233 @@
 using namespace std;
 
 namespace Alibabacloud_BssOpenApi20171214 {
+class AddAccountRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> relationType{};
+  shared_ptr<long> parentUserId{};
+  shared_ptr<string> childNick{};
+  shared_ptr<long> childUserId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> permissionCodes{};
+  shared_ptr<vector<string>> roleCodes{};
+
+  AddAccountRelationRequest() {}
+
+  explicit AddAccountRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (relationType) {
+      res["RelationType"] = boost::any(*relationType);
+    }
+    if (parentUserId) {
+      res["ParentUserId"] = boost::any(*parentUserId);
+    }
+    if (childNick) {
+      res["ChildNick"] = boost::any(*childNick);
+    }
+    if (childUserId) {
+      res["ChildUserId"] = boost::any(*childUserId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (permissionCodes) {
+      res["PermissionCodes"] = boost::any(*permissionCodes);
+    }
+    if (roleCodes) {
+      res["RoleCodes"] = boost::any(*roleCodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RelationType") != m.end() && !m["RelationType"].empty()) {
+      relationType = make_shared<string>(boost::any_cast<string>(m["RelationType"]));
+    }
+    if (m.find("ParentUserId") != m.end() && !m["ParentUserId"].empty()) {
+      parentUserId = make_shared<long>(boost::any_cast<long>(m["ParentUserId"]));
+    }
+    if (m.find("ChildNick") != m.end() && !m["ChildNick"].empty()) {
+      childNick = make_shared<string>(boost::any_cast<string>(m["ChildNick"]));
+    }
+    if (m.find("ChildUserId") != m.end() && !m["ChildUserId"].empty()) {
+      childUserId = make_shared<long>(boost::any_cast<long>(m["ChildUserId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("PermissionCodes") != m.end() && !m["PermissionCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PermissionCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PermissionCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      permissionCodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RoleCodes") != m.end() && !m["RoleCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RoleCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RoleCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleCodes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddAccountRelationRequest() = default;
+};
+class AddAccountRelationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> hostId{};
+
+  AddAccountRelationResponseBodyData() {}
+
+  explicit AddAccountRelationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostId) {
+      res["HostId"] = boost::any(*hostId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
+      hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+  }
+
+
+  virtual ~AddAccountRelationResponseBodyData() = default;
+};
+class AddAccountRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<AddAccountRelationResponseBodyData> data{};
+
+  AddAccountRelationResponseBody() {}
+
+  explicit AddAccountRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AddAccountRelationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AddAccountRelationResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddAccountRelationResponseBody() = default;
+};
+class AddAccountRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddAccountRelationResponseBody> body{};
+
+  AddAccountRelationResponse() {}
+
+  explicit AddAccountRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddAccountRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddAccountRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddAccountRelationResponse() = default;
+};
 class AllocateCostUnitResourceRequestResourceInstanceList : public Darabonba::Model {
 public:
   shared_ptr<string> apportionCode{};
@@ -890,6 +1117,219 @@ public:
 
 
   virtual ~ChangeResellerConsumeAmountResponse() = default;
+};
+class ConfirmRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> relationType{};
+  shared_ptr<long> parentUserId{};
+  shared_ptr<string> confirmCode{};
+  shared_ptr<long> childUserId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> permissionCodes{};
+
+  ConfirmRelationRequest() {}
+
+  explicit ConfirmRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (relationType) {
+      res["RelationType"] = boost::any(*relationType);
+    }
+    if (parentUserId) {
+      res["ParentUserId"] = boost::any(*parentUserId);
+    }
+    if (confirmCode) {
+      res["ConfirmCode"] = boost::any(*confirmCode);
+    }
+    if (childUserId) {
+      res["ChildUserId"] = boost::any(*childUserId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (permissionCodes) {
+      res["PermissionCodes"] = boost::any(*permissionCodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RelationType") != m.end() && !m["RelationType"].empty()) {
+      relationType = make_shared<string>(boost::any_cast<string>(m["RelationType"]));
+    }
+    if (m.find("ParentUserId") != m.end() && !m["ParentUserId"].empty()) {
+      parentUserId = make_shared<long>(boost::any_cast<long>(m["ParentUserId"]));
+    }
+    if (m.find("ConfirmCode") != m.end() && !m["ConfirmCode"].empty()) {
+      confirmCode = make_shared<string>(boost::any_cast<string>(m["ConfirmCode"]));
+    }
+    if (m.find("ChildUserId") != m.end() && !m["ChildUserId"].empty()) {
+      childUserId = make_shared<long>(boost::any_cast<long>(m["ChildUserId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("PermissionCodes") != m.end() && !m["PermissionCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PermissionCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PermissionCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      permissionCodes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ConfirmRelationRequest() = default;
+};
+class ConfirmRelationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> hostId{};
+
+  ConfirmRelationResponseBodyData() {}
+
+  explicit ConfirmRelationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostId) {
+      res["HostId"] = boost::any(*hostId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
+      hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+  }
+
+
+  virtual ~ConfirmRelationResponseBodyData() = default;
+};
+class ConfirmRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<ConfirmRelationResponseBodyData> data{};
+
+  ConfirmRelationResponseBody() {}
+
+  explicit ConfirmRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ConfirmRelationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ConfirmRelationResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfirmRelationResponseBody() = default;
+};
+class ConfirmRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ConfirmRelationResponseBody> body{};
+
+  ConfirmRelationResponse() {}
+
+  explicit ConfirmRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConfirmRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConfirmRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConfirmRelationResponse() = default;
 };
 class ConvertChargeTypeRequest : public Darabonba::Model {
 public:
@@ -2632,10 +3072,10 @@ public:
   shared_ptr<string> listPriceUnit{};
   shared_ptr<string> resourceGroup{};
   shared_ptr<string> pipCode{};
-  shared_ptr<double> pretaxAmount{};
   shared_ptr<string> servicePeriodUnit{};
-  shared_ptr<string> productName{};
+  shared_ptr<double> pretaxAmount{};
   shared_ptr<string> commodityCode{};
+  shared_ptr<string> productName{};
   shared_ptr<string> nickName{};
   shared_ptr<string> productDetail{};
   shared_ptr<string> usage{};
@@ -2718,17 +3158,17 @@ public:
     if (pipCode) {
       res["PipCode"] = boost::any(*pipCode);
     }
-    if (pretaxAmount) {
-      res["PretaxAmount"] = boost::any(*pretaxAmount);
-    }
     if (servicePeriodUnit) {
       res["ServicePeriodUnit"] = boost::any(*servicePeriodUnit);
     }
-    if (productName) {
-      res["ProductName"] = boost::any(*productName);
+    if (pretaxAmount) {
+      res["PretaxAmount"] = boost::any(*pretaxAmount);
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
     }
     if (nickName) {
       res["NickName"] = boost::any(*nickName);
@@ -2839,17 +3279,17 @@ public:
     if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
       pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
     }
-    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
-      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
-    }
     if (m.find("ServicePeriodUnit") != m.end() && !m["ServicePeriodUnit"].empty()) {
       servicePeriodUnit = make_shared<string>(boost::any_cast<string>(m["ServicePeriodUnit"]));
     }
-    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
-      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
+      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
     }
     if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
       nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
@@ -2909,13 +3349,13 @@ public:
 };
 class DescribeInstanceBillResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<vector<DescribeInstanceBillResponseBodyDataItems>> items{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> billingCycle{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> accountID{};
   shared_ptr<long> totalCount{};
   shared_ptr<string> accountName{};
+  shared_ptr<vector<DescribeInstanceBillResponseBodyDataItems>> items{};
 
   DescribeInstanceBillResponseBodyData() {}
 
@@ -2927,13 +3367,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (items) {
-      vector<boost::any> temp1;
-      for(auto item1:*items){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Items"] = boost::any(temp1);
-    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -2952,23 +3385,17 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Items") != m.end() && !m["Items"].empty()) {
-      if (typeid(vector<boost::any>) == m["Items"].type()) {
-        vector<DescribeInstanceBillResponseBodyDataItems> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeInstanceBillResponseBodyDataItems model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        items = make_shared<vector<DescribeInstanceBillResponseBodyDataItems>>(expect1);
-      }
-    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -2987,6 +3414,19 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeInstanceBillResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstanceBillResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeInstanceBillResponseBodyDataItems>>(expect1);
+      }
+    }
   }
 
 
@@ -2994,11 +3434,11 @@ public:
 };
 class DescribeInstanceBillResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<DescribeInstanceBillResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<DescribeInstanceBillResponseBodyData> data{};
 
   DescribeInstanceBillResponseBody() {}
 
@@ -3010,30 +3450,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -3041,12 +3487,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DescribeInstanceBillResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -3104,6 +3544,726 @@ public:
 
 
   virtual ~DescribeInstanceBillResponse() = default;
+};
+class DescribeResourceCoverageDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> startPeriod{};
+  shared_ptr<string> endPeriod{};
+  shared_ptr<string> periodType{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<long> billOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeResourceCoverageDetailRequest() {}
+
+  explicit DescribeResourceCoverageDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (startPeriod) {
+      res["StartPeriod"] = boost::any(*startPeriod);
+    }
+    if (endPeriod) {
+      res["EndPeriod"] = boost::any(*endPeriod);
+    }
+    if (periodType) {
+      res["PeriodType"] = boost::any(*periodType);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (billOwnerId) {
+      res["BillOwnerId"] = boost::any(*billOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StartPeriod") != m.end() && !m["StartPeriod"].empty()) {
+      startPeriod = make_shared<string>(boost::any_cast<string>(m["StartPeriod"]));
+    }
+    if (m.find("EndPeriod") != m.end() && !m["EndPeriod"].empty()) {
+      endPeriod = make_shared<string>(boost::any_cast<string>(m["EndPeriod"]));
+    }
+    if (m.find("PeriodType") != m.end() && !m["PeriodType"].empty()) {
+      periodType = make_shared<string>(boost::any_cast<string>(m["PeriodType"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("BillOwnerId") != m.end() && !m["BillOwnerId"].empty()) {
+      billOwnerId = make_shared<long>(boost::any_cast<long>(m["BillOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageDetailRequest() = default;
+};
+class DescribeResourceCoverageDetailResponseBodyDataItems : public Darabonba::Model {
+public:
+  shared_ptr<string> commodityCode{};
+  shared_ptr<string> productName{};
+  shared_ptr<double> totalQuantity{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> commodityName{};
+  shared_ptr<string> capacityUnit{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> currency{};
+  shared_ptr<string> zoneName{};
+  shared_ptr<string> instanceSpec{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<double> paymentAmount{};
+  shared_ptr<double> coveragePercentage{};
+  shared_ptr<string> region{};
+  shared_ptr<double> deductQuantity{};
+  shared_ptr<string> zone{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> productCode{};
+
+  DescribeResourceCoverageDetailResponseBodyDataItems() {}
+
+  explicit DescribeResourceCoverageDetailResponseBodyDataItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (totalQuantity) {
+      res["TotalQuantity"] = boost::any(*totalQuantity);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (commodityName) {
+      res["CommodityName"] = boost::any(*commodityName);
+    }
+    if (capacityUnit) {
+      res["CapacityUnit"] = boost::any(*capacityUnit);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (zoneName) {
+      res["ZoneName"] = boost::any(*zoneName);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (paymentAmount) {
+      res["PaymentAmount"] = boost::any(*paymentAmount);
+    }
+    if (coveragePercentage) {
+      res["CoveragePercentage"] = boost::any(*coveragePercentage);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (deductQuantity) {
+      res["DeductQuantity"] = boost::any(*deductQuantity);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("TotalQuantity") != m.end() && !m["TotalQuantity"].empty()) {
+      totalQuantity = make_shared<double>(boost::any_cast<double>(m["TotalQuantity"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("CommodityName") != m.end() && !m["CommodityName"].empty()) {
+      commodityName = make_shared<string>(boost::any_cast<string>(m["CommodityName"]));
+    }
+    if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
+      capacityUnit = make_shared<string>(boost::any_cast<string>(m["CapacityUnit"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("ZoneName") != m.end() && !m["ZoneName"].empty()) {
+      zoneName = make_shared<string>(boost::any_cast<string>(m["ZoneName"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("PaymentAmount") != m.end() && !m["PaymentAmount"].empty()) {
+      paymentAmount = make_shared<double>(boost::any_cast<double>(m["PaymentAmount"]));
+    }
+    if (m.find("CoveragePercentage") != m.end() && !m["CoveragePercentage"].empty()) {
+      coveragePercentage = make_shared<double>(boost::any_cast<double>(m["CoveragePercentage"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("DeductQuantity") != m.end() && !m["DeductQuantity"].empty()) {
+      deductQuantity = make_shared<double>(boost::any_cast<double>(m["DeductQuantity"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageDetailResponseBodyDataItems() = default;
+};
+class DescribeResourceCoverageDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<vector<DescribeResourceCoverageDetailResponseBodyDataItems>> items{};
+
+  DescribeResourceCoverageDetailResponseBodyData() {}
+
+  explicit DescribeResourceCoverageDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeResourceCoverageDetailResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceCoverageDetailResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeResourceCoverageDetailResponseBodyDataItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageDetailResponseBodyData() = default;
+};
+class DescribeResourceCoverageDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DescribeResourceCoverageDetailResponseBodyData> data{};
+
+  DescribeResourceCoverageDetailResponseBody() {}
+
+  explicit DescribeResourceCoverageDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeResourceCoverageDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeResourceCoverageDetailResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageDetailResponseBody() = default;
+};
+class DescribeResourceCoverageDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeResourceCoverageDetailResponseBody> body{};
+
+  DescribeResourceCoverageDetailResponse() {}
+
+  explicit DescribeResourceCoverageDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeResourceCoverageDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeResourceCoverageDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageDetailResponse() = default;
+};
+class DescribeResourceCoverageTotalRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> startPeriod{};
+  shared_ptr<string> endPeriod{};
+  shared_ptr<string> periodType{};
+  shared_ptr<long> billOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeResourceCoverageTotalRequest() {}
+
+  explicit DescribeResourceCoverageTotalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (startPeriod) {
+      res["StartPeriod"] = boost::any(*startPeriod);
+    }
+    if (endPeriod) {
+      res["EndPeriod"] = boost::any(*endPeriod);
+    }
+    if (periodType) {
+      res["PeriodType"] = boost::any(*periodType);
+    }
+    if (billOwnerId) {
+      res["BillOwnerId"] = boost::any(*billOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StartPeriod") != m.end() && !m["StartPeriod"].empty()) {
+      startPeriod = make_shared<string>(boost::any_cast<string>(m["StartPeriod"]));
+    }
+    if (m.find("EndPeriod") != m.end() && !m["EndPeriod"].empty()) {
+      endPeriod = make_shared<string>(boost::any_cast<string>(m["EndPeriod"]));
+    }
+    if (m.find("PeriodType") != m.end() && !m["PeriodType"].empty()) {
+      periodType = make_shared<string>(boost::any_cast<string>(m["PeriodType"]));
+    }
+    if (m.find("BillOwnerId") != m.end() && !m["BillOwnerId"].empty()) {
+      billOwnerId = make_shared<long>(boost::any_cast<long>(m["BillOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalRequest() = default;
+};
+class DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage : public Darabonba::Model {
+public:
+  shared_ptr<double> coveragePercentage{};
+  shared_ptr<string> period{};
+
+  DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage() {}
+
+  explicit DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coveragePercentage) {
+      res["CoveragePercentage"] = boost::any(*coveragePercentage);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoveragePercentage") != m.end() && !m["CoveragePercentage"].empty()) {
+      coveragePercentage = make_shared<double>(boost::any_cast<double>(m["CoveragePercentage"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage() = default;
+};
+class DescribeResourceCoverageTotalResponseBodyDataTotalCoverage : public Darabonba::Model {
+public:
+  shared_ptr<string> capacityUnit{};
+  shared_ptr<double> deductQuantity{};
+  shared_ptr<double> coveragePercentage{};
+  shared_ptr<double> totalQuantity{};
+
+  DescribeResourceCoverageTotalResponseBodyDataTotalCoverage() {}
+
+  explicit DescribeResourceCoverageTotalResponseBodyDataTotalCoverage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (capacityUnit) {
+      res["CapacityUnit"] = boost::any(*capacityUnit);
+    }
+    if (deductQuantity) {
+      res["DeductQuantity"] = boost::any(*deductQuantity);
+    }
+    if (coveragePercentage) {
+      res["CoveragePercentage"] = boost::any(*coveragePercentage);
+    }
+    if (totalQuantity) {
+      res["TotalQuantity"] = boost::any(*totalQuantity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
+      capacityUnit = make_shared<string>(boost::any_cast<string>(m["CapacityUnit"]));
+    }
+    if (m.find("DeductQuantity") != m.end() && !m["DeductQuantity"].empty()) {
+      deductQuantity = make_shared<double>(boost::any_cast<double>(m["DeductQuantity"]));
+    }
+    if (m.find("CoveragePercentage") != m.end() && !m["CoveragePercentage"].empty()) {
+      coveragePercentage = make_shared<double>(boost::any_cast<double>(m["CoveragePercentage"]));
+    }
+    if (m.find("TotalQuantity") != m.end() && !m["TotalQuantity"].empty()) {
+      totalQuantity = make_shared<double>(boost::any_cast<double>(m["TotalQuantity"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalResponseBodyDataTotalCoverage() = default;
+};
+class DescribeResourceCoverageTotalResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage>> periodCoverage{};
+  shared_ptr<DescribeResourceCoverageTotalResponseBodyDataTotalCoverage> totalCoverage{};
+
+  DescribeResourceCoverageTotalResponseBodyData() {}
+
+  explicit DescribeResourceCoverageTotalResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (periodCoverage) {
+      vector<boost::any> temp1;
+      for(auto item1:*periodCoverage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PeriodCoverage"] = boost::any(temp1);
+    }
+    if (totalCoverage) {
+      res["TotalCoverage"] = totalCoverage ? boost::any(totalCoverage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeriodCoverage") != m.end() && !m["PeriodCoverage"].empty()) {
+      if (typeid(vector<boost::any>) == m["PeriodCoverage"].type()) {
+        vector<DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PeriodCoverage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        periodCoverage = make_shared<vector<DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage>>(expect1);
+      }
+    }
+    if (m.find("TotalCoverage") != m.end() && !m["TotalCoverage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TotalCoverage"].type()) {
+        DescribeResourceCoverageTotalResponseBodyDataTotalCoverage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TotalCoverage"]));
+        totalCoverage = make_shared<DescribeResourceCoverageTotalResponseBodyDataTotalCoverage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalResponseBodyData() = default;
+};
+class DescribeResourceCoverageTotalResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DescribeResourceCoverageTotalResponseBodyData> data{};
+
+  DescribeResourceCoverageTotalResponseBody() {}
+
+  explicit DescribeResourceCoverageTotalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeResourceCoverageTotalResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeResourceCoverageTotalResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalResponseBody() = default;
+};
+class DescribeResourceCoverageTotalResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeResourceCoverageTotalResponseBody> body{};
+
+  DescribeResourceCoverageTotalResponse() {}
+
+  explicit DescribeResourceCoverageTotalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeResourceCoverageTotalResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeResourceCoverageTotalResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceCoverageTotalResponse() = default;
 };
 class DescribeResourcePackageProductRequest : public Darabonba::Model {
 public:
@@ -3740,6 +4900,754 @@ public:
 
   virtual ~DescribeResourcePackageProductResponse() = default;
 };
+class DescribeResourceUsageDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> startPeriod{};
+  shared_ptr<string> endPeriod{};
+  shared_ptr<string> periodType{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<long> billOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeResourceUsageDetailRequest() {}
+
+  explicit DescribeResourceUsageDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (startPeriod) {
+      res["StartPeriod"] = boost::any(*startPeriod);
+    }
+    if (endPeriod) {
+      res["EndPeriod"] = boost::any(*endPeriod);
+    }
+    if (periodType) {
+      res["PeriodType"] = boost::any(*periodType);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (billOwnerId) {
+      res["BillOwnerId"] = boost::any(*billOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StartPeriod") != m.end() && !m["StartPeriod"].empty()) {
+      startPeriod = make_shared<string>(boost::any_cast<string>(m["StartPeriod"]));
+    }
+    if (m.find("EndPeriod") != m.end() && !m["EndPeriod"].empty()) {
+      endPeriod = make_shared<string>(boost::any_cast<string>(m["EndPeriod"]));
+    }
+    if (m.find("PeriodType") != m.end() && !m["PeriodType"].empty()) {
+      periodType = make_shared<string>(boost::any_cast<string>(m["PeriodType"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("BillOwnerId") != m.end() && !m["BillOwnerId"].empty()) {
+      billOwnerId = make_shared<long>(boost::any_cast<long>(m["BillOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageDetailRequest() = default;
+};
+class DescribeResourceUsageDetailResponseBodyDataItems : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<double> usagePercentage{};
+  shared_ptr<string> resourceInstanceId{};
+  shared_ptr<double> totalQuantity{};
+  shared_ptr<string> reservationCost{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> statusName{};
+  shared_ptr<string> capacityUnit{};
+  shared_ptr<string> potentialSavedCost{};
+  shared_ptr<string> currency{};
+  shared_ptr<string> zoneName{};
+  shared_ptr<string> instanceSpec{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> postpaidCost{};
+  shared_ptr<string> imageType{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> region{};
+  shared_ptr<double> deductQuantity{};
+  shared_ptr<string> savedCost{};
+  shared_ptr<string> zone{};
+  shared_ptr<string> userName{};
+  shared_ptr<long> quantity{};
+
+  DescribeResourceUsageDetailResponseBodyDataItems() {}
+
+  explicit DescribeResourceUsageDetailResponseBodyDataItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (usagePercentage) {
+      res["UsagePercentage"] = boost::any(*usagePercentage);
+    }
+    if (resourceInstanceId) {
+      res["ResourceInstanceId"] = boost::any(*resourceInstanceId);
+    }
+    if (totalQuantity) {
+      res["TotalQuantity"] = boost::any(*totalQuantity);
+    }
+    if (reservationCost) {
+      res["ReservationCost"] = boost::any(*reservationCost);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (statusName) {
+      res["StatusName"] = boost::any(*statusName);
+    }
+    if (capacityUnit) {
+      res["CapacityUnit"] = boost::any(*capacityUnit);
+    }
+    if (potentialSavedCost) {
+      res["PotentialSavedCost"] = boost::any(*potentialSavedCost);
+    }
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (zoneName) {
+      res["ZoneName"] = boost::any(*zoneName);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (postpaidCost) {
+      res["PostpaidCost"] = boost::any(*postpaidCost);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (deductQuantity) {
+      res["DeductQuantity"] = boost::any(*deductQuantity);
+    }
+    if (savedCost) {
+      res["SavedCost"] = boost::any(*savedCost);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (quantity) {
+      res["Quantity"] = boost::any(*quantity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UsagePercentage") != m.end() && !m["UsagePercentage"].empty()) {
+      usagePercentage = make_shared<double>(boost::any_cast<double>(m["UsagePercentage"]));
+    }
+    if (m.find("ResourceInstanceId") != m.end() && !m["ResourceInstanceId"].empty()) {
+      resourceInstanceId = make_shared<string>(boost::any_cast<string>(m["ResourceInstanceId"]));
+    }
+    if (m.find("TotalQuantity") != m.end() && !m["TotalQuantity"].empty()) {
+      totalQuantity = make_shared<double>(boost::any_cast<double>(m["TotalQuantity"]));
+    }
+    if (m.find("ReservationCost") != m.end() && !m["ReservationCost"].empty()) {
+      reservationCost = make_shared<string>(boost::any_cast<string>(m["ReservationCost"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("StatusName") != m.end() && !m["StatusName"].empty()) {
+      statusName = make_shared<string>(boost::any_cast<string>(m["StatusName"]));
+    }
+    if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
+      capacityUnit = make_shared<string>(boost::any_cast<string>(m["CapacityUnit"]));
+    }
+    if (m.find("PotentialSavedCost") != m.end() && !m["PotentialSavedCost"].empty()) {
+      potentialSavedCost = make_shared<string>(boost::any_cast<string>(m["PotentialSavedCost"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("ZoneName") != m.end() && !m["ZoneName"].empty()) {
+      zoneName = make_shared<string>(boost::any_cast<string>(m["ZoneName"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("PostpaidCost") != m.end() && !m["PostpaidCost"].empty()) {
+      postpaidCost = make_shared<string>(boost::any_cast<string>(m["PostpaidCost"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("DeductQuantity") != m.end() && !m["DeductQuantity"].empty()) {
+      deductQuantity = make_shared<double>(boost::any_cast<double>(m["DeductQuantity"]));
+    }
+    if (m.find("SavedCost") != m.end() && !m["SavedCost"].empty()) {
+      savedCost = make_shared<string>(boost::any_cast<string>(m["SavedCost"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("Quantity") != m.end() && !m["Quantity"].empty()) {
+      quantity = make_shared<long>(boost::any_cast<long>(m["Quantity"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageDetailResponseBodyDataItems() = default;
+};
+class DescribeResourceUsageDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<vector<DescribeResourceUsageDetailResponseBodyDataItems>> items{};
+
+  DescribeResourceUsageDetailResponseBodyData() {}
+
+  explicit DescribeResourceUsageDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeResourceUsageDetailResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceUsageDetailResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeResourceUsageDetailResponseBodyDataItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageDetailResponseBodyData() = default;
+};
+class DescribeResourceUsageDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DescribeResourceUsageDetailResponseBodyData> data{};
+
+  DescribeResourceUsageDetailResponseBody() {}
+
+  explicit DescribeResourceUsageDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeResourceUsageDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeResourceUsageDetailResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageDetailResponseBody() = default;
+};
+class DescribeResourceUsageDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeResourceUsageDetailResponseBody> body{};
+
+  DescribeResourceUsageDetailResponse() {}
+
+  explicit DescribeResourceUsageDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeResourceUsageDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeResourceUsageDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageDetailResponse() = default;
+};
+class DescribeResourceUsageTotalRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> startPeriod{};
+  shared_ptr<string> endPeriod{};
+  shared_ptr<string> periodType{};
+  shared_ptr<long> billOwnerId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeResourceUsageTotalRequest() {}
+
+  explicit DescribeResourceUsageTotalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (startPeriod) {
+      res["StartPeriod"] = boost::any(*startPeriod);
+    }
+    if (endPeriod) {
+      res["EndPeriod"] = boost::any(*endPeriod);
+    }
+    if (periodType) {
+      res["PeriodType"] = boost::any(*periodType);
+    }
+    if (billOwnerId) {
+      res["BillOwnerId"] = boost::any(*billOwnerId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StartPeriod") != m.end() && !m["StartPeriod"].empty()) {
+      startPeriod = make_shared<string>(boost::any_cast<string>(m["StartPeriod"]));
+    }
+    if (m.find("EndPeriod") != m.end() && !m["EndPeriod"].empty()) {
+      endPeriod = make_shared<string>(boost::any_cast<string>(m["EndPeriod"]));
+    }
+    if (m.find("PeriodType") != m.end() && !m["PeriodType"].empty()) {
+      periodType = make_shared<string>(boost::any_cast<string>(m["PeriodType"]));
+    }
+    if (m.find("BillOwnerId") != m.end() && !m["BillOwnerId"].empty()) {
+      billOwnerId = make_shared<long>(boost::any_cast<long>(m["BillOwnerId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalRequest() = default;
+};
+class DescribeResourceUsageTotalResponseBodyDataPeriodCoverage : public Darabonba::Model {
+public:
+  shared_ptr<double> usagePercentage{};
+  shared_ptr<string> period{};
+
+  DescribeResourceUsageTotalResponseBodyDataPeriodCoverage() {}
+
+  explicit DescribeResourceUsageTotalResponseBodyDataPeriodCoverage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (usagePercentage) {
+      res["UsagePercentage"] = boost::any(*usagePercentage);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UsagePercentage") != m.end() && !m["UsagePercentage"].empty()) {
+      usagePercentage = make_shared<double>(boost::any_cast<double>(m["UsagePercentage"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalResponseBodyDataPeriodCoverage() = default;
+};
+class DescribeResourceUsageTotalResponseBodyDataTotalUsage : public Darabonba::Model {
+public:
+  shared_ptr<double> postpaidCost{};
+  shared_ptr<double> savedCost{};
+  shared_ptr<double> usagePercentage{};
+  shared_ptr<double> potentialSavedCost{};
+  shared_ptr<double> reservationCost{};
+
+  DescribeResourceUsageTotalResponseBodyDataTotalUsage() {}
+
+  explicit DescribeResourceUsageTotalResponseBodyDataTotalUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (postpaidCost) {
+      res["PostpaidCost"] = boost::any(*postpaidCost);
+    }
+    if (savedCost) {
+      res["SavedCost"] = boost::any(*savedCost);
+    }
+    if (usagePercentage) {
+      res["UsagePercentage"] = boost::any(*usagePercentage);
+    }
+    if (potentialSavedCost) {
+      res["PotentialSavedCost"] = boost::any(*potentialSavedCost);
+    }
+    if (reservationCost) {
+      res["ReservationCost"] = boost::any(*reservationCost);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PostpaidCost") != m.end() && !m["PostpaidCost"].empty()) {
+      postpaidCost = make_shared<double>(boost::any_cast<double>(m["PostpaidCost"]));
+    }
+    if (m.find("SavedCost") != m.end() && !m["SavedCost"].empty()) {
+      savedCost = make_shared<double>(boost::any_cast<double>(m["SavedCost"]));
+    }
+    if (m.find("UsagePercentage") != m.end() && !m["UsagePercentage"].empty()) {
+      usagePercentage = make_shared<double>(boost::any_cast<double>(m["UsagePercentage"]));
+    }
+    if (m.find("PotentialSavedCost") != m.end() && !m["PotentialSavedCost"].empty()) {
+      potentialSavedCost = make_shared<double>(boost::any_cast<double>(m["PotentialSavedCost"]));
+    }
+    if (m.find("ReservationCost") != m.end() && !m["ReservationCost"].empty()) {
+      reservationCost = make_shared<double>(boost::any_cast<double>(m["ReservationCost"]));
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalResponseBodyDataTotalUsage() = default;
+};
+class DescribeResourceUsageTotalResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeResourceUsageTotalResponseBodyDataPeriodCoverage>> periodCoverage{};
+  shared_ptr<DescribeResourceUsageTotalResponseBodyDataTotalUsage> totalUsage{};
+
+  DescribeResourceUsageTotalResponseBodyData() {}
+
+  explicit DescribeResourceUsageTotalResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (periodCoverage) {
+      vector<boost::any> temp1;
+      for(auto item1:*periodCoverage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PeriodCoverage"] = boost::any(temp1);
+    }
+    if (totalUsage) {
+      res["TotalUsage"] = totalUsage ? boost::any(totalUsage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PeriodCoverage") != m.end() && !m["PeriodCoverage"].empty()) {
+      if (typeid(vector<boost::any>) == m["PeriodCoverage"].type()) {
+        vector<DescribeResourceUsageTotalResponseBodyDataPeriodCoverage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PeriodCoverage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeResourceUsageTotalResponseBodyDataPeriodCoverage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        periodCoverage = make_shared<vector<DescribeResourceUsageTotalResponseBodyDataPeriodCoverage>>(expect1);
+      }
+    }
+    if (m.find("TotalUsage") != m.end() && !m["TotalUsage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TotalUsage"].type()) {
+        DescribeResourceUsageTotalResponseBodyDataTotalUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TotalUsage"]));
+        totalUsage = make_shared<DescribeResourceUsageTotalResponseBodyDataTotalUsage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalResponseBodyData() = default;
+};
+class DescribeResourceUsageTotalResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<DescribeResourceUsageTotalResponseBodyData> data{};
+
+  DescribeResourceUsageTotalResponseBody() {}
+
+  explicit DescribeResourceUsageTotalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeResourceUsageTotalResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeResourceUsageTotalResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalResponseBody() = default;
+};
+class DescribeResourceUsageTotalResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeResourceUsageTotalResponseBody> body{};
+
+  DescribeResourceUsageTotalResponse() {}
+
+  explicit DescribeResourceUsageTotalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeResourceUsageTotalResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeResourceUsageTotalResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeResourceUsageTotalResponse() = default;
+};
 class DescribeSplitItemBillRequestTagFilter : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> tagValues{};
@@ -3910,18 +5818,18 @@ public:
   shared_ptr<double> deductedByCashCoupons{};
   shared_ptr<string> subscriptionType{};
   shared_ptr<string> instanceSpec{};
-  shared_ptr<string> billingItem{};
   shared_ptr<double> deductedByCoupons{};
+  shared_ptr<string> billingItem{};
   shared_ptr<string> region{};
   shared_ptr<double> outstandingAmount{};
   shared_ptr<string> costUnit{};
   shared_ptr<string> listPriceUnit{};
   shared_ptr<string> resourceGroup{};
   shared_ptr<string> pipCode{};
-  shared_ptr<double> pretaxAmount{};
   shared_ptr<string> servicePeriodUnit{};
-  shared_ptr<string> productName{};
+  shared_ptr<double> pretaxAmount{};
   shared_ptr<string> commodityCode{};
+  shared_ptr<string> productName{};
   shared_ptr<string> splitProductDetail{};
   shared_ptr<string> nickName{};
   shared_ptr<string> productDetail{};
@@ -3991,11 +5899,11 @@ public:
     if (instanceSpec) {
       res["InstanceSpec"] = boost::any(*instanceSpec);
     }
-    if (billingItem) {
-      res["BillingItem"] = boost::any(*billingItem);
-    }
     if (deductedByCoupons) {
       res["DeductedByCoupons"] = boost::any(*deductedByCoupons);
+    }
+    if (billingItem) {
+      res["BillingItem"] = boost::any(*billingItem);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -4015,17 +5923,17 @@ public:
     if (pipCode) {
       res["PipCode"] = boost::any(*pipCode);
     }
-    if (pretaxAmount) {
-      res["PretaxAmount"] = boost::any(*pretaxAmount);
-    }
     if (servicePeriodUnit) {
       res["ServicePeriodUnit"] = boost::any(*servicePeriodUnit);
     }
-    if (productName) {
-      res["ProductName"] = boost::any(*productName);
+    if (pretaxAmount) {
+      res["PretaxAmount"] = boost::any(*pretaxAmount);
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
     }
     if (splitProductDetail) {
       res["SplitProductDetail"] = boost::any(*splitProductDetail);
@@ -4133,11 +6041,11 @@ public:
     if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
       instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
     }
-    if (m.find("BillingItem") != m.end() && !m["BillingItem"].empty()) {
-      billingItem = make_shared<string>(boost::any_cast<string>(m["BillingItem"]));
-    }
     if (m.find("DeductedByCoupons") != m.end() && !m["DeductedByCoupons"].empty()) {
       deductedByCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedByCoupons"]));
+    }
+    if (m.find("BillingItem") != m.end() && !m["BillingItem"].empty()) {
+      billingItem = make_shared<string>(boost::any_cast<string>(m["BillingItem"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -4157,17 +6065,17 @@ public:
     if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
       pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
     }
-    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
-      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
-    }
     if (m.find("ServicePeriodUnit") != m.end() && !m["ServicePeriodUnit"].empty()) {
       servicePeriodUnit = make_shared<string>(boost::any_cast<string>(m["ServicePeriodUnit"]));
     }
-    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
-      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
+      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
     }
     if (m.find("SplitProductDetail") != m.end() && !m["SplitProductDetail"].empty()) {
       splitProductDetail = make_shared<string>(boost::any_cast<string>(m["SplitProductDetail"]));
@@ -4242,13 +6150,13 @@ public:
 };
 class DescribeSplitItemBillResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<vector<DescribeSplitItemBillResponseBodyDataItems>> items{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> billingCycle{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> accountID{};
   shared_ptr<long> totalCount{};
   shared_ptr<string> accountName{};
+  shared_ptr<vector<DescribeSplitItemBillResponseBodyDataItems>> items{};
 
   DescribeSplitItemBillResponseBodyData() {}
 
@@ -4260,13 +6168,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (items) {
-      vector<boost::any> temp1;
-      for(auto item1:*items){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Items"] = boost::any(temp1);
-    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -4285,23 +6186,17 @@ public:
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
     }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Items") != m.end() && !m["Items"].empty()) {
-      if (typeid(vector<boost::any>) == m["Items"].type()) {
-        vector<DescribeSplitItemBillResponseBodyDataItems> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeSplitItemBillResponseBodyDataItems model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        items = make_shared<vector<DescribeSplitItemBillResponseBodyDataItems>>(expect1);
-      }
-    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -4320,6 +6215,19 @@ public:
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
     }
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeSplitItemBillResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSplitItemBillResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeSplitItemBillResponseBodyDataItems>>(expect1);
+      }
+    }
   }
 
 
@@ -4327,11 +6235,11 @@ public:
 };
 class DescribeSplitItemBillResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<DescribeSplitItemBillResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<DescribeSplitItemBillResponseBodyData> data{};
 
   DescribeSplitItemBillResponseBody() {}
 
@@ -4343,30 +6251,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -4374,12 +6288,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DescribeSplitItemBillResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6777,6 +8685,240 @@ public:
 
 
   virtual ~GetSubscriptionPriceResponse() = default;
+};
+class ModifyAccountRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> relationType{};
+  shared_ptr<string> relationOperation{};
+  shared_ptr<long> parentUserId{};
+  shared_ptr<string> childNick{};
+  shared_ptr<long> childUserId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> roleCodes{};
+  shared_ptr<vector<string>> permissionCodes{};
+
+  ModifyAccountRelationRequest() {}
+
+  explicit ModifyAccountRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (relationType) {
+      res["RelationType"] = boost::any(*relationType);
+    }
+    if (relationOperation) {
+      res["RelationOperation"] = boost::any(*relationOperation);
+    }
+    if (parentUserId) {
+      res["ParentUserId"] = boost::any(*parentUserId);
+    }
+    if (childNick) {
+      res["ChildNick"] = boost::any(*childNick);
+    }
+    if (childUserId) {
+      res["ChildUserId"] = boost::any(*childUserId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (roleCodes) {
+      res["RoleCodes"] = boost::any(*roleCodes);
+    }
+    if (permissionCodes) {
+      res["PermissionCodes"] = boost::any(*permissionCodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RelationType") != m.end() && !m["RelationType"].empty()) {
+      relationType = make_shared<string>(boost::any_cast<string>(m["RelationType"]));
+    }
+    if (m.find("RelationOperation") != m.end() && !m["RelationOperation"].empty()) {
+      relationOperation = make_shared<string>(boost::any_cast<string>(m["RelationOperation"]));
+    }
+    if (m.find("ParentUserId") != m.end() && !m["ParentUserId"].empty()) {
+      parentUserId = make_shared<long>(boost::any_cast<long>(m["ParentUserId"]));
+    }
+    if (m.find("ChildNick") != m.end() && !m["ChildNick"].empty()) {
+      childNick = make_shared<string>(boost::any_cast<string>(m["ChildNick"]));
+    }
+    if (m.find("ChildUserId") != m.end() && !m["ChildUserId"].empty()) {
+      childUserId = make_shared<long>(boost::any_cast<long>(m["ChildUserId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RoleCodes") != m.end() && !m["RoleCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RoleCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RoleCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleCodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PermissionCodes") != m.end() && !m["PermissionCodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PermissionCodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PermissionCodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      permissionCodes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyAccountRelationRequest() = default;
+};
+class ModifyAccountRelationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> hostId{};
+
+  ModifyAccountRelationResponseBodyData() {}
+
+  explicit ModifyAccountRelationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostId) {
+      res["HostId"] = boost::any(*hostId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
+      hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+  }
+
+
+  virtual ~ModifyAccountRelationResponseBodyData() = default;
+};
+class ModifyAccountRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<ModifyAccountRelationResponseBodyData> data{};
+
+  ModifyAccountRelationResponseBody() {}
+
+  explicit ModifyAccountRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ModifyAccountRelationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ModifyAccountRelationResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAccountRelationResponseBody() = default;
+};
+class ModifyAccountRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ModifyAccountRelationResponseBody> body{};
+
+  ModifyAccountRelationResponse() {}
+
+  explicit ModifyAccountRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyAccountRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyAccountRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAccountRelationResponse() = default;
 };
 class ModifyCostUnitRequestUnitEntityList : public Darabonba::Model {
 public:
@@ -11807,6 +13949,407 @@ public:
 
   virtual ~QueryCustomerAddressListResponse() = default;
 };
+class QueryDPUtilizationDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceSpec{};
+  shared_ptr<string> commodityCode{};
+  shared_ptr<string> deductedInstanceId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> lastToken{};
+  shared_ptr<long> limit{};
+  shared_ptr<bool> includeShare{};
+
+  QueryDPUtilizationDetailRequest() {}
+
+  explicit QueryDPUtilizationDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (commodityCode) {
+      res["CommodityCode"] = boost::any(*commodityCode);
+    }
+    if (deductedInstanceId) {
+      res["DeductedInstanceId"] = boost::any(*deductedInstanceId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (lastToken) {
+      res["LastToken"] = boost::any(*lastToken);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (includeShare) {
+      res["IncludeShare"] = boost::any(*includeShare);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("DeductedInstanceId") != m.end() && !m["DeductedInstanceId"].empty()) {
+      deductedInstanceId = make_shared<string>(boost::any_cast<string>(m["DeductedInstanceId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("LastToken") != m.end() && !m["LastToken"].empty()) {
+      lastToken = make_shared<string>(boost::any_cast<string>(m["LastToken"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("IncludeShare") != m.end() && !m["IncludeShare"].empty()) {
+      includeShare = make_shared<bool>(boost::any_cast<bool>(m["IncludeShare"]));
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailRequest() = default;
+};
+class QueryDPUtilizationDetailResponseBodyDataDetailListDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> deductedInstanceId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<double> deductHours{};
+  shared_ptr<long> shareUid{};
+  shared_ptr<string> deductDate{};
+  shared_ptr<string> instanceSpec{};
+  shared_ptr<string> deductedCommodityCode{};
+  shared_ptr<string> deductedProductDetail{};
+  shared_ptr<double> deductMeasure{};
+  shared_ptr<string> region{};
+  shared_ptr<double> deductQuantity{};
+  shared_ptr<double> deductFactorTotal{};
+  shared_ptr<string> resCode{};
+  shared_ptr<long> uid{};
+
+  QueryDPUtilizationDetailResponseBodyDataDetailListDetailList() {}
+
+  explicit QueryDPUtilizationDetailResponseBodyDataDetailListDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deductedInstanceId) {
+      res["DeductedInstanceId"] = boost::any(*deductedInstanceId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (deductHours) {
+      res["DeductHours"] = boost::any(*deductHours);
+    }
+    if (shareUid) {
+      res["ShareUid"] = boost::any(*shareUid);
+    }
+    if (deductDate) {
+      res["DeductDate"] = boost::any(*deductDate);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (deductedCommodityCode) {
+      res["DeductedCommodityCode"] = boost::any(*deductedCommodityCode);
+    }
+    if (deductedProductDetail) {
+      res["DeductedProductDetail"] = boost::any(*deductedProductDetail);
+    }
+    if (deductMeasure) {
+      res["DeductMeasure"] = boost::any(*deductMeasure);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (deductQuantity) {
+      res["DeductQuantity"] = boost::any(*deductQuantity);
+    }
+    if (deductFactorTotal) {
+      res["DeductFactorTotal"] = boost::any(*deductFactorTotal);
+    }
+    if (resCode) {
+      res["ResCode"] = boost::any(*resCode);
+    }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeductedInstanceId") != m.end() && !m["DeductedInstanceId"].empty()) {
+      deductedInstanceId = make_shared<string>(boost::any_cast<string>(m["DeductedInstanceId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("DeductHours") != m.end() && !m["DeductHours"].empty()) {
+      deductHours = make_shared<double>(boost::any_cast<double>(m["DeductHours"]));
+    }
+    if (m.find("ShareUid") != m.end() && !m["ShareUid"].empty()) {
+      shareUid = make_shared<long>(boost::any_cast<long>(m["ShareUid"]));
+    }
+    if (m.find("DeductDate") != m.end() && !m["DeductDate"].empty()) {
+      deductDate = make_shared<string>(boost::any_cast<string>(m["DeductDate"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("DeductedCommodityCode") != m.end() && !m["DeductedCommodityCode"].empty()) {
+      deductedCommodityCode = make_shared<string>(boost::any_cast<string>(m["DeductedCommodityCode"]));
+    }
+    if (m.find("DeductedProductDetail") != m.end() && !m["DeductedProductDetail"].empty()) {
+      deductedProductDetail = make_shared<string>(boost::any_cast<string>(m["DeductedProductDetail"]));
+    }
+    if (m.find("DeductMeasure") != m.end() && !m["DeductMeasure"].empty()) {
+      deductMeasure = make_shared<double>(boost::any_cast<double>(m["DeductMeasure"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("DeductQuantity") != m.end() && !m["DeductQuantity"].empty()) {
+      deductQuantity = make_shared<double>(boost::any_cast<double>(m["DeductQuantity"]));
+    }
+    if (m.find("DeductFactorTotal") != m.end() && !m["DeductFactorTotal"].empty()) {
+      deductFactorTotal = make_shared<double>(boost::any_cast<double>(m["DeductFactorTotal"]));
+    }
+    if (m.find("ResCode") != m.end() && !m["ResCode"].empty()) {
+      resCode = make_shared<string>(boost::any_cast<string>(m["ResCode"]));
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<long>(boost::any_cast<long>(m["Uid"]));
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailResponseBodyDataDetailListDetailList() = default;
+};
+class QueryDPUtilizationDetailResponseBodyDataDetailList : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryDPUtilizationDetailResponseBodyDataDetailListDetailList>> detailList{};
+
+  QueryDPUtilizationDetailResponseBodyDataDetailList() {}
+
+  explicit QueryDPUtilizationDetailResponseBodyDataDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*detailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DetailList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailList") != m.end() && !m["DetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DetailList"].type()) {
+        vector<QueryDPUtilizationDetailResponseBodyDataDetailListDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryDPUtilizationDetailResponseBodyDataDetailListDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        detailList = make_shared<vector<QueryDPUtilizationDetailResponseBodyDataDetailListDetailList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailResponseBodyDataDetailList() = default;
+};
+class QueryDPUtilizationDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<QueryDPUtilizationDetailResponseBodyDataDetailList> detailList{};
+
+  QueryDPUtilizationDetailResponseBodyData() {}
+
+  explicit QueryDPUtilizationDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (detailList) {
+      res["DetailList"] = detailList ? boost::any(detailList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("DetailList") != m.end() && !m["DetailList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DetailList"].type()) {
+        QueryDPUtilizationDetailResponseBodyDataDetailList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetailList"]));
+        detailList = make_shared<QueryDPUtilizationDetailResponseBodyDataDetailList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailResponseBodyData() = default;
+};
+class QueryDPUtilizationDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<QueryDPUtilizationDetailResponseBodyData> data{};
+
+  QueryDPUtilizationDetailResponseBody() {}
+
+  explicit QueryDPUtilizationDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryDPUtilizationDetailResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryDPUtilizationDetailResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailResponseBody() = default;
+};
+class QueryDPUtilizationDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryDPUtilizationDetailResponseBody> body{};
+
+  QueryDPUtilizationDetailResponse() {}
+
+  explicit QueryDPUtilizationDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryDPUtilizationDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryDPUtilizationDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDPUtilizationDetailResponse() = default;
+};
 class QueryEvaluateListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> type{};
@@ -12429,11 +14972,11 @@ public:
 };
 class QueryFinancialAccountInfoResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<QueryFinancialAccountInfoResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<QueryFinancialAccountInfoResponseBodyData> data{};
 
   QueryFinancialAccountInfoResponseBody() {}
 
@@ -12445,30 +14988,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -12476,12 +15025,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QueryFinancialAccountInfoResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -13310,9 +15853,9 @@ public:
 };
 class QueryInstanceByTagResponseBodyTagResource : public Darabonba::Model {
 public:
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<QueryInstanceByTagResponseBodyTagResourceTag>> tag{};
-  shared_ptr<string> resourceId{};
 
   QueryInstanceByTagResponseBodyTagResource() {}
 
@@ -13324,6 +15867,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -13334,13 +15880,13 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
-    if (resourceId) {
-      res["ResourceId"] = boost::any(*resourceId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
@@ -13357,9 +15903,6 @@ public:
         tag = make_shared<vector<QueryInstanceByTagResponseBodyTagResourceTag>>(expect1);
       }
     }
-    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
-      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
-    }
   }
 
 
@@ -13367,12 +15910,12 @@ public:
 };
 class QueryInstanceByTagResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
-  shared_ptr<vector<QueryInstanceByTagResponseBodyTagResource>> tagResource{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<vector<QueryInstanceByTagResponseBodyTagResource>> tagResource{};
 
   QueryInstanceByTagResponseBody() {}
 
@@ -13384,6 +15927,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -13393,6 +15939,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     if (tagResource) {
       vector<boost::any> temp1;
       for(auto item1:*tagResource){
@@ -13400,16 +15949,13 @@ public:
       }
       res["TagResource"] = boost::any(temp1);
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
@@ -13418,6 +15964,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("TagResource") != m.end() && !m["TagResource"].empty()) {
       if (typeid(vector<boost::any>) == m["TagResource"].type()) {
@@ -13431,12 +15980,6 @@ public:
         }
         tagResource = make_shared<vector<QueryInstanceByTagResponseBodyTagResource>>(expect1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -15906,11 +18449,11 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> relationType{};
   shared_ptr<string> startTime{};
-  shared_ptr<vector<QueryPermissionListResponseBodyDataPermissionList>> permissionList{};
   shared_ptr<string> state{};
   shared_ptr<long> masterId{};
   shared_ptr<long> memberId{};
   shared_ptr<string> setupTime{};
+  shared_ptr<vector<QueryPermissionListResponseBodyDataPermissionList>> permissionList{};
 
   QueryPermissionListResponseBodyData() {}
 
@@ -15931,13 +18474,6 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
-    if (permissionList) {
-      vector<boost::any> temp1;
-      for(auto item1:*permissionList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["PermissionList"] = boost::any(temp1);
-    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -15949,6 +18485,13 @@ public:
     }
     if (setupTime) {
       res["SetupTime"] = boost::any(*setupTime);
+    }
+    if (permissionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PermissionList"] = boost::any(temp1);
     }
     return res;
   }
@@ -15963,6 +18506,18 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("MasterId") != m.end() && !m["MasterId"].empty()) {
+      masterId = make_shared<long>(boost::any_cast<long>(m["MasterId"]));
+    }
+    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
+      memberId = make_shared<long>(boost::any_cast<long>(m["MemberId"]));
+    }
+    if (m.find("SetupTime") != m.end() && !m["SetupTime"].empty()) {
+      setupTime = make_shared<string>(boost::any_cast<string>(m["SetupTime"]));
+    }
     if (m.find("PermissionList") != m.end() && !m["PermissionList"].empty()) {
       if (typeid(vector<boost::any>) == m["PermissionList"].type()) {
         vector<QueryPermissionListResponseBodyDataPermissionList> expect1;
@@ -15976,18 +18531,6 @@ public:
         permissionList = make_shared<vector<QueryPermissionListResponseBodyDataPermissionList>>(expect1);
       }
     }
-    if (m.find("State") != m.end() && !m["State"].empty()) {
-      state = make_shared<string>(boost::any_cast<string>(m["State"]));
-    }
-    if (m.find("MasterId") != m.end() && !m["MasterId"].empty()) {
-      masterId = make_shared<long>(boost::any_cast<long>(m["MasterId"]));
-    }
-    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
-      memberId = make_shared<long>(boost::any_cast<long>(m["MemberId"]));
-    }
-    if (m.find("SetupTime") != m.end() && !m["SetupTime"].empty()) {
-      setupTime = make_shared<string>(boost::any_cast<string>(m["SetupTime"]));
-    }
   }
 
 
@@ -15995,11 +18538,11 @@ public:
 };
 class QueryPermissionListResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<QueryPermissionListResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<QueryPermissionListResponseBodyData> data{};
 
   QueryPermissionListResponseBody() {}
 
@@ -16011,30 +18554,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -16042,12 +18591,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QueryPermissionListResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -17274,11 +19817,11 @@ public:
 };
 class QueryRelationListResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<QueryRelationListResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<QueryRelationListResponseBodyData> data{};
 
   QueryRelationListResponseBody() {}
 
@@ -17290,30 +19833,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -17321,12 +19870,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QueryRelationListResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -18075,10 +20618,10 @@ public:
 };
 class QuerySavingsPlansDeductLogResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<vector<QuerySavingsPlansDeductLogResponseBodyDataItems>> items{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> totalCount{};
+  shared_ptr<vector<QuerySavingsPlansDeductLogResponseBodyDataItems>> items{};
 
   QuerySavingsPlansDeductLogResponseBodyData() {}
 
@@ -18090,13 +20633,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (items) {
-      vector<boost::any> temp1;
-      for(auto item1:*items){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Items"] = boost::any(temp1);
-    }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
     }
@@ -18106,10 +20642,26 @@ public:
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
     if (m.find("Items") != m.end() && !m["Items"].empty()) {
       if (typeid(vector<boost::any>) == m["Items"].type()) {
         vector<QuerySavingsPlansDeductLogResponseBodyDataItems> expect1;
@@ -18123,15 +20675,6 @@ public:
         items = make_shared<vector<QuerySavingsPlansDeductLogResponseBodyDataItems>>(expect1);
       }
     }
-    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
-      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
-    }
   }
 
 
@@ -18139,11 +20682,11 @@ public:
 };
 class QuerySavingsPlansDeductLogResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<QuerySavingsPlansDeductLogResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<QuerySavingsPlansDeductLogResponseBodyData> data{};
 
   QuerySavingsPlansDeductLogResponseBody() {}
 
@@ -18155,30 +20698,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -18186,12 +20735,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QuerySavingsPlansDeductLogResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -18411,19 +20954,19 @@ class QuerySavingsPlansInstanceResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<string> status{};
   shared_ptr<string> savingsType{};
-  shared_ptr<vector<QuerySavingsPlansInstanceResponseBodyDataItemsTags>> tags{};
-  shared_ptr<string> prepayFee{};
   shared_ptr<string> utilization{};
+  shared_ptr<string> prepayFee{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> currency{};
   shared_ptr<string> endTime{};
   shared_ptr<string> startTime{};
-  shared_ptr<string> instanceFamily{};
   shared_ptr<string> allocationStatus{};
+  shared_ptr<string> instanceFamily{};
   shared_ptr<string> region{};
   shared_ptr<string> totalSave{};
   shared_ptr<string> poolValue{};
   shared_ptr<string> payMode{};
+  shared_ptr<vector<QuerySavingsPlansInstanceResponseBodyDataItemsTags>> tags{};
 
   QuerySavingsPlansInstanceResponseBodyDataItems() {}
 
@@ -18441,18 +20984,11 @@ public:
     if (savingsType) {
       res["SavingsType"] = boost::any(*savingsType);
     }
-    if (tags) {
-      vector<boost::any> temp1;
-      for(auto item1:*tags){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tags"] = boost::any(temp1);
+    if (utilization) {
+      res["Utilization"] = boost::any(*utilization);
     }
     if (prepayFee) {
       res["PrepayFee"] = boost::any(*prepayFee);
-    }
-    if (utilization) {
-      res["Utilization"] = boost::any(*utilization);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -18466,11 +21002,11 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
-    if (instanceFamily) {
-      res["InstanceFamily"] = boost::any(*instanceFamily);
-    }
     if (allocationStatus) {
       res["AllocationStatus"] = boost::any(*allocationStatus);
+    }
+    if (instanceFamily) {
+      res["InstanceFamily"] = boost::any(*instanceFamily);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -18484,6 +21020,13 @@ public:
     if (payMode) {
       res["PayMode"] = boost::any(*payMode);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -18493,6 +21036,42 @@ public:
     }
     if (m.find("SavingsType") != m.end() && !m["SavingsType"].empty()) {
       savingsType = make_shared<string>(boost::any_cast<string>(m["SavingsType"]));
+    }
+    if (m.find("Utilization") != m.end() && !m["Utilization"].empty()) {
+      utilization = make_shared<string>(boost::any_cast<string>(m["Utilization"]));
+    }
+    if (m.find("PrepayFee") != m.end() && !m["PrepayFee"].empty()) {
+      prepayFee = make_shared<string>(boost::any_cast<string>(m["PrepayFee"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("AllocationStatus") != m.end() && !m["AllocationStatus"].empty()) {
+      allocationStatus = make_shared<string>(boost::any_cast<string>(m["AllocationStatus"]));
+    }
+    if (m.find("InstanceFamily") != m.end() && !m["InstanceFamily"].empty()) {
+      instanceFamily = make_shared<string>(boost::any_cast<string>(m["InstanceFamily"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("TotalSave") != m.end() && !m["TotalSave"].empty()) {
+      totalSave = make_shared<string>(boost::any_cast<string>(m["TotalSave"]));
+    }
+    if (m.find("PoolValue") != m.end() && !m["PoolValue"].empty()) {
+      poolValue = make_shared<string>(boost::any_cast<string>(m["PoolValue"]));
+    }
+    if (m.find("PayMode") != m.end() && !m["PayMode"].empty()) {
+      payMode = make_shared<string>(boost::any_cast<string>(m["PayMode"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -18507,42 +21086,6 @@ public:
         tags = make_shared<vector<QuerySavingsPlansInstanceResponseBodyDataItemsTags>>(expect1);
       }
     }
-    if (m.find("PrepayFee") != m.end() && !m["PrepayFee"].empty()) {
-      prepayFee = make_shared<string>(boost::any_cast<string>(m["PrepayFee"]));
-    }
-    if (m.find("Utilization") != m.end() && !m["Utilization"].empty()) {
-      utilization = make_shared<string>(boost::any_cast<string>(m["Utilization"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
-      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
-    }
-    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
-    }
-    if (m.find("InstanceFamily") != m.end() && !m["InstanceFamily"].empty()) {
-      instanceFamily = make_shared<string>(boost::any_cast<string>(m["InstanceFamily"]));
-    }
-    if (m.find("AllocationStatus") != m.end() && !m["AllocationStatus"].empty()) {
-      allocationStatus = make_shared<string>(boost::any_cast<string>(m["AllocationStatus"]));
-    }
-    if (m.find("Region") != m.end() && !m["Region"].empty()) {
-      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
-    }
-    if (m.find("TotalSave") != m.end() && !m["TotalSave"].empty()) {
-      totalSave = make_shared<string>(boost::any_cast<string>(m["TotalSave"]));
-    }
-    if (m.find("PoolValue") != m.end() && !m["PoolValue"].empty()) {
-      poolValue = make_shared<string>(boost::any_cast<string>(m["PoolValue"]));
-    }
-    if (m.find("PayMode") != m.end() && !m["PayMode"].empty()) {
-      payMode = make_shared<string>(boost::any_cast<string>(m["PayMode"]));
-    }
   }
 
 
@@ -18550,10 +21093,10 @@ public:
 };
 class QuerySavingsPlansInstanceResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<vector<QuerySavingsPlansInstanceResponseBodyDataItems>> items{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> totalCount{};
+  shared_ptr<vector<QuerySavingsPlansInstanceResponseBodyDataItems>> items{};
 
   QuerySavingsPlansInstanceResponseBodyData() {}
 
@@ -18565,13 +21108,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (items) {
-      vector<boost::any> temp1;
-      for(auto item1:*items){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Items"] = boost::any(temp1);
-    }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
     }
@@ -18581,10 +21117,26 @@ public:
     if (totalCount) {
       res["TotalCount"] = boost::any(*totalCount);
     }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
     if (m.find("Items") != m.end() && !m["Items"].empty()) {
       if (typeid(vector<boost::any>) == m["Items"].type()) {
         vector<QuerySavingsPlansInstanceResponseBodyDataItems> expect1;
@@ -18598,15 +21150,6 @@ public:
         items = make_shared<vector<QuerySavingsPlansInstanceResponseBodyDataItems>>(expect1);
       }
     }
-    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
-      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
-    }
   }
 
 
@@ -18614,11 +21157,11 @@ public:
 };
 class QuerySavingsPlansInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<QuerySavingsPlansInstanceResponseBodyData> data{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
+  shared_ptr<QuerySavingsPlansInstanceResponseBodyData> data{};
 
   QuerySavingsPlansInstanceResponseBody() {}
 
@@ -18630,30 +21173,36 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -18661,12 +21210,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<QuerySavingsPlansInstanceResponseBodyData>(model1);
       }
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -20776,6 +23319,198 @@ public:
 
   virtual ~QueryUserOmsDataResponse() = default;
 };
+class RelieveAccountRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> relationType{};
+  shared_ptr<long> parentUserId{};
+  shared_ptr<long> childUserId{};
+  shared_ptr<string> requestId{};
+
+  RelieveAccountRelationRequest() {}
+
+  explicit RelieveAccountRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (relationType) {
+      res["RelationType"] = boost::any(*relationType);
+    }
+    if (parentUserId) {
+      res["ParentUserId"] = boost::any(*parentUserId);
+    }
+    if (childUserId) {
+      res["ChildUserId"] = boost::any(*childUserId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RelationType") != m.end() && !m["RelationType"].empty()) {
+      relationType = make_shared<string>(boost::any_cast<string>(m["RelationType"]));
+    }
+    if (m.find("ParentUserId") != m.end() && !m["ParentUserId"].empty()) {
+      parentUserId = make_shared<long>(boost::any_cast<long>(m["ParentUserId"]));
+    }
+    if (m.find("ChildUserId") != m.end() && !m["ChildUserId"].empty()) {
+      childUserId = make_shared<long>(boost::any_cast<long>(m["ChildUserId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RelieveAccountRelationRequest() = default;
+};
+class RelieveAccountRelationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> hostId{};
+
+  RelieveAccountRelationResponseBodyData() {}
+
+  explicit RelieveAccountRelationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hostId) {
+      res["HostId"] = boost::any(*hostId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HostId") != m.end() && !m["HostId"].empty()) {
+      hostId = make_shared<string>(boost::any_cast<string>(m["HostId"]));
+    }
+  }
+
+
+  virtual ~RelieveAccountRelationResponseBodyData() = default;
+};
+class RelieveAccountRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<RelieveAccountRelationResponseBodyData> data{};
+
+  RelieveAccountRelationResponseBody() {}
+
+  explicit RelieveAccountRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RelieveAccountRelationResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RelieveAccountRelationResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RelieveAccountRelationResponseBody() = default;
+};
+class RelieveAccountRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RelieveAccountRelationResponseBody> body{};
+
+  RelieveAccountRelationResponse() {}
+
+  explicit RelieveAccountRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RelieveAccountRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RelieveAccountRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RelieveAccountRelationResponse() = default;
+};
 class RenewInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> productCode{};
@@ -21275,9 +24010,9 @@ public:
 };
 class SaveUserCreditResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> code{};
   shared_ptr<bool> success{};
 
   SaveUserCreditResponseBody() {}
@@ -21290,14 +24025,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
     }
     if (success) {
       res["Success"] = boost::any(*success);
@@ -21306,14 +24041,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
@@ -21518,10 +24253,10 @@ public:
 };
 class SetCreditLabelActionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> data{};
   shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   SetCreditLabelActionResponseBody() {}
@@ -21534,17 +24269,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
     }
     if (data) {
       res["Data"] = boost::any(*data);
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     if (success) {
       res["Success"] = boost::any(*success);
@@ -21553,17 +24288,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
     }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
@@ -22522,10 +25257,10 @@ public:
 };
 class TagResourcesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> data{};
   shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   TagResourcesResponseBody() {}
@@ -22538,17 +25273,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
     }
     if (data) {
       res["Data"] = boost::any(*data);
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     if (success) {
       res["Success"] = boost::any(*success);
@@ -22557,17 +25292,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
     }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
@@ -22833,10 +25568,10 @@ public:
 };
 class UntagResourcesResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> data{};
   shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
   UntagResourcesResponseBody() {}
@@ -22849,17 +25584,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
     }
     if (data) {
       res["Data"] = boost::any(*data);
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
     }
     if (success) {
       res["Success"] = boost::any(*success);
@@ -22868,17 +25603,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
     }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
@@ -23156,6 +25891,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddAccountRelationResponse addAccountRelationWithOptions(shared_ptr<AddAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddAccountRelationResponse addAccountRelation(shared_ptr<AddAccountRelationRequest> request);
   AllocateCostUnitResourceResponse allocateCostUnitResourceWithOptions(shared_ptr<AllocateCostUnitResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateCostUnitResourceResponse allocateCostUnitResource(shared_ptr<AllocateCostUnitResourceRequest> request);
   ApplyInvoiceResponse applyInvoiceWithOptions(shared_ptr<ApplyInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23164,6 +25901,8 @@ public:
   CancelOrderResponse cancelOrder(shared_ptr<CancelOrderRequest> request);
   ChangeResellerConsumeAmountResponse changeResellerConsumeAmountWithOptions(shared_ptr<ChangeResellerConsumeAmountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResellerConsumeAmountResponse changeResellerConsumeAmount(shared_ptr<ChangeResellerConsumeAmountRequest> request);
+  ConfirmRelationResponse confirmRelationWithOptions(shared_ptr<ConfirmRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConfirmRelationResponse confirmRelation(shared_ptr<ConfirmRelationRequest> request);
   ConvertChargeTypeResponse convertChargeTypeWithOptions(shared_ptr<ConvertChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConvertChargeTypeResponse convertChargeType(shared_ptr<ConvertChargeTypeRequest> request);
   CreateAgAccountResponse createAgAccountWithOptions(shared_ptr<CreateAgAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23180,8 +25919,16 @@ public:
   DeleteCostUnitResponse deleteCostUnit(shared_ptr<DeleteCostUnitRequest> request);
   DescribeInstanceBillResponse describeInstanceBillWithOptions(shared_ptr<DescribeInstanceBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceBillResponse describeInstanceBill(shared_ptr<DescribeInstanceBillRequest> request);
+  DescribeResourceCoverageDetailResponse describeResourceCoverageDetailWithOptions(shared_ptr<DescribeResourceCoverageDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourceCoverageDetailResponse describeResourceCoverageDetail(shared_ptr<DescribeResourceCoverageDetailRequest> request);
+  DescribeResourceCoverageTotalResponse describeResourceCoverageTotalWithOptions(shared_ptr<DescribeResourceCoverageTotalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourceCoverageTotalResponse describeResourceCoverageTotal(shared_ptr<DescribeResourceCoverageTotalRequest> request);
   DescribeResourcePackageProductResponse describeResourcePackageProductWithOptions(shared_ptr<DescribeResourcePackageProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeResourcePackageProductResponse describeResourcePackageProduct(shared_ptr<DescribeResourcePackageProductRequest> request);
+  DescribeResourceUsageDetailResponse describeResourceUsageDetailWithOptions(shared_ptr<DescribeResourceUsageDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourceUsageDetailResponse describeResourceUsageDetail(shared_ptr<DescribeResourceUsageDetailRequest> request);
+  DescribeResourceUsageTotalResponse describeResourceUsageTotalWithOptions(shared_ptr<DescribeResourceUsageTotalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeResourceUsageTotalResponse describeResourceUsageTotal(shared_ptr<DescribeResourceUsageTotalRequest> request);
   DescribeSplitItemBillResponse describeSplitItemBillWithOptions(shared_ptr<DescribeSplitItemBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSplitItemBillResponse describeSplitItemBill(shared_ptr<DescribeSplitItemBillRequest> request);
   EnableBillGenerationResponse enableBillGenerationWithOptions(shared_ptr<EnableBillGenerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23198,6 +25945,8 @@ public:
   GetResourcePackagePriceResponse getResourcePackagePrice(shared_ptr<GetResourcePackagePriceRequest> request);
   GetSubscriptionPriceResponse getSubscriptionPriceWithOptions(shared_ptr<GetSubscriptionPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSubscriptionPriceResponse getSubscriptionPrice(shared_ptr<GetSubscriptionPriceRequest> request);
+  ModifyAccountRelationResponse modifyAccountRelationWithOptions(shared_ptr<ModifyAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAccountRelationResponse modifyAccountRelation(shared_ptr<ModifyAccountRelationRequest> request);
   ModifyCostUnitResponse modifyCostUnitWithOptions(shared_ptr<ModifyCostUnitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCostUnitResponse modifyCostUnit(shared_ptr<ModifyCostUnitRequest> request);
   ModifyInstanceResponse modifyInstanceWithOptions(shared_ptr<ModifyInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23226,6 +25975,8 @@ public:
   QueryCostUnitResourceResponse queryCostUnitResource(shared_ptr<QueryCostUnitResourceRequest> request);
   QueryCustomerAddressListResponse queryCustomerAddressListWithOptions(shared_ptr<QueryCustomerAddressListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryCustomerAddressListResponse queryCustomerAddressList(shared_ptr<QueryCustomerAddressListRequest> request);
+  QueryDPUtilizationDetailResponse queryDPUtilizationDetailWithOptions(shared_ptr<QueryDPUtilizationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryDPUtilizationDetailResponse queryDPUtilizationDetail(shared_ptr<QueryDPUtilizationDetailRequest> request);
   QueryEvaluateListResponse queryEvaluateListWithOptions(shared_ptr<QueryEvaluateListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryEvaluateListResponse queryEvaluateList(shared_ptr<QueryEvaluateListRequest> request);
   QueryFinancialAccountInfoResponse queryFinancialAccountInfoWithOptions(shared_ptr<QueryFinancialAccountInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23270,6 +26021,8 @@ public:
   QuerySplitItemBillResponse querySplitItemBill(shared_ptr<QuerySplitItemBillRequest> request);
   QueryUserOmsDataResponse queryUserOmsDataWithOptions(shared_ptr<QueryUserOmsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryUserOmsDataResponse queryUserOmsData(shared_ptr<QueryUserOmsDataRequest> request);
+  RelieveAccountRelationResponse relieveAccountRelationWithOptions(shared_ptr<RelieveAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RelieveAccountRelationResponse relieveAccountRelation(shared_ptr<RelieveAccountRelationRequest> request);
   RenewInstanceResponse renewInstanceWithOptions(shared_ptr<RenewInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenewInstanceResponse renewInstance(shared_ptr<RenewInstanceRequest> request);
   RenewResourcePackageResponse renewResourcePackageWithOptions(shared_ptr<RenewResourcePackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

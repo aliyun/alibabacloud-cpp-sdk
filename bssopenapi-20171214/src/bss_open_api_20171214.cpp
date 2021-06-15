@@ -89,10 +89,23 @@ string Alibabacloud_BssOpenApi20171214::Client::getEndpoint(shared_ptr<string> p
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+AddAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::addAccountRelationWithOptions(shared_ptr<AddAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AddAccountRelationResponse(doRPCRequest(make_shared<string>("AddAccountRelation"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AddAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::addAccountRelation(shared_ptr<AddAccountRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addAccountRelationWithOptions(request, runtime);
 }
 
 AllocateCostUnitResourceResponse Alibabacloud_BssOpenApi20171214::Client::allocateCostUnitResourceWithOptions(shared_ptr<AllocateCostUnitResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -145,6 +158,19 @@ ChangeResellerConsumeAmountResponse Alibabacloud_BssOpenApi20171214::Client::cha
 ChangeResellerConsumeAmountResponse Alibabacloud_BssOpenApi20171214::Client::changeResellerConsumeAmount(shared_ptr<ChangeResellerConsumeAmountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return changeResellerConsumeAmountWithOptions(request, runtime);
+}
+
+ConfirmRelationResponse Alibabacloud_BssOpenApi20171214::Client::confirmRelationWithOptions(shared_ptr<ConfirmRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ConfirmRelationResponse(doRPCRequest(make_shared<string>("ConfirmRelation"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ConfirmRelationResponse Alibabacloud_BssOpenApi20171214::Client::confirmRelation(shared_ptr<ConfirmRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return confirmRelationWithOptions(request, runtime);
 }
 
 ConvertChargeTypeResponse Alibabacloud_BssOpenApi20171214::Client::convertChargeTypeWithOptions(shared_ptr<ConvertChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -251,6 +277,32 @@ DescribeInstanceBillResponse Alibabacloud_BssOpenApi20171214::Client::describeIn
   return describeInstanceBillWithOptions(request, runtime);
 }
 
+DescribeResourceCoverageDetailResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceCoverageDetailWithOptions(shared_ptr<DescribeResourceCoverageDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeResourceCoverageDetailResponse(doRPCRequest(make_shared<string>("DescribeResourceCoverageDetail"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeResourceCoverageDetailResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceCoverageDetail(shared_ptr<DescribeResourceCoverageDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceCoverageDetailWithOptions(request, runtime);
+}
+
+DescribeResourceCoverageTotalResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceCoverageTotalWithOptions(shared_ptr<DescribeResourceCoverageTotalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeResourceCoverageTotalResponse(doRPCRequest(make_shared<string>("DescribeResourceCoverageTotal"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeResourceCoverageTotalResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceCoverageTotal(shared_ptr<DescribeResourceCoverageTotalRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceCoverageTotalWithOptions(request, runtime);
+}
+
 DescribeResourcePackageProductResponse Alibabacloud_BssOpenApi20171214::Client::describeResourcePackageProductWithOptions(shared_ptr<DescribeResourcePackageProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -262,6 +314,32 @@ DescribeResourcePackageProductResponse Alibabacloud_BssOpenApi20171214::Client::
 DescribeResourcePackageProductResponse Alibabacloud_BssOpenApi20171214::Client::describeResourcePackageProduct(shared_ptr<DescribeResourcePackageProductRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeResourcePackageProductWithOptions(request, runtime);
+}
+
+DescribeResourceUsageDetailResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceUsageDetailWithOptions(shared_ptr<DescribeResourceUsageDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeResourceUsageDetailResponse(doRPCRequest(make_shared<string>("DescribeResourceUsageDetail"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeResourceUsageDetailResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceUsageDetail(shared_ptr<DescribeResourceUsageDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceUsageDetailWithOptions(request, runtime);
+}
+
+DescribeResourceUsageTotalResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceUsageTotalWithOptions(shared_ptr<DescribeResourceUsageTotalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeResourceUsageTotalResponse(doRPCRequest(make_shared<string>("DescribeResourceUsageTotal"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeResourceUsageTotalResponse Alibabacloud_BssOpenApi20171214::Client::describeResourceUsageTotal(shared_ptr<DescribeResourceUsageTotalRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeResourceUsageTotalWithOptions(request, runtime);
 }
 
 DescribeSplitItemBillResponse Alibabacloud_BssOpenApi20171214::Client::describeSplitItemBillWithOptions(shared_ptr<DescribeSplitItemBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -363,6 +441,19 @@ GetSubscriptionPriceResponse Alibabacloud_BssOpenApi20171214::Client::getSubscri
 GetSubscriptionPriceResponse Alibabacloud_BssOpenApi20171214::Client::getSubscriptionPrice(shared_ptr<GetSubscriptionPriceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getSubscriptionPriceWithOptions(request, runtime);
+}
+
+ModifyAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::modifyAccountRelationWithOptions(shared_ptr<ModifyAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ModifyAccountRelationResponse(doRPCRequest(make_shared<string>("ModifyAccountRelation"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ModifyAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::modifyAccountRelation(shared_ptr<ModifyAccountRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyAccountRelationWithOptions(request, runtime);
 }
 
 ModifyCostUnitResponse Alibabacloud_BssOpenApi20171214::Client::modifyCostUnitWithOptions(shared_ptr<ModifyCostUnitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -539,6 +630,19 @@ QueryCustomerAddressListResponse Alibabacloud_BssOpenApi20171214::Client::queryC
 QueryCustomerAddressListResponse Alibabacloud_BssOpenApi20171214::Client::queryCustomerAddressList(shared_ptr<QueryCustomerAddressListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryCustomerAddressListWithOptions(request, runtime);
+}
+
+QueryDPUtilizationDetailResponse Alibabacloud_BssOpenApi20171214::Client::queryDPUtilizationDetailWithOptions(shared_ptr<QueryDPUtilizationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryDPUtilizationDetailResponse(doRPCRequest(make_shared<string>("QueryDPUtilizationDetail"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryDPUtilizationDetailResponse Alibabacloud_BssOpenApi20171214::Client::queryDPUtilizationDetail(shared_ptr<QueryDPUtilizationDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryDPUtilizationDetailWithOptions(request, runtime);
 }
 
 QueryEvaluateListResponse Alibabacloud_BssOpenApi20171214::Client::queryEvaluateListWithOptions(shared_ptr<QueryEvaluateListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -826,6 +930,19 @@ QueryUserOmsDataResponse Alibabacloud_BssOpenApi20171214::Client::queryUserOmsDa
 QueryUserOmsDataResponse Alibabacloud_BssOpenApi20171214::Client::queryUserOmsData(shared_ptr<QueryUserOmsDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryUserOmsDataWithOptions(request, runtime);
+}
+
+RelieveAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::relieveAccountRelationWithOptions(shared_ptr<RelieveAccountRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return RelieveAccountRelationResponse(doRPCRequest(make_shared<string>("RelieveAccountRelation"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+RelieveAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::relieveAccountRelation(shared_ptr<RelieveAccountRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return relieveAccountRelationWithOptions(request, runtime);
 }
 
 RenewInstanceResponse Alibabacloud_BssOpenApi20171214::Client::renewInstanceWithOptions(shared_ptr<RenewInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
