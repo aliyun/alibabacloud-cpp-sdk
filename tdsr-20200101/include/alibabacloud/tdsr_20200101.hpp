@@ -1658,6 +1658,144 @@ public:
 
   virtual ~OptimizeRightAngleResponse() = default;
 };
+class AddRelativePositionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> relativePosition{};
+
+  AddRelativePositionRequest() {}
+
+  explicit AddRelativePositionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (relativePosition) {
+      res["RelativePosition"] = boost::any(*relativePosition);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("RelativePosition") != m.end() && !m["RelativePosition"].empty()) {
+      relativePosition = make_shared<string>(boost::any_cast<string>(m["RelativePosition"]));
+    }
+  }
+
+
+  virtual ~AddRelativePositionRequest() = default;
+};
+class AddRelativePositionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+
+  AddRelativePositionResponseBody() {}
+
+  explicit AddRelativePositionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~AddRelativePositionResponseBody() = default;
+};
+class AddRelativePositionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddRelativePositionResponseBody> body{};
+
+  AddRelativePositionResponse() {}
+
+  explicit AddRelativePositionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddRelativePositionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddRelativePositionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddRelativePositionResponse() = default;
+};
 class DetailSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -10736,6 +10874,8 @@ public:
   DropSceneResponse dropScene(shared_ptr<DropSceneRequest> request);
   OptimizeRightAngleResponse optimizeRightAngleWithOptions(shared_ptr<OptimizeRightAngleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OptimizeRightAngleResponse optimizeRightAngle(shared_ptr<OptimizeRightAngleRequest> request);
+  AddRelativePositionResponse addRelativePositionWithOptions(shared_ptr<AddRelativePositionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddRelativePositionResponse addRelativePosition(shared_ptr<AddRelativePositionRequest> request);
   DetailSceneResponse detailSceneWithOptions(shared_ptr<DetailSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetailSceneResponse detailScene(shared_ptr<DetailSceneRequest> request);
   CreateSceneResponse createSceneWithOptions(shared_ptr<CreateSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
