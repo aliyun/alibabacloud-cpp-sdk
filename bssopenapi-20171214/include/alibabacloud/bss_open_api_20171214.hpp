@@ -3061,8 +3061,10 @@ public:
   shared_ptr<string> tag{};
   shared_ptr<string> instanceID{};
   shared_ptr<string> currency{};
+  shared_ptr<string> billAccountName{};
   shared_ptr<double> deductedByCashCoupons{};
   shared_ptr<string> subscriptionType{};
+  shared_ptr<string> bizType{};
   shared_ptr<string> instanceSpec{};
   shared_ptr<double> deductedByCoupons{};
   shared_ptr<string> billingItem{};
@@ -3083,6 +3085,7 @@ public:
   shared_ptr<string> ownerID{};
   shared_ptr<double> deductedByPrepaidCard{};
   shared_ptr<string> usageUnit{};
+  shared_ptr<string> billAccountID{};
   shared_ptr<double> paymentAmount{};
   shared_ptr<double> invoiceDiscount{};
   shared_ptr<string> deductedByResourcePackage{};
@@ -3125,11 +3128,17 @@ public:
     if (currency) {
       res["Currency"] = boost::any(*currency);
     }
+    if (billAccountName) {
+      res["BillAccountName"] = boost::any(*billAccountName);
+    }
     if (deductedByCashCoupons) {
       res["DeductedByCashCoupons"] = boost::any(*deductedByCashCoupons);
     }
     if (subscriptionType) {
       res["SubscriptionType"] = boost::any(*subscriptionType);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
     }
     if (instanceSpec) {
       res["InstanceSpec"] = boost::any(*instanceSpec);
@@ -3191,6 +3200,9 @@ public:
     if (usageUnit) {
       res["UsageUnit"] = boost::any(*usageUnit);
     }
+    if (billAccountID) {
+      res["BillAccountID"] = boost::any(*billAccountID);
+    }
     if (paymentAmount) {
       res["PaymentAmount"] = boost::any(*paymentAmount);
     }
@@ -3246,11 +3258,17 @@ public:
     if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
       currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
     }
+    if (m.find("BillAccountName") != m.end() && !m["BillAccountName"].empty()) {
+      billAccountName = make_shared<string>(boost::any_cast<string>(m["BillAccountName"]));
+    }
     if (m.find("DeductedByCashCoupons") != m.end() && !m["DeductedByCashCoupons"].empty()) {
       deductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedByCashCoupons"]));
     }
     if (m.find("SubscriptionType") != m.end() && !m["SubscriptionType"].empty()) {
       subscriptionType = make_shared<string>(boost::any_cast<string>(m["SubscriptionType"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
     }
     if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
       instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
@@ -3311,6 +3329,9 @@ public:
     }
     if (m.find("UsageUnit") != m.end() && !m["UsageUnit"].empty()) {
       usageUnit = make_shared<string>(boost::any_cast<string>(m["UsageUnit"]));
+    }
+    if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
+      billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
     }
     if (m.find("PaymentAmount") != m.end() && !m["PaymentAmount"].empty()) {
       paymentAmount = make_shared<double>(boost::any_cast<double>(m["PaymentAmount"]));
@@ -5703,6 +5724,8 @@ public:
   shared_ptr<long> billOwnerId{};
   shared_ptr<string> instanceID{};
   shared_ptr<string> splitItemID{};
+  shared_ptr<string> granularity{};
+  shared_ptr<string> billingDate{};
   shared_ptr<vector<DescribeSplitItemBillRequestTagFilter>> tagFilter{};
 
   DescribeSplitItemBillRequest() {}
@@ -5745,6 +5768,12 @@ public:
     if (splitItemID) {
       res["SplitItemID"] = boost::any(*splitItemID);
     }
+    if (granularity) {
+      res["Granularity"] = boost::any(*granularity);
+    }
+    if (billingDate) {
+      res["BillingDate"] = boost::any(*billingDate);
+    }
     if (tagFilter) {
       vector<boost::any> temp1;
       for(auto item1:*tagFilter){
@@ -5786,6 +5815,12 @@ public:
     if (m.find("SplitItemID") != m.end() && !m["SplitItemID"].empty()) {
       splitItemID = make_shared<string>(boost::any_cast<string>(m["SplitItemID"]));
     }
+    if (m.find("Granularity") != m.end() && !m["Granularity"].empty()) {
+      granularity = make_shared<string>(boost::any_cast<string>(m["Granularity"]));
+    }
+    if (m.find("BillingDate") != m.end() && !m["BillingDate"].empty()) {
+      billingDate = make_shared<string>(boost::any_cast<string>(m["BillingDate"]));
+    }
     if (m.find("TagFilter") != m.end() && !m["TagFilter"].empty()) {
       if (typeid(vector<boost::any>) == m["TagFilter"].type()) {
         vector<DescribeSplitItemBillRequestTagFilter> expect1;
@@ -5806,52 +5841,56 @@ public:
 };
 class DescribeSplitItemBillResponseBodyDataItems : public Darabonba::Model {
 public:
-  shared_ptr<string> billingDate{};
-  shared_ptr<string> instanceConfig{};
-  shared_ptr<string> internetIP{};
-  shared_ptr<string> splitItemID{};
-  shared_ptr<string> item{};
   shared_ptr<string> splitAccountID{};
-  shared_ptr<string> tag{};
-  shared_ptr<string> instanceID{};
-  shared_ptr<string> currency{};
-  shared_ptr<double> deductedByCashCoupons{};
+  shared_ptr<string> billAccountName{};
   shared_ptr<string> subscriptionType{};
   shared_ptr<string> instanceSpec{};
   shared_ptr<double> deductedByCoupons{};
-  shared_ptr<string> billingItem{};
   shared_ptr<string> region{};
   shared_ptr<double> outstandingAmount{};
-  shared_ptr<string> costUnit{};
-  shared_ptr<string> listPriceUnit{};
-  shared_ptr<string> resourceGroup{};
   shared_ptr<string> pipCode{};
-  shared_ptr<string> servicePeriodUnit{};
-  shared_ptr<double> pretaxAmount{};
   shared_ptr<string> commodityCode{};
-  shared_ptr<string> productName{};
-  shared_ptr<string> splitProductDetail{};
   shared_ptr<string> nickName{};
   shared_ptr<string> productDetail{};
   shared_ptr<string> usage{};
   shared_ptr<string> intranetIP{};
-  shared_ptr<string> ownerID{};
-  shared_ptr<string> splitCommodityCode{};
-  shared_ptr<double> deductedByPrepaidCard{};
   shared_ptr<string> usageUnit{};
-  shared_ptr<double> paymentAmount{};
-  shared_ptr<double> invoiceDiscount{};
-  shared_ptr<string> deductedByResourcePackage{};
+  shared_ptr<string> splitCommodityCode{};
+  shared_ptr<string> billAccountID{};
   shared_ptr<string> productType{};
+  shared_ptr<string> deductedByResourcePackage{};
+  shared_ptr<double> paymentAmount{};
   shared_ptr<string> splitBillingCycle{};
   shared_ptr<string> servicePeriod{};
   shared_ptr<string> splitItemName{};
-  shared_ptr<string> zone{};
   shared_ptr<string> listPrice{};
+  shared_ptr<string> zone{};
   shared_ptr<double> pretaxGrossAmount{};
+  shared_ptr<string> instanceConfig{};
+  shared_ptr<string> billingDate{};
+  shared_ptr<string> internetIP{};
+  shared_ptr<string> item{};
+  shared_ptr<string> splitItemID{};
+  shared_ptr<string> instanceID{};
+  shared_ptr<string> tag{};
+  shared_ptr<string> currency{};
+  shared_ptr<double> deductedByCashCoupons{};
+  shared_ptr<string> bizType{};
+  shared_ptr<string> billingItem{};
+  shared_ptr<string> costUnit{};
+  shared_ptr<string> listPriceUnit{};
+  shared_ptr<string> resourceGroup{};
+  shared_ptr<double> pretaxAmount{};
+  shared_ptr<string> servicePeriodUnit{};
+  shared_ptr<string> splitBillingDate{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> splitProductDetail{};
+  shared_ptr<string> ownerID{};
+  shared_ptr<double> deductedByPrepaidCard{};
+  shared_ptr<double> invoiceDiscount{};
   shared_ptr<string> splitAccountName{};
-  shared_ptr<string> productCode{};
   shared_ptr<string> billingType{};
+  shared_ptr<string> productCode{};
 
   DescribeSplitItemBillResponseBodyDataItems() {}
 
@@ -5863,35 +5902,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (billingDate) {
-      res["BillingDate"] = boost::any(*billingDate);
-    }
-    if (instanceConfig) {
-      res["InstanceConfig"] = boost::any(*instanceConfig);
-    }
-    if (internetIP) {
-      res["InternetIP"] = boost::any(*internetIP);
-    }
-    if (splitItemID) {
-      res["SplitItemID"] = boost::any(*splitItemID);
-    }
-    if (item) {
-      res["Item"] = boost::any(*item);
-    }
     if (splitAccountID) {
       res["SplitAccountID"] = boost::any(*splitAccountID);
     }
-    if (tag) {
-      res["Tag"] = boost::any(*tag);
-    }
-    if (instanceID) {
-      res["InstanceID"] = boost::any(*instanceID);
-    }
-    if (currency) {
-      res["Currency"] = boost::any(*currency);
-    }
-    if (deductedByCashCoupons) {
-      res["DeductedByCashCoupons"] = boost::any(*deductedByCashCoupons);
+    if (billAccountName) {
+      res["BillAccountName"] = boost::any(*billAccountName);
     }
     if (subscriptionType) {
       res["SubscriptionType"] = boost::any(*subscriptionType);
@@ -5902,41 +5917,17 @@ public:
     if (deductedByCoupons) {
       res["DeductedByCoupons"] = boost::any(*deductedByCoupons);
     }
-    if (billingItem) {
-      res["BillingItem"] = boost::any(*billingItem);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
     if (outstandingAmount) {
       res["OutstandingAmount"] = boost::any(*outstandingAmount);
     }
-    if (costUnit) {
-      res["CostUnit"] = boost::any(*costUnit);
-    }
-    if (listPriceUnit) {
-      res["ListPriceUnit"] = boost::any(*listPriceUnit);
-    }
-    if (resourceGroup) {
-      res["ResourceGroup"] = boost::any(*resourceGroup);
-    }
     if (pipCode) {
       res["PipCode"] = boost::any(*pipCode);
     }
-    if (servicePeriodUnit) {
-      res["ServicePeriodUnit"] = boost::any(*servicePeriodUnit);
-    }
-    if (pretaxAmount) {
-      res["PretaxAmount"] = boost::any(*pretaxAmount);
-    }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
-    }
-    if (productName) {
-      res["ProductName"] = boost::any(*productName);
-    }
-    if (splitProductDetail) {
-      res["SplitProductDetail"] = boost::any(*splitProductDetail);
     }
     if (nickName) {
       res["NickName"] = boost::any(*nickName);
@@ -5950,29 +5941,23 @@ public:
     if (intranetIP) {
       res["IntranetIP"] = boost::any(*intranetIP);
     }
-    if (ownerID) {
-      res["OwnerID"] = boost::any(*ownerID);
+    if (usageUnit) {
+      res["UsageUnit"] = boost::any(*usageUnit);
     }
     if (splitCommodityCode) {
       res["SplitCommodityCode"] = boost::any(*splitCommodityCode);
     }
-    if (deductedByPrepaidCard) {
-      res["DeductedByPrepaidCard"] = boost::any(*deductedByPrepaidCard);
+    if (billAccountID) {
+      res["BillAccountID"] = boost::any(*billAccountID);
     }
-    if (usageUnit) {
-      res["UsageUnit"] = boost::any(*usageUnit);
-    }
-    if (paymentAmount) {
-      res["PaymentAmount"] = boost::any(*paymentAmount);
-    }
-    if (invoiceDiscount) {
-      res["InvoiceDiscount"] = boost::any(*invoiceDiscount);
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
     }
     if (deductedByResourcePackage) {
       res["DeductedByResourcePackage"] = boost::any(*deductedByResourcePackage);
     }
-    if (productType) {
-      res["ProductType"] = boost::any(*productType);
+    if (paymentAmount) {
+      res["PaymentAmount"] = boost::any(*paymentAmount);
     }
     if (splitBillingCycle) {
       res["SplitBillingCycle"] = boost::any(*splitBillingCycle);
@@ -5983,57 +5968,99 @@ public:
     if (splitItemName) {
       res["SplitItemName"] = boost::any(*splitItemName);
     }
-    if (zone) {
-      res["Zone"] = boost::any(*zone);
-    }
     if (listPrice) {
       res["ListPrice"] = boost::any(*listPrice);
+    }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
     }
     if (pretaxGrossAmount) {
       res["PretaxGrossAmount"] = boost::any(*pretaxGrossAmount);
     }
+    if (instanceConfig) {
+      res["InstanceConfig"] = boost::any(*instanceConfig);
+    }
+    if (billingDate) {
+      res["BillingDate"] = boost::any(*billingDate);
+    }
+    if (internetIP) {
+      res["InternetIP"] = boost::any(*internetIP);
+    }
+    if (item) {
+      res["Item"] = boost::any(*item);
+    }
+    if (splitItemID) {
+      res["SplitItemID"] = boost::any(*splitItemID);
+    }
+    if (instanceID) {
+      res["InstanceID"] = boost::any(*instanceID);
+    }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (deductedByCashCoupons) {
+      res["DeductedByCashCoupons"] = boost::any(*deductedByCashCoupons);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (billingItem) {
+      res["BillingItem"] = boost::any(*billingItem);
+    }
+    if (costUnit) {
+      res["CostUnit"] = boost::any(*costUnit);
+    }
+    if (listPriceUnit) {
+      res["ListPriceUnit"] = boost::any(*listPriceUnit);
+    }
+    if (resourceGroup) {
+      res["ResourceGroup"] = boost::any(*resourceGroup);
+    }
+    if (pretaxAmount) {
+      res["PretaxAmount"] = boost::any(*pretaxAmount);
+    }
+    if (servicePeriodUnit) {
+      res["ServicePeriodUnit"] = boost::any(*servicePeriodUnit);
+    }
+    if (splitBillingDate) {
+      res["SplitBillingDate"] = boost::any(*splitBillingDate);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (splitProductDetail) {
+      res["SplitProductDetail"] = boost::any(*splitProductDetail);
+    }
+    if (ownerID) {
+      res["OwnerID"] = boost::any(*ownerID);
+    }
+    if (deductedByPrepaidCard) {
+      res["DeductedByPrepaidCard"] = boost::any(*deductedByPrepaidCard);
+    }
+    if (invoiceDiscount) {
+      res["InvoiceDiscount"] = boost::any(*invoiceDiscount);
+    }
     if (splitAccountName) {
       res["SplitAccountName"] = boost::any(*splitAccountName);
     }
-    if (productCode) {
-      res["ProductCode"] = boost::any(*productCode);
-    }
     if (billingType) {
       res["BillingType"] = boost::any(*billingType);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("BillingDate") != m.end() && !m["BillingDate"].empty()) {
-      billingDate = make_shared<string>(boost::any_cast<string>(m["BillingDate"]));
-    }
-    if (m.find("InstanceConfig") != m.end() && !m["InstanceConfig"].empty()) {
-      instanceConfig = make_shared<string>(boost::any_cast<string>(m["InstanceConfig"]));
-    }
-    if (m.find("InternetIP") != m.end() && !m["InternetIP"].empty()) {
-      internetIP = make_shared<string>(boost::any_cast<string>(m["InternetIP"]));
-    }
-    if (m.find("SplitItemID") != m.end() && !m["SplitItemID"].empty()) {
-      splitItemID = make_shared<string>(boost::any_cast<string>(m["SplitItemID"]));
-    }
-    if (m.find("Item") != m.end() && !m["Item"].empty()) {
-      item = make_shared<string>(boost::any_cast<string>(m["Item"]));
-    }
     if (m.find("SplitAccountID") != m.end() && !m["SplitAccountID"].empty()) {
       splitAccountID = make_shared<string>(boost::any_cast<string>(m["SplitAccountID"]));
     }
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
-    }
-    if (m.find("InstanceID") != m.end() && !m["InstanceID"].empty()) {
-      instanceID = make_shared<string>(boost::any_cast<string>(m["InstanceID"]));
-    }
-    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
-      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
-    }
-    if (m.find("DeductedByCashCoupons") != m.end() && !m["DeductedByCashCoupons"].empty()) {
-      deductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedByCashCoupons"]));
+    if (m.find("BillAccountName") != m.end() && !m["BillAccountName"].empty()) {
+      billAccountName = make_shared<string>(boost::any_cast<string>(m["BillAccountName"]));
     }
     if (m.find("SubscriptionType") != m.end() && !m["SubscriptionType"].empty()) {
       subscriptionType = make_shared<string>(boost::any_cast<string>(m["SubscriptionType"]));
@@ -6044,41 +6071,17 @@ public:
     if (m.find("DeductedByCoupons") != m.end() && !m["DeductedByCoupons"].empty()) {
       deductedByCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedByCoupons"]));
     }
-    if (m.find("BillingItem") != m.end() && !m["BillingItem"].empty()) {
-      billingItem = make_shared<string>(boost::any_cast<string>(m["BillingItem"]));
-    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("OutstandingAmount") != m.end() && !m["OutstandingAmount"].empty()) {
       outstandingAmount = make_shared<double>(boost::any_cast<double>(m["OutstandingAmount"]));
     }
-    if (m.find("CostUnit") != m.end() && !m["CostUnit"].empty()) {
-      costUnit = make_shared<string>(boost::any_cast<string>(m["CostUnit"]));
-    }
-    if (m.find("ListPriceUnit") != m.end() && !m["ListPriceUnit"].empty()) {
-      listPriceUnit = make_shared<string>(boost::any_cast<string>(m["ListPriceUnit"]));
-    }
-    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
-      resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
-    }
     if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
       pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
     }
-    if (m.find("ServicePeriodUnit") != m.end() && !m["ServicePeriodUnit"].empty()) {
-      servicePeriodUnit = make_shared<string>(boost::any_cast<string>(m["ServicePeriodUnit"]));
-    }
-    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
-      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
-    }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
-    }
-    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
-      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
-    }
-    if (m.find("SplitProductDetail") != m.end() && !m["SplitProductDetail"].empty()) {
-      splitProductDetail = make_shared<string>(boost::any_cast<string>(m["SplitProductDetail"]));
     }
     if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
       nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
@@ -6092,29 +6095,23 @@ public:
     if (m.find("IntranetIP") != m.end() && !m["IntranetIP"].empty()) {
       intranetIP = make_shared<string>(boost::any_cast<string>(m["IntranetIP"]));
     }
-    if (m.find("OwnerID") != m.end() && !m["OwnerID"].empty()) {
-      ownerID = make_shared<string>(boost::any_cast<string>(m["OwnerID"]));
+    if (m.find("UsageUnit") != m.end() && !m["UsageUnit"].empty()) {
+      usageUnit = make_shared<string>(boost::any_cast<string>(m["UsageUnit"]));
     }
     if (m.find("SplitCommodityCode") != m.end() && !m["SplitCommodityCode"].empty()) {
       splitCommodityCode = make_shared<string>(boost::any_cast<string>(m["SplitCommodityCode"]));
     }
-    if (m.find("DeductedByPrepaidCard") != m.end() && !m["DeductedByPrepaidCard"].empty()) {
-      deductedByPrepaidCard = make_shared<double>(boost::any_cast<double>(m["DeductedByPrepaidCard"]));
+    if (m.find("BillAccountID") != m.end() && !m["BillAccountID"].empty()) {
+      billAccountID = make_shared<string>(boost::any_cast<string>(m["BillAccountID"]));
     }
-    if (m.find("UsageUnit") != m.end() && !m["UsageUnit"].empty()) {
-      usageUnit = make_shared<string>(boost::any_cast<string>(m["UsageUnit"]));
-    }
-    if (m.find("PaymentAmount") != m.end() && !m["PaymentAmount"].empty()) {
-      paymentAmount = make_shared<double>(boost::any_cast<double>(m["PaymentAmount"]));
-    }
-    if (m.find("InvoiceDiscount") != m.end() && !m["InvoiceDiscount"].empty()) {
-      invoiceDiscount = make_shared<double>(boost::any_cast<double>(m["InvoiceDiscount"]));
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
     }
     if (m.find("DeductedByResourcePackage") != m.end() && !m["DeductedByResourcePackage"].empty()) {
       deductedByResourcePackage = make_shared<string>(boost::any_cast<string>(m["DeductedByResourcePackage"]));
     }
-    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
-      productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    if (m.find("PaymentAmount") != m.end() && !m["PaymentAmount"].empty()) {
+      paymentAmount = make_shared<double>(boost::any_cast<double>(m["PaymentAmount"]));
     }
     if (m.find("SplitBillingCycle") != m.end() && !m["SplitBillingCycle"].empty()) {
       splitBillingCycle = make_shared<string>(boost::any_cast<string>(m["SplitBillingCycle"]));
@@ -6125,23 +6122,89 @@ public:
     if (m.find("SplitItemName") != m.end() && !m["SplitItemName"].empty()) {
       splitItemName = make_shared<string>(boost::any_cast<string>(m["SplitItemName"]));
     }
-    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
-      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
-    }
     if (m.find("ListPrice") != m.end() && !m["ListPrice"].empty()) {
       listPrice = make_shared<string>(boost::any_cast<string>(m["ListPrice"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
     }
     if (m.find("PretaxGrossAmount") != m.end() && !m["PretaxGrossAmount"].empty()) {
       pretaxGrossAmount = make_shared<double>(boost::any_cast<double>(m["PretaxGrossAmount"]));
     }
+    if (m.find("InstanceConfig") != m.end() && !m["InstanceConfig"].empty()) {
+      instanceConfig = make_shared<string>(boost::any_cast<string>(m["InstanceConfig"]));
+    }
+    if (m.find("BillingDate") != m.end() && !m["BillingDate"].empty()) {
+      billingDate = make_shared<string>(boost::any_cast<string>(m["BillingDate"]));
+    }
+    if (m.find("InternetIP") != m.end() && !m["InternetIP"].empty()) {
+      internetIP = make_shared<string>(boost::any_cast<string>(m["InternetIP"]));
+    }
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      item = make_shared<string>(boost::any_cast<string>(m["Item"]));
+    }
+    if (m.find("SplitItemID") != m.end() && !m["SplitItemID"].empty()) {
+      splitItemID = make_shared<string>(boost::any_cast<string>(m["SplitItemID"]));
+    }
+    if (m.find("InstanceID") != m.end() && !m["InstanceID"].empty()) {
+      instanceID = make_shared<string>(boost::any_cast<string>(m["InstanceID"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("DeductedByCashCoupons") != m.end() && !m["DeductedByCashCoupons"].empty()) {
+      deductedByCashCoupons = make_shared<double>(boost::any_cast<double>(m["DeductedByCashCoupons"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("BillingItem") != m.end() && !m["BillingItem"].empty()) {
+      billingItem = make_shared<string>(boost::any_cast<string>(m["BillingItem"]));
+    }
+    if (m.find("CostUnit") != m.end() && !m["CostUnit"].empty()) {
+      costUnit = make_shared<string>(boost::any_cast<string>(m["CostUnit"]));
+    }
+    if (m.find("ListPriceUnit") != m.end() && !m["ListPriceUnit"].empty()) {
+      listPriceUnit = make_shared<string>(boost::any_cast<string>(m["ListPriceUnit"]));
+    }
+    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
+      resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
+    }
+    if (m.find("PretaxAmount") != m.end() && !m["PretaxAmount"].empty()) {
+      pretaxAmount = make_shared<double>(boost::any_cast<double>(m["PretaxAmount"]));
+    }
+    if (m.find("ServicePeriodUnit") != m.end() && !m["ServicePeriodUnit"].empty()) {
+      servicePeriodUnit = make_shared<string>(boost::any_cast<string>(m["ServicePeriodUnit"]));
+    }
+    if (m.find("SplitBillingDate") != m.end() && !m["SplitBillingDate"].empty()) {
+      splitBillingDate = make_shared<string>(boost::any_cast<string>(m["SplitBillingDate"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("SplitProductDetail") != m.end() && !m["SplitProductDetail"].empty()) {
+      splitProductDetail = make_shared<string>(boost::any_cast<string>(m["SplitProductDetail"]));
+    }
+    if (m.find("OwnerID") != m.end() && !m["OwnerID"].empty()) {
+      ownerID = make_shared<string>(boost::any_cast<string>(m["OwnerID"]));
+    }
+    if (m.find("DeductedByPrepaidCard") != m.end() && !m["DeductedByPrepaidCard"].empty()) {
+      deductedByPrepaidCard = make_shared<double>(boost::any_cast<double>(m["DeductedByPrepaidCard"]));
+    }
+    if (m.find("InvoiceDiscount") != m.end() && !m["InvoiceDiscount"].empty()) {
+      invoiceDiscount = make_shared<double>(boost::any_cast<double>(m["InvoiceDiscount"]));
+    }
     if (m.find("SplitAccountName") != m.end() && !m["SplitAccountName"].empty()) {
       splitAccountName = make_shared<string>(boost::any_cast<string>(m["SplitAccountName"]));
     }
-    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
-      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
-    }
     if (m.find("BillingType") != m.end() && !m["BillingType"].empty()) {
       billingType = make_shared<string>(boost::any_cast<string>(m["BillingType"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
     }
   }
 
@@ -24110,6 +24173,144 @@ public:
 
   virtual ~SaveUserCreditResponse() = default;
 };
+class SetAllExpirationDayRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> unifyExpireDay{};
+
+  SetAllExpirationDayRequest() {}
+
+  explicit SetAllExpirationDayRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (unifyExpireDay) {
+      res["UnifyExpireDay"] = boost::any(*unifyExpireDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("UnifyExpireDay") != m.end() && !m["UnifyExpireDay"].empty()) {
+      unifyExpireDay = make_shared<string>(boost::any_cast<string>(m["UnifyExpireDay"]));
+    }
+  }
+
+
+  virtual ~SetAllExpirationDayRequest() = default;
+};
+class SetAllExpirationDayResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SetAllExpirationDayResponseBody() {}
+
+  explicit SetAllExpirationDayResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SetAllExpirationDayResponseBody() = default;
+};
+class SetAllExpirationDayResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SetAllExpirationDayResponseBody> body{};
+
+  SetAllExpirationDayResponse() {}
+
+  explicit SetAllExpirationDayResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetAllExpirationDayResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetAllExpirationDayResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetAllExpirationDayResponse() = default;
+};
 class SetCreditLabelActionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actionType{};
@@ -26029,6 +26230,8 @@ public:
   RenewResourcePackageResponse renewResourcePackage(shared_ptr<RenewResourcePackageRequest> request);
   SaveUserCreditResponse saveUserCreditWithOptions(shared_ptr<SaveUserCreditRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveUserCreditResponse saveUserCredit(shared_ptr<SaveUserCreditRequest> request);
+  SetAllExpirationDayResponse setAllExpirationDayWithOptions(shared_ptr<SetAllExpirationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetAllExpirationDayResponse setAllExpirationDay(shared_ptr<SetAllExpirationDayRequest> request);
   SetCreditLabelActionResponse setCreditLabelActionWithOptions(shared_ptr<SetCreditLabelActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetCreditLabelActionResponse setCreditLabelAction(shared_ptr<SetCreditLabelActionRequest> request);
   SetRenewalResponse setRenewalWithOptions(shared_ptr<SetRenewalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

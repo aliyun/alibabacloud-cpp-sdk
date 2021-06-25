@@ -984,6 +984,19 @@ SaveUserCreditResponse Alibabacloud_BssOpenApi20171214::Client::saveUserCredit(s
   return saveUserCreditWithOptions(request, runtime);
 }
 
+SetAllExpirationDayResponse Alibabacloud_BssOpenApi20171214::Client::setAllExpirationDayWithOptions(shared_ptr<SetAllExpirationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SetAllExpirationDayResponse(doRPCRequest(make_shared<string>("SetAllExpirationDay"), make_shared<string>("2017-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SetAllExpirationDayResponse Alibabacloud_BssOpenApi20171214::Client::setAllExpirationDay(shared_ptr<SetAllExpirationDayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setAllExpirationDayWithOptions(request, runtime);
+}
+
 SetCreditLabelActionResponse Alibabacloud_BssOpenApi20171214::Client::setCreditLabelActionWithOptions(shared_ptr<SetCreditLabelActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
