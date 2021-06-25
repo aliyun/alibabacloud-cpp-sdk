@@ -29065,6 +29065,8 @@ class DescribeStrategyExecDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sourceIp{};
   shared_ptr<long> strategyId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> currentPage{};
 
   DescribeStrategyExecDetailRequest() {}
 
@@ -29082,6 +29084,12 @@ public:
     if (strategyId) {
       res["StrategyId"] = boost::any(*strategyId);
     }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     return res;
   }
 
@@ -29091,6 +29099,12 @@ public:
     }
     if (m.find("StrategyId") != m.end() && !m["StrategyId"].empty()) {
       strategyId = make_shared<long>(boost::any_cast<long>(m["StrategyId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
   }
 
@@ -29975,8 +29989,9 @@ class DescribeSuspEventDetailResponseBodyDetails : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
   shared_ptr<string> value{};
-  shared_ptr<string> name{};
   shared_ptr<string> infoType{};
+  shared_ptr<string> nameDisplay{};
+  shared_ptr<string> name{};
 
   DescribeSuspEventDetailResponseBodyDetails() {}
 
@@ -29994,11 +30009,14 @@ public:
     if (value) {
       res["Value"] = boost::any(*value);
     }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
     if (infoType) {
       res["InfoType"] = boost::any(*infoType);
+    }
+    if (nameDisplay) {
+      res["NameDisplay"] = boost::any(*nameDisplay);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     return res;
   }
@@ -30010,11 +30028,14 @@ public:
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
     if (m.find("InfoType") != m.end() && !m["InfoType"].empty()) {
       infoType = make_shared<string>(boost::any_cast<string>(m["InfoType"]));
+    }
+    if (m.find("NameDisplay") != m.end() && !m["NameDisplay"].empty()) {
+      nameDisplay = make_shared<string>(boost::any_cast<string>(m["NameDisplay"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
   }
 
