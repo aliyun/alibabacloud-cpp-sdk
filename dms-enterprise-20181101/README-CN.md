@@ -97,6 +97,7 @@ sh https://github.com/alibabacloud-sdk-cpp/dms-enterprise-20181101.git/scripts/i
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[open-api]: https://next.api.aliyun.com
+[OpenAPI 开发者门户]: https://next.api.aliyun.com
+[latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

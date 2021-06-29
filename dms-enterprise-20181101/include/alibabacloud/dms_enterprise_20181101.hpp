@@ -6932,6 +6932,341 @@ public:
 
   virtual ~GetDBTopologyResponse() = default;
 };
+class GetSQLReviewCheckResultStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetSQLReviewCheckResultStatusRequest() {}
+
+  explicit GetSQLReviewCheckResultStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusRequest() = default;
+};
+class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult : public Darabonba::Model {
+public:
+  shared_ptr<long> new_{};
+  shared_ptr<long> unknown{};
+  shared_ptr<long> checkNotPass{};
+  shared_ptr<long> checkPass{};
+  shared_ptr<long> forcePass{};
+  shared_ptr<long> forceNotPass{};
+
+  GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult() {}
+
+  explicit GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (new_) {
+      res["New"] = boost::any(*new_);
+    }
+    if (unknown) {
+      res["Unknown"] = boost::any(*unknown);
+    }
+    if (checkNotPass) {
+      res["CheckNotPass"] = boost::any(*checkNotPass);
+    }
+    if (checkPass) {
+      res["CheckPass"] = boost::any(*checkPass);
+    }
+    if (forcePass) {
+      res["ForcePass"] = boost::any(*forcePass);
+    }
+    if (forceNotPass) {
+      res["ForceNotPass"] = boost::any(*forceNotPass);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("New") != m.end() && !m["New"].empty()) {
+      new_ = make_shared<long>(boost::any_cast<long>(m["New"]));
+    }
+    if (m.find("Unknown") != m.end() && !m["Unknown"].empty()) {
+      unknown = make_shared<long>(boost::any_cast<long>(m["Unknown"]));
+    }
+    if (m.find("CheckNotPass") != m.end() && !m["CheckNotPass"].empty()) {
+      checkNotPass = make_shared<long>(boost::any_cast<long>(m["CheckNotPass"]));
+    }
+    if (m.find("CheckPass") != m.end() && !m["CheckPass"].empty()) {
+      checkPass = make_shared<long>(boost::any_cast<long>(m["CheckPass"]));
+    }
+    if (m.find("ForcePass") != m.end() && !m["ForcePass"].empty()) {
+      forcePass = make_shared<long>(boost::any_cast<long>(m["ForcePass"]));
+    }
+    if (m.find("ForceNotPass") != m.end() && !m["ForceNotPass"].empty()) {
+      forceNotPass = make_shared<long>(boost::any_cast<long>(m["ForceNotPass"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult() = default;
+};
+class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult : public Darabonba::Model {
+public:
+  shared_ptr<long> mustImprove{};
+  shared_ptr<long> potentialIssue{};
+  shared_ptr<long> suggestImprove{};
+  shared_ptr<long> useDmsToolkit{};
+  shared_ptr<long> useDmsDmlUnlock{};
+  shared_ptr<long> tableIndexSuggest{};
+
+  GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult() {}
+
+  explicit GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mustImprove) {
+      res["MustImprove"] = boost::any(*mustImprove);
+    }
+    if (potentialIssue) {
+      res["PotentialIssue"] = boost::any(*potentialIssue);
+    }
+    if (suggestImprove) {
+      res["SuggestImprove"] = boost::any(*suggestImprove);
+    }
+    if (useDmsToolkit) {
+      res["UseDmsToolkit"] = boost::any(*useDmsToolkit);
+    }
+    if (useDmsDmlUnlock) {
+      res["UseDmsDmlUnlock"] = boost::any(*useDmsDmlUnlock);
+    }
+    if (tableIndexSuggest) {
+      res["TableIndexSuggest"] = boost::any(*tableIndexSuggest);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MustImprove") != m.end() && !m["MustImprove"].empty()) {
+      mustImprove = make_shared<long>(boost::any_cast<long>(m["MustImprove"]));
+    }
+    if (m.find("PotentialIssue") != m.end() && !m["PotentialIssue"].empty()) {
+      potentialIssue = make_shared<long>(boost::any_cast<long>(m["PotentialIssue"]));
+    }
+    if (m.find("SuggestImprove") != m.end() && !m["SuggestImprove"].empty()) {
+      suggestImprove = make_shared<long>(boost::any_cast<long>(m["SuggestImprove"]));
+    }
+    if (m.find("UseDmsToolkit") != m.end() && !m["UseDmsToolkit"].empty()) {
+      useDmsToolkit = make_shared<long>(boost::any_cast<long>(m["UseDmsToolkit"]));
+    }
+    if (m.find("UseDmsDmlUnlock") != m.end() && !m["UseDmsDmlUnlock"].empty()) {
+      useDmsDmlUnlock = make_shared<long>(boost::any_cast<long>(m["UseDmsDmlUnlock"]));
+    }
+    if (m.find("TableIndexSuggest") != m.end() && !m["TableIndexSuggest"].empty()) {
+      tableIndexSuggest = make_shared<long>(boost::any_cast<long>(m["TableIndexSuggest"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult() = default;
+};
+class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus : public Darabonba::Model {
+public:
+  shared_ptr<long> totalSQLCount{};
+  shared_ptr<long> checkedCount{};
+  shared_ptr<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult> checkStatusResult{};
+  shared_ptr<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult> SQLReviewResult{};
+
+  GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus() {}
+
+  explicit GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (totalSQLCount) {
+      res["TotalSQLCount"] = boost::any(*totalSQLCount);
+    }
+    if (checkedCount) {
+      res["CheckedCount"] = boost::any(*checkedCount);
+    }
+    if (checkStatusResult) {
+      res["CheckStatusResult"] = checkStatusResult ? boost::any(checkStatusResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (SQLReviewResult) {
+      res["SQLReviewResult"] = SQLReviewResult ? boost::any(SQLReviewResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalSQLCount") != m.end() && !m["TotalSQLCount"].empty()) {
+      totalSQLCount = make_shared<long>(boost::any_cast<long>(m["TotalSQLCount"]));
+    }
+    if (m.find("CheckedCount") != m.end() && !m["CheckedCount"].empty()) {
+      checkedCount = make_shared<long>(boost::any_cast<long>(m["CheckedCount"]));
+    }
+    if (m.find("CheckStatusResult") != m.end() && !m["CheckStatusResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CheckStatusResult"].type()) {
+        GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CheckStatusResult"]));
+        checkStatusResult = make_shared<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult>(model1);
+      }
+    }
+    if (m.find("SQLReviewResult") != m.end() && !m["SQLReviewResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SQLReviewResult"].type()) {
+        GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SQLReviewResult"]));
+        SQLReviewResult = make_shared<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus() = default;
+};
+class GetSQLReviewCheckResultStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+  shared_ptr<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus> checkResultStatus{};
+
+  GetSQLReviewCheckResultStatusResponseBody() {}
+
+  explicit GetSQLReviewCheckResultStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (checkResultStatus) {
+      res["CheckResultStatus"] = checkResultStatus ? boost::any(checkResultStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("CheckResultStatus") != m.end() && !m["CheckResultStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CheckResultStatus"].type()) {
+        GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CheckResultStatus"]));
+        checkResultStatus = make_shared<GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusResponseBody() = default;
+};
+class GetSQLReviewCheckResultStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetSQLReviewCheckResultStatusResponseBody> body{};
+
+  GetSQLReviewCheckResultStatusResponse() {}
+
+  explicit GetSQLReviewCheckResultStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSQLReviewCheckResultStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSQLReviewCheckResultStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewCheckResultStatusResponse() = default;
+};
 class SyncDatabaseMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<long> tid{};
@@ -10399,6 +10734,408 @@ public:
 
 
   virtual ~GetApprovalDetailResponse() = default;
+};
+class ListSQLReviewOriginSQLRequestOrderActionDetailPage : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListSQLReviewOriginSQLRequestOrderActionDetailPage() {}
+
+  explicit ListSQLReviewOriginSQLRequestOrderActionDetailPage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLRequestOrderActionDetailPage() = default;
+};
+class ListSQLReviewOriginSQLRequestOrderActionDetail : public Darabonba::Model {
+public:
+  shared_ptr<long> fileId{};
+  shared_ptr<string> SQLReviewResult{};
+  shared_ptr<string> checkStatusResult{};
+  shared_ptr<ListSQLReviewOriginSQLRequestOrderActionDetailPage> page{};
+
+  ListSQLReviewOriginSQLRequestOrderActionDetail() {}
+
+  explicit ListSQLReviewOriginSQLRequestOrderActionDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
+    if (SQLReviewResult) {
+      res["SQLReviewResult"] = boost::any(*SQLReviewResult);
+    }
+    if (checkStatusResult) {
+      res["CheckStatusResult"] = boost::any(*checkStatusResult);
+    }
+    if (page) {
+      res["Page"] = page ? boost::any(page->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<long>(boost::any_cast<long>(m["FileId"]));
+    }
+    if (m.find("SQLReviewResult") != m.end() && !m["SQLReviewResult"].empty()) {
+      SQLReviewResult = make_shared<string>(boost::any_cast<string>(m["SQLReviewResult"]));
+    }
+    if (m.find("CheckStatusResult") != m.end() && !m["CheckStatusResult"].empty()) {
+      checkStatusResult = make_shared<string>(boost::any_cast<string>(m["CheckStatusResult"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Page"].type()) {
+        ListSQLReviewOriginSQLRequestOrderActionDetailPage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Page"]));
+        page = make_shared<ListSQLReviewOriginSQLRequestOrderActionDetailPage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLRequestOrderActionDetail() = default;
+};
+class ListSQLReviewOriginSQLRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<ListSQLReviewOriginSQLRequestOrderActionDetail> orderActionDetail{};
+  shared_ptr<long> tid{};
+
+  ListSQLReviewOriginSQLRequest() {}
+
+  explicit ListSQLReviewOriginSQLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (orderActionDetail) {
+      res["OrderActionDetail"] = orderActionDetail ? boost::any(orderActionDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("OrderActionDetail") != m.end() && !m["OrderActionDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OrderActionDetail"].type()) {
+        ListSQLReviewOriginSQLRequestOrderActionDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OrderActionDetail"]));
+        orderActionDetail = make_shared<ListSQLReviewOriginSQLRequestOrderActionDetail>(model1);
+      }
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLRequest() = default;
+};
+class ListSQLReviewOriginSQLShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<string> orderActionDetailShrink{};
+  shared_ptr<long> tid{};
+
+  ListSQLReviewOriginSQLShrinkRequest() {}
+
+  explicit ListSQLReviewOriginSQLShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (orderActionDetailShrink) {
+      res["OrderActionDetail"] = boost::any(*orderActionDetailShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("OrderActionDetail") != m.end() && !m["OrderActionDetail"].empty()) {
+      orderActionDetailShrink = make_shared<string>(boost::any_cast<string>(m["OrderActionDetail"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLShrinkRequest() = default;
+};
+class ListSQLReviewOriginSQLResponseBodyOriginSQLList : public Darabonba::Model {
+public:
+  shared_ptr<long> SQLId{};
+  shared_ptr<long> fileId{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> SQLContent{};
+  shared_ptr<string> checkStatus{};
+  shared_ptr<string> statusDesc{};
+  shared_ptr<string> checkedTime{};
+  shared_ptr<string> sqlHash{};
+  shared_ptr<string> reviewSummary{};
+  shared_ptr<string> SQLReviewQueryKey{};
+
+  ListSQLReviewOriginSQLResponseBodyOriginSQLList() {}
+
+  explicit ListSQLReviewOriginSQLResponseBodyOriginSQLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (SQLId) {
+      res["SQLId"] = boost::any(*SQLId);
+    }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (SQLContent) {
+      res["SQLContent"] = boost::any(*SQLContent);
+    }
+    if (checkStatus) {
+      res["CheckStatus"] = boost::any(*checkStatus);
+    }
+    if (statusDesc) {
+      res["StatusDesc"] = boost::any(*statusDesc);
+    }
+    if (checkedTime) {
+      res["CheckedTime"] = boost::any(*checkedTime);
+    }
+    if (sqlHash) {
+      res["SqlHash"] = boost::any(*sqlHash);
+    }
+    if (reviewSummary) {
+      res["ReviewSummary"] = boost::any(*reviewSummary);
+    }
+    if (SQLReviewQueryKey) {
+      res["SQLReviewQueryKey"] = boost::any(*SQLReviewQueryKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SQLId") != m.end() && !m["SQLId"].empty()) {
+      SQLId = make_shared<long>(boost::any_cast<long>(m["SQLId"]));
+    }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<long>(boost::any_cast<long>(m["FileId"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("SQLContent") != m.end() && !m["SQLContent"].empty()) {
+      SQLContent = make_shared<string>(boost::any_cast<string>(m["SQLContent"]));
+    }
+    if (m.find("CheckStatus") != m.end() && !m["CheckStatus"].empty()) {
+      checkStatus = make_shared<string>(boost::any_cast<string>(m["CheckStatus"]));
+    }
+    if (m.find("StatusDesc") != m.end() && !m["StatusDesc"].empty()) {
+      statusDesc = make_shared<string>(boost::any_cast<string>(m["StatusDesc"]));
+    }
+    if (m.find("CheckedTime") != m.end() && !m["CheckedTime"].empty()) {
+      checkedTime = make_shared<string>(boost::any_cast<string>(m["CheckedTime"]));
+    }
+    if (m.find("SqlHash") != m.end() && !m["SqlHash"].empty()) {
+      sqlHash = make_shared<string>(boost::any_cast<string>(m["SqlHash"]));
+    }
+    if (m.find("ReviewSummary") != m.end() && !m["ReviewSummary"].empty()) {
+      reviewSummary = make_shared<string>(boost::any_cast<string>(m["ReviewSummary"]));
+    }
+    if (m.find("SQLReviewQueryKey") != m.end() && !m["SQLReviewQueryKey"].empty()) {
+      SQLReviewQueryKey = make_shared<string>(boost::any_cast<string>(m["SQLReviewQueryKey"]));
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLResponseBodyOriginSQLList() = default;
+};
+class ListSQLReviewOriginSQLResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<ListSQLReviewOriginSQLResponseBodyOriginSQLList>> originSQLList{};
+
+  ListSQLReviewOriginSQLResponseBody() {}
+
+  explicit ListSQLReviewOriginSQLResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (originSQLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*originSQLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginSQLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("OriginSQLList") != m.end() && !m["OriginSQLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginSQLList"].type()) {
+        vector<ListSQLReviewOriginSQLResponseBodyOriginSQLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginSQLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSQLReviewOriginSQLResponseBodyOriginSQLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originSQLList = make_shared<vector<ListSQLReviewOriginSQLResponseBodyOriginSQLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLResponseBody() = default;
+};
+class ListSQLReviewOriginSQLResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListSQLReviewOriginSQLResponseBody> body{};
+
+  ListSQLReviewOriginSQLResponse() {}
+
+  explicit ListSQLReviewOriginSQLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSQLReviewOriginSQLResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSQLReviewOriginSQLResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSQLReviewOriginSQLResponse() = default;
 };
 class GetUserActiveTenantRequest : public Darabonba::Model {
 public:
@@ -17799,6 +18536,283 @@ public:
 
   virtual ~ListOrdersResponse() = default;
 };
+class CreateSQLReviewOrderRequestParam : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<long> dbId{};
+  shared_ptr<vector<string>> attachmentKeyList{};
+
+  CreateSQLReviewOrderRequestParam() {}
+
+  explicit CreateSQLReviewOrderRequestParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (attachmentKeyList) {
+      res["AttachmentKeyList"] = boost::any(*attachmentKeyList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("AttachmentKeyList") != m.end() && !m["AttachmentKeyList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AttachmentKeyList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AttachmentKeyList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      attachmentKeyList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateSQLReviewOrderRequestParam() = default;
+};
+class CreateSQLReviewOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<vector<long>> relatedUserList{};
+  shared_ptr<CreateSQLReviewOrderRequestParam> param{};
+  shared_ptr<long> tid{};
+
+  CreateSQLReviewOrderRequest() {}
+
+  explicit CreateSQLReviewOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (relatedUserList) {
+      res["RelatedUserList"] = boost::any(*relatedUserList);
+    }
+    if (param) {
+      res["Param"] = param ? boost::any(param->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      relatedUserList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Param"].type()) {
+        CreateSQLReviewOrderRequestParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Param"]));
+        param = make_shared<CreateSQLReviewOrderRequestParam>(model1);
+      }
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateSQLReviewOrderRequest() = default;
+};
+class CreateSQLReviewOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> relatedUserListShrink{};
+  shared_ptr<string> paramShrink{};
+  shared_ptr<long> tid{};
+
+  CreateSQLReviewOrderShrinkRequest() {}
+
+  explicit CreateSQLReviewOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (relatedUserListShrink) {
+      res["RelatedUserList"] = boost::any(*relatedUserListShrink);
+    }
+    if (paramShrink) {
+      res["Param"] = boost::any(*paramShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      paramShrink = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateSQLReviewOrderShrinkRequest() = default;
+};
+class CreateSQLReviewOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<vector<long>> createOrderResult{};
+
+  CreateSQLReviewOrderResponseBody() {}
+
+  explicit CreateSQLReviewOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (createOrderResult) {
+      res["CreateOrderResult"] = boost::any(*createOrderResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("CreateOrderResult") != m.end() && !m["CreateOrderResult"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CreateOrderResult"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CreateOrderResult"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      createOrderResult = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateSQLReviewOrderResponseBody() = default;
+};
+class CreateSQLReviewOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateSQLReviewOrderResponseBody> body{};
+
+  CreateSQLReviewOrderResponse() {}
+
+  explicit CreateSQLReviewOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSQLReviewOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSQLReviewOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSQLReviewOrderResponse() = default;
+};
 class GetOrderBaseInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<long> tid{};
@@ -18140,6 +19154,401 @@ public:
 
 
   virtual ~GetOrderBaseInfoResponse() = default;
+};
+class GetSQLReviewOptimizeDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> SQLReviewQueryKey{};
+  shared_ptr<long> tid{};
+
+  GetSQLReviewOptimizeDetailRequest() {}
+
+  explicit GetSQLReviewOptimizeDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (SQLReviewQueryKey) {
+      res["SQLReviewQueryKey"] = boost::any(*SQLReviewQueryKey);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SQLReviewQueryKey") != m.end() && !m["SQLReviewQueryKey"].empty()) {
+      SQLReviewQueryKey = make_shared<string>(boost::any_cast<string>(m["SQLReviewQueryKey"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailRequest() = default;
+};
+class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts : public Darabonba::Model {
+public:
+  shared_ptr<string> opType{};
+  shared_ptr<string> content{};
+  shared_ptr<string> tableName{};
+
+  GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts() {}
+
+  explicit GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (opType) {
+      res["OpType"] = boost::any(*opType);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OpType") != m.end() && !m["OpType"].empty()) {
+      opType = make_shared<string>(boost::any_cast<string>(m["OpType"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts() = default;
+};
+class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> feedback{};
+  shared_ptr<string> comments{};
+  shared_ptr<vector<string>> messages{};
+  shared_ptr<vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts>> scripts{};
+  shared_ptr<string> ruleType{};
+
+  GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults() {}
+
+  explicit GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (feedback) {
+      res["Feedback"] = boost::any(*feedback);
+    }
+    if (comments) {
+      res["Comments"] = boost::any(*comments);
+    }
+    if (messages) {
+      res["Messages"] = boost::any(*messages);
+    }
+    if (scripts) {
+      vector<boost::any> temp1;
+      for(auto item1:*scripts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Scripts"] = boost::any(temp1);
+    }
+    if (ruleType) {
+      res["RuleType"] = boost::any(*ruleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("Feedback") != m.end() && !m["Feedback"].empty()) {
+      feedback = make_shared<string>(boost::any_cast<string>(m["Feedback"]));
+    }
+    if (m.find("Comments") != m.end() && !m["Comments"].empty()) {
+      comments = make_shared<string>(boost::any_cast<string>(m["Comments"]));
+    }
+    if (m.find("Messages") != m.end() && !m["Messages"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Messages"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Messages"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      messages = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Scripts") != m.end() && !m["Scripts"].empty()) {
+      if (typeid(vector<boost::any>) == m["Scripts"].type()) {
+        vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Scripts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        scripts = make_shared<vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts>>(expect1);
+      }
+    }
+    if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
+      ruleType = make_shared<string>(boost::any_cast<string>(m["RuleType"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults() = default;
+};
+class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults>> results{};
+  shared_ptr<bool> occurError{};
+
+  GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult() {}
+
+  explicit GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    if (occurError) {
+      res["OccurError"] = boost::any(*occurError);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults>>(expect1);
+      }
+    }
+    if (m.find("OccurError") != m.end() && !m["OccurError"].empty()) {
+      occurError = make_shared<bool>(boost::any_cast<bool>(m["OccurError"]));
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult() = default;
+};
+class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> queryKey{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<long> dbId{};
+  shared_ptr<string> sqlType{};
+  shared_ptr<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult> qualityResult{};
+
+  GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail() {}
+
+  explicit GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryKey) {
+      res["QueryKey"] = boost::any(*queryKey);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (sqlType) {
+      res["SqlType"] = boost::any(*sqlType);
+    }
+    if (qualityResult) {
+      res["QualityResult"] = qualityResult ? boost::any(qualityResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QueryKey") != m.end() && !m["QueryKey"].empty()) {
+      queryKey = make_shared<string>(boost::any_cast<string>(m["QueryKey"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("SqlType") != m.end() && !m["SqlType"].empty()) {
+      sqlType = make_shared<string>(boost::any_cast<string>(m["SqlType"]));
+    }
+    if (m.find("QualityResult") != m.end() && !m["QualityResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QualityResult"].type()) {
+        GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QualityResult"]));
+        qualityResult = make_shared<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail() = default;
+};
+class GetSQLReviewOptimizeDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<bool> success{};
+  shared_ptr<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail> optimizeDetail{};
+
+  GetSQLReviewOptimizeDetailResponseBody() {}
+
+  explicit GetSQLReviewOptimizeDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (optimizeDetail) {
+      res["OptimizeDetail"] = optimizeDetail ? boost::any(optimizeDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("OptimizeDetail") != m.end() && !m["OptimizeDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OptimizeDetail"].type()) {
+        GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OptimizeDetail"]));
+        optimizeDetail = make_shared<GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponseBody() = default;
+};
+class GetSQLReviewOptimizeDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetSQLReviewOptimizeDetailResponseBody> body{};
+
+  GetSQLReviewOptimizeDetailResponse() {}
+
+  explicit GetSQLReviewOptimizeDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSQLReviewOptimizeDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSQLReviewOptimizeDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSQLReviewOptimizeDetailResponse() = default;
 };
 class ListUserTenantsRequest : public Darabonba::Model {
 public:
@@ -23390,6 +24799,8 @@ public:
   SearchDatabaseResponse searchDatabase(shared_ptr<SearchDatabaseRequest> request);
   GetDBTopologyResponse getDBTopologyWithOptions(shared_ptr<GetDBTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDBTopologyResponse getDBTopology(shared_ptr<GetDBTopologyRequest> request);
+  GetSQLReviewCheckResultStatusResponse getSQLReviewCheckResultStatusWithOptions(shared_ptr<GetSQLReviewCheckResultStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSQLReviewCheckResultStatusResponse getSQLReviewCheckResultStatus(shared_ptr<GetSQLReviewCheckResultStatusRequest> request);
   SyncDatabaseMetaResponse syncDatabaseMetaWithOptions(shared_ptr<SyncDatabaseMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SyncDatabaseMetaResponse syncDatabaseMeta(shared_ptr<SyncDatabaseMetaRequest> request);
   GetUserResponse getUserWithOptions(shared_ptr<GetUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23416,6 +24827,8 @@ public:
   DisableUserResponse disableUser(shared_ptr<DisableUserRequest> request);
   GetApprovalDetailResponse getApprovalDetailWithOptions(shared_ptr<GetApprovalDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApprovalDetailResponse getApprovalDetail(shared_ptr<GetApprovalDetailRequest> request);
+  ListSQLReviewOriginSQLResponse listSQLReviewOriginSQLWithOptions(shared_ptr<ListSQLReviewOriginSQLRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSQLReviewOriginSQLResponse listSQLReviewOriginSQL(shared_ptr<ListSQLReviewOriginSQLRequest> request);
   GetUserActiveTenantResponse getUserActiveTenantWithOptions(shared_ptr<GetUserActiveTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserActiveTenantResponse getUserActiveTenant(shared_ptr<GetUserActiveTenantRequest> request);
   RegisterUserResponse registerUserWithOptions(shared_ptr<RegisterUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23468,8 +24881,12 @@ public:
   SyncInstanceMetaResponse syncInstanceMeta(shared_ptr<SyncInstanceMetaRequest> request);
   ListOrdersResponse listOrdersWithOptions(shared_ptr<ListOrdersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOrdersResponse listOrders(shared_ptr<ListOrdersRequest> request);
+  CreateSQLReviewOrderResponse createSQLReviewOrderWithOptions(shared_ptr<CreateSQLReviewOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSQLReviewOrderResponse createSQLReviewOrder(shared_ptr<CreateSQLReviewOrderRequest> request);
   GetOrderBaseInfoResponse getOrderBaseInfoWithOptions(shared_ptr<GetOrderBaseInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOrderBaseInfoResponse getOrderBaseInfo(shared_ptr<GetOrderBaseInfoRequest> request);
+  GetSQLReviewOptimizeDetailResponse getSQLReviewOptimizeDetailWithOptions(shared_ptr<GetSQLReviewOptimizeDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSQLReviewOptimizeDetailResponse getSQLReviewOptimizeDetail(shared_ptr<GetSQLReviewOptimizeDetailRequest> request);
   ListUserTenantsResponse listUserTenantsWithOptions(shared_ptr<ListUserTenantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserTenantsResponse listUserTenants(shared_ptr<ListUserTenantsRequest> request);
   SetOwnersResponse setOwnersWithOptions(shared_ptr<SetOwnersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
