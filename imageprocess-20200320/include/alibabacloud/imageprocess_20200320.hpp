@@ -1090,6 +1090,426 @@ public:
 
   virtual ~RunCTRegistrationResponse() = default;
 };
+class AnalyzeChestVesselRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<string> URL{};
+
+  AnalyzeChestVesselRequestURLList() {}
+
+  explicit AnalyzeChestVesselRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselRequestURLList() = default;
+};
+class AnalyzeChestVesselRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AnalyzeChestVesselRequestURLList>> URLList{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<string> dataSourceType{};
+
+  AnalyzeChestVesselRequest() {}
+
+  explicit AnalyzeChestVesselRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<AnalyzeChestVesselRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeChestVesselRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<AnalyzeChestVesselRequestURLList>>(expect1);
+      }
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselRequest() = default;
+};
+class AnalyzeChestVesselResponseBodyDataAortaInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> maxAreaIndex{};
+  shared_ptr<double> maxArea{};
+  shared_ptr<double> maxDiameter{};
+  shared_ptr<long> labelValue{};
+  shared_ptr<vector<vector<double>>> coordinates{};
+  shared_ptr<vector<double>> area{};
+
+  AnalyzeChestVesselResponseBodyDataAortaInfo() {}
+
+  explicit AnalyzeChestVesselResponseBodyDataAortaInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxAreaIndex) {
+      res["MaxAreaIndex"] = boost::any(*maxAreaIndex);
+    }
+    if (maxArea) {
+      res["MaxArea"] = boost::any(*maxArea);
+    }
+    if (maxDiameter) {
+      res["MaxDiameter"] = boost::any(*maxDiameter);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    if (coordinates) {
+      res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (area) {
+      res["Area"] = boost::any(*area);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxAreaIndex") != m.end() && !m["MaxAreaIndex"].empty()) {
+      maxAreaIndex = make_shared<long>(boost::any_cast<long>(m["MaxAreaIndex"]));
+    }
+    if (m.find("MaxArea") != m.end() && !m["MaxArea"].empty()) {
+      maxArea = make_shared<double>(boost::any_cast<double>(m["MaxArea"]));
+    }
+    if (m.find("MaxDiameter") != m.end() && !m["MaxDiameter"].empty()) {
+      maxDiameter = make_shared<double>(boost::any_cast<double>(m["MaxDiameter"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<long>(boost::any_cast<long>(m["LabelValue"]));
+    }
+    if (m.find("Coordinates") != m.end() && !m["Coordinates"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["Coordinates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Coordinates"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      coordinates = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("Area") != m.end() && !m["Area"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Area"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Area"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      area = make_shared<vector<double>>(toVec1);
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselResponseBodyDataAortaInfo() = default;
+};
+class AnalyzeChestVesselResponseBodyDataPulmonaryInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> maxAreaIndex{};
+  shared_ptr<double> maxArea{};
+  shared_ptr<double> maxDiameter{};
+  shared_ptr<long> labelValue{};
+  shared_ptr<vector<vector<double>>> coordinates{};
+  shared_ptr<vector<double>> area{};
+  shared_ptr<double> nearestAortaArea{};
+
+  AnalyzeChestVesselResponseBodyDataPulmonaryInfo() {}
+
+  explicit AnalyzeChestVesselResponseBodyDataPulmonaryInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxAreaIndex) {
+      res["MaxAreaIndex"] = boost::any(*maxAreaIndex);
+    }
+    if (maxArea) {
+      res["MaxArea"] = boost::any(*maxArea);
+    }
+    if (maxDiameter) {
+      res["MaxDiameter"] = boost::any(*maxDiameter);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    if (coordinates) {
+      res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (area) {
+      res["Area"] = boost::any(*area);
+    }
+    if (nearestAortaArea) {
+      res["NearestAortaArea"] = boost::any(*nearestAortaArea);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxAreaIndex") != m.end() && !m["MaxAreaIndex"].empty()) {
+      maxAreaIndex = make_shared<long>(boost::any_cast<long>(m["MaxAreaIndex"]));
+    }
+    if (m.find("MaxArea") != m.end() && !m["MaxArea"].empty()) {
+      maxArea = make_shared<double>(boost::any_cast<double>(m["MaxArea"]));
+    }
+    if (m.find("MaxDiameter") != m.end() && !m["MaxDiameter"].empty()) {
+      maxDiameter = make_shared<double>(boost::any_cast<double>(m["MaxDiameter"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<long>(boost::any_cast<long>(m["LabelValue"]));
+    }
+    if (m.find("Coordinates") != m.end() && !m["Coordinates"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["Coordinates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Coordinates"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      coordinates = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("Area") != m.end() && !m["Area"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Area"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Area"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      area = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("NearestAortaArea") != m.end() && !m["NearestAortaArea"].empty()) {
+      nearestAortaArea = make_shared<double>(boost::any_cast<double>(m["NearestAortaArea"]));
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselResponseBodyDataPulmonaryInfo() = default;
+};
+class AnalyzeChestVesselResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<AnalyzeChestVesselResponseBodyDataAortaInfo> aortaInfo{};
+  shared_ptr<AnalyzeChestVesselResponseBodyDataPulmonaryInfo> pulmonaryInfo{};
+  shared_ptr<string> resultURL{};
+
+  AnalyzeChestVesselResponseBodyData() {}
+
+  explicit AnalyzeChestVesselResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aortaInfo) {
+      res["AortaInfo"] = aortaInfo ? boost::any(aortaInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pulmonaryInfo) {
+      res["PulmonaryInfo"] = pulmonaryInfo ? boost::any(pulmonaryInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resultURL) {
+      res["ResultURL"] = boost::any(*resultURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AortaInfo") != m.end() && !m["AortaInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AortaInfo"].type()) {
+        AnalyzeChestVesselResponseBodyDataAortaInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AortaInfo"]));
+        aortaInfo = make_shared<AnalyzeChestVesselResponseBodyDataAortaInfo>(model1);
+      }
+    }
+    if (m.find("PulmonaryInfo") != m.end() && !m["PulmonaryInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PulmonaryInfo"].type()) {
+        AnalyzeChestVesselResponseBodyDataPulmonaryInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PulmonaryInfo"]));
+        pulmonaryInfo = make_shared<AnalyzeChestVesselResponseBodyDataPulmonaryInfo>(model1);
+      }
+    }
+    if (m.find("ResultURL") != m.end() && !m["ResultURL"].empty()) {
+      resultURL = make_shared<string>(boost::any_cast<string>(m["ResultURL"]));
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselResponseBodyData() = default;
+};
+class AnalyzeChestVesselResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<AnalyzeChestVesselResponseBodyData> data{};
+
+  AnalyzeChestVesselResponseBody() {}
+
+  explicit AnalyzeChestVesselResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AnalyzeChestVesselResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AnalyzeChestVesselResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselResponseBody() = default;
+};
+class AnalyzeChestVesselResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AnalyzeChestVesselResponseBody> body{};
+
+  AnalyzeChestVesselResponse() {}
+
+  explicit AnalyzeChestVesselResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AnalyzeChestVesselResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AnalyzeChestVesselResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselResponse() = default;
+};
 class TranslateMedRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fromLanguage{};
@@ -4993,6 +5413,8 @@ public:
   DetectLungNoduleResponse detectLungNodule(shared_ptr<DetectLungNoduleRequest> request);
   RunCTRegistrationResponse runCTRegistrationWithOptions(shared_ptr<RunCTRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunCTRegistrationResponse runCTRegistration(shared_ptr<RunCTRegistrationRequest> request);
+  AnalyzeChestVesselResponse analyzeChestVesselWithOptions(shared_ptr<AnalyzeChestVesselRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AnalyzeChestVesselResponse analyzeChestVessel(shared_ptr<AnalyzeChestVesselRequest> request);
   TranslateMedResponse translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TranslateMedResponse translateMed(shared_ptr<TranslateMedRequest> request);
   DetectSpineMRIResponse detectSpineMRIWithOptions(shared_ptr<DetectSpineMRIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
