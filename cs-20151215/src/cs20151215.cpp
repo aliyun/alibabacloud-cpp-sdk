@@ -1725,7 +1725,7 @@ ScaleOutClusterResponse Alibabacloud_CS20151215::Client::scaleOutClusterWithOpti
   if (!Darabonba_Util::Client::isUnset<long>(request->workerSystemDiskSize)) {
     (*body)["worker_system_disk_size"] = *request->workerSystemDiskSize;
   }
-  if (!Darabonba_Util::Client::isUnset<vector<DataDisk>>(request->workerDataDisks)) {
+  if (!Darabonba_Util::Client::isUnset<vector<ScaleOutClusterRequestWorkerDataDisks>>(request->workerDataDisks)) {
     (*body)["worker_data_disks"] = *request->workerDataDisks;
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->cloudMonitorFlags)) {

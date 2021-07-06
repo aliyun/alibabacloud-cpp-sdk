@@ -2902,6 +2902,8 @@ public:
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
 
   ModifyClusterNodePoolRequestScalingGroup() {}
 
@@ -2999,6 +3001,12 @@ public:
     }
     if (compensateWithOnDemand) {
       res["compensate_with_on_demand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (internetChargeType) {
+      res["internet_charge_type"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["internet_max_bandwidth_out"] = boost::any(*internetMaxBandwidthOut);
     }
     return res;
   }
@@ -3129,6 +3137,12 @@ public:
     }
     if (m.find("compensate_with_on_demand") != m.end() && !m["compensate_with_on_demand"].empty()) {
       compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["compensate_with_on_demand"]));
+    }
+    if (m.find("internet_charge_type") != m.end() && !m["internet_charge_type"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["internet_charge_type"]));
+    }
+    if (m.find("internet_max_bandwidth_out") != m.end() && !m["internet_max_bandwidth_out"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["internet_max_bandwidth_out"]));
     }
   }
 
@@ -4023,6 +4037,8 @@ public:
   shared_ptr<vector<string>> vswitchIds{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> keyPair{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
 
   DescribeClusterNodePoolDetailResponseBodyScalingGroup() {}
 
@@ -4129,6 +4145,12 @@ public:
     }
     if (keyPair) {
       res["key_pair"] = boost::any(*keyPair);
+    }
+    if (internetChargeType) {
+      res["internet_charge_type"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["internet_max_bandwidth_out"] = boost::any(*internetMaxBandwidthOut);
     }
     return res;
   }
@@ -4268,6 +4290,12 @@ public:
     }
     if (m.find("key_pair") != m.end() && !m["key_pair"].empty()) {
       keyPair = make_shared<string>(boost::any_cast<string>(m["key_pair"]));
+    }
+    if (m.find("internet_charge_type") != m.end() && !m["internet_charge_type"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["internet_charge_type"]));
+    }
+    if (m.find("internet_max_bandwidth_out") != m.end() && !m["internet_max_bandwidth_out"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["internet_max_bandwidth_out"]));
     }
   }
 
@@ -4935,6 +4963,8 @@ public:
   shared_ptr<long> spotInstancePools{};
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<bool> compensateWithOnDemand{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
 
   CreateClusterNodePoolRequestScalingGroup() {}
 
@@ -5035,6 +5065,12 @@ public:
     }
     if (compensateWithOnDemand) {
       res["compensate_with_on_demand"] = boost::any(*compensateWithOnDemand);
+    }
+    if (internetChargeType) {
+      res["internet_charge_type"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["internet_max_bandwidth_out"] = boost::any(*internetMaxBandwidthOut);
     }
     return res;
   }
@@ -5168,6 +5204,12 @@ public:
     }
     if (m.find("compensate_with_on_demand") != m.end() && !m["compensate_with_on_demand"].empty()) {
       compensateWithOnDemand = make_shared<bool>(boost::any_cast<bool>(m["compensate_with_on_demand"]));
+    }
+    if (m.find("internet_charge_type") != m.end() && !m["internet_charge_type"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["internet_charge_type"]));
+    }
+    if (m.find("internet_max_bandwidth_out") != m.end() && !m["internet_max_bandwidth_out"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["internet_max_bandwidth_out"]));
     }
   }
 
@@ -11280,6 +11322,8 @@ public:
   shared_ptr<vector<string>> vswitchIds{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> keyPair{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
 
   DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup() {}
 
@@ -11386,6 +11430,12 @@ public:
     }
     if (keyPair) {
       res["key_pair"] = boost::any(*keyPair);
+    }
+    if (internetChargeType) {
+      res["internet_charge_type"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["internet_max_bandwidth_out"] = boost::any(*internetMaxBandwidthOut);
     }
     return res;
   }
@@ -11525,6 +11575,12 @@ public:
     }
     if (m.find("key_pair") != m.end() && !m["key_pair"].empty()) {
       keyPair = make_shared<string>(boost::any_cast<string>(m["key_pair"]));
+    }
+    if (m.find("internet_charge_type") != m.end() && !m["internet_charge_type"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["internet_charge_type"]));
+    }
+    if (m.find("internet_max_bandwidth_out") != m.end() && !m["internet_max_bandwidth_out"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["internet_max_bandwidth_out"]));
     }
   }
 
@@ -12275,6 +12331,56 @@ public:
 
   virtual ~StartWorkflowResponse() = default;
 };
+class ScaleOutClusterRequestWorkerDataDisks : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> size{};
+  shared_ptr<string> encrypted{};
+  shared_ptr<string> autoSnapshotPolicyId{};
+
+  ScaleOutClusterRequestWorkerDataDisks() {}
+
+  explicit ScaleOutClusterRequestWorkerDataDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["category"] = boost::any(*category);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (encrypted) {
+      res["encrypted"] = boost::any(*encrypted);
+    }
+    if (autoSnapshotPolicyId) {
+      res["auto_snapshot_policy_id"] = boost::any(*autoSnapshotPolicyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("category") != m.end() && !m["category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<string>(boost::any_cast<string>(m["size"]));
+    }
+    if (m.find("encrypted") != m.end() && !m["encrypted"].empty()) {
+      encrypted = make_shared<string>(boost::any_cast<string>(m["encrypted"]));
+    }
+    if (m.find("auto_snapshot_policy_id") != m.end() && !m["auto_snapshot_policy_id"].empty()) {
+      autoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["auto_snapshot_policy_id"]));
+    }
+  }
+
+
+  virtual ~ScaleOutClusterRequestWorkerDataDisks() = default;
+};
 class ScaleOutClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<long> count{};
@@ -12289,7 +12395,7 @@ public:
   shared_ptr<vector<string>> workerInstanceTypes{};
   shared_ptr<string> workerSystemDiskCategory{};
   shared_ptr<long> workerSystemDiskSize{};
-  shared_ptr<vector<DataDisk>> workerDataDisks{};
+  shared_ptr<vector<ScaleOutClusterRequestWorkerDataDisks>> workerDataDisks{};
   shared_ptr<bool> cloudMonitorFlags{};
   shared_ptr<string> cpuPolicy{};
   shared_ptr<string> imageId{};
@@ -12440,15 +12546,15 @@ public:
     }
     if (m.find("worker_data_disks") != m.end() && !m["worker_data_disks"].empty()) {
       if (typeid(vector<boost::any>) == m["worker_data_disks"].type()) {
-        vector<DataDisk> expect1;
+        vector<ScaleOutClusterRequestWorkerDataDisks> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["worker_data_disks"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            DataDisk model2;
+            ScaleOutClusterRequestWorkerDataDisks model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        workerDataDisks = make_shared<vector<DataDisk>>(expect1);
+        workerDataDisks = make_shared<vector<ScaleOutClusterRequestWorkerDataDisks>>(expect1);
       }
     }
     if (m.find("cloud_monitor_flags") != m.end() && !m["cloud_monitor_flags"].empty()) {
