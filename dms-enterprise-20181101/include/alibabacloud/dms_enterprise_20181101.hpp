@@ -20820,6 +20820,250 @@ public:
 
   virtual ~GetDataCorrectBackupFilesResponse() = default;
 };
+class ListDataCorrectPreCheckSQLRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> dbId{};
+  shared_ptr<long> tid{};
+
+  ListDataCorrectPreCheckSQLRequest() {}
+
+  explicit ListDataCorrectPreCheckSQLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckSQLRequest() = default;
+};
+class ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList : public Darabonba::Model {
+public:
+  shared_ptr<string> checkSQL{};
+  shared_ptr<long> affectRows{};
+  shared_ptr<long> dbId{};
+  shared_ptr<string> SQLReviewQueryKey{};
+  shared_ptr<string> sqlReviewStatus{};
+  shared_ptr<string> sqlType{};
+
+  ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList() {}
+
+  explicit ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkSQL) {
+      res["CheckSQL"] = boost::any(*checkSQL);
+    }
+    if (affectRows) {
+      res["AffectRows"] = boost::any(*affectRows);
+    }
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (SQLReviewQueryKey) {
+      res["SQLReviewQueryKey"] = boost::any(*SQLReviewQueryKey);
+    }
+    if (sqlReviewStatus) {
+      res["SqlReviewStatus"] = boost::any(*sqlReviewStatus);
+    }
+    if (sqlType) {
+      res["SqlType"] = boost::any(*sqlType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckSQL") != m.end() && !m["CheckSQL"].empty()) {
+      checkSQL = make_shared<string>(boost::any_cast<string>(m["CheckSQL"]));
+    }
+    if (m.find("AffectRows") != m.end() && !m["AffectRows"].empty()) {
+      affectRows = make_shared<long>(boost::any_cast<long>(m["AffectRows"]));
+    }
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("SQLReviewQueryKey") != m.end() && !m["SQLReviewQueryKey"].empty()) {
+      SQLReviewQueryKey = make_shared<string>(boost::any_cast<string>(m["SQLReviewQueryKey"]));
+    }
+    if (m.find("SqlReviewStatus") != m.end() && !m["SqlReviewStatus"].empty()) {
+      sqlReviewStatus = make_shared<string>(boost::any_cast<string>(m["SqlReviewStatus"]));
+    }
+    if (m.find("SqlType") != m.end() && !m["SqlType"].empty()) {
+      sqlType = make_shared<string>(boost::any_cast<string>(m["SqlType"]));
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList() = default;
+};
+class ListDataCorrectPreCheckSQLResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<vector<ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList>> preCheckSQLList{};
+
+  ListDataCorrectPreCheckSQLResponseBody() {}
+
+  explicit ListDataCorrectPreCheckSQLResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (preCheckSQLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*preCheckSQLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreCheckSQLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("PreCheckSQLList") != m.end() && !m["PreCheckSQLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreCheckSQLList"].type()) {
+        vector<ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreCheckSQLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preCheckSQLList = make_shared<vector<ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckSQLResponseBody() = default;
+};
+class ListDataCorrectPreCheckSQLResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDataCorrectPreCheckSQLResponseBody> body{};
+
+  ListDataCorrectPreCheckSQLResponse() {}
+
+  explicit ListDataCorrectPreCheckSQLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataCorrectPreCheckSQLResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataCorrectPreCheckSQLResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckSQLResponse() = default;
+};
 class RegisterInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> tid{};
@@ -21932,6 +22176,222 @@ public:
 
 
   virtual ~ExecuteDataCorrectResponse() = default;
+};
+class ListDataCorrectPreCheckDBRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> tid{};
+
+  ListDataCorrectPreCheckDBRequest() {}
+
+  explicit ListDataCorrectPreCheckDBRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckDBRequest() = default;
+};
+class ListDataCorrectPreCheckDBResponseBodyPreCheckDBList : public Darabonba::Model {
+public:
+  shared_ptr<long> dbId{};
+  shared_ptr<string> searchName{};
+  shared_ptr<long> sqlNum{};
+
+  ListDataCorrectPreCheckDBResponseBodyPreCheckDBList() {}
+
+  explicit ListDataCorrectPreCheckDBResponseBodyPreCheckDBList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    if (sqlNum) {
+      res["SqlNum"] = boost::any(*sqlNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+    if (m.find("SqlNum") != m.end() && !m["SqlNum"].empty()) {
+      sqlNum = make_shared<long>(boost::any_cast<long>(m["SqlNum"]));
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckDBResponseBodyPreCheckDBList() = default;
+};
+class ListDataCorrectPreCheckDBResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<vector<ListDataCorrectPreCheckDBResponseBodyPreCheckDBList>> preCheckDBList{};
+
+  ListDataCorrectPreCheckDBResponseBody() {}
+
+  explicit ListDataCorrectPreCheckDBResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (preCheckDBList) {
+      vector<boost::any> temp1;
+      for(auto item1:*preCheckDBList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreCheckDBList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("PreCheckDBList") != m.end() && !m["PreCheckDBList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreCheckDBList"].type()) {
+        vector<ListDataCorrectPreCheckDBResponseBodyPreCheckDBList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreCheckDBList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDataCorrectPreCheckDBResponseBodyPreCheckDBList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preCheckDBList = make_shared<vector<ListDataCorrectPreCheckDBResponseBodyPreCheckDBList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckDBResponseBody() = default;
+};
+class ListDataCorrectPreCheckDBResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDataCorrectPreCheckDBResponseBody> body{};
+
+  ListDataCorrectPreCheckDBResponse() {}
+
+  explicit ListDataCorrectPreCheckDBResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataCorrectPreCheckDBResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataCorrectPreCheckDBResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataCorrectPreCheckDBResponse() = default;
 };
 class ListTablesRequest : public Darabonba::Model {
 public:
@@ -24897,6 +25357,8 @@ public:
   GetLogicDatabaseResponse getLogicDatabase(shared_ptr<GetLogicDatabaseRequest> request);
   GetDataCorrectBackupFilesResponse getDataCorrectBackupFilesWithOptions(shared_ptr<GetDataCorrectBackupFilesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataCorrectBackupFilesResponse getDataCorrectBackupFiles(shared_ptr<GetDataCorrectBackupFilesRequest> request);
+  ListDataCorrectPreCheckSQLResponse listDataCorrectPreCheckSQLWithOptions(shared_ptr<ListDataCorrectPreCheckSQLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataCorrectPreCheckSQLResponse listDataCorrectPreCheckSQL(shared_ptr<ListDataCorrectPreCheckSQLRequest> request);
   RegisterInstanceResponse registerInstanceWithOptions(shared_ptr<RegisterInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RegisterInstanceResponse registerInstance(shared_ptr<RegisterInstanceRequest> request);
   CreateStructSyncOrderResponse createStructSyncOrderWithOptions(shared_ptr<CreateStructSyncOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24905,6 +25367,8 @@ public:
   ExecuteDataExportResponse executeDataExport(shared_ptr<ExecuteDataExportRequest> request);
   ExecuteDataCorrectResponse executeDataCorrectWithOptions(shared_ptr<ExecuteDataCorrectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteDataCorrectResponse executeDataCorrect(shared_ptr<ExecuteDataCorrectRequest> request);
+  ListDataCorrectPreCheckDBResponse listDataCorrectPreCheckDBWithOptions(shared_ptr<ListDataCorrectPreCheckDBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataCorrectPreCheckDBResponse listDataCorrectPreCheckDB(shared_ptr<ListDataCorrectPreCheckDBRequest> request);
   ListTablesResponse listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTablesResponse listTables(shared_ptr<ListTablesRequest> request);
   ListWorkFlowNodesResponse listWorkFlowNodesWithOptions(shared_ptr<ListWorkFlowNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

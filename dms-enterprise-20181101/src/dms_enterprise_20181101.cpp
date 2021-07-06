@@ -1008,6 +1008,19 @@ GetDataCorrectBackupFilesResponse Alibabacloud_Dms-enterprise20181101::Client::g
   return getDataCorrectBackupFilesWithOptions(request, runtime);
 }
 
+ListDataCorrectPreCheckSQLResponse Alibabacloud_Dms-enterprise20181101::Client::listDataCorrectPreCheckSQLWithOptions(shared_ptr<ListDataCorrectPreCheckSQLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDataCorrectPreCheckSQLResponse(doRPCRequest(make_shared<string>("ListDataCorrectPreCheckSQL"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDataCorrectPreCheckSQLResponse Alibabacloud_Dms-enterprise20181101::Client::listDataCorrectPreCheckSQL(shared_ptr<ListDataCorrectPreCheckSQLRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataCorrectPreCheckSQLWithOptions(request, runtime);
+}
+
 RegisterInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::registerInstanceWithOptions(shared_ptr<RegisterInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1076,6 +1089,19 @@ ExecuteDataCorrectResponse Alibabacloud_Dms-enterprise20181101::Client::executeD
 ExecuteDataCorrectResponse Alibabacloud_Dms-enterprise20181101::Client::executeDataCorrect(shared_ptr<ExecuteDataCorrectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return executeDataCorrectWithOptions(request, runtime);
+}
+
+ListDataCorrectPreCheckDBResponse Alibabacloud_Dms-enterprise20181101::Client::listDataCorrectPreCheckDBWithOptions(shared_ptr<ListDataCorrectPreCheckDBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDataCorrectPreCheckDBResponse(doRPCRequest(make_shared<string>("ListDataCorrectPreCheckDB"), make_shared<string>("2018-11-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDataCorrectPreCheckDBResponse Alibabacloud_Dms-enterprise20181101::Client::listDataCorrectPreCheckDB(shared_ptr<ListDataCorrectPreCheckDBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDataCorrectPreCheckDBWithOptions(request, runtime);
 }
 
 ListTablesResponse Alibabacloud_Dms-enterprise20181101::Client::listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
