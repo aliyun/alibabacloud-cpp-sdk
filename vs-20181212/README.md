@@ -13,6 +13,8 @@ Alibaba Cloud vs SDK is based on the [`Darabonba DSL`](https://github.com/aliyun
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
@@ -53,7 +55,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh vs-20181212/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/vs-20181212.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,7 +64,7 @@ sh vs-20181212/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/vs-20181212
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/vs-20181212.git
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
@@ -87,8 +89,7 @@ sh vs-20181212/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
