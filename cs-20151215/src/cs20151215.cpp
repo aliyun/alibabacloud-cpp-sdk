@@ -693,6 +693,40 @@ DescribeAddonsResponse Alibabacloud_CS20151215::Client::describeAddonsWithOption
   return DescribeAddonsResponse(doROARequest(make_shared<string>("DescribeAddons"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/clusters/components/metadata")), make_shared<string>("json"), req, runtime));
 }
 
+CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscalingConfig(shared_ptr<string> ClusterId, shared_ptr<CreateAutoscalingConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createAutoscalingConfigWithOptions(ClusterId, request, headers, runtime);
+}
+
+CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscalingConfigWithOptions(shared_ptr<string> ClusterId,
+                                                                                                    shared_ptr<CreateAutoscalingConfigRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->coolDownDuration)) {
+    (*body)["cool_down_duration"] = *request->coolDownDuration;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unneededDuration)) {
+    (*body)["unneeded_duration"] = *request->unneededDuration;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->utilizationThreshold)) {
+    (*body)["utilization_threshold"] = *request->utilizationThreshold;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gpuUtilizationThreshold)) {
+    (*body)["gpu_utilization_threshold"] = *request->gpuUtilizationThreshold;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scanInterval)) {
+    (*body)["scan_interval"] = *request->scanInterval;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  return CreateAutoscalingConfigResponse(doROARequest(make_shared<string>("CreateAutoscalingConfig"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/cluster/") + string(*ClusterId) + string("/autoscale/config/")), make_shared<string>("none"), req, runtime));
+}
+
 CreateClusterResponse Alibabacloud_CS20151215::Client::createCluster(shared_ptr<CreateClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());

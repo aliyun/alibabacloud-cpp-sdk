@@ -6404,6 +6404,101 @@ public:
 
   virtual ~DescribeAddonsResponse() = default;
 };
+class CreateAutoscalingConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> coolDownDuration{};
+  shared_ptr<string> unneededDuration{};
+  shared_ptr<string> utilizationThreshold{};
+  shared_ptr<string> gpuUtilizationThreshold{};
+  shared_ptr<string> scanInterval{};
+
+  CreateAutoscalingConfigRequest() {}
+
+  explicit CreateAutoscalingConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coolDownDuration) {
+      res["cool_down_duration"] = boost::any(*coolDownDuration);
+    }
+    if (unneededDuration) {
+      res["unneeded_duration"] = boost::any(*unneededDuration);
+    }
+    if (utilizationThreshold) {
+      res["utilization_threshold"] = boost::any(*utilizationThreshold);
+    }
+    if (gpuUtilizationThreshold) {
+      res["gpu_utilization_threshold"] = boost::any(*gpuUtilizationThreshold);
+    }
+    if (scanInterval) {
+      res["scan_interval"] = boost::any(*scanInterval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cool_down_duration") != m.end() && !m["cool_down_duration"].empty()) {
+      coolDownDuration = make_shared<string>(boost::any_cast<string>(m["cool_down_duration"]));
+    }
+    if (m.find("unneeded_duration") != m.end() && !m["unneeded_duration"].empty()) {
+      unneededDuration = make_shared<string>(boost::any_cast<string>(m["unneeded_duration"]));
+    }
+    if (m.find("utilization_threshold") != m.end() && !m["utilization_threshold"].empty()) {
+      utilizationThreshold = make_shared<string>(boost::any_cast<string>(m["utilization_threshold"]));
+    }
+    if (m.find("gpu_utilization_threshold") != m.end() && !m["gpu_utilization_threshold"].empty()) {
+      gpuUtilizationThreshold = make_shared<string>(boost::any_cast<string>(m["gpu_utilization_threshold"]));
+    }
+    if (m.find("scan_interval") != m.end() && !m["scan_interval"].empty()) {
+      scanInterval = make_shared<string>(boost::any_cast<string>(m["scan_interval"]));
+    }
+  }
+
+
+  virtual ~CreateAutoscalingConfigRequest() = default;
+};
+class CreateAutoscalingConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+
+  CreateAutoscalingConfigResponse() {}
+
+  explicit CreateAutoscalingConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~CreateAutoscalingConfigResponse() = default;
+};
 class CreateClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -13897,6 +13992,11 @@ public:
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAddonsResponse describeAddons(shared_ptr<DescribeAddonsRequest> request);
   DescribeAddonsResponse describeAddonsWithOptions(shared_ptr<DescribeAddonsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAutoscalingConfigResponse createAutoscalingConfig(shared_ptr<string> ClusterId, shared_ptr<CreateAutoscalingConfigRequest> request);
+  CreateAutoscalingConfigResponse createAutoscalingConfigWithOptions(shared_ptr<string> ClusterId,
+                                                                     shared_ptr<CreateAutoscalingConfigRequest> request,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateClusterResponse createCluster(shared_ptr<CreateClusterRequest> request);
   CreateClusterResponse createClusterWithOptions(shared_ptr<CreateClusterRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeClusterResponse upgradeCluster(shared_ptr<string> ClusterId, shared_ptr<UpgradeClusterRequest> request);
