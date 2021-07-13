@@ -102,19 +102,6 @@ DescribeSagRouteListResponse Alibabacloud_Smartag20180313::Client::describeSagRo
   return describeSagRouteListWithOptions(request, runtime);
 }
 
-DescribePolicyBasedRoutingsResponse Alibabacloud_Smartag20180313::Client::describePolicyBasedRoutingsWithOptions(shared_ptr<DescribePolicyBasedRoutingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribePolicyBasedRoutingsResponse(doRPCRequest(make_shared<string>("DescribePolicyBasedRoutings"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribePolicyBasedRoutingsResponse Alibabacloud_Smartag20180313::Client::describePolicyBasedRoutings(shared_ptr<DescribePolicyBasedRoutingsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describePolicyBasedRoutingsWithOptions(request, runtime);
-}
-
 ProbeAccessPointNetworkQualityResponse Alibabacloud_Smartag20180313::Client::probeAccessPointNetworkQualityWithOptions(shared_ptr<ProbeAccessPointNetworkQualityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -321,19 +308,6 @@ CreateQosResponse Alibabacloud_Smartag20180313::Client::createQosWithOptions(sha
 CreateQosResponse Alibabacloud_Smartag20180313::Client::createQos(shared_ptr<CreateQosRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createQosWithOptions(request, runtime);
-}
-
-ModifySagECRouteBackupResponse Alibabacloud_Smartag20180313::Client::modifySagECRouteBackupWithOptions(shared_ptr<ModifySagECRouteBackupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ModifySagECRouteBackupResponse(doRPCRequest(make_shared<string>("ModifySagECRouteBackup"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ModifySagECRouteBackupResponse Alibabacloud_Smartag20180313::Client::modifySagECRouteBackup(shared_ptr<ModifySagECRouteBackupRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifySagECRouteBackupWithOptions(request, runtime);
 }
 
 DiscribeSmartAccessGatewayDiagnosisReportResponse Alibabacloud_Smartag20180313::Client::discribeSmartAccessGatewayDiagnosisReportWithOptions(shared_ptr<DiscribeSmartAccessGatewayDiagnosisReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -869,19 +843,6 @@ KickOutClientsResponse Alibabacloud_Smartag20180313::Client::kickOutClients(shar
   return kickOutClientsWithOptions(request, runtime);
 }
 
-DescribeSagRouteableAddressResponse Alibabacloud_Smartag20180313::Client::describeSagRouteableAddressWithOptions(shared_ptr<DescribeSagRouteableAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeSagRouteableAddressResponse(doRPCRequest(make_shared<string>("DescribeSagRouteableAddress"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeSagRouteableAddressResponse Alibabacloud_Smartag20180313::Client::describeSagRouteableAddress(shared_ptr<DescribeSagRouteableAddressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeSagRouteableAddressWithOptions(request, runtime);
-}
-
 ModifySagPortRoleResponse Alibabacloud_Smartag20180313::Client::modifySagPortRoleWithOptions(shared_ptr<ModifySagPortRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -945,19 +906,6 @@ UpdateSmartAGEnterpriseCodeResponse Alibabacloud_Smartag20180313::Client::update
 UpdateSmartAGEnterpriseCodeResponse Alibabacloud_Smartag20180313::Client::updateSmartAGEnterpriseCode(shared_ptr<UpdateSmartAGEnterpriseCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateSmartAGEnterpriseCodeWithOptions(request, runtime);
-}
-
-DescribePbrInterfacesResponse Alibabacloud_Smartag20180313::Client::describePbrInterfacesWithOptions(shared_ptr<DescribePbrInterfacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribePbrInterfacesResponse(doRPCRequest(make_shared<string>("DescribePbrInterfaces"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribePbrInterfacesResponse Alibabacloud_Smartag20180313::Client::describePbrInterfaces(shared_ptr<DescribePbrInterfacesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describePbrInterfacesWithOptions(request, runtime);
 }
 
 AssociateACLResponse Alibabacloud_Smartag20180313::Client::associateACLWithOptions(shared_ptr<AssociateACLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1610,19 +1558,6 @@ GrantSagInstanceToCcnResponse Alibabacloud_Smartag20180313::Client::grantSagInst
   return grantSagInstanceToCcnWithOptions(request, runtime);
 }
 
-OrchestrateSagECRouteBackupResponse Alibabacloud_Smartag20180313::Client::orchestrateSagECRouteBackupWithOptions(shared_ptr<OrchestrateSagECRouteBackupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return OrchestrateSagECRouteBackupResponse(doRPCRequest(make_shared<string>("OrchestrateSagECRouteBackup"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-OrchestrateSagECRouteBackupResponse Alibabacloud_Smartag20180313::Client::orchestrateSagECRouteBackup(shared_ptr<OrchestrateSagECRouteBackupRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return orchestrateSagECRouteBackupWithOptions(request, runtime);
-}
-
 ModifySmartAccessGatewayResponse Alibabacloud_Smartag20180313::Client::modifySmartAccessGatewayWithOptions(shared_ptr<ModifySmartAccessGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1649,19 +1584,6 @@ UpdateSmartAccessGatewayVersionResponse Alibabacloud_Smartag20180313::Client::up
   return updateSmartAccessGatewayVersionWithOptions(request, runtime);
 }
 
-ModifySagCidrResponse Alibabacloud_Smartag20180313::Client::modifySagCidrWithOptions(shared_ptr<ModifySagCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ModifySagCidrResponse(doRPCRequest(make_shared<string>("ModifySagCidr"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ModifySagCidrResponse Alibabacloud_Smartag20180313::Client::modifySagCidr(shared_ptr<ModifySagCidrRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifySagCidrWithOptions(request, runtime);
-}
-
 DescribeSagDropTopNResponse Alibabacloud_Smartag20180313::Client::describeSagDropTopNWithOptions(shared_ptr<DescribeSagDropTopNRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1686,19 +1608,6 @@ DescribeSagLanListResponse Alibabacloud_Smartag20180313::Client::describeSagLanL
 DescribeSagLanListResponse Alibabacloud_Smartag20180313::Client::describeSagLanList(shared_ptr<DescribeSagLanListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeSagLanListWithOptions(request, runtime);
-}
-
-DescribePbrRulesResponse Alibabacloud_Smartag20180313::Client::describePbrRulesWithOptions(shared_ptr<DescribePbrRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribePbrRulesResponse(doRPCRequest(make_shared<string>("DescribePbrRules"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribePbrRulesResponse Alibabacloud_Smartag20180313::Client::describePbrRules(shared_ptr<DescribePbrRulesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describePbrRulesWithOptions(request, runtime);
 }
 
 DescribeACLAttributeResponse Alibabacloud_Smartag20180313::Client::describeACLAttributeWithOptions(shared_ptr<DescribeACLAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1894,19 +1803,6 @@ DeleteDnatEntryResponse Alibabacloud_Smartag20180313::Client::deleteDnatEntryWit
 DeleteDnatEntryResponse Alibabacloud_Smartag20180313::Client::deleteDnatEntry(shared_ptr<DeleteDnatEntryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDnatEntryWithOptions(request, runtime);
-}
-
-SetSagRouteableAddressResponse Alibabacloud_Smartag20180313::Client::setSagRouteableAddressWithOptions(shared_ptr<SetSagRouteableAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return SetSagRouteableAddressResponse(doRPCRequest(make_shared<string>("SetSagRouteableAddress"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-SetSagRouteableAddressResponse Alibabacloud_Smartag20180313::Client::setSagRouteableAddress(shared_ptr<SetSagRouteableAddressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return setSagRouteableAddressWithOptions(request, runtime);
 }
 
 ModifyACLResponse Alibabacloud_Smartag20180313::Client::modifyACLWithOptions(shared_ptr<ModifyACLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2193,19 +2089,6 @@ CreateQosPolicyResponse Alibabacloud_Smartag20180313::Client::createQosPolicyWit
 CreateQosPolicyResponse Alibabacloud_Smartag20180313::Client::createQosPolicy(shared_ptr<CreateQosPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createQosPolicyWithOptions(request, runtime);
-}
-
-DescribeSagECRouteBackupAttributeResponse Alibabacloud_Smartag20180313::Client::describeSagECRouteBackupAttributeWithOptions(shared_ptr<DescribeSagECRouteBackupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeSagECRouteBackupAttributeResponse(doRPCRequest(make_shared<string>("DescribeSagECRouteBackupAttribute"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeSagECRouteBackupAttributeResponse Alibabacloud_Smartag20180313::Client::describeSagECRouteBackupAttribute(shared_ptr<DescribeSagECRouteBackupAttributeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeSagECRouteBackupAttributeWithOptions(request, runtime);
 }
 
 DescribeFlowLogSagsResponse Alibabacloud_Smartag20180313::Client::describeFlowLogSagsWithOptions(shared_ptr<DescribeFlowLogSagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
