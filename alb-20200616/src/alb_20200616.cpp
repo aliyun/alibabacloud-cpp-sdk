@@ -31,13 +31,8 @@ Alibabacloud_Alb20200616::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"eu-central-1", "alb.eu-central-1.aliyuncs.com"},
     {"ap-south-1", "alb.ap-south-1.aliyuncs.com"},
     {"ap-northeast-1", "alb.ap-northeast-1.aliyuncs.com"},
-    {"ap-southeast-3", "alb.ap-southeast-3.aliyuncs.com"},
     {"cn-chengdu", "alb.cn-chengdu.aliyuncs.com"},
-    {"cn-huhehaote", "alb.cn-huhehaote.aliyuncs.com"},
-    {"cn-qingdao", "alb.cn-qingdao.aliyuncs.com"},
-    {"cn-wulanchabu", "alb.cn-wulanchabu.aliyuncs.com"},
-    {"eu-west-1", "alb.eu-west-1.aliyuncs.com"},
-    {"us-west-1", "alb.us-west-1.aliyuncs.com"}
+    {"cn-wulanchabu", "alb.cn-wulanchabu.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -457,6 +452,19 @@ UpdateLoadBalancerEditionResponse Alibabacloud_Alb20200616::Client::updateLoadBa
   return updateLoadBalancerEditionWithOptions(request, runtime);
 }
 
+UpdateRulesAttributeResponse Alibabacloud_Alb20200616::Client::updateRulesAttributeWithOptions(shared_ptr<UpdateRulesAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return UpdateRulesAttributeResponse(doRPCRequest(make_shared<string>("UpdateRulesAttribute"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+UpdateRulesAttributeResponse Alibabacloud_Alb20200616::Client::updateRulesAttribute(shared_ptr<UpdateRulesAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateRulesAttributeWithOptions(request, runtime);
+}
+
 ListListenersResponse Alibabacloud_Alb20200616::Client::listListenersWithOptions(shared_ptr<ListListenersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -728,6 +736,19 @@ RemoveServersFromServerGroupResponse Alibabacloud_Alb20200616::Client::removeSer
 RemoveServersFromServerGroupResponse Alibabacloud_Alb20200616::Client::removeServersFromServerGroup(shared_ptr<RemoveServersFromServerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeServersFromServerGroupWithOptions(request, runtime);
+}
+
+ReplaceServersInServerGroupResponse Alibabacloud_Alb20200616::Client::replaceServersInServerGroupWithOptions(shared_ptr<ReplaceServersInServerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ReplaceServersInServerGroupResponse(doRPCRequest(make_shared<string>("ReplaceServersInServerGroup"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ReplaceServersInServerGroupResponse Alibabacloud_Alb20200616::Client::replaceServersInServerGroup(shared_ptr<ReplaceServersInServerGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return replaceServersInServerGroupWithOptions(request, runtime);
 }
 
 DescribeRegionsResponse Alibabacloud_Alb20200616::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
