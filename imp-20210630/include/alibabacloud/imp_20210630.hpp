@@ -125,8 +125,6 @@ class CreateLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<CreateLiveResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   CreateLiveResponseBody() {}
 
@@ -144,12 +142,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -163,12 +155,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<CreateLiveResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -259,8 +245,6 @@ public:
 class DeleteAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   DeleteAppResponseBody() {}
 
@@ -275,24 +259,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -423,8 +395,6 @@ public:
 class UpdateRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   UpdateRoomResponseBody() {}
 
@@ -439,24 +409,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -675,8 +633,6 @@ public:
 class GetAppTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<GetAppTemplateResponseBodyResult> result{};
 
   GetAppTemplateResponseBody() {}
@@ -692,12 +648,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -707,12 +657,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -1024,8 +968,6 @@ class GetRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GetRoomResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   GetRoomResponseBody() {}
 
@@ -1043,12 +985,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -1062,12 +998,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<GetRoomResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -1237,8 +1167,6 @@ public:
 class CreateAppTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<CreateAppTemplateResponseBodyResult> result{};
 
   CreateAppTemplateResponseBody() {}
@@ -1254,12 +1182,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1269,12 +1191,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -1521,8 +1437,6 @@ public:
 class ListAppsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<ListAppsResponseBodyResult> result{};
 
   ListAppsResponseBody() {}
@@ -1538,12 +1452,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1553,12 +1461,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -1908,8 +1810,6 @@ class ListRoomsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<ListRoomsResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   ListRoomsResponseBody() {}
 
@@ -1927,12 +1827,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -1946,12 +1840,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<ListRoomsResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -2042,8 +1930,6 @@ public:
 class DeleteAppTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   DeleteAppTemplateResponseBody() {}
 
@@ -2058,24 +1944,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -2365,8 +2239,6 @@ public:
 class ListAppTemplatesResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<ListAppTemplatesResponseBodyResult> result{};
 
   ListAppTemplatesResponseBody() {}
@@ -2382,12 +2254,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2397,12 +2263,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -2707,8 +2567,6 @@ public:
 class ListComponentsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<ListComponentsResponseBodyResult> result{};
 
   ListComponentsResponseBody() {}
@@ -2724,12 +2582,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2739,12 +2591,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -2856,8 +2702,6 @@ public:
 class UpdateLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   UpdateLiveResponseBody() {}
 
@@ -2872,24 +2716,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -3073,8 +2905,6 @@ public:
 class UpdateAppTemplateConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   UpdateAppTemplateConfigResponseBody() {}
 
@@ -3089,24 +2919,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -3218,8 +3036,6 @@ public:
 class StopLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   StopLiveResponseBody() {}
 
@@ -3234,24 +3050,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -3420,8 +3224,6 @@ public:
 class GetAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<GetAppResponseBodyResult> result{};
 
   GetAppResponseBody() {}
@@ -3437,12 +3239,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3452,12 +3248,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -3555,8 +3345,6 @@ public:
 class DeleteLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   DeleteLiveResponseBody() {}
 
@@ -3571,24 +3359,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -3815,8 +3591,6 @@ public:
 class GetLiveDomainStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<GetLiveDomainStatusResponseBodyResult> result{};
 
   GetLiveDomainStatusResponseBody() {}
@@ -3832,12 +3606,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3847,12 +3615,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -4015,8 +3777,6 @@ class GetAuthTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GetAuthTokenResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   GetAuthTokenResponseBody() {}
 
@@ -4034,12 +3794,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -4053,12 +3807,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<GetAuthTokenResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -4156,8 +3904,6 @@ public:
 class UpdateAppTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   UpdateAppTemplateResponseBody() {}
 
@@ -4172,24 +3918,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -4251,8 +3985,6 @@ public:
 class GetImpProductStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<bool> result{};
 
   GetImpProductStatusResponseBody() {}
@@ -4268,12 +4000,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = boost::any(*result);
     }
@@ -4283,12 +4009,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
@@ -4447,8 +4167,6 @@ class PublishLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<PublishLiveResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   PublishLiveResponseBody() {}
 
@@ -4466,12 +4184,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -4485,12 +4197,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<PublishLiveResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -4780,8 +4486,6 @@ class GetLiveResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GetLiveResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   GetLiveResponseBody() {}
 
@@ -4799,12 +4503,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -4818,12 +4516,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<GetLiveResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -4921,8 +4613,6 @@ public:
 class DeleteRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   DeleteRoomResponseBody() {}
 
@@ -4937,24 +4627,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -5081,8 +4759,6 @@ public:
 class CreateAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
   shared_ptr<CreateAppResponseBodyResult> result{};
 
   CreateAppResponseBody() {}
@@ -5098,12 +4774,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -5113,12 +4783,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
@@ -5293,8 +4957,6 @@ class CreateRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<CreateRoomResponseBodyResult> result{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   CreateRoomResponseBody() {}
 
@@ -5312,12 +4974,6 @@ public:
     if (result) {
       res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
@@ -5331,12 +4987,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
         result = make_shared<CreateRoomResponseBodyResult>(model1);
       }
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
@@ -5441,8 +5091,6 @@ public:
 class UpdateAppResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
 
   UpdateAppResponseBody() {}
 
@@ -5457,24 +5105,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
     }
   }
 
