@@ -5015,6 +5015,234 @@ public:
 
   virtual ~ScreenChestCTResponseBodyDataDetectRibFracture() = default;
 };
+class ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> maxAreaIndex{};
+  shared_ptr<double> maxArea{};
+  shared_ptr<double> maxDiameter{};
+  shared_ptr<long> labelValue{};
+  shared_ptr<vector<vector<double>>> coordinates{};
+  shared_ptr<vector<double>> area{};
+
+  ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo() {}
+
+  explicit ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxAreaIndex) {
+      res["MaxAreaIndex"] = boost::any(*maxAreaIndex);
+    }
+    if (maxArea) {
+      res["MaxArea"] = boost::any(*maxArea);
+    }
+    if (maxDiameter) {
+      res["MaxDiameter"] = boost::any(*maxDiameter);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    if (coordinates) {
+      res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (area) {
+      res["Area"] = boost::any(*area);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxAreaIndex") != m.end() && !m["MaxAreaIndex"].empty()) {
+      maxAreaIndex = make_shared<long>(boost::any_cast<long>(m["MaxAreaIndex"]));
+    }
+    if (m.find("MaxArea") != m.end() && !m["MaxArea"].empty()) {
+      maxArea = make_shared<double>(boost::any_cast<double>(m["MaxArea"]));
+    }
+    if (m.find("MaxDiameter") != m.end() && !m["MaxDiameter"].empty()) {
+      maxDiameter = make_shared<double>(boost::any_cast<double>(m["MaxDiameter"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<long>(boost::any_cast<long>(m["LabelValue"]));
+    }
+    if (m.find("Coordinates") != m.end() && !m["Coordinates"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["Coordinates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Coordinates"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      coordinates = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("Area") != m.end() && !m["Area"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Area"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Area"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      area = make_shared<vector<double>>(toVec1);
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo() = default;
+};
+class ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> maxAreaIndex{};
+  shared_ptr<double> maxArea{};
+  shared_ptr<double> maxDiameter{};
+  shared_ptr<long> labelValue{};
+  shared_ptr<vector<vector<double>>> coordinates{};
+  shared_ptr<vector<double>> area{};
+  shared_ptr<double> nearestAortaArea{};
+
+  ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo() {}
+
+  explicit ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxAreaIndex) {
+      res["MaxAreaIndex"] = boost::any(*maxAreaIndex);
+    }
+    if (maxArea) {
+      res["MaxArea"] = boost::any(*maxArea);
+    }
+    if (maxDiameter) {
+      res["MaxDiameter"] = boost::any(*maxDiameter);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    if (coordinates) {
+      res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (area) {
+      res["Area"] = boost::any(*area);
+    }
+    if (nearestAortaArea) {
+      res["NearestAortaArea"] = boost::any(*nearestAortaArea);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxAreaIndex") != m.end() && !m["MaxAreaIndex"].empty()) {
+      maxAreaIndex = make_shared<long>(boost::any_cast<long>(m["MaxAreaIndex"]));
+    }
+    if (m.find("MaxArea") != m.end() && !m["MaxArea"].empty()) {
+      maxArea = make_shared<double>(boost::any_cast<double>(m["MaxArea"]));
+    }
+    if (m.find("MaxDiameter") != m.end() && !m["MaxDiameter"].empty()) {
+      maxDiameter = make_shared<double>(boost::any_cast<double>(m["MaxDiameter"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<long>(boost::any_cast<long>(m["LabelValue"]));
+    }
+    if (m.find("Coordinates") != m.end() && !m["Coordinates"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["Coordinates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Coordinates"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      coordinates = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("Area") != m.end() && !m["Area"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Area"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Area"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      area = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("NearestAortaArea") != m.end() && !m["NearestAortaArea"].empty()) {
+      nearestAortaArea = make_shared<double>(boost::any_cast<double>(m["NearestAortaArea"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo() = default;
+};
+class ScreenChestCTResponseBodyDataAnalyzeChestVessel : public Darabonba::Model {
+public:
+  shared_ptr<ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo> aortaInfo{};
+  shared_ptr<ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo> pulmonaryInfo{};
+  shared_ptr<string> resultURL{};
+
+  ScreenChestCTResponseBodyDataAnalyzeChestVessel() {}
+
+  explicit ScreenChestCTResponseBodyDataAnalyzeChestVessel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aortaInfo) {
+      res["AortaInfo"] = aortaInfo ? boost::any(aortaInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pulmonaryInfo) {
+      res["PulmonaryInfo"] = pulmonaryInfo ? boost::any(pulmonaryInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resultURL) {
+      res["ResultURL"] = boost::any(*resultURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AortaInfo") != m.end() && !m["AortaInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AortaInfo"].type()) {
+        ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AortaInfo"]));
+        aortaInfo = make_shared<ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo>(model1);
+      }
+    }
+    if (m.find("PulmonaryInfo") != m.end() && !m["PulmonaryInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PulmonaryInfo"].type()) {
+        ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PulmonaryInfo"]));
+        pulmonaryInfo = make_shared<ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo>(model1);
+      }
+    }
+    if (m.find("ResultURL") != m.end() && !m["ResultURL"].empty()) {
+      resultURL = make_shared<string>(boost::any_cast<string>(m["ResultURL"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataAnalyzeChestVessel() = default;
+};
 class ScreenChestCTResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<ScreenChestCTResponseBodyDataLungNodule> lungNodule{};
@@ -5022,6 +5250,7 @@ public:
   shared_ptr<ScreenChestCTResponseBodyDataCovid> covid{};
   shared_ptr<ScreenChestCTResponseBodyDataDetectRibFracture> detectRibFracture{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<ScreenChestCTResponseBodyDataAnalyzeChestVessel> analyzeChestVessel{};
 
   ScreenChestCTResponseBodyData() {}
 
@@ -5047,6 +5276,9 @@ public:
     }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (analyzeChestVessel) {
+      res["AnalyzeChestVessel"] = analyzeChestVessel ? boost::any(analyzeChestVessel->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -5082,6 +5314,13 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("AnalyzeChestVessel") != m.end() && !m["AnalyzeChestVessel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AnalyzeChestVessel"].type()) {
+        ScreenChestCTResponseBodyDataAnalyzeChestVessel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AnalyzeChestVessel"]));
+        analyzeChestVessel = make_shared<ScreenChestCTResponseBodyDataAnalyzeChestVessel>(model1);
+      }
     }
   }
 
