@@ -5715,7 +5715,7 @@ public:
 };
 class TempPreviewRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> id{};
+  shared_ptr<string> sceneId{};
 
   TempPreviewRequest() {}
 
@@ -5727,15 +5727,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (id) {
-      res["Id"] = boost::any(*id);
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
     }
   }
 
