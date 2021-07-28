@@ -475,6 +475,37 @@ OpenAckServiceResponse Alibabacloud_CS20151215::Client::openAckServiceWithOption
   return OpenAckServiceResponse(doROARequest(make_shared<string>("OpenAckService"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/service/open")), make_shared<string>("json"), req, runtime));
 }
 
+CreateTriggerResponse Alibabacloud_CS20151215::Client::createTrigger(shared_ptr<string> clusterId, shared_ptr<CreateTriggerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createTriggerWithOptions(clusterId, request, headers, runtime);
+}
+
+CreateTriggerResponse Alibabacloud_CS20151215::Client::createTriggerWithOptions(shared_ptr<string> clusterId,
+                                                                                shared_ptr<CreateTriggerRequest> request,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    (*body)["cluster_id"] = *request->clusterId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    (*body)["project_id"] = *request->projectId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
+    (*body)["action"] = *request->action;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    (*body)["type"] = *request->type;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  return CreateTriggerResponse(doROARequest(make_shared<string>("CreateTrigger"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*clusterId) + string("/triggers")), make_shared<string>("json"), req, runtime));
+}
+
 ScaleClusterNodePoolResponse Alibabacloud_CS20151215::Client::scaleClusterNodePool(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<ScaleClusterNodePoolRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -512,6 +543,37 @@ DescribeClusterNodePoolDetailResponse Alibabacloud_CS20151215::Client::describeC
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
   return DescribeClusterNodePoolDetailResponse(doROARequest(make_shared<string>("DescribeClusterNodePoolDetail"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*ClusterId) + string("/nodepools/") + string(*NodepoolId)), make_shared<string>("json"), req, runtime));
+}
+
+DescribeTriggerResponse Alibabacloud_CS20151215::Client::describeTrigger(shared_ptr<string> clusterId, shared_ptr<DescribeTriggerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeTriggerWithOptions(clusterId, request, headers, runtime);
+}
+
+DescribeTriggerResponse Alibabacloud_CS20151215::Client::describeTriggerWithOptions(shared_ptr<string> clusterId,
+                                                                                    shared_ptr<DescribeTriggerRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    (*query)["Namespace_"] = *request->namespace_;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    (*query)["Type"] = *request->type;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    (*query)["Name"] = *request->name;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
+    (*query)["action"] = *request->action;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return DescribeTriggerResponse(doROARequest(make_shared<string>("DescribeTrigger"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/clusters/[cluster_id]/triggers")), make_shared<string>("array"), req, runtime));
 }
 
 CreateClusterNodePoolResponse Alibabacloud_CS20151215::Client::createClusterNodePool(shared_ptr<string> ClusterId, shared_ptr<CreateClusterNodePoolRequest> request) {
@@ -835,6 +897,12 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     (*body)["os_type"] = *request->osType;
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->socEnabled)) {
+    (*body)["soc_enabled"] = *request->socEnabled;
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cisEnabled)) {
+    (*body)["cis_enabled"] = *request->cisEnabled;
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuPolicy)) {
     (*body)["cpu_policy"] = *request->cpuPolicy;
   }
@@ -904,6 +972,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskSnapshotPolicyId)) {
     (*body)["worker_system_disk_snapshot_policy_id"] = *request->workerSystemDiskSnapshotPolicyId;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskPerformanceLevel)) {
+    (*body)["worker_system_disk_performance_level"] = *request->workerSystemDiskPerformanceLevel;
+  }
   if (!Darabonba_Util::Client::isUnset<vector<DataDisk>>(request->workerDataDisks)) {
     (*body)["worker_data_disks"] = *request->workerDataDisks;
   }
@@ -942,6 +1013,18 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
     (*body)["profile"] = *request->profile;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loggingType)) {
+    (*body)["logging_type"] = *request->loggingType;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlplaneLogTtl)) {
+    (*body)["controlplane_log_ttl"] = *request->controlplaneLogTtl;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->controlplaneLogProject)) {
+    (*body)["controlplane_log_project"] = *request->controlplaneLogProject;
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->controlplaneLogComponents)) {
+    (*body)["controlplane_log_components"] = *request->controlplaneLogComponents;
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
     (*body)["deletion_protection"] = *request->deletionProtection;
@@ -1302,6 +1385,22 @@ DescribeExternalAgentResponse Alibabacloud_CS20151215::Client::describeExternalA
   return DescribeExternalAgentResponse(doROARequest(make_shared<string>("DescribeExternalAgent"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/k8s/") + string(*ClusterId) + string("/external/agent/deployment")), make_shared<string>("json"), req, runtime));
 }
 
+DeleteTriggerResponse Alibabacloud_CS20151215::Client::deleteTrigger(shared_ptr<string> clusterId, shared_ptr<string> Id) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteTriggerWithOptions(clusterId, Id, headers, runtime);
+}
+
+DeleteTriggerResponse Alibabacloud_CS20151215::Client::deleteTriggerWithOptions(shared_ptr<string> clusterId,
+                                                                                shared_ptr<string> Id,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  return DeleteTriggerResponse(doROARequest(make_shared<string>("DeleteTrigger"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/clusters/[cluster_id]/triggers/[Id]")), make_shared<string>("none"), req, runtime));
+}
+
 UnInstallClusterAddonsResponse Alibabacloud_CS20151215::Client::unInstallClusterAddons(shared_ptr<string> ClusterId, shared_ptr<UnInstallClusterAddonsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1542,7 +1641,7 @@ DeleteClusterNodepoolResponse Alibabacloud_CS20151215::Client::deleteClusterNode
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
-  return DeleteClusterNodepoolResponse(doROARequest(make_shared<string>("DeleteClusterNodepool"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*ClusterId) + string("/nodepools/") + string(*NodepoolId)), make_shared<string>("none"), req, runtime));
+  return DeleteClusterNodepoolResponse(doROARequest(make_shared<string>("DeleteClusterNodepool"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*ClusterId) + string("/nodepools/") + string(*NodepoolId)), make_shared<string>("json"), req, runtime));
 }
 
 DescribeClusterAddonsUpgradeStatusResponse Alibabacloud_CS20151215::Client::describeClusterAddonsUpgradeStatus(shared_ptr<string> ClusterId, shared_ptr<DescribeClusterAddonsUpgradeStatusRequest> request) {
@@ -1962,6 +2061,6 @@ DeleteClusterNodesResponse Alibabacloud_CS20151215::Client::deleteClusterNodesWi
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DeleteClusterNodesResponse(doROARequest(make_shared<string>("DeleteClusterNodes"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*ClusterId) + string("/nodes")), make_shared<string>("none"), req, runtime));
+  return DeleteClusterNodesResponse(doROARequest(make_shared<string>("DeleteClusterNodes"), make_shared<string>("2015-12-15"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/clusters/") + string(*ClusterId) + string("/nodes")), make_shared<string>("json"), req, runtime));
 }
 
