@@ -12740,7 +12740,6 @@ public:
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMsg{};
   shared_ptr<string> requestId{};
-  shared_ptr<bool> result{};
   shared_ptr<bool> responseSuccess{};
 
   DestroyRoomResponseBody() {}
@@ -12762,9 +12761,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (result) {
-      res["result"] = boost::any(*result);
-    }
     if (responseSuccess) {
       res["ResponseSuccess"] = boost::any(*responseSuccess);
     }
@@ -12780,9 +12776,6 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("result") != m.end() && !m["result"].empty()) {
-      result = make_shared<bool>(boost::any_cast<bool>(m["result"]));
     }
     if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
       responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
