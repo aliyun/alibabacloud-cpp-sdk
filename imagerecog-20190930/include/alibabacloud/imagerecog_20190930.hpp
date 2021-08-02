@@ -17,7 +17,6 @@ namespace Alibabacloud_Imagerecog20190930 {
 class GetAsyncJobResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
-  shared_ptr<string> async{};
 
   GetAsyncJobResultRequest() {}
 
@@ -32,18 +31,12 @@ public:
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
-    }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<string>(boost::any_cast<string>(m["Async"]));
     }
   }
 
@@ -1132,7 +1125,6 @@ public:
 };
 class RecognizeSceneRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   RecognizeSceneRequest() {}
@@ -1145,9 +1137,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -1155,9 +1144,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -1169,7 +1155,6 @@ public:
 class RecognizeSceneAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   RecognizeSceneAdvanceRequest() {}
 
@@ -1188,18 +1173,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
@@ -2526,9 +2505,8 @@ public:
 };
 class TaggingImageRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
-  shared_ptr<bool> async{};
+  shared_ptr<string> mode{};
 
   TaggingImageRequest() {}
 
@@ -2540,27 +2518,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
     }
   }
 
@@ -2570,8 +2542,7 @@ public:
 class TaggingImageAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
-  shared_ptr<bool> async{};
+  shared_ptr<string> mode{};
 
   TaggingImageAdvanceRequest() {}
 
@@ -2590,11 +2561,8 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
-    if (async) {
-      res["Async"] = boost::any(*async);
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
     }
     return res;
   }
@@ -2603,11 +2571,8 @@ public:
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
     }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
     }
   }
 
