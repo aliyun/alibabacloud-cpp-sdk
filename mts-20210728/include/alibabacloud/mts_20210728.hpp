@@ -109,16 +109,16 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (gmtCreate) {
-      res["Gmt_create"] = boost::any(*gmtCreate);
+      res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
-      res["Gmt_modified"] = boost::any(*gmtModified);
+      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (jobId) {
-      res["Job_id"] = boost::any(*jobId);
+      res["JobId"] = boost::any(*jobId);
     }
     if (mediaId) {
-      res["Media_id"] = boost::any(*mediaId);
+      res["MediaId"] = boost::any(*mediaId);
     }
     if (output) {
       res["Output"] = boost::any(*output);
@@ -130,29 +130,29 @@ public:
       res["Trace"] = boost::any(*trace);
     }
     if (traceId) {
-      res["Trace_id"] = boost::any(*traceId);
+      res["TraceId"] = boost::any(*traceId);
     }
     if (userData) {
-      res["User_data"] = boost::any(*userData);
+      res["UserData"] = boost::any(*userData);
     }
     if (userId) {
-      res["User_id"] = boost::any(*userId);
+      res["UserId"] = boost::any(*userId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Gmt_create") != m.end() && !m["Gmt_create"].empty()) {
-      gmtCreate = make_shared<long>(boost::any_cast<long>(m["Gmt_create"]));
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
-    if (m.find("Gmt_modified") != m.end() && !m["Gmt_modified"].empty()) {
-      gmtModified = make_shared<long>(boost::any_cast<long>(m["Gmt_modified"]));
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
-    if (m.find("Job_id") != m.end() && !m["Job_id"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["Job_id"]));
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
-    if (m.find("Media_id") != m.end() && !m["Media_id"].empty()) {
-      mediaId = make_shared<string>(boost::any_cast<string>(m["Media_id"]));
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
@@ -163,14 +163,14 @@ public:
     if (m.find("Trace") != m.end() && !m["Trace"].empty()) {
       trace = make_shared<string>(boost::any_cast<string>(m["Trace"]));
     }
-    if (m.find("Trace_id") != m.end() && !m["Trace_id"].empty()) {
-      traceId = make_shared<long>(boost::any_cast<long>(m["Trace_id"]));
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<long>(boost::any_cast<long>(m["TraceId"]));
     }
-    if (m.find("User_data") != m.end() && !m["User_data"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["User_data"]));
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
-    if (m.find("User_id") != m.end() && !m["User_id"].empty()) {
-      userId = make_shared<long>(boost::any_cast<long>(m["User_id"]));
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
     }
   }
 
@@ -181,7 +181,7 @@ class QueryTraceMuResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<QueryTraceMuResponseBodyData>> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   QueryTraceMuResponseBody() {}
@@ -204,8 +204,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -230,8 +230,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -376,7 +376,7 @@ class SubmitImageCopyrightResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SubmitImageCopyrightResponseBodyData> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   SubmitImageCopyrightResponseBody() {}
@@ -395,8 +395,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -415,8 +415,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -560,16 +560,16 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (gmtCreate) {
-      res["Gmt_create"] = boost::any(*gmtCreate);
+      res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
-      res["Gmt_modified"] = boost::any(*gmtModified);
+      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (input) {
       res["Input"] = boost::any(*input);
     }
     if (jobId) {
-      res["Job_id"] = boost::any(*jobId);
+      res["JobId"] = boost::any(*jobId);
     }
     if (level) {
       res["Level"] = boost::any(*level);
@@ -578,7 +578,7 @@ public:
       res["Message"] = boost::any(*message);
     }
     if (messageId) {
-      res["Message_id"] = boost::any(*messageId);
+      res["MessageId"] = boost::any(*messageId);
     }
     if (output) {
       res["Output"] = boost::any(*output);
@@ -587,26 +587,26 @@ public:
       res["Status"] = boost::any(*status);
     }
     if (userData) {
-      res["User_data"] = boost::any(*userData);
+      res["UserData"] = boost::any(*userData);
     }
     if (userId) {
-      res["User_id"] = boost::any(*userId);
+      res["UserId"] = boost::any(*userId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Gmt_create") != m.end() && !m["Gmt_create"].empty()) {
-      gmtCreate = make_shared<long>(boost::any_cast<long>(m["Gmt_create"]));
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
-    if (m.find("Gmt_modified") != m.end() && !m["Gmt_modified"].empty()) {
-      gmtModified = make_shared<long>(boost::any_cast<long>(m["Gmt_modified"]));
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
-    if (m.find("Job_id") != m.end() && !m["Job_id"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["Job_id"]));
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<long>(boost::any_cast<long>(m["Level"]));
@@ -614,8 +614,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("Message_id") != m.end() && !m["Message_id"].empty()) {
-      messageId = make_shared<long>(boost::any_cast<long>(m["Message_id"]));
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<long>(boost::any_cast<long>(m["MessageId"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
@@ -623,11 +623,11 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
-    if (m.find("User_data") != m.end() && !m["User_data"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["User_data"]));
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
-    if (m.find("User_id") != m.end() && !m["User_id"].empty()) {
-      userId = make_shared<long>(boost::any_cast<long>(m["User_id"]));
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
     }
   }
 
@@ -638,7 +638,7 @@ class QueryImageCopyrightResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<QueryImageCopyrightResponseBodyData>> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   QueryImageCopyrightResponseBody() {}
@@ -661,8 +661,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -687,8 +687,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -843,16 +843,16 @@ public:
       res["Callback"] = boost::any(*callback);
     }
     if (gmtCreate) {
-      res["Gmt_create"] = boost::any(*gmtCreate);
+      res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
-      res["Gmt_modified"] = boost::any(*gmtModified);
+      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (input) {
       res["Input"] = boost::any(*input);
     }
     if (jobId) {
-      res["Job_id"] = boost::any(*jobId);
+      res["JobId"] = boost::any(*jobId);
     }
     if (level) {
       res["Level"] = boost::any(*level);
@@ -861,7 +861,7 @@ public:
       res["Message"] = boost::any(*message);
     }
     if (messageId) {
-      res["Message_id"] = boost::any(*messageId);
+      res["MessageId"] = boost::any(*messageId);
     }
     if (output) {
       res["Output"] = boost::any(*output);
@@ -870,10 +870,10 @@ public:
       res["Status"] = boost::any(*status);
     }
     if (userData) {
-      res["User_data"] = boost::any(*userData);
+      res["UserData"] = boost::any(*userData);
     }
     if (userId) {
-      res["User_id"] = boost::any(*userId);
+      res["UserId"] = boost::any(*userId);
     }
     return res;
   }
@@ -882,17 +882,17 @@ public:
     if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
       callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
     }
-    if (m.find("Gmt_create") != m.end() && !m["Gmt_create"].empty()) {
-      gmtCreate = make_shared<long>(boost::any_cast<long>(m["Gmt_create"]));
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
-    if (m.find("Gmt_modified") != m.end() && !m["Gmt_modified"].empty()) {
-      gmtModified = make_shared<long>(boost::any_cast<long>(m["Gmt_modified"]));
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
-    if (m.find("Job_id") != m.end() && !m["Job_id"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["Job_id"]));
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<long>(boost::any_cast<long>(m["Level"]));
@@ -900,8 +900,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("Message_id") != m.end() && !m["Message_id"].empty()) {
-      messageId = make_shared<long>(boost::any_cast<long>(m["Message_id"]));
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<long>(boost::any_cast<long>(m["MessageId"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
@@ -909,11 +909,11 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
-    if (m.find("User_data") != m.end() && !m["User_data"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["User_data"]));
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
-    if (m.find("User_id") != m.end() && !m["User_id"].empty()) {
-      userId = make_shared<long>(boost::any_cast<long>(m["User_id"]));
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
     }
   }
 
@@ -922,7 +922,7 @@ public:
 };
 class QueryCopyrightResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<vector<QueryCopyrightResponseBodyData>> data{};
   shared_ptr<long> statusCode{};
 
@@ -936,8 +936,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (data) {
       vector<boost::any> temp1;
@@ -953,8 +953,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(vector<boost::any>) == m["Data"].type()) {
@@ -1105,7 +1105,7 @@ class SubmitTracemuResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SubmitTracemuResponseBodyData> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   SubmitTracemuResponseBody() {}
@@ -1124,8 +1124,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -1144,8 +1144,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -1271,22 +1271,22 @@ public:
       res["Callback"] = boost::any(*callback);
     }
     if (gmtCreate) {
-      res["Gmt_create"] = boost::any(*gmtCreate);
+      res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
-      res["Gmt_modified"] = boost::any(*gmtModified);
+      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (input) {
       res["Input"] = boost::any(*input);
     }
     if (jobId) {
-      res["Job_id"] = boost::any(*jobId);
+      res["JobId"] = boost::any(*jobId);
     }
     if (level) {
       res["Level"] = boost::any(*level);
     }
     if (mediaId) {
-      res["Media_id"] = boost::any(*mediaId);
+      res["MediaId"] = boost::any(*mediaId);
     }
     if (output) {
       res["Output"] = boost::any(*output);
@@ -1295,10 +1295,10 @@ public:
       res["Status"] = boost::any(*status);
     }
     if (userData) {
-      res["User_data"] = boost::any(*userData);
+      res["UserData"] = boost::any(*userData);
     }
     if (userId) {
-      res["User_id"] = boost::any(*userId);
+      res["UserId"] = boost::any(*userId);
     }
     return res;
   }
@@ -1307,23 +1307,23 @@ public:
     if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
       callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
     }
-    if (m.find("Gmt_create") != m.end() && !m["Gmt_create"].empty()) {
-      gmtCreate = make_shared<long>(boost::any_cast<long>(m["Gmt_create"]));
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
-    if (m.find("Gmt_modified") != m.end() && !m["Gmt_modified"].empty()) {
-      gmtModified = make_shared<long>(boost::any_cast<long>(m["Gmt_modified"]));
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
     }
-    if (m.find("Job_id") != m.end() && !m["Job_id"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["Job_id"]));
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<long>(boost::any_cast<long>(m["Level"]));
     }
-    if (m.find("Media_id") != m.end() && !m["Media_id"].empty()) {
-      mediaId = make_shared<string>(boost::any_cast<string>(m["Media_id"]));
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
@@ -1331,11 +1331,11 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
-    if (m.find("User_data") != m.end() && !m["User_data"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["User_data"]));
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
-    if (m.find("User_id") != m.end() && !m["User_id"].empty()) {
-      userId = make_shared<long>(boost::any_cast<long>(m["User_id"]));
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
     }
   }
 
@@ -1346,7 +1346,7 @@ class QueryTraceAbResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<QueryTraceAbResponseBodyData>> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   QueryTraceAbResponseBody() {}
@@ -1369,8 +1369,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -1395,8 +1395,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -1555,7 +1555,7 @@ class SubmitTraceAbResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SubmitTraceAbResponseBodyData> data{};
   shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<long> statusCode{};
 
   SubmitTraceAbResponseBody() {}
@@ -1574,8 +1574,8 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (statusCode) {
       res["StatusCode"] = boost::any(*statusCode);
@@ -1594,8 +1594,8 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["StatusCode"]));
@@ -1759,7 +1759,7 @@ public:
 };
 class SubmitCopyrightJobResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<string> requestID{};
   shared_ptr<string> message{};
   shared_ptr<SubmitCopyrightJobResponseBodyData> data{};
   shared_ptr<long> statusCode{};
@@ -1774,8 +1774,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (requestID) {
+      res["RequestID"] = boost::any(*requestID);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -1790,8 +1790,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("RequestID") != m.end() && !m["RequestID"].empty()) {
+      requestID = make_shared<string>(boost::any_cast<string>(m["RequestID"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
