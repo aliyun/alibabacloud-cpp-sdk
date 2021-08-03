@@ -1721,6 +1721,7 @@ public:
   shared_ptr<long> cookieTimeout{};
   shared_ptr<string> cookie{};
   shared_ptr<string> healthCheck{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<string> healthCheckURI{};
   shared_ptr<long> healthyThreshold{};
@@ -1798,6 +1799,9 @@ public:
     }
     if (healthCheck) {
       res["HealthCheck"] = boost::any(*healthCheck);
+    }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
     }
     if (healthCheckDomain) {
       res["HealthCheckDomain"] = boost::any(*healthCheckDomain);
@@ -1913,6 +1917,9 @@ public:
     }
     if (m.find("HealthCheck") != m.end() && !m["HealthCheck"].empty()) {
       healthCheck = make_shared<string>(boost::any_cast<string>(m["HealthCheck"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("HealthCheckDomain") != m.end() && !m["HealthCheckDomain"].empty()) {
       healthCheckDomain = make_shared<string>(boost::any_cast<string>(m["HealthCheckDomain"]));
@@ -2083,6 +2090,7 @@ public:
   shared_ptr<long> cookieTimeout{};
   shared_ptr<string> cookie{};
   shared_ptr<string> healthCheck{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<string> healthCheckURI{};
   shared_ptr<long> healthyThreshold{};
@@ -2162,6 +2170,9 @@ public:
     }
     if (healthCheck) {
       res["HealthCheck"] = boost::any(*healthCheck);
+    }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
     }
     if (healthCheckDomain) {
       res["HealthCheckDomain"] = boost::any(*healthCheckDomain);
@@ -2283,6 +2294,9 @@ public:
     }
     if (m.find("HealthCheck") != m.end() && !m["HealthCheck"].empty()) {
       healthCheck = make_shared<string>(boost::any_cast<string>(m["HealthCheck"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("HealthCheckDomain") != m.end() && !m["HealthCheckDomain"].empty()) {
       healthCheckDomain = make_shared<string>(boost::any_cast<string>(m["HealthCheckDomain"]));
@@ -5735,8 +5749,8 @@ public:
   shared_ptr<string> aclId{};
   shared_ptr<string> addressIPVersion{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> aclName{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> aclName{};
   shared_ptr<DescribeAccessControlListAttributeResponseBodyAclEntrys> aclEntrys{};
   shared_ptr<DescribeAccessControlListAttributeResponseBodyRelatedListeners> relatedListeners{};
 
@@ -5759,11 +5773,11 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (aclName) {
-      res["AclName"] = boost::any(*aclName);
-    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
     }
     if (aclEntrys) {
       res["AclEntrys"] = aclEntrys ? boost::any(aclEntrys->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5784,11 +5798,11 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
-      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
-    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
     }
     if (m.find("AclEntrys") != m.end() && !m["AclEntrys"].empty()) {
       if (typeid(map<string, boost::any>) == m["AclEntrys"].type()) {
@@ -8588,6 +8602,7 @@ public:
   shared_ptr<string> XForwardedFor_proto{};
   shared_ptr<string> XForwardedFor_SLBIP{};
   shared_ptr<string> stickySession{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> healthCheck{};
   shared_ptr<DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules> rules{};
 
@@ -8700,6 +8715,9 @@ public:
     if (stickySession) {
       res["StickySession"] = boost::any(*stickySession);
     }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
+    }
     if (healthCheck) {
       res["HealthCheck"] = boost::any(*healthCheck);
     }
@@ -8808,6 +8826,9 @@ public:
     }
     if (m.find("StickySession") != m.end() && !m["StickySession"].empty()) {
       stickySession = make_shared<string>(boost::any_cast<string>(m["StickySession"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("HealthCheck") != m.end() && !m["HealthCheck"].empty()) {
       healthCheck = make_shared<string>(boost::any_cast<string>(m["HealthCheck"]));
@@ -9152,6 +9173,7 @@ public:
   shared_ptr<string> stickySessionType{};
   shared_ptr<string> scheduler{};
   shared_ptr<string> XForwardedFor_proto{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> TLSCipherPolicy{};
   shared_ptr<string> status{};
   shared_ptr<string> VServerGroupId{};
@@ -9240,6 +9262,9 @@ public:
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
+    }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
     }
     if (TLSCipherPolicy) {
       res["TLSCipherPolicy"] = boost::any(*TLSCipherPolicy);
@@ -9376,6 +9401,9 @@ public:
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("TLSCipherPolicy") != m.end() && !m["TLSCipherPolicy"].empty()) {
       TLSCipherPolicy = make_shared<string>(boost::any_cast<string>(m["TLSCipherPolicy"]));
@@ -12216,8 +12244,8 @@ public:
 };
 class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup : public Darabonba::Model {
 public:
-  shared_ptr<string> masterSlaveServerGroupName{};
   shared_ptr<string> masterSlaveServerGroupId{};
+  shared_ptr<string> masterSlaveServerGroupName{};
   shared_ptr<DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects> associatedObjects{};
 
   DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup() {}
@@ -12230,11 +12258,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (masterSlaveServerGroupName) {
-      res["MasterSlaveServerGroupName"] = boost::any(*masterSlaveServerGroupName);
-    }
     if (masterSlaveServerGroupId) {
       res["MasterSlaveServerGroupId"] = boost::any(*masterSlaveServerGroupId);
+    }
+    if (masterSlaveServerGroupName) {
+      res["MasterSlaveServerGroupName"] = boost::any(*masterSlaveServerGroupName);
     }
     if (associatedObjects) {
       res["AssociatedObjects"] = associatedObjects ? boost::any(associatedObjects->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12243,11 +12271,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("MasterSlaveServerGroupName") != m.end() && !m["MasterSlaveServerGroupName"].empty()) {
-      masterSlaveServerGroupName = make_shared<string>(boost::any_cast<string>(m["MasterSlaveServerGroupName"]));
-    }
     if (m.find("MasterSlaveServerGroupId") != m.end() && !m["MasterSlaveServerGroupId"].empty()) {
       masterSlaveServerGroupId = make_shared<string>(boost::any_cast<string>(m["MasterSlaveServerGroupId"]));
+    }
+    if (m.find("MasterSlaveServerGroupName") != m.end() && !m["MasterSlaveServerGroupName"].empty()) {
+      masterSlaveServerGroupName = make_shared<string>(boost::any_cast<string>(m["MasterSlaveServerGroupName"]));
     }
     if (m.find("AssociatedObjects") != m.end() && !m["AssociatedObjects"].empty()) {
       if (typeid(map<string, boost::any>) == m["AssociatedObjects"].type()) {
@@ -12704,27 +12732,27 @@ public:
 };
 class DescribeRuleAttributeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> healthCheckHttpCode{};
   shared_ptr<string> VServerGroupId{};
-  shared_ptr<string> domain{};
   shared_ptr<string> cookie{};
   shared_ptr<string> loadBalancerId{};
-  shared_ptr<string> listenerPort{};
-  shared_ptr<long> healthCheckInterval{};
-  shared_ptr<string> url{};
-  shared_ptr<string> healthCheckURI{};
-  shared_ptr<string> stickySessionType{};
-  shared_ptr<string> ruleName{};
   shared_ptr<string> ruleId{};
-  shared_ptr<long> healthCheckConnectPort{};
-  shared_ptr<string> scheduler{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> healthCheckConnectPort{};
   shared_ptr<long> healthCheckTimeout{};
-  shared_ptr<string> listenerSync{};
-  shared_ptr<long> healthyThreshold{};
   shared_ptr<long> cookieTimeout{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<long> unhealthyThreshold{};
+  shared_ptr<string> healthCheckHttpCode{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> listenerPort{};
+  shared_ptr<string> url{};
+  shared_ptr<long> healthCheckInterval{};
+  shared_ptr<string> healthCheckURI{};
+  shared_ptr<string> ruleName{};
+  shared_ptr<string> stickySessionType{};
+  shared_ptr<string> scheduler{};
+  shared_ptr<string> listenerSync{};
+  shared_ptr<long> healthyThreshold{};
   shared_ptr<string> stickySession{};
   shared_ptr<string> healthCheck{};
 
@@ -12738,14 +12766,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (healthCheckHttpCode) {
-      res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
-    }
     if (VServerGroupId) {
       res["VServerGroupId"] = boost::any(*VServerGroupId);
-    }
-    if (domain) {
-      res["Domain"] = boost::any(*domain);
     }
     if (cookie) {
       res["Cookie"] = boost::any(*cookie);
@@ -12753,44 +12775,17 @@ public:
     if (loadBalancerId) {
       res["LoadBalancerId"] = boost::any(*loadBalancerId);
     }
-    if (listenerPort) {
-      res["ListenerPort"] = boost::any(*listenerPort);
-    }
-    if (healthCheckInterval) {
-      res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
-    }
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    if (healthCheckURI) {
-      res["HealthCheckURI"] = boost::any(*healthCheckURI);
-    }
-    if (stickySessionType) {
-      res["StickySessionType"] = boost::any(*stickySessionType);
-    }
-    if (ruleName) {
-      res["RuleName"] = boost::any(*ruleName);
-    }
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
-    }
-    if (healthCheckConnectPort) {
-      res["HealthCheckConnectPort"] = boost::any(*healthCheckConnectPort);
-    }
-    if (scheduler) {
-      res["Scheduler"] = boost::any(*scheduler);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (healthCheckConnectPort) {
+      res["HealthCheckConnectPort"] = boost::any(*healthCheckConnectPort);
+    }
     if (healthCheckTimeout) {
       res["HealthCheckTimeout"] = boost::any(*healthCheckTimeout);
-    }
-    if (listenerSync) {
-      res["ListenerSync"] = boost::any(*listenerSync);
-    }
-    if (healthyThreshold) {
-      res["HealthyThreshold"] = boost::any(*healthyThreshold);
     }
     if (cookieTimeout) {
       res["CookieTimeout"] = boost::any(*cookieTimeout);
@@ -12800,6 +12795,39 @@ public:
     }
     if (unhealthyThreshold) {
       res["UnhealthyThreshold"] = boost::any(*unhealthyThreshold);
+    }
+    if (healthCheckHttpCode) {
+      res["HealthCheckHttpCode"] = boost::any(*healthCheckHttpCode);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (listenerPort) {
+      res["ListenerPort"] = boost::any(*listenerPort);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (healthCheckInterval) {
+      res["HealthCheckInterval"] = boost::any(*healthCheckInterval);
+    }
+    if (healthCheckURI) {
+      res["HealthCheckURI"] = boost::any(*healthCheckURI);
+    }
+    if (ruleName) {
+      res["RuleName"] = boost::any(*ruleName);
+    }
+    if (stickySessionType) {
+      res["StickySessionType"] = boost::any(*stickySessionType);
+    }
+    if (scheduler) {
+      res["Scheduler"] = boost::any(*scheduler);
+    }
+    if (listenerSync) {
+      res["ListenerSync"] = boost::any(*listenerSync);
+    }
+    if (healthyThreshold) {
+      res["HealthyThreshold"] = boost::any(*healthyThreshold);
     }
     if (stickySession) {
       res["StickySession"] = boost::any(*stickySession);
@@ -12811,14 +12839,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("HealthCheckHttpCode") != m.end() && !m["HealthCheckHttpCode"].empty()) {
-      healthCheckHttpCode = make_shared<string>(boost::any_cast<string>(m["HealthCheckHttpCode"]));
-    }
     if (m.find("VServerGroupId") != m.end() && !m["VServerGroupId"].empty()) {
       VServerGroupId = make_shared<string>(boost::any_cast<string>(m["VServerGroupId"]));
-    }
-    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
-      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
     if (m.find("Cookie") != m.end() && !m["Cookie"].empty()) {
       cookie = make_shared<string>(boost::any_cast<string>(m["Cookie"]));
@@ -12826,44 +12848,17 @@ public:
     if (m.find("LoadBalancerId") != m.end() && !m["LoadBalancerId"].empty()) {
       loadBalancerId = make_shared<string>(boost::any_cast<string>(m["LoadBalancerId"]));
     }
-    if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
-      listenerPort = make_shared<string>(boost::any_cast<string>(m["ListenerPort"]));
-    }
-    if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
-      healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
-    }
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-    if (m.find("HealthCheckURI") != m.end() && !m["HealthCheckURI"].empty()) {
-      healthCheckURI = make_shared<string>(boost::any_cast<string>(m["HealthCheckURI"]));
-    }
-    if (m.find("StickySessionType") != m.end() && !m["StickySessionType"].empty()) {
-      stickySessionType = make_shared<string>(boost::any_cast<string>(m["StickySessionType"]));
-    }
-    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
-      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
-    }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
-    }
-    if (m.find("HealthCheckConnectPort") != m.end() && !m["HealthCheckConnectPort"].empty()) {
-      healthCheckConnectPort = make_shared<long>(boost::any_cast<long>(m["HealthCheckConnectPort"]));
-    }
-    if (m.find("Scheduler") != m.end() && !m["Scheduler"].empty()) {
-      scheduler = make_shared<string>(boost::any_cast<string>(m["Scheduler"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("HealthCheckConnectPort") != m.end() && !m["HealthCheckConnectPort"].empty()) {
+      healthCheckConnectPort = make_shared<long>(boost::any_cast<long>(m["HealthCheckConnectPort"]));
+    }
     if (m.find("HealthCheckTimeout") != m.end() && !m["HealthCheckTimeout"].empty()) {
       healthCheckTimeout = make_shared<long>(boost::any_cast<long>(m["HealthCheckTimeout"]));
-    }
-    if (m.find("ListenerSync") != m.end() && !m["ListenerSync"].empty()) {
-      listenerSync = make_shared<string>(boost::any_cast<string>(m["ListenerSync"]));
-    }
-    if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
-      healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
     }
     if (m.find("CookieTimeout") != m.end() && !m["CookieTimeout"].empty()) {
       cookieTimeout = make_shared<long>(boost::any_cast<long>(m["CookieTimeout"]));
@@ -12873,6 +12868,39 @@ public:
     }
     if (m.find("UnhealthyThreshold") != m.end() && !m["UnhealthyThreshold"].empty()) {
       unhealthyThreshold = make_shared<long>(boost::any_cast<long>(m["UnhealthyThreshold"]));
+    }
+    if (m.find("HealthCheckHttpCode") != m.end() && !m["HealthCheckHttpCode"].empty()) {
+      healthCheckHttpCode = make_shared<string>(boost::any_cast<string>(m["HealthCheckHttpCode"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
+      listenerPort = make_shared<string>(boost::any_cast<string>(m["ListenerPort"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("HealthCheckInterval") != m.end() && !m["HealthCheckInterval"].empty()) {
+      healthCheckInterval = make_shared<long>(boost::any_cast<long>(m["HealthCheckInterval"]));
+    }
+    if (m.find("HealthCheckURI") != m.end() && !m["HealthCheckURI"].empty()) {
+      healthCheckURI = make_shared<string>(boost::any_cast<string>(m["HealthCheckURI"]));
+    }
+    if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
+      ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
+    }
+    if (m.find("StickySessionType") != m.end() && !m["StickySessionType"].empty()) {
+      stickySessionType = make_shared<string>(boost::any_cast<string>(m["StickySessionType"]));
+    }
+    if (m.find("Scheduler") != m.end() && !m["Scheduler"].empty()) {
+      scheduler = make_shared<string>(boost::any_cast<string>(m["Scheduler"]));
+    }
+    if (m.find("ListenerSync") != m.end() && !m["ListenerSync"].empty()) {
+      listenerSync = make_shared<string>(boost::any_cast<string>(m["ListenerSync"]));
+    }
+    if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
+      healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
     }
     if (m.find("StickySession") != m.end() && !m["StickySession"].empty()) {
       stickySession = make_shared<string>(boost::any_cast<string>(m["StickySession"]));
@@ -18590,6 +18618,7 @@ public:
   shared_ptr<long> cookieTimeout{};
   shared_ptr<string> cookie{};
   shared_ptr<string> healthCheck{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<string> healthCheckURI{};
   shared_ptr<long> healthyThreshold{};
@@ -18663,6 +18692,9 @@ public:
     }
     if (healthCheck) {
       res["HealthCheck"] = boost::any(*healthCheck);
+    }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
     }
     if (healthCheckDomain) {
       res["HealthCheckDomain"] = boost::any(*healthCheckDomain);
@@ -18772,6 +18804,9 @@ public:
     }
     if (m.find("HealthCheck") != m.end() && !m["HealthCheck"].empty()) {
       healthCheck = make_shared<string>(boost::any_cast<string>(m["HealthCheck"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("HealthCheckDomain") != m.end() && !m["HealthCheckDomain"].empty()) {
       healthCheckDomain = make_shared<string>(boost::any_cast<string>(m["HealthCheckDomain"]));
@@ -18938,6 +18973,7 @@ public:
   shared_ptr<long> cookieTimeout{};
   shared_ptr<string> cookie{};
   shared_ptr<string> healthCheck{};
+  shared_ptr<string> healthCheckMethod{};
   shared_ptr<string> healthCheckDomain{};
   shared_ptr<string> healthCheckURI{};
   shared_ptr<long> healthyThreshold{};
@@ -19015,6 +19051,9 @@ public:
     }
     if (healthCheck) {
       res["HealthCheck"] = boost::any(*healthCheck);
+    }
+    if (healthCheckMethod) {
+      res["HealthCheckMethod"] = boost::any(*healthCheckMethod);
     }
     if (healthCheckDomain) {
       res["HealthCheckDomain"] = boost::any(*healthCheckDomain);
@@ -19136,6 +19175,9 @@ public:
     }
     if (m.find("HealthCheck") != m.end() && !m["HealthCheck"].empty()) {
       healthCheck = make_shared<string>(boost::any_cast<string>(m["HealthCheck"]));
+    }
+    if (m.find("HealthCheckMethod") != m.end() && !m["HealthCheckMethod"].empty()) {
+      healthCheckMethod = make_shared<string>(boost::any_cast<string>(m["HealthCheckMethod"]));
     }
     if (m.find("HealthCheckDomain") != m.end() && !m["HealthCheckDomain"].empty()) {
       healthCheckDomain = make_shared<string>(boost::any_cast<string>(m["HealthCheckDomain"]));
