@@ -2230,7 +2230,6 @@ public:
 };
 class TaggingAdImageRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> imageType{};
   shared_ptr<string> imageURL{};
 
   TaggingAdImageRequest() {}
@@ -2243,9 +2242,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -2253,9 +2249,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -2267,7 +2260,6 @@ public:
 class TaggingAdImageAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<long> imageType{};
 
   TaggingAdImageAdvanceRequest() {}
 
@@ -2286,18 +2278,12 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
-    if (imageType) {
-      res["ImageType"] = boost::any(*imageType);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
-      imageType = make_shared<long>(boost::any_cast<long>(m["ImageType"]));
     }
   }
 
