@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_IMAGERECOG20190930_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -2290,45 +2291,9 @@ public:
 
   virtual ~TaggingAdImageAdvanceRequest() = default;
 };
-class TaggingAdImageResponseBodyDataTags : public Darabonba::Model {
-public:
-  shared_ptr<string> value{};
-  shared_ptr<double> confidence{};
-
-  TaggingAdImageResponseBodyDataTags() {}
-
-  explicit TaggingAdImageResponseBodyDataTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    if (confidence) {
-      res["Confidence"] = boost::any(*confidence);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
-      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
-    }
-  }
-
-
-  virtual ~TaggingAdImageResponseBodyDataTags() = default;
-};
 class TaggingAdImageResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<vector<TaggingAdImageResponseBodyDataTags>> tags{};
+  shared_ptr<map<string, boost::any>> tagInfo{};
 
   TaggingAdImageResponseBodyData() {}
 
@@ -2340,29 +2305,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (tags) {
-      vector<boost::any> temp1;
-      for(auto item1:*tags){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tags"] = boost::any(temp1);
+    if (tagInfo) {
+      res["TagInfo"] = boost::any(*tagInfo);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tags"].type()) {
-        vector<TaggingAdImageResponseBodyDataTags> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            TaggingAdImageResponseBodyDataTags model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tags = make_shared<vector<TaggingAdImageResponseBodyDataTags>>(expect1);
+    if (m.find("TagInfo") != m.end() && !m["TagInfo"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TagInfo"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
       }
+      tagInfo = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
