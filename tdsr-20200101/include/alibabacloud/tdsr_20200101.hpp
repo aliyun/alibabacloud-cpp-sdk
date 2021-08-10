@@ -7036,6 +7036,219 @@ public:
 
   virtual ~GetOriginLayoutDataResponse() = default;
 };
+class GetHotspotSceneDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> previewToken{};
+  shared_ptr<long> type{};
+  shared_ptr<string> domain{};
+  shared_ptr<bool> enabled{};
+
+  GetHotspotSceneDataRequest() {}
+
+  explicit GetHotspotSceneDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (previewToken) {
+      res["PreviewToken"] = boost::any(*previewToken);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PreviewToken") != m.end() && !m["PreviewToken"].empty()) {
+      previewToken = make_shared<string>(boost::any_cast<string>(m["PreviewToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~GetHotspotSceneDataRequest() = default;
+};
+class GetHotspotSceneDataResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneType{};
+  shared_ptr<string> previewToken{};
+  shared_ptr<string> previewData{};
+  shared_ptr<string> modelToken{};
+
+  GetHotspotSceneDataResponseBodyData() {}
+
+  explicit GetHotspotSceneDataResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneType) {
+      res["SceneType"] = boost::any(*sceneType);
+    }
+    if (previewToken) {
+      res["PreviewToken"] = boost::any(*previewToken);
+    }
+    if (previewData) {
+      res["PreviewData"] = boost::any(*previewData);
+    }
+    if (modelToken) {
+      res["ModelToken"] = boost::any(*modelToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
+      sceneType = make_shared<string>(boost::any_cast<string>(m["SceneType"]));
+    }
+    if (m.find("PreviewToken") != m.end() && !m["PreviewToken"].empty()) {
+      previewToken = make_shared<string>(boost::any_cast<string>(m["PreviewToken"]));
+    }
+    if (m.find("PreviewData") != m.end() && !m["PreviewData"].empty()) {
+      previewData = make_shared<string>(boost::any_cast<string>(m["PreviewData"]));
+    }
+    if (m.find("ModelToken") != m.end() && !m["ModelToken"].empty()) {
+      modelToken = make_shared<string>(boost::any_cast<string>(m["ModelToken"]));
+    }
+  }
+
+
+  virtual ~GetHotspotSceneDataResponseBodyData() = default;
+};
+class GetHotspotSceneDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+  shared_ptr<GetHotspotSceneDataResponseBodyData> data{};
+
+  GetHotspotSceneDataResponseBody() {}
+
+  explicit GetHotspotSceneDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetHotspotSceneDataResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetHotspotSceneDataResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetHotspotSceneDataResponseBody() = default;
+};
+class GetHotspotSceneDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetHotspotSceneDataResponseBody> body{};
+
+  GetHotspotSceneDataResponse() {}
+
+  explicit GetHotspotSceneDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetHotspotSceneDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetHotspotSceneDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetHotspotSceneDataResponse() = default;
+};
 class ScenePublishRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sceneId{};
@@ -7982,6 +8195,212 @@ public:
 
   virtual ~GetPolicyResponse() = default;
 };
+class GetScenePreviewInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> modelToken{};
+  shared_ptr<string> domain{};
+  shared_ptr<bool> enabled{};
+
+  GetScenePreviewInfoRequest() {}
+
+  explicit GetScenePreviewInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modelToken) {
+      res["ModelToken"] = boost::any(*modelToken);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModelToken") != m.end() && !m["ModelToken"].empty()) {
+      modelToken = make_shared<string>(boost::any_cast<string>(m["ModelToken"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewInfoRequest() = default;
+};
+class GetScenePreviewInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> panoList{};
+  shared_ptr<string> modelPath{};
+  shared_ptr<string> textureModelPath{};
+  shared_ptr<string> texturePanoPath{};
+
+  GetScenePreviewInfoResponseBodyData() {}
+
+  explicit GetScenePreviewInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (panoList) {
+      res["PanoList"] = boost::any(*panoList);
+    }
+    if (modelPath) {
+      res["ModelPath"] = boost::any(*modelPath);
+    }
+    if (textureModelPath) {
+      res["TextureModelPath"] = boost::any(*textureModelPath);
+    }
+    if (texturePanoPath) {
+      res["TexturePanoPath"] = boost::any(*texturePanoPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PanoList") != m.end() && !m["PanoList"].empty()) {
+      panoList = make_shared<string>(boost::any_cast<string>(m["PanoList"]));
+    }
+    if (m.find("ModelPath") != m.end() && !m["ModelPath"].empty()) {
+      modelPath = make_shared<string>(boost::any_cast<string>(m["ModelPath"]));
+    }
+    if (m.find("TextureModelPath") != m.end() && !m["TextureModelPath"].empty()) {
+      textureModelPath = make_shared<string>(boost::any_cast<string>(m["TextureModelPath"]));
+    }
+    if (m.find("TexturePanoPath") != m.end() && !m["TexturePanoPath"].empty()) {
+      texturePanoPath = make_shared<string>(boost::any_cast<string>(m["TexturePanoPath"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewInfoResponseBodyData() = default;
+};
+class GetScenePreviewInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+  shared_ptr<GetScenePreviewInfoResponseBodyData> data{};
+
+  GetScenePreviewInfoResponseBody() {}
+
+  explicit GetScenePreviewInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetScenePreviewInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetScenePreviewInfoResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetScenePreviewInfoResponseBody() = default;
+};
+class GetScenePreviewInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetScenePreviewInfoResponseBody> body{};
+
+  GetScenePreviewInfoResponse() {}
+
+  explicit GetScenePreviewInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetScenePreviewInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetScenePreviewInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetScenePreviewInfoResponse() = default;
+};
 class AddSubSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sceneId{};
@@ -8361,6 +8780,8 @@ public:
   ListProjectResponse listProject(shared_ptr<ListProjectRequest> request);
   GetOriginLayoutDataResponse getOriginLayoutDataWithOptions(shared_ptr<GetOriginLayoutDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOriginLayoutDataResponse getOriginLayoutData(shared_ptr<GetOriginLayoutDataRequest> request);
+  GetHotspotSceneDataResponse getHotspotSceneDataWithOptions(shared_ptr<GetHotspotSceneDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetHotspotSceneDataResponse getHotspotSceneData(shared_ptr<GetHotspotSceneDataRequest> request);
   ScenePublishResponse scenePublishWithOptions(shared_ptr<ScenePublishRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScenePublishResponse scenePublish(shared_ptr<ScenePublishRequest> request);
   GetRectifyImageResponse getRectifyImageWithOptions(shared_ptr<GetRectifyImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8373,6 +8794,8 @@ public:
   PredictionWallLineResponse predictionWallLine(shared_ptr<PredictionWallLineRequest> request);
   GetPolicyResponse getPolicyWithOptions(shared_ptr<GetPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPolicyResponse getPolicy(shared_ptr<GetPolicyRequest> request);
+  GetScenePreviewInfoResponse getScenePreviewInfoWithOptions(shared_ptr<GetScenePreviewInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetScenePreviewInfoResponse getScenePreviewInfo(shared_ptr<GetScenePreviewInfoRequest> request);
   AddSubSceneResponse addSubSceneWithOptions(shared_ptr<AddSubSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddSubSceneResponse addSubScene(shared_ptr<AddSubSceneRequest> request);
   GetLayoutDataResponse getLayoutDataWithOptions(shared_ptr<GetLayoutDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
