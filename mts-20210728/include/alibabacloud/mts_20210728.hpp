@@ -1664,6 +1664,8 @@ public:
   shared_ptr<string> input{};
   shared_ptr<long> level{};
   shared_ptr<string> message{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> output{};
   shared_ptr<string> userData{};
 
@@ -1692,6 +1694,12 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (totalTime) {
+      res["TotalTime"] = boost::any(*totalTime);
+    }
     if (output) {
       res["Output"] = boost::any(*output);
     }
@@ -1716,6 +1724,12 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));

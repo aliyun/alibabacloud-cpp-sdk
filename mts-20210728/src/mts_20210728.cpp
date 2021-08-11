@@ -315,6 +315,12 @@ SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
     (*body)["Message"] = *request->message;
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    (*body)["StartTime"] = *request->startTime;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalTime)) {
+    (*body)["TotalTime"] = *request->totalTime;
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     (*body)["Output"] = *request->output;
   }
