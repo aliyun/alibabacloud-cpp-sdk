@@ -32,8 +32,8 @@ string Alibabacloud_Snapshot20210315::Client::getEndpoint(shared_ptr<string> pro
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -91,8 +91,8 @@ GetSnapshotBlockResponse Alibabacloud_Snapshot20210315::Client::getSnapshotBlock
   shared_ptr<GetSnapshotBlockResponse> res = make_shared<GetSnapshotBlockResponse>();
   shared_ptr<map<string, boost::any>> tmp = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<map<string, boost::any>>(doROARequest(make_shared<string>("GetSnapshotBlock"), make_shared<string>("2021-03-15"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/snapshots/block")), make_shared<string>("binary"), req, runtime))));
   if (!Darabonba_Util::Client::isUnset<boost::any>((*tmp)["body"])) {
-    shared_ptr<Darabonba::Stream> respBody = Darabonba_Util::Client::assertAsReadable(make_shared<boost::any>((*tmp)["body"]));
-    res->body = respBody;
+    shared_ptr<Darabonba::Stream> respBody = Darabonba::Converter::toStream(Darabonba_Util::Client::assertAsReadable(make_shared<boost::any>((*tmp)["body"])));
+    res->body = Darabonba::Converter::toStream(*respBody);
   }
   if (!Darabonba_Util::Client::isUnset<boost::any>((*tmp)["headers"])) {
     shared_ptr<map<string, boost::any>> respHeaders = make_shared<map<string, boost::any>>(Darabonba_Util::Client::assertAsMap(make_shared<boost::any>((*tmp)["headers"])));

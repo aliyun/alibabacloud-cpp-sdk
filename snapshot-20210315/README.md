@@ -13,6 +13,8 @@ Alibaba Cloud Snapshot SDK is based on the [`Darabonba DSL`](https://github.com/
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
@@ -53,7 +55,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh snapshot-20210315/scripts/install.sh
+sh https://github.com/alibabacloud-sdk-cpp/snapshot-20210315.git/scripts/install.sh
 ```
 
 ### Windows
@@ -62,7 +64,7 @@ sh snapshot-20210315/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/snapshot-20210315
+  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/snapshot-20210315.git
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
@@ -88,7 +90,6 @@ sh snapshot-20210315/scripts/install.sh
 ## Related
 
 * [Alibaba Cloud OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
@@ -98,7 +99,7 @@ sh snapshot-20210315/scripts/install.sh
 
 Copyright (c) 2009-present, Alibaba Cloud All rights reserved.
 
-[open-api]: https://next.api.aliyun.com
+[Alibaba Cloud OpenAPI Portal]: https://next.api.aliyun.com
 [latest-release]: https://github.com/aliyun/alibabacloud-cpp-sdk/releases
 [console]: https://home.console.aliyun.com
 [aliyun]: https://www.aliyun.com

@@ -66,6 +66,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<long> createTime{};
   shared_ptr<bool> encrypted{};
+  shared_ptr<string> format{};
 
   GetSnapshotInfoResponseBody() {}
 
@@ -98,6 +99,9 @@ public:
     if (encrypted) {
       res["Encrypted"] = boost::any(*encrypted);
     }
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
     return res;
   }
 
@@ -122,6 +126,9 @@ public:
     }
     if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
       encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
     }
   }
 
