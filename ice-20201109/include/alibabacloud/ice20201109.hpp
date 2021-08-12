@@ -10324,6 +10324,42 @@ public:
 
   virtual ~GetSmartHandleJobResponseBodySmartJobInfoInputConfig() = default;
 };
+class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bucket{};
+  shared_ptr<string> object{};
+
+  GetSmartHandleJobResponseBodySmartJobInfoOutputConfig() {}
+
+  explicit GetSmartHandleJobResponseBodySmartJobInfoOutputConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (object) {
+      res["Object"] = boost::any(*object);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("Object") != m.end() && !m["Object"].empty()) {
+      object = make_shared<string>(boost::any_cast<string>(m["Object"]));
+    }
+  }
+
+
+  virtual ~GetSmartHandleJobResponseBodySmartJobInfoOutputConfig() = default;
+};
 class GetSmartHandleJobResponseBodySmartJobInfo : public Darabonba::Model {
 public:
   shared_ptr<string> title{};
@@ -10331,7 +10367,7 @@ public:
   shared_ptr<string> userId{};
   shared_ptr<string> editingConfig{};
   shared_ptr<GetSmartHandleJobResponseBodySmartJobInfoInputConfig> inputConfig{};
-  shared_ptr<string> outputConfig{};
+  shared_ptr<GetSmartHandleJobResponseBodySmartJobInfoOutputConfig> outputConfig{};
   shared_ptr<string> createTime{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> jobType{};
@@ -10362,7 +10398,7 @@ public:
       res["InputConfig"] = inputConfig ? boost::any(inputConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (outputConfig) {
-      res["outputConfig"] = boost::any(*outputConfig);
+      res["OutputConfig"] = outputConfig ? boost::any(outputConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -10396,8 +10432,12 @@ public:
         inputConfig = make_shared<GetSmartHandleJobResponseBodySmartJobInfoInputConfig>(model1);
       }
     }
-    if (m.find("outputConfig") != m.end() && !m["outputConfig"].empty()) {
-      outputConfig = make_shared<string>(boost::any_cast<string>(m["outputConfig"]));
+    if (m.find("OutputConfig") != m.end() && !m["OutputConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutputConfig"].type()) {
+        GetSmartHandleJobResponseBodySmartJobInfoOutputConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputConfig"]));
+        outputConfig = make_shared<GetSmartHandleJobResponseBodySmartJobInfoOutputConfig>(model1);
+      }
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
