@@ -4388,137 +4388,6 @@ public:
 
   virtual ~RecognizeRussianResponse() = default;
 };
-class RecognizeHouseCertificationRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> url{};
-
-  RecognizeHouseCertificationRequest() {}
-
-  explicit RecognizeHouseCertificationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-  }
-
-
-  virtual ~RecognizeHouseCertificationRequest() = default;
-};
-class RecognizeHouseCertificationResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<string> data{};
-  shared_ptr<string> code{};
-  shared_ptr<string> message{};
-
-  RecognizeHouseCertificationResponseBody() {}
-
-  explicit RecognizeHouseCertificationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-  }
-
-
-  virtual ~RecognizeHouseCertificationResponseBody() = default;
-};
-class RecognizeHouseCertificationResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<RecognizeHouseCertificationResponseBody> body{};
-
-  RecognizeHouseCertificationResponse() {}
-
-  explicit RecognizeHouseCertificationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeHouseCertificationResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeHouseCertificationResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RecognizeHouseCertificationResponse() = default;
-};
 class RecognizeBasicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
@@ -4918,7 +4787,6 @@ public:
   shared_ptr<string> cutType{};
   shared_ptr<string> imageType{};
   shared_ptr<string> subject{};
-  shared_ptr<bool> outputOricoord{};
 
   RecognizeEduPaperCutRequest() {}
 
@@ -4942,9 +4810,6 @@ public:
     if (subject) {
       res["Subject"] = boost::any(*subject);
     }
-    if (outputOricoord) {
-      res["OutputOricoord"] = boost::any(*outputOricoord);
-    }
     return res;
   }
 
@@ -4960,9 +4825,6 @@ public:
     }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
-    }
-    if (m.find("OutputOricoord") != m.end() && !m["OutputOricoord"].empty()) {
-      outputOricoord = make_shared<bool>(boost::any_cast<bool>(m["OutputOricoord"]));
     }
   }
 
@@ -6720,8 +6582,6 @@ public:
   RecognizeVehicleLicenseResponse recognizeVehicleLicense(shared_ptr<RecognizeVehicleLicenseRequest> request);
   RecognizeRussianResponse recognizeRussianWithOptions(shared_ptr<RecognizeRussianRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeRussianResponse recognizeRussian(shared_ptr<RecognizeRussianRequest> request);
-  RecognizeHouseCertificationResponse recognizeHouseCertificationWithOptions(shared_ptr<RecognizeHouseCertificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeHouseCertificationResponse recognizeHouseCertification(shared_ptr<RecognizeHouseCertificationRequest> request);
   RecognizeBasicResponse recognizeBasicWithOptions(shared_ptr<RecognizeBasicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBasicResponse recognizeBasic(shared_ptr<RecognizeBasicRequest> request);
   RecognizeBusinessLicenseResponse recognizeBusinessLicenseWithOptions(shared_ptr<RecognizeBusinessLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
