@@ -453,19 +453,6 @@ DeleteQosResponse Alibabacloud_Smartag20180313::Client::deleteQos(shared_ptr<Del
   return deleteQosWithOptions(request, runtime);
 }
 
-AddSagCidrResponse Alibabacloud_Smartag20180313::Client::addSagCidrWithOptions(shared_ptr<AddSagCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return AddSagCidrResponse(doRPCRequest(make_shared<string>("AddSagCidr"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-AddSagCidrResponse Alibabacloud_Smartag20180313::Client::addSagCidr(shared_ptr<AddSagCidrRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return addSagCidrWithOptions(request, runtime);
-}
-
 DeleteSagStaticRouteResponse Alibabacloud_Smartag20180313::Client::deleteSagStaticRouteWithOptions(shared_ptr<DeleteSagStaticRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -698,19 +685,6 @@ AddDnatEntryResponse Alibabacloud_Smartag20180313::Client::addDnatEntryWithOptio
 AddDnatEntryResponse Alibabacloud_Smartag20180313::Client::addDnatEntry(shared_ptr<AddDnatEntryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return addDnatEntryWithOptions(request, runtime);
-}
-
-DeleteSagCidrResponse Alibabacloud_Smartag20180313::Client::deleteSagCidrWithOptions(shared_ptr<DeleteSagCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DeleteSagCidrResponse(doRPCRequest(make_shared<string>("DeleteSagCidr"), make_shared<string>("2018-03-13"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DeleteSagCidrResponse Alibabacloud_Smartag20180313::Client::deleteSagCidr(shared_ptr<DeleteSagCidrRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteSagCidrWithOptions(request, runtime);
 }
 
 DescribeSagRouteProtocolOspfResponse Alibabacloud_Smartag20180313::Client::describeSagRouteProtocolOspfWithOptions(shared_ptr<DescribeSagRouteProtocolOspfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -7738,165 +7738,6 @@ public:
 
   virtual ~DeleteQosResponse() = default;
 };
-class AddSagCidrRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> ownerAccount{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> cidr{};
-  shared_ptr<string> smartAGId{};
-  shared_ptr<bool> enableBackup{};
-
-  AddSagCidrRequest() {}
-
-  explicit AddSagCidrRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (ownerAccount) {
-      res["OwnerAccount"] = boost::any(*ownerAccount);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (cidr) {
-      res["Cidr"] = boost::any(*cidr);
-    }
-    if (smartAGId) {
-      res["SmartAGId"] = boost::any(*smartAGId);
-    }
-    if (enableBackup) {
-      res["EnableBackup"] = boost::any(*enableBackup);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
-      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
-      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
-    }
-    if (m.find("SmartAGId") != m.end() && !m["SmartAGId"].empty()) {
-      smartAGId = make_shared<string>(boost::any_cast<string>(m["SmartAGId"]));
-    }
-    if (m.find("EnableBackup") != m.end() && !m["EnableBackup"].empty()) {
-      enableBackup = make_shared<bool>(boost::any_cast<bool>(m["EnableBackup"]));
-    }
-  }
-
-
-  virtual ~AddSagCidrRequest() = default;
-};
-class AddSagCidrResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  AddSagCidrResponseBody() {}
-
-  explicit AddSagCidrResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~AddSagCidrResponseBody() = default;
-};
-class AddSagCidrResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<AddSagCidrResponseBody> body{};
-
-  AddSagCidrResponse() {}
-
-  explicit AddSagCidrResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        AddSagCidrResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<AddSagCidrResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~AddSagCidrResponse() = default;
-};
 class DeleteSagStaticRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ownerAccount{};
@@ -9275,6 +9116,7 @@ public:
   shared_ptr<string> vpnState{};
   shared_ptr<string> startupTime{};
   shared_ptr<string> lastConnectedControllerTime{};
+  shared_ptr<string> resettableStatus{};
 
   DescribeSAGDeviceInfoResponseBody() {}
 
@@ -9313,6 +9155,9 @@ public:
     if (lastConnectedControllerTime) {
       res["LastConnectedControllerTime"] = boost::any(*lastConnectedControllerTime);
     }
+    if (resettableStatus) {
+      res["ResettableStatus"] = boost::any(*resettableStatus);
+    }
     return res;
   }
 
@@ -9343,6 +9188,9 @@ public:
     }
     if (m.find("LastConnectedControllerTime") != m.end() && !m["LastConnectedControllerTime"].empty()) {
       lastConnectedControllerTime = make_shared<string>(boost::any_cast<string>(m["LastConnectedControllerTime"]));
+    }
+    if (m.find("ResettableStatus") != m.end() && !m["ResettableStatus"].empty()) {
+      resettableStatus = make_shared<string>(boost::any_cast<string>(m["ResettableStatus"]));
     }
   }
 
@@ -11958,158 +11806,6 @@ public:
 
 
   virtual ~AddDnatEntryResponse() = default;
-};
-class DeleteSagCidrRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> ownerAccount{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> cidr{};
-  shared_ptr<string> smartAGId{};
-
-  DeleteSagCidrRequest() {}
-
-  explicit DeleteSagCidrRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (ownerAccount) {
-      res["OwnerAccount"] = boost::any(*ownerAccount);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (cidr) {
-      res["Cidr"] = boost::any(*cidr);
-    }
-    if (smartAGId) {
-      res["SmartAGId"] = boost::any(*smartAGId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
-      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("Cidr") != m.end() && !m["Cidr"].empty()) {
-      cidr = make_shared<string>(boost::any_cast<string>(m["Cidr"]));
-    }
-    if (m.find("SmartAGId") != m.end() && !m["SmartAGId"].empty()) {
-      smartAGId = make_shared<string>(boost::any_cast<string>(m["SmartAGId"]));
-    }
-  }
-
-
-  virtual ~DeleteSagCidrRequest() = default;
-};
-class DeleteSagCidrResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  DeleteSagCidrResponseBody() {}
-
-  explicit DeleteSagCidrResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~DeleteSagCidrResponseBody() = default;
-};
-class DeleteSagCidrResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<DeleteSagCidrResponseBody> body{};
-
-  DeleteSagCidrResponse() {}
-
-  explicit DeleteSagCidrResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DeleteSagCidrResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DeleteSagCidrResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DeleteSagCidrResponse() = default;
 };
 class DescribeSagRouteProtocolOspfRequest : public Darabonba::Model {
 public:
@@ -38955,8 +38651,6 @@ public:
   DeleteSnatEntryResponse deleteSnatEntry(shared_ptr<DeleteSnatEntryRequest> request);
   DeleteQosResponse deleteQosWithOptions(shared_ptr<DeleteQosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteQosResponse deleteQos(shared_ptr<DeleteQosRequest> request);
-  AddSagCidrResponse addSagCidrWithOptions(shared_ptr<AddSagCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddSagCidrResponse addSagCidr(shared_ptr<AddSagCidrRequest> request);
   DeleteSagStaticRouteResponse deleteSagStaticRouteWithOptions(shared_ptr<DeleteSagStaticRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSagStaticRouteResponse deleteSagStaticRoute(shared_ptr<DeleteSagStaticRouteRequest> request);
   DescribeGrantSagRulesResponse describeGrantSagRulesWithOptions(shared_ptr<DescribeGrantSagRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38993,8 +38687,6 @@ public:
   ModifySagRouteProtocolOspfResponse modifySagRouteProtocolOspf(shared_ptr<ModifySagRouteProtocolOspfRequest> request);
   AddDnatEntryResponse addDnatEntryWithOptions(shared_ptr<AddDnatEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddDnatEntryResponse addDnatEntry(shared_ptr<AddDnatEntryRequest> request);
-  DeleteSagCidrResponse deleteSagCidrWithOptions(shared_ptr<DeleteSagCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteSagCidrResponse deleteSagCidr(shared_ptr<DeleteSagCidrRequest> request);
   DescribeSagRouteProtocolOspfResponse describeSagRouteProtocolOspfWithOptions(shared_ptr<DescribeSagRouteProtocolOspfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSagRouteProtocolOspfResponse describeSagRouteProtocolOspf(shared_ptr<DescribeSagRouteProtocolOspfRequest> request);
   DescribeRouteDistributionStrategiesResponse describeRouteDistributionStrategiesWithOptions(shared_ptr<DescribeRouteDistributionStrategiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
