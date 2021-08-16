@@ -103,8 +103,13 @@ ListApplyLinkMicUsersResponse Alibabacloud_Imp20210630::Client::listApplyLinkMic
   return listApplyLinkMicUsersWithOptions(request, runtime);
 }
 
-ListRoomLivesResponse Alibabacloud_Imp20210630::Client::listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListRoomLivesResponse Alibabacloud_Imp20210630::Client::listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListRoomLivesShrinkRequest> request = make_shared<ListRoomLivesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->roomIdList)) {
+    request->roomIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->roomIdList, make_shared<string>("RoomIdList"), make_shared<string>("json")));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));

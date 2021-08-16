@@ -763,6 +763,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> queryTimestamp{};
   shared_ptr<long> size{};
+  shared_ptr<vector<string>> roomIdList{};
 
   ListRoomLivesRequest() {}
 
@@ -789,6 +790,9 @@ public:
     if (size) {
       res["Size"] = boost::any(*size);
     }
+    if (roomIdList) {
+      res["RoomIdList"] = boost::any(*roomIdList);
+    }
     return res;
   }
 
@@ -808,10 +812,84 @@ public:
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
+    if (m.find("RoomIdList") != m.end() && !m["RoomIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RoomIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RoomIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roomIdList = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~ListRoomLivesRequest() = default;
+};
+class ListRoomLivesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> roomId{};
+  shared_ptr<long> status{};
+  shared_ptr<long> queryTimestamp{};
+  shared_ptr<long> size{};
+  shared_ptr<string> roomIdListShrink{};
+
+  ListRoomLivesShrinkRequest() {}
+
+  explicit ListRoomLivesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (roomId) {
+      res["RoomId"] = boost::any(*roomId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (queryTimestamp) {
+      res["QueryTimestamp"] = boost::any(*queryTimestamp);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (roomIdListShrink) {
+      res["RoomIdList"] = boost::any(*roomIdListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
+      roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("QueryTimestamp") != m.end() && !m["QueryTimestamp"].empty()) {
+      queryTimestamp = make_shared<long>(boost::any_cast<long>(m["QueryTimestamp"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("RoomIdList") != m.end() && !m["RoomIdList"].empty()) {
+      roomIdListShrink = make_shared<string>(boost::any_cast<string>(m["RoomIdList"]));
+    }
+  }
+
+
+  virtual ~ListRoomLivesShrinkRequest() = default;
 };
 class ListRoomLivesResponseBodyResultLiveList : public Darabonba::Model {
 public:
@@ -2101,6 +2179,7 @@ public:
 class CreateAppTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
+  shared_ptr<string> sence{};
   shared_ptr<vector<string>> componentList{};
 
   CreateAppTemplateRequest() {}
@@ -2116,6 +2195,9 @@ public:
     if (appTemplateName) {
       res["AppTemplateName"] = boost::any(*appTemplateName);
     }
+    if (sence) {
+      res["Sence"] = boost::any(*sence);
+    }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
     }
@@ -2125,6 +2207,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppTemplateName") != m.end() && !m["AppTemplateName"].empty()) {
       appTemplateName = make_shared<string>(boost::any_cast<string>(m["AppTemplateName"]));
+    }
+    if (m.find("Sence") != m.end() && !m["Sence"].empty()) {
+      sence = make_shared<string>(boost::any_cast<string>(m["Sence"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       vector<string> toVec1;
@@ -2144,6 +2229,7 @@ public:
 class CreateAppTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
+  shared_ptr<string> sence{};
   shared_ptr<string> componentListShrink{};
 
   CreateAppTemplateShrinkRequest() {}
@@ -2159,6 +2245,9 @@ public:
     if (appTemplateName) {
       res["AppTemplateName"] = boost::any(*appTemplateName);
     }
+    if (sence) {
+      res["Sence"] = boost::any(*sence);
+    }
     if (componentListShrink) {
       res["ComponentList"] = boost::any(*componentListShrink);
     }
@@ -2168,6 +2257,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppTemplateName") != m.end() && !m["AppTemplateName"].empty()) {
       appTemplateName = make_shared<string>(boost::any_cast<string>(m["AppTemplateName"]));
+    }
+    if (m.find("Sence") != m.end() && !m["Sence"].empty()) {
+      sence = make_shared<string>(boost::any_cast<string>(m["Sence"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       componentListShrink = make_shared<string>(boost::any_cast<string>(m["ComponentList"]));
@@ -4495,6 +4587,192 @@ public:
 
   virtual ~ListComponentsRequest() = default;
 };
+class ListComponentsResponseBodyResultConfigGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+  shared_ptr<string> category{};
+
+  ListComponentsResponseBodyResultConfigGroup() {}
+
+  explicit ListComponentsResponseBodyResultConfigGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+  }
+
+
+  virtual ~ListComponentsResponseBodyResultConfigGroup() = default;
+};
+class ListComponentsResponseBodyResultSceneListComponentCategoryList : public Darabonba::Model {
+public:
+  shared_ptr<string> componentType{};
+  shared_ptr<string> componentName{};
+  shared_ptr<string> inUse{};
+
+  ListComponentsResponseBodyResultSceneListComponentCategoryList() {}
+
+  explicit ListComponentsResponseBodyResultSceneListComponentCategoryList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (componentType) {
+      res["ComponentType"] = boost::any(*componentType);
+    }
+    if (componentName) {
+      res["ComponentName"] = boost::any(*componentName);
+    }
+    if (inUse) {
+      res["InUse"] = boost::any(*inUse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComponentType") != m.end() && !m["ComponentType"].empty()) {
+      componentType = make_shared<string>(boost::any_cast<string>(m["ComponentType"]));
+    }
+    if (m.find("ComponentName") != m.end() && !m["ComponentName"].empty()) {
+      componentName = make_shared<string>(boost::any_cast<string>(m["ComponentName"]));
+    }
+    if (m.find("InUse") != m.end() && !m["InUse"].empty()) {
+      inUse = make_shared<string>(boost::any_cast<string>(m["InUse"]));
+    }
+  }
+
+
+  virtual ~ListComponentsResponseBodyResultSceneListComponentCategoryList() = default;
+};
+class ListComponentsResponseBodyResultSceneListComponentCategory : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<vector<ListComponentsResponseBodyResultSceneListComponentCategoryList>> list{};
+
+  ListComponentsResponseBodyResultSceneListComponentCategory() {}
+
+  explicit ListComponentsResponseBodyResultSceneListComponentCategory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<ListComponentsResponseBodyResultSceneListComponentCategoryList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListComponentsResponseBodyResultSceneListComponentCategoryList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<ListComponentsResponseBodyResultSceneListComponentCategoryList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListComponentsResponseBodyResultSceneListComponentCategory() = default;
+};
+class ListComponentsResponseBodyResultSceneList : public Darabonba::Model {
+public:
+  shared_ptr<string> scene{};
+  shared_ptr<vector<ListComponentsResponseBodyResultSceneListComponentCategory>> componentCategory{};
+
+  ListComponentsResponseBodyResultSceneList() {}
+
+  explicit ListComponentsResponseBodyResultSceneList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (componentCategory) {
+      vector<boost::any> temp1;
+      for(auto item1:*componentCategory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComponentCategory"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("ComponentCategory") != m.end() && !m["ComponentCategory"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComponentCategory"].type()) {
+        vector<ListComponentsResponseBodyResultSceneListComponentCategory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComponentCategory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListComponentsResponseBodyResultSceneListComponentCategory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        componentCategory = make_shared<vector<ListComponentsResponseBodyResultSceneListComponentCategory>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListComponentsResponseBodyResultSceneList() = default;
+};
 class ListComponentsResponseBodyResultComponentCategoryList : public Darabonba::Model {
 public:
   shared_ptr<string> componentType{};
@@ -4588,53 +4866,11 @@ public:
 
   virtual ~ListComponentsResponseBodyResultComponentCategory() = default;
 };
-class ListComponentsResponseBodyResultConfigGroup : public Darabonba::Model {
-public:
-  shared_ptr<string> key{};
-  shared_ptr<string> value{};
-  shared_ptr<string> category{};
-
-  ListComponentsResponseBodyResultConfigGroup() {}
-
-  explicit ListComponentsResponseBodyResultConfigGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (key) {
-      res["Key"] = boost::any(*key);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    if (category) {
-      res["Category"] = boost::any(*category);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Key") != m.end() && !m["Key"].empty()) {
-      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-    if (m.find("Category") != m.end() && !m["Category"].empty()) {
-      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
-    }
-  }
-
-
-  virtual ~ListComponentsResponseBodyResultConfigGroup() = default;
-};
 class ListComponentsResponseBodyResult : public Darabonba::Model {
 public:
-  shared_ptr<vector<ListComponentsResponseBodyResultComponentCategory>> componentCategory{};
   shared_ptr<vector<ListComponentsResponseBodyResultConfigGroup>> configGroup{};
+  shared_ptr<vector<ListComponentsResponseBodyResultSceneList>> sceneList{};
+  shared_ptr<vector<ListComponentsResponseBodyResultComponentCategory>> componentCategory{};
 
   ListComponentsResponseBodyResult() {}
 
@@ -4646,13 +4882,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (componentCategory) {
-      vector<boost::any> temp1;
-      for(auto item1:*componentCategory){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["ComponentCategory"] = boost::any(temp1);
-    }
     if (configGroup) {
       vector<boost::any> temp1;
       for(auto item1:*configGroup){
@@ -4660,23 +4889,24 @@ public:
       }
       res["ConfigGroup"] = boost::any(temp1);
     }
+    if (sceneList) {
+      vector<boost::any> temp1;
+      for(auto item1:*sceneList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SceneList"] = boost::any(temp1);
+    }
+    if (componentCategory) {
+      vector<boost::any> temp1;
+      for(auto item1:*componentCategory){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComponentCategory"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ComponentCategory") != m.end() && !m["ComponentCategory"].empty()) {
-      if (typeid(vector<boost::any>) == m["ComponentCategory"].type()) {
-        vector<ListComponentsResponseBodyResultComponentCategory> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComponentCategory"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListComponentsResponseBodyResultComponentCategory model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        componentCategory = make_shared<vector<ListComponentsResponseBodyResultComponentCategory>>(expect1);
-      }
-    }
     if (m.find("ConfigGroup") != m.end() && !m["ConfigGroup"].empty()) {
       if (typeid(vector<boost::any>) == m["ConfigGroup"].type()) {
         vector<ListComponentsResponseBodyResultConfigGroup> expect1;
@@ -4688,6 +4918,32 @@ public:
           }
         }
         configGroup = make_shared<vector<ListComponentsResponseBodyResultConfigGroup>>(expect1);
+      }
+    }
+    if (m.find("SceneList") != m.end() && !m["SceneList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SceneList"].type()) {
+        vector<ListComponentsResponseBodyResultSceneList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SceneList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListComponentsResponseBodyResultSceneList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sceneList = make_shared<vector<ListComponentsResponseBodyResultSceneList>>(expect1);
+      }
+    }
+    if (m.find("ComponentCategory") != m.end() && !m["ComponentCategory"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComponentCategory"].type()) {
+        vector<ListComponentsResponseBodyResultComponentCategory> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComponentCategory"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListComponentsResponseBodyResultComponentCategory model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        componentCategory = make_shared<vector<ListComponentsResponseBodyResultComponentCategory>>(expect1);
       }
     }
   }
@@ -5963,6 +6219,7 @@ class GetLiveDomainStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> liveDomainList{};
+  shared_ptr<string> liveDomainType{};
 
   GetLiveDomainStatusRequest() {}
 
@@ -5979,6 +6236,9 @@ public:
     }
     if (liveDomainList) {
       res["LiveDomainList"] = boost::any(*liveDomainList);
+    }
+    if (liveDomainType) {
+      res["LiveDomainType"] = boost::any(*liveDomainType);
     }
     return res;
   }
@@ -5997,6 +6257,9 @@ public:
       }
       liveDomainList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("LiveDomainType") != m.end() && !m["LiveDomainType"].empty()) {
+      liveDomainType = make_shared<string>(boost::any_cast<string>(m["LiveDomainType"]));
+    }
   }
 
 
@@ -6006,6 +6269,7 @@ class GetLiveDomainStatusShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveDomainListShrink{};
+  shared_ptr<string> liveDomainType{};
 
   GetLiveDomainStatusShrinkRequest() {}
 
@@ -6023,6 +6287,9 @@ public:
     if (liveDomainListShrink) {
       res["LiveDomainList"] = boost::any(*liveDomainListShrink);
     }
+    if (liveDomainType) {
+      res["LiveDomainType"] = boost::any(*liveDomainType);
+    }
     return res;
   }
 
@@ -6032,6 +6299,9 @@ public:
     }
     if (m.find("LiveDomainList") != m.end() && !m["LiveDomainList"].empty()) {
       liveDomainListShrink = make_shared<string>(boost::any_cast<string>(m["LiveDomainList"]));
+    }
+    if (m.find("LiveDomainType") != m.end() && !m["LiveDomainType"].empty()) {
+      liveDomainType = make_shared<string>(boost::any_cast<string>(m["LiveDomainType"]));
     }
   }
 
@@ -8791,7 +9061,7 @@ public:
   DeleteAppResponse deleteApp(shared_ptr<DeleteAppRequest> request);
   ListApplyLinkMicUsersResponse listApplyLinkMicUsersWithOptions(shared_ptr<ListApplyLinkMicUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListApplyLinkMicUsersResponse listApplyLinkMicUsers(shared_ptr<ListApplyLinkMicUsersRequest> request);
-  ListRoomLivesResponse listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRoomLivesResponse listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoomLivesResponse listRoomLives(shared_ptr<ListRoomLivesRequest> request);
   UpdateRoomResponse updateRoomWithOptions(shared_ptr<UpdateRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRoomResponse updateRoom(shared_ptr<UpdateRoomRequest> request);
