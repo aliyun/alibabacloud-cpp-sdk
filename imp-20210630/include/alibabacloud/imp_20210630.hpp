@@ -7905,6 +7905,8 @@ public:
   shared_ptr<string> userId{};
   shared_ptr<long> codeLevel{};
   shared_ptr<vector<GetLiveResponseBodyResultPlayUrlInfoList>> playUrlInfoList{};
+  shared_ptr<string> coverUrl{};
+  shared_ptr<string> userDefineField{};
 
   GetLiveResponseBodyResult() {}
 
@@ -7968,6 +7970,12 @@ public:
       }
       res["PlayUrlInfoList"] = boost::any(temp1);
     }
+    if (coverUrl) {
+      res["CoverUrl"] = boost::any(*coverUrl);
+    }
+    if (userDefineField) {
+      res["UserDefineField"] = boost::any(*userDefineField);
+    }
     return res;
   }
 
@@ -8029,6 +8037,12 @@ public:
         }
         playUrlInfoList = make_shared<vector<GetLiveResponseBodyResultPlayUrlInfoList>>(expect1);
       }
+    }
+    if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
+      coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
+    }
+    if (m.find("UserDefineField") != m.end() && !m["UserDefineField"].empty()) {
+      userDefineField = make_shared<string>(boost::any_cast<string>(m["UserDefineField"]));
     }
   }
 
