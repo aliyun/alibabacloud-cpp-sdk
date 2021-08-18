@@ -1,3 +1,6 @@
+2021-08-18 Version: 1.0.5
+- Support RefreshAssets API.
+
 2021-06-25 Version: 1.0.4
 - Support DescribeSuspEventDetail API.
 
