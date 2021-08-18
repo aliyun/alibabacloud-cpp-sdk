@@ -1199,6 +1199,70 @@ public:
 
   virtual ~UpdateRoomRequest() = default;
 };
+class UpdateRoomShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> roomId{};
+  shared_ptr<string> title{};
+  shared_ptr<string> notice{};
+  shared_ptr<string> roomOwnerId{};
+  shared_ptr<string> extensionShrink{};
+
+  UpdateRoomShrinkRequest() {}
+
+  explicit UpdateRoomShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (roomId) {
+      res["RoomId"] = boost::any(*roomId);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (notice) {
+      res["Notice"] = boost::any(*notice);
+    }
+    if (roomOwnerId) {
+      res["RoomOwnerId"] = boost::any(*roomOwnerId);
+    }
+    if (extensionShrink) {
+      res["Extension"] = boost::any(*extensionShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
+      roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
+      notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("RoomOwnerId") != m.end() && !m["RoomOwnerId"].empty()) {
+      roomOwnerId = make_shared<string>(boost::any_cast<string>(m["RoomOwnerId"]));
+    }
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extensionShrink = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+  }
+
+
+  virtual ~UpdateRoomShrinkRequest() = default;
+};
 class UpdateRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -9077,7 +9141,7 @@ public:
   ListApplyLinkMicUsersResponse listApplyLinkMicUsers(shared_ptr<ListApplyLinkMicUsersRequest> request);
   ListRoomLivesResponse listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoomLivesResponse listRoomLives(shared_ptr<ListRoomLivesRequest> request);
-  UpdateRoomResponse updateRoomWithOptions(shared_ptr<UpdateRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateRoomResponse updateRoomWithOptions(shared_ptr<UpdateRoomRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateRoomResponse updateRoom(shared_ptr<UpdateRoomRequest> request);
   GetAppTemplateResponse getAppTemplateWithOptions(shared_ptr<GetAppTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAppTemplateResponse getAppTemplate(shared_ptr<GetAppTemplateRequest> request);
