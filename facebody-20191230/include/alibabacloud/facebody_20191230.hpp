@@ -4740,9 +4740,6 @@ class GenRealPersonVerificationTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GenRealPersonVerificationTokenResponseBodyData> data{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> code{};
-  shared_ptr<bool> success{};
 
   GenRealPersonVerificationTokenResponseBody() {}
 
@@ -4760,15 +4757,6 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -4782,15 +4770,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<GenRealPersonVerificationTokenResponseBodyData>(model1);
       }
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6317,9 +6296,6 @@ class GetRealPersonVerificationResultResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GetRealPersonVerificationResultResponseBodyData> data{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> code{};
-  shared_ptr<bool> success{};
 
   GetRealPersonVerificationResultResponseBody() {}
 
@@ -6337,15 +6313,6 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
     return res;
   }
 
@@ -6359,15 +6326,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<GetRealPersonVerificationResultResponseBodyData>(model1);
       }
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -10625,6 +10583,1072 @@ public:
 
 
   virtual ~DetectPedestrianIntrusionResponse() = default;
+};
+class BeautifyBodyRequestAgeRange : public Darabonba::Model {
+public:
+  shared_ptr<long> ageMinimum{};
+  shared_ptr<long> ageMax{};
+
+  BeautifyBodyRequestAgeRange() {}
+
+  explicit BeautifyBodyRequestAgeRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ageMinimum) {
+      res["AgeMinimum"] = boost::any(*ageMinimum);
+    }
+    if (ageMax) {
+      res["AgeMax"] = boost::any(*ageMax);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgeMinimum") != m.end() && !m["AgeMinimum"].empty()) {
+      ageMinimum = make_shared<long>(boost::any_cast<long>(m["AgeMinimum"]));
+    }
+    if (m.find("AgeMax") != m.end() && !m["AgeMax"].empty()) {
+      ageMax = make_shared<long>(boost::any_cast<long>(m["AgeMax"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestAgeRange() = default;
+};
+class BeautifyBodyRequestBodyBoxes : public Darabonba::Model {
+public:
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<double> width{};
+  shared_ptr<double> height{};
+
+  BeautifyBodyRequestBodyBoxes() {}
+
+  explicit BeautifyBodyRequestBodyBoxes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestBodyBoxes() = default;
+};
+class BeautifyBodyRequestFaceListFaceBox : public Darabonba::Model {
+public:
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<double> width{};
+  shared_ptr<double> height{};
+
+  BeautifyBodyRequestFaceListFaceBox() {}
+
+  explicit BeautifyBodyRequestFaceListFaceBox(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestFaceListFaceBox() = default;
+};
+class BeautifyBodyRequestFaceList : public Darabonba::Model {
+public:
+  shared_ptr<BeautifyBodyRequestFaceListFaceBox> faceBox{};
+  shared_ptr<long> age{};
+  shared_ptr<long> gender{};
+
+  BeautifyBodyRequestFaceList() {}
+
+  explicit BeautifyBodyRequestFaceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceBox) {
+      res["FaceBox"] = faceBox ? boost::any(faceBox->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceBox") != m.end() && !m["FaceBox"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FaceBox"].type()) {
+        BeautifyBodyRequestFaceListFaceBox model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FaceBox"]));
+        faceBox = make_shared<BeautifyBodyRequestFaceListFaceBox>(model1);
+      }
+    }
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["Gender"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestFaceList() = default;
+};
+class BeautifyBodyRequestPoseListPose : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+  shared_ptr<double> score{};
+
+  BeautifyBodyRequestPoseListPose() {}
+
+  explicit BeautifyBodyRequestPoseListPose(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestPoseListPose() = default;
+};
+class BeautifyBodyRequestPoseList : public Darabonba::Model {
+public:
+  shared_ptr<vector<BeautifyBodyRequestPoseListPose>> pose{};
+
+  BeautifyBodyRequestPoseList() {}
+
+  explicit BeautifyBodyRequestPoseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pose) {
+      vector<boost::any> temp1;
+      for(auto item1:*pose){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Pose"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pose") != m.end() && !m["Pose"].empty()) {
+      if (typeid(vector<boost::any>) == m["Pose"].type()) {
+        vector<BeautifyBodyRequestPoseListPose> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Pose"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyRequestPoseListPose model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pose = make_shared<vector<BeautifyBodyRequestPoseListPose>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequestPoseList() = default;
+};
+class BeautifyBodyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<long> originalWidth{};
+  shared_ptr<long> originalHeight{};
+  shared_ptr<long> custom{};
+  shared_ptr<double> maleLiquifyDegree{};
+  shared_ptr<double> femaleLiquifyDegree{};
+  shared_ptr<double> lengthenDegree{};
+  shared_ptr<BeautifyBodyRequestAgeRange> ageRange{};
+  shared_ptr<vector<BeautifyBodyRequestBodyBoxes>> bodyBoxes{};
+  shared_ptr<vector<BeautifyBodyRequestFaceList>> faceList{};
+  shared_ptr<vector<BeautifyBodyRequestPoseList>> poseList{};
+
+  BeautifyBodyRequest() {}
+
+  explicit BeautifyBodyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (originalWidth) {
+      res["OriginalWidth"] = boost::any(*originalWidth);
+    }
+    if (originalHeight) {
+      res["OriginalHeight"] = boost::any(*originalHeight);
+    }
+    if (custom) {
+      res["Custom"] = boost::any(*custom);
+    }
+    if (maleLiquifyDegree) {
+      res["MaleLiquifyDegree"] = boost::any(*maleLiquifyDegree);
+    }
+    if (femaleLiquifyDegree) {
+      res["FemaleLiquifyDegree"] = boost::any(*femaleLiquifyDegree);
+    }
+    if (lengthenDegree) {
+      res["LengthenDegree"] = boost::any(*lengthenDegree);
+    }
+    if (ageRange) {
+      res["AgeRange"] = ageRange ? boost::any(ageRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bodyBoxes) {
+      vector<boost::any> temp1;
+      for(auto item1:*bodyBoxes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BodyBoxes"] = boost::any(temp1);
+    }
+    if (faceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*faceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FaceList"] = boost::any(temp1);
+    }
+    if (poseList) {
+      vector<boost::any> temp1;
+      for(auto item1:*poseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PoseList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("OriginalWidth") != m.end() && !m["OriginalWidth"].empty()) {
+      originalWidth = make_shared<long>(boost::any_cast<long>(m["OriginalWidth"]));
+    }
+    if (m.find("OriginalHeight") != m.end() && !m["OriginalHeight"].empty()) {
+      originalHeight = make_shared<long>(boost::any_cast<long>(m["OriginalHeight"]));
+    }
+    if (m.find("Custom") != m.end() && !m["Custom"].empty()) {
+      custom = make_shared<long>(boost::any_cast<long>(m["Custom"]));
+    }
+    if (m.find("MaleLiquifyDegree") != m.end() && !m["MaleLiquifyDegree"].empty()) {
+      maleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["MaleLiquifyDegree"]));
+    }
+    if (m.find("FemaleLiquifyDegree") != m.end() && !m["FemaleLiquifyDegree"].empty()) {
+      femaleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["FemaleLiquifyDegree"]));
+    }
+    if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
+      lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
+    }
+    if (m.find("AgeRange") != m.end() && !m["AgeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AgeRange"].type()) {
+        BeautifyBodyRequestAgeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AgeRange"]));
+        ageRange = make_shared<BeautifyBodyRequestAgeRange>(model1);
+      }
+    }
+    if (m.find("BodyBoxes") != m.end() && !m["BodyBoxes"].empty()) {
+      if (typeid(vector<boost::any>) == m["BodyBoxes"].type()) {
+        vector<BeautifyBodyRequestBodyBoxes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BodyBoxes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyRequestBodyBoxes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bodyBoxes = make_shared<vector<BeautifyBodyRequestBodyBoxes>>(expect1);
+      }
+    }
+    if (m.find("FaceList") != m.end() && !m["FaceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FaceList"].type()) {
+        vector<BeautifyBodyRequestFaceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FaceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyRequestFaceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faceList = make_shared<vector<BeautifyBodyRequestFaceList>>(expect1);
+      }
+    }
+    if (m.find("PoseList") != m.end() && !m["PoseList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PoseList"].type()) {
+        vector<BeautifyBodyRequestPoseList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PoseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyRequestPoseList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        poseList = make_shared<vector<BeautifyBodyRequestPoseList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BeautifyBodyRequest() = default;
+};
+class BeautifyBodyAdvanceRequestAgeRange : public Darabonba::Model {
+public:
+  shared_ptr<long> ageMinimum{};
+  shared_ptr<long> ageMax{};
+
+  BeautifyBodyAdvanceRequestAgeRange() {}
+
+  explicit BeautifyBodyAdvanceRequestAgeRange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ageMinimum) {
+      res["AgeMinimum"] = boost::any(*ageMinimum);
+    }
+    if (ageMax) {
+      res["AgeMax"] = boost::any(*ageMax);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgeMinimum") != m.end() && !m["AgeMinimum"].empty()) {
+      ageMinimum = make_shared<long>(boost::any_cast<long>(m["AgeMinimum"]));
+    }
+    if (m.find("AgeMax") != m.end() && !m["AgeMax"].empty()) {
+      ageMax = make_shared<long>(boost::any_cast<long>(m["AgeMax"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestAgeRange() = default;
+};
+class BeautifyBodyAdvanceRequestBodyBoxes : public Darabonba::Model {
+public:
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<double> width{};
+  shared_ptr<double> height{};
+
+  BeautifyBodyAdvanceRequestBodyBoxes() {}
+
+  explicit BeautifyBodyAdvanceRequestBodyBoxes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestBodyBoxes() = default;
+};
+class BeautifyBodyAdvanceRequestFaceListFaceBox : public Darabonba::Model {
+public:
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+  shared_ptr<double> width{};
+  shared_ptr<double> height{};
+
+  BeautifyBodyAdvanceRequestFaceListFaceBox() {}
+
+  explicit BeautifyBodyAdvanceRequestFaceListFaceBox(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestFaceListFaceBox() = default;
+};
+class BeautifyBodyAdvanceRequestFaceList : public Darabonba::Model {
+public:
+  shared_ptr<BeautifyBodyAdvanceRequestFaceListFaceBox> faceBox{};
+  shared_ptr<long> age{};
+  shared_ptr<long> gender{};
+
+  BeautifyBodyAdvanceRequestFaceList() {}
+
+  explicit BeautifyBodyAdvanceRequestFaceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceBox) {
+      res["FaceBox"] = faceBox ? boost::any(faceBox->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceBox") != m.end() && !m["FaceBox"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FaceBox"].type()) {
+        BeautifyBodyAdvanceRequestFaceListFaceBox model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FaceBox"]));
+        faceBox = make_shared<BeautifyBodyAdvanceRequestFaceListFaceBox>(model1);
+      }
+    }
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["Gender"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestFaceList() = default;
+};
+class BeautifyBodyAdvanceRequestPoseListPose : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+  shared_ptr<double> score{};
+
+  BeautifyBodyAdvanceRequestPoseListPose() {}
+
+  explicit BeautifyBodyAdvanceRequestPoseListPose(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestPoseListPose() = default;
+};
+class BeautifyBodyAdvanceRequestPoseList : public Darabonba::Model {
+public:
+  shared_ptr<vector<BeautifyBodyAdvanceRequestPoseListPose>> pose{};
+
+  BeautifyBodyAdvanceRequestPoseList() {}
+
+  explicit BeautifyBodyAdvanceRequestPoseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pose) {
+      vector<boost::any> temp1;
+      for(auto item1:*pose){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Pose"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pose") != m.end() && !m["Pose"].empty()) {
+      if (typeid(vector<boost::any>) == m["Pose"].type()) {
+        vector<BeautifyBodyAdvanceRequestPoseListPose> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Pose"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyAdvanceRequestPoseListPose model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pose = make_shared<vector<BeautifyBodyAdvanceRequestPoseListPose>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequestPoseList() = default;
+};
+class BeautifyBodyAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<long> originalWidth{};
+  shared_ptr<long> originalHeight{};
+  shared_ptr<long> custom{};
+  shared_ptr<double> maleLiquifyDegree{};
+  shared_ptr<double> femaleLiquifyDegree{};
+  shared_ptr<double> lengthenDegree{};
+  shared_ptr<BeautifyBodyAdvanceRequestAgeRange> ageRange{};
+  shared_ptr<vector<BeautifyBodyAdvanceRequestBodyBoxes>> bodyBoxes{};
+  shared_ptr<vector<BeautifyBodyAdvanceRequestFaceList>> faceList{};
+  shared_ptr<vector<BeautifyBodyAdvanceRequestPoseList>> poseList{};
+
+  BeautifyBodyAdvanceRequest() {}
+
+  explicit BeautifyBodyAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURLObject"] = boost::any(*imageURLObject);
+    }
+    if (originalWidth) {
+      res["OriginalWidth"] = boost::any(*originalWidth);
+    }
+    if (originalHeight) {
+      res["OriginalHeight"] = boost::any(*originalHeight);
+    }
+    if (custom) {
+      res["Custom"] = boost::any(*custom);
+    }
+    if (maleLiquifyDegree) {
+      res["MaleLiquifyDegree"] = boost::any(*maleLiquifyDegree);
+    }
+    if (femaleLiquifyDegree) {
+      res["FemaleLiquifyDegree"] = boost::any(*femaleLiquifyDegree);
+    }
+    if (lengthenDegree) {
+      res["LengthenDegree"] = boost::any(*lengthenDegree);
+    }
+    if (ageRange) {
+      res["AgeRange"] = ageRange ? boost::any(ageRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bodyBoxes) {
+      vector<boost::any> temp1;
+      for(auto item1:*bodyBoxes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BodyBoxes"] = boost::any(temp1);
+    }
+    if (faceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*faceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FaceList"] = boost::any(temp1);
+    }
+    if (poseList) {
+      vector<boost::any> temp1;
+      for(auto item1:*poseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PoseList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("OriginalWidth") != m.end() && !m["OriginalWidth"].empty()) {
+      originalWidth = make_shared<long>(boost::any_cast<long>(m["OriginalWidth"]));
+    }
+    if (m.find("OriginalHeight") != m.end() && !m["OriginalHeight"].empty()) {
+      originalHeight = make_shared<long>(boost::any_cast<long>(m["OriginalHeight"]));
+    }
+    if (m.find("Custom") != m.end() && !m["Custom"].empty()) {
+      custom = make_shared<long>(boost::any_cast<long>(m["Custom"]));
+    }
+    if (m.find("MaleLiquifyDegree") != m.end() && !m["MaleLiquifyDegree"].empty()) {
+      maleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["MaleLiquifyDegree"]));
+    }
+    if (m.find("FemaleLiquifyDegree") != m.end() && !m["FemaleLiquifyDegree"].empty()) {
+      femaleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["FemaleLiquifyDegree"]));
+    }
+    if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
+      lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
+    }
+    if (m.find("AgeRange") != m.end() && !m["AgeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AgeRange"].type()) {
+        BeautifyBodyAdvanceRequestAgeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AgeRange"]));
+        ageRange = make_shared<BeautifyBodyAdvanceRequestAgeRange>(model1);
+      }
+    }
+    if (m.find("BodyBoxes") != m.end() && !m["BodyBoxes"].empty()) {
+      if (typeid(vector<boost::any>) == m["BodyBoxes"].type()) {
+        vector<BeautifyBodyAdvanceRequestBodyBoxes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BodyBoxes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyAdvanceRequestBodyBoxes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bodyBoxes = make_shared<vector<BeautifyBodyAdvanceRequestBodyBoxes>>(expect1);
+      }
+    }
+    if (m.find("FaceList") != m.end() && !m["FaceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FaceList"].type()) {
+        vector<BeautifyBodyAdvanceRequestFaceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FaceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyAdvanceRequestFaceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faceList = make_shared<vector<BeautifyBodyAdvanceRequestFaceList>>(expect1);
+      }
+    }
+    if (m.find("PoseList") != m.end() && !m["PoseList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PoseList"].type()) {
+        vector<BeautifyBodyAdvanceRequestPoseList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PoseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BeautifyBodyAdvanceRequestPoseList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        poseList = make_shared<vector<BeautifyBodyAdvanceRequestPoseList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BeautifyBodyAdvanceRequest() = default;
+};
+class BeautifyBodyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<long> originalWidth{};
+  shared_ptr<long> originalHeight{};
+  shared_ptr<long> custom{};
+  shared_ptr<double> maleLiquifyDegree{};
+  shared_ptr<double> femaleLiquifyDegree{};
+  shared_ptr<double> lengthenDegree{};
+  shared_ptr<string> ageRangeShrink{};
+  shared_ptr<string> bodyBoxesShrink{};
+  shared_ptr<string> faceListShrink{};
+  shared_ptr<string> poseListShrink{};
+
+  BeautifyBodyShrinkRequest() {}
+
+  explicit BeautifyBodyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (originalWidth) {
+      res["OriginalWidth"] = boost::any(*originalWidth);
+    }
+    if (originalHeight) {
+      res["OriginalHeight"] = boost::any(*originalHeight);
+    }
+    if (custom) {
+      res["Custom"] = boost::any(*custom);
+    }
+    if (maleLiquifyDegree) {
+      res["MaleLiquifyDegree"] = boost::any(*maleLiquifyDegree);
+    }
+    if (femaleLiquifyDegree) {
+      res["FemaleLiquifyDegree"] = boost::any(*femaleLiquifyDegree);
+    }
+    if (lengthenDegree) {
+      res["LengthenDegree"] = boost::any(*lengthenDegree);
+    }
+    if (ageRangeShrink) {
+      res["AgeRange"] = boost::any(*ageRangeShrink);
+    }
+    if (bodyBoxesShrink) {
+      res["BodyBoxes"] = boost::any(*bodyBoxesShrink);
+    }
+    if (faceListShrink) {
+      res["FaceList"] = boost::any(*faceListShrink);
+    }
+    if (poseListShrink) {
+      res["PoseList"] = boost::any(*poseListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("OriginalWidth") != m.end() && !m["OriginalWidth"].empty()) {
+      originalWidth = make_shared<long>(boost::any_cast<long>(m["OriginalWidth"]));
+    }
+    if (m.find("OriginalHeight") != m.end() && !m["OriginalHeight"].empty()) {
+      originalHeight = make_shared<long>(boost::any_cast<long>(m["OriginalHeight"]));
+    }
+    if (m.find("Custom") != m.end() && !m["Custom"].empty()) {
+      custom = make_shared<long>(boost::any_cast<long>(m["Custom"]));
+    }
+    if (m.find("MaleLiquifyDegree") != m.end() && !m["MaleLiquifyDegree"].empty()) {
+      maleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["MaleLiquifyDegree"]));
+    }
+    if (m.find("FemaleLiquifyDegree") != m.end() && !m["FemaleLiquifyDegree"].empty()) {
+      femaleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["FemaleLiquifyDegree"]));
+    }
+    if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
+      lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
+    }
+    if (m.find("AgeRange") != m.end() && !m["AgeRange"].empty()) {
+      ageRangeShrink = make_shared<string>(boost::any_cast<string>(m["AgeRange"]));
+    }
+    if (m.find("BodyBoxes") != m.end() && !m["BodyBoxes"].empty()) {
+      bodyBoxesShrink = make_shared<string>(boost::any_cast<string>(m["BodyBoxes"]));
+    }
+    if (m.find("FaceList") != m.end() && !m["FaceList"].empty()) {
+      faceListShrink = make_shared<string>(boost::any_cast<string>(m["FaceList"]));
+    }
+    if (m.find("PoseList") != m.end() && !m["PoseList"].empty()) {
+      poseListShrink = make_shared<string>(boost::any_cast<string>(m["PoseList"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyShrinkRequest() = default;
+};
+class BeautifyBodyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> XFlowURL{};
+  shared_ptr<string> YFlowURL{};
+  shared_ptr<string> action{};
+
+  BeautifyBodyResponseBodyData() {}
+
+  explicit BeautifyBodyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (XFlowURL) {
+      res["XFlowURL"] = boost::any(*XFlowURL);
+    }
+    if (YFlowURL) {
+      res["YFlowURL"] = boost::any(*YFlowURL);
+    }
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("XFlowURL") != m.end() && !m["XFlowURL"].empty()) {
+      XFlowURL = make_shared<string>(boost::any_cast<string>(m["XFlowURL"]));
+    }
+    if (m.find("YFlowURL") != m.end() && !m["YFlowURL"].empty()) {
+      YFlowURL = make_shared<string>(boost::any_cast<string>(m["YFlowURL"]));
+    }
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyResponseBodyData() = default;
+};
+class BeautifyBodyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<BeautifyBodyResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  BeautifyBodyResponseBody() {}
+
+  explicit BeautifyBodyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BeautifyBodyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BeautifyBodyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~BeautifyBodyResponseBody() = default;
+};
+class BeautifyBodyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BeautifyBodyResponseBody> body{};
+
+  BeautifyBodyResponse() {}
+
+  explicit BeautifyBodyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BeautifyBodyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BeautifyBodyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BeautifyBodyResponse() = default;
 };
 class HandPostureRequest : public Darabonba::Model {
 public:
@@ -15965,6 +16989,9 @@ public:
   DetectPedestrianIntrusionResponse detectPedestrianIntrusionWithOptions(shared_ptr<DetectPedestrianIntrusionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectPedestrianIntrusionResponse detectPedestrianIntrusion(shared_ptr<DetectPedestrianIntrusionRequest> request);
   DetectPedestrianIntrusionResponse detectPedestrianIntrusionAdvance(shared_ptr<DetectPedestrianIntrusionAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BeautifyBodyResponse beautifyBodyWithOptions(shared_ptr<BeautifyBodyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BeautifyBodyResponse beautifyBody(shared_ptr<BeautifyBodyRequest> request);
+  BeautifyBodyResponse beautifyBodyAdvance(shared_ptr<BeautifyBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HandPostureResponse handPostureWithOptions(shared_ptr<HandPostureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HandPostureResponse handPosture(shared_ptr<HandPostureRequest> request);
   HandPostureResponse handPostureAdvance(shared_ptr<HandPostureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

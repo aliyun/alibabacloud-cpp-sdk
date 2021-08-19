@@ -37,8 +37,8 @@ string Alibabacloud_Facebody20191230::Client::getEndpoint(shared_ptr<string> pro
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -60,14 +60,20 @@ ExtractPedestrianFeatureAttrResponse Alibabacloud_Facebody20191230::Client::extr
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -138,14 +144,20 @@ DetectBodyCountResponse Alibabacloud_Facebody20191230::Client::detectBodyCountAd
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -216,14 +228,20 @@ DetectVideoLivingFaceResponse Alibabacloud_Facebody20191230::Client::detectVideo
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -294,14 +312,20 @@ RecognizeFaceResponse Alibabacloud_Facebody20191230::Client::recognizeFaceAdvanc
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -385,14 +409,20 @@ DetectIPCPedestrianResponse Alibabacloud_Facebody20191230::Client::detectIPCPede
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -489,14 +519,20 @@ PedestrianDetectAttributeResponse Alibabacloud_Facebody20191230::Client::pedestr
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -567,14 +603,20 @@ FaceFilterResponse Alibabacloud_Facebody20191230::Client::faceFilterAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -645,14 +687,20 @@ FaceBeautyResponse Alibabacloud_Facebody20191230::Client::faceBeautyAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -723,14 +771,20 @@ GenerateHumanAnimeStyleResponse Alibabacloud_Facebody20191230::Client::generateH
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -815,14 +869,20 @@ DetectFaceResponse Alibabacloud_Facebody20191230::Client::detectFaceAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -893,14 +953,20 @@ DetectMaskResponse Alibabacloud_Facebody20191230::Client::detectMaskAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1007,14 +1073,20 @@ DetectChefCapResponse Alibabacloud_Facebody20191230::Client::detectChefCapAdvanc
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1098,14 +1170,20 @@ DetectCelebrityResponse Alibabacloud_Facebody20191230::Client::detectCelebrityAd
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1215,14 +1293,20 @@ RecognizeExpressionResponse Alibabacloud_Facebody20191230::Client::recognizeExpr
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1293,14 +1377,20 @@ MergeImageFaceResponse Alibabacloud_Facebody20191230::Client::mergeImageFaceAdva
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1371,14 +1461,20 @@ ExtractFingerPrintResponse Alibabacloud_Facebody20191230::Client::extractFingerP
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1462,14 +1558,20 @@ DetectPedestrianResponse Alibabacloud_Facebody20191230::Client::detectPedestrian
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1553,14 +1655,20 @@ SearchFaceResponse Alibabacloud_Facebody20191230::Client::searchFaceAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1644,14 +1752,20 @@ BlurFaceResponse Alibabacloud_Facebody20191230::Client::blurFaceAdvance(shared_p
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1722,14 +1836,20 @@ FaceMakeupResponse Alibabacloud_Facebody20191230::Client::faceMakeupAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1813,14 +1933,20 @@ AddFaceResponse Alibabacloud_Facebody20191230::Client::addFaceAdvance(shared_ptr
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1891,14 +2017,20 @@ GenerateHumanSketchStyleResponse Alibabacloud_Facebody20191230::Client::generate
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -1987,14 +2119,20 @@ DetectPedestrianIntrusionResponse Alibabacloud_Facebody20191230::Client::detectP
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2048,6 +2186,104 @@ DetectPedestrianIntrusionResponse Alibabacloud_Facebody20191230::Client::detectP
   return *detectPedestrianIntrusionResp;
 }
 
+BeautifyBodyResponse Alibabacloud_Facebody20191230::Client::beautifyBodyWithOptions(shared_ptr<BeautifyBodyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BeautifyBodyShrinkRequest> request = make_shared<BeautifyBodyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<BeautifyBodyRequestAgeRange>(tmpReq->ageRange)) {
+    request->ageRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ageRange->toMap()), make_shared<string>("AgeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<BeautifyBodyRequestBodyBoxes>>(tmpReq->bodyBoxes)) {
+    request->bodyBoxesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bodyBoxes, make_shared<string>("BodyBoxes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<BeautifyBodyRequestFaceList>>(tmpReq->faceList)) {
+    request->faceListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->faceList, make_shared<string>("FaceList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<BeautifyBodyRequestPoseList>>(tmpReq->poseList)) {
+    request->poseListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->poseList, make_shared<string>("PoseList"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return BeautifyBodyResponse(doRPCRequest(make_shared<string>("BeautifyBody"), make_shared<string>("2019-12-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+BeautifyBodyResponse Alibabacloud_Facebody20191230::Client::beautifyBody(shared_ptr<BeautifyBodyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return beautifyBodyWithOptions(request, runtime);
+}
+
+BeautifyBodyResponse Alibabacloud_Facebody20191230::Client::beautifyBodyAdvance(shared_ptr<BeautifyBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("facebody"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<BeautifyBodyRequest> beautifyBodyReq = make_shared<BeautifyBodyRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, beautifyBodyReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageURLObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageURLObject ? boost::any() : boost::any(*request->imageURLObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    beautifyBodyReq->imageURL = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<BeautifyBodyResponse> beautifyBodyResp = make_shared<BeautifyBodyResponse>(beautifyBodyWithOptions(beautifyBodyReq, runtime));
+  return *beautifyBodyResp;
+}
+
 HandPostureResponse Alibabacloud_Facebody20191230::Client::handPostureWithOptions(shared_ptr<HandPostureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -2065,14 +2301,20 @@ HandPostureResponse Alibabacloud_Facebody20191230::Client::handPostureAdvance(sh
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2143,14 +2385,20 @@ EnhanceFaceResponse Alibabacloud_Facebody20191230::Client::enhanceFaceAdvance(sh
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2235,14 +2483,20 @@ RecognizeHandGestureResponse Alibabacloud_Facebody20191230::Client::recognizeHan
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2442,14 +2696,20 @@ AddFaceImageTemplateResponse Alibabacloud_Facebody20191230::Client::addFaceImage
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2520,14 +2780,20 @@ CountCrowdResponse Alibabacloud_Facebody20191230::Client::countCrowdAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2624,14 +2890,20 @@ FaceTidyupResponse Alibabacloud_Facebody20191230::Client::faceTidyupAdvance(shar
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2702,14 +2974,20 @@ BodyPostureResponse Alibabacloud_Facebody20191230::Client::bodyPostureAdvance(sh
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
@@ -2780,14 +3058,20 @@ MonitorExaminationResponse Alibabacloud_Facebody20191230::Client::monitorExamina
   // Step 0: init client
   shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
   shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
   shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
     openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
   }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
   shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
     {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
     {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
     {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
