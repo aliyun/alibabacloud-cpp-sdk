@@ -4270,6 +4270,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<string> cubemapPath{};
 
   DetailSubSceneResponseBody() {}
 
@@ -4317,6 +4318,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (cubemapPath) {
+      res["CubemapPath"] = boost::any(*cubemapPath);
+    }
     return res;
   }
 
@@ -4356,6 +4360,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("CubemapPath") != m.end() && !m["CubemapPath"].empty()) {
+      cubemapPath = make_shared<string>(boost::any_cast<string>(m["CubemapPath"]));
     }
   }
 
@@ -4467,6 +4474,8 @@ public:
   shared_ptr<long> status{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> cubemapPath{};
 
   ListSubSceneResponseBodyList() {}
 
@@ -4502,6 +4511,12 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (cubemapPath) {
+      res["CubemapPath"] = boost::any(*cubemapPath);
+    }
     return res;
   }
 
@@ -4529,6 +4544,12 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("CubemapPath") != m.end() && !m["CubemapPath"].empty()) {
+      cubemapPath = make_shared<string>(boost::any_cast<string>(m["CubemapPath"]));
     }
   }
 
@@ -5405,6 +5426,9 @@ public:
 class GetHotspotConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> previewToken{};
+  shared_ptr<long> type{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> domain{};
 
   GetHotspotConfigRequest() {}
 
@@ -5419,12 +5443,30 @@ public:
     if (previewToken) {
       res["PreviewToken"] = boost::any(*previewToken);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("PreviewToken") != m.end() && !m["PreviewToken"].empty()) {
       previewToken = make_shared<string>(boost::any_cast<string>(m["PreviewToken"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
   }
 
@@ -5434,10 +5476,10 @@ public:
 class GetHotspotConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> objectString{};
-  shared_ptr<string> data{};
-  shared_ptr<string> errMessage{};
+  shared_ptr<long> code{};
   shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+  shared_ptr<string> data{};
 
   GetHotspotConfigResponseBody() {}
 
@@ -5452,17 +5494,17 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (objectString) {
-      res["ObjectString"] = boost::any(*objectString);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (errMessage) {
-      res["ErrMessage"] = boost::any(*errMessage);
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
     }
     return res;
   }
@@ -5471,17 +5513,17 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("ObjectString") != m.end() && !m["ObjectString"].empty()) {
-      objectString = make_shared<string>(boost::any_cast<string>(m["ObjectString"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
-      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
     }
   }
 
@@ -6355,6 +6397,8 @@ public:
   shared_ptr<string> previewToken{};
   shared_ptr<string> subSceneUuid{};
   shared_ptr<string> type{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> domain{};
 
   GetHotspotTagRequest() {}
 
@@ -6375,6 +6419,12 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
     return res;
   }
 
@@ -6388,6 +6438,12 @@ public:
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
   }
 
 
@@ -6396,10 +6452,10 @@ public:
 class GetHotspotTagResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<string> objectString{};
-  shared_ptr<string> data{};
-  shared_ptr<string> errMessage{};
+  shared_ptr<long> code{};
   shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+  shared_ptr<string> data{};
 
   GetHotspotTagResponseBody() {}
 
@@ -6414,17 +6470,17 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (objectString) {
-      res["ObjectString"] = boost::any(*objectString);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (errMessage) {
-      res["ErrMessage"] = boost::any(*errMessage);
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
     }
     return res;
   }
@@ -6433,17 +6489,17 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("ObjectString") != m.end() && !m["ObjectString"].empty()) {
-      objectString = make_shared<string>(boost::any_cast<string>(m["ObjectString"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
-      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
     }
   }
 
