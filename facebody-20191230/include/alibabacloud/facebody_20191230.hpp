@@ -15531,6 +15531,217 @@ public:
 
   virtual ~AddFaceEntityResponse() = default;
 };
+class RetouchBodyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<double> slimDegree{};
+  shared_ptr<double> lengthenDegree{};
+
+  RetouchBodyRequest() {}
+
+  explicit RetouchBodyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (slimDegree) {
+      res["SlimDegree"] = boost::any(*slimDegree);
+    }
+    if (lengthenDegree) {
+      res["LengthenDegree"] = boost::any(*lengthenDegree);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("SlimDegree") != m.end() && !m["SlimDegree"].empty()) {
+      slimDegree = make_shared<double>(boost::any_cast<double>(m["SlimDegree"]));
+    }
+    if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
+      lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
+    }
+  }
+
+
+  virtual ~RetouchBodyRequest() = default;
+};
+class RetouchBodyAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<double> slimDegree{};
+  shared_ptr<double> lengthenDegree{};
+
+  RetouchBodyAdvanceRequest() {}
+
+  explicit RetouchBodyAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURLObject"] = boost::any(*imageURLObject);
+    }
+    if (slimDegree) {
+      res["SlimDegree"] = boost::any(*slimDegree);
+    }
+    if (lengthenDegree) {
+      res["LengthenDegree"] = boost::any(*lengthenDegree);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("SlimDegree") != m.end() && !m["SlimDegree"].empty()) {
+      slimDegree = make_shared<double>(boost::any_cast<double>(m["SlimDegree"]));
+    }
+    if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
+      lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
+    }
+  }
+
+
+  virtual ~RetouchBodyAdvanceRequest() = default;
+};
+class RetouchBodyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+
+  RetouchBodyResponseBodyData() {}
+
+  explicit RetouchBodyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~RetouchBodyResponseBodyData() = default;
+};
+class RetouchBodyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RetouchBodyResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  RetouchBodyResponseBody() {}
+
+  explicit RetouchBodyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RetouchBodyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RetouchBodyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RetouchBodyResponseBody() = default;
+};
+class RetouchBodyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RetouchBodyResponseBody> body{};
+
+  RetouchBodyResponse() {}
+
+  explicit RetouchBodyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RetouchBodyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RetouchBodyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RetouchBodyResponse() = default;
+};
 class DeleteFaceEntityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dbName{};
@@ -17029,6 +17240,9 @@ public:
   CountCrowdResponse countCrowdAdvance(shared_ptr<CountCrowdAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddFaceEntityResponse addFaceEntityWithOptions(shared_ptr<AddFaceEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddFaceEntityResponse addFaceEntity(shared_ptr<AddFaceEntityRequest> request);
+  RetouchBodyResponse retouchBodyWithOptions(shared_ptr<RetouchBodyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RetouchBodyResponse retouchBody(shared_ptr<RetouchBodyRequest> request);
+  RetouchBodyResponse retouchBodyAdvance(shared_ptr<RetouchBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceEntityResponse deleteFaceEntityWithOptions(shared_ptr<DeleteFaceEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceEntityResponse deleteFaceEntity(shared_ptr<DeleteFaceEntityRequest> request);
   FaceTidyupResponse faceTidyupWithOptions(shared_ptr<FaceTidyupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
