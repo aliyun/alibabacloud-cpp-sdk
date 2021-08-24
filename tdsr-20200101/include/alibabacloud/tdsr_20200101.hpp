@@ -6452,10 +6452,10 @@ public:
 class GetHotspotTagResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<long> code{};
-  shared_ptr<bool> success{};
-  shared_ptr<string> message{};
+  shared_ptr<string> objectString{};
   shared_ptr<string> data{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<bool> success{};
 
   GetHotspotTagResponseBody() {}
 
@@ -6470,17 +6470,17 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
+    if (objectString) {
+      res["ObjectString"] = boost::any(*objectString);
     }
     if (data) {
       res["Data"] = boost::any(*data);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     return res;
   }
@@ -6489,17 +6489,17 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    if (m.find("ObjectString") != m.end() && !m["ObjectString"].empty()) {
+      objectString = make_shared<string>(boost::any_cast<string>(m["ObjectString"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
