@@ -120,6 +120,34 @@ CreateMergeRequestResponse Alibabacloud_Codeup20200414::Client::createMergeReque
   return CreateMergeRequestResponse(doROARequest(make_shared<string>("CreateMergeRequest"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v4/projects/") + string(*ProjectId) + string("/merge_requests")), make_shared<string>("json"), req, runtime));
 }
 
+DeleteRepositoryMemberWithExternUidResponse Alibabacloud_Codeup20200414::Client::deleteRepositoryMemberWithExternUid(shared_ptr<string> ProjectId, shared_ptr<DeleteRepositoryMemberWithExternUidRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteRepositoryMemberWithExternUidWithOptions(ProjectId, request, headers, runtime);
+}
+
+DeleteRepositoryMemberWithExternUidResponse Alibabacloud_Codeup20200414::Client::deleteRepositoryMemberWithExternUidWithOptions(shared_ptr<string> ProjectId,
+                                                                                                                                shared_ptr<DeleteRepositoryMemberWithExternUidRequest> request,
+                                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    (*query)["AccessToken"] = *request->accessToken;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    (*query)["OrganizationId"] = *request->organizationId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externUserId)) {
+    (*query)["ExternUserId"] = *request->externUserId;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return DeleteRepositoryMemberWithExternUidResponse(doROARequest(make_shared<string>("DeleteRepositoryMemberWithExternUid"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v4/projects/") + string(*ProjectId) + string("/members/remove")), make_shared<string>("json"), req, runtime));
+}
+
 DeleteRepositoryResponse Alibabacloud_Codeup20200414::Client::deleteRepository(shared_ptr<string> ProjectId, shared_ptr<DeleteRepositoryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());

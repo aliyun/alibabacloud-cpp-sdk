@@ -1597,6 +1597,233 @@ public:
 
   virtual ~CreateMergeRequestResponse() = default;
 };
+class DeleteRepositoryMemberWithExternUidRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> externUserId{};
+
+  DeleteRepositoryMemberWithExternUidRequest() {}
+
+  explicit DeleteRepositoryMemberWithExternUidRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (organizationId) {
+      res["OrganizationId"] = boost::any(*organizationId);
+    }
+    if (externUserId) {
+      res["ExternUserId"] = boost::any(*externUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("OrganizationId") != m.end() && !m["OrganizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["OrganizationId"]));
+    }
+    if (m.find("ExternUserId") != m.end() && !m["ExternUserId"].empty()) {
+      externUserId = make_shared<string>(boost::any_cast<string>(m["ExternUserId"]));
+    }
+  }
+
+
+  virtual ~DeleteRepositoryMemberWithExternUidRequest() = default;
+};
+class DeleteRepositoryMemberWithExternUidResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> userId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<long> accessLevel{};
+  shared_ptr<string> updatedAt{};
+  shared_ptr<long> sourceId{};
+  shared_ptr<long> id{};
+
+  DeleteRepositoryMemberWithExternUidResponseBodyResult() {}
+
+  explicit DeleteRepositoryMemberWithExternUidResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (createdAt) {
+      res["CreatedAt"] = boost::any(*createdAt);
+    }
+    if (accessLevel) {
+      res["AccessLevel"] = boost::any(*accessLevel);
+    }
+    if (updatedAt) {
+      res["UpdatedAt"] = boost::any(*updatedAt);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("CreatedAt") != m.end() && !m["CreatedAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["CreatedAt"]));
+    }
+    if (m.find("AccessLevel") != m.end() && !m["AccessLevel"].empty()) {
+      accessLevel = make_shared<long>(boost::any_cast<long>(m["AccessLevel"]));
+    }
+    if (m.find("UpdatedAt") != m.end() && !m["UpdatedAt"].empty()) {
+      updatedAt = make_shared<string>(boost::any_cast<string>(m["UpdatedAt"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<long>(boost::any_cast<long>(m["SourceId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DeleteRepositoryMemberWithExternUidResponseBodyResult() = default;
+};
+class DeleteRepositoryMemberWithExternUidResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<bool> success{};
+  shared_ptr<DeleteRepositoryMemberWithExternUidResponseBodyResult> result{};
+
+  DeleteRepositoryMemberWithExternUidResponseBody() {}
+
+  explicit DeleteRepositoryMemberWithExternUidResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        DeleteRepositoryMemberWithExternUidResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<DeleteRepositoryMemberWithExternUidResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteRepositoryMemberWithExternUidResponseBody() = default;
+};
+class DeleteRepositoryMemberWithExternUidResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteRepositoryMemberWithExternUidResponseBody> body{};
+
+  DeleteRepositoryMemberWithExternUidResponse() {}
+
+  explicit DeleteRepositoryMemberWithExternUidResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteRepositoryMemberWithExternUidResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteRepositoryMemberWithExternUidResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteRepositoryMemberWithExternUidResponse() = default;
+};
 class DeleteRepositoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -21755,6 +21982,11 @@ public:
                                                            shared_ptr<CreateMergeRequestRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteRepositoryMemberWithExternUidResponse deleteRepositoryMemberWithExternUid(shared_ptr<string> ProjectId, shared_ptr<DeleteRepositoryMemberWithExternUidRequest> request);
+  DeleteRepositoryMemberWithExternUidResponse deleteRepositoryMemberWithExternUidWithOptions(shared_ptr<string> ProjectId,
+                                                                                             shared_ptr<DeleteRepositoryMemberWithExternUidRequest> request,
+                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRepositoryResponse deleteRepository(shared_ptr<string> ProjectId, shared_ptr<DeleteRepositoryRequest> request);
   DeleteRepositoryResponse deleteRepositoryWithOptions(shared_ptr<string> ProjectId,
                                                        shared_ptr<DeleteRepositoryRequest> request,
