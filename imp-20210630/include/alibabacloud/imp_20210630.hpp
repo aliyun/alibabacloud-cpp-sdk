@@ -2243,7 +2243,7 @@ public:
 class CreateAppTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
-  shared_ptr<string> sence{};
+  shared_ptr<string> scene{};
   shared_ptr<vector<string>> componentList{};
 
   CreateAppTemplateRequest() {}
@@ -2259,8 +2259,8 @@ public:
     if (appTemplateName) {
       res["AppTemplateName"] = boost::any(*appTemplateName);
     }
-    if (sence) {
-      res["Sence"] = boost::any(*sence);
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
     }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
@@ -2272,8 +2272,8 @@ public:
     if (m.find("AppTemplateName") != m.end() && !m["AppTemplateName"].empty()) {
       appTemplateName = make_shared<string>(boost::any_cast<string>(m["AppTemplateName"]));
     }
-    if (m.find("Sence") != m.end() && !m["Sence"].empty()) {
-      sence = make_shared<string>(boost::any_cast<string>(m["Sence"]));
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       vector<string> toVec1;
@@ -2293,7 +2293,7 @@ public:
 class CreateAppTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
-  shared_ptr<string> sence{};
+  shared_ptr<string> scene{};
   shared_ptr<string> componentListShrink{};
 
   CreateAppTemplateShrinkRequest() {}
@@ -2309,8 +2309,8 @@ public:
     if (appTemplateName) {
       res["AppTemplateName"] = boost::any(*appTemplateName);
     }
-    if (sence) {
-      res["Sence"] = boost::any(*sence);
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
     }
     if (componentListShrink) {
       res["ComponentList"] = boost::any(*componentListShrink);
@@ -2322,8 +2322,8 @@ public:
     if (m.find("AppTemplateName") != m.end() && !m["AppTemplateName"].empty()) {
       appTemplateName = make_shared<string>(boost::any_cast<string>(m["AppTemplateName"]));
     }
-    if (m.find("Sence") != m.end() && !m["Sence"].empty()) {
-      sence = make_shared<string>(boost::any_cast<string>(m["Sence"]));
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       componentListShrink = make_shared<string>(boost::any_cast<string>(m["ComponentList"]));
