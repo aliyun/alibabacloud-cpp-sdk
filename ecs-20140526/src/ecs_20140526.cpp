@@ -77,8 +77,8 @@ string Alibabacloud_Ecs20140526::Client::getEndpoint(shared_ptr<string> productI
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
@@ -798,6 +798,19 @@ CreatePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::createPhysica
   return createPhysicalConnectionWithOptions(request, runtime);
 }
 
+CreatePrefixListResponse Alibabacloud_Ecs20140526::Client::createPrefixListWithOptions(shared_ptr<CreatePrefixListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreatePrefixListResponse(doRPCRequest(make_shared<string>("CreatePrefixList"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreatePrefixListResponse Alibabacloud_Ecs20140526::Client::createPrefixList(shared_ptr<CreatePrefixListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createPrefixListWithOptions(request, runtime);
+}
+
 CreateResource02Response Alibabacloud_Ecs20140526::Client::createResource02WithOptions(shared_ptr<CreateResource02Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1277,6 +1290,19 @@ DeletePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::deletePhysica
 DeletePhysicalConnectionResponse Alibabacloud_Ecs20140526::Client::deletePhysicalConnection(shared_ptr<DeletePhysicalConnectionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deletePhysicalConnectionWithOptions(request, runtime);
+}
+
+DeletePrefixListResponse Alibabacloud_Ecs20140526::Client::deletePrefixListWithOptions(shared_ptr<DeletePrefixListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeletePrefixListResponse(doRPCRequest(make_shared<string>("DeletePrefixList"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeletePrefixListResponse Alibabacloud_Ecs20140526::Client::deletePrefixList(shared_ptr<DeletePrefixListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deletePrefixListWithOptions(request, runtime);
 }
 
 DeleteReplicaPairResponse Alibabacloud_Ecs20140526::Client::deleteReplicaPairWithOptions(shared_ptr<DeleteReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2356,6 +2382,45 @@ DescribePhysicalConnectionsResponse Alibabacloud_Ecs20140526::Client::describePh
 DescribePhysicalConnectionsResponse Alibabacloud_Ecs20140526::Client::describePhysicalConnections(shared_ptr<DescribePhysicalConnectionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describePhysicalConnectionsWithOptions(request, runtime);
+}
+
+DescribePrefixListAssociationsResponse Alibabacloud_Ecs20140526::Client::describePrefixListAssociationsWithOptions(shared_ptr<DescribePrefixListAssociationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribePrefixListAssociationsResponse(doRPCRequest(make_shared<string>("DescribePrefixListAssociations"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribePrefixListAssociationsResponse Alibabacloud_Ecs20140526::Client::describePrefixListAssociations(shared_ptr<DescribePrefixListAssociationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePrefixListAssociationsWithOptions(request, runtime);
+}
+
+DescribePrefixListAttributesResponse Alibabacloud_Ecs20140526::Client::describePrefixListAttributesWithOptions(shared_ptr<DescribePrefixListAttributesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribePrefixListAttributesResponse(doRPCRequest(make_shared<string>("DescribePrefixListAttributes"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribePrefixListAttributesResponse Alibabacloud_Ecs20140526::Client::describePrefixListAttributes(shared_ptr<DescribePrefixListAttributesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePrefixListAttributesWithOptions(request, runtime);
+}
+
+DescribePrefixListsResponse Alibabacloud_Ecs20140526::Client::describePrefixListsWithOptions(shared_ptr<DescribePrefixListsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribePrefixListsResponse(doRPCRequest(make_shared<string>("DescribePrefixLists"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribePrefixListsResponse Alibabacloud_Ecs20140526::Client::describePrefixLists(shared_ptr<DescribePrefixListsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePrefixListsWithOptions(request, runtime);
 }
 
 DescribePriceResponse Alibabacloud_Ecs20140526::Client::describePriceWithOptions(shared_ptr<DescribePriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3637,6 +3702,19 @@ ModifyPhysicalConnectionAttributeResponse Alibabacloud_Ecs20140526::Client::modi
   return modifyPhysicalConnectionAttributeWithOptions(request, runtime);
 }
 
+ModifyPrefixListResponse Alibabacloud_Ecs20140526::Client::modifyPrefixListWithOptions(shared_ptr<ModifyPrefixListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ModifyPrefixListResponse(doRPCRequest(make_shared<string>("ModifyPrefixList"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ModifyPrefixListResponse Alibabacloud_Ecs20140526::Client::modifyPrefixList(shared_ptr<ModifyPrefixListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyPrefixListWithOptions(request, runtime);
+}
+
 ModifyPrepayInstanceSpecResponse Alibabacloud_Ecs20140526::Client::modifyPrepayInstanceSpecWithOptions(shared_ptr<ModifyPrepayInstanceSpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -4290,6 +4368,19 @@ StartInstancesResponse Alibabacloud_Ecs20140526::Client::startInstancesWithOptio
 StartInstancesResponse Alibabacloud_Ecs20140526::Client::startInstances(shared_ptr<StartInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startInstancesWithOptions(request, runtime);
+}
+
+StartTerminalSessionResponse Alibabacloud_Ecs20140526::Client::startTerminalSessionWithOptions(shared_ptr<StartTerminalSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return StartTerminalSessionResponse(doRPCRequest(make_shared<string>("StartTerminalSession"), make_shared<string>("2014-05-26"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+StartTerminalSessionResponse Alibabacloud_Ecs20140526::Client::startTerminalSession(shared_ptr<StartTerminalSessionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startTerminalSessionWithOptions(request, runtime);
 }
 
 StopDiskReplicaPairResponse Alibabacloud_Ecs20140526::Client::stopDiskReplicaPairWithOptions(shared_ptr<StopDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
