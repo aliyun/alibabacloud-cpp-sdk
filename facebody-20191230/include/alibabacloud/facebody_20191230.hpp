@@ -10866,6 +10866,7 @@ public:
   shared_ptr<vector<BeautifyBodyRequestBodyBoxes>> bodyBoxes{};
   shared_ptr<vector<BeautifyBodyRequestFaceList>> faceList{};
   shared_ptr<vector<BeautifyBodyRequestPoseList>> poseList{};
+  shared_ptr<bool> isPregnant{};
 
   BeautifyBodyRequest() {}
 
@@ -10921,6 +10922,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PoseList"] = boost::any(temp1);
+    }
+    if (isPregnant) {
+      res["IsPregnant"] = boost::any(*isPregnant);
     }
     return res;
   }
@@ -10992,6 +10996,9 @@ public:
         }
         poseList = make_shared<vector<BeautifyBodyRequestPoseList>>(expect1);
       }
+    }
+    if (m.find("IsPregnant") != m.end() && !m["IsPregnant"].empty()) {
+      isPregnant = make_shared<bool>(boost::any_cast<bool>(m["IsPregnant"]));
     }
   }
 
@@ -11280,6 +11287,7 @@ public:
   shared_ptr<vector<BeautifyBodyAdvanceRequestBodyBoxes>> bodyBoxes{};
   shared_ptr<vector<BeautifyBodyAdvanceRequestFaceList>> faceList{};
   shared_ptr<vector<BeautifyBodyAdvanceRequestPoseList>> poseList{};
+  shared_ptr<bool> isPregnant{};
 
   BeautifyBodyAdvanceRequest() {}
 
@@ -11339,6 +11347,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PoseList"] = boost::any(temp1);
+    }
+    if (isPregnant) {
+      res["IsPregnant"] = boost::any(*isPregnant);
     }
     return res;
   }
@@ -11411,6 +11422,9 @@ public:
         poseList = make_shared<vector<BeautifyBodyAdvanceRequestPoseList>>(expect1);
       }
     }
+    if (m.find("IsPregnant") != m.end() && !m["IsPregnant"].empty()) {
+      isPregnant = make_shared<bool>(boost::any_cast<bool>(m["IsPregnant"]));
+    }
   }
 
 
@@ -11429,6 +11443,7 @@ public:
   shared_ptr<string> bodyBoxesShrink{};
   shared_ptr<string> faceListShrink{};
   shared_ptr<string> poseListShrink{};
+  shared_ptr<bool> isPregnant{};
 
   BeautifyBodyShrinkRequest() {}
 
@@ -11473,6 +11488,9 @@ public:
     if (poseListShrink) {
       res["PoseList"] = boost::any(*poseListShrink);
     }
+    if (isPregnant) {
+      res["IsPregnant"] = boost::any(*isPregnant);
+    }
     return res;
   }
 
@@ -11509,6 +11527,9 @@ public:
     }
     if (m.find("PoseList") != m.end() && !m["PoseList"].empty()) {
       poseListShrink = make_shared<string>(boost::any_cast<string>(m["PoseList"]));
+    }
+    if (m.find("IsPregnant") != m.end() && !m["IsPregnant"].empty()) {
+      isPregnant = make_shared<bool>(boost::any_cast<bool>(m["IsPregnant"]));
     }
   }
 
