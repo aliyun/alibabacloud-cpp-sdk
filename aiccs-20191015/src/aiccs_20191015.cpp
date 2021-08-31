@@ -294,8 +294,9 @@ CreateThirdSsoAgentResponse Alibabacloud_Aiccs20191015::Client::createThirdSsoAg
 
 DeleteAgentResponse Alibabacloud_Aiccs20191015::Client::deleteAgentWithOptions(shared_ptr<DeleteAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", !query ? boost::any() : boost::any(*query)}
   }));
   return DeleteAgentResponse(doRPCRequest(make_shared<string>("DeleteAgent"), make_shared<string>("2019-10-15"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
