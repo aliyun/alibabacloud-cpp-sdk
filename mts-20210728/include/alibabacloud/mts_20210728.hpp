@@ -299,6 +299,7 @@ public:
   shared_ptr<long> level{};
   shared_ptr<string> message{};
   shared_ptr<string> output{};
+  shared_ptr<string> url{};
 
   SubmitImageCopyrightRequest() {}
 
@@ -322,6 +323,9 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     return res;
   }
 
@@ -337,6 +341,9 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
@@ -1465,6 +1472,7 @@ public:
   shared_ptr<long> level{};
   shared_ptr<string> output{};
   shared_ptr<string> userData{};
+  shared_ptr<string> url{};
 
   SubmitTraceAbRequest() {}
 
@@ -1491,6 +1499,9 @@ public:
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     return res;
   }
 
@@ -1509,6 +1520,9 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
@@ -1668,6 +1682,7 @@ public:
   shared_ptr<long> totalTime{};
   shared_ptr<string> output{};
   shared_ptr<string> userData{};
+  shared_ptr<string> url{};
 
   SubmitCopyrightJobRequest() {}
 
@@ -1706,6 +1721,9 @@ public:
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     return res;
   }
 
@@ -1736,6 +1754,9 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 
