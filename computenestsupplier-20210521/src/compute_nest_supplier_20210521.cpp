@@ -16,7 +16,7 @@ using namespace std;
 using namespace Alibabacloud_ComputeNestSupplier20210521;
 
 Alibabacloud_ComputeNestSupplier20210521::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _endpointRule = make_shared<string>("");
+  _endpointRule = make_shared<string>("regional");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("computenestsupplier"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
