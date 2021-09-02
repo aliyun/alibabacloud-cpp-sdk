@@ -328,6 +328,8 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> processInstanceID{};
+  shared_ptr<string> signatureID{};
+  shared_ptr<int> type{};
 
   CreateTemplateRequest() {}
 
@@ -351,6 +353,12 @@ public:
     if (processInstanceID) {
       res["ProcessInstanceID"] = boost::any(*processInstanceID);
     }
+    if (signatureID) {
+      res["SignatureID"] = boost::any(*signatureID);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -366,6 +374,12 @@ public:
     }
     if (m.find("ProcessInstanceID") != m.end() && !m["ProcessInstanceID"].empty()) {
       processInstanceID = make_shared<string>(boost::any_cast<string>(m["ProcessInstanceID"]));
+    }
+    if (m.find("SignatureID") != m.end() && !m["SignatureID"].empty()) {
+      signatureID = make_shared<string>(boost::any_cast<string>(m["SignatureID"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<int>(boost::any_cast<int>(m["Type"]));
     }
   }
 

@@ -103,6 +103,12 @@ CreateTemplateResponse Alibabacloud_PaiPlugin20210325::Client::createTemplateWit
   if (!Darabonba_Util::Client::isUnset<string>(request->processInstanceID)) {
     (*body)["ProcessInstanceID"] = *request->processInstanceID;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureID)) {
+    (*body)["SignatureID"] = *request->signatureID;
+  }
+  if (!Darabonba_Util::Client::isUnset<int>(request->type)) {
+    (*body)["Type"] = *request->type;
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
