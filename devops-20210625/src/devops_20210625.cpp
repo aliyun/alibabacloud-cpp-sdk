@@ -295,6 +295,46 @@ ResetSshKeyResponse Alibabacloud_Devops20210625::Client::resetSshKeyWithOptions(
   return ResetSshKeyResponse(doROARequest(make_shared<string>("ResetSshKey"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/organization/") + string(*organizationId) + string("/sshKey")), make_shared<string>("json"), req, runtime));
 }
 
+CreateWorkspaceResponse Alibabacloud_Devops20210625::Client::createWorkspace(shared_ptr<CreateWorkspaceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createWorkspaceWithOptions(request, headers, runtime);
+}
+
+CreateWorkspaceResponse Alibabacloud_Devops20210625::Client::createWorkspaceWithOptions(shared_ptr<CreateWorkspaceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    (*body)["name"] = *request->name;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceTemplate)) {
+    (*body)["workspaceTemplate"] = *request->workspaceTemplate;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeUrl)) {
+    (*body)["codeUrl"] = *request->codeUrl;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->codeVersion)) {
+    (*body)["codeVersion"] = *request->codeVersion;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
+    (*body)["filePath"] = *request->filePath;
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reuse)) {
+    (*body)["reuse"] = *request->reuse;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdentifier)) {
+    (*body)["resourceIdentifier"] = *request->resourceIdentifier;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestFrom)) {
+    (*body)["requestFrom"] = *request->requestFrom;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  return CreateWorkspaceResponse(doROARequestWithForm(make_shared<string>("CreateWorkspace"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/workspaces")), make_shared<string>("json"), req, runtime));
+}
+
 ListServiceConnectionsResponse Alibabacloud_Devops20210625::Client::listServiceConnections(shared_ptr<string> organizationId, shared_ptr<ListServiceConnectionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -528,6 +568,42 @@ StartPipelineRunResponse Alibabacloud_Devops20210625::Client::startPipelineRunWi
   return StartPipelineRunResponse(doROARequestWithForm(make_shared<string>("StartPipelineRun"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/organizations/") + string(*organizationId) + string("/pipelines/") + string(*pipelineId) + string("/run")), make_shared<string>("json"), req, runtime));
 }
 
+ListWorkspacesResponse Alibabacloud_Devops20210625::Client::listWorkspaces(shared_ptr<ListWorkspacesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listWorkspacesWithOptions(request, headers, runtime);
+}
+
+ListWorkspacesResponse Alibabacloud_Devops20210625::Client::listWorkspacesWithOptions(shared_ptr<ListWorkspacesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListWorkspacesShrinkRequest> request = make_shared<ListWorkspacesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->statusList)) {
+    request->statusListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->statusList, make_shared<string>("statusList"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->workspaceTemplateList)) {
+    request->workspaceTemplateListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->workspaceTemplateList, make_shared<string>("workspaceTemplateList"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    (*query)["nextToken"] = *request->nextToken;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    (*query)["maxResults"] = *request->maxResults;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusListShrink)) {
+    (*query)["statusList"] = *request->statusListShrink;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workspaceTemplateListShrink)) {
+    (*query)["workspaceTemplateList"] = *request->workspaceTemplateListShrink;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return ListWorkspacesResponse(doROARequest(make_shared<string>("ListWorkspaces"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/api/workspaces")), make_shared<string>("json"), req, runtime));
+}
+
 GetPipelineRunResponse Alibabacloud_Devops20210625::Client::getPipelineRun(shared_ptr<string> organizationId, shared_ptr<string> pipelineId, shared_ptr<string> pipelineRunId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -605,6 +681,19 @@ DeleteVariableGroupResponse Alibabacloud_Devops20210625::Client::deleteVariableG
   return DeleteVariableGroupResponse(doROARequest(make_shared<string>("DeleteVariableGroup"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/organization/") + string(*organizationId) + string("/variableGroups/") + string(*id)), make_shared<string>("json"), req, runtime));
 }
 
+GetWorkspaceResponse Alibabacloud_Devops20210625::Client::getWorkspace(shared_ptr<string> workspaceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getWorkspaceWithOptions(workspaceId, headers, runtime);
+}
+
+GetWorkspaceResponse Alibabacloud_Devops20210625::Client::getWorkspaceWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  return GetWorkspaceResponse(doROARequest(make_shared<string>("GetWorkspace"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/api/workspaces/") + string(*workspaceId)), make_shared<string>("json"), req, runtime));
+}
+
 CreateSshKeyResponse Alibabacloud_Devops20210625::Client::createSshKey(shared_ptr<string> organizationId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -632,6 +721,19 @@ DeleteHostGroupResponse Alibabacloud_Devops20210625::Client::deleteHostGroupWith
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
   return DeleteHostGroupResponse(doROARequest(make_shared<string>("DeleteHostGroup"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/organization/") + string(*organizationId) + string("/hostGroups/") + string(*id)), make_shared<string>("json"), req, runtime));
+}
+
+ReleaseWorkspaceResponse Alibabacloud_Devops20210625::Client::releaseWorkspace(shared_ptr<string> workspaceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return releaseWorkspaceWithOptions(workspaceId, headers, runtime);
+}
+
+ReleaseWorkspaceResponse Alibabacloud_Devops20210625::Client::releaseWorkspaceWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  return ReleaseWorkspaceResponse(doROARequest(make_shared<string>("ReleaseWorkspace"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/api/workspaces/") + string(*workspaceId) + string("/release")), make_shared<string>("json"), req, runtime));
 }
 
 ListVariableGroupsResponse Alibabacloud_Devops20210625::Client::listVariableGroups(shared_ptr<string> organizationId, shared_ptr<ListVariableGroupsRequest> request) {
@@ -679,6 +781,19 @@ DeletePipelineResponse Alibabacloud_Devops20210625::Client::deletePipelineWithOp
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
   return DeletePipelineResponse(doROARequest(make_shared<string>("DeletePipeline"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/organization/") + string(*organizationId) + string("/pipelines/") + string(*pipelineId)), make_shared<string>("json"), req, runtime));
+}
+
+FrozenWorkspaceResponse Alibabacloud_Devops20210625::Client::frozenWorkspace(shared_ptr<string> workspaceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return frozenWorkspaceWithOptions(workspaceId, headers, runtime);
+}
+
+FrozenWorkspaceResponse Alibabacloud_Devops20210625::Client::frozenWorkspaceWithOptions(shared_ptr<string> workspaceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  return FrozenWorkspaceResponse(doROARequest(make_shared<string>("FrozenWorkspace"), make_shared<string>("2021-06-25"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/api/workspaces/") + string(*workspaceId) + string("/frozen")), make_shared<string>("json"), req, runtime));
 }
 
 ListPipelineRunsResponse Alibabacloud_Devops20210625::Client::listPipelineRuns(shared_ptr<string> organizationId, shared_ptr<string> pipelineId, shared_ptr<ListPipelineRunsRequest> request) {
