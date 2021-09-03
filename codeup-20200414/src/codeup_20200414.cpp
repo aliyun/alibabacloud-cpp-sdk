@@ -283,6 +283,37 @@ UpdateMergeRequestCommentResponse Alibabacloud_Codeup20200414::Client::updateMer
   return UpdateMergeRequestCommentResponse(doROARequest(make_shared<string>("UpdateMergeRequestComment"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/api/v3/projects/") + string(*ProjectId) + string("/merge_requests/") + string(*MergeRequestId) + string("/notes/") + string(*NoteId)), make_shared<string>("json"), req, runtime));
 }
 
+TriggerRepositoryMirrorSyncResponse Alibabacloud_Codeup20200414::Client::triggerRepositoryMirrorSync(shared_ptr<string> ProjectId, shared_ptr<TriggerRepositoryMirrorSyncRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return triggerRepositoryMirrorSyncWithOptions(ProjectId, request, headers, runtime);
+}
+
+TriggerRepositoryMirrorSyncResponse Alibabacloud_Codeup20200414::Client::triggerRepositoryMirrorSyncWithOptions(shared_ptr<string> ProjectId,
+                                                                                                                shared_ptr<TriggerRepositoryMirrorSyncRequest> request,
+                                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    (*query)["AccessToken"] = *request->accessToken;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    (*query)["OrganizationId"] = *request->organizationId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->account)) {
+    (*query)["Account"] = *request->account;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
+    (*query)["Token"] = *request->token;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return TriggerRepositoryMirrorSyncResponse(doROARequest(make_shared<string>("TriggerRepositoryMirrorSync"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v4/projects/") + string(*ProjectId) + string("/mirror")), make_shared<string>("json"), req, runtime));
+}
+
 DeleteBranchResponse Alibabacloud_Codeup20200414::Client::deleteBranch(shared_ptr<string> ProjectId, shared_ptr<DeleteBranchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1881,6 +1912,28 @@ CreateBranchResponse Alibabacloud_Codeup20200414::Client::createBranchWithOption
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   return CreateBranchResponse(doROARequest(make_shared<string>("CreateBranch"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v3/projects/") + string(*ProjectId) + string("/repository/branches")), make_shared<string>("json"), req, runtime));
+}
+
+GetOrganizationRepositorySettingResponse Alibabacloud_Codeup20200414::Client::getOrganizationRepositorySetting(shared_ptr<GetOrganizationRepositorySettingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getOrganizationRepositorySettingWithOptions(request, headers, runtime);
+}
+
+GetOrganizationRepositorySettingResponse Alibabacloud_Codeup20200414::Client::getOrganizationRepositorySettingWithOptions(shared_ptr<GetOrganizationRepositorySettingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    (*query)["AccessToken"] = *request->accessToken;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    (*query)["OrganizationId"] = *request->organizationId;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return GetOrganizationRepositorySettingResponse(doROARequest(make_shared<string>("GetOrganizationRepositorySetting"), make_shared<string>("2020-04-14"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/api/v4/organization/settings/repo")), make_shared<string>("json"), req, runtime));
 }
 
 ListGroupRepositoriesResponse Alibabacloud_Codeup20200414::Client::listGroupRepositories(shared_ptr<string> Identity, shared_ptr<ListGroupRepositoriesRequest> request) {
