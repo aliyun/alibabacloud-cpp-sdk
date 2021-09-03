@@ -1880,6 +1880,277 @@ public:
 
   virtual ~File() = default;
 };
+class WebofficeUser : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> avatar{};
+
+  WebofficeUser() {}
+
+  explicit WebofficeUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (avatar) {
+      res["Avatar"] = boost::any(*avatar);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Avatar") != m.end() && !m["Avatar"].empty()) {
+      avatar = make_shared<string>(boost::any_cast<string>(m["Avatar"]));
+    }
+  }
+
+
+  virtual ~WebofficeUser() = default;
+};
+class AssumeRoleChainNode : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> role{};
+
+  AssumeRoleChainNode() {}
+
+  explicit AssumeRoleChainNode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+  }
+
+
+  virtual ~AssumeRoleChainNode() = default;
+};
+class AssumeRoleChain : public Darabonba::Model {
+public:
+  shared_ptr<string> policy{};
+  shared_ptr<vector<AssumeRoleChainNode>> chain{};
+
+  AssumeRoleChain() {}
+
+  explicit AssumeRoleChain(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (chain) {
+      vector<boost::any> temp1;
+      for(auto item1:*chain){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Chain"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Chain") != m.end() && !m["Chain"].empty()) {
+      if (typeid(vector<boost::any>) == m["Chain"].type()) {
+        vector<AssumeRoleChainNode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Chain"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AssumeRoleChainNode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        chain = make_shared<vector<AssumeRoleChainNode>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AssumeRoleChain() = default;
+};
+class WebofficeWatermark : public Darabonba::Model {
+public:
+  shared_ptr<long> type{};
+  shared_ptr<string> value{};
+  shared_ptr<double> rotate{};
+  shared_ptr<long> vertical{};
+  shared_ptr<long> horizontal{};
+  shared_ptr<string> font{};
+  shared_ptr<string> fillStyle{};
+
+  WebofficeWatermark() {}
+
+  explicit WebofficeWatermark(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (rotate) {
+      res["Rotate"] = boost::any(*rotate);
+    }
+    if (vertical) {
+      res["Vertical"] = boost::any(*vertical);
+    }
+    if (horizontal) {
+      res["Horizontal"] = boost::any(*horizontal);
+    }
+    if (font) {
+      res["Font"] = boost::any(*font);
+    }
+    if (fillStyle) {
+      res["FillStyle"] = boost::any(*fillStyle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Rotate") != m.end() && !m["Rotate"].empty()) {
+      rotate = make_shared<double>(boost::any_cast<double>(m["Rotate"]));
+    }
+    if (m.find("Vertical") != m.end() && !m["Vertical"].empty()) {
+      vertical = make_shared<long>(boost::any_cast<long>(m["Vertical"]));
+    }
+    if (m.find("Horizontal") != m.end() && !m["Horizontal"].empty()) {
+      horizontal = make_shared<long>(boost::any_cast<long>(m["Horizontal"]));
+    }
+    if (m.find("Font") != m.end() && !m["Font"].empty()) {
+      font = make_shared<string>(boost::any_cast<string>(m["Font"]));
+    }
+    if (m.find("FillStyle") != m.end() && !m["FillStyle"].empty()) {
+      fillStyle = make_shared<string>(boost::any_cast<string>(m["FillStyle"]));
+    }
+  }
+
+
+  virtual ~WebofficeWatermark() = default;
+};
+class WebofficePermission : public Darabonba::Model {
+public:
+  shared_ptr<bool> rename{};
+  shared_ptr<bool> readonly{};
+  shared_ptr<bool> history{};
+  shared_ptr<bool> print{};
+  shared_ptr<bool> export_{};
+  shared_ptr<bool> copy{};
+
+  WebofficePermission() {}
+
+  explicit WebofficePermission(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rename) {
+      res["Rename"] = boost::any(*rename);
+    }
+    if (readonly) {
+      res["Readonly"] = boost::any(*readonly);
+    }
+    if (history) {
+      res["History"] = boost::any(*history);
+    }
+    if (print) {
+      res["Print"] = boost::any(*print);
+    }
+    if (export_) {
+      res["Export"] = boost::any(*export_);
+    }
+    if (copy) {
+      res["Copy"] = boost::any(*copy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Rename") != m.end() && !m["Rename"].empty()) {
+      rename = make_shared<bool>(boost::any_cast<bool>(m["Rename"]));
+    }
+    if (m.find("Readonly") != m.end() && !m["Readonly"].empty()) {
+      readonly = make_shared<bool>(boost::any_cast<bool>(m["Readonly"]));
+    }
+    if (m.find("History") != m.end() && !m["History"].empty()) {
+      history = make_shared<bool>(boost::any_cast<bool>(m["History"]));
+    }
+    if (m.find("Print") != m.end() && !m["Print"].empty()) {
+      print = make_shared<bool>(boost::any_cast<bool>(m["Print"]));
+    }
+    if (m.find("Export") != m.end() && !m["Export"].empty()) {
+      export_ = make_shared<bool>(boost::any_cast<bool>(m["Export"]));
+    }
+    if (m.find("Copy") != m.end() && !m["Copy"].empty()) {
+      copy = make_shared<bool>(boost::any_cast<bool>(m["Copy"]));
+    }
+  }
+
+
+  virtual ~WebofficePermission() = default;
+};
 class SimpleQuery : public Darabonba::Model {
 public:
   shared_ptr<string> field{};
@@ -4850,6 +5121,378 @@ public:
 
   virtual ~GetProjectResponse() = default;
 };
+class GetWebofficeUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceUri{};
+  shared_ptr<string> filename{};
+  shared_ptr<string> userData{};
+  shared_ptr<long> previewPages{};
+  shared_ptr<string> password{};
+  shared_ptr<bool> externalUploaded{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<bool> hidecmb{};
+  shared_ptr<WebofficePermission> permission{};
+  shared_ptr<WebofficeUser> user{};
+  shared_ptr<WebofficeWatermark> watermark{};
+  shared_ptr<AssumeRoleChain> assumeRoleChain{};
+
+  GetWebofficeUrlRequest() {}
+
+  explicit GetWebofficeUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceUri) {
+      res["SourceUri"] = boost::any(*sourceUri);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (previewPages) {
+      res["PreviewPages"] = boost::any(*previewPages);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (externalUploaded) {
+      res["ExternalUploaded"] = boost::any(*externalUploaded);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (hidecmb) {
+      res["Hidecmb"] = boost::any(*hidecmb);
+    }
+    if (permission) {
+      res["Permission"] = permission ? boost::any(permission->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (user) {
+      res["User"] = user ? boost::any(user->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (watermark) {
+      res["Watermark"] = watermark ? boost::any(watermark->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (assumeRoleChain) {
+      res["AssumeRoleChain"] = assumeRoleChain ? boost::any(assumeRoleChain->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceUri") != m.end() && !m["SourceUri"].empty()) {
+      sourceUri = make_shared<string>(boost::any_cast<string>(m["SourceUri"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("PreviewPages") != m.end() && !m["PreviewPages"].empty()) {
+      previewPages = make_shared<long>(boost::any_cast<long>(m["PreviewPages"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("ExternalUploaded") != m.end() && !m["ExternalUploaded"].empty()) {
+      externalUploaded = make_shared<bool>(boost::any_cast<bool>(m["ExternalUploaded"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("Hidecmb") != m.end() && !m["Hidecmb"].empty()) {
+      hidecmb = make_shared<bool>(boost::any_cast<bool>(m["Hidecmb"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Permission"].type()) {
+        WebofficePermission model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Permission"]));
+        permission = make_shared<WebofficePermission>(model1);
+      }
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      if (typeid(map<string, boost::any>) == m["User"].type()) {
+        WebofficeUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["User"]));
+        user = make_shared<WebofficeUser>(model1);
+      }
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Watermark"].type()) {
+        WebofficeWatermark model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Watermark"]));
+        watermark = make_shared<WebofficeWatermark>(model1);
+      }
+    }
+    if (m.find("AssumeRoleChain") != m.end() && !m["AssumeRoleChain"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssumeRoleChain"].type()) {
+        AssumeRoleChain model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssumeRoleChain"]));
+        assumeRoleChain = make_shared<AssumeRoleChain>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWebofficeUrlRequest() = default;
+};
+class GetWebofficeUrlShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceUri{};
+  shared_ptr<string> filename{};
+  shared_ptr<string> userData{};
+  shared_ptr<long> previewPages{};
+  shared_ptr<string> password{};
+  shared_ptr<bool> externalUploaded{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<bool> hidecmb{};
+  shared_ptr<string> permissionShrink{};
+  shared_ptr<string> userShrink{};
+  shared_ptr<string> watermarkShrink{};
+  shared_ptr<string> assumeRoleChainShrink{};
+
+  GetWebofficeUrlShrinkRequest() {}
+
+  explicit GetWebofficeUrlShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceUri) {
+      res["SourceUri"] = boost::any(*sourceUri);
+    }
+    if (filename) {
+      res["Filename"] = boost::any(*filename);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (previewPages) {
+      res["PreviewPages"] = boost::any(*previewPages);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (externalUploaded) {
+      res["ExternalUploaded"] = boost::any(*externalUploaded);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (hidecmb) {
+      res["Hidecmb"] = boost::any(*hidecmb);
+    }
+    if (permissionShrink) {
+      res["Permission"] = boost::any(*permissionShrink);
+    }
+    if (userShrink) {
+      res["User"] = boost::any(*userShrink);
+    }
+    if (watermarkShrink) {
+      res["Watermark"] = boost::any(*watermarkShrink);
+    }
+    if (assumeRoleChainShrink) {
+      res["AssumeRoleChain"] = boost::any(*assumeRoleChainShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceUri") != m.end() && !m["SourceUri"].empty()) {
+      sourceUri = make_shared<string>(boost::any_cast<string>(m["SourceUri"]));
+    }
+    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
+      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("PreviewPages") != m.end() && !m["PreviewPages"].empty()) {
+      previewPages = make_shared<long>(boost::any_cast<long>(m["PreviewPages"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("ExternalUploaded") != m.end() && !m["ExternalUploaded"].empty()) {
+      externalUploaded = make_shared<bool>(boost::any_cast<bool>(m["ExternalUploaded"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("Hidecmb") != m.end() && !m["Hidecmb"].empty()) {
+      hidecmb = make_shared<bool>(boost::any_cast<bool>(m["Hidecmb"]));
+    }
+    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
+      permissionShrink = make_shared<string>(boost::any_cast<string>(m["Permission"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      userShrink = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
+      watermarkShrink = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
+    }
+    if (m.find("AssumeRoleChain") != m.end() && !m["AssumeRoleChain"].empty()) {
+      assumeRoleChainShrink = make_shared<string>(boost::any_cast<string>(m["AssumeRoleChain"]));
+    }
+  }
+
+
+  virtual ~GetWebofficeUrlShrinkRequest() = default;
+};
+class GetWebofficeUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> webofficeUrl{};
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> refreshToken{};
+  shared_ptr<string> accessTokenExpiredTime{};
+  shared_ptr<string> refreshTokenExpiredTime{};
+
+  GetWebofficeUrlResponseBody() {}
+
+  explicit GetWebofficeUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (webofficeUrl) {
+      res["WebofficeUrl"] = boost::any(*webofficeUrl);
+    }
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (refreshToken) {
+      res["RefreshToken"] = boost::any(*refreshToken);
+    }
+    if (accessTokenExpiredTime) {
+      res["AccessTokenExpiredTime"] = boost::any(*accessTokenExpiredTime);
+    }
+    if (refreshTokenExpiredTime) {
+      res["RefreshTokenExpiredTime"] = boost::any(*refreshTokenExpiredTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WebofficeUrl") != m.end() && !m["WebofficeUrl"].empty()) {
+      webofficeUrl = make_shared<string>(boost::any_cast<string>(m["WebofficeUrl"]));
+    }
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("RefreshToken") != m.end() && !m["RefreshToken"].empty()) {
+      refreshToken = make_shared<string>(boost::any_cast<string>(m["RefreshToken"]));
+    }
+    if (m.find("AccessTokenExpiredTime") != m.end() && !m["AccessTokenExpiredTime"].empty()) {
+      accessTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["AccessTokenExpiredTime"]));
+    }
+    if (m.find("RefreshTokenExpiredTime") != m.end() && !m["RefreshTokenExpiredTime"].empty()) {
+      refreshTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["RefreshTokenExpiredTime"]));
+    }
+  }
+
+
+  virtual ~GetWebofficeUrlResponseBody() = default;
+};
+class GetWebofficeUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetWebofficeUrlResponseBody> body{};
+
+  GetWebofficeUrlResponse() {}
+
+  explicit GetWebofficeUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetWebofficeUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetWebofficeUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWebofficeUrlResponse() = default;
+};
 class IndexFileMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> projectName{};
@@ -5835,6 +6478,219 @@ public:
 
 
   virtual ~ListProjectsResponse() = default;
+};
+class RefreshWebofficeTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> refreshToken{};
+  shared_ptr<AssumeRoleChain> assumeRoleChain{};
+
+  RefreshWebofficeTokenRequest() {}
+
+  explicit RefreshWebofficeTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (refreshToken) {
+      res["RefreshToken"] = boost::any(*refreshToken);
+    }
+    if (assumeRoleChain) {
+      res["AssumeRoleChain"] = assumeRoleChain ? boost::any(assumeRoleChain->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("RefreshToken") != m.end() && !m["RefreshToken"].empty()) {
+      refreshToken = make_shared<string>(boost::any_cast<string>(m["RefreshToken"]));
+    }
+    if (m.find("AssumeRoleChain") != m.end() && !m["AssumeRoleChain"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssumeRoleChain"].type()) {
+        AssumeRoleChain model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssumeRoleChain"]));
+        assumeRoleChain = make_shared<AssumeRoleChain>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshWebofficeTokenRequest() = default;
+};
+class RefreshWebofficeTokenShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> refreshToken{};
+  shared_ptr<string> assumeRoleChainShrink{};
+
+  RefreshWebofficeTokenShrinkRequest() {}
+
+  explicit RefreshWebofficeTokenShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (refreshToken) {
+      res["RefreshToken"] = boost::any(*refreshToken);
+    }
+    if (assumeRoleChainShrink) {
+      res["AssumeRoleChain"] = boost::any(*assumeRoleChainShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("RefreshToken") != m.end() && !m["RefreshToken"].empty()) {
+      refreshToken = make_shared<string>(boost::any_cast<string>(m["RefreshToken"]));
+    }
+    if (m.find("AssumeRoleChain") != m.end() && !m["AssumeRoleChain"].empty()) {
+      assumeRoleChainShrink = make_shared<string>(boost::any_cast<string>(m["AssumeRoleChain"]));
+    }
+  }
+
+
+  virtual ~RefreshWebofficeTokenShrinkRequest() = default;
+};
+class RefreshWebofficeTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> refreshToken{};
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> refreshTokenExpiredTime{};
+  shared_ptr<string> accessTokenExpiredTime{};
+
+  RefreshWebofficeTokenResponseBody() {}
+
+  explicit RefreshWebofficeTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (refreshToken) {
+      res["RefreshToken"] = boost::any(*refreshToken);
+    }
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (refreshTokenExpiredTime) {
+      res["RefreshTokenExpiredTime"] = boost::any(*refreshTokenExpiredTime);
+    }
+    if (accessTokenExpiredTime) {
+      res["AccessTokenExpiredTime"] = boost::any(*accessTokenExpiredTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RefreshToken") != m.end() && !m["RefreshToken"].empty()) {
+      refreshToken = make_shared<string>(boost::any_cast<string>(m["RefreshToken"]));
+    }
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("RefreshTokenExpiredTime") != m.end() && !m["RefreshTokenExpiredTime"].empty()) {
+      refreshTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["RefreshTokenExpiredTime"]));
+    }
+    if (m.find("AccessTokenExpiredTime") != m.end() && !m["AccessTokenExpiredTime"].empty()) {
+      accessTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["AccessTokenExpiredTime"]));
+    }
+  }
+
+
+  virtual ~RefreshWebofficeTokenResponseBody() = default;
+};
+class RefreshWebofficeTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RefreshWebofficeTokenResponseBody> body{};
+
+  RefreshWebofficeTokenResponse() {}
+
+  explicit RefreshWebofficeTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshWebofficeTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshWebofficeTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshWebofficeTokenResponse() = default;
 };
 class ResumeBindingRequest : public Darabonba::Model {
 public:
@@ -7333,6 +8189,8 @@ public:
   GetFileSignedURIResponse getFileSignedURI(shared_ptr<GetFileSignedURIRequest> request);
   GetProjectResponse getProjectWithOptions(shared_ptr<GetProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProjectResponse getProject(shared_ptr<GetProjectRequest> request);
+  GetWebofficeUrlResponse getWebofficeUrlWithOptions(shared_ptr<GetWebofficeUrlRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetWebofficeUrlResponse getWebofficeUrl(shared_ptr<GetWebofficeUrlRequest> request);
   IndexFileMetaResponse indexFileMetaWithOptions(shared_ptr<IndexFileMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IndexFileMetaResponse indexFileMeta(shared_ptr<IndexFileMetaRequest> request);
   ListBindingsResponse listBindingsWithOptions(shared_ptr<ListBindingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7341,6 +8199,8 @@ public:
   ListDatasetsResponse listDatasets(shared_ptr<ListDatasetsRequest> request);
   ListProjectsResponse listProjectsWithOptions(shared_ptr<ListProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListProjectsResponse listProjects(shared_ptr<ListProjectsRequest> request);
+  RefreshWebofficeTokenResponse refreshWebofficeTokenWithOptions(shared_ptr<RefreshWebofficeTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshWebofficeTokenResponse refreshWebofficeToken(shared_ptr<RefreshWebofficeTokenRequest> request);
   ResumeBindingResponse resumeBindingWithOptions(shared_ptr<ResumeBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeBindingResponse resumeBinding(shared_ptr<ResumeBindingRequest> request);
   SimpleQueryResponse simpleQueryWithOptions(shared_ptr<SimpleQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
