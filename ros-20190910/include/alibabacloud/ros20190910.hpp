@@ -1154,6 +1154,42 @@ public:
 
   virtual ~CreateStackGroupRequestParameters() = default;
 };
+class CreateStackGroupRequestAutoDeployment : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<bool> retainStacksOnAccountRemoval{};
+
+  CreateStackGroupRequestAutoDeployment() {}
+
+  explicit CreateStackGroupRequestAutoDeployment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (retainStacksOnAccountRemoval) {
+      res["RetainStacksOnAccountRemoval"] = boost::any(*retainStacksOnAccountRemoval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("RetainStacksOnAccountRemoval") != m.end() && !m["RetainStacksOnAccountRemoval"].empty()) {
+      retainStacksOnAccountRemoval = make_shared<bool>(boost::any_cast<bool>(m["RetainStacksOnAccountRemoval"]));
+    }
+  }
+
+
+  virtual ~CreateStackGroupRequestAutoDeployment() = default;
+};
 class CreateStackGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -1169,7 +1205,7 @@ public:
   shared_ptr<vector<CreateStackGroupRequestParameters>> parameters{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> permissionModel{};
-  shared_ptr<map<string, boost::any>> autoDeployment{};
+  shared_ptr<CreateStackGroupRequestAutoDeployment> autoDeployment{};
 
   CreateStackGroupRequest() {}
 
@@ -1225,7 +1261,7 @@ public:
       res["PermissionModel"] = boost::any(*permissionModel);
     }
     if (autoDeployment) {
-      res["AutoDeployment"] = boost::any(*autoDeployment);
+      res["AutoDeployment"] = autoDeployment ? boost::any(autoDeployment->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -1281,12 +1317,11 @@ public:
       permissionModel = make_shared<string>(boost::any_cast<string>(m["PermissionModel"]));
     }
     if (m.find("AutoDeployment") != m.end() && !m["AutoDeployment"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["AutoDeployment"].type()) {
+        CreateStackGroupRequestAutoDeployment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]));
+        autoDeployment = make_shared<CreateStackGroupRequestAutoDeployment>(model1);
       }
-      autoDeployment = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -1587,19 +1622,55 @@ public:
 
   virtual ~CreateStackInstancesRequestParameterOverrides() = default;
 };
+class CreateStackInstancesRequestDeploymentTargets : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> rdFolderIds{};
+
+  CreateStackInstancesRequestDeploymentTargets() {}
+
+  explicit CreateStackInstancesRequestDeploymentTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rdFolderIds) {
+      res["RdFolderIds"] = boost::any(*rdFolderIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RdFolderIds") != m.end() && !m["RdFolderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RdFolderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RdFolderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rdFolderIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateStackInstancesRequestDeploymentTargets() = default;
+};
 class CreateStackInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
-  shared_ptr<map<string, boost::any>> accountIds{};
-  shared_ptr<map<string, boost::any>> regionIds{};
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<string>> regionIds{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> operationDescription{};
   shared_ptr<map<string, boost::any>> operationPreferences{};
   shared_ptr<long> timeoutInMinutes{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<vector<CreateStackInstancesRequestParameterOverrides>> parameterOverrides{};
-  shared_ptr<map<string, boost::any>> deploymentTargets{};
+  shared_ptr<CreateStackInstancesRequestDeploymentTargets> deploymentTargets{};
 
   CreateStackInstancesRequest() {}
 
@@ -1646,7 +1717,7 @@ public:
       res["ParameterOverrides"] = boost::any(temp1);
     }
     if (deploymentTargets) {
-      res["DeploymentTargets"] = boost::any(*deploymentTargets);
+      res["DeploymentTargets"] = deploymentTargets ? boost::any(deploymentTargets->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -1659,20 +1730,24 @@ public:
       stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
     }
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AccountIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      accountIds = make_shared<map<string, boost::any>>(toMap1);
+      accountIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["RegionIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      regionIds = make_shared<map<string, boost::any>>(toMap1);
+      regionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -1708,12 +1783,11 @@ public:
       }
     }
     if (m.find("DeploymentTargets") != m.end() && !m["DeploymentTargets"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DeploymentTargets"].type()) {
+        CreateStackInstancesRequestDeploymentTargets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]));
+        deploymentTargets = make_shared<CreateStackInstancesRequestDeploymentTargets>(model1);
       }
-      deploymentTargets = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -2481,17 +2555,53 @@ public:
 
   virtual ~DeleteStackGroupResponse() = default;
 };
+class DeleteStackInstancesRequestDeploymentTargets : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> rdFolderIds{};
+
+  DeleteStackInstancesRequestDeploymentTargets() {}
+
+  explicit DeleteStackInstancesRequestDeploymentTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rdFolderIds) {
+      res["RdFolderIds"] = boost::any(*rdFolderIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RdFolderIds") != m.end() && !m["RdFolderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RdFolderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RdFolderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rdFolderIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteStackInstancesRequestDeploymentTargets() = default;
+};
 class DeleteStackInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
-  shared_ptr<map<string, boost::any>> accountIds{};
-  shared_ptr<map<string, boost::any>> regionIds{};
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<string>> regionIds{};
   shared_ptr<bool> retainStacks{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> operationDescription{};
   shared_ptr<map<string, boost::any>> operationPreferences{};
-  shared_ptr<map<string, boost::any>> deploymentTargets{};
+  shared_ptr<DeleteStackInstancesRequestDeploymentTargets> deploymentTargets{};
 
   DeleteStackInstancesRequest() {}
 
@@ -2528,7 +2638,7 @@ public:
       res["OperationPreferences"] = boost::any(*operationPreferences);
     }
     if (deploymentTargets) {
-      res["DeploymentTargets"] = boost::any(*deploymentTargets);
+      res["DeploymentTargets"] = deploymentTargets ? boost::any(deploymentTargets->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -2541,20 +2651,24 @@ public:
       stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
     }
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AccountIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      accountIds = make_shared<map<string, boost::any>>(toMap1);
+      accountIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["RegionIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      regionIds = make_shared<map<string, boost::any>>(toMap1);
+      regionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RetainStacks") != m.end() && !m["RetainStacks"].empty()) {
       retainStacks = make_shared<bool>(boost::any_cast<bool>(m["RetainStacks"]));
@@ -2574,12 +2688,11 @@ public:
       operationPreferences = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("DeploymentTargets") != m.end() && !m["DeploymentTargets"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DeploymentTargets"].type()) {
+        DeleteStackInstancesRequestDeploymentTargets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]));
+        deploymentTargets = make_shared<DeleteStackInstancesRequestDeploymentTargets>(model1);
       }
-      deploymentTargets = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -13864,13 +13977,99 @@ public:
 
   virtual ~UpdateStackGroupRequestParameters() = default;
 };
+class UpdateStackGroupRequestAutoDeployment : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<bool> retainStacksOnAccountRemoval{};
+
+  UpdateStackGroupRequestAutoDeployment() {}
+
+  explicit UpdateStackGroupRequestAutoDeployment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (retainStacksOnAccountRemoval) {
+      res["RetainStacksOnAccountRemoval"] = boost::any(*retainStacksOnAccountRemoval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("RetainStacksOnAccountRemoval") != m.end() && !m["RetainStacksOnAccountRemoval"].empty()) {
+      retainStacksOnAccountRemoval = make_shared<bool>(boost::any_cast<bool>(m["RetainStacksOnAccountRemoval"]));
+    }
+  }
+
+
+  virtual ~UpdateStackGroupRequestAutoDeployment() = default;
+};
+class UpdateStackGroupRequestDeploymentTargets : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> rdFolderIds{};
+  shared_ptr<vector<string>> accountIds{};
+
+  UpdateStackGroupRequestDeploymentTargets() {}
+
+  explicit UpdateStackGroupRequestDeploymentTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rdFolderIds) {
+      res["RdFolderIds"] = boost::any(*rdFolderIds);
+    }
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RdFolderIds") != m.end() && !m["RdFolderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RdFolderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RdFolderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rdFolderIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateStackGroupRequestDeploymentTargets() = default;
+};
 class UpdateStackGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<string> description{};
-  shared_ptr<map<string, boost::any>> accountIds{};
-  shared_ptr<map<string, boost::any>> regionIds{};
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<string>> regionIds{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> clientToken{};
@@ -13882,8 +14081,8 @@ public:
   shared_ptr<string> templateVersion{};
   shared_ptr<vector<UpdateStackGroupRequestParameters>> parameters{};
   shared_ptr<string> permissionModel{};
-  shared_ptr<map<string, boost::any>> autoDeployment{};
-  shared_ptr<map<string, boost::any>> deploymentTargets{};
+  shared_ptr<UpdateStackGroupRequestAutoDeployment> autoDeployment{};
+  shared_ptr<UpdateStackGroupRequestDeploymentTargets> deploymentTargets{};
 
   UpdateStackGroupRequest() {}
 
@@ -13948,10 +14147,10 @@ public:
       res["PermissionModel"] = boost::any(*permissionModel);
     }
     if (autoDeployment) {
-      res["AutoDeployment"] = boost::any(*autoDeployment);
+      res["AutoDeployment"] = autoDeployment ? boost::any(autoDeployment->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (deploymentTargets) {
-      res["DeploymentTargets"] = boost::any(*deploymentTargets);
+      res["DeploymentTargets"] = deploymentTargets ? boost::any(deploymentTargets->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -13967,20 +14166,24 @@ public:
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AccountIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      accountIds = make_shared<map<string, boost::any>>(toMap1);
+      accountIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["RegionIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      regionIds = make_shared<map<string, boost::any>>(toMap1);
+      regionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -14031,20 +14234,18 @@ public:
       permissionModel = make_shared<string>(boost::any_cast<string>(m["PermissionModel"]));
     }
     if (m.find("AutoDeployment") != m.end() && !m["AutoDeployment"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["AutoDeployment"].type()) {
+        UpdateStackGroupRequestAutoDeployment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AutoDeployment"]));
+        autoDeployment = make_shared<UpdateStackGroupRequestAutoDeployment>(model1);
       }
-      autoDeployment = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("DeploymentTargets") != m.end() && !m["DeploymentTargets"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DeploymentTargets"].type()) {
+        UpdateStackGroupRequestDeploymentTargets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]));
+        deploymentTargets = make_shared<UpdateStackGroupRequestDeploymentTargets>(model1);
       }
-      deploymentTargets = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
@@ -14373,18 +14574,68 @@ public:
 
   virtual ~UpdateStackInstancesRequestParameterOverrides() = default;
 };
+class UpdateStackInstancesRequestDeploymentTargets : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> rdFolderIds{};
+  shared_ptr<vector<string>> accountIds{};
+
+  UpdateStackInstancesRequestDeploymentTargets() {}
+
+  explicit UpdateStackInstancesRequestDeploymentTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rdFolderIds) {
+      res["RdFolderIds"] = boost::any(*rdFolderIds);
+    }
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RdFolderIds") != m.end() && !m["RdFolderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RdFolderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RdFolderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rdFolderIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateStackInstancesRequestDeploymentTargets() = default;
+};
 class UpdateStackInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
-  shared_ptr<map<string, boost::any>> accountIds{};
-  shared_ptr<map<string, boost::any>> regionIds{};
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<string>> regionIds{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> operationDescription{};
   shared_ptr<map<string, boost::any>> operationPreferences{};
   shared_ptr<long> timeoutInMinutes{};
   shared_ptr<vector<UpdateStackInstancesRequestParameterOverrides>> parameterOverrides{};
-  shared_ptr<map<string, boost::any>> deploymentTargets{};
+  shared_ptr<UpdateStackInstancesRequestDeploymentTargets> deploymentTargets{};
 
   UpdateStackInstancesRequest() {}
 
@@ -14428,7 +14679,7 @@ public:
       res["ParameterOverrides"] = boost::any(temp1);
     }
     if (deploymentTargets) {
-      res["DeploymentTargets"] = boost::any(*deploymentTargets);
+      res["DeploymentTargets"] = deploymentTargets ? boost::any(deploymentTargets->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -14441,20 +14692,24 @@ public:
       stackGroupName = make_shared<string>(boost::any_cast<string>(m["StackGroupName"]));
     }
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AccountIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      accountIds = make_shared<map<string, boost::any>>(toMap1);
+      accountIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["RegionIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      regionIds = make_shared<map<string, boost::any>>(toMap1);
+      regionIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -14487,12 +14742,11 @@ public:
       }
     }
     if (m.find("DeploymentTargets") != m.end() && !m["DeploymentTargets"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DeploymentTargets"].type()) {
+        UpdateStackInstancesRequestDeploymentTargets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeploymentTargets"]));
+        deploymentTargets = make_shared<UpdateStackInstancesRequestDeploymentTargets>(model1);
       }
-      deploymentTargets = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
