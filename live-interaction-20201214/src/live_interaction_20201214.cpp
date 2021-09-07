@@ -414,24 +414,6 @@ GetRoomStatisticsResponse Alibabacloud_Live-interaction20201214::Client::getRoom
   return getRoomStatisticsWithOptions(request, runtime);
 }
 
-ReadMessageResponse Alibabacloud_Live-interaction20201214::Client::readMessageWithOptions(shared_ptr<ReadMessageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ReadMessageShrinkRequest> request = make_shared<ReadMessageShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<ReadMessageRequestRequestParams>(tmpReq->requestParams)) {
-    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ReadMessageResponse(doRPCRequest(make_shared<string>("ReadMessage"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ReadMessageResponse Alibabacloud_Live-interaction20201214::Client::readMessage(shared_ptr<ReadMessageRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return readMessageWithOptions(request, runtime);
-}
-
 AddGroupMembersResponse Alibabacloud_Live-interaction20201214::Client::addGroupMembersWithOptions(shared_ptr<AddGroupMembersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<AddGroupMembersShrinkRequest> request = make_shared<AddGroupMembersShrinkRequest>();
@@ -914,6 +896,24 @@ ListCallbackApiIdsResponse Alibabacloud_Live-interaction20201214::Client::listCa
 ListCallbackApiIdsResponse Alibabacloud_Live-interaction20201214::Client::listCallbackApiIds() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listCallbackApiIdsWithOptions(runtime);
+}
+
+SetMessageReadResponse Alibabacloud_Live-interaction20201214::Client::setMessageReadWithOptions(shared_ptr<SetMessageReadRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SetMessageReadShrinkRequest> request = make_shared<SetMessageReadShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SetMessageReadRequestRequestParams>(tmpReq->requestParams)) {
+    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SetMessageReadResponse(doRPCRequest(make_shared<string>("SetMessageRead"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SetMessageReadResponse Alibabacloud_Live-interaction20201214::Client::setMessageRead(shared_ptr<SetMessageReadRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setMessageReadWithOptions(request, runtime);
 }
 
 UpdateMsgRecallIntervalResponse Alibabacloud_Live-interaction20201214::Client::updateMsgRecallIntervalWithOptions(shared_ptr<UpdateMsgRecallIntervalRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
