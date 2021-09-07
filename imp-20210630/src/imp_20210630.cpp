@@ -383,6 +383,19 @@ CreateLiveResponse Alibabacloud_Imp20210630::Client::createLive(shared_ptr<Creat
   return createLiveWithOptions(request, runtime);
 }
 
+GetStandardRoomJumpUrlResponse Alibabacloud_Imp20210630::Client::getStandardRoomJumpUrlWithOptions(shared_ptr<GetStandardRoomJumpUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetStandardRoomJumpUrlResponse(doRPCRequest(make_shared<string>("GetStandardRoomJumpUrl"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetStandardRoomJumpUrlResponse Alibabacloud_Imp20210630::Client::getStandardRoomJumpUrl(shared_ptr<GetStandardRoomJumpUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getStandardRoomJumpUrlWithOptions(request, runtime);
+}
+
 DeleteAppResponse Alibabacloud_Imp20210630::Client::deleteAppWithOptions(shared_ptr<DeleteAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({

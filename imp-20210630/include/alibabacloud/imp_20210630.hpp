@@ -4393,6 +4393,198 @@ public:
 
   virtual ~CreateLiveResponse() = default;
 };
+class GetStandardRoomJumpUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> userId{};
+  shared_ptr<string> appKey{};
+  shared_ptr<string> platform{};
+  shared_ptr<string> bizType{};
+  shared_ptr<string> bizId{};
+  shared_ptr<string> userNick{};
+
+  GetStandardRoomJumpUrlRequest() {}
+
+  explicit GetStandardRoomJumpUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (userNick) {
+      res["UserNick"] = boost::any(*userNick);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("UserNick") != m.end() && !m["UserNick"].empty()) {
+      userNick = make_shared<string>(boost::any_cast<string>(m["UserNick"]));
+    }
+  }
+
+
+  virtual ~GetStandardRoomJumpUrlRequest() = default;
+};
+class GetStandardRoomJumpUrlResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> standardRoomJumpUrl{};
+
+  GetStandardRoomJumpUrlResponseBodyResult() {}
+
+  explicit GetStandardRoomJumpUrlResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (standardRoomJumpUrl) {
+      res["StandardRoomJumpUrl"] = boost::any(*standardRoomJumpUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StandardRoomJumpUrl") != m.end() && !m["StandardRoomJumpUrl"].empty()) {
+      standardRoomJumpUrl = make_shared<string>(boost::any_cast<string>(m["StandardRoomJumpUrl"]));
+    }
+  }
+
+
+  virtual ~GetStandardRoomJumpUrlResponseBodyResult() = default;
+};
+class GetStandardRoomJumpUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetStandardRoomJumpUrlResponseBodyResult> result{};
+
+  GetStandardRoomJumpUrlResponseBody() {}
+
+  explicit GetStandardRoomJumpUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        GetStandardRoomJumpUrlResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<GetStandardRoomJumpUrlResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetStandardRoomJumpUrlResponseBody() = default;
+};
+class GetStandardRoomJumpUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetStandardRoomJumpUrlResponseBody> body{};
+
+  GetStandardRoomJumpUrlResponse() {}
+
+  explicit GetStandardRoomJumpUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetStandardRoomJumpUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetStandardRoomJumpUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetStandardRoomJumpUrlResponse() = default;
+};
 class DeleteAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -9572,6 +9764,8 @@ public:
   VerifyDomainOwnerResponse verifyDomainOwner(shared_ptr<VerifyDomainOwnerRequest> request);
   CreateLiveResponse createLiveWithOptions(shared_ptr<CreateLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLiveResponse createLive(shared_ptr<CreateLiveRequest> request);
+  GetStandardRoomJumpUrlResponse getStandardRoomJumpUrlWithOptions(shared_ptr<GetStandardRoomJumpUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetStandardRoomJumpUrlResponse getStandardRoomJumpUrl(shared_ptr<GetStandardRoomJumpUrlRequest> request);
   DeleteAppResponse deleteAppWithOptions(shared_ptr<DeleteAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAppResponse deleteApp(shared_ptr<DeleteAppRequest> request);
   ListRoomLivesResponse listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
