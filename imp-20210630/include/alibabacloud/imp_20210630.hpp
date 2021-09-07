@@ -5357,6 +5357,9 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> sdkInfo{};
   shared_ptr<vector<GetAppTemplateResponseBodyResultConfigList>> configList{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> integrationMode{};
+  shared_ptr<string> standardRoomInfo{};
 
   GetAppTemplateResponseBodyResult() {}
 
@@ -5392,6 +5395,15 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ConfigList"] = boost::any(temp1);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
+    if (standardRoomInfo) {
+      res["StandardRoomInfo"] = boost::any(*standardRoomInfo);
     }
     return res;
   }
@@ -5434,6 +5446,15 @@ public:
         }
         configList = make_shared<vector<GetAppTemplateResponseBodyResultConfigList>>(expect1);
       }
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
+    }
+    if (m.find("StandardRoomInfo") != m.end() && !m["StandardRoomInfo"].empty()) {
+      standardRoomInfo = make_shared<string>(boost::any_cast<string>(m["StandardRoomInfo"]));
     }
   }
 
@@ -5849,6 +5870,7 @@ class CreateAppTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> scene{};
+  shared_ptr<string> integrationMode{};
   shared_ptr<vector<string>> componentList{};
 
   CreateAppTemplateRequest() {}
@@ -5867,6 +5889,9 @@ public:
     if (scene) {
       res["Scene"] = boost::any(*scene);
     }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
     }
@@ -5879,6 +5904,9 @@ public:
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       vector<string> toVec1;
@@ -5899,6 +5927,7 @@ class CreateAppTemplateShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> scene{};
+  shared_ptr<string> integrationMode{};
   shared_ptr<string> componentListShrink{};
 
   CreateAppTemplateShrinkRequest() {}
@@ -5917,6 +5946,9 @@ public:
     if (scene) {
       res["Scene"] = boost::any(*scene);
     }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
     if (componentListShrink) {
       res["ComponentList"] = boost::any(*componentListShrink);
     }
@@ -5929,6 +5961,9 @@ public:
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       componentListShrink = make_shared<string>(boost::any_cast<string>(m["ComponentList"]));
@@ -6379,6 +6414,8 @@ class ListAppsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> status{};
+  shared_ptr<string> integrationMode{};
 
   ListAppsRequest() {}
 
@@ -6396,6 +6433,12 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
     return res;
   }
 
@@ -6405,6 +6448,12 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
     }
   }
 
@@ -6419,7 +6468,10 @@ public:
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> appKey{};
   shared_ptr<string> appStatus{};
+  shared_ptr<string> appConfigStatus{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> integrationMode{};
+  shared_ptr<string> standardRoomInfo{};
   shared_ptr<vector<string>> componentList{};
 
   ListAppsResponseBodyResultAppInfoList() {}
@@ -6450,8 +6502,17 @@ public:
     if (appStatus) {
       res["AppStatus"] = boost::any(*appStatus);
     }
+    if (appConfigStatus) {
+      res["AppConfigStatus"] = boost::any(*appConfigStatus);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
+    if (standardRoomInfo) {
+      res["StandardRoomInfo"] = boost::any(*standardRoomInfo);
     }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
@@ -6478,8 +6539,17 @@ public:
     if (m.find("AppStatus") != m.end() && !m["AppStatus"].empty()) {
       appStatus = make_shared<string>(boost::any_cast<string>(m["AppStatus"]));
     }
+    if (m.find("AppConfigStatus") != m.end() && !m["AppConfigStatus"].empty()) {
+      appConfigStatus = make_shared<string>(boost::any_cast<string>(m["AppConfigStatus"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
+    }
+    if (m.find("StandardRoomInfo") != m.end() && !m["StandardRoomInfo"].empty()) {
+      standardRoomInfo = make_shared<string>(boost::any_cast<string>(m["StandardRoomInfo"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       vector<string> toVec1;
@@ -7231,6 +7301,9 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> sdkInfo{};
   shared_ptr<vector<ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList>> configList{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> integrationMode{};
+  shared_ptr<string> standardRoomInfo{};
 
   ListAppTemplatesResponseBodyResultAppTemplateInfoList() {}
 
@@ -7269,6 +7342,15 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ConfigList"] = boost::any(temp1);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
+    if (standardRoomInfo) {
+      res["StandardRoomInfo"] = boost::any(*standardRoomInfo);
     }
     return res;
   }
@@ -7314,6 +7396,15 @@ public:
         }
         configList = make_shared<vector<ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList>>(expect1);
       }
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
+    }
+    if (m.find("StandardRoomInfo") != m.end() && !m["StandardRoomInfo"].empty()) {
+      standardRoomInfo = make_shared<string>(boost::any_cast<string>(m["StandardRoomInfo"]));
     }
   }
 
@@ -8354,8 +8445,11 @@ public:
   shared_ptr<string> appTemplateId{};
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> appStatus{};
+  shared_ptr<string> appConfigStatus{};
   shared_ptr<string> appKey{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> integrationMode{};
+  shared_ptr<string> standardRoomInfo{};
   shared_ptr<vector<string>> componentList{};
 
   GetAppResponseBodyResult() {}
@@ -8380,11 +8474,20 @@ public:
     if (appStatus) {
       res["AppStatus"] = boost::any(*appStatus);
     }
+    if (appConfigStatus) {
+      res["AppConfigStatus"] = boost::any(*appConfigStatus);
+    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (integrationMode) {
+      res["IntegrationMode"] = boost::any(*integrationMode);
+    }
+    if (standardRoomInfo) {
+      res["StandardRoomInfo"] = boost::any(*standardRoomInfo);
     }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
@@ -8405,11 +8508,20 @@ public:
     if (m.find("AppStatus") != m.end() && !m["AppStatus"].empty()) {
       appStatus = make_shared<string>(boost::any_cast<string>(m["AppStatus"]));
     }
+    if (m.find("AppConfigStatus") != m.end() && !m["AppConfigStatus"].empty()) {
+      appConfigStatus = make_shared<string>(boost::any_cast<string>(m["AppConfigStatus"]));
+    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
+      integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
+    }
+    if (m.find("StandardRoomInfo") != m.end() && !m["StandardRoomInfo"].empty()) {
+      standardRoomInfo = make_shared<string>(boost::any_cast<string>(m["StandardRoomInfo"]));
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       vector<string> toVec1;
