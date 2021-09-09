@@ -313,6 +313,19 @@ DescribeDBInstancesResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanc
   return describeDBInstancesWithOptions(request, runtime);
 }
 
+DescribeDBInstanceSQLPatternsResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceSQLPatternsWithOptions(shared_ptr<DescribeDBInstanceSQLPatternsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDBInstanceSQLPatternsResponse(doRPCRequest(make_shared<string>("DescribeDBInstanceSQLPatterns"), make_shared<string>("2016-05-03"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDBInstanceSQLPatternsResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceSQLPatterns(shared_ptr<DescribeDBInstanceSQLPatternsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBInstanceSQLPatternsWithOptions(request, runtime);
+}
+
 DescribeDBInstanceSSLResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceSSLWithOptions(shared_ptr<DescribeDBInstanceSSLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -532,6 +545,19 @@ DescribeSQLLogsResponse Alibabacloud_Gpdb20160503::Client::describeSQLLogsWithOp
 DescribeSQLLogsResponse Alibabacloud_Gpdb20160503::Client::describeSQLLogs(shared_ptr<DescribeSQLLogsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeSQLLogsWithOptions(request, runtime);
+}
+
+DescribeSQLLogsOnSliceResponse Alibabacloud_Gpdb20160503::Client::describeSQLLogsOnSliceWithOptions(shared_ptr<DescribeSQLLogsOnSliceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeSQLLogsOnSliceResponse(doRPCRequest(make_shared<string>("DescribeSQLLogsOnSlice"), make_shared<string>("2016-05-03"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeSQLLogsOnSliceResponse Alibabacloud_Gpdb20160503::Client::describeSQLLogsOnSlice(shared_ptr<DescribeSQLLogsOnSliceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeSQLLogsOnSliceWithOptions(request, runtime);
 }
 
 DescribeTagsResponse Alibabacloud_Gpdb20160503::Client::describeTagsWithOptions(shared_ptr<DescribeTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
