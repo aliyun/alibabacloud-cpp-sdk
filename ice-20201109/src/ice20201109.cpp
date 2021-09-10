@@ -111,6 +111,19 @@ ListSmartJobsResponse Alibabacloud_ICE20201109::Client::listSmartJobs(shared_ptr
   return listSmartJobsWithOptions(request, runtime);
 }
 
+GetLiveEditingJobResponse Alibabacloud_ICE20201109::Client::getLiveEditingJobWithOptions(shared_ptr<GetLiveEditingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetLiveEditingJobResponse(doRPCRequest(make_shared<string>("GetLiveEditingJob"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetLiveEditingJobResponse Alibabacloud_ICE20201109::Client::getLiveEditingJob(shared_ptr<GetLiveEditingJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLiveEditingJobWithOptions(request, runtime);
+}
+
 DescribeRelatedAuthorizationStatusResponse Alibabacloud_ICE20201109::Client::describeRelatedAuthorizationStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   return DescribeRelatedAuthorizationStatusResponse(doRPCRequest(make_shared<string>("DescribeRelatedAuthorizationStatus"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
@@ -136,11 +149,10 @@ DeleteSmartJobResponse Alibabacloud_ICE20201109::Client::deleteSmartJob(shared_p
 
 AddTemplateResponse Alibabacloud_ICE20201109::Client::addTemplateWithOptions(shared_ptr<AddTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", !query ? boost::any() : boost::any(*query)}
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AddTemplateResponse(doRPCRequest(make_shared<string>("AddTemplate"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return AddTemplateResponse(doRPCRequest(make_shared<string>("AddTemplate"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
 AddTemplateResponse Alibabacloud_ICE20201109::Client::addTemplate(shared_ptr<AddTemplateRequest> request) {
@@ -325,6 +337,20 @@ DescribeIceProductStatusResponse Alibabacloud_ICE20201109::Client::describeIcePr
 DescribeIceProductStatusResponse Alibabacloud_ICE20201109::Client::describeIceProductStatus() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeIceProductStatusWithOptions(runtime);
+}
+
+GetLiveEditingIndexFileResponse Alibabacloud_ICE20201109::Client::getLiveEditingIndexFileWithOptions(shared_ptr<GetLiveEditingIndexFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", !query ? boost::any() : boost::any(*query)}
+  }));
+  return GetLiveEditingIndexFileResponse(doRPCRequest(make_shared<string>("GetLiveEditingIndexFile"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetLiveEditingIndexFileResponse Alibabacloud_ICE20201109::Client::getLiveEditingIndexFile(shared_ptr<GetLiveEditingIndexFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLiveEditingIndexFileWithOptions(request, runtime);
 }
 
 ListMediaBasicInfosResponse Alibabacloud_ICE20201109::Client::listMediaBasicInfosWithOptions(shared_ptr<ListMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -542,11 +568,10 @@ SubmitDelogoJobResponse Alibabacloud_ICE20201109::Client::submitDelogoJob(shared
 
 UpdateTemplateResponse Alibabacloud_ICE20201109::Client::updateTemplateWithOptions(shared_ptr<UpdateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", !query ? boost::any() : boost::any(*query)}
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateTemplateResponse(doRPCRequest(make_shared<string>("UpdateTemplate"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return UpdateTemplateResponse(doRPCRequest(make_shared<string>("UpdateTemplate"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
 UpdateTemplateResponse Alibabacloud_ICE20201109::Client::updateTemplate(shared_ptr<UpdateTemplateRequest> request) {
@@ -680,6 +705,19 @@ SubmitH2VJobResponse Alibabacloud_ICE20201109::Client::submitH2VJobWithOptions(s
 SubmitH2VJobResponse Alibabacloud_ICE20201109::Client::submitH2VJob(shared_ptr<SubmitH2VJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitH2VJobWithOptions(request, runtime);
+}
+
+SubmitLiveEditingJobResponse Alibabacloud_ICE20201109::Client::submitLiveEditingJobWithOptions(shared_ptr<SubmitLiveEditingJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SubmitLiveEditingJobResponse(doRPCRequest(make_shared<string>("SubmitLiveEditingJob"), make_shared<string>("2020-11-09"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SubmitLiveEditingJobResponse Alibabacloud_ICE20201109::Client::submitLiveEditingJob(shared_ptr<SubmitLiveEditingJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitLiveEditingJobWithOptions(request, runtime);
 }
 
 SubmitPPTCutJobResponse Alibabacloud_ICE20201109::Client::submitPPTCutJobWithOptions(shared_ptr<SubmitPPTCutJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
