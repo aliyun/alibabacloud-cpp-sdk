@@ -612,6 +612,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> templateId{};
   shared_ptr<map<string, string>> extension{};
+  shared_ptr<long> pv{};
 
   GetRoomResponseBodyResultRoomInfo() {}
 
@@ -659,6 +660,9 @@ public:
     }
     if (extension) {
       res["Extension"] = boost::any(*extension);
+    }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
     }
     return res;
   }
@@ -711,6 +715,9 @@ public:
          toMap1[item.first] = item.second;
       }
       extension = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
     }
   }
 
@@ -4841,6 +4848,8 @@ public:
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> liveId{};
   shared_ptr<long> status{};
+  shared_ptr<long> pv{};
+  shared_ptr<long> onlineCount{};
 
   ListRoomLivesResponseBodyResultLiveList() {}
 
@@ -4879,6 +4888,12 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (pv) {
+      res["Pv"] = boost::any(*pv);
+    }
+    if (onlineCount) {
+      res["OnlineCount"] = boost::any(*onlineCount);
+    }
     return res;
   }
 
@@ -4914,6 +4929,12 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
+      pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
+    }
+    if (m.find("OnlineCount") != m.end() && !m["OnlineCount"].empty()) {
+      onlineCount = make_shared<long>(boost::any_cast<long>(m["OnlineCount"]));
     }
   }
 
