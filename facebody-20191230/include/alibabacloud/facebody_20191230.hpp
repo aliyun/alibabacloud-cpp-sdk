@@ -8260,6 +8260,7 @@ public:
   shared_ptr<string> imageUrl{};
   shared_ptr<long> limit{};
   shared_ptr<string> dbNames{};
+  shared_ptr<double> qualityScoreThreshold{};
 
   SearchFaceRequest() {}
 
@@ -8283,6 +8284,9 @@ public:
     if (dbNames) {
       res["DbNames"] = boost::any(*dbNames);
     }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
     return res;
   }
 
@@ -8299,6 +8303,9 @@ public:
     if (m.find("DbNames") != m.end() && !m["DbNames"].empty()) {
       dbNames = make_shared<string>(boost::any_cast<string>(m["DbNames"]));
     }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
   }
 
 
@@ -8310,6 +8317,7 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<long> limit{};
   shared_ptr<string> dbNames{};
+  shared_ptr<double> qualityScoreThreshold{};
 
   SearchFaceAdvanceRequest() {}
 
@@ -8337,6 +8345,9 @@ public:
     if (dbNames) {
       res["DbNames"] = boost::any(*dbNames);
     }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
     return res;
   }
 
@@ -8353,6 +8364,9 @@ public:
     if (m.find("DbNames") != m.end() && !m["DbNames"].empty()) {
       dbNames = make_shared<string>(boost::any_cast<string>(m["DbNames"]));
     }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
   }
 
 
@@ -8365,6 +8379,7 @@ public:
   shared_ptr<double> score{};
   shared_ptr<string> extraData{};
   shared_ptr<string> dbName{};
+  shared_ptr<double> confidence{};
 
   SearchFaceResponseBodyDataMatchListFaceItems() {}
 
@@ -8391,6 +8406,9 @@ public:
     if (dbName) {
       res["DbName"] = boost::any(*dbName);
     }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
     return res;
   }
 
@@ -8409,6 +8427,9 @@ public:
     }
     if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
       dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
     }
   }
 
@@ -9349,6 +9370,9 @@ public:
   shared_ptr<string> imageUrl{};
   shared_ptr<string> entityId{};
   shared_ptr<string> extraData{};
+  shared_ptr<double> qualityScoreThreshold{};
+  shared_ptr<double> similarityScoreThresholdInEntity{};
+  shared_ptr<double> similarityScoreThresholdBetweenEntity{};
 
   AddFaceRequest() {}
 
@@ -9372,6 +9396,15 @@ public:
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
     }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    if (similarityScoreThresholdInEntity) {
+      res["SimilarityScoreThresholdInEntity"] = boost::any(*similarityScoreThresholdInEntity);
+    }
+    if (similarityScoreThresholdBetweenEntity) {
+      res["SimilarityScoreThresholdBetweenEntity"] = boost::any(*similarityScoreThresholdBetweenEntity);
+    }
     return res;
   }
 
@@ -9388,6 +9421,15 @@ public:
     if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
       extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
     }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+    if (m.find("SimilarityScoreThresholdInEntity") != m.end() && !m["SimilarityScoreThresholdInEntity"].empty()) {
+      similarityScoreThresholdInEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdInEntity"]));
+    }
+    if (m.find("SimilarityScoreThresholdBetweenEntity") != m.end() && !m["SimilarityScoreThresholdBetweenEntity"].empty()) {
+      similarityScoreThresholdBetweenEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdBetweenEntity"]));
+    }
   }
 
 
@@ -9399,6 +9441,9 @@ public:
   shared_ptr<string> dbName{};
   shared_ptr<string> entityId{};
   shared_ptr<string> extraData{};
+  shared_ptr<double> qualityScoreThreshold{};
+  shared_ptr<double> similarityScoreThresholdInEntity{};
+  shared_ptr<double> similarityScoreThresholdBetweenEntity{};
 
   AddFaceAdvanceRequest() {}
 
@@ -9426,6 +9471,15 @@ public:
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
     }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    if (similarityScoreThresholdInEntity) {
+      res["SimilarityScoreThresholdInEntity"] = boost::any(*similarityScoreThresholdInEntity);
+    }
+    if (similarityScoreThresholdBetweenEntity) {
+      res["SimilarityScoreThresholdBetweenEntity"] = boost::any(*similarityScoreThresholdBetweenEntity);
+    }
     return res;
   }
 
@@ -9441,6 +9495,15 @@ public:
     }
     if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
       extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+    if (m.find("SimilarityScoreThresholdInEntity") != m.end() && !m["SimilarityScoreThresholdInEntity"].empty()) {
+      similarityScoreThresholdInEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdInEntity"]));
+    }
+    if (m.find("SimilarityScoreThresholdBetweenEntity") != m.end() && !m["SimilarityScoreThresholdBetweenEntity"].empty()) {
+      similarityScoreThresholdBetweenEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdBetweenEntity"]));
     }
   }
 
