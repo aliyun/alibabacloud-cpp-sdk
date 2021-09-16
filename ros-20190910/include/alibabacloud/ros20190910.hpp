@@ -6092,7 +6092,7 @@ public:
   shared_ptr<GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences> operationPreferences{};
   shared_ptr<string> endTime{};
   shared_ptr<string> executionRoleName{};
-  shared_ptr<string> administratorRoleName{};
+  shared_ptr<string> administrationRoleName{};
   shared_ptr<GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets> deploymentTargets{};
 
   GetStackGroupOperationResponseBodyStackGroupOperation() {}
@@ -6141,8 +6141,8 @@ public:
     if (executionRoleName) {
       res["ExecutionRoleName"] = boost::any(*executionRoleName);
     }
-    if (administratorRoleName) {
-      res["AdministratorRoleName"] = boost::any(*administratorRoleName);
+    if (administrationRoleName) {
+      res["AdministrationRoleName"] = boost::any(*administrationRoleName);
     }
     if (deploymentTargets) {
       res["DeploymentTargets"] = deploymentTargets ? boost::any(deploymentTargets->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6195,8 +6195,8 @@ public:
     if (m.find("ExecutionRoleName") != m.end() && !m["ExecutionRoleName"].empty()) {
       executionRoleName = make_shared<string>(boost::any_cast<string>(m["ExecutionRoleName"]));
     }
-    if (m.find("AdministratorRoleName") != m.end() && !m["AdministratorRoleName"].empty()) {
-      administratorRoleName = make_shared<string>(boost::any_cast<string>(m["AdministratorRoleName"]));
+    if (m.find("AdministrationRoleName") != m.end() && !m["AdministrationRoleName"].empty()) {
+      administrationRoleName = make_shared<string>(boost::any_cast<string>(m["AdministrationRoleName"]));
     }
     if (m.find("DeploymentTargets") != m.end() && !m["DeploymentTargets"].empty()) {
       if (typeid(map<string, boost::any>) == m["DeploymentTargets"].type()) {
