@@ -2850,6 +2850,290 @@ public:
 
   virtual ~SetAppStatusResponse() = default;
 };
+class DescribeWhiteBoardRecordingsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> docKey{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+
+  DescribeWhiteBoardRecordingsRequest() {}
+
+  explicit DescribeWhiteBoardRecordingsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~DescribeWhiteBoardRecordingsRequest() = default;
+};
+class DescribeWhiteBoardRecordingsResponseBodyResultRecordingList : public Darabonba::Model {
+public:
+  shared_ptr<string> appID{};
+  shared_ptr<string> docKey{};
+  shared_ptr<string> recordId{};
+  shared_ptr<string> userId{};
+  shared_ptr<vector<string>> operateList{};
+
+  DescribeWhiteBoardRecordingsResponseBodyResultRecordingList() {}
+
+  explicit DescribeWhiteBoardRecordingsResponseBodyResultRecordingList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appID) {
+      res["AppID"] = boost::any(*appID);
+    }
+    if (docKey) {
+      res["DocKey"] = boost::any(*docKey);
+    }
+    if (recordId) {
+      res["RecordId"] = boost::any(*recordId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (operateList) {
+      res["OperateList"] = boost::any(*operateList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppID") != m.end() && !m["AppID"].empty()) {
+      appID = make_shared<string>(boost::any_cast<string>(m["AppID"]));
+    }
+    if (m.find("DocKey") != m.end() && !m["DocKey"].empty()) {
+      docKey = make_shared<string>(boost::any_cast<string>(m["DocKey"]));
+    }
+    if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
+      recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("OperateList") != m.end() && !m["OperateList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OperateList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OperateList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operateList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeWhiteBoardRecordingsResponseBodyResultRecordingList() = default;
+};
+class DescribeWhiteBoardRecordingsResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> totalNum{};
+  shared_ptr<long> totalPage{};
+  shared_ptr<vector<DescribeWhiteBoardRecordingsResponseBodyResultRecordingList>> recordingList{};
+
+  DescribeWhiteBoardRecordingsResponseBodyResult() {}
+
+  explicit DescribeWhiteBoardRecordingsResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (totalNum) {
+      res["TotalNum"] = boost::any(*totalNum);
+    }
+    if (totalPage) {
+      res["TotalPage"] = boost::any(*totalPage);
+    }
+    if (recordingList) {
+      vector<boost::any> temp1;
+      for(auto item1:*recordingList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RecordingList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalNum") != m.end() && !m["TotalNum"].empty()) {
+      totalNum = make_shared<long>(boost::any_cast<long>(m["TotalNum"]));
+    }
+    if (m.find("TotalPage") != m.end() && !m["TotalPage"].empty()) {
+      totalPage = make_shared<long>(boost::any_cast<long>(m["TotalPage"]));
+    }
+    if (m.find("RecordingList") != m.end() && !m["RecordingList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RecordingList"].type()) {
+        vector<DescribeWhiteBoardRecordingsResponseBodyResultRecordingList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RecordingList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeWhiteBoardRecordingsResponseBodyResultRecordingList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recordingList = make_shared<vector<DescribeWhiteBoardRecordingsResponseBodyResultRecordingList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhiteBoardRecordingsResponseBodyResult() = default;
+};
+class DescribeWhiteBoardRecordingsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> responseSuccess{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<DescribeWhiteBoardRecordingsResponseBodyResult> result{};
+
+  DescribeWhiteBoardRecordingsResponseBody() {}
+
+  explicit DescribeWhiteBoardRecordingsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (responseSuccess) {
+      res["ResponseSuccess"] = boost::any(*responseSuccess);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResponseSuccess") != m.end() && !m["ResponseSuccess"].empty()) {
+      responseSuccess = make_shared<bool>(boost::any_cast<bool>(m["ResponseSuccess"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        DescribeWhiteBoardRecordingsResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<DescribeWhiteBoardRecordingsResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhiteBoardRecordingsResponseBody() = default;
+};
+class DescribeWhiteBoardRecordingsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeWhiteBoardRecordingsResponseBody> body{};
+
+  DescribeWhiteBoardRecordingsResponse() {}
+
+  explicit DescribeWhiteBoardRecordingsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWhiteBoardRecordingsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWhiteBoardRecordingsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhiteBoardRecordingsResponse() = default;
+};
 class StopWhiteBoardRecordingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appID{};
@@ -3082,6 +3366,8 @@ public:
   CreateWhiteBoardResponse createWhiteBoard(shared_ptr<CreateWhiteBoardRequest> request);
   SetAppStatusResponse setAppStatusWithOptions(shared_ptr<SetAppStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppStatusResponse setAppStatus(shared_ptr<SetAppStatusRequest> request);
+  DescribeWhiteBoardRecordingsResponse describeWhiteBoardRecordingsWithOptions(shared_ptr<DescribeWhiteBoardRecordingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWhiteBoardRecordingsResponse describeWhiteBoardRecordings(shared_ptr<DescribeWhiteBoardRecordingsRequest> request);
   StopWhiteBoardRecordingResponse stopWhiteBoardRecordingWithOptions(shared_ptr<StopWhiteBoardRecordingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopWhiteBoardRecordingResponse stopWhiteBoardRecording(shared_ptr<StopWhiteBoardRecordingRequest> request);
 
