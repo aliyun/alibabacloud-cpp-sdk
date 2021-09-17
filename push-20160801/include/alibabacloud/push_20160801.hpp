@@ -1689,13 +1689,10 @@ class MassPushRequestPushTask : public Darabonba::Model {
 public:
   shared_ptr<string> jobKey{};
   shared_ptr<bool> iOSSilentNotification{};
-  shared_ptr<string> iOSNotificationCollapseId{};
-  shared_ptr<string> androidRenderStyle{};
   shared_ptr<bool> storeOffline{};
   shared_ptr<string> iOSSubtitle{};
-  shared_ptr<string> iOSNotificationCategory{};
-  shared_ptr<string> androidNotificationChannel{};
   shared_ptr<string> androidNotificationHuaweiChannel{};
+  shared_ptr<string> androidNotificationChannel{};
   shared_ptr<string> iOSApnsEnv{};
   shared_ptr<bool> iOSBadgeAutoIncrement{};
   shared_ptr<string> androidXiaoMiNotifyTitle{};
@@ -1703,37 +1700,48 @@ public:
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidPopupTitle{};
   shared_ptr<string> iOSRemindBody{};
-  shared_ptr<string> androidActivity{};
   shared_ptr<string> androidNotifyType{};
-  shared_ptr<string> androidBigBody{};
-  shared_ptr<bool> iOSMutableContent{};
-  shared_ptr<string> target{};
   shared_ptr<string> androidOpenUrl{};
   shared_ptr<string> androidBigTitle{};
-  shared_ptr<long> androidNotificationNotifyId{};
   shared_ptr<string> expireTime{};
-  shared_ptr<string> androidNotificationVivoChannel{};
-  shared_ptr<string> deviceType{};
   shared_ptr<string> androidOpenType{};
-  shared_ptr<string> androidPopupActivity{};
-  shared_ptr<bool> androidRemind{};
-  shared_ptr<string> androidPopupBody{};
   shared_ptr<string> androidExtParameters{};
-  shared_ptr<string> iOSExtParameters{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
-  shared_ptr<string> body{};
-  shared_ptr<long> androidNotificationBarType{};
-  shared_ptr<long> androidNotificationBarPriority{};
   shared_ptr<string> androidXiaomiBigPictureUrl{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> iOSMusic{};
   shared_ptr<bool> iOSRemind{};
-  shared_ptr<string> pushType{};
-  shared_ptr<long> sendSpeed{};
   shared_ptr<long> iOSBadge{};
   shared_ptr<string> title{};
-  shared_ptr<string> pushTime{};
   shared_ptr<string> androidMusic{};
+  shared_ptr<string> iOSNotificationCollapseId{};
+  shared_ptr<string> androidRenderStyle{};
+  shared_ptr<string> iOSNotificationCategory{};
+  shared_ptr<string> iOSNotificationThreadId{};
+  shared_ptr<string> androidActivity{};
+  shared_ptr<string> androidBigBody{};
+  shared_ptr<bool> iOSMutableContent{};
+  shared_ptr<string> target{};
+  shared_ptr<long> androidNotificationNotifyId{};
+  shared_ptr<string> androidNotificationVivoChannel{};
+  shared_ptr<string> androidPopupActivity{};
+  shared_ptr<string> deviceType{};
+  shared_ptr<bool> androidRemind{};
+  shared_ptr<string> androidPopupBody{};
+  shared_ptr<string> iOSExtParameters{};
+  shared_ptr<string> body{};
+  shared_ptr<long> androidNotificationBarPriority{};
+  shared_ptr<long> androidNotificationBarType{};
+  shared_ptr<string> pushType{};
+  shared_ptr<long> sendSpeed{};
+  shared_ptr<string> pushTime{};
+  shared_ptr<string> androidBigPictureUrl{};
+  shared_ptr<string> androidInboxBody{};
+  shared_ptr<string> androidImageUrl{};
+  shared_ptr<string> androidXiaomiImageUrl{};
+  shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageHuaweiCategory{};
+  shared_ptr<string> sendChannels{};
 
   MassPushRequestPushTask() {}
 
@@ -1751,26 +1759,17 @@ public:
     if (iOSSilentNotification) {
       res["iOSSilentNotification"] = boost::any(*iOSSilentNotification);
     }
-    if (iOSNotificationCollapseId) {
-      res["iOSNotificationCollapseId"] = boost::any(*iOSNotificationCollapseId);
-    }
-    if (androidRenderStyle) {
-      res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
-    }
     if (storeOffline) {
       res["StoreOffline"] = boost::any(*storeOffline);
     }
     if (iOSSubtitle) {
       res["iOSSubtitle"] = boost::any(*iOSSubtitle);
     }
-    if (iOSNotificationCategory) {
-      res["iOSNotificationCategory"] = boost::any(*iOSNotificationCategory);
+    if (androidNotificationHuaweiChannel) {
+      res["AndroidNotificationHuaweiChannel"] = boost::any(*androidNotificationHuaweiChannel);
     }
     if (androidNotificationChannel) {
       res["AndroidNotificationChannel"] = boost::any(*androidNotificationChannel);
-    }
-    if (androidNotificationHuaweiChannel) {
-      res["AndroidNotificationHuaweiChannel"] = boost::any(*androidNotificationHuaweiChannel);
     }
     if (iOSApnsEnv) {
       res["iOSApnsEnv"] = boost::any(*iOSApnsEnv);
@@ -1793,20 +1792,8 @@ public:
     if (iOSRemindBody) {
       res["iOSRemindBody"] = boost::any(*iOSRemindBody);
     }
-    if (androidActivity) {
-      res["AndroidActivity"] = boost::any(*androidActivity);
-    }
     if (androidNotifyType) {
       res["AndroidNotifyType"] = boost::any(*androidNotifyType);
-    }
-    if (androidBigBody) {
-      res["AndroidBigBody"] = boost::any(*androidBigBody);
-    }
-    if (iOSMutableContent) {
-      res["iOSMutableContent"] = boost::any(*iOSMutableContent);
-    }
-    if (target) {
-      res["Target"] = boost::any(*target);
     }
     if (androidOpenUrl) {
       res["AndroidOpenUrl"] = boost::any(*androidOpenUrl);
@@ -1814,47 +1801,17 @@ public:
     if (androidBigTitle) {
       res["AndroidBigTitle"] = boost::any(*androidBigTitle);
     }
-    if (androidNotificationNotifyId) {
-      res["AndroidNotificationNotifyId"] = boost::any(*androidNotificationNotifyId);
-    }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
-    }
-    if (androidNotificationVivoChannel) {
-      res["AndroidNotificationVivoChannel"] = boost::any(*androidNotificationVivoChannel);
-    }
-    if (deviceType) {
-      res["DeviceType"] = boost::any(*deviceType);
     }
     if (androidOpenType) {
       res["AndroidOpenType"] = boost::any(*androidOpenType);
     }
-    if (androidPopupActivity) {
-      res["AndroidPopupActivity"] = boost::any(*androidPopupActivity);
-    }
-    if (androidRemind) {
-      res["AndroidRemind"] = boost::any(*androidRemind);
-    }
-    if (androidPopupBody) {
-      res["AndroidPopupBody"] = boost::any(*androidPopupBody);
-    }
     if (androidExtParameters) {
       res["AndroidExtParameters"] = boost::any(*androidExtParameters);
     }
-    if (iOSExtParameters) {
-      res["iOSExtParameters"] = boost::any(*iOSExtParameters);
-    }
     if (androidXiaoMiNotifyBody) {
       res["AndroidXiaoMiNotifyBody"] = boost::any(*androidXiaoMiNotifyBody);
-    }
-    if (body) {
-      res["Body"] = boost::any(*body);
-    }
-    if (androidNotificationBarType) {
-      res["AndroidNotificationBarType"] = boost::any(*androidNotificationBarType);
-    }
-    if (androidNotificationBarPriority) {
-      res["AndroidNotificationBarPriority"] = boost::any(*androidNotificationBarPriority);
     }
     if (androidXiaomiBigPictureUrl) {
       res["AndroidXiaomiBigPictureUrl"] = boost::any(*androidXiaomiBigPictureUrl);
@@ -1868,23 +1825,98 @@ public:
     if (iOSRemind) {
       res["iOSRemind"] = boost::any(*iOSRemind);
     }
-    if (pushType) {
-      res["PushType"] = boost::any(*pushType);
-    }
-    if (sendSpeed) {
-      res["SendSpeed"] = boost::any(*sendSpeed);
-    }
     if (iOSBadge) {
       res["iOSBadge"] = boost::any(*iOSBadge);
     }
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (androidMusic) {
+      res["AndroidMusic"] = boost::any(*androidMusic);
+    }
+    if (iOSNotificationCollapseId) {
+      res["iOSNotificationCollapseId"] = boost::any(*iOSNotificationCollapseId);
+    }
+    if (androidRenderStyle) {
+      res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
+    }
+    if (iOSNotificationCategory) {
+      res["iOSNotificationCategory"] = boost::any(*iOSNotificationCategory);
+    }
+    if (iOSNotificationThreadId) {
+      res["iOSNotificationThreadId"] = boost::any(*iOSNotificationThreadId);
+    }
+    if (androidActivity) {
+      res["AndroidActivity"] = boost::any(*androidActivity);
+    }
+    if (androidBigBody) {
+      res["AndroidBigBody"] = boost::any(*androidBigBody);
+    }
+    if (iOSMutableContent) {
+      res["iOSMutableContent"] = boost::any(*iOSMutableContent);
+    }
+    if (target) {
+      res["Target"] = boost::any(*target);
+    }
+    if (androidNotificationNotifyId) {
+      res["AndroidNotificationNotifyId"] = boost::any(*androidNotificationNotifyId);
+    }
+    if (androidNotificationVivoChannel) {
+      res["AndroidNotificationVivoChannel"] = boost::any(*androidNotificationVivoChannel);
+    }
+    if (androidPopupActivity) {
+      res["AndroidPopupActivity"] = boost::any(*androidPopupActivity);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
+    }
+    if (androidRemind) {
+      res["AndroidRemind"] = boost::any(*androidRemind);
+    }
+    if (androidPopupBody) {
+      res["AndroidPopupBody"] = boost::any(*androidPopupBody);
+    }
+    if (iOSExtParameters) {
+      res["iOSExtParameters"] = boost::any(*iOSExtParameters);
+    }
+    if (body) {
+      res["Body"] = boost::any(*body);
+    }
+    if (androidNotificationBarPriority) {
+      res["AndroidNotificationBarPriority"] = boost::any(*androidNotificationBarPriority);
+    }
+    if (androidNotificationBarType) {
+      res["AndroidNotificationBarType"] = boost::any(*androidNotificationBarType);
+    }
+    if (pushType) {
+      res["PushType"] = boost::any(*pushType);
+    }
+    if (sendSpeed) {
+      res["SendSpeed"] = boost::any(*sendSpeed);
+    }
     if (pushTime) {
       res["PushTime"] = boost::any(*pushTime);
     }
-    if (androidMusic) {
-      res["AndroidMusic"] = boost::any(*androidMusic);
+    if (androidBigPictureUrl) {
+      res["AndroidBigPictureUrl"] = boost::any(*androidBigPictureUrl);
+    }
+    if (androidInboxBody) {
+      res["AndroidInboxBody"] = boost::any(*androidInboxBody);
+    }
+    if (androidImageUrl) {
+      res["AndroidImageUrl"] = boost::any(*androidImageUrl);
+    }
+    if (androidXiaomiImageUrl) {
+      res["AndroidXiaomiImageUrl"] = boost::any(*androidXiaomiImageUrl);
+    }
+    if (androidMessageHuaweiUrgency) {
+      res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageHuaweiCategory) {
+      res["AndroidMessageHuaweiCategory"] = boost::any(*androidMessageHuaweiCategory);
+    }
+    if (sendChannels) {
+      res["SendChannels"] = boost::any(*sendChannels);
     }
     return res;
   }
@@ -1896,26 +1928,17 @@ public:
     if (m.find("iOSSilentNotification") != m.end() && !m["iOSSilentNotification"].empty()) {
       iOSSilentNotification = make_shared<bool>(boost::any_cast<bool>(m["iOSSilentNotification"]));
     }
-    if (m.find("iOSNotificationCollapseId") != m.end() && !m["iOSNotificationCollapseId"].empty()) {
-      iOSNotificationCollapseId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationCollapseId"]));
-    }
-    if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
-      androidRenderStyle = make_shared<string>(boost::any_cast<string>(m["AndroidRenderStyle"]));
-    }
     if (m.find("StoreOffline") != m.end() && !m["StoreOffline"].empty()) {
       storeOffline = make_shared<bool>(boost::any_cast<bool>(m["StoreOffline"]));
     }
     if (m.find("iOSSubtitle") != m.end() && !m["iOSSubtitle"].empty()) {
       iOSSubtitle = make_shared<string>(boost::any_cast<string>(m["iOSSubtitle"]));
     }
-    if (m.find("iOSNotificationCategory") != m.end() && !m["iOSNotificationCategory"].empty()) {
-      iOSNotificationCategory = make_shared<string>(boost::any_cast<string>(m["iOSNotificationCategory"]));
+    if (m.find("AndroidNotificationHuaweiChannel") != m.end() && !m["AndroidNotificationHuaweiChannel"].empty()) {
+      androidNotificationHuaweiChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationHuaweiChannel"]));
     }
     if (m.find("AndroidNotificationChannel") != m.end() && !m["AndroidNotificationChannel"].empty()) {
       androidNotificationChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationChannel"]));
-    }
-    if (m.find("AndroidNotificationHuaweiChannel") != m.end() && !m["AndroidNotificationHuaweiChannel"].empty()) {
-      androidNotificationHuaweiChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationHuaweiChannel"]));
     }
     if (m.find("iOSApnsEnv") != m.end() && !m["iOSApnsEnv"].empty()) {
       iOSApnsEnv = make_shared<string>(boost::any_cast<string>(m["iOSApnsEnv"]));
@@ -1938,20 +1961,8 @@ public:
     if (m.find("iOSRemindBody") != m.end() && !m["iOSRemindBody"].empty()) {
       iOSRemindBody = make_shared<string>(boost::any_cast<string>(m["iOSRemindBody"]));
     }
-    if (m.find("AndroidActivity") != m.end() && !m["AndroidActivity"].empty()) {
-      androidActivity = make_shared<string>(boost::any_cast<string>(m["AndroidActivity"]));
-    }
     if (m.find("AndroidNotifyType") != m.end() && !m["AndroidNotifyType"].empty()) {
       androidNotifyType = make_shared<string>(boost::any_cast<string>(m["AndroidNotifyType"]));
-    }
-    if (m.find("AndroidBigBody") != m.end() && !m["AndroidBigBody"].empty()) {
-      androidBigBody = make_shared<string>(boost::any_cast<string>(m["AndroidBigBody"]));
-    }
-    if (m.find("iOSMutableContent") != m.end() && !m["iOSMutableContent"].empty()) {
-      iOSMutableContent = make_shared<bool>(boost::any_cast<bool>(m["iOSMutableContent"]));
-    }
-    if (m.find("Target") != m.end() && !m["Target"].empty()) {
-      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
     }
     if (m.find("AndroidOpenUrl") != m.end() && !m["AndroidOpenUrl"].empty()) {
       androidOpenUrl = make_shared<string>(boost::any_cast<string>(m["AndroidOpenUrl"]));
@@ -1959,47 +1970,17 @@ public:
     if (m.find("AndroidBigTitle") != m.end() && !m["AndroidBigTitle"].empty()) {
       androidBigTitle = make_shared<string>(boost::any_cast<string>(m["AndroidBigTitle"]));
     }
-    if (m.find("AndroidNotificationNotifyId") != m.end() && !m["AndroidNotificationNotifyId"].empty()) {
-      androidNotificationNotifyId = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationNotifyId"]));
-    }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
-    }
-    if (m.find("AndroidNotificationVivoChannel") != m.end() && !m["AndroidNotificationVivoChannel"].empty()) {
-      androidNotificationVivoChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationVivoChannel"]));
-    }
-    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
-      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
     if (m.find("AndroidOpenType") != m.end() && !m["AndroidOpenType"].empty()) {
       androidOpenType = make_shared<string>(boost::any_cast<string>(m["AndroidOpenType"]));
     }
-    if (m.find("AndroidPopupActivity") != m.end() && !m["AndroidPopupActivity"].empty()) {
-      androidPopupActivity = make_shared<string>(boost::any_cast<string>(m["AndroidPopupActivity"]));
-    }
-    if (m.find("AndroidRemind") != m.end() && !m["AndroidRemind"].empty()) {
-      androidRemind = make_shared<bool>(boost::any_cast<bool>(m["AndroidRemind"]));
-    }
-    if (m.find("AndroidPopupBody") != m.end() && !m["AndroidPopupBody"].empty()) {
-      androidPopupBody = make_shared<string>(boost::any_cast<string>(m["AndroidPopupBody"]));
-    }
     if (m.find("AndroidExtParameters") != m.end() && !m["AndroidExtParameters"].empty()) {
       androidExtParameters = make_shared<string>(boost::any_cast<string>(m["AndroidExtParameters"]));
     }
-    if (m.find("iOSExtParameters") != m.end() && !m["iOSExtParameters"].empty()) {
-      iOSExtParameters = make_shared<string>(boost::any_cast<string>(m["iOSExtParameters"]));
-    }
     if (m.find("AndroidXiaoMiNotifyBody") != m.end() && !m["AndroidXiaoMiNotifyBody"].empty()) {
       androidXiaoMiNotifyBody = make_shared<string>(boost::any_cast<string>(m["AndroidXiaoMiNotifyBody"]));
-    }
-    if (m.find("Body") != m.end() && !m["Body"].empty()) {
-      body = make_shared<string>(boost::any_cast<string>(m["Body"]));
-    }
-    if (m.find("AndroidNotificationBarType") != m.end() && !m["AndroidNotificationBarType"].empty()) {
-      androidNotificationBarType = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationBarType"]));
-    }
-    if (m.find("AndroidNotificationBarPriority") != m.end() && !m["AndroidNotificationBarPriority"].empty()) {
-      androidNotificationBarPriority = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationBarPriority"]));
     }
     if (m.find("AndroidXiaomiBigPictureUrl") != m.end() && !m["AndroidXiaomiBigPictureUrl"].empty()) {
       androidXiaomiBigPictureUrl = make_shared<string>(boost::any_cast<string>(m["AndroidXiaomiBigPictureUrl"]));
@@ -2013,23 +1994,98 @@ public:
     if (m.find("iOSRemind") != m.end() && !m["iOSRemind"].empty()) {
       iOSRemind = make_shared<bool>(boost::any_cast<bool>(m["iOSRemind"]));
     }
-    if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
-      pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
-    }
-    if (m.find("SendSpeed") != m.end() && !m["SendSpeed"].empty()) {
-      sendSpeed = make_shared<long>(boost::any_cast<long>(m["SendSpeed"]));
-    }
     if (m.find("iOSBadge") != m.end() && !m["iOSBadge"].empty()) {
       iOSBadge = make_shared<long>(boost::any_cast<long>(m["iOSBadge"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
+    if (m.find("AndroidMusic") != m.end() && !m["AndroidMusic"].empty()) {
+      androidMusic = make_shared<string>(boost::any_cast<string>(m["AndroidMusic"]));
+    }
+    if (m.find("iOSNotificationCollapseId") != m.end() && !m["iOSNotificationCollapseId"].empty()) {
+      iOSNotificationCollapseId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationCollapseId"]));
+    }
+    if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
+      androidRenderStyle = make_shared<string>(boost::any_cast<string>(m["AndroidRenderStyle"]));
+    }
+    if (m.find("iOSNotificationCategory") != m.end() && !m["iOSNotificationCategory"].empty()) {
+      iOSNotificationCategory = make_shared<string>(boost::any_cast<string>(m["iOSNotificationCategory"]));
+    }
+    if (m.find("iOSNotificationThreadId") != m.end() && !m["iOSNotificationThreadId"].empty()) {
+      iOSNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationThreadId"]));
+    }
+    if (m.find("AndroidActivity") != m.end() && !m["AndroidActivity"].empty()) {
+      androidActivity = make_shared<string>(boost::any_cast<string>(m["AndroidActivity"]));
+    }
+    if (m.find("AndroidBigBody") != m.end() && !m["AndroidBigBody"].empty()) {
+      androidBigBody = make_shared<string>(boost::any_cast<string>(m["AndroidBigBody"]));
+    }
+    if (m.find("iOSMutableContent") != m.end() && !m["iOSMutableContent"].empty()) {
+      iOSMutableContent = make_shared<bool>(boost::any_cast<bool>(m["iOSMutableContent"]));
+    }
+    if (m.find("Target") != m.end() && !m["Target"].empty()) {
+      target = make_shared<string>(boost::any_cast<string>(m["Target"]));
+    }
+    if (m.find("AndroidNotificationNotifyId") != m.end() && !m["AndroidNotificationNotifyId"].empty()) {
+      androidNotificationNotifyId = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationNotifyId"]));
+    }
+    if (m.find("AndroidNotificationVivoChannel") != m.end() && !m["AndroidNotificationVivoChannel"].empty()) {
+      androidNotificationVivoChannel = make_shared<string>(boost::any_cast<string>(m["AndroidNotificationVivoChannel"]));
+    }
+    if (m.find("AndroidPopupActivity") != m.end() && !m["AndroidPopupActivity"].empty()) {
+      androidPopupActivity = make_shared<string>(boost::any_cast<string>(m["AndroidPopupActivity"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
+    }
+    if (m.find("AndroidRemind") != m.end() && !m["AndroidRemind"].empty()) {
+      androidRemind = make_shared<bool>(boost::any_cast<bool>(m["AndroidRemind"]));
+    }
+    if (m.find("AndroidPopupBody") != m.end() && !m["AndroidPopupBody"].empty()) {
+      androidPopupBody = make_shared<string>(boost::any_cast<string>(m["AndroidPopupBody"]));
+    }
+    if (m.find("iOSExtParameters") != m.end() && !m["iOSExtParameters"].empty()) {
+      iOSExtParameters = make_shared<string>(boost::any_cast<string>(m["iOSExtParameters"]));
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["Body"]));
+    }
+    if (m.find("AndroidNotificationBarPriority") != m.end() && !m["AndroidNotificationBarPriority"].empty()) {
+      androidNotificationBarPriority = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationBarPriority"]));
+    }
+    if (m.find("AndroidNotificationBarType") != m.end() && !m["AndroidNotificationBarType"].empty()) {
+      androidNotificationBarType = make_shared<long>(boost::any_cast<long>(m["AndroidNotificationBarType"]));
+    }
+    if (m.find("PushType") != m.end() && !m["PushType"].empty()) {
+      pushType = make_shared<string>(boost::any_cast<string>(m["PushType"]));
+    }
+    if (m.find("SendSpeed") != m.end() && !m["SendSpeed"].empty()) {
+      sendSpeed = make_shared<long>(boost::any_cast<long>(m["SendSpeed"]));
+    }
     if (m.find("PushTime") != m.end() && !m["PushTime"].empty()) {
       pushTime = make_shared<string>(boost::any_cast<string>(m["PushTime"]));
     }
-    if (m.find("AndroidMusic") != m.end() && !m["AndroidMusic"].empty()) {
-      androidMusic = make_shared<string>(boost::any_cast<string>(m["AndroidMusic"]));
+    if (m.find("AndroidBigPictureUrl") != m.end() && !m["AndroidBigPictureUrl"].empty()) {
+      androidBigPictureUrl = make_shared<string>(boost::any_cast<string>(m["AndroidBigPictureUrl"]));
+    }
+    if (m.find("AndroidInboxBody") != m.end() && !m["AndroidInboxBody"].empty()) {
+      androidInboxBody = make_shared<string>(boost::any_cast<string>(m["AndroidInboxBody"]));
+    }
+    if (m.find("AndroidImageUrl") != m.end() && !m["AndroidImageUrl"].empty()) {
+      androidImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidImageUrl"]));
+    }
+    if (m.find("AndroidXiaomiImageUrl") != m.end() && !m["AndroidXiaomiImageUrl"].empty()) {
+      androidXiaomiImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidXiaomiImageUrl"]));
+    }
+    if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
+      androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageHuaweiCategory") != m.end() && !m["AndroidMessageHuaweiCategory"].empty()) {
+      androidMessageHuaweiCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiCategory"]));
+    }
+    if (m.find("SendChannels") != m.end() && !m["SendChannels"].empty()) {
+      sendChannels = make_shared<string>(boost::any_cast<string>(m["SendChannels"]));
     }
   }
 
@@ -2269,6 +2325,14 @@ public:
   shared_ptr<string> androidBigTitle{};
   shared_ptr<string> androidBigBody{};
   shared_ptr<string> androidXiaomiBigPictureUrl{};
+  shared_ptr<string> iOSNotificationThreadId{};
+  shared_ptr<string> androidBigPictureUrl{};
+  shared_ptr<string> androidInboxBody{};
+  shared_ptr<string> androidImageUrl{};
+  shared_ptr<string> androidXiaomiImageUrl{};
+  shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageHuaweiCategory{};
+  shared_ptr<string> sendChannels{};
 
   PushRequest() {}
 
@@ -2439,6 +2503,30 @@ public:
     if (androidXiaomiBigPictureUrl) {
       res["AndroidXiaomiBigPictureUrl"] = boost::any(*androidXiaomiBigPictureUrl);
     }
+    if (iOSNotificationThreadId) {
+      res["iOSNotificationThreadId"] = boost::any(*iOSNotificationThreadId);
+    }
+    if (androidBigPictureUrl) {
+      res["AndroidBigPictureUrl"] = boost::any(*androidBigPictureUrl);
+    }
+    if (androidInboxBody) {
+      res["AndroidInboxBody"] = boost::any(*androidInboxBody);
+    }
+    if (androidImageUrl) {
+      res["AndroidImageUrl"] = boost::any(*androidImageUrl);
+    }
+    if (androidXiaomiImageUrl) {
+      res["AndroidXiaomiImageUrl"] = boost::any(*androidXiaomiImageUrl);
+    }
+    if (androidMessageHuaweiUrgency) {
+      res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageHuaweiCategory) {
+      res["AndroidMessageHuaweiCategory"] = boost::any(*androidMessageHuaweiCategory);
+    }
+    if (sendChannels) {
+      res["SendChannels"] = boost::any(*sendChannels);
+    }
     return res;
   }
 
@@ -2601,6 +2689,30 @@ public:
     }
     if (m.find("AndroidXiaomiBigPictureUrl") != m.end() && !m["AndroidXiaomiBigPictureUrl"].empty()) {
       androidXiaomiBigPictureUrl = make_shared<string>(boost::any_cast<string>(m["AndroidXiaomiBigPictureUrl"]));
+    }
+    if (m.find("iOSNotificationThreadId") != m.end() && !m["iOSNotificationThreadId"].empty()) {
+      iOSNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationThreadId"]));
+    }
+    if (m.find("AndroidBigPictureUrl") != m.end() && !m["AndroidBigPictureUrl"].empty()) {
+      androidBigPictureUrl = make_shared<string>(boost::any_cast<string>(m["AndroidBigPictureUrl"]));
+    }
+    if (m.find("AndroidInboxBody") != m.end() && !m["AndroidInboxBody"].empty()) {
+      androidInboxBody = make_shared<string>(boost::any_cast<string>(m["AndroidInboxBody"]));
+    }
+    if (m.find("AndroidImageUrl") != m.end() && !m["AndroidImageUrl"].empty()) {
+      androidImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidImageUrl"]));
+    }
+    if (m.find("AndroidXiaomiImageUrl") != m.end() && !m["AndroidXiaomiImageUrl"].empty()) {
+      androidXiaomiImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidXiaomiImageUrl"]));
+    }
+    if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
+      androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageHuaweiCategory") != m.end() && !m["AndroidMessageHuaweiCategory"].empty()) {
+      androidMessageHuaweiCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiCategory"]));
+    }
+    if (m.find("SendChannels") != m.end() && !m["SendChannels"].empty()) {
+      sendChannels = make_shared<string>(boost::any_cast<string>(m["SendChannels"]));
     }
   }
 
