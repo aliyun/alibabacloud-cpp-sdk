@@ -8186,6 +8186,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> policyVersion{};
   shared_ptr<string> policy{};
+  shared_ptr<string> upgradeStatus{};
   shared_ptr<long> serviceErrorCount{};
   shared_ptr<string> policyRegionId{};
   shared_ptr<string> clientStatus{};
@@ -8219,6 +8220,9 @@ public:
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
+    }
+    if (upgradeStatus) {
+      res["UpgradeStatus"] = boost::any(*upgradeStatus);
     }
     if (serviceErrorCount) {
       res["ServiceErrorCount"] = boost::any(*serviceErrorCount);
@@ -8268,6 +8272,9 @@ public:
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("UpgradeStatus") != m.end() && !m["UpgradeStatus"].empty()) {
+      upgradeStatus = make_shared<string>(boost::any_cast<string>(m["UpgradeStatus"]));
     }
     if (m.find("ServiceErrorCount") != m.end() && !m["ServiceErrorCount"].empty()) {
       serviceErrorCount = make_shared<long>(boost::any_cast<long>(m["ServiceErrorCount"]));
@@ -20967,6 +20974,7 @@ class DescribePropertyPortDetailResponseBodyPropertys : public Darabonba::Model 
 public:
   shared_ptr<string> create{};
   shared_ptr<string> internetIp{};
+  shared_ptr<string> pid{};
   shared_ptr<string> bindIp{};
   shared_ptr<string> ip{};
   shared_ptr<string> procName{};
@@ -20993,6 +21001,9 @@ public:
     }
     if (internetIp) {
       res["InternetIp"] = boost::any(*internetIp);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
     }
     if (bindIp) {
       res["BindIp"] = boost::any(*bindIp);
@@ -21033,6 +21044,9 @@ public:
     }
     if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
       internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
     }
     if (m.find("BindIp") != m.end() && !m["BindIp"].empty()) {
       bindIp = make_shared<string>(boost::any_cast<string>(m["BindIp"]));
@@ -29533,6 +29547,7 @@ public:
   shared_ptr<string> sourceIp{};
   shared_ptr<string> lang{};
   shared_ptr<string> strategyIds{};
+  shared_ptr<string> customType{};
 
   DescribeStrategyRequest() {}
 
@@ -29553,6 +29568,9 @@ public:
     if (strategyIds) {
       res["StrategyIds"] = boost::any(*strategyIds);
     }
+    if (customType) {
+      res["CustomType"] = boost::any(*customType);
+    }
     return res;
   }
 
@@ -29565,6 +29583,9 @@ public:
     }
     if (m.find("StrategyIds") != m.end() && !m["StrategyIds"].empty()) {
       strategyIds = make_shared<string>(boost::any_cast<string>(m["StrategyIds"]));
+    }
+    if (m.find("CustomType") != m.end() && !m["CustomType"].empty()) {
+      customType = make_shared<string>(boost::any_cast<string>(m["CustomType"]));
     }
   }
 
@@ -29616,15 +29637,16 @@ public:
 };
 class DescribeStrategyResponseBodyStrategies : public Darabonba::Model {
 public:
-  shared_ptr<long> execStatus{};
   shared_ptr<long> type{};
+  shared_ptr<long> execStatus{};
+  shared_ptr<long> passRate{};
   shared_ptr<long> cycleStartTime{};
+  shared_ptr<string> customType{};
   shared_ptr<long> ecsCount{};
   shared_ptr<long> processRate{};
   shared_ptr<long> cycleDays{};
   shared_ptr<long> riskCount{};
   shared_ptr<string> name{};
-  shared_ptr<long> passRate{};
   shared_ptr<long> id{};
   shared_ptr<vector<DescribeStrategyResponseBodyStrategiesConfigTargets>> configTargets{};
 
@@ -29638,14 +29660,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (execStatus) {
-      res["ExecStatus"] = boost::any(*execStatus);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (execStatus) {
+      res["ExecStatus"] = boost::any(*execStatus);
+    }
+    if (passRate) {
+      res["PassRate"] = boost::any(*passRate);
+    }
     if (cycleStartTime) {
       res["CycleStartTime"] = boost::any(*cycleStartTime);
+    }
+    if (customType) {
+      res["CustomType"] = boost::any(*customType);
     }
     if (ecsCount) {
       res["EcsCount"] = boost::any(*ecsCount);
@@ -29662,9 +29690,6 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
-    if (passRate) {
-      res["PassRate"] = boost::any(*passRate);
-    }
     if (id) {
       res["Id"] = boost::any(*id);
     }
@@ -29679,14 +29704,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ExecStatus") != m.end() && !m["ExecStatus"].empty()) {
-      execStatus = make_shared<long>(boost::any_cast<long>(m["ExecStatus"]));
-    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["Type"]));
     }
+    if (m.find("ExecStatus") != m.end() && !m["ExecStatus"].empty()) {
+      execStatus = make_shared<long>(boost::any_cast<long>(m["ExecStatus"]));
+    }
+    if (m.find("PassRate") != m.end() && !m["PassRate"].empty()) {
+      passRate = make_shared<long>(boost::any_cast<long>(m["PassRate"]));
+    }
     if (m.find("CycleStartTime") != m.end() && !m["CycleStartTime"].empty()) {
       cycleStartTime = make_shared<long>(boost::any_cast<long>(m["CycleStartTime"]));
+    }
+    if (m.find("CustomType") != m.end() && !m["CustomType"].empty()) {
+      customType = make_shared<string>(boost::any_cast<string>(m["CustomType"]));
     }
     if (m.find("EcsCount") != m.end() && !m["EcsCount"].empty()) {
       ecsCount = make_shared<long>(boost::any_cast<long>(m["EcsCount"]));
@@ -29702,9 +29733,6 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("PassRate") != m.end() && !m["PassRate"].empty()) {
-      passRate = make_shared<long>(boost::any_cast<long>(m["PassRate"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -42318,6 +42346,8 @@ public:
   shared_ptr<string> cycleStartTime{};
   shared_ptr<string> riskSubTypeName{};
   shared_ptr<string> id{};
+  shared_ptr<string> riskCustomParams{};
+  shared_ptr<string> customType{};
 
   ModifyStrategyRequest() {}
 
@@ -42347,6 +42377,12 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (riskCustomParams) {
+      res["RiskCustomParams"] = boost::any(*riskCustomParams);
+    }
+    if (customType) {
+      res["CustomType"] = boost::any(*customType);
+    }
     return res;
   }
 
@@ -42368,6 +42404,12 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("RiskCustomParams") != m.end() && !m["RiskCustomParams"].empty()) {
+      riskCustomParams = make_shared<string>(boost::any_cast<string>(m["RiskCustomParams"]));
+    }
+    if (m.find("CustomType") != m.end() && !m["CustomType"].empty()) {
+      customType = make_shared<string>(boost::any_cast<string>(m["CustomType"]));
     }
   }
 
@@ -46822,6 +46864,116 @@ public:
 
   virtual ~UninstallUniBackupAgentResponse() = default;
 };
+class UpgradeBackupPolicyVersionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+
+  UpgradeBackupPolicyVersionRequest() {}
+
+  explicit UpgradeBackupPolicyVersionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~UpgradeBackupPolicyVersionRequest() = default;
+};
+class UpgradeBackupPolicyVersionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpgradeBackupPolicyVersionResponseBody() {}
+
+  explicit UpgradeBackupPolicyVersionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpgradeBackupPolicyVersionResponseBody() = default;
+};
+class UpgradeBackupPolicyVersionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpgradeBackupPolicyVersionResponseBody> body{};
+
+  UpgradeBackupPolicyVersionResponse() {}
+
+  explicit UpgradeBackupPolicyVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpgradeBackupPolicyVersionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpgradeBackupPolicyVersionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpgradeBackupPolicyVersionResponse() = default;
+};
 class ValidateHcWarningsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sourceIp{};
@@ -47380,6 +47532,8 @@ public:
   UninstallBackupClientResponse uninstallBackupClient(shared_ptr<UninstallBackupClientRequest> request);
   UninstallUniBackupAgentResponse uninstallUniBackupAgentWithOptions(shared_ptr<UninstallUniBackupAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UninstallUniBackupAgentResponse uninstallUniBackupAgent(shared_ptr<UninstallUniBackupAgentRequest> request);
+  UpgradeBackupPolicyVersionResponse upgradeBackupPolicyVersionWithOptions(shared_ptr<UpgradeBackupPolicyVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpgradeBackupPolicyVersionResponse upgradeBackupPolicyVersion(shared_ptr<UpgradeBackupPolicyVersionRequest> request);
   ValidateHcWarningsResponse validateHcWarningsWithOptions(shared_ptr<ValidateHcWarningsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ValidateHcWarningsResponse validateHcWarnings(shared_ptr<ValidateHcWarningsRequest> request);
 
