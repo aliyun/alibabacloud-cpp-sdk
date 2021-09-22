@@ -329,6 +329,224 @@ public:
 
   virtual ~ResolveOpenApiResponse() = default;
 };
+class AssetPublishTestOpenApiRequestTeacher : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<long> age{};
+
+  AssetPublishTestOpenApiRequestTeacher() {}
+
+  explicit AssetPublishTestOpenApiRequestTeacher(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (age) {
+      res["age"] = boost::any(*age);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("age") != m.end() && !m["age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["age"]));
+    }
+  }
+
+
+  virtual ~AssetPublishTestOpenApiRequestTeacher() = default;
+};
+class AssetPublishTestOpenApiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<AssetPublishTestOpenApiRequestTeacher> teacher{};
+
+  AssetPublishTestOpenApiRequest() {}
+
+  explicit AssetPublishTestOpenApiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (teacher) {
+      res["teacher"] = teacher ? boost::any(teacher->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("teacher") != m.end() && !m["teacher"].empty()) {
+      if (typeid(map<string, boost::any>) == m["teacher"].type()) {
+        AssetPublishTestOpenApiRequestTeacher model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["teacher"]));
+        teacher = make_shared<AssetPublishTestOpenApiRequestTeacher>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssetPublishTestOpenApiRequest() = default;
+};
+class AssetPublishTestOpenApiResponseBodyTeacher : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> age{};
+
+  AssetPublishTestOpenApiResponseBodyTeacher() {}
+
+  explicit AssetPublishTestOpenApiResponseBodyTeacher(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (age) {
+      res["age"] = boost::any(*age);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("age") != m.end() && !m["age"].empty()) {
+      age = make_shared<string>(boost::any_cast<string>(m["age"]));
+    }
+  }
+
+
+  virtual ~AssetPublishTestOpenApiResponseBodyTeacher() = default;
+};
+class AssetPublishTestOpenApiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AssetPublishTestOpenApiResponseBodyTeacher> teacher{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+
+  AssetPublishTestOpenApiResponseBody() {}
+
+  explicit AssetPublishTestOpenApiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (teacher) {
+      res["teacher"] = teacher ? boost::any(teacher->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("teacher") != m.end() && !m["teacher"].empty()) {
+      if (typeid(map<string, boost::any>) == m["teacher"].type()) {
+        AssetPublishTestOpenApiResponseBodyTeacher model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["teacher"]));
+        teacher = make_shared<AssetPublishTestOpenApiResponseBodyTeacher>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+  }
+
+
+  virtual ~AssetPublishTestOpenApiResponseBody() = default;
+};
+class AssetPublishTestOpenApiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AssetPublishTestOpenApiResponseBody> body{};
+
+  AssetPublishTestOpenApiResponse() {}
+
+  explicit AssetPublishTestOpenApiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssetPublishTestOpenApiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssetPublishTestOpenApiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssetPublishTestOpenApiResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -343,6 +561,8 @@ public:
   AddResponse addWithOptions(shared_ptr<AddRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResolveOpenApiResponse resolveOpenApi(shared_ptr<ResolveOpenApiRequest> request);
   ResolveOpenApiResponse resolveOpenApiWithOptions(shared_ptr<ResolveOpenApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssetPublishTestOpenApiResponse assetPublishTestOpenApi(shared_ptr<AssetPublishTestOpenApiRequest> request);
+  AssetPublishTestOpenApiResponse assetPublishTestOpenApiWithOptions(shared_ptr<AssetPublishTestOpenApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };

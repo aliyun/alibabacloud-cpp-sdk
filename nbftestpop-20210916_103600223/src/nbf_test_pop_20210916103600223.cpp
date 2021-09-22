@@ -88,3 +88,25 @@ ResolveOpenApiResponse Alibabacloud_NbfTestPop20210916103600223::Client::resolve
   return ResolveOpenApiResponse(doROARequest(make_shared<string>("ResolveOpenApi"), make_shared<string>("2021-09-16_10-36-00-223"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/kxRoaProduct/9_0_9/resolveOpenApi")), make_shared<string>("json"), req, runtime));
 }
 
+AssetPublishTestOpenApiResponse Alibabacloud_NbfTestPop20210916103600223::Client::assetPublishTestOpenApi(shared_ptr<AssetPublishTestOpenApiRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return assetPublishTestOpenApiWithOptions(request, headers, runtime);
+}
+
+AssetPublishTestOpenApiResponse Alibabacloud_NbfTestPop20210916103600223::Client::assetPublishTestOpenApiWithOptions(shared_ptr<AssetPublishTestOpenApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    (*query)["name"] = *request->name;
+  }
+  if (!Darabonba_Util::Client::isUnset<AssetPublishTestOpenApiRequestTeacher>(request->teacher)) {
+    (*query)["teacher"] = *request->teacher;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return AssetPublishTestOpenApiResponse(doROARequest(make_shared<string>("AssetPublishTestOpenApi"), make_shared<string>("2021-09-16_10-36-00-223"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/kxRoaProduct/9_0_9/assetPublishTestOpenApi")), make_shared<string>("json"), req, runtime));
+}
+
