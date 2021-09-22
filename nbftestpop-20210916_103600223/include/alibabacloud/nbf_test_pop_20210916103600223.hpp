@@ -547,6 +547,123 @@ public:
 
   virtual ~AssetPublishTestOpenApiResponse() = default;
 };
+class AddTestRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  AddTestRequest() {}
+
+  explicit AddTestRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["x"] = boost::any(*x);
+    }
+    if (y) {
+      res["y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("x") != m.end() && !m["x"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["x"]));
+    }
+    if (m.find("y") != m.end() && !m["y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["y"]));
+    }
+  }
+
+
+  virtual ~AddTestRequest() = default;
+};
+class AddTestResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> sum{};
+
+  AddTestResponseBody() {}
+
+  explicit AddTestResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sum) {
+      res["sum"] = boost::any(*sum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sum") != m.end() && !m["sum"].empty()) {
+      sum = make_shared<long>(boost::any_cast<long>(m["sum"]));
+    }
+  }
+
+
+  virtual ~AddTestResponseBody() = default;
+};
+class AddTestResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddTestResponseBody> body{};
+
+  AddTestResponse() {}
+
+  explicit AddTestResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddTestResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddTestResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddTestResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -563,6 +680,8 @@ public:
   ResolveOpenApiResponse resolveOpenApiWithOptions(shared_ptr<ResolveOpenApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssetPublishTestOpenApiResponse assetPublishTestOpenApi(shared_ptr<AssetPublishTestOpenApiRequest> request);
   AssetPublishTestOpenApiResponse assetPublishTestOpenApiWithOptions(shared_ptr<AssetPublishTestOpenApiRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddTestResponse addTest(shared_ptr<AddTestRequest> request);
+  AddTestResponse addTestWithOptions(shared_ptr<AddTestRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
