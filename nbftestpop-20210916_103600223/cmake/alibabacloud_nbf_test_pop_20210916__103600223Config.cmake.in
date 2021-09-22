@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_nbf_test_pop_20210916__103600223Targets.cmake")
+check_required_components("alibabacloud_nbf_test_pop_20210916__103600223")
