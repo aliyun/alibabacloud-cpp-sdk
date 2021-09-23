@@ -188,6 +188,7 @@ public:
   shared_ptr<string> templateVersion{};
   shared_ptr<vector<string>> recreatingResources{};
   shared_ptr<vector<ContinueCreateStackRequestParameters>> parameters{};
+  shared_ptr<long> parallelism{};
 
   ContinueCreateStackRequest() {}
 
@@ -235,6 +236,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Parameters"] = boost::any(temp1);
+    }
+    if (parallelism) {
+      res["Parallelism"] = boost::any(*parallelism);
     }
     return res;
   }
@@ -289,6 +293,9 @@ public:
         }
         parameters = make_shared<vector<ContinueCreateStackRequestParameters>>(expect1);
       }
+    }
+    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
+      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
   }
 
@@ -867,6 +874,7 @@ public:
   shared_ptr<vector<string>> notificationURLs{};
   shared_ptr<vector<CreateStackRequestTags>> tags{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> parallelism{};
 
   CreateStackRequest() {}
 
@@ -939,6 +947,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (parallelism) {
+      res["Parallelism"] = boost::any(*parallelism);
     }
     return res;
   }
@@ -1024,6 +1035,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
+      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
   }
 
@@ -12170,6 +12184,7 @@ public:
   shared_ptr<string> templateId{};
   shared_ptr<string> templateVersion{};
   shared_ptr<vector<PreviewStackRequestParameters>> parameters{};
+  shared_ptr<long> parallelism{};
 
   PreviewStackRequest() {}
 
@@ -12221,6 +12236,9 @@ public:
       }
       res["Parameters"] = boost::any(temp1);
     }
+    if (parallelism) {
+      res["Parallelism"] = boost::any(*parallelism);
+    }
     return res;
   }
 
@@ -12270,6 +12288,9 @@ public:
         }
         parameters = make_shared<vector<PreviewStackRequestParameters>>(expect1);
       }
+    }
+    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
+      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
   }
 
@@ -13697,6 +13718,7 @@ public:
   shared_ptr<string> templateVersion{};
   shared_ptr<vector<UpdateStackRequestParameters>> parameters{};
   shared_ptr<vector<UpdateStackRequestTags>> tags{};
+  shared_ptr<long> parallelism{};
 
   UpdateStackRequest() {}
 
@@ -13769,6 +13791,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (parallelism) {
+      res["Parallelism"] = boost::any(*parallelism);
     }
     return res;
   }
@@ -13847,6 +13872,9 @@ public:
         }
         tags = make_shared<vector<UpdateStackRequestTags>>(expect1);
       }
+    }
+    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
+      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
   }
 
