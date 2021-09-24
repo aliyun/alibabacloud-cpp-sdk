@@ -6153,6 +6153,7 @@ public:
   shared_ptr<string> userId{};
   shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
+  shared_ptr<string> playbackUrl{};
 
   GetConferenceResponseBodyResult() {}
 
@@ -6185,6 +6186,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (playbackUrl) {
+      res["PlaybackUrl"] = boost::any(*playbackUrl);
+    }
     return res;
   }
 
@@ -6209,6 +6213,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("PlaybackUrl") != m.end() && !m["PlaybackUrl"].empty()) {
+      playbackUrl = make_shared<string>(boost::any_cast<string>(m["PlaybackUrl"]));
     }
   }
 
