@@ -11671,6 +11671,397 @@ public:
 
   virtual ~ExportDISyncTasksResponse() = default;
 };
+class GenerateDISyncTaskConfigForCreatingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> projectId{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> taskParam{};
+  shared_ptr<string> clientToken{};
+
+  GenerateDISyncTaskConfigForCreatingRequest() {}
+
+  explicit GenerateDISyncTaskConfigForCreatingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (taskParam) {
+      res["TaskParam"] = boost::any(*taskParam);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TaskParam") != m.end() && !m["TaskParam"].empty()) {
+      taskParam = make_shared<string>(boost::any_cast<string>(m["TaskParam"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForCreatingRequest() = default;
+};
+class GenerateDISyncTaskConfigForCreatingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<long> processId{};
+  shared_ptr<string> message{};
+
+  GenerateDISyncTaskConfigForCreatingResponseBodyData() {}
+
+  explicit GenerateDISyncTaskConfigForCreatingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (processId) {
+      res["ProcessId"] = boost::any(*processId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ProcessId") != m.end() && !m["ProcessId"].empty()) {
+      processId = make_shared<long>(boost::any_cast<long>(m["ProcessId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForCreatingResponseBodyData() = default;
+};
+class GenerateDISyncTaskConfigForCreatingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GenerateDISyncTaskConfigForCreatingResponseBodyData> data{};
+
+  GenerateDISyncTaskConfigForCreatingResponseBody() {}
+
+  explicit GenerateDISyncTaskConfigForCreatingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GenerateDISyncTaskConfigForCreatingResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GenerateDISyncTaskConfigForCreatingResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForCreatingResponseBody() = default;
+};
+class GenerateDISyncTaskConfigForCreatingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GenerateDISyncTaskConfigForCreatingResponseBody> body{};
+
+  GenerateDISyncTaskConfigForCreatingResponse() {}
+
+  explicit GenerateDISyncTaskConfigForCreatingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateDISyncTaskConfigForCreatingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateDISyncTaskConfigForCreatingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForCreatingResponse() = default;
+};
+class GenerateDISyncTaskConfigForUpdatingRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> projectId{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> taskParam{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> taskId{};
+
+  GenerateDISyncTaskConfigForUpdatingRequest() {}
+
+  explicit GenerateDISyncTaskConfigForUpdatingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (taskParam) {
+      res["TaskParam"] = boost::any(*taskParam);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TaskParam") != m.end() && !m["TaskParam"].empty()) {
+      taskParam = make_shared<string>(boost::any_cast<string>(m["TaskParam"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForUpdatingRequest() = default;
+};
+class GenerateDISyncTaskConfigForUpdatingResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<long> processId{};
+  shared_ptr<string> message{};
+
+  GenerateDISyncTaskConfigForUpdatingResponseBodyData() {}
+
+  explicit GenerateDISyncTaskConfigForUpdatingResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (processId) {
+      res["ProcessId"] = boost::any(*processId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ProcessId") != m.end() && !m["ProcessId"].empty()) {
+      processId = make_shared<long>(boost::any_cast<long>(m["ProcessId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForUpdatingResponseBodyData() = default;
+};
+class GenerateDISyncTaskConfigForUpdatingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GenerateDISyncTaskConfigForUpdatingResponseBodyData> data{};
+
+  GenerateDISyncTaskConfigForUpdatingResponseBody() {}
+
+  explicit GenerateDISyncTaskConfigForUpdatingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GenerateDISyncTaskConfigForUpdatingResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GenerateDISyncTaskConfigForUpdatingResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForUpdatingResponseBody() = default;
+};
+class GenerateDISyncTaskConfigForUpdatingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GenerateDISyncTaskConfigForUpdatingResponseBody> body{};
+
+  GenerateDISyncTaskConfigForUpdatingResponse() {}
+
+  explicit GenerateDISyncTaskConfigForUpdatingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateDISyncTaskConfigForUpdatingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateDISyncTaskConfigForUpdatingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateDISyncTaskConfigForUpdatingResponse() = default;
+};
 class GetBaselineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<long> baselineId{};
@@ -17265,11 +17656,119 @@ public:
 
   virtual ~GetDISyncInstanceInfoRequest() = default;
 };
+class GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<long> stepId{};
+  shared_ptr<string> stepName{};
+
+  GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail() {}
+
+  explicit GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (stepId) {
+      res["StepId"] = boost::any(*stepId);
+    }
+    if (stepName) {
+      res["StepName"] = boost::any(*stepName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StepId") != m.end() && !m["StepId"].empty()) {
+      stepId = make_shared<long>(boost::any_cast<long>(m["StepId"]));
+    }
+    if (m.find("StepName") != m.end() && !m["StepName"].empty()) {
+      stepName = make_shared<string>(boost::any_cast<string>(m["StepName"]));
+    }
+  }
+
+
+  virtual ~GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail() = default;
+};
+class GetDISyncInstanceInfoResponseBodyDataSolutionInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<long> id{};
+  shared_ptr<string> creatorName{};
+  shared_ptr<vector<GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail>> stepDetail{};
+
+  GetDISyncInstanceInfoResponseBodyDataSolutionInfo() {}
+
+  explicit GetDISyncInstanceInfoResponseBodyDataSolutionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (creatorName) {
+      res["CreatorName"] = boost::any(*creatorName);
+    }
+    if (stepDetail) {
+      vector<boost::any> temp1;
+      for(auto item1:*stepDetail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StepDetail"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("CreatorName") != m.end() && !m["CreatorName"].empty()) {
+      creatorName = make_shared<string>(boost::any_cast<string>(m["CreatorName"]));
+    }
+    if (m.find("StepDetail") != m.end() && !m["StepDetail"].empty()) {
+      if (typeid(vector<boost::any>) == m["StepDetail"].type()) {
+        vector<GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StepDetail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stepDetail = make_shared<vector<GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetDISyncInstanceInfoResponseBodyDataSolutionInfo() = default;
+};
 class GetDISyncInstanceInfoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> status{};
   shared_ptr<string> message{};
   shared_ptr<string> name{};
+  shared_ptr<GetDISyncInstanceInfoResponseBodyDataSolutionInfo> solutionInfo{};
 
   GetDISyncInstanceInfoResponseBodyData() {}
 
@@ -17290,6 +17789,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (solutionInfo) {
+      res["SolutionInfo"] = solutionInfo ? boost::any(solutionInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -17302,6 +17804,13 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SolutionInfo") != m.end() && !m["SolutionInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SolutionInfo"].type()) {
+        GetDISyncInstanceInfoResponseBodyDataSolutionInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SolutionInfo"]));
+        solutionInfo = make_shared<GetDISyncInstanceInfoResponseBodyDataSolutionInfo>(model1);
+      }
     }
   }
 
@@ -17450,11 +17959,111 @@ public:
 
   virtual ~GetDISyncTaskRequest() = default;
 };
+class GetDISyncTaskResponseBodyDataSolutionDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> creatorName{};
+  shared_ptr<long> projectId{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> processContent{};
+  shared_ptr<string> name{};
+  shared_ptr<string> processExtra{};
+  shared_ptr<string> submitTime{};
+  shared_ptr<long> id{};
+
+  GetDISyncTaskResponseBodyDataSolutionDetail() {}
+
+  explicit GetDISyncTaskResponseBodyDataSolutionDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (creatorName) {
+      res["CreatorName"] = boost::any(*creatorName);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (processContent) {
+      res["ProcessContent"] = boost::any(*processContent);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (processExtra) {
+      res["ProcessExtra"] = boost::any(*processExtra);
+    }
+    if (submitTime) {
+      res["SubmitTime"] = boost::any(*submitTime);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("CreatorName") != m.end() && !m["CreatorName"].empty()) {
+      creatorName = make_shared<string>(boost::any_cast<string>(m["CreatorName"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("ProcessContent") != m.end() && !m["ProcessContent"].empty()) {
+      processContent = make_shared<string>(boost::any_cast<string>(m["ProcessContent"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ProcessExtra") != m.end() && !m["ProcessExtra"].empty()) {
+      processExtra = make_shared<string>(boost::any_cast<string>(m["ProcessExtra"]));
+    }
+    if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
+      submitTime = make_shared<string>(boost::any_cast<string>(m["SubmitTime"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~GetDISyncTaskResponseBodyDataSolutionDetail() = default;
+};
 class GetDISyncTaskResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> status{};
   shared_ptr<string> message{};
+  shared_ptr<GetDISyncTaskResponseBodyDataSolutionDetail> solutionDetail{};
 
   GetDISyncTaskResponseBodyData() {}
 
@@ -17475,6 +18084,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (solutionDetail) {
+      res["SolutionDetail"] = solutionDetail ? boost::any(solutionDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -17487,6 +18099,13 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("SolutionDetail") != m.end() && !m["SolutionDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SolutionDetail"].type()) {
+        GetDISyncTaskResponseBodyDataSolutionDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SolutionDetail"]));
+        solutionDetail = make_shared<GetDISyncTaskResponseBodyDataSolutionDetail>(model1);
+      }
     }
   }
 
@@ -48546,6 +49165,191 @@ public:
 
   virtual ~PublishDataServiceApiResponse() = default;
 };
+class QueryDISyncTaskConfigProcessResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> projectId{};
+  shared_ptr<string> taskType{};
+  shared_ptr<long> asyncProcessId{};
+
+  QueryDISyncTaskConfigProcessResultRequest() {}
+
+  explicit QueryDISyncTaskConfigProcessResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (asyncProcessId) {
+      res["AsyncProcessId"] = boost::any(*asyncProcessId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("AsyncProcessId") != m.end() && !m["AsyncProcessId"].empty()) {
+      asyncProcessId = make_shared<long>(boost::any_cast<long>(m["AsyncProcessId"]));
+    }
+  }
+
+
+  virtual ~QueryDISyncTaskConfigProcessResultRequest() = default;
+};
+class QueryDISyncTaskConfigProcessResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<string> message{};
+  shared_ptr<string> taskContent{};
+
+  QueryDISyncTaskConfigProcessResultResponseBodyData() {}
+
+  explicit QueryDISyncTaskConfigProcessResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (taskContent) {
+      res["TaskContent"] = boost::any(*taskContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("TaskContent") != m.end() && !m["TaskContent"].empty()) {
+      taskContent = make_shared<string>(boost::any_cast<string>(m["TaskContent"]));
+    }
+  }
+
+
+  virtual ~QueryDISyncTaskConfigProcessResultResponseBodyData() = default;
+};
+class QueryDISyncTaskConfigProcessResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> success{};
+  shared_ptr<string> requestId{};
+  shared_ptr<QueryDISyncTaskConfigProcessResultResponseBodyData> data{};
+
+  QueryDISyncTaskConfigProcessResultResponseBody() {}
+
+  explicit QueryDISyncTaskConfigProcessResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryDISyncTaskConfigProcessResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryDISyncTaskConfigProcessResultResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDISyncTaskConfigProcessResultResponseBody() = default;
+};
+class QueryDISyncTaskConfigProcessResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryDISyncTaskConfigProcessResultResponseBody> body{};
+
+  QueryDISyncTaskConfigProcessResultResponse() {}
+
+  explicit QueryDISyncTaskConfigProcessResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryDISyncTaskConfigProcessResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryDISyncTaskConfigProcessResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDISyncTaskConfigProcessResultResponse() = default;
+};
 class QueryPublicModelEngineRequest : public Darabonba::Model {
 public:
   shared_ptr<string> text{};
@@ -57579,6 +58383,10 @@ public:
   ExportDataSourcesResponse exportDataSources(shared_ptr<ExportDataSourcesRequest> request);
   ExportDISyncTasksResponse exportDISyncTasksWithOptions(shared_ptr<ExportDISyncTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportDISyncTasksResponse exportDISyncTasks(shared_ptr<ExportDISyncTasksRequest> request);
+  GenerateDISyncTaskConfigForCreatingResponse generateDISyncTaskConfigForCreatingWithOptions(shared_ptr<GenerateDISyncTaskConfigForCreatingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateDISyncTaskConfigForCreatingResponse generateDISyncTaskConfigForCreating(shared_ptr<GenerateDISyncTaskConfigForCreatingRequest> request);
+  GenerateDISyncTaskConfigForUpdatingResponse generateDISyncTaskConfigForUpdatingWithOptions(shared_ptr<GenerateDISyncTaskConfigForUpdatingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateDISyncTaskConfigForUpdatingResponse generateDISyncTaskConfigForUpdating(shared_ptr<GenerateDISyncTaskConfigForUpdatingRequest> request);
   GetBaselineConfigResponse getBaselineConfigWithOptions(shared_ptr<GetBaselineConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBaselineConfigResponse getBaselineConfig(shared_ptr<GetBaselineConfigRequest> request);
   GetBaselineKeyPathResponse getBaselineKeyPathWithOptions(shared_ptr<GetBaselineKeyPathRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -57801,6 +58609,8 @@ public:
   ListTopicsResponse listTopics(shared_ptr<ListTopicsRequest> request);
   PublishDataServiceApiResponse publishDataServiceApiWithOptions(shared_ptr<PublishDataServiceApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishDataServiceApiResponse publishDataServiceApi(shared_ptr<PublishDataServiceApiRequest> request);
+  QueryDISyncTaskConfigProcessResultResponse queryDISyncTaskConfigProcessResultWithOptions(shared_ptr<QueryDISyncTaskConfigProcessResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryDISyncTaskConfigProcessResultResponse queryDISyncTaskConfigProcessResult(shared_ptr<QueryDISyncTaskConfigProcessResultRequest> request);
   QueryPublicModelEngineResponse queryPublicModelEngineWithOptions(shared_ptr<QueryPublicModelEngineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryPublicModelEngineResponse queryPublicModelEngine(shared_ptr<QueryPublicModelEngineRequest> request);
   RemoveProjectMemberFromRoleResponse removeProjectMemberFromRoleWithOptions(shared_ptr<RemoveProjectMemberFromRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
