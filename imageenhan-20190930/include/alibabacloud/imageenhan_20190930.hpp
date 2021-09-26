@@ -1353,7 +1353,6 @@ public:
   shared_ptr<string> refUrl{};
   shared_ptr<long> colorCount{};
   shared_ptr<string> degree{};
-  shared_ptr<bool> async{};
   shared_ptr<vector<RecolorHDImageRequestColorTemplate>> colorTemplate{};
 
   RecolorHDImageRequest() {}
@@ -1381,9 +1380,6 @@ public:
     if (degree) {
       res["Degree"] = boost::any(*degree);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (colorTemplate) {
       vector<boost::any> temp1;
       for(auto item1:*colorTemplate){
@@ -1409,9 +1405,6 @@ public:
     }
     if (m.find("Degree") != m.end() && !m["Degree"].empty()) {
       degree = make_shared<string>(boost::any_cast<string>(m["Degree"]));
-    }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
     }
     if (m.find("ColorTemplate") != m.end() && !m["ColorTemplate"].empty()) {
       if (typeid(vector<boost::any>) == m["ColorTemplate"].type()) {
@@ -1467,7 +1460,6 @@ public:
   shared_ptr<string> refUrl{};
   shared_ptr<long> colorCount{};
   shared_ptr<string> degree{};
-  shared_ptr<bool> async{};
   shared_ptr<vector<RecolorHDImageAdvanceRequestColorTemplate>> colorTemplate{};
 
   RecolorHDImageAdvanceRequest() {}
@@ -1499,9 +1491,6 @@ public:
     if (degree) {
       res["Degree"] = boost::any(*degree);
     }
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (colorTemplate) {
       vector<boost::any> temp1;
       for(auto item1:*colorTemplate){
@@ -1527,9 +1516,6 @@ public:
     }
     if (m.find("Degree") != m.end() && !m["Degree"].empty()) {
       degree = make_shared<string>(boost::any_cast<string>(m["Degree"]));
-    }
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
     }
     if (m.find("ColorTemplate") != m.end() && !m["ColorTemplate"].empty()) {
       if (typeid(vector<boost::any>) == m["ColorTemplate"].type()) {
@@ -2653,7 +2639,6 @@ public:
 };
 class GetAsyncJobResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> jobId{};
 
   GetAsyncJobResultRequest() {}
@@ -2666,9 +2651,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
@@ -2676,9 +2658,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
