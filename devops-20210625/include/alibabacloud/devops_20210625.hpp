@@ -3323,7 +3323,8 @@ public:
   shared_ptr<long> lastVisitTime{};
   shared_ptr<string> mobile{};
   shared_ptr<string> organizationMemberName{};
-  shared_ptr<string> organizationRole{};
+  shared_ptr<string> organizationRoleName{};
+  shared_ptr<string> organizationRoleId{};
   shared_ptr<string> state{};
 
   GetOrganizationMemberResponseBodyMember() {}
@@ -3366,8 +3367,11 @@ public:
     if (organizationMemberName) {
       res["organizationMemberName"] = boost::any(*organizationMemberName);
     }
-    if (organizationRole) {
-      res["organizationRole"] = boost::any(*organizationRole);
+    if (organizationRoleName) {
+      res["organizationRoleName"] = boost::any(*organizationRoleName);
+    }
+    if (organizationRoleId) {
+      res["organizationRoleId"] = boost::any(*organizationRoleId);
     }
     if (state) {
       res["state"] = boost::any(*state);
@@ -3417,8 +3421,11 @@ public:
     if (m.find("organizationMemberName") != m.end() && !m["organizationMemberName"].empty()) {
       organizationMemberName = make_shared<string>(boost::any_cast<string>(m["organizationMemberName"]));
     }
-    if (m.find("organizationRole") != m.end() && !m["organizationRole"].empty()) {
-      organizationRole = make_shared<string>(boost::any_cast<string>(m["organizationRole"]));
+    if (m.find("organizationRoleName") != m.end() && !m["organizationRoleName"].empty()) {
+      organizationRoleName = make_shared<string>(boost::any_cast<string>(m["organizationRoleName"]));
+    }
+    if (m.find("organizationRoleId") != m.end() && !m["organizationRoleId"].empty()) {
+      organizationRoleId = make_shared<string>(boost::any_cast<string>(m["organizationRoleId"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
@@ -6078,7 +6085,8 @@ public:
   shared_ptr<long> lastVisitTime{};
   shared_ptr<string> mobile{};
   shared_ptr<string> organizationMemberName{};
-  shared_ptr<string> organizationRole{};
+  shared_ptr<string> organizationRoleName{};
+  shared_ptr<string> organizationRoleId{};
   shared_ptr<string> state{};
 
   ListOrganizationMembersResponseBodyMembers() {}
@@ -6121,8 +6129,11 @@ public:
     if (organizationMemberName) {
       res["organizationMemberName"] = boost::any(*organizationMemberName);
     }
-    if (organizationRole) {
-      res["organizationRole"] = boost::any(*organizationRole);
+    if (organizationRoleName) {
+      res["organizationRoleName"] = boost::any(*organizationRoleName);
+    }
+    if (organizationRoleId) {
+      res["organizationRoleId"] = boost::any(*organizationRoleId);
     }
     if (state) {
       res["state"] = boost::any(*state);
@@ -6172,8 +6183,11 @@ public:
     if (m.find("organizationMemberName") != m.end() && !m["organizationMemberName"].empty()) {
       organizationMemberName = make_shared<string>(boost::any_cast<string>(m["organizationMemberName"]));
     }
-    if (m.find("organizationRole") != m.end() && !m["organizationRole"].empty()) {
-      organizationRole = make_shared<string>(boost::any_cast<string>(m["organizationRole"]));
+    if (m.find("organizationRoleName") != m.end() && !m["organizationRoleName"].empty()) {
+      organizationRoleName = make_shared<string>(boost::any_cast<string>(m["organizationRoleName"]));
+    }
+    if (m.find("organizationRoleId") != m.end() && !m["organizationRoleId"].empty()) {
+      organizationRoleId = make_shared<string>(boost::any_cast<string>(m["organizationRoleId"]));
     }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
