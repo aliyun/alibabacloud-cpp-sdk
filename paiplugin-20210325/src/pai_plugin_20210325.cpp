@@ -314,7 +314,7 @@ UploadMediaByURLResponse Alibabacloud_PaiPlugin20210325::Client::uploadMediaByUR
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UploadMediaByURLResponse(doROARequest(make_shared<string>("UploadMediaByURL"), make_shared<string>("2021-03-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v1/media/api/v1/video/upload")), make_shared<string>("json"), req, runtime));
+  return UploadMediaByURLResponse(doROARequest(make_shared<string>("UploadMediaByURL"), make_shared<string>("2021-03-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/media/api/v1/video/upload")), make_shared<string>("json"), req, runtime));
 }
 
 DeleteSignatureResponse Alibabacloud_PaiPlugin20210325::Client::deleteSignature(shared_ptr<string> ID) {
