@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_PAIPLUGIN20210325_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -2140,6 +2141,385 @@ public:
 
   virtual ~ListSchedulesResponse() = default;
 };
+class UploadMediaByURLRequestUploadMetadatasS3UploadInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> s3AccessKey{};
+  shared_ptr<string> s3Bucket{};
+  shared_ptr<string> s3Endpoint{};
+  shared_ptr<string> s3FileKey{};
+  shared_ptr<string> s3Provider{};
+  shared_ptr<string> s3SecretKey{};
+  shared_ptr<string> s3Token{};
+  shared_ptr<int> id{};
+  shared_ptr<string> jobId{};
+
+  UploadMediaByURLRequestUploadMetadatasS3UploadInfo() {}
+
+  explicit UploadMediaByURLRequestUploadMetadatasS3UploadInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (s3AccessKey) {
+      res["S3AccessKey"] = boost::any(*s3AccessKey);
+    }
+    if (s3Bucket) {
+      res["S3Bucket"] = boost::any(*s3Bucket);
+    }
+    if (s3Endpoint) {
+      res["S3Endpoint"] = boost::any(*s3Endpoint);
+    }
+    if (s3FileKey) {
+      res["S3FileKey"] = boost::any(*s3FileKey);
+    }
+    if (s3Provider) {
+      res["S3Provider"] = boost::any(*s3Provider);
+    }
+    if (s3SecretKey) {
+      res["S3SecretKey"] = boost::any(*s3SecretKey);
+    }
+    if (s3Token) {
+      res["S3Token"] = boost::any(*s3Token);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (jobId) {
+      res["jobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("S3AccessKey") != m.end() && !m["S3AccessKey"].empty()) {
+      s3AccessKey = make_shared<string>(boost::any_cast<string>(m["S3AccessKey"]));
+    }
+    if (m.find("S3Bucket") != m.end() && !m["S3Bucket"].empty()) {
+      s3Bucket = make_shared<string>(boost::any_cast<string>(m["S3Bucket"]));
+    }
+    if (m.find("S3Endpoint") != m.end() && !m["S3Endpoint"].empty()) {
+      s3Endpoint = make_shared<string>(boost::any_cast<string>(m["S3Endpoint"]));
+    }
+    if (m.find("S3FileKey") != m.end() && !m["S3FileKey"].empty()) {
+      s3FileKey = make_shared<string>(boost::any_cast<string>(m["S3FileKey"]));
+    }
+    if (m.find("S3Provider") != m.end() && !m["S3Provider"].empty()) {
+      s3Provider = make_shared<string>(boost::any_cast<string>(m["S3Provider"]));
+    }
+    if (m.find("S3SecretKey") != m.end() && !m["S3SecretKey"].empty()) {
+      s3SecretKey = make_shared<string>(boost::any_cast<string>(m["S3SecretKey"]));
+    }
+    if (m.find("S3Token") != m.end() && !m["S3Token"].empty()) {
+      s3Token = make_shared<string>(boost::any_cast<string>(m["S3Token"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<int>(boost::any_cast<int>(m["id"]));
+    }
+    if (m.find("jobId") != m.end() && !m["jobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["jobId"]));
+    }
+  }
+
+
+  virtual ~UploadMediaByURLRequestUploadMetadatasS3UploadInfo() = default;
+};
+class UploadMediaByURLRequestUploadMetadatas : public Darabonba::Model {
+public:
+  shared_ptr<string> fileExtension{};
+  shared_ptr<UploadMediaByURLRequestUploadMetadatasS3UploadInfo> s3UploadInfo{};
+  shared_ptr<string> sourceURL{};
+  shared_ptr<string> title{};
+
+  UploadMediaByURLRequestUploadMetadatas() {}
+
+  explicit UploadMediaByURLRequestUploadMetadatas(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileExtension) {
+      res["FileExtension"] = boost::any(*fileExtension);
+    }
+    if (s3UploadInfo) {
+      res["S3UploadInfo"] = s3UploadInfo ? boost::any(s3UploadInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceURL) {
+      res["SourceURL"] = boost::any(*sourceURL);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileExtension") != m.end() && !m["FileExtension"].empty()) {
+      fileExtension = make_shared<string>(boost::any_cast<string>(m["FileExtension"]));
+    }
+    if (m.find("S3UploadInfo") != m.end() && !m["S3UploadInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["S3UploadInfo"].type()) {
+        UploadMediaByURLRequestUploadMetadatasS3UploadInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["S3UploadInfo"]));
+        s3UploadInfo = make_shared<UploadMediaByURLRequestUploadMetadatasS3UploadInfo>(model1);
+      }
+    }
+    if (m.find("SourceURL") != m.end() && !m["SourceURL"].empty()) {
+      sourceURL = make_shared<string>(boost::any_cast<string>(m["SourceURL"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~UploadMediaByURLRequestUploadMetadatas() = default;
+};
+class UploadMediaByURLRequestUserData : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> extend{};
+  shared_ptr<string> messageCallback{};
+
+  UploadMediaByURLRequestUserData() {}
+
+  explicit UploadMediaByURLRequestUserData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extend) {
+      res["Extend"] = boost::any(*extend);
+    }
+    if (messageCallback) {
+      res["MessageCallback"] = boost::any(*messageCallback);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Extend"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extend = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("MessageCallback") != m.end() && !m["MessageCallback"].empty()) {
+      messageCallback = make_shared<string>(boost::any_cast<string>(m["MessageCallback"]));
+    }
+  }
+
+
+  virtual ~UploadMediaByURLRequestUserData() = default;
+};
+class UploadMediaByURLRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UploadMediaByURLRequestUploadMetadatas>> uploadMetadatas{};
+  shared_ptr<string> uploadURLs{};
+  shared_ptr<UploadMediaByURLRequestUserData> userData{};
+
+  UploadMediaByURLRequest() {}
+
+  explicit UploadMediaByURLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (uploadMetadatas) {
+      vector<boost::any> temp1;
+      for(auto item1:*uploadMetadatas){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UploadMetadatas"] = boost::any(temp1);
+    }
+    if (uploadURLs) {
+      res["UploadURLs"] = boost::any(*uploadURLs);
+    }
+    if (userData) {
+      res["UserData"] = userData ? boost::any(userData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UploadMetadatas") != m.end() && !m["UploadMetadatas"].empty()) {
+      if (typeid(vector<boost::any>) == m["UploadMetadatas"].type()) {
+        vector<UploadMediaByURLRequestUploadMetadatas> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UploadMetadatas"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadMediaByURLRequestUploadMetadatas model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        uploadMetadatas = make_shared<vector<UploadMediaByURLRequestUploadMetadatas>>(expect1);
+      }
+    }
+    if (m.find("UploadURLs") != m.end() && !m["UploadURLs"].empty()) {
+      uploadURLs = make_shared<string>(boost::any_cast<string>(m["UploadURLs"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UserData"].type()) {
+        UploadMediaByURLRequestUserData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UserData"]));
+        userData = make_shared<UploadMediaByURLRequestUserData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadMediaByURLRequest() = default;
+};
+class UploadMediaByURLResponseBodyUploadJobs : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> sourceURL{};
+
+  UploadMediaByURLResponseBodyUploadJobs() {}
+
+  explicit UploadMediaByURLResponseBodyUploadJobs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (sourceURL) {
+      res["SourceURL"] = boost::any(*sourceURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("SourceURL") != m.end() && !m["SourceURL"].empty()) {
+      sourceURL = make_shared<string>(boost::any_cast<string>(m["SourceURL"]));
+    }
+  }
+
+
+  virtual ~UploadMediaByURLResponseBodyUploadJobs() = default;
+};
+class UploadMediaByURLResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<UploadMediaByURLResponseBodyUploadJobs>> uploadJobs{};
+
+  UploadMediaByURLResponseBody() {}
+
+  explicit UploadMediaByURLResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (uploadJobs) {
+      vector<boost::any> temp1;
+      for(auto item1:*uploadJobs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UploadJobs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UploadJobs") != m.end() && !m["UploadJobs"].empty()) {
+      if (typeid(vector<boost::any>) == m["UploadJobs"].type()) {
+        vector<UploadMediaByURLResponseBodyUploadJobs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UploadJobs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UploadMediaByURLResponseBodyUploadJobs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        uploadJobs = make_shared<vector<UploadMediaByURLResponseBodyUploadJobs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UploadMediaByURLResponseBody() = default;
+};
+class UploadMediaByURLResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UploadMediaByURLResponseBody> body{};
+
+  UploadMediaByURLResponse() {}
+
+  explicit UploadMediaByURLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UploadMediaByURLResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UploadMediaByURLResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UploadMediaByURLResponse() = default;
+};
 class DeleteSignatureResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -2265,6 +2645,8 @@ public:
   CreateScheduleResponse createScheduleWithOptions(shared_ptr<CreateScheduleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSchedulesResponse listSchedules(shared_ptr<ListSchedulesRequest> request);
   ListSchedulesResponse listSchedulesWithOptions(shared_ptr<ListSchedulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UploadMediaByURLResponse uploadMediaByURL(shared_ptr<UploadMediaByURLRequest> request);
+  UploadMediaByURLResponse uploadMediaByURLWithOptions(shared_ptr<UploadMediaByURLRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSignatureResponse deleteSignature(shared_ptr<string> ID);
   DeleteSignatureResponse deleteSignatureWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 

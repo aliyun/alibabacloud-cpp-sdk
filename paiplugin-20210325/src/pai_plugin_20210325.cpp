@@ -76,6 +76,7 @@ DeleteTemplateResponse Alibabacloud_PaiPlugin20210325::Client::deleteTemplate(sh
 }
 
 DeleteTemplateResponse Alibabacloud_PaiPlugin20210325::Client::deleteTemplateWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  ID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ID));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -151,6 +152,7 @@ DeleteScheduleResponse Alibabacloud_PaiPlugin20210325::Client::deleteSchedule(sh
 }
 
 DeleteScheduleResponse Alibabacloud_PaiPlugin20210325::Client::deleteScheduleWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  ID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ID));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -164,6 +166,7 @@ GetTemplateResponse Alibabacloud_PaiPlugin20210325::Client::getTemplate(shared_p
 }
 
 GetTemplateResponse Alibabacloud_PaiPlugin20210325::Client::getTemplateWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  ID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ID));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -205,6 +208,7 @@ GetSignatureResponse Alibabacloud_PaiPlugin20210325::Client::getSignature(shared
 }
 
 GetSignatureResponse Alibabacloud_PaiPlugin20210325::Client::getSignatureWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  ID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ID));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -288,6 +292,31 @@ ListSchedulesResponse Alibabacloud_PaiPlugin20210325::Client::listSchedulesWithO
   return ListSchedulesResponse(doROARequest(make_shared<string>("ListSchedules"), make_shared<string>("2021-03-25"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/api/v1/schedules")), make_shared<string>("json"), req, runtime));
 }
 
+UploadMediaByURLResponse Alibabacloud_PaiPlugin20210325::Client::uploadMediaByURL(shared_ptr<UploadMediaByURLRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return uploadMediaByURLWithOptions(request, headers, runtime);
+}
+
+UploadMediaByURLResponse Alibabacloud_PaiPlugin20210325::Client::uploadMediaByURLWithOptions(shared_ptr<UploadMediaByURLRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UploadMediaByURLRequestUploadMetadatas>>(request->uploadMetadatas)) {
+    (*body)["UploadMetadatas"] = *request->uploadMetadatas;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uploadURLs)) {
+    (*body)["UploadURLs"] = *request->uploadURLs;
+  }
+  if (!Darabonba_Util::Client::isUnset<UploadMediaByURLRequestUserData>(request->userData)) {
+    (*body)["UserData"] = *request->userData;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  return UploadMediaByURLResponse(doROARequest(make_shared<string>("UploadMediaByURL"), make_shared<string>("2021-03-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/api/v1/media/api/v1/video/upload")), make_shared<string>("json"), req, runtime));
+}
+
 DeleteSignatureResponse Alibabacloud_PaiPlugin20210325::Client::deleteSignature(shared_ptr<string> ID) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -295,6 +324,7 @@ DeleteSignatureResponse Alibabacloud_PaiPlugin20210325::Client::deleteSignature(
 }
 
 DeleteSignatureResponse Alibabacloud_PaiPlugin20210325::Client::deleteSignatureWithOptions(shared_ptr<string> ID, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  ID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ID));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
