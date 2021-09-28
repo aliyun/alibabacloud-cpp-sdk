@@ -245,6 +245,19 @@ DeclineHandshakeResponse Alibabacloud_ResourceManager20200331::Client::declineHa
   return declineHandshakeWithOptions(request, runtime);
 }
 
+DeleteAccountResponse Alibabacloud_ResourceManager20200331::Client::deleteAccountWithOptions(shared_ptr<DeleteAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeleteAccountResponse(doRPCRequest(make_shared<string>("DeleteAccount"), make_shared<string>("2020-03-31"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeleteAccountResponse Alibabacloud_ResourceManager20200331::Client::deleteAccount(shared_ptr<DeleteAccountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAccountWithOptions(request, runtime);
+}
+
 DeleteControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::deleteControlPolicyWithOptions(shared_ptr<DeleteControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -823,6 +836,19 @@ MoveAccountResponse Alibabacloud_ResourceManager20200331::Client::moveAccountWit
 MoveAccountResponse Alibabacloud_ResourceManager20200331::Client::moveAccount(shared_ptr<MoveAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return moveAccountWithOptions(request, runtime);
+}
+
+MoveResourcesResponse Alibabacloud_ResourceManager20200331::Client::moveResourcesWithOptions(shared_ptr<MoveResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return MoveResourcesResponse(doRPCRequest(make_shared<string>("MoveResources"), make_shared<string>("2020-03-31"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+MoveResourcesResponse Alibabacloud_ResourceManager20200331::Client::moveResources(shared_ptr<MoveResourcesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return moveResourcesWithOptions(request, runtime);
 }
 
 PromoteResourceAccountResponse Alibabacloud_ResourceManager20200331::Client::promoteResourceAccountWithOptions(shared_ptr<PromoteResourceAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
