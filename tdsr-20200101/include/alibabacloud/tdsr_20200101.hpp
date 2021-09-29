@@ -381,6 +381,7 @@ public:
   shared_ptr<string> subSceneId{};
   shared_ptr<string> fileName{};
   shared_ptr<long> cameraHeight{};
+  shared_ptr<string> platform{};
 
   LinkImageRequest() {}
 
@@ -401,6 +402,9 @@ public:
     if (cameraHeight) {
       res["CameraHeight"] = boost::any(*cameraHeight);
     }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
+    }
     return res;
   }
 
@@ -413,6 +417,9 @@ public:
     }
     if (m.find("CameraHeight") != m.end() && !m["CameraHeight"].empty()) {
       cameraHeight = make_shared<long>(boost::any_cast<long>(m["CameraHeight"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
     }
   }
 
@@ -4483,6 +4490,8 @@ public:
   shared_ptr<long> gmtModified{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> cubemapPath{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> originUrl{};
 
   ListSubSceneResponseBodyList() {}
 
@@ -4524,6 +4533,12 @@ public:
     if (cubemapPath) {
       res["CubemapPath"] = boost::any(*cubemapPath);
     }
+    if (deleted) {
+      res["Deleted"] = boost::any(*deleted);
+    }
+    if (originUrl) {
+      res["OriginUrl"] = boost::any(*originUrl);
+    }
     return res;
   }
 
@@ -4557,6 +4572,12 @@ public:
     }
     if (m.find("CubemapPath") != m.end() && !m["CubemapPath"].empty()) {
       cubemapPath = make_shared<string>(boost::any_cast<string>(m["CubemapPath"]));
+    }
+    if (m.find("Deleted") != m.end() && !m["Deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["Deleted"]));
+    }
+    if (m.find("OriginUrl") != m.end() && !m["OriginUrl"].empty()) {
+      originUrl = make_shared<string>(boost::any_cast<string>(m["OriginUrl"]));
     }
   }
 
@@ -5906,6 +5927,151 @@ public:
 
 
   virtual ~TempPreviewResponse() = default;
+};
+class PublishSceneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+
+  PublishSceneRequest() {}
+
+  explicit PublishSceneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+  }
+
+
+  virtual ~PublishSceneRequest() = default;
+};
+class PublishSceneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> message{};
+  shared_ptr<string> previewUrl{};
+  shared_ptr<string> instanceId{};
+
+  PublishSceneResponseBody() {}
+
+  explicit PublishSceneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (previewUrl) {
+      res["PreviewUrl"] = boost::any(*previewUrl);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PreviewUrl") != m.end() && !m["PreviewUrl"].empty()) {
+      previewUrl = make_shared<string>(boost::any_cast<string>(m["PreviewUrl"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~PublishSceneResponseBody() = default;
+};
+class PublishSceneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<PublishSceneResponseBody> body{};
+
+  PublishSceneResponse() {}
+
+  explicit PublishSceneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PublishSceneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PublishSceneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PublishSceneResponse() = default;
 };
 class DetailProjectRequest : public Darabonba::Model {
 public:
@@ -8829,6 +8995,8 @@ public:
   GetSceneBuildTaskStatusResponse getSceneBuildTaskStatus(shared_ptr<GetSceneBuildTaskStatusRequest> request);
   TempPreviewResponse tempPreviewWithOptions(shared_ptr<TempPreviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TempPreviewResponse tempPreview(shared_ptr<TempPreviewRequest> request);
+  PublishSceneResponse publishSceneWithOptions(shared_ptr<PublishSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PublishSceneResponse publishScene(shared_ptr<PublishSceneRequest> request);
   DetailProjectResponse detailProjectWithOptions(shared_ptr<DetailProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetailProjectResponse detailProject(shared_ptr<DetailProjectRequest> request);
   ListScenesResponse listScenesWithOptions(shared_ptr<ListScenesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
