@@ -3390,3 +3390,21 @@ CreateBodyDbResponse Alibabacloud_Facebody20191230::Client::createBodyDb(shared_
   return createBodyDbWithOptions(request, runtime);
 }
 
+BatchAddFacesResponse Alibabacloud_Facebody20191230::Client::batchAddFacesWithOptions(shared_ptr<BatchAddFacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BatchAddFacesShrinkRequest> request = make_shared<BatchAddFacesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<BatchAddFacesRequestFaces>>(tmpReq->faces)) {
+    request->facesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->faces, make_shared<string>("Faces"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return BatchAddFacesResponse(doRPCRequest(make_shared<string>("BatchAddFaces"), make_shared<string>("2019-12-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+BatchAddFacesResponse Alibabacloud_Facebody20191230::Client::batchAddFaces(shared_ptr<BatchAddFacesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchAddFacesWithOptions(request, runtime);
+}
+

@@ -4283,6 +4283,10 @@ public:
 class DetectFaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<bool> landmark{};
+  shared_ptr<bool> quality{};
+  shared_ptr<bool> pose{};
+  shared_ptr<long> maxFaceNumber{};
 
   DetectFaceRequest() {}
 
@@ -4297,12 +4301,36 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (landmark) {
+      res["Landmark"] = boost::any(*landmark);
+    }
+    if (quality) {
+      res["Quality"] = boost::any(*quality);
+    }
+    if (pose) {
+      res["Pose"] = boost::any(*pose);
+    }
+    if (maxFaceNumber) {
+      res["MaxFaceNumber"] = boost::any(*maxFaceNumber);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("Landmark") != m.end() && !m["Landmark"].empty()) {
+      landmark = make_shared<bool>(boost::any_cast<bool>(m["Landmark"]));
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      quality = make_shared<bool>(boost::any_cast<bool>(m["Quality"]));
+    }
+    if (m.find("Pose") != m.end() && !m["Pose"].empty()) {
+      pose = make_shared<bool>(boost::any_cast<bool>(m["Pose"]));
+    }
+    if (m.find("MaxFaceNumber") != m.end() && !m["MaxFaceNumber"].empty()) {
+      maxFaceNumber = make_shared<long>(boost::any_cast<long>(m["MaxFaceNumber"]));
     }
   }
 
@@ -4312,6 +4340,10 @@ public:
 class DetectFaceAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<bool> landmark{};
+  shared_ptr<bool> quality{};
+  shared_ptr<bool> pose{};
+  shared_ptr<long> maxFaceNumber{};
 
   DetectFaceAdvanceRequest() {}
 
@@ -4330,12 +4362,36 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
+    if (landmark) {
+      res["Landmark"] = boost::any(*landmark);
+    }
+    if (quality) {
+      res["Quality"] = boost::any(*quality);
+    }
+    if (pose) {
+      res["Pose"] = boost::any(*pose);
+    }
+    if (maxFaceNumber) {
+      res["MaxFaceNumber"] = boost::any(*maxFaceNumber);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("Landmark") != m.end() && !m["Landmark"].empty()) {
+      landmark = make_shared<bool>(boost::any_cast<bool>(m["Landmark"]));
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      quality = make_shared<bool>(boost::any_cast<bool>(m["Quality"]));
+    }
+    if (m.find("Pose") != m.end() && !m["Pose"].empty()) {
+      pose = make_shared<bool>(boost::any_cast<bool>(m["Pose"]));
+    }
+    if (m.find("MaxFaceNumber") != m.end() && !m["MaxFaceNumber"].empty()) {
+      maxFaceNumber = make_shared<long>(boost::any_cast<long>(m["MaxFaceNumber"]));
     }
   }
 
@@ -8669,6 +8725,7 @@ public:
   shared_ptr<long> limit{};
   shared_ptr<string> dbNames{};
   shared_ptr<double> qualityScoreThreshold{};
+  shared_ptr<long> maxFaceNum{};
 
   SearchFaceRequest() {}
 
@@ -8695,6 +8752,9 @@ public:
     if (qualityScoreThreshold) {
       res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
     }
+    if (maxFaceNum) {
+      res["MaxFaceNum"] = boost::any(*maxFaceNum);
+    }
     return res;
   }
 
@@ -8714,6 +8774,9 @@ public:
     if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
       qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
     }
+    if (m.find("MaxFaceNum") != m.end() && !m["MaxFaceNum"].empty()) {
+      maxFaceNum = make_shared<long>(boost::any_cast<long>(m["MaxFaceNum"]));
+    }
   }
 
 
@@ -8726,6 +8789,7 @@ public:
   shared_ptr<long> limit{};
   shared_ptr<string> dbNames{};
   shared_ptr<double> qualityScoreThreshold{};
+  shared_ptr<long> maxFaceNum{};
 
   SearchFaceAdvanceRequest() {}
 
@@ -8756,6 +8820,9 @@ public:
     if (qualityScoreThreshold) {
       res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
     }
+    if (maxFaceNum) {
+      res["MaxFaceNum"] = boost::any(*maxFaceNum);
+    }
     return res;
   }
 
@@ -8774,6 +8841,9 @@ public:
     }
     if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
       qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+    if (m.find("MaxFaceNum") != m.end() && !m["MaxFaceNum"].empty()) {
+      maxFaceNum = make_shared<long>(boost::any_cast<long>(m["MaxFaceNum"]));
     }
   }
 
@@ -17581,6 +17651,419 @@ public:
 
   virtual ~CreateBodyDbResponse() = default;
 };
+class BatchAddFacesRequestFaces : public Darabonba::Model {
+public:
+  shared_ptr<string> extraData{};
+  shared_ptr<string> imageURL{};
+
+  BatchAddFacesRequestFaces() {}
+
+  explicit BatchAddFacesRequestFaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extraData) {
+      res["ExtraData"] = boost::any(*extraData);
+    }
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
+      extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesRequestFaces() = default;
+};
+class BatchAddFacesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dbName{};
+  shared_ptr<string> entityId{};
+  shared_ptr<double> similarityScoreThresholdInEntity{};
+  shared_ptr<double> similarityScoreThresholdBetweenEntity{};
+  shared_ptr<vector<BatchAddFacesRequestFaces>> faces{};
+  shared_ptr<double> qualityScoreThreshold{};
+
+  BatchAddFacesRequest() {}
+
+  explicit BatchAddFacesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (similarityScoreThresholdInEntity) {
+      res["SimilarityScoreThresholdInEntity"] = boost::any(*similarityScoreThresholdInEntity);
+    }
+    if (similarityScoreThresholdBetweenEntity) {
+      res["SimilarityScoreThresholdBetweenEntity"] = boost::any(*similarityScoreThresholdBetweenEntity);
+    }
+    if (faces) {
+      vector<boost::any> temp1;
+      for(auto item1:*faces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Faces"] = boost::any(temp1);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("SimilarityScoreThresholdInEntity") != m.end() && !m["SimilarityScoreThresholdInEntity"].empty()) {
+      similarityScoreThresholdInEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdInEntity"]));
+    }
+    if (m.find("SimilarityScoreThresholdBetweenEntity") != m.end() && !m["SimilarityScoreThresholdBetweenEntity"].empty()) {
+      similarityScoreThresholdBetweenEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdBetweenEntity"]));
+    }
+    if (m.find("Faces") != m.end() && !m["Faces"].empty()) {
+      if (typeid(vector<boost::any>) == m["Faces"].type()) {
+        vector<BatchAddFacesRequestFaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Faces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFacesRequestFaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faces = make_shared<vector<BatchAddFacesRequestFaces>>(expect1);
+      }
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesRequest() = default;
+};
+class BatchAddFacesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dbName{};
+  shared_ptr<string> entityId{};
+  shared_ptr<double> similarityScoreThresholdInEntity{};
+  shared_ptr<double> similarityScoreThresholdBetweenEntity{};
+  shared_ptr<string> facesShrink{};
+  shared_ptr<double> qualityScoreThreshold{};
+
+  BatchAddFacesShrinkRequest() {}
+
+  explicit BatchAddFacesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (similarityScoreThresholdInEntity) {
+      res["SimilarityScoreThresholdInEntity"] = boost::any(*similarityScoreThresholdInEntity);
+    }
+    if (similarityScoreThresholdBetweenEntity) {
+      res["SimilarityScoreThresholdBetweenEntity"] = boost::any(*similarityScoreThresholdBetweenEntity);
+    }
+    if (facesShrink) {
+      res["Faces"] = boost::any(*facesShrink);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("SimilarityScoreThresholdInEntity") != m.end() && !m["SimilarityScoreThresholdInEntity"].empty()) {
+      similarityScoreThresholdInEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdInEntity"]));
+    }
+    if (m.find("SimilarityScoreThresholdBetweenEntity") != m.end() && !m["SimilarityScoreThresholdBetweenEntity"].empty()) {
+      similarityScoreThresholdBetweenEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdBetweenEntity"]));
+    }
+    if (m.find("Faces") != m.end() && !m["Faces"].empty()) {
+      facesShrink = make_shared<string>(boost::any_cast<string>(m["Faces"]));
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesShrinkRequest() = default;
+};
+class BatchAddFacesResponseBodyDataInsertedFaces : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<string> faceId{};
+
+  BatchAddFacesResponseBodyDataInsertedFaces() {}
+
+  explicit BatchAddFacesResponseBodyDataInsertedFaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (faceId) {
+      res["FaceId"] = boost::any(*faceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("FaceId") != m.end() && !m["FaceId"].empty()) {
+      faceId = make_shared<string>(boost::any_cast<string>(m["FaceId"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesResponseBodyDataInsertedFaces() = default;
+};
+class BatchAddFacesResponseBodyDataFailedFaces : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  BatchAddFacesResponseBodyDataFailedFaces() {}
+
+  explicit BatchAddFacesResponseBodyDataFailedFaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesResponseBodyDataFailedFaces() = default;
+};
+class BatchAddFacesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<BatchAddFacesResponseBodyDataInsertedFaces>> insertedFaces{};
+  shared_ptr<vector<BatchAddFacesResponseBodyDataFailedFaces>> failedFaces{};
+
+  BatchAddFacesResponseBodyData() {}
+
+  explicit BatchAddFacesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insertedFaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*insertedFaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InsertedFaces"] = boost::any(temp1);
+    }
+    if (failedFaces) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedFaces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedFaces"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsertedFaces") != m.end() && !m["InsertedFaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["InsertedFaces"].type()) {
+        vector<BatchAddFacesResponseBodyDataInsertedFaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InsertedFaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFacesResponseBodyDataInsertedFaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        insertedFaces = make_shared<vector<BatchAddFacesResponseBodyDataInsertedFaces>>(expect1);
+      }
+    }
+    if (m.find("FailedFaces") != m.end() && !m["FailedFaces"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedFaces"].type()) {
+        vector<BatchAddFacesResponseBodyDataFailedFaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedFaces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFacesResponseBodyDataFailedFaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedFaces = make_shared<vector<BatchAddFacesResponseBodyDataFailedFaces>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BatchAddFacesResponseBodyData() = default;
+};
+class BatchAddFacesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<BatchAddFacesResponseBodyData> data{};
+
+  BatchAddFacesResponseBody() {}
+
+  explicit BatchAddFacesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BatchAddFacesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BatchAddFacesResponseBodyData>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchAddFacesResponseBody() = default;
+};
+class BatchAddFacesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BatchAddFacesResponseBody> body{};
+
+  BatchAddFacesResponse() {}
+
+  explicit BatchAddFacesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchAddFacesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchAddFacesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchAddFacesResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -17754,6 +18237,8 @@ public:
   MonitorExaminationResponse monitorExaminationAdvance(shared_ptr<MonitorExaminationAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBodyDbResponse createBodyDbWithOptions(shared_ptr<CreateBodyDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBodyDbResponse createBodyDb(shared_ptr<CreateBodyDbRequest> request);
+  BatchAddFacesResponse batchAddFacesWithOptions(shared_ptr<BatchAddFacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchAddFacesResponse batchAddFaces(shared_ptr<BatchAddFacesRequest> request);
 
   virtual ~Client() = default;
 };

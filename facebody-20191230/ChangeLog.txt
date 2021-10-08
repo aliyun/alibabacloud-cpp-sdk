@@ -1,3 +1,6 @@
+2021-10-08 Version: 1.0.10
+- Release SearchFace BatchAddFaces.
+
 2021-09-24 Version: 1.0.9
 - Release RetouchSkin LiquifyFace.
 
