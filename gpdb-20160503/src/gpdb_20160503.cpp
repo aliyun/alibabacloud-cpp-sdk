@@ -3,6 +3,7 @@
 #include <alibabacloud/gpdb_20160503.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -300,8 +301,19 @@ DescribeDBInstancePerformanceResponse Alibabacloud_Gpdb20160503::Client::describ
   return describeDBInstancePerformanceWithOptions(request, runtime);
 }
 
-DescribeDBInstancesResponse Alibabacloud_Gpdb20160503::Client::describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DescribeDBInstancesResponse Alibabacloud_Gpdb20160503::Client::describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DescribeDBInstancesShrinkRequest> request = make_shared<DescribeDBInstancesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceDeployTypes)) {
+    request->instanceDeployTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceDeployTypes, make_shared<string>("InstanceDeployTypes"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->DBInstanceStatuses)) {
+    request->DBInstanceStatusesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->DBInstanceStatuses, make_shared<string>("DBInstanceStatuses"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->DBInstanceCategories)) {
+    request->DBInstanceCategoriesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->DBInstanceCategories, make_shared<string>("DBInstanceCategories"), make_shared<string>("simple")));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));

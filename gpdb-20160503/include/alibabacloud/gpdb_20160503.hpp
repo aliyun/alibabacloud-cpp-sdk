@@ -850,6 +850,7 @@ public:
   shared_ptr<long> masterNodeNum{};
   shared_ptr<string> srcDbInstanceName{};
   shared_ptr<string> backupId{};
+  shared_ptr<string> DBInstanceCategory{};
 
   CreateECSDBInstanceRequest() {}
 
@@ -933,6 +934,9 @@ public:
     if (backupId) {
       res["BackupId"] = boost::any(*backupId);
     }
+    if (DBInstanceCategory) {
+      res["DBInstanceCategory"] = boost::any(*DBInstanceCategory);
+    }
     return res;
   }
 
@@ -1008,6 +1012,9 @@ public:
     }
     if (m.find("BackupId") != m.end() && !m["BackupId"].empty()) {
       backupId = make_shared<string>(boost::any_cast<string>(m["BackupId"]));
+    }
+    if (m.find("DBInstanceCategory") != m.end() && !m["DBInstanceCategory"].empty()) {
+      DBInstanceCategory = make_shared<string>(boost::any_cast<string>(m["DBInstanceCategory"]));
     }
   }
 
@@ -3026,12 +3033,13 @@ public:
   shared_ptr<long> DBInstanceMemory{};
   shared_ptr<string> hostType{};
   shared_ptr<string> payType{};
+  shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags> tags{};
   shared_ptr<string> storageType{};
-  shared_ptr<long> cpuCoresPerNode{};
   shared_ptr<string> availabilityValue{};
   shared_ptr<string> readDelayTime{};
-  shared_ptr<string> connectionMode{};
+  shared_ptr<long> cpuCoresPerNode{};
   shared_ptr<string> port{};
+  shared_ptr<string> connectionMode{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> storageUnit{};
@@ -3057,7 +3065,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> engine{};
-  shared_ptr<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags> tags{};
+  shared_ptr<string> DBInstanceCategory{};
 
   DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute() {}
 
@@ -3093,11 +3101,11 @@ public:
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (storageType) {
       res["StorageType"] = boost::any(*storageType);
-    }
-    if (cpuCoresPerNode) {
-      res["CpuCoresPerNode"] = boost::any(*cpuCoresPerNode);
     }
     if (availabilityValue) {
       res["AvailabilityValue"] = boost::any(*availabilityValue);
@@ -3105,11 +3113,14 @@ public:
     if (readDelayTime) {
       res["ReadDelayTime"] = boost::any(*readDelayTime);
     }
-    if (connectionMode) {
-      res["ConnectionMode"] = boost::any(*connectionMode);
+    if (cpuCoresPerNode) {
+      res["CpuCoresPerNode"] = boost::any(*cpuCoresPerNode);
     }
     if (port) {
       res["Port"] = boost::any(*port);
+    }
+    if (connectionMode) {
+      res["ConnectionMode"] = boost::any(*connectionMode);
     }
     if (lockMode) {
       res["LockMode"] = boost::any(*lockMode);
@@ -3186,8 +3197,8 @@ public:
     if (engine) {
       res["Engine"] = boost::any(*engine);
     }
-    if (tags) {
-      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    if (DBInstanceCategory) {
+      res["DBInstanceCategory"] = boost::any(*DBInstanceCategory);
     }
     return res;
   }
@@ -3217,11 +3228,15 @@ public:
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags>(model1);
+      }
+    }
     if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
       storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
-    }
-    if (m.find("CpuCoresPerNode") != m.end() && !m["CpuCoresPerNode"].empty()) {
-      cpuCoresPerNode = make_shared<long>(boost::any_cast<long>(m["CpuCoresPerNode"]));
     }
     if (m.find("AvailabilityValue") != m.end() && !m["AvailabilityValue"].empty()) {
       availabilityValue = make_shared<string>(boost::any_cast<string>(m["AvailabilityValue"]));
@@ -3229,11 +3244,14 @@ public:
     if (m.find("ReadDelayTime") != m.end() && !m["ReadDelayTime"].empty()) {
       readDelayTime = make_shared<string>(boost::any_cast<string>(m["ReadDelayTime"]));
     }
-    if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
-      connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
+    if (m.find("CpuCoresPerNode") != m.end() && !m["CpuCoresPerNode"].empty()) {
+      cpuCoresPerNode = make_shared<long>(boost::any_cast<long>(m["CpuCoresPerNode"]));
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("ConnectionMode") != m.end() && !m["ConnectionMode"].empty()) {
+      connectionMode = make_shared<string>(boost::any_cast<string>(m["ConnectionMode"]));
     }
     if (m.find("LockMode") != m.end() && !m["LockMode"].empty()) {
       lockMode = make_shared<string>(boost::any_cast<string>(m["LockMode"]));
@@ -3310,12 +3328,8 @@ public:
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
-        DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
-        tags = make_shared<DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags>(model1);
-      }
+    if (m.find("DBInstanceCategory") != m.end() && !m["DBInstanceCategory"].empty()) {
+      DBInstanceCategory = make_shared<string>(boost::any_cast<string>(m["DBInstanceCategory"]));
     }
   }
 
@@ -4060,6 +4074,7 @@ public:
   shared_ptr<bool> supportRestore{};
   shared_ptr<string> minorVersion{};
   shared_ptr<long> masterNodeNum{};
+  shared_ptr<string> DBInstanceCategory{};
 
   DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribute() {}
 
@@ -4161,6 +4176,9 @@ public:
     if (masterNodeNum) {
       res["MasterNodeNum"] = boost::any(*masterNodeNum);
     }
+    if (DBInstanceCategory) {
+      res["DBInstanceCategory"] = boost::any(*DBInstanceCategory);
+    }
     return res;
   }
 
@@ -4258,6 +4276,9 @@ public:
     }
     if (m.find("MasterNodeNum") != m.end() && !m["MasterNodeNum"].empty()) {
       masterNodeNum = make_shared<long>(boost::any_cast<long>(m["MasterNodeNum"]));
+    }
+    if (m.find("DBInstanceCategory") != m.end() && !m["DBInstanceCategory"].empty()) {
+      DBInstanceCategory = make_shared<string>(boost::any_cast<string>(m["DBInstanceCategory"]));
     }
   }
 
@@ -4618,6 +4639,9 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<long> pageNumber{};
   shared_ptr<vector<DescribeDBInstancesRequestTag>> tag{};
+  shared_ptr<vector<string>> instanceDeployTypes{};
+  shared_ptr<vector<string>> DBInstanceStatuses{};
+  shared_ptr<vector<string>> DBInstanceCategories{};
 
   DescribeDBInstancesRequest() {}
 
@@ -4657,6 +4681,15 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (instanceDeployTypes) {
+      res["InstanceDeployTypes"] = boost::any(*instanceDeployTypes);
+    }
+    if (DBInstanceStatuses) {
+      res["DBInstanceStatuses"] = boost::any(*DBInstanceStatuses);
+    }
+    if (DBInstanceCategories) {
+      res["DBInstanceCategories"] = boost::any(*DBInstanceCategories);
+    }
     return res;
   }
 
@@ -4695,10 +4728,189 @@ public:
         tag = make_shared<vector<DescribeDBInstancesRequestTag>>(expect1);
       }
     }
+    if (m.find("InstanceDeployTypes") != m.end() && !m["InstanceDeployTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceDeployTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceDeployTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceDeployTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DBInstanceStatuses") != m.end() && !m["DBInstanceStatuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstanceStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstanceStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstanceStatuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DBInstanceCategories") != m.end() && !m["DBInstanceCategories"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstanceCategories"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstanceCategories"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstanceCategories = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~DescribeDBInstancesRequest() = default;
+};
+class DescribeDBInstancesShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDBInstancesShrinkRequestTag() {}
+
+  explicit DescribeDBInstancesShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDBInstancesShrinkRequestTag() = default;
+};
+class DescribeDBInstancesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> instanceNetworkType{};
+  shared_ptr<string> DBInstanceIds{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<vector<DescribeDBInstancesShrinkRequestTag>> tag{};
+  shared_ptr<string> instanceDeployTypesShrink{};
+  shared_ptr<string> DBInstanceStatusesShrink{};
+  shared_ptr<string> DBInstanceCategoriesShrink{};
+
+  DescribeDBInstancesShrinkRequest() {}
+
+  explicit DescribeDBInstancesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (DBInstanceDescription) {
+      res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
+    }
+    if (instanceNetworkType) {
+      res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
+    }
+    if (DBInstanceIds) {
+      res["DBInstanceIds"] = boost::any(*DBInstanceIds);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (instanceDeployTypesShrink) {
+      res["InstanceDeployTypes"] = boost::any(*instanceDeployTypesShrink);
+    }
+    if (DBInstanceStatusesShrink) {
+      res["DBInstanceStatuses"] = boost::any(*DBInstanceStatusesShrink);
+    }
+    if (DBInstanceCategoriesShrink) {
+      res["DBInstanceCategories"] = boost::any(*DBInstanceCategoriesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
+      DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
+    }
+    if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
+      instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
+    }
+    if (m.find("DBInstanceIds") != m.end() && !m["DBInstanceIds"].empty()) {
+      DBInstanceIds = make_shared<string>(boost::any_cast<string>(m["DBInstanceIds"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeDBInstancesShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBInstancesShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeDBInstancesShrinkRequestTag>>(expect1);
+      }
+    }
+    if (m.find("InstanceDeployTypes") != m.end() && !m["InstanceDeployTypes"].empty()) {
+      instanceDeployTypesShrink = make_shared<string>(boost::any_cast<string>(m["InstanceDeployTypes"]));
+    }
+    if (m.find("DBInstanceStatuses") != m.end() && !m["DBInstanceStatuses"].empty()) {
+      DBInstanceStatusesShrink = make_shared<string>(boost::any_cast<string>(m["DBInstanceStatuses"]));
+    }
+    if (m.find("DBInstanceCategories") != m.end() && !m["DBInstanceCategories"].empty()) {
+      DBInstanceCategoriesShrink = make_shared<string>(boost::any_cast<string>(m["DBInstanceCategories"]));
+    }
+  }
+
+
+  virtual ~DescribeDBInstancesShrinkRequest() = default;
 };
 class DescribeDBInstancesResponseBodyItemsDBInstanceTagsTag : public Darabonba::Model {
 public:
@@ -4804,6 +5016,7 @@ public:
   shared_ptr<string> segNodeNum{};
   shared_ptr<string> storageSize{};
   shared_ptr<long> masterNodeNum{};
+  shared_ptr<string> DBInstanceCategory{};
 
   DescribeDBInstancesResponseBodyItemsDBInstance() {}
 
@@ -4884,6 +5097,9 @@ public:
     if (masterNodeNum) {
       res["MasterNodeNum"] = boost::any(*masterNodeNum);
     }
+    if (DBInstanceCategory) {
+      res["DBInstanceCategory"] = boost::any(*DBInstanceCategory);
+    }
     return res;
   }
 
@@ -4960,6 +5176,9 @@ public:
     }
     if (m.find("MasterNodeNum") != m.end() && !m["MasterNodeNum"].empty()) {
       masterNodeNum = make_shared<long>(boost::any_cast<long>(m["MasterNodeNum"]));
+    }
+    if (m.find("DBInstanceCategory") != m.end() && !m["DBInstanceCategory"].empty()) {
+      DBInstanceCategory = make_shared<string>(boost::any_cast<string>(m["DBInstanceCategory"]));
     }
   }
 
@@ -13637,7 +13856,7 @@ public:
   DescribeDBInstanceOnECSAttributeResponse describeDBInstanceOnECSAttribute(shared_ptr<DescribeDBInstanceOnECSAttributeRequest> request);
   DescribeDBInstancePerformanceResponse describeDBInstancePerformanceWithOptions(shared_ptr<DescribeDBInstancePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBInstancePerformanceResponse describeDBInstancePerformance(shared_ptr<DescribeDBInstancePerformanceRequest> request);
-  DescribeDBInstancesResponse describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDBInstancesResponse describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBInstancesResponse describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request);
   DescribeDBInstanceSQLPatternsResponse describeDBInstanceSQLPatternsWithOptions(shared_ptr<DescribeDBInstanceSQLPatternsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBInstanceSQLPatternsResponse describeDBInstanceSQLPatterns(shared_ptr<DescribeDBInstanceSQLPatternsRequest> request);
