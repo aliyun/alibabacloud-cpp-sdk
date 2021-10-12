@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_polardbx_20200202Targets.cmake")
+check_required_components("alibabacloud_polardbx_20200202")
