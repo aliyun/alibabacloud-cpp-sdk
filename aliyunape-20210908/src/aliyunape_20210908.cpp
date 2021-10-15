@@ -10,6 +10,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -76,5 +77,46 @@ ExecuteResponse Alibabacloud_Aliyunape20210908::Client::executeWithOptions(share
 ExecuteResponse Alibabacloud_Aliyunape20210908::Client::execute(shared_ptr<ExecuteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return executeWithOptions(request, runtime);
+}
+
+WeathermonitorProvinceHourResponse Alibabacloud_Aliyunape20210908::Client::weathermonitorProvinceHourWithOptions(shared_ptr<WeathermonitorProvinceHourRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<WeathermonitorProvinceHourShrinkRequest> request = make_shared<WeathermonitorProvinceHourShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->extendParam)) {
+    request->extendParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extendParam, make_shared<string>("ExtendParam"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->serviceParam)) {
+    request->serviceParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serviceParam, make_shared<string>("ServiceParam"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppName", *request->appName));
+  query->insert(pair<string, string>("Channel", *request->channel));
+  query->insert(pair<string, string>("ExtendParam", *request->extendParamShrink));
+  query->insert(pair<string, string>("OrderId", *request->orderId));
+  query->insert(pair<string, string>("RequestId", *request->requestId));
+  query->insert(pair<string, string>("ServiceParam", *request->serviceParamShrink));
+  query->insert(pair<string, long>("UserId", *request->userId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("WeathermonitorProvinceHour"))},
+    {"version", boost::any(string("2021-09-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return WeathermonitorProvinceHourResponse(callApi(params, req, runtime));
+}
+
+WeathermonitorProvinceHourResponse Alibabacloud_Aliyunape20210908::Client::weathermonitorProvinceHour(shared_ptr<WeathermonitorProvinceHourRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return weathermonitorProvinceHourWithOptions(request, runtime);
 }
 
