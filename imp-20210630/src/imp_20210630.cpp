@@ -38,19 +38,6 @@ string Alibabacloud_Imp20210630::Client::getEndpoint(shared_ptr<string> productI
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateIceProjectResponse Alibabacloud_Imp20210630::Client::createIceProjectWithOptions(shared_ptr<CreateIceProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CreateIceProjectResponse(doRPCRequest(make_shared<string>("CreateIceProject"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CreateIceProjectResponse Alibabacloud_Imp20210630::Client::createIceProject(shared_ptr<CreateIceProjectRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createIceProjectWithOptions(request, runtime);
-}
-
 RemoveMemberResponse Alibabacloud_Imp20210630::Client::removeMemberWithOptions(shared_ptr<RemoveMemberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -62,6 +49,19 @@ RemoveMemberResponse Alibabacloud_Imp20210630::Client::removeMemberWithOptions(s
 RemoveMemberResponse Alibabacloud_Imp20210630::Client::removeMember(shared_ptr<RemoveMemberRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeMemberWithOptions(request, runtime);
+}
+
+DeleteCommentResponse Alibabacloud_Imp20210630::Client::deleteCommentWithOptions(shared_ptr<DeleteCommentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DeleteCommentResponse(doRPCRequest(make_shared<string>("DeleteComment"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DeleteCommentResponse Alibabacloud_Imp20210630::Client::deleteComment(shared_ptr<DeleteCommentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCommentWithOptions(request, runtime);
 }
 
 ListApplyLinkMicUsersResponse Alibabacloud_Imp20210630::Client::listApplyLinkMicUsersWithOptions(shared_ptr<ListApplyLinkMicUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -127,6 +127,19 @@ BanCommentResponse Alibabacloud_Imp20210630::Client::banCommentWithOptions(share
 BanCommentResponse Alibabacloud_Imp20210630::Client::banComment(shared_ptr<BanCommentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return banCommentWithOptions(request, runtime);
+}
+
+GetStandardRoomHttpsCertificateResponse Alibabacloud_Imp20210630::Client::getStandardRoomHttpsCertificateWithOptions(shared_ptr<GetStandardRoomHttpsCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetStandardRoomHttpsCertificateResponse(doRPCRequest(make_shared<string>("GetStandardRoomHttpsCertificate"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetStandardRoomHttpsCertificateResponse Alibabacloud_Imp20210630::Client::getStandardRoomHttpsCertificate(shared_ptr<GetStandardRoomHttpsCertificateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getStandardRoomHttpsCertificateWithOptions(request, runtime);
 }
 
 ListLiveRoomsByIdResponse Alibabacloud_Imp20210630::Client::listLiveRoomsByIdWithOptions(shared_ptr<ListLiveRoomsByIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -199,6 +212,19 @@ DeleteAppTemplateResponse Alibabacloud_Imp20210630::Client::deleteAppTemplate(sh
   return deleteAppTemplateWithOptions(request, runtime);
 }
 
+AttachStandardRoomHttpsCertificateResponse Alibabacloud_Imp20210630::Client::attachStandardRoomHttpsCertificateWithOptions(shared_ptr<AttachStandardRoomHttpsCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AttachStandardRoomHttpsCertificateResponse(doRPCRequest(make_shared<string>("AttachStandardRoomHttpsCertificate"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AttachStandardRoomHttpsCertificateResponse Alibabacloud_Imp20210630::Client::attachStandardRoomHttpsCertificate(shared_ptr<AttachStandardRoomHttpsCertificateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return attachStandardRoomHttpsCertificateWithOptions(request, runtime);
+}
+
 UpdateAppTemplateConfigResponse Alibabacloud_Imp20210630::Client::updateAppTemplateConfigWithOptions(shared_ptr<UpdateAppTemplateConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateAppTemplateConfigShrinkRequest> request = make_shared<UpdateAppTemplateConfigShrinkRequest>();
@@ -241,19 +267,6 @@ UpdateClassResponse Alibabacloud_Imp20210630::Client::updateClassWithOptions(sha
 UpdateClassResponse Alibabacloud_Imp20210630::Client::updateClass(shared_ptr<UpdateClassRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateClassWithOptions(request, runtime);
-}
-
-RegisterIceOssMediaResponse Alibabacloud_Imp20210630::Client::registerIceOssMediaWithOptions(shared_ptr<RegisterIceOssMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return RegisterIceOssMediaResponse(doRPCRequest(make_shared<string>("RegisterIceOssMedia"), make_shared<string>("2021-06-30"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-RegisterIceOssMediaResponse Alibabacloud_Imp20210630::Client::registerIceOssMedia(shared_ptr<RegisterIceOssMediaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return registerIceOssMediaWithOptions(request, runtime);
 }
 
 CreateConferenceResponse Alibabacloud_Imp20210630::Client::createConferenceWithOptions(shared_ptr<CreateConferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
