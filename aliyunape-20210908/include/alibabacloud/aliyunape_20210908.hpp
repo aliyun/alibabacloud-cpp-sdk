@@ -1343,8 +1343,8 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> station{};
   shared_ptr<long> pageSize{};
-  shared_ptr<long> startTime{};
-  shared_ptr<long> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNum{};
 
   HistoricalRequest() {}
@@ -1401,10 +1401,10 @@ public:
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
