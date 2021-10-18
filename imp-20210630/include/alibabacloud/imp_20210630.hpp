@@ -11580,6 +11580,42 @@ public:
 
   virtual ~GetLiveResponseBodyResultPlayUrlInfoList() = default;
 };
+class GetLiveResponseBodyResultArtcInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> artcUrl{};
+  shared_ptr<string> artcH5Url{};
+
+  GetLiveResponseBodyResultArtcInfo() {}
+
+  explicit GetLiveResponseBodyResultArtcInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (artcUrl) {
+      res["ArtcUrl"] = boost::any(*artcUrl);
+    }
+    if (artcH5Url) {
+      res["ArtcH5Url"] = boost::any(*artcH5Url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtcUrl") != m.end() && !m["ArtcUrl"].empty()) {
+      artcUrl = make_shared<string>(boost::any_cast<string>(m["ArtcUrl"]));
+    }
+    if (m.find("ArtcH5Url") != m.end() && !m["ArtcH5Url"].empty()) {
+      artcH5Url = make_shared<string>(boost::any_cast<string>(m["ArtcH5Url"]));
+    }
+  }
+
+
+  virtual ~GetLiveResponseBodyResultArtcInfo() = default;
+};
 class GetLiveResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> anchorId{};
@@ -11600,6 +11636,8 @@ public:
   shared_ptr<vector<GetLiveResponseBodyResultPlayUrlInfoList>> playUrlInfoList{};
   shared_ptr<string> coverUrl{};
   shared_ptr<string> userDefineField{};
+  shared_ptr<string> hlsUrl{};
+  shared_ptr<GetLiveResponseBodyResultArtcInfo> artcInfo{};
 
   GetLiveResponseBodyResult() {}
 
@@ -11669,6 +11707,12 @@ public:
     if (userDefineField) {
       res["UserDefineField"] = boost::any(*userDefineField);
     }
+    if (hlsUrl) {
+      res["HlsUrl"] = boost::any(*hlsUrl);
+    }
+    if (artcInfo) {
+      res["ArtcInfo"] = artcInfo ? boost::any(artcInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -11736,6 +11780,16 @@ public:
     }
     if (m.find("UserDefineField") != m.end() && !m["UserDefineField"].empty()) {
       userDefineField = make_shared<string>(boost::any_cast<string>(m["UserDefineField"]));
+    }
+    if (m.find("HlsUrl") != m.end() && !m["HlsUrl"].empty()) {
+      hlsUrl = make_shared<string>(boost::any_cast<string>(m["HlsUrl"]));
+    }
+    if (m.find("ArtcInfo") != m.end() && !m["ArtcInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ArtcInfo"].type()) {
+        GetLiveResponseBodyResultArtcInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ArtcInfo"]));
+        artcInfo = make_shared<GetLiveResponseBodyResultArtcInfo>(model1);
+      }
     }
   }
 
