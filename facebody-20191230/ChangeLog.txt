@@ -1,3 +1,6 @@
+2021-10-21 Version: 1.0.11
+- Release AddQualityScore.
+
 2021-10-08 Version: 1.0.10
 - Release SearchFace BatchAddFaces.
 

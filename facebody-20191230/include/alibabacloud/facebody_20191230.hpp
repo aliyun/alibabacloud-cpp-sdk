@@ -1002,6 +1002,15 @@ public:
 class RecognizeFaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
+  shared_ptr<bool> age{};
+  shared_ptr<bool> gender{};
+  shared_ptr<bool> hat{};
+  shared_ptr<bool> glass{};
+  shared_ptr<bool> beauty{};
+  shared_ptr<bool> expression{};
+  shared_ptr<bool> mask{};
+  shared_ptr<bool> quality{};
+  shared_ptr<long> maxFaceNumber{};
 
   RecognizeFaceRequest() {}
 
@@ -1016,12 +1025,66 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    if (hat) {
+      res["Hat"] = boost::any(*hat);
+    }
+    if (glass) {
+      res["Glass"] = boost::any(*glass);
+    }
+    if (beauty) {
+      res["Beauty"] = boost::any(*beauty);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (quality) {
+      res["Quality"] = boost::any(*quality);
+    }
+    if (maxFaceNumber) {
+      res["MaxFaceNumber"] = boost::any(*maxFaceNumber);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<bool>(boost::any_cast<bool>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<bool>(boost::any_cast<bool>(m["Gender"]));
+    }
+    if (m.find("Hat") != m.end() && !m["Hat"].empty()) {
+      hat = make_shared<bool>(boost::any_cast<bool>(m["Hat"]));
+    }
+    if (m.find("Glass") != m.end() && !m["Glass"].empty()) {
+      glass = make_shared<bool>(boost::any_cast<bool>(m["Glass"]));
+    }
+    if (m.find("Beauty") != m.end() && !m["Beauty"].empty()) {
+      beauty = make_shared<bool>(boost::any_cast<bool>(m["Beauty"]));
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<bool>(boost::any_cast<bool>(m["Expression"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<bool>(boost::any_cast<bool>(m["Mask"]));
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      quality = make_shared<bool>(boost::any_cast<bool>(m["Quality"]));
+    }
+    if (m.find("MaxFaceNumber") != m.end() && !m["MaxFaceNumber"].empty()) {
+      maxFaceNumber = make_shared<long>(boost::any_cast<long>(m["MaxFaceNumber"]));
     }
   }
 
@@ -1031,6 +1094,15 @@ public:
 class RecognizeFaceAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<bool> age{};
+  shared_ptr<bool> gender{};
+  shared_ptr<bool> hat{};
+  shared_ptr<bool> glass{};
+  shared_ptr<bool> beauty{};
+  shared_ptr<bool> expression{};
+  shared_ptr<bool> mask{};
+  shared_ptr<bool> quality{};
+  shared_ptr<long> maxFaceNumber{};
 
   RecognizeFaceAdvanceRequest() {}
 
@@ -1049,12 +1121,66 @@ public:
     if (imageURLObject) {
       res["ImageURLObject"] = boost::any(*imageURLObject);
     }
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    if (hat) {
+      res["Hat"] = boost::any(*hat);
+    }
+    if (glass) {
+      res["Glass"] = boost::any(*glass);
+    }
+    if (beauty) {
+      res["Beauty"] = boost::any(*beauty);
+    }
+    if (expression) {
+      res["Expression"] = boost::any(*expression);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (quality) {
+      res["Quality"] = boost::any(*quality);
+    }
+    if (maxFaceNumber) {
+      res["MaxFaceNumber"] = boost::any(*maxFaceNumber);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<bool>(boost::any_cast<bool>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<bool>(boost::any_cast<bool>(m["Gender"]));
+    }
+    if (m.find("Hat") != m.end() && !m["Hat"].empty()) {
+      hat = make_shared<bool>(boost::any_cast<bool>(m["Hat"]));
+    }
+    if (m.find("Glass") != m.end() && !m["Glass"].empty()) {
+      glass = make_shared<bool>(boost::any_cast<bool>(m["Glass"]));
+    }
+    if (m.find("Beauty") != m.end() && !m["Beauty"].empty()) {
+      beauty = make_shared<bool>(boost::any_cast<bool>(m["Beauty"]));
+    }
+    if (m.find("Expression") != m.end() && !m["Expression"].empty()) {
+      expression = make_shared<bool>(boost::any_cast<bool>(m["Expression"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<bool>(boost::any_cast<bool>(m["Mask"]));
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      quality = make_shared<bool>(boost::any_cast<bool>(m["Quality"]));
+    }
+    if (m.find("MaxFaceNumber") != m.end() && !m["MaxFaceNumber"].empty()) {
+      maxFaceNumber = make_shared<long>(boost::any_cast<long>(m["MaxFaceNumber"]));
     }
   }
 
@@ -8968,6 +9094,7 @@ class SearchFaceResponseBodyDataMatchList : public Darabonba::Model {
 public:
   shared_ptr<vector<SearchFaceResponseBodyDataMatchListFaceItems>> faceItems{};
   shared_ptr<SearchFaceResponseBodyDataMatchListLocation> location{};
+  shared_ptr<double> qualitieScore{};
 
   SearchFaceResponseBodyDataMatchList() {}
 
@@ -8988,6 +9115,9 @@ public:
     }
     if (location) {
       res["Location"] = location ? boost::any(location->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (qualitieScore) {
+      res["QualitieScore"] = boost::any(*qualitieScore);
     }
     return res;
   }
@@ -9012,6 +9142,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Location"]));
         location = make_shared<SearchFaceResponseBodyDataMatchListLocation>(model1);
       }
+    }
+    if (m.find("QualitieScore") != m.end() && !m["QualitieScore"].empty()) {
+      qualitieScore = make_shared<double>(boost::any_cast<double>(m["QualitieScore"]));
     }
   }
 
@@ -9991,6 +10124,7 @@ public:
 class AddFaceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> faceId{};
+  shared_ptr<double> qualitieScore{};
 
   AddFaceResponseBodyData() {}
 
@@ -10005,12 +10139,18 @@ public:
     if (faceId) {
       res["FaceId"] = boost::any(*faceId);
     }
+    if (qualitieScore) {
+      res["QualitieScore"] = boost::any(*qualitieScore);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FaceId") != m.end() && !m["FaceId"].empty()) {
       faceId = make_shared<string>(boost::any_cast<string>(m["FaceId"]));
+    }
+    if (m.find("QualitieScore") != m.end() && !m["QualitieScore"].empty()) {
+      qualitieScore = make_shared<double>(boost::any_cast<double>(m["QualitieScore"]));
     }
   }
 
@@ -17833,6 +17973,7 @@ class BatchAddFacesResponseBodyDataInsertedFaces : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
   shared_ptr<string> faceId{};
+  shared_ptr<double> qualitieScore{};
 
   BatchAddFacesResponseBodyDataInsertedFaces() {}
 
@@ -17850,6 +17991,9 @@ public:
     if (faceId) {
       res["FaceId"] = boost::any(*faceId);
     }
+    if (qualitieScore) {
+      res["QualitieScore"] = boost::any(*qualitieScore);
+    }
     return res;
   }
 
@@ -17859,6 +18003,9 @@ public:
     }
     if (m.find("FaceId") != m.end() && !m["FaceId"].empty()) {
       faceId = make_shared<string>(boost::any_cast<string>(m["FaceId"]));
+    }
+    if (m.find("QualitieScore") != m.end() && !m["QualitieScore"].empty()) {
+      qualitieScore = make_shared<double>(boost::any_cast<double>(m["QualitieScore"]));
     }
   }
 
