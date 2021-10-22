@@ -983,6 +983,213 @@ public:
 
   virtual ~ImportMessageResponse() = default;
 };
+class UnbindInterconnectionUidRequestRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> appUid{};
+  shared_ptr<string> dingTalkUid{};
+
+  UnbindInterconnectionUidRequestRequestParams() {}
+
+  explicit UnbindInterconnectionUidRequestRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appUid) {
+      res["AppUid"] = boost::any(*appUid);
+    }
+    if (dingTalkUid) {
+      res["DingTalkUid"] = boost::any(*dingTalkUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppUid") != m.end() && !m["AppUid"].empty()) {
+      appUid = make_shared<string>(boost::any_cast<string>(m["AppUid"]));
+    }
+    if (m.find("DingTalkUid") != m.end() && !m["DingTalkUid"].empty()) {
+      dingTalkUid = make_shared<string>(boost::any_cast<string>(m["DingTalkUid"]));
+    }
+  }
+
+
+  virtual ~UnbindInterconnectionUidRequestRequestParams() = default;
+};
+class UnbindInterconnectionUidRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<UnbindInterconnectionUidRequestRequestParams> requestParams{};
+
+  UnbindInterconnectionUidRequest() {}
+
+  explicit UnbindInterconnectionUidRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParams) {
+      res["RequestParams"] = requestParams ? boost::any(requestParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestParams"].type()) {
+        UnbindInterconnectionUidRequestRequestParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestParams"]));
+        requestParams = make_shared<UnbindInterconnectionUidRequestRequestParams>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnbindInterconnectionUidRequest() = default;
+};
+class UnbindInterconnectionUidShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> requestParamsShrink{};
+
+  UnbindInterconnectionUidShrinkRequest() {}
+
+  explicit UnbindInterconnectionUidShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParamsShrink) {
+      res["RequestParams"] = boost::any(*requestParamsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      requestParamsShrink = make_shared<string>(boost::any_cast<string>(m["RequestParams"]));
+    }
+  }
+
+
+  virtual ~UnbindInterconnectionUidShrinkRequest() = default;
+};
+class UnbindInterconnectionUidResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  UnbindInterconnectionUidResponseBody() {}
+
+  explicit UnbindInterconnectionUidResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~UnbindInterconnectionUidResponseBody() = default;
+};
+class UnbindInterconnectionUidResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UnbindInterconnectionUidResponseBody> body{};
+
+  UnbindInterconnectionUidResponse() {}
+
+  explicit UnbindInterconnectionUidResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UnbindInterconnectionUidResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UnbindInterconnectionUidResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnbindInterconnectionUidResponse() = default;
+};
 class SilenceAllGroupMembersRequestRequestParams : public Darabonba::Model {
 public:
   shared_ptr<string> appCid{};
@@ -9723,6 +9930,213 @@ public:
 
   virtual ~GetMediaUploadUrlResponse() = default;
 };
+class BindInterconnectionUidRequestRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> appUid{};
+  shared_ptr<string> dingTalkUid{};
+
+  BindInterconnectionUidRequestRequestParams() {}
+
+  explicit BindInterconnectionUidRequestRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appUid) {
+      res["AppUid"] = boost::any(*appUid);
+    }
+    if (dingTalkUid) {
+      res["DingTalkUid"] = boost::any(*dingTalkUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppUid") != m.end() && !m["AppUid"].empty()) {
+      appUid = make_shared<string>(boost::any_cast<string>(m["AppUid"]));
+    }
+    if (m.find("DingTalkUid") != m.end() && !m["DingTalkUid"].empty()) {
+      dingTalkUid = make_shared<string>(boost::any_cast<string>(m["DingTalkUid"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionUidRequestRequestParams() = default;
+};
+class BindInterconnectionUidRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<BindInterconnectionUidRequestRequestParams> requestParams{};
+
+  BindInterconnectionUidRequest() {}
+
+  explicit BindInterconnectionUidRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParams) {
+      res["RequestParams"] = requestParams ? boost::any(requestParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestParams"].type()) {
+        BindInterconnectionUidRequestRequestParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestParams"]));
+        requestParams = make_shared<BindInterconnectionUidRequestRequestParams>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindInterconnectionUidRequest() = default;
+};
+class BindInterconnectionUidShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> requestParamsShrink{};
+
+  BindInterconnectionUidShrinkRequest() {}
+
+  explicit BindInterconnectionUidShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParamsShrink) {
+      res["RequestParams"] = boost::any(*requestParamsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      requestParamsShrink = make_shared<string>(boost::any_cast<string>(m["RequestParams"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionUidShrinkRequest() = default;
+};
+class BindInterconnectionUidResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  BindInterconnectionUidResponseBody() {}
+
+  explicit BindInterconnectionUidResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionUidResponseBody() = default;
+};
+class BindInterconnectionUidResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BindInterconnectionUidResponseBody> body{};
+
+  BindInterconnectionUidResponse() {}
+
+  explicit BindInterconnectionUidResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindInterconnectionUidResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindInterconnectionUidResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindInterconnectionUidResponse() = default;
+};
 class GetMediaUrlRequestRequestParams : public Darabonba::Model {
 public:
   shared_ptr<string> mediaId{};
@@ -10770,6 +11184,213 @@ public:
 
 
   virtual ~UpdateCallbackConfigResponse() = default;
+};
+class BindInterconnectionCidRequestRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> aimAppCid{};
+  shared_ptr<string> dingTalkCid{};
+
+  BindInterconnectionCidRequestRequestParams() {}
+
+  explicit BindInterconnectionCidRequestRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aimAppCid) {
+      res["AimAppCid"] = boost::any(*aimAppCid);
+    }
+    if (dingTalkCid) {
+      res["DingTalkCid"] = boost::any(*dingTalkCid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AimAppCid") != m.end() && !m["AimAppCid"].empty()) {
+      aimAppCid = make_shared<string>(boost::any_cast<string>(m["AimAppCid"]));
+    }
+    if (m.find("DingTalkCid") != m.end() && !m["DingTalkCid"].empty()) {
+      dingTalkCid = make_shared<string>(boost::any_cast<string>(m["DingTalkCid"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionCidRequestRequestParams() = default;
+};
+class BindInterconnectionCidRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<BindInterconnectionCidRequestRequestParams> requestParams{};
+
+  BindInterconnectionCidRequest() {}
+
+  explicit BindInterconnectionCidRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParams) {
+      res["RequestParams"] = requestParams ? boost::any(requestParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestParams"].type()) {
+        BindInterconnectionCidRequestRequestParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestParams"]));
+        requestParams = make_shared<BindInterconnectionCidRequestRequestParams>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindInterconnectionCidRequest() = default;
+};
+class BindInterconnectionCidShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> requestParamsShrink{};
+
+  BindInterconnectionCidShrinkRequest() {}
+
+  explicit BindInterconnectionCidShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParamsShrink) {
+      res["RequestParams"] = boost::any(*requestParamsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      requestParamsShrink = make_shared<string>(boost::any_cast<string>(m["RequestParams"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionCidShrinkRequest() = default;
+};
+class BindInterconnectionCidResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  BindInterconnectionCidResponseBody() {}
+
+  explicit BindInterconnectionCidResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~BindInterconnectionCidResponseBody() = default;
+};
+class BindInterconnectionCidResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BindInterconnectionCidResponseBody> body{};
+
+  BindInterconnectionCidResponse() {}
+
+  explicit BindInterconnectionCidResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindInterconnectionCidResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindInterconnectionCidResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindInterconnectionCidResponse() = default;
 };
 class InitTenantRequestRequest : public Darabonba::Model {
 public:
@@ -14344,6 +14965,253 @@ public:
 
   virtual ~GetLoginTokenResponse() = default;
 };
+class QueryInterconnectionCidMappingRequestRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> srcCid{};
+  shared_ptr<long> type{};
+
+  QueryInterconnectionCidMappingRequestRequestParams() {}
+
+  explicit QueryInterconnectionCidMappingRequestRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (srcCid) {
+      res["SrcCid"] = boost::any(*srcCid);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SrcCid") != m.end() && !m["SrcCid"].empty()) {
+      srcCid = make_shared<string>(boost::any_cast<string>(m["SrcCid"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingRequestRequestParams() = default;
+};
+class QueryInterconnectionCidMappingRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<QueryInterconnectionCidMappingRequestRequestParams> requestParams{};
+
+  QueryInterconnectionCidMappingRequest() {}
+
+  explicit QueryInterconnectionCidMappingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParams) {
+      res["RequestParams"] = requestParams ? boost::any(requestParams->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestParams"].type()) {
+        QueryInterconnectionCidMappingRequestRequestParams model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestParams"]));
+        requestParams = make_shared<QueryInterconnectionCidMappingRequestRequestParams>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingRequest() = default;
+};
+class QueryInterconnectionCidMappingShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> requestParamsShrink{};
+
+  QueryInterconnectionCidMappingShrinkRequest() {}
+
+  explicit QueryInterconnectionCidMappingShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (requestParamsShrink) {
+      res["RequestParams"] = boost::any(*requestParamsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RequestParams") != m.end() && !m["RequestParams"].empty()) {
+      requestParamsShrink = make_shared<string>(boost::any_cast<string>(m["RequestParams"]));
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingShrinkRequest() = default;
+};
+class QueryInterconnectionCidMappingResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> dstCid{};
+
+  QueryInterconnectionCidMappingResponseBodyResult() {}
+
+  explicit QueryInterconnectionCidMappingResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstCid) {
+      res["DstCid"] = boost::any(*dstCid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstCid") != m.end() && !m["DstCid"].empty()) {
+      dstCid = make_shared<string>(boost::any_cast<string>(m["DstCid"]));
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingResponseBodyResult() = default;
+};
+class QueryInterconnectionCidMappingResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<QueryInterconnectionCidMappingResponseBodyResult> result{};
+
+  QueryInterconnectionCidMappingResponseBody() {}
+
+  explicit QueryInterconnectionCidMappingResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        QueryInterconnectionCidMappingResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<QueryInterconnectionCidMappingResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingResponseBody() = default;
+};
+class QueryInterconnectionCidMappingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryInterconnectionCidMappingResponseBody> body{};
+
+  QueryInterconnectionCidMappingResponse() {}
+
+  explicit QueryInterconnectionCidMappingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryInterconnectionCidMappingResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryInterconnectionCidMappingResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryInterconnectionCidMappingResponse() = default;
+};
 class DismissGroupRequestRequestParams : public Darabonba::Model {
 public:
   shared_ptr<string> operatorAppUid{};
@@ -15526,6 +16394,8 @@ public:
   RemoveSingleChatExtensionByKeysResponse removeSingleChatExtensionByKeys(shared_ptr<RemoveSingleChatExtensionByKeysRequest> request);
   ImportMessageResponse importMessageWithOptions(shared_ptr<ImportMessageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportMessageResponse importMessage(shared_ptr<ImportMessageRequest> request);
+  UnbindInterconnectionUidResponse unbindInterconnectionUidWithOptions(shared_ptr<UnbindInterconnectionUidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UnbindInterconnectionUidResponse unbindInterconnectionUid(shared_ptr<UnbindInterconnectionUidRequest> request);
   SilenceAllGroupMembersResponse silenceAllGroupMembersWithOptions(shared_ptr<SilenceAllGroupMembersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SilenceAllGroupMembersResponse silenceAllGroupMembers(shared_ptr<SilenceAllGroupMembersRequest> request);
   ListRoomMessagesResponse listRoomMessagesWithOptions(shared_ptr<ListRoomMessagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15596,12 +16466,16 @@ public:
   RemoveMessageExtensionByKeysResponse removeMessageExtensionByKeys(shared_ptr<RemoveMessageExtensionByKeysRequest> request);
   GetMediaUploadUrlResponse getMediaUploadUrlWithOptions(shared_ptr<GetMediaUploadUrlRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMediaUploadUrlResponse getMediaUploadUrl(shared_ptr<GetMediaUploadUrlRequest> request);
+  BindInterconnectionUidResponse bindInterconnectionUidWithOptions(shared_ptr<BindInterconnectionUidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindInterconnectionUidResponse bindInterconnectionUid(shared_ptr<BindInterconnectionUidRequest> request);
   GetMediaUrlResponse getMediaUrlWithOptions(shared_ptr<GetMediaUrlRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMediaUrlResponse getMediaUrl(shared_ptr<GetMediaUrlRequest> request);
   ImportSingleConversationResponse importSingleConversationWithOptions(shared_ptr<ImportSingleConversationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportSingleConversationResponse importSingleConversation(shared_ptr<ImportSingleConversationRequest> request);
   UpdateCallbackConfigResponse updateCallbackConfigWithOptions(shared_ptr<UpdateCallbackConfigRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateCallbackConfigResponse updateCallbackConfig(shared_ptr<UpdateCallbackConfigRequest> request);
+  BindInterconnectionCidResponse bindInterconnectionCidWithOptions(shared_ptr<BindInterconnectionCidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindInterconnectionCidResponse bindInterconnectionCid(shared_ptr<BindInterconnectionCidRequest> request);
   InitTenantResponse initTenantWithOptions(shared_ptr<InitTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InitTenantResponse initTenant(shared_ptr<InitTenantRequest> request);
   ImportGroupChatMemberResponse importGroupChatMemberWithOptions(shared_ptr<ImportGroupChatMemberRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15632,6 +16506,8 @@ public:
   UpdateGroupTitleResponse updateGroupTitle(shared_ptr<UpdateGroupTitleRequest> request);
   GetLoginTokenResponse getLoginTokenWithOptions(shared_ptr<GetLoginTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLoginTokenResponse getLoginToken(shared_ptr<GetLoginTokenRequest> request);
+  QueryInterconnectionCidMappingResponse queryInterconnectionCidMappingWithOptions(shared_ptr<QueryInterconnectionCidMappingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryInterconnectionCidMappingResponse queryInterconnectionCidMapping(shared_ptr<QueryInterconnectionCidMappingRequest> request);
   DismissGroupResponse dismissGroupWithOptions(shared_ptr<DismissGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DismissGroupResponse dismissGroup(shared_ptr<DismissGroupRequest> request);
   ImportGroupChatConversationResponse importGroupChatConversationWithOptions(shared_ptr<ImportGroupChatConversationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

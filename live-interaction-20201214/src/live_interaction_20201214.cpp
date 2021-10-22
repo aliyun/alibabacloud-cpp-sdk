@@ -92,6 +92,24 @@ ImportMessageResponse Alibabacloud_Live-interaction20201214::Client::importMessa
   return importMessageWithOptions(request, runtime);
 }
 
+UnbindInterconnectionUidResponse Alibabacloud_Live-interaction20201214::Client::unbindInterconnectionUidWithOptions(shared_ptr<UnbindInterconnectionUidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UnbindInterconnectionUidShrinkRequest> request = make_shared<UnbindInterconnectionUidShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UnbindInterconnectionUidRequestRequestParams>(tmpReq->requestParams)) {
+    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return UnbindInterconnectionUidResponse(doRPCRequest(make_shared<string>("UnbindInterconnectionUid"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+UnbindInterconnectionUidResponse Alibabacloud_Live-interaction20201214::Client::unbindInterconnectionUid(shared_ptr<UnbindInterconnectionUidRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unbindInterconnectionUidWithOptions(request, runtime);
+}
+
 SilenceAllGroupMembersResponse Alibabacloud_Live-interaction20201214::Client::silenceAllGroupMembersWithOptions(shared_ptr<SilenceAllGroupMembersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SilenceAllGroupMembersShrinkRequest> request = make_shared<SilenceAllGroupMembersShrinkRequest>();
@@ -682,6 +700,24 @@ GetMediaUploadUrlResponse Alibabacloud_Live-interaction20201214::Client::getMedi
   return getMediaUploadUrlWithOptions(request, runtime);
 }
 
+BindInterconnectionUidResponse Alibabacloud_Live-interaction20201214::Client::bindInterconnectionUidWithOptions(shared_ptr<BindInterconnectionUidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BindInterconnectionUidShrinkRequest> request = make_shared<BindInterconnectionUidShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<BindInterconnectionUidRequestRequestParams>(tmpReq->requestParams)) {
+    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return BindInterconnectionUidResponse(doRPCRequest(make_shared<string>("BindInterconnectionUid"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+BindInterconnectionUidResponse Alibabacloud_Live-interaction20201214::Client::bindInterconnectionUid(shared_ptr<BindInterconnectionUidRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindInterconnectionUidWithOptions(request, runtime);
+}
+
 GetMediaUrlResponse Alibabacloud_Live-interaction20201214::Client::getMediaUrlWithOptions(shared_ptr<GetMediaUrlRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetMediaUrlShrinkRequest> request = make_shared<GetMediaUrlShrinkRequest>();
@@ -734,6 +770,24 @@ UpdateCallbackConfigResponse Alibabacloud_Live-interaction20201214::Client::upda
 UpdateCallbackConfigResponse Alibabacloud_Live-interaction20201214::Client::updateCallbackConfig(shared_ptr<UpdateCallbackConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateCallbackConfigWithOptions(request, runtime);
+}
+
+BindInterconnectionCidResponse Alibabacloud_Live-interaction20201214::Client::bindInterconnectionCidWithOptions(shared_ptr<BindInterconnectionCidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BindInterconnectionCidShrinkRequest> request = make_shared<BindInterconnectionCidShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<BindInterconnectionCidRequestRequestParams>(tmpReq->requestParams)) {
+    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return BindInterconnectionCidResponse(doRPCRequest(make_shared<string>("BindInterconnectionCid"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+BindInterconnectionCidResponse Alibabacloud_Live-interaction20201214::Client::bindInterconnectionCid(shared_ptr<BindInterconnectionCidRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindInterconnectionCidWithOptions(request, runtime);
 }
 
 InitTenantResponse Alibabacloud_Live-interaction20201214::Client::initTenantWithOptions(shared_ptr<InitTenantRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -981,6 +1035,24 @@ GetLoginTokenResponse Alibabacloud_Live-interaction20201214::Client::getLoginTok
 GetLoginTokenResponse Alibabacloud_Live-interaction20201214::Client::getLoginToken(shared_ptr<GetLoginTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getLoginTokenWithOptions(request, runtime);
+}
+
+QueryInterconnectionCidMappingResponse Alibabacloud_Live-interaction20201214::Client::queryInterconnectionCidMappingWithOptions(shared_ptr<QueryInterconnectionCidMappingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryInterconnectionCidMappingShrinkRequest> request = make_shared<QueryInterconnectionCidMappingShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<QueryInterconnectionCidMappingRequestRequestParams>(tmpReq->requestParams)) {
+    request->requestParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->requestParams->toMap()), make_shared<string>("RequestParams"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryInterconnectionCidMappingResponse(doRPCRequest(make_shared<string>("QueryInterconnectionCidMapping"), make_shared<string>("2020-12-14"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryInterconnectionCidMappingResponse Alibabacloud_Live-interaction20201214::Client::queryInterconnectionCidMapping(shared_ptr<QueryInterconnectionCidMappingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryInterconnectionCidMappingWithOptions(request, runtime);
 }
 
 DismissGroupResponse Alibabacloud_Live-interaction20201214::Client::dismissGroupWithOptions(shared_ptr<DismissGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
