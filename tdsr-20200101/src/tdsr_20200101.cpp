@@ -288,6 +288,19 @@ SaveHotspotTagResponse Alibabacloud_Tdsr20200101::Client::saveHotspotTag(shared_
   return saveHotspotTagWithOptions(request, runtime);
 }
 
+RecoveryOriginImageResponse Alibabacloud_Tdsr20200101::Client::recoveryOriginImageWithOptions(shared_ptr<RecoveryOriginImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return RecoveryOriginImageResponse(doRPCRequest(make_shared<string>("RecoveryOriginImage"), make_shared<string>("2020-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+RecoveryOriginImageResponse Alibabacloud_Tdsr20200101::Client::recoveryOriginImage(shared_ptr<RecoveryOriginImageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recoveryOriginImageWithOptions(request, runtime);
+}
+
 DeleteProjectResponse Alibabacloud_Tdsr20200101::Client::deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -351,6 +364,19 @@ GetConnDataResponse Alibabacloud_Tdsr20200101::Client::getConnDataWithOptions(sh
 GetConnDataResponse Alibabacloud_Tdsr20200101::Client::getConnData(shared_ptr<GetConnDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getConnDataWithOptions(request, runtime);
+}
+
+RollbackSubSceneResponse Alibabacloud_Tdsr20200101::Client::rollbackSubSceneWithOptions(shared_ptr<RollbackSubSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return RollbackSubSceneResponse(doRPCRequest(make_shared<string>("RollbackSubScene"), make_shared<string>("2020-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+RollbackSubSceneResponse Alibabacloud_Tdsr20200101::Client::rollbackSubScene(shared_ptr<RollbackSubSceneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return rollbackSubSceneWithOptions(request, runtime);
 }
 
 TempPreviewStatusResponse Alibabacloud_Tdsr20200101::Client::tempPreviewStatusWithOptions(shared_ptr<TempPreviewStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -624,6 +650,19 @@ GetHotspotSceneDataResponse Alibabacloud_Tdsr20200101::Client::getHotspotSceneDa
 GetHotspotSceneDataResponse Alibabacloud_Tdsr20200101::Client::getHotspotSceneData(shared_ptr<GetHotspotSceneDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getHotspotSceneDataWithOptions(request, runtime);
+}
+
+AddMosaicsResponse Alibabacloud_Tdsr20200101::Client::addMosaicsWithOptions(shared_ptr<AddMosaicsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AddMosaicsResponse(doRPCRequest(make_shared<string>("AddMosaics"), make_shared<string>("2020-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AddMosaicsResponse Alibabacloud_Tdsr20200101::Client::addMosaics(shared_ptr<AddMosaicsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addMosaicsWithOptions(request, runtime);
 }
 
 ScenePublishResponse Alibabacloud_Tdsr20200101::Client::scenePublishWithOptions(shared_ptr<ScenePublishRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
