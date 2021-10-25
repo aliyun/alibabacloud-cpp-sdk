@@ -2547,6 +2547,7 @@ public:
   shared_ptr<string> KMSKeyId{};
   shared_ptr<bool> encryption{};
   shared_ptr<string> usedScene{};
+  shared_ptr<string> instanceType{};
 
   CreateDbfsRequest() {}
 
@@ -2600,6 +2601,9 @@ public:
     if (usedScene) {
       res["UsedScene"] = boost::any(*usedScene);
     }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
     return res;
   }
 
@@ -2645,6 +2649,9 @@ public:
     }
     if (m.find("UsedScene") != m.end() && !m["UsedScene"].empty()) {
       usedScene = make_shared<string>(boost::any_cast<string>(m["UsedScene"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
   }
 
