@@ -258,6 +258,19 @@ ExecuteCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::executeCallTask(s
   return executeCallTaskWithOptions(request, runtime);
 }
 
+GetCallInfoResponse Alibabacloud_Dyvmsapi20170525::Client::getCallInfoWithOptions(shared_ptr<GetCallInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetCallInfoResponse(doRPCRequest(make_shared<string>("GetCallInfo"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetCallInfoResponse Alibabacloud_Dyvmsapi20170525::Client::getCallInfo(shared_ptr<GetCallInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCallInfoWithOptions(request, runtime);
+}
+
 GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::getHotlineQualificationByOrderWithOptions(shared_ptr<GetHotlineQualificationByOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
