@@ -1,3 +1,6 @@
+2021-10-27 Version: 1.0.3
+- Supported New SDK for ResourceManager.
+
 2021-09-28 Version: 1.0.2
 - Supported Java for ResourceManager.
 
