@@ -308,6 +308,19 @@ DescribeBinaryLogListResponse Alibabacloud_Polardbx20200202::Client::describeBin
   return describeBinaryLogListWithOptions(request, runtime);
 }
 
+DescribeCharacterSetResponse Alibabacloud_Polardbx20200202::Client::describeCharacterSetWithOptions(shared_ptr<DescribeCharacterSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeCharacterSetResponse(doRPCRequest(make_shared<string>("DescribeCharacterSet"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeCharacterSetResponse Alibabacloud_Polardbx20200202::Client::describeCharacterSet(shared_ptr<DescribeCharacterSetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCharacterSetWithOptions(request, runtime);
+}
+
 DescribeDBInstanceAttributeResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceAttributeWithOptions(shared_ptr<DescribeDBInstanceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -321,17 +334,17 @@ DescribeDBInstanceAttributeResponse Alibabacloud_Polardbx20200202::Client::descr
   return describeDBInstanceAttributeWithOptions(request, runtime);
 }
 
-DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DescribeDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceConfigWithOptions(shared_ptr<DescribeDBInstanceConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeDBInstancesResponse(doRPCRequest(make_shared<string>("DescribeDBInstances"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return DescribeDBInstanceConfigResponse(doRPCRequest(make_shared<string>("DescribeDBInstanceConfig"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request) {
+DescribeDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceConfig(shared_ptr<DescribeDBInstanceConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeDBInstancesWithOptions(request, runtime);
+  return describeDBInstanceConfigWithOptions(request, runtime);
 }
 
 DescribeDBInstanceSSLResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceSSLWithOptions(shared_ptr<DescribeDBInstanceSSLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -360,6 +373,45 @@ DescribeDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::describeDBI
   return describeDBInstanceTDEWithOptions(request, runtime);
 }
 
+DescribeDBInstanceTopologyResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceTopologyWithOptions(shared_ptr<DescribeDBInstanceTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDBInstanceTopologyResponse(doRPCRequest(make_shared<string>("DescribeDBInstanceTopology"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDBInstanceTopologyResponse Alibabacloud_Polardbx20200202::Client::describeDBInstanceTopology(shared_ptr<DescribeDBInstanceTopologyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBInstanceTopologyWithOptions(request, runtime);
+}
+
+DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstancesWithOptions(shared_ptr<DescribeDBInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDBInstancesResponse(doRPCRequest(make_shared<string>("DescribeDBInstances"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDBInstancesResponse Alibabacloud_Polardbx20200202::Client::describeDBInstances(shared_ptr<DescribeDBInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBInstancesWithOptions(request, runtime);
+}
+
+DescribeDBNodePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeDBNodePerformanceWithOptions(shared_ptr<DescribeDBNodePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDBNodePerformanceResponse(doRPCRequest(make_shared<string>("DescribeDBNodePerformance"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDBNodePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeDBNodePerformance(shared_ptr<DescribeDBNodePerformanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBNodePerformanceWithOptions(request, runtime);
+}
+
 DescribeDbListResponse Alibabacloud_Polardbx20200202::Client::describeDbListWithOptions(shared_ptr<DescribeDbListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -386,43 +438,17 @@ DescribeDistributeTableListResponse Alibabacloud_Polardbx20200202::Client::descr
   return describeDistributeTableListWithOptions(request, runtime);
 }
 
-DescribeInstanceDbPerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstanceDbPerformanceWithOptions(shared_ptr<DescribeInstanceDbPerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DescribeParameterTemplatesResponse Alibabacloud_Polardbx20200202::Client::describeParameterTemplatesWithOptions(shared_ptr<DescribeParameterTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeInstanceDbPerformanceResponse(doRPCRequest(make_shared<string>("DescribeInstanceDbPerformance"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return DescribeParameterTemplatesResponse(doRPCRequest(make_shared<string>("DescribeParameterTemplates"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-DescribeInstanceDbPerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstanceDbPerformance(shared_ptr<DescribeInstanceDbPerformanceRequest> request) {
+DescribeParameterTemplatesResponse Alibabacloud_Polardbx20200202::Client::describeParameterTemplates(shared_ptr<DescribeParameterTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeInstanceDbPerformanceWithOptions(request, runtime);
-}
-
-DescribeInstancePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstancePerformanceWithOptions(shared_ptr<DescribeInstancePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeInstancePerformanceResponse(doRPCRequest(make_shared<string>("DescribeInstancePerformance"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeInstancePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstancePerformance(shared_ptr<DescribeInstancePerformanceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeInstancePerformanceWithOptions(request, runtime);
-}
-
-DescribeInstanceStoragePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstanceStoragePerformanceWithOptions(shared_ptr<DescribeInstanceStoragePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeInstanceStoragePerformanceResponse(doRPCRequest(make_shared<string>("DescribeInstanceStoragePerformance"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeInstanceStoragePerformanceResponse Alibabacloud_Polardbx20200202::Client::describeInstanceStoragePerformance(shared_ptr<DescribeInstanceStoragePerformanceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeInstanceStoragePerformanceWithOptions(request, runtime);
+  return describeParameterTemplatesWithOptions(request, runtime);
 }
 
 DescribeParametersResponse Alibabacloud_Polardbx20200202::Client::describeParametersWithOptions(shared_ptr<DescribeParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -438,6 +464,19 @@ DescribeParametersResponse Alibabacloud_Polardbx20200202::Client::describeParame
   return describeParametersWithOptions(request, runtime);
 }
 
+DescribePolarxDataNodesResponse Alibabacloud_Polardbx20200202::Client::describePolarxDataNodesWithOptions(shared_ptr<DescribePolarxDataNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribePolarxDataNodesResponse(doRPCRequest(make_shared<string>("DescribePolarxDataNodes"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribePolarxDataNodesResponse Alibabacloud_Polardbx20200202::Client::describePolarxDataNodes(shared_ptr<DescribePolarxDataNodesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePolarxDataNodesWithOptions(request, runtime);
+}
+
 DescribePolarxDbInstancesResponse Alibabacloud_Polardbx20200202::Client::describePolarxDbInstancesWithOptions(shared_ptr<DescribePolarxDbInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -449,6 +488,19 @@ DescribePolarxDbInstancesResponse Alibabacloud_Polardbx20200202::Client::describ
 DescribePolarxDbInstancesResponse Alibabacloud_Polardbx20200202::Client::describePolarxDbInstances(shared_ptr<DescribePolarxDbInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describePolarxDbInstancesWithOptions(request, runtime);
+}
+
+DescribePolarxPgInstancesResponse Alibabacloud_Polardbx20200202::Client::describePolarxPgInstancesWithOptions(shared_ptr<DescribePolarxPgInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribePolarxPgInstancesResponse(doRPCRequest(make_shared<string>("DescribePolarxPgInstances"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribePolarxPgInstancesResponse Alibabacloud_Polardbx20200202::Client::describePolarxPgInstances(shared_ptr<DescribePolarxPgInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePolarxPgInstancesWithOptions(request, runtime);
 }
 
 DescribeRegionsResponse Alibabacloud_Polardbx20200202::Client::describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -485,19 +537,6 @@ DescribeSecurityIpsResponse Alibabacloud_Polardbx20200202::Client::describeSecur
 DescribeSecurityIpsResponse Alibabacloud_Polardbx20200202::Client::describeSecurityIps(shared_ptr<DescribeSecurityIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeSecurityIpsWithOptions(request, runtime);
-}
-
-DescribeSqlAuditInfoResponse Alibabacloud_Polardbx20200202::Client::describeSqlAuditInfoWithOptions(shared_ptr<DescribeSqlAuditInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeSqlAuditInfoResponse(doRPCRequest(make_shared<string>("DescribeSqlAuditInfo"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeSqlAuditInfoResponse Alibabacloud_Polardbx20200202::Client::describeSqlAuditInfo(shared_ptr<DescribeSqlAuditInfoRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeSqlAuditInfoWithOptions(request, runtime);
 }
 
 DescribeTasksResponse Alibabacloud_Polardbx20200202::Client::describeTasksWithOptions(shared_ptr<DescribeTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -539,19 +578,6 @@ GetPolarxCommodityResponse Alibabacloud_Polardbx20200202::Client::getPolarxCommo
   return getPolarxCommodityWithOptions(request, runtime);
 }
 
-GetPolarXPriceResponse Alibabacloud_Polardbx20200202::Client::getPolarXPriceWithOptions(shared_ptr<GetPolarXPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetPolarXPriceResponse(doRPCRequest(make_shared<string>("GetPolarXPrice"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetPolarXPriceResponse Alibabacloud_Polardbx20200202::Client::getPolarXPrice(shared_ptr<GetPolarXPriceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getPolarXPriceWithOptions(request, runtime);
-}
-
 ModifyAccountDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyAccountDescriptionWithOptions(shared_ptr<ModifyAccountDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -563,19 +589,6 @@ ModifyAccountDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyAc
 ModifyAccountDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyAccountDescription(shared_ptr<ModifyAccountDescriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyAccountDescriptionWithOptions(request, runtime);
-}
-
-ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDatabaseDescriptionWithOptions(shared_ptr<ModifyDatabaseDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ModifyDatabaseDescriptionResponse(doRPCRequest(make_shared<string>("ModifyDatabaseDescription"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDatabaseDescription(shared_ptr<ModifyDatabaseDescriptionRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifyDatabaseDescriptionWithOptions(request, runtime);
 }
 
 ModifyDBInstanceClassResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceClassWithOptions(shared_ptr<ModifyDBInstanceClassRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -615,6 +628,19 @@ ModifyDBInstanceDescriptionResponse Alibabacloud_Polardbx20200202::Client::modif
 ModifyDBInstanceDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDBInstanceDescription(shared_ptr<ModifyDBInstanceDescriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyDBInstanceDescriptionWithOptions(request, runtime);
+}
+
+ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDatabaseDescriptionWithOptions(shared_ptr<ModifyDatabaseDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ModifyDatabaseDescriptionResponse(doRPCRequest(make_shared<string>("ModifyDatabaseDescription"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ModifyDatabaseDescriptionResponse Alibabacloud_Polardbx20200202::Client::modifyDatabaseDescription(shared_ptr<ModifyDatabaseDescriptionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDatabaseDescriptionWithOptions(request, runtime);
 }
 
 ModifyParameterResponse Alibabacloud_Polardbx20200202::Client::modifyParameterWithOptions(shared_ptr<ModifyParameterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -667,19 +693,6 @@ RestartDBInstanceResponse Alibabacloud_Polardbx20200202::Client::restartDBInstan
 RestartDBInstanceResponse Alibabacloud_Polardbx20200202::Client::restartDBInstance(shared_ptr<RestartDBInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return restartDBInstanceWithOptions(request, runtime);
-}
-
-RetryPolarxOrderResponse Alibabacloud_Polardbx20200202::Client::retryPolarxOrderWithOptions(shared_ptr<RetryPolarxOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return RetryPolarxOrderResponse(doRPCRequest(make_shared<string>("RetryPolarxOrder"), make_shared<string>("2020-02-02"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-RetryPolarxOrderResponse Alibabacloud_Polardbx20200202::Client::retryPolarxOrder(shared_ptr<RetryPolarxOrderRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return retryPolarxOrderWithOptions(request, runtime);
 }
 
 UpdateBackupPolicyResponse Alibabacloud_Polardbx20200202::Client::updateBackupPolicyWithOptions(shared_ptr<UpdateBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
