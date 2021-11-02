@@ -37,30 +37,17 @@ string Alibabacloud_Aliyunape20210908::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-WeathermonitorResponse Alibabacloud_Aliyunape20210908::Client::weathermonitorWithOptions(shared_ptr<WeathermonitorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+HistoricalResponse Alibabacloud_Aliyunape20210908::Client::historicalWithOptions(shared_ptr<HistoricalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return WeathermonitorResponse(doRPCRequest(make_shared<string>("Weathermonitor"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return HistoricalResponse(doRPCRequest(make_shared<string>("Historical"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-WeathermonitorResponse Alibabacloud_Aliyunape20210908::Client::weathermonitor(shared_ptr<WeathermonitorRequest> request) {
+HistoricalResponse Alibabacloud_Aliyunape20210908::Client::historical(shared_ptr<HistoricalRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return weathermonitorWithOptions(request, runtime);
-}
-
-WeatherforecastTimeResponse Alibabacloud_Aliyunape20210908::Client::weatherforecastTimeWithOptions(shared_ptr<WeatherforecastTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return WeatherforecastTimeResponse(doRPCRequest(make_shared<string>("WeatherforecastTime"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-WeatherforecastTimeResponse Alibabacloud_Aliyunape20210908::Client::weatherforecastTime(shared_ptr<WeatherforecastTimeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return weatherforecastTimeWithOptions(request, runtime);
+  return historicalWithOptions(request, runtime);
 }
 
 StationDayResponse Alibabacloud_Aliyunape20210908::Client::stationDayWithOptions(shared_ptr<StationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -89,16 +76,29 @@ WeatherforecastResponse Alibabacloud_Aliyunape20210908::Client::weatherforecast(
   return weatherforecastWithOptions(request, runtime);
 }
 
-HistoricalResponse Alibabacloud_Aliyunape20210908::Client::historicalWithOptions(shared_ptr<HistoricalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+WeatherforecastTimeResponse Alibabacloud_Aliyunape20210908::Client::weatherforecastTimeWithOptions(shared_ptr<WeatherforecastTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return HistoricalResponse(doRPCRequest(make_shared<string>("Historical"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return WeatherforecastTimeResponse(doRPCRequest(make_shared<string>("WeatherforecastTime"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-HistoricalResponse Alibabacloud_Aliyunape20210908::Client::historical(shared_ptr<HistoricalRequest> request) {
+WeatherforecastTimeResponse Alibabacloud_Aliyunape20210908::Client::weatherforecastTime(shared_ptr<WeatherforecastTimeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return historicalWithOptions(request, runtime);
+  return weatherforecastTimeWithOptions(request, runtime);
+}
+
+WeathermonitorResponse Alibabacloud_Aliyunape20210908::Client::weathermonitorWithOptions(shared_ptr<WeathermonitorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return WeathermonitorResponse(doRPCRequest(make_shared<string>("Weathermonitor"), make_shared<string>("2021-09-08"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+WeathermonitorResponse Alibabacloud_Aliyunape20210908::Client::weathermonitor(shared_ptr<WeathermonitorRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return weathermonitorWithOptions(request, runtime);
 }
 
