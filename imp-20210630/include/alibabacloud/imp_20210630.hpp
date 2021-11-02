@@ -11485,6 +11485,7 @@ public:
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> roomId{};
   shared_ptr<string> senderId{};
+  shared_ptr<string> senderNick{};
 
   SendCommentRequest() {}
 
@@ -11511,6 +11512,9 @@ public:
     if (senderId) {
       res["SenderId"] = boost::any(*senderId);
     }
+    if (senderNick) {
+      res["SenderNick"] = boost::any(*senderNick);
+    }
     return res;
   }
 
@@ -11535,6 +11539,9 @@ public:
     if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
       senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
     }
+    if (m.find("SenderNick") != m.end() && !m["SenderNick"].empty()) {
+      senderNick = make_shared<string>(boost::any_cast<string>(m["SenderNick"]));
+    }
   }
 
 
@@ -11547,6 +11554,7 @@ public:
   shared_ptr<string> extensionShrink{};
   shared_ptr<string> roomId{};
   shared_ptr<string> senderId{};
+  shared_ptr<string> senderNick{};
 
   SendCommentShrinkRequest() {}
 
@@ -11573,6 +11581,9 @@ public:
     if (senderId) {
       res["SenderId"] = boost::any(*senderId);
     }
+    if (senderNick) {
+      res["SenderNick"] = boost::any(*senderNick);
+    }
     return res;
   }
 
@@ -11591,6 +11602,9 @@ public:
     }
     if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
       senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
+    }
+    if (m.find("SenderNick") != m.end() && !m["SenderNick"].empty()) {
+      senderNick = make_shared<string>(boost::any_cast<string>(m["SenderNick"]));
     }
   }
 
