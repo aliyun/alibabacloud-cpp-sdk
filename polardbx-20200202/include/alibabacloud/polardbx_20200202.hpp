@@ -3550,10 +3550,11 @@ public:
 class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs : public Darabonba::Model {
 public:
   shared_ptr<string> connectionString{};
-  shared_ptr<string> port{};
+  shared_ptr<long> port{};
   shared_ptr<string> type{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcInstanceId{};
 
   DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs() {}
 
@@ -3580,6 +3581,9 @@ public:
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
+    if (vpcInstanceId) {
+      res["VpcInstanceId"] = boost::any(*vpcInstanceId);
+    }
     return res;
   }
 
@@ -3588,7 +3592,7 @@ public:
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -3598,6 +3602,9 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcInstanceId") != m.end() && !m["VpcInstanceId"].empty()) {
+      vpcInstanceId = make_shared<string>(boost::any_cast<string>(m["VpcInstanceId"]));
     }
   }
 
