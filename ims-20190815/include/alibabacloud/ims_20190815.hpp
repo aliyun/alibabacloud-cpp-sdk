@@ -6546,7 +6546,7 @@ public:
 };
 class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
 public:
-  shared_ptr<string> verificationTypes{};
+  shared_ptr<vector<string>> verificationTypes{};
 
   GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
 
@@ -6566,7 +6566,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      verificationTypes = make_shared<string>(boost::any_cast<string>(m["VerificationTypes"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verificationTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -11481,7 +11488,7 @@ public:
 };
 class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
 public:
-  shared_ptr<string> verificationTypes{};
+  shared_ptr<vector<string>> verificationTypes{};
 
   SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
 
@@ -11501,7 +11508,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      verificationTypes = make_shared<string>(boost::any_cast<string>(m["VerificationTypes"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verificationTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
