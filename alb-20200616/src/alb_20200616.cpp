@@ -102,6 +102,19 @@ AssociateAdditionalCertificatesWithListenerResponse Alibabacloud_Alb20200616::Cl
   return associateAdditionalCertificatesWithListenerWithOptions(request, runtime);
 }
 
+AttachCommonBandwidthPackageToLoadBalancerResponse Alibabacloud_Alb20200616::Client::attachCommonBandwidthPackageToLoadBalancerWithOptions(shared_ptr<AttachCommonBandwidthPackageToLoadBalancerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AttachCommonBandwidthPackageToLoadBalancerResponse(doRPCRequest(make_shared<string>("AttachCommonBandwidthPackageToLoadBalancer"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AttachCommonBandwidthPackageToLoadBalancerResponse Alibabacloud_Alb20200616::Client::attachCommonBandwidthPackageToLoadBalancer(shared_ptr<AttachCommonBandwidthPackageToLoadBalancerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return attachCommonBandwidthPackageToLoadBalancerWithOptions(request, runtime);
+}
+
 CreateAclResponse Alibabacloud_Alb20200616::Client::createAclWithOptions(shared_ptr<CreateAclRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -331,6 +344,19 @@ DescribeZonesResponse Alibabacloud_Alb20200616::Client::describeZonesWithOptions
 DescribeZonesResponse Alibabacloud_Alb20200616::Client::describeZones() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeZonesWithOptions(runtime);
+}
+
+DetachCommonBandwidthPackageFromLoadBalancerResponse Alibabacloud_Alb20200616::Client::detachCommonBandwidthPackageFromLoadBalancerWithOptions(shared_ptr<DetachCommonBandwidthPackageFromLoadBalancerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DetachCommonBandwidthPackageFromLoadBalancerResponse(doRPCRequest(make_shared<string>("DetachCommonBandwidthPackageFromLoadBalancer"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DetachCommonBandwidthPackageFromLoadBalancerResponse Alibabacloud_Alb20200616::Client::detachCommonBandwidthPackageFromLoadBalancer(shared_ptr<DetachCommonBandwidthPackageFromLoadBalancerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return detachCommonBandwidthPackageFromLoadBalancerWithOptions(request, runtime);
 }
 
 DisableDeletionProtectionResponse Alibabacloud_Alb20200616::Client::disableDeletionProtectionWithOptions(shared_ptr<DisableDeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -593,19 +619,6 @@ ListSecurityPolicyRelationsResponse Alibabacloud_Alb20200616::Client::listSecuri
   return listSecurityPolicyRelationsWithOptions(request, runtime);
 }
 
-ListServerGroupsResponse Alibabacloud_Alb20200616::Client::listServerGroupsWithOptions(shared_ptr<ListServerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListServerGroupsResponse(doRPCRequest(make_shared<string>("ListServerGroups"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListServerGroupsResponse Alibabacloud_Alb20200616::Client::listServerGroups(shared_ptr<ListServerGroupsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listServerGroupsWithOptions(request, runtime);
-}
-
 ListServerGroupServersResponse Alibabacloud_Alb20200616::Client::listServerGroupServersWithOptions(shared_ptr<ListServerGroupServersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -617,6 +630,19 @@ ListServerGroupServersResponse Alibabacloud_Alb20200616::Client::listServerGroup
 ListServerGroupServersResponse Alibabacloud_Alb20200616::Client::listServerGroupServers(shared_ptr<ListServerGroupServersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listServerGroupServersWithOptions(request, runtime);
+}
+
+ListServerGroupsResponse Alibabacloud_Alb20200616::Client::listServerGroupsWithOptions(shared_ptr<ListServerGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListServerGroupsResponse(doRPCRequest(make_shared<string>("ListServerGroups"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListServerGroupsResponse Alibabacloud_Alb20200616::Client::listServerGroups(shared_ptr<ListServerGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listServerGroupsWithOptions(request, runtime);
 }
 
 ListSystemSecurityPoliciesResponse Alibabacloud_Alb20200616::Client::listSystemSecurityPoliciesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -848,6 +874,19 @@ UpdateLoadBalancerEditionResponse Alibabacloud_Alb20200616::Client::updateLoadBa
 UpdateLoadBalancerEditionResponse Alibabacloud_Alb20200616::Client::updateLoadBalancerEdition(shared_ptr<UpdateLoadBalancerEditionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateLoadBalancerEditionWithOptions(request, runtime);
+}
+
+UpdateLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::updateLoadBalancerZonesWithOptions(shared_ptr<UpdateLoadBalancerZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return UpdateLoadBalancerZonesResponse(doRPCRequest(make_shared<string>("UpdateLoadBalancerZones"), make_shared<string>("2020-06-16"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+UpdateLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::updateLoadBalancerZones(shared_ptr<UpdateLoadBalancerZonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateLoadBalancerZonesWithOptions(request, runtime);
 }
 
 UpdateRuleAttributeResponse Alibabacloud_Alb20200616::Client::updateRuleAttributeWithOptions(shared_ptr<UpdateRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
