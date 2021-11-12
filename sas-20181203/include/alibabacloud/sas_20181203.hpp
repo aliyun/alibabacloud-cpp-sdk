@@ -19428,56 +19428,6 @@ public:
 
   virtual ~DescribeInstallCaptchaResponse() = default;
 };
-class DescribeInstallCodesRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> currentPage{};
-  shared_ptr<long> pageSize{};
-  shared_ptr<long> status{};
-  shared_ptr<string> subAccountName{};
-
-  DescribeInstallCodesRequest() {}
-
-  explicit DescribeInstallCodesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (currentPage) {
-      res["CurrentPage"] = boost::any(*currentPage);
-    }
-    if (pageSize) {
-      res["PageSize"] = boost::any(*pageSize);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (subAccountName) {
-      res["SubAccountName"] = boost::any(*subAccountName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
-      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
-    }
-    if (m.find("SubAccountName") != m.end() && !m["SubAccountName"].empty()) {
-      subAccountName = make_shared<string>(boost::any_cast<string>(m["SubAccountName"]));
-    }
-  }
-
-
-  virtual ~DescribeInstallCodesRequest() = default;
-};
 class DescribeInstallCodesResponseBodyInstallCodes : public Darabonba::Model {
 public:
   shared_ptr<string> captchaCode{};
@@ -19486,8 +19436,6 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<bool> onlyImage{};
   shared_ptr<string> os{};
-  shared_ptr<string> tag{};
-  shared_ptr<long> vendor{};
   shared_ptr<string> vendorName{};
 
   DescribeInstallCodesResponseBodyInstallCodes() {}
@@ -19518,12 +19466,6 @@ public:
     if (os) {
       res["Os"] = boost::any(*os);
     }
-    if (tag) {
-      res["Tag"] = boost::any(*tag);
-    }
-    if (vendor) {
-      res["Vendor"] = boost::any(*vendor);
-    }
     if (vendorName) {
       res["VendorName"] = boost::any(*vendorName);
     }
@@ -19548,12 +19490,6 @@ public:
     }
     if (m.find("Os") != m.end() && !m["Os"].empty()) {
       os = make_shared<string>(boost::any_cast<string>(m["Os"]));
-    }
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
-    }
-    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
-      vendor = make_shared<long>(boost::any_cast<long>(m["Vendor"]));
     }
     if (m.find("VendorName") != m.end() && !m["VendorName"].empty()) {
       vendorName = make_shared<string>(boost::any_cast<string>(m["VendorName"]));
@@ -37423,6 +37359,7 @@ class DescribeVulListResponseBodyVulRecordsExtendContentJson : public Darabonba:
 public:
   shared_ptr<string> absolutePath{};
   shared_ptr<string> aliasName{};
+  shared_ptr<string> description{};
   shared_ptr<string> ip{};
   shared_ptr<long> lastTs{};
   shared_ptr<DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity> necessity{};
@@ -37449,6 +37386,9 @@ public:
     }
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (ip) {
       res["Ip"] = boost::any(*ip);
@@ -37493,6 +37433,9 @@ public:
     }
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
@@ -37567,6 +37510,7 @@ public:
   shared_ptr<bool> online{};
   shared_ptr<string> osVersion{};
   shared_ptr<long> primaryId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> related{};
   shared_ptr<long> repairTs{};
   shared_ptr<string> resultCode{};
@@ -37630,6 +37574,9 @@ public:
     }
     if (primaryId) {
       res["PrimaryId"] = boost::any(*primaryId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (related) {
       res["Related"] = boost::any(*related);
@@ -37707,6 +37654,9 @@ public:
     }
     if (m.find("PrimaryId") != m.end() && !m["PrimaryId"].empty()) {
       primaryId = make_shared<long>(boost::any_cast<long>(m["PrimaryId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Related") != m.end() && !m["Related"].empty()) {
       related = make_shared<string>(boost::any_cast<string>(m["Related"]));
@@ -39209,6 +39159,193 @@ public:
 
 
   virtual ~ExportRecordResponse() = default;
+};
+class ExportVulRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliasName{};
+  shared_ptr<string> attachTypes{};
+  shared_ptr<string> dealed{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> necessity{};
+  shared_ptr<string> searchTags{};
+  shared_ptr<string> type{};
+  shared_ptr<string> uuids{};
+  shared_ptr<string> vpcInstanceIds{};
+
+  ExportVulRequest() {}
+
+  explicit ExportVulRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (attachTypes) {
+      res["AttachTypes"] = boost::any(*attachTypes);
+    }
+    if (dealed) {
+      res["Dealed"] = boost::any(*dealed);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (necessity) {
+      res["Necessity"] = boost::any(*necessity);
+    }
+    if (searchTags) {
+      res["SearchTags"] = boost::any(*searchTags);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (uuids) {
+      res["Uuids"] = boost::any(*uuids);
+    }
+    if (vpcInstanceIds) {
+      res["VpcInstanceIds"] = boost::any(*vpcInstanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("AttachTypes") != m.end() && !m["AttachTypes"].empty()) {
+      attachTypes = make_shared<string>(boost::any_cast<string>(m["AttachTypes"]));
+    }
+    if (m.find("Dealed") != m.end() && !m["Dealed"].empty()) {
+      dealed = make_shared<string>(boost::any_cast<string>(m["Dealed"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("Necessity") != m.end() && !m["Necessity"].empty()) {
+      necessity = make_shared<string>(boost::any_cast<string>(m["Necessity"]));
+    }
+    if (m.find("SearchTags") != m.end() && !m["SearchTags"].empty()) {
+      searchTags = make_shared<string>(boost::any_cast<string>(m["SearchTags"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Uuids") != m.end() && !m["Uuids"].empty()) {
+      uuids = make_shared<string>(boost::any_cast<string>(m["Uuids"]));
+    }
+    if (m.find("VpcInstanceIds") != m.end() && !m["VpcInstanceIds"].empty()) {
+      vpcInstanceIds = make_shared<string>(boost::any_cast<string>(m["VpcInstanceIds"]));
+    }
+  }
+
+
+  virtual ~ExportVulRequest() = default;
+};
+class ExportVulResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<long> id{};
+  shared_ptr<string> requestId{};
+
+  ExportVulResponseBody() {}
+
+  explicit ExportVulResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ExportVulResponseBody() = default;
+};
+class ExportVulResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ExportVulResponseBody> body{};
+
+  ExportVulResponse() {}
+
+  explicit ExportVulResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExportVulResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExportVulResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExportVulResponse() = default;
 };
 class FixCheckWarningsRequest : public Darabonba::Model {
 public:
@@ -46437,6 +46574,130 @@ public:
 
   virtual ~QueryDiscoverDatabaseResponse() = default;
 };
+class QueryGroupIdByGroupNameRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> groupName{};
+  shared_ptr<string> sourceIp{};
+
+  QueryGroupIdByGroupNameRequest() {}
+
+  explicit QueryGroupIdByGroupNameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+  }
+
+
+  virtual ~QueryGroupIdByGroupNameRequest() = default;
+};
+class QueryGroupIdByGroupNameResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<string> requestId{};
+
+  QueryGroupIdByGroupNameResponseBody() {}
+
+  explicit QueryGroupIdByGroupNameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~QueryGroupIdByGroupNameResponseBody() = default;
+};
+class QueryGroupIdByGroupNameResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryGroupIdByGroupNameResponseBody> body{};
+
+  QueryGroupIdByGroupNameResponse() {}
+
+  explicit QueryGroupIdByGroupNameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryGroupIdByGroupNameResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryGroupIdByGroupNameResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryGroupIdByGroupNameResponse() = default;
+};
 class QueryPreCheckDatabaseRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceUuid{};
@@ -48566,8 +48827,8 @@ public:
   DescribeImageVulListResponse describeImageVulList(shared_ptr<DescribeImageVulListRequest> request);
   DescribeInstallCaptchaResponse describeInstallCaptchaWithOptions(shared_ptr<DescribeInstallCaptchaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstallCaptchaResponse describeInstallCaptcha(shared_ptr<DescribeInstallCaptchaRequest> request);
-  DescribeInstallCodesResponse describeInstallCodesWithOptions(shared_ptr<DescribeInstallCodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeInstallCodesResponse describeInstallCodes(shared_ptr<DescribeInstallCodesRequest> request);
+  DescribeInstallCodesResponse describeInstallCodesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeInstallCodesResponse describeInstallCodes();
   DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRulesWithOptions(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRules(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request);
   DescribeInstanceStatisticsResponse describeInstanceStatisticsWithOptions(shared_ptr<DescribeInstanceStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -48710,6 +48971,8 @@ public:
   ExecStrategyResponse execStrategy(shared_ptr<ExecStrategyRequest> request);
   ExportRecordResponse exportRecordWithOptions(shared_ptr<ExportRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExportRecordResponse exportRecord(shared_ptr<ExportRecordRequest> request);
+  ExportVulResponse exportVulWithOptions(shared_ptr<ExportVulRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExportVulResponse exportVul(shared_ptr<ExportVulRequest> request);
   FixCheckWarningsResponse fixCheckWarningsWithOptions(shared_ptr<FixCheckWarningsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FixCheckWarningsResponse fixCheckWarnings(shared_ptr<FixCheckWarningsRequest> request);
   GetBackupStorageCountResponse getBackupStorageCountWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -48808,6 +49071,8 @@ public:
   PauseClientResponse pauseClient(shared_ptr<PauseClientRequest> request);
   QueryDiscoverDatabaseResponse queryDiscoverDatabaseWithOptions(shared_ptr<QueryDiscoverDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryDiscoverDatabaseResponse queryDiscoverDatabase(shared_ptr<QueryDiscoverDatabaseRequest> request);
+  QueryGroupIdByGroupNameResponse queryGroupIdByGroupNameWithOptions(shared_ptr<QueryGroupIdByGroupNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryGroupIdByGroupNameResponse queryGroupIdByGroupName(shared_ptr<QueryGroupIdByGroupNameRequest> request);
   QueryPreCheckDatabaseResponse queryPreCheckDatabaseWithOptions(shared_ptr<QueryPreCheckDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryPreCheckDatabaseResponse queryPreCheckDatabase(shared_ptr<QueryPreCheckDatabaseRequest> request);
   RefreshAssetsResponse refreshAssetsWithOptions(shared_ptr<RefreshAssetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

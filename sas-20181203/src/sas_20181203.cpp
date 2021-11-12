@@ -1170,17 +1170,14 @@ DescribeInstallCaptchaResponse Alibabacloud_Sas20181203::Client::describeInstall
   return describeInstallCaptchaWithOptions(request, runtime);
 }
 
-DescribeInstallCodesResponse Alibabacloud_Sas20181203::Client::describeInstallCodesWithOptions(shared_ptr<DescribeInstallCodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
+DescribeInstallCodesResponse Alibabacloud_Sas20181203::Client::describeInstallCodesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   return DescribeInstallCodesResponse(doRPCRequest(make_shared<string>("DescribeInstallCodes"), make_shared<string>("2018-12-03"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
 }
 
-DescribeInstallCodesResponse Alibabacloud_Sas20181203::Client::describeInstallCodes(shared_ptr<DescribeInstallCodesRequest> request) {
+DescribeInstallCodesResponse Alibabacloud_Sas20181203::Client::describeInstallCodes() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeInstallCodesWithOptions(request, runtime);
+  return describeInstallCodesWithOptions(runtime);
 }
 
 DescribeInstanceAntiBruteForceRulesResponse Alibabacloud_Sas20181203::Client::describeInstanceAntiBruteForceRulesWithOptions(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2082,6 +2079,19 @@ ExportRecordResponse Alibabacloud_Sas20181203::Client::exportRecord(shared_ptr<E
   return exportRecordWithOptions(request, runtime);
 }
 
+ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_ptr<ExportVulRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ExportVulResponse(doRPCRequest(make_shared<string>("ExportVul"), make_shared<string>("2018-12-03"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ExportVulResponse Alibabacloud_Sas20181203::Client::exportVul(shared_ptr<ExportVulRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportVulWithOptions(request, runtime);
+}
+
 FixCheckWarningsResponse Alibabacloud_Sas20181203::Client::fixCheckWarningsWithOptions(shared_ptr<FixCheckWarningsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -2727,6 +2737,19 @@ QueryDiscoverDatabaseResponse Alibabacloud_Sas20181203::Client::queryDiscoverDat
 QueryDiscoverDatabaseResponse Alibabacloud_Sas20181203::Client::queryDiscoverDatabase(shared_ptr<QueryDiscoverDatabaseRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryDiscoverDatabaseWithOptions(request, runtime);
+}
+
+QueryGroupIdByGroupNameResponse Alibabacloud_Sas20181203::Client::queryGroupIdByGroupNameWithOptions(shared_ptr<QueryGroupIdByGroupNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return QueryGroupIdByGroupNameResponse(doRPCRequest(make_shared<string>("QueryGroupIdByGroupName"), make_shared<string>("2018-12-03"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+QueryGroupIdByGroupNameResponse Alibabacloud_Sas20181203::Client::queryGroupIdByGroupName(shared_ptr<QueryGroupIdByGroupNameRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryGroupIdByGroupNameWithOptions(request, runtime);
 }
 
 QueryPreCheckDatabaseResponse Alibabacloud_Sas20181203::Client::queryPreCheckDatabaseWithOptions(shared_ptr<QueryPreCheckDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
