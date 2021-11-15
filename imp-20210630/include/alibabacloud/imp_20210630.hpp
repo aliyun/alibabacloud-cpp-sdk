@@ -6449,8 +6449,10 @@ public:
 class GetLiveRoomStatisticsResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
+  shared_ptr<long> likeCount{};
   shared_ptr<string> liveId{};
   shared_ptr<long> messageCount{};
+  shared_ptr<long> onlineCount{};
   shared_ptr<long> pv{};
   shared_ptr<long> startTime{};
   shared_ptr<long> status{};
@@ -6470,11 +6472,17 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (likeCount) {
+      res["LikeCount"] = boost::any(*likeCount);
+    }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
     if (messageCount) {
       res["MessageCount"] = boost::any(*messageCount);
+    }
+    if (onlineCount) {
+      res["OnlineCount"] = boost::any(*onlineCount);
     }
     if (pv) {
       res["Pv"] = boost::any(*pv);
@@ -6498,11 +6506,17 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
+    if (m.find("LikeCount") != m.end() && !m["LikeCount"].empty()) {
+      likeCount = make_shared<long>(boost::any_cast<long>(m["LikeCount"]));
+    }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
     }
     if (m.find("MessageCount") != m.end() && !m["MessageCount"].empty()) {
       messageCount = make_shared<long>(boost::any_cast<long>(m["MessageCount"]));
+    }
+    if (m.find("OnlineCount") != m.end() && !m["OnlineCount"].empty()) {
+      onlineCount = make_shared<long>(boost::any_cast<long>(m["OnlineCount"]));
     }
     if (m.find("Pv") != m.end() && !m["Pv"].empty()) {
       pv = make_shared<long>(boost::any_cast<long>(m["Pv"]));
