@@ -2054,10 +2054,8 @@ public:
 class DetectVehicleICongestionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
-  shared_ptr<string> originRequestId{};
   shared_ptr<vector<DetectVehicleICongestionRequestPreRegionIntersectFeatures>> preRegionIntersectFeatures{};
   shared_ptr<vector<DetectVehicleICongestionRequestRoadRegions>> roadRegions{};
-  shared_ptr<string> streamArn{};
 
   DetectVehicleICongestionRequest() {}
 
@@ -2071,9 +2069,6 @@ public:
     map<string, boost::any> res;
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
-    }
-    if (originRequestId) {
-      res["OriginRequestId"] = boost::any(*originRequestId);
     }
     if (preRegionIntersectFeatures) {
       vector<boost::any> temp1;
@@ -2089,18 +2084,12 @@ public:
       }
       res["RoadRegions"] = boost::any(temp1);
     }
-    if (streamArn) {
-      res["StreamArn"] = boost::any(*streamArn);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("OriginRequestId") != m.end() && !m["OriginRequestId"].empty()) {
-      originRequestId = make_shared<string>(boost::any_cast<string>(m["OriginRequestId"]));
     }
     if (m.find("PreRegionIntersectFeatures") != m.end() && !m["PreRegionIntersectFeatures"].empty()) {
       if (typeid(vector<boost::any>) == m["PreRegionIntersectFeatures"].type()) {
@@ -2128,9 +2117,6 @@ public:
         roadRegions = make_shared<vector<DetectVehicleICongestionRequestRoadRegions>>(expect1);
       }
     }
-    if (m.find("StreamArn") != m.end() && !m["StreamArn"].empty()) {
-      streamArn = make_shared<string>(boost::any_cast<string>(m["StreamArn"]));
-    }
   }
 
 
@@ -2139,10 +2125,8 @@ public:
 class DetectVehicleICongestionShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
-  shared_ptr<string> originRequestId{};
   shared_ptr<string> preRegionIntersectFeaturesShrink{};
   shared_ptr<string> roadRegionsShrink{};
-  shared_ptr<string> streamArn{};
 
   DetectVehicleICongestionShrinkRequest() {}
 
@@ -2157,17 +2141,11 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
-    if (originRequestId) {
-      res["OriginRequestId"] = boost::any(*originRequestId);
-    }
     if (preRegionIntersectFeaturesShrink) {
       res["PreRegionIntersectFeatures"] = boost::any(*preRegionIntersectFeaturesShrink);
     }
     if (roadRegionsShrink) {
       res["RoadRegions"] = boost::any(*roadRegionsShrink);
-    }
-    if (streamArn) {
-      res["StreamArn"] = boost::any(*streamArn);
     }
     return res;
   }
@@ -2176,17 +2154,11 @@ public:
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
-    if (m.find("OriginRequestId") != m.end() && !m["OriginRequestId"].empty()) {
-      originRequestId = make_shared<string>(boost::any_cast<string>(m["OriginRequestId"]));
-    }
     if (m.find("PreRegionIntersectFeatures") != m.end() && !m["PreRegionIntersectFeatures"].empty()) {
       preRegionIntersectFeaturesShrink = make_shared<string>(boost::any_cast<string>(m["PreRegionIntersectFeatures"]));
     }
     if (m.find("RoadRegions") != m.end() && !m["RoadRegions"].empty()) {
       roadRegionsShrink = make_shared<string>(boost::any_cast<string>(m["RoadRegions"]));
-    }
-    if (m.find("StreamArn") != m.end() && !m["StreamArn"].empty()) {
-      streamArn = make_shared<string>(boost::any_cast<string>(m["StreamArn"]));
     }
   }
 
@@ -2246,6 +2218,7 @@ public:
 class DetectVehicleICongestionResponseBodyDataElements : public Darabonba::Model {
 public:
   shared_ptr<vector<DetectVehicleICongestionResponseBodyDataElementsBoxes>> boxes{};
+  shared_ptr<long> id{};
   shared_ptr<double> score{};
   shared_ptr<string> typeName_{};
 
@@ -2265,6 +2238,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Boxes"] = boost::any(temp1);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
     }
     if (score) {
       res["Score"] = boost::any(*score);
@@ -2288,6 +2264,9 @@ public:
         }
         boxes = make_shared<vector<DetectVehicleICongestionResponseBodyDataElementsBoxes>>(expect1);
       }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["Score"]));
@@ -2721,9 +2700,7 @@ public:
 class DetectVehicleIllegalParkingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
-  shared_ptr<string> originRequestId{};
   shared_ptr<vector<DetectVehicleIllegalParkingRequestRoadRegions>> roadRegions{};
-  shared_ptr<string> streamArn{};
 
   DetectVehicleIllegalParkingRequest() {}
 
@@ -2738,9 +2715,6 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
-    if (originRequestId) {
-      res["OriginRequestId"] = boost::any(*originRequestId);
-    }
     if (roadRegions) {
       vector<boost::any> temp1;
       for(auto item1:*roadRegions){
@@ -2748,18 +2722,12 @@ public:
       }
       res["RoadRegions"] = boost::any(temp1);
     }
-    if (streamArn) {
-      res["StreamArn"] = boost::any(*streamArn);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("OriginRequestId") != m.end() && !m["OriginRequestId"].empty()) {
-      originRequestId = make_shared<string>(boost::any_cast<string>(m["OriginRequestId"]));
     }
     if (m.find("RoadRegions") != m.end() && !m["RoadRegions"].empty()) {
       if (typeid(vector<boost::any>) == m["RoadRegions"].type()) {
@@ -2774,9 +2742,6 @@ public:
         roadRegions = make_shared<vector<DetectVehicleIllegalParkingRequestRoadRegions>>(expect1);
       }
     }
-    if (m.find("StreamArn") != m.end() && !m["StreamArn"].empty()) {
-      streamArn = make_shared<string>(boost::any_cast<string>(m["StreamArn"]));
-    }
   }
 
 
@@ -2785,9 +2750,7 @@ public:
 class DetectVehicleIllegalParkingShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
-  shared_ptr<string> originRequestId{};
   shared_ptr<string> roadRegionsShrink{};
-  shared_ptr<string> streamArn{};
 
   DetectVehicleIllegalParkingShrinkRequest() {}
 
@@ -2802,14 +2765,8 @@ public:
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
-    if (originRequestId) {
-      res["OriginRequestId"] = boost::any(*originRequestId);
-    }
     if (roadRegionsShrink) {
       res["RoadRegions"] = boost::any(*roadRegionsShrink);
-    }
-    if (streamArn) {
-      res["StreamArn"] = boost::any(*streamArn);
     }
     return res;
   }
@@ -2818,14 +2775,8 @@ public:
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
-    if (m.find("OriginRequestId") != m.end() && !m["OriginRequestId"].empty()) {
-      originRequestId = make_shared<string>(boost::any_cast<string>(m["OriginRequestId"]));
-    }
     if (m.find("RoadRegions") != m.end() && !m["RoadRegions"].empty()) {
       roadRegionsShrink = make_shared<string>(boost::any_cast<string>(m["RoadRegions"]));
-    }
-    if (m.find("StreamArn") != m.end() && !m["StreamArn"].empty()) {
-      streamArn = make_shared<string>(boost::any_cast<string>(m["StreamArn"]));
     }
   }
 
@@ -2885,6 +2836,7 @@ public:
 class DetectVehicleIllegalParkingResponseBodyDataElements : public Darabonba::Model {
 public:
   shared_ptr<vector<DetectVehicleIllegalParkingResponseBodyDataElementsBoxes>> boxes{};
+  shared_ptr<long> id{};
   shared_ptr<double> score{};
   shared_ptr<string> typeName_{};
 
@@ -2904,6 +2856,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Boxes"] = boost::any(temp1);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
     }
     if (score) {
       res["Score"] = boost::any(*score);
@@ -2927,6 +2882,9 @@ public:
         }
         boxes = make_shared<vector<DetectVehicleIllegalParkingResponseBodyDataElementsBoxes>>(expect1);
       }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["Score"]));
