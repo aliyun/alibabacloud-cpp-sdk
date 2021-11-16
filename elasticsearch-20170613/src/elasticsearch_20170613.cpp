@@ -1563,6 +1563,37 @@ ListAlternativeSnapshotReposResponse Alibabacloud_Elasticsearch20170613::Client:
   return ListAlternativeSnapshotReposResponse(doROARequest(make_shared<string>("ListAlternativeSnapshotRepos"), make_shared<string>("2017-06-13"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/openapi/instances/") + string(*InstanceId) + string("/alternative-snapshot-repos")), make_shared<string>("json"), req, runtime));
 }
 
+ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApm(shared_ptr<ListApmRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listApmWithOptions(request, headers, runtime);
+}
+
+ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApmWithOptions(shared_ptr<ListApmRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    (*query)["description"] = *request->description;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    (*query)["instanceId"] = *request->instanceId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
+    (*query)["output"] = *request->output;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    (*query)["page"] = *request->page;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
+    (*query)["size"] = *request->size;
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  return ListApmResponse(doROARequest(make_shared<string>("ListApm"), make_shared<string>("2017-06-13"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/openapi/apm")), make_shared<string>("json"), req, runtime));
+}
+
 ListAvailableEsInstanceIdsResponse Alibabacloud_Elasticsearch20170613::Client::listAvailableEsInstanceIds(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -3293,25 +3324,25 @@ UpdateApmResponse Alibabacloud_Elasticsearch20170613::Client::updateApmWithOptio
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    (*body)["description"] = *request->description;
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputES)) {
-    (*query)["outputES"] = *request->outputES;
+    (*body)["outputES"] = *request->outputES;
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputESPassword)) {
-    (*query)["outputESPassword"] = *request->outputESPassword;
+    (*body)["outputESPassword"] = *request->outputESPassword;
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputESUserName)) {
-    (*query)["outputESUserName"] = *request->outputESUserName;
+    (*body)["outputESUserName"] = *request->outputESUserName;
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
-    (*query)["token"] = *request->token;
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->yml)) {
-    (*query)["yml"] = *request->yml;
+    (*body)["token"] = *request->token;
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   return UpdateApmResponse(doROARequest(make_shared<string>("UpdateApm"), make_shared<string>("2017-06-13"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/openapi/apm/") + string(*instanceId)), make_shared<string>("json"), req, runtime));
 }
