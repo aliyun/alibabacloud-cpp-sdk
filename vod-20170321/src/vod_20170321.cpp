@@ -2143,6 +2143,19 @@ UpdateImageInfosResponse Alibabacloud_Vod20170321::Client::updateImageInfos(shar
   return updateImageInfosWithOptions(request, runtime);
 }
 
+UpdateStreamInfoResponse Alibabacloud_Vod20170321::Client::updateStreamInfoWithOptions(shared_ptr<UpdateStreamInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return UpdateStreamInfoResponse(doRPCRequest(make_shared<string>("UpdateStreamInfo"), make_shared<string>("2017-03-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+UpdateStreamInfoResponse Alibabacloud_Vod20170321::Client::updateStreamInfo(shared_ptr<UpdateStreamInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateStreamInfoWithOptions(request, runtime);
+}
+
 UpdateTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::updateTranscodeTemplateGroupWithOptions(shared_ptr<UpdateTranscodeTemplateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({

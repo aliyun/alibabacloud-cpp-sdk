@@ -21040,6 +21040,7 @@ public:
   shared_ptr<string> dar{};
   shared_ptr<string> duration{};
   shared_ptr<string> fps{};
+  shared_ptr<string> HDRType{};
   shared_ptr<string> hasBFrames{};
   shared_ptr<string> height{};
   shared_ptr<string> index{};
@@ -21093,6 +21094,9 @@ public:
     }
     if (fps) {
       res["Fps"] = boost::any(*fps);
+    }
+    if (HDRType) {
+      res["HDRType"] = boost::any(*HDRType);
     }
     if (hasBFrames) {
       res["HasBFrames"] = boost::any(*hasBFrames);
@@ -21166,6 +21170,9 @@ public:
     }
     if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
       fps = make_shared<string>(boost::any_cast<string>(m["Fps"]));
+    }
+    if (m.find("HDRType") != m.end() && !m["HDRType"].empty()) {
+      HDRType = make_shared<string>(boost::any_cast<string>(m["HDRType"]));
     }
     if (m.find("HasBFrames") != m.end() && !m["HasBFrames"].empty()) {
       hasBFrames = make_shared<string>(boost::any_cast<string>(m["HasBFrames"]));
@@ -21553,6 +21560,7 @@ public:
   shared_ptr<string> encryptType{};
   shared_ptr<string> format{};
   shared_ptr<string> fps{};
+  shared_ptr<string> HDRType{};
   shared_ptr<long> height{};
   shared_ptr<string> jobId{};
   shared_ptr<string> modificationTime{};
@@ -21598,6 +21606,9 @@ public:
     }
     if (fps) {
       res["Fps"] = boost::any(*fps);
+    }
+    if (HDRType) {
+      res["HDRType"] = boost::any(*HDRType);
     }
     if (height) {
       res["Height"] = boost::any(*height);
@@ -21659,6 +21670,9 @@ public:
     }
     if (m.find("Fps") != m.end() && !m["Fps"].empty()) {
       fps = make_shared<string>(boost::any_cast<string>(m["Fps"]));
+    }
+    if (m.find("HDRType") != m.end() && !m["HDRType"].empty()) {
+      HDRType = make_shared<string>(boost::any_cast<string>(m["HDRType"]));
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
@@ -24590,6 +24604,7 @@ public:
 };
 class GetVideoPlayAuthRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> apiVersion{};
   shared_ptr<long> authInfoTimeout{};
   shared_ptr<string> videoId{};
 
@@ -24603,6 +24618,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiVersion) {
+      res["ApiVersion"] = boost::any(*apiVersion);
+    }
     if (authInfoTimeout) {
       res["AuthInfoTimeout"] = boost::any(*authInfoTimeout);
     }
@@ -24613,6 +24631,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiVersion") != m.end() && !m["ApiVersion"].empty()) {
+      apiVersion = make_shared<string>(boost::any_cast<string>(m["ApiVersion"]));
+    }
     if (m.find("AuthInfoTimeout") != m.end() && !m["AuthInfoTimeout"].empty()) {
       authInfoTimeout = make_shared<long>(boost::any_cast<long>(m["AuthInfoTimeout"]));
     }
@@ -37184,6 +37205,123 @@ public:
 
   virtual ~UpdateImageInfosResponse() = default;
 };
+class UpdateStreamInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> mediaId{};
+
+  UpdateStreamInfoRequest() {}
+
+  explicit UpdateStreamInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamInfoRequest() = default;
+};
+class UpdateStreamInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateStreamInfoResponseBody() {}
+
+  explicit UpdateStreamInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateStreamInfoResponseBody() = default;
+};
+class UpdateStreamInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateStreamInfoResponseBody> body{};
+
+  UpdateStreamInfoResponse() {}
+
+  explicit UpdateStreamInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateStreamInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateStreamInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateStreamInfoResponse() = default;
+};
 class UpdateTranscodeTemplateGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> locked{};
@@ -38293,6 +38431,7 @@ class UploadStreamByURLRequest : public Darabonba::Model {
 public:
   shared_ptr<string> definition{};
   shared_ptr<string> fileExtension{};
+  shared_ptr<string> HDRType{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> streamURL{};
   shared_ptr<string> userData{};
@@ -38313,6 +38452,9 @@ public:
     if (fileExtension) {
       res["FileExtension"] = boost::any(*fileExtension);
     }
+    if (HDRType) {
+      res["HDRType"] = boost::any(*HDRType);
+    }
     if (mediaId) {
       res["MediaId"] = boost::any(*mediaId);
     }
@@ -38331,6 +38473,9 @@ public:
     }
     if (m.find("FileExtension") != m.end() && !m["FileExtension"].empty()) {
       fileExtension = make_shared<string>(boost::any_cast<string>(m["FileExtension"]));
+    }
+    if (m.find("HDRType") != m.end() && !m["HDRType"].empty()) {
+      HDRType = make_shared<string>(boost::any_cast<string>(m["HDRType"]));
     }
     if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
       mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
@@ -38889,6 +39034,8 @@ public:
   UpdateEditingProjectResponse updateEditingProject(shared_ptr<UpdateEditingProjectRequest> request);
   UpdateImageInfosResponse updateImageInfosWithOptions(shared_ptr<UpdateImageInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateImageInfosResponse updateImageInfos(shared_ptr<UpdateImageInfosRequest> request);
+  UpdateStreamInfoResponse updateStreamInfoWithOptions(shared_ptr<UpdateStreamInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateStreamInfoResponse updateStreamInfo(shared_ptr<UpdateStreamInfoRequest> request);
   UpdateTranscodeTemplateGroupResponse updateTranscodeTemplateGroupWithOptions(shared_ptr<UpdateTranscodeTemplateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTranscodeTemplateGroupResponse updateTranscodeTemplateGroup(shared_ptr<UpdateTranscodeTemplateGroupRequest> request);
   UpdateVideoInfoResponse updateVideoInfoWithOptions(shared_ptr<UpdateVideoInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
