@@ -1315,10 +1315,12 @@ public:
 class CreateEditingProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> businessConfig{};
+  shared_ptr<string> clipsParam{};
   shared_ptr<string> coverURL{};
   shared_ptr<string> description{};
   shared_ptr<string> materialMaps{};
   shared_ptr<string> projectType{};
+  shared_ptr<string> templateId{};
   shared_ptr<string> timeline{};
   shared_ptr<string> title{};
 
@@ -1335,6 +1337,9 @@ public:
     if (businessConfig) {
       res["BusinessConfig"] = boost::any(*businessConfig);
     }
+    if (clipsParam) {
+      res["ClipsParam"] = boost::any(*clipsParam);
+    }
     if (coverURL) {
       res["CoverURL"] = boost::any(*coverURL);
     }
@@ -1346,6 +1351,9 @@ public:
     }
     if (projectType) {
       res["ProjectType"] = boost::any(*projectType);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
     }
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
@@ -1360,6 +1368,9 @@ public:
     if (m.find("BusinessConfig") != m.end() && !m["BusinessConfig"].empty()) {
       businessConfig = make_shared<string>(boost::any_cast<string>(m["BusinessConfig"]));
     }
+    if (m.find("ClipsParam") != m.end() && !m["ClipsParam"].empty()) {
+      clipsParam = make_shared<string>(boost::any_cast<string>(m["ClipsParam"]));
+    }
     if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
       coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
     }
@@ -1371,6 +1382,9 @@ public:
     }
     if (m.find("ProjectType") != m.end() && !m["ProjectType"].empty()) {
       projectType = make_shared<string>(boost::any_cast<string>(m["ProjectType"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
@@ -1387,6 +1401,7 @@ class CreateEditingProjectResponseBodyProject : public Darabonba::Model {
 public:
   shared_ptr<string> businessConfig{};
   shared_ptr<string> businessStatus{};
+  shared_ptr<string> clipsParam{};
   shared_ptr<string> coverURL{};
   shared_ptr<string> createSource{};
   shared_ptr<string> createTime{};
@@ -1398,6 +1413,7 @@ public:
   shared_ptr<string> projectType{};
   shared_ptr<long> status{};
   shared_ptr<string> statusName{};
+  shared_ptr<string> templateId{};
   shared_ptr<string> templateType{};
   shared_ptr<string> timeline{};
   shared_ptr<string> title{};
@@ -1417,6 +1433,9 @@ public:
     }
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
+    }
+    if (clipsParam) {
+      res["ClipsParam"] = boost::any(*clipsParam);
     }
     if (coverURL) {
       res["CoverURL"] = boost::any(*coverURL);
@@ -1451,6 +1470,9 @@ public:
     if (statusName) {
       res["StatusName"] = boost::any(*statusName);
     }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
     if (templateType) {
       res["TemplateType"] = boost::any(*templateType);
     }
@@ -1469,6 +1491,9 @@ public:
     }
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
+    }
+    if (m.find("ClipsParam") != m.end() && !m["ClipsParam"].empty()) {
+      clipsParam = make_shared<string>(boost::any_cast<string>(m["ClipsParam"]));
     }
     if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
       coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
@@ -1502,6 +1527,9 @@ public:
     }
     if (m.find("StatusName") != m.end() && !m["StatusName"].empty()) {
       statusName = make_shared<string>(boost::any_cast<string>(m["StatusName"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
@@ -2547,6 +2575,7 @@ class GetEditingProjectResponseBodyProject : public Darabonba::Model {
 public:
   shared_ptr<string> businessConfig{};
   shared_ptr<string> businessStatus{};
+  shared_ptr<string> clipsParam{};
   shared_ptr<string> coverURL{};
   shared_ptr<string> createSource{};
   shared_ptr<string> createTime{};
@@ -2557,6 +2586,7 @@ public:
   shared_ptr<string> projectId{};
   shared_ptr<string> projectType{};
   shared_ptr<string> status{};
+  shared_ptr<string> templateId{};
   shared_ptr<string> templateType{};
   shared_ptr<string> timeline{};
   shared_ptr<string> title{};
@@ -2576,6 +2606,9 @@ public:
     }
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
+    }
+    if (clipsParam) {
+      res["ClipsParam"] = boost::any(*clipsParam);
     }
     if (coverURL) {
       res["CoverURL"] = boost::any(*coverURL);
@@ -2607,6 +2640,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
     if (templateType) {
       res["TemplateType"] = boost::any(*templateType);
     }
@@ -2625,6 +2661,9 @@ public:
     }
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
+    }
+    if (m.find("ClipsParam") != m.end() && !m["ClipsParam"].empty()) {
+      clipsParam = make_shared<string>(boost::any_cast<string>(m["ClipsParam"]));
     }
     if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
       coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
@@ -2655,6 +2694,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
       templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
@@ -5854,6 +5896,130 @@ public:
 
 
   virtual ~GetTemplateResponse() = default;
+};
+class GetTemplateMaterialsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileList{};
+  shared_ptr<string> templateId{};
+
+  GetTemplateMaterialsRequest() {}
+
+  explicit GetTemplateMaterialsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileList) {
+      res["FileList"] = boost::any(*fileList);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileList") != m.end() && !m["FileList"].empty()) {
+      fileList = make_shared<string>(boost::any_cast<string>(m["FileList"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateMaterialsRequest() = default;
+};
+class GetTemplateMaterialsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> materialUrls{};
+  shared_ptr<string> requestId{};
+
+  GetTemplateMaterialsResponseBody() {}
+
+  explicit GetTemplateMaterialsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (materialUrls) {
+      res["MaterialUrls"] = boost::any(*materialUrls);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaterialUrls") != m.end() && !m["MaterialUrls"].empty()) {
+      materialUrls = make_shared<string>(boost::any_cast<string>(m["MaterialUrls"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateMaterialsResponseBody() = default;
+};
+class GetTemplateMaterialsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetTemplateMaterialsResponseBody> body{};
+
+  GetTemplateMaterialsResponse() {}
+
+  explicit GetTemplateMaterialsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTemplateMaterialsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTemplateMaterialsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTemplateMaterialsResponse() = default;
 };
 class ListAllPublicMediaTagsRequest : public Darabonba::Model {
 public:
@@ -10266,6 +10432,7 @@ class SubmitMediaProducingJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clipsParam{};
+  shared_ptr<string> editingProduceConfig{};
   shared_ptr<string> outputMediaConfig{};
   shared_ptr<string> outputMediaTarget{};
   shared_ptr<string> projectId{};
@@ -10290,6 +10457,9 @@ public:
     }
     if (clipsParam) {
       res["ClipsParam"] = boost::any(*clipsParam);
+    }
+    if (editingProduceConfig) {
+      res["EditingProduceConfig"] = boost::any(*editingProduceConfig);
     }
     if (outputMediaConfig) {
       res["OutputMediaConfig"] = boost::any(*outputMediaConfig);
@@ -10324,6 +10494,9 @@ public:
     }
     if (m.find("ClipsParam") != m.end() && !m["ClipsParam"].empty()) {
       clipsParam = make_shared<string>(boost::any_cast<string>(m["ClipsParam"]));
+    }
+    if (m.find("EditingProduceConfig") != m.end() && !m["EditingProduceConfig"].empty()) {
+      editingProduceConfig = make_shared<string>(boost::any_cast<string>(m["EditingProduceConfig"]));
     }
     if (m.find("OutputMediaConfig") != m.end() && !m["OutputMediaConfig"].empty()) {
       outputMediaConfig = make_shared<string>(boost::any_cast<string>(m["OutputMediaConfig"]));
@@ -10360,6 +10533,7 @@ public:
   shared_ptr<string> mediaId{};
   shared_ptr<string> projectId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> vodMediaId{};
 
   SubmitMediaProducingJobResponseBody() {}
 
@@ -10383,6 +10557,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (vodMediaId) {
+      res["VodMediaId"] = boost::any(*vodMediaId);
+    }
     return res;
   }
 
@@ -10398,6 +10575,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("VodMediaId") != m.end() && !m["VodMediaId"].empty()) {
+      vodMediaId = make_shared<string>(boost::any_cast<string>(m["VodMediaId"]));
     }
   }
 
@@ -10784,9 +10964,11 @@ public:
 class UpdateEditingProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> businessStatus{};
+  shared_ptr<string> clipsParam{};
   shared_ptr<string> coverURL{};
   shared_ptr<string> description{};
   shared_ptr<string> projectId{};
+  shared_ptr<string> templateId{};
   shared_ptr<string> timeline{};
   shared_ptr<string> title{};
 
@@ -10803,6 +10985,9 @@ public:
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
     }
+    if (clipsParam) {
+      res["ClipsParam"] = boost::any(*clipsParam);
+    }
     if (coverURL) {
       res["CoverURL"] = boost::any(*coverURL);
     }
@@ -10811,6 +10996,9 @@ public:
     }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
     }
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
@@ -10825,6 +11013,9 @@ public:
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
     }
+    if (m.find("ClipsParam") != m.end() && !m["ClipsParam"].empty()) {
+      clipsParam = make_shared<string>(boost::any_cast<string>(m["ClipsParam"]));
+    }
     if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
       coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
     }
@@ -10833,6 +11024,9 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
@@ -11257,6 +11451,7 @@ public:
   shared_ptr<string> coverUrl{};
   shared_ptr<string> name{};
   shared_ptr<string> previewMedia{};
+  shared_ptr<string> relatedMediaids{};
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<string> templateId{};
@@ -11283,6 +11478,9 @@ public:
     if (previewMedia) {
       res["PreviewMedia"] = boost::any(*previewMedia);
     }
+    if (relatedMediaids) {
+      res["RelatedMediaids"] = boost::any(*relatedMediaids);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -11307,6 +11505,9 @@ public:
     }
     if (m.find("PreviewMedia") != m.end() && !m["PreviewMedia"].empty()) {
       previewMedia = make_shared<string>(boost::any_cast<string>(m["PreviewMedia"]));
+    }
+    if (m.find("RelatedMediaids") != m.end() && !m["RelatedMediaids"].empty()) {
+      relatedMediaids = make_shared<string>(boost::any_cast<string>(m["RelatedMediaids"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -11455,6 +11656,8 @@ public:
   GetSmartHandleJobResponse getSmartHandleJob(shared_ptr<GetSmartHandleJobRequest> request);
   GetTemplateResponse getTemplateWithOptions(shared_ptr<GetTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateResponse getTemplate(shared_ptr<GetTemplateRequest> request);
+  GetTemplateMaterialsResponse getTemplateMaterialsWithOptions(shared_ptr<GetTemplateMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTemplateMaterialsResponse getTemplateMaterials(shared_ptr<GetTemplateMaterialsRequest> request);
   ListAllPublicMediaTagsResponse listAllPublicMediaTagsWithOptions(shared_ptr<ListAllPublicMediaTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAllPublicMediaTagsResponse listAllPublicMediaTags(shared_ptr<ListAllPublicMediaTagsRequest> request);
   ListMediaBasicInfosResponse listMediaBasicInfosWithOptions(shared_ptr<ListMediaBasicInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
