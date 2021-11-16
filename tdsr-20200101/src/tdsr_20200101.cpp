@@ -301,19 +301,6 @@ GetHotspotTagResponse Alibabacloud_Tdsr20200101::Client::getHotspotTag(shared_pt
   return getHotspotTagWithOptions(request, runtime);
 }
 
-GetJobResponse Alibabacloud_Tdsr20200101::Client::getJobWithOptions(shared_ptr<GetJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetJobResponse(doRPCRequest(make_shared<string>("GetJob"), make_shared<string>("2020-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetJobResponse Alibabacloud_Tdsr20200101::Client::getJob(shared_ptr<GetJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getJobWithOptions(request, runtime);
-}
-
 GetLayoutDataResponse Alibabacloud_Tdsr20200101::Client::getLayoutDataWithOptions(shared_ptr<GetLayoutDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -598,6 +585,19 @@ PublishSceneResponse Alibabacloud_Tdsr20200101::Client::publishSceneWithOptions(
 PublishSceneResponse Alibabacloud_Tdsr20200101::Client::publishScene(shared_ptr<PublishSceneRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return publishSceneWithOptions(request, runtime);
+}
+
+PublishStatusResponse Alibabacloud_Tdsr20200101::Client::publishStatusWithOptions(shared_ptr<PublishStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return PublishStatusResponse(doRPCRequest(make_shared<string>("PublishStatus"), make_shared<string>("2020-01-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+PublishStatusResponse Alibabacloud_Tdsr20200101::Client::publishStatus(shared_ptr<PublishStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return publishStatusWithOptions(request, runtime);
 }
 
 RecoveryOriginImageResponse Alibabacloud_Tdsr20200101::Client::recoveryOriginImageWithOptions(shared_ptr<RecoveryOriginImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
