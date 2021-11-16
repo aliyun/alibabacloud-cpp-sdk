@@ -16289,9 +16289,11 @@ public:
   shared_ptr<string> alertLevel{};
   shared_ptr<string> alertName{};
   shared_ptr<string> alertSourceName{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> relatedServiceId{};
+  shared_ptr<string> startTime{};
 
   ListAlertsRequest() {}
 
@@ -16312,6 +16314,9 @@ public:
     if (alertSourceName) {
       res["alertSourceName"] = boost::any(*alertSourceName);
     }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
     }
@@ -16320,6 +16325,9 @@ public:
     }
     if (relatedServiceId) {
       res["relatedServiceId"] = boost::any(*relatedServiceId);
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -16334,6 +16342,9 @@ public:
     if (m.find("alertSourceName") != m.end() && !m["alertSourceName"].empty()) {
       alertSourceName = make_shared<string>(boost::any_cast<string>(m["alertSourceName"]));
     }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
+    }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
     }
@@ -16342,6 +16353,9 @@ public:
     }
     if (m.find("relatedServiceId") != m.end() && !m["relatedServiceId"].empty()) {
       relatedServiceId = make_shared<long>(boost::any_cast<long>(m["relatedServiceId"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
     }
   }
 
@@ -22806,11 +22820,13 @@ public:
 class ListSourceEventsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> endTime{};
   shared_ptr<long> instanceId{};
   shared_ptr<string> instanceType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> startRowKey{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> stopRowKey{};
 
   ListSourceEventsRequest() {}
@@ -22825,6 +22841,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -22841,6 +22860,9 @@ public:
     if (startRowKey) {
       res["startRowKey"] = boost::any(*startRowKey);
     }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
     if (stopRowKey) {
       res["stopRowKey"] = boost::any(*stopRowKey);
     }
@@ -22850,6 +22872,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["endTime"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["instanceId"]));
@@ -22865,6 +22890,9 @@ public:
     }
     if (m.find("startRowKey") != m.end() && !m["startRowKey"].empty()) {
       startRowKey = make_shared<string>(boost::any_cast<string>(m["startRowKey"]));
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
     }
     if (m.find("stopRowKey") != m.end() && !m["stopRowKey"].empty()) {
       stopRowKey = make_shared<string>(boost::any_cast<string>(m["stopRowKey"]));

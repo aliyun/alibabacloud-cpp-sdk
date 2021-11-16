@@ -1965,6 +1965,9 @@ ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlertsWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->alertSourceName)) {
     (*body)["alertSourceName"] = *request->alertSourceName;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    (*body)["endTime"] = *request->endTime;
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     (*body)["pageNumber"] = *request->pageNumber;
   }
@@ -1973,6 +1976,9 @@ ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlertsWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->relatedServiceId)) {
     (*body)["relatedServiceId"] = *request->relatedServiceId;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    (*body)["startTime"] = *request->startTime;
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2653,6 +2659,9 @@ ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEventsWith
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     (*body)["clientToken"] = *request->clientToken;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    (*body)["endTime"] = *request->endTime;
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->instanceId)) {
     (*body)["instanceId"] = *request->instanceId;
   }
@@ -2667,6 +2676,9 @@ ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEventsWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startRowKey)) {
     (*body)["startRowKey"] = *request->startRowKey;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    (*body)["startTime"] = *request->startTime;
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stopRowKey)) {
     (*body)["stopRowKey"] = *request->stopRowKey;
