@@ -7130,7 +7130,6 @@ public:
 class PublishSceneResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<string> instanceId{};
   shared_ptr<string> message{};
   shared_ptr<string> previewUrl{};
   shared_ptr<string> requestId{};
@@ -7148,9 +7147,6 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -7170,9 +7166,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
