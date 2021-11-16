@@ -562,7 +562,6 @@ public:
   shared_ptr<string> lat{};
   shared_ptr<string> lon{};
   shared_ptr<string> orderId{};
-  shared_ptr<string> sourceIp{};
 
   WeatherforecastTimeRequest() {}
 
@@ -586,9 +585,6 @@ public:
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
     return res;
   }
 
@@ -604,9 +600,6 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
     }
   }
 
