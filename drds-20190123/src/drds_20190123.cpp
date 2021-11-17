@@ -816,6 +816,19 @@ DescribeDrdsDbRdsNameListResponse Alibabacloud_Drds20190123::Client::describeDrd
   return describeDrdsDbRdsNameListWithOptions(request, runtime);
 }
 
+DescribeDrdsDbSpecAndPriceResponse Alibabacloud_Drds20190123::Client::describeDrdsDbSpecAndPriceWithOptions(shared_ptr<DescribeDrdsDbSpecAndPriceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return DescribeDrdsDbSpecAndPriceResponse(doRPCRequest(make_shared<string>("DescribeDrdsDbSpecAndPrice"), make_shared<string>("2019-01-23"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+DescribeDrdsDbSpecAndPriceResponse Alibabacloud_Drds20190123::Client::describeDrdsDbSpecAndPrice(shared_ptr<DescribeDrdsDbSpecAndPriceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDrdsDbSpecAndPriceWithOptions(request, runtime);
+}
+
 DescribeDrdsDbTasksResponse Alibabacloud_Drds20190123::Client::describeDrdsDbTasksWithOptions(shared_ptr<DescribeDrdsDbTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
