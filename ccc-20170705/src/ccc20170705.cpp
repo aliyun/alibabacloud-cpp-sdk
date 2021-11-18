@@ -3,6 +3,7 @@
 #include <alibabacloud/ccc20170705.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -56,10 +57,23 @@ string Alibabacloud_CCC20170705::Client::getEndpoint(shared_ptr<string> productI
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+AbortPredictiveJobsResponse Alibabacloud_CCC20170705::Client::abortPredictiveJobsWithOptions(shared_ptr<AbortPredictiveJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AbortPredictiveJobsResponse(doRPCRequest(make_shared<string>("AbortPredictiveJobs"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AbortPredictiveJobsResponse Alibabacloud_CCC20170705::Client::abortPredictiveJobs(shared_ptr<AbortPredictiveJobsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return abortPredictiveJobsWithOptions(request, runtime);
 }
 
 AddAgentDeviceResponse Alibabacloud_CCC20170705::Client::addAgentDeviceWithOptions(shared_ptr<AddAgentDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -86,6 +100,19 @@ AddBulkPhoneNumbersResponse Alibabacloud_CCC20170705::Client::addBulkPhoneNumber
 AddBulkPhoneNumbersResponse Alibabacloud_CCC20170705::Client::addBulkPhoneNumbers(shared_ptr<AddBulkPhoneNumbersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return addBulkPhoneNumbersWithOptions(request, runtime);
+}
+
+AddJobsToPredictiveJobGroupResponse Alibabacloud_CCC20170705::Client::addJobsToPredictiveJobGroupWithOptions(shared_ptr<AddJobsToPredictiveJobGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return AddJobsToPredictiveJobGroupResponse(doRPCRequest(make_shared<string>("AddJobsToPredictiveJobGroup"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+AddJobsToPredictiveJobGroupResponse Alibabacloud_CCC20170705::Client::addJobsToPredictiveJobGroup(shared_ptr<AddJobsToPredictiveJobGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addJobsToPredictiveJobGroupWithOptions(request, runtime);
 }
 
 AddPhoneNumberResponse Alibabacloud_CCC20170705::Client::addPhoneNumberWithOptions(shared_ptr<AddPhoneNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -621,6 +648,19 @@ GetConfigResponse Alibabacloud_CCC20170705::Client::getConfig(shared_ptr<GetConf
   return getConfigWithOptions(request, runtime);
 }
 
+GetContactInfoByOutboundTaskIdResponse Alibabacloud_CCC20170705::Client::getContactInfoByOutboundTaskIdWithOptions(shared_ptr<GetContactInfoByOutboundTaskIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetContactInfoByOutboundTaskIdResponse(doRPCRequest(make_shared<string>("GetContactInfoByOutboundTaskId"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetContactInfoByOutboundTaskIdResponse Alibabacloud_CCC20170705::Client::getContactInfoByOutboundTaskId(shared_ptr<GetContactInfoByOutboundTaskIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getContactInfoByOutboundTaskIdWithOptions(request, runtime);
+}
+
 GetConversationDetailByContactIdResponse Alibabacloud_CCC20170705::Client::getConversationDetailByContactIdWithOptions(shared_ptr<GetConversationDetailByContactIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -816,6 +856,33 @@ GetNumberRegionInfoResponse Alibabacloud_CCC20170705::Client::getNumberRegionInf
   return getNumberRegionInfoWithOptions(request, runtime);
 }
 
+GetPredictiveJobGroupResponse Alibabacloud_CCC20170705::Client::getPredictiveJobGroupWithOptions(shared_ptr<GetPredictiveJobGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetPredictiveJobGroupResponse(doRPCRequest(make_shared<string>("GetPredictiveJobGroup"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetPredictiveJobGroupResponse Alibabacloud_CCC20170705::Client::getPredictiveJobGroup(shared_ptr<GetPredictiveJobGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPredictiveJobGroupWithOptions(request, runtime);
+}
+
+GetPredictiveTaskDataResponse Alibabacloud_CCC20170705::Client::getPredictiveTaskDataWithOptions(shared_ptr<GetPredictiveTaskDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", !query ? boost::any() : boost::any(*query)}
+  }));
+  return GetPredictiveTaskDataResponse(doRPCRequest(make_shared<string>("GetPredictiveTaskData"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetPredictiveTaskDataResponse Alibabacloud_CCC20170705::Client::getPredictiveTaskData(shared_ptr<GetPredictiveTaskDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPredictiveTaskDataWithOptions(request, runtime);
+}
+
 GetRecordOssUploadParamResponse Alibabacloud_CCC20170705::Client::getRecordOssUploadParamWithOptions(shared_ptr<GetRecordOssUploadParamRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -894,19 +961,6 @@ GetSurveyResponse Alibabacloud_CCC20170705::Client::getSurvey(shared_ptr<GetSurv
   return getSurveyWithOptions(request, runtime);
 }
 
-GetTaskListResponse Alibabacloud_CCC20170705::Client::getTaskListWithOptions(shared_ptr<GetTaskListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetTaskListResponse(doRPCRequest(make_shared<string>("GetTaskList"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetTaskListResponse Alibabacloud_CCC20170705::Client::getTaskList(shared_ptr<GetTaskListRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getTaskListWithOptions(request, runtime);
-}
-
 GetTURNCredentialsResponse Alibabacloud_CCC20170705::Client::getTURNCredentialsWithOptions(shared_ptr<GetTURNCredentialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -931,6 +985,19 @@ GetTURNServerListResponse Alibabacloud_CCC20170705::Client::getTURNServerListWit
 GetTURNServerListResponse Alibabacloud_CCC20170705::Client::getTURNServerList(shared_ptr<GetTURNServerListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTURNServerListWithOptions(request, runtime);
+}
+
+GetTaskListResponse Alibabacloud_CCC20170705::Client::getTaskListWithOptions(shared_ptr<GetTaskListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetTaskListResponse(doRPCRequest(make_shared<string>("GetTaskList"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetTaskListResponse Alibabacloud_CCC20170705::Client::getTaskList(shared_ptr<GetTaskListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTaskListWithOptions(request, runtime);
 }
 
 GetUserResponse Alibabacloud_CCC20170705::Client::getUserWithOptions(shared_ptr<GetUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1203,19 +1270,6 @@ ListJobGroupsResponse Alibabacloud_CCC20170705::Client::listJobGroups(shared_ptr
   return listJobGroupsWithOptions(request, runtime);
 }
 
-ListJobsByGroupResponse Alibabacloud_CCC20170705::Client::listJobsByGroupWithOptions(shared_ptr<ListJobsByGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListJobsByGroupResponse(doRPCRequest(make_shared<string>("ListJobsByGroup"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListJobsByGroupResponse Alibabacloud_CCC20170705::Client::listJobsByGroup(shared_ptr<ListJobsByGroupRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listJobsByGroupWithOptions(request, runtime);
-}
-
 ListJobStatusResponse Alibabacloud_CCC20170705::Client::listJobStatusWithOptions(shared_ptr<ListJobStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1227,6 +1281,19 @@ ListJobStatusResponse Alibabacloud_CCC20170705::Client::listJobStatusWithOptions
 ListJobStatusResponse Alibabacloud_CCC20170705::Client::listJobStatus(shared_ptr<ListJobStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listJobStatusWithOptions(request, runtime);
+}
+
+ListJobsByGroupResponse Alibabacloud_CCC20170705::Client::listJobsByGroupWithOptions(shared_ptr<ListJobsByGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListJobsByGroupResponse(doRPCRequest(make_shared<string>("ListJobsByGroup"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListJobsByGroupResponse Alibabacloud_CCC20170705::Client::listJobsByGroup(shared_ptr<ListJobsByGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listJobsByGroupWithOptions(request, runtime);
 }
 
 ListMediasResponse Alibabacloud_CCC20170705::Client::listMediasWithOptions(shared_ptr<ListMediasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1359,6 +1426,16 @@ ListRolesResponse Alibabacloud_CCC20170705::Client::listRoles(shared_ptr<ListRol
   return listRolesWithOptions(request, runtime);
 }
 
+ListScenarioTemplatesResponse Alibabacloud_CCC20170705::Client::listScenarioTemplatesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  return ListScenarioTemplatesResponse(doRPCRequest(make_shared<string>("ListScenarioTemplates"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListScenarioTemplatesResponse Alibabacloud_CCC20170705::Client::listScenarioTemplates() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listScenarioTemplatesWithOptions(runtime);
+}
+
 ListScenariosResponse Alibabacloud_CCC20170705::Client::listScenariosWithOptions(shared_ptr<ListScenariosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1370,42 +1447,6 @@ ListScenariosResponse Alibabacloud_CCC20170705::Client::listScenariosWithOptions
 ListScenariosResponse Alibabacloud_CCC20170705::Client::listScenarios(shared_ptr<ListScenariosRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listScenariosWithOptions(request, runtime);
-}
-
-ListScenarioTemplatesResponse Alibabacloud_CCC20170705::Client::listScenarioTemplatesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  return ListScenarioTemplatesResponse(doRPCRequest(make_shared<string>("ListScenarioTemplates"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListScenarioTemplatesResponse Alibabacloud_CCC20170705::Client::listScenarioTemplates() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listScenarioTemplatesWithOptions(runtime);
-}
-
-ListSkillGroupsResponse Alibabacloud_CCC20170705::Client::listSkillGroupsWithOptions(shared_ptr<ListSkillGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListSkillGroupsResponse(doRPCRequest(make_shared<string>("ListSkillGroups"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListSkillGroupsResponse Alibabacloud_CCC20170705::Client::listSkillGroups(shared_ptr<ListSkillGroupsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listSkillGroupsWithOptions(request, runtime);
-}
-
-ListSkillGroupsOfUserResponse Alibabacloud_CCC20170705::Client::listSkillGroupsOfUserWithOptions(shared_ptr<ListSkillGroupsOfUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListSkillGroupsOfUserResponse(doRPCRequest(make_shared<string>("ListSkillGroupsOfUser"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListSkillGroupsOfUserResponse Alibabacloud_CCC20170705::Client::listSkillGroupsOfUser(shared_ptr<ListSkillGroupsOfUserRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listSkillGroupsOfUserWithOptions(request, runtime);
 }
 
 ListSkillGroupStatesResponse Alibabacloud_CCC20170705::Client::listSkillGroupStatesWithOptions(shared_ptr<ListSkillGroupStatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1458,6 +1499,32 @@ ListSkillGroupSummaryReportsSinceMidnightResponse Alibabacloud_CCC20170705::Clie
 ListSkillGroupSummaryReportsSinceMidnightResponse Alibabacloud_CCC20170705::Client::listSkillGroupSummaryReportsSinceMidnight(shared_ptr<ListSkillGroupSummaryReportsSinceMidnightRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listSkillGroupSummaryReportsSinceMidnightWithOptions(request, runtime);
+}
+
+ListSkillGroupsResponse Alibabacloud_CCC20170705::Client::listSkillGroupsWithOptions(shared_ptr<ListSkillGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListSkillGroupsResponse(doRPCRequest(make_shared<string>("ListSkillGroups"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListSkillGroupsResponse Alibabacloud_CCC20170705::Client::listSkillGroups(shared_ptr<ListSkillGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSkillGroupsWithOptions(request, runtime);
+}
+
+ListSkillGroupsOfUserResponse Alibabacloud_CCC20170705::Client::listSkillGroupsOfUserWithOptions(shared_ptr<ListSkillGroupsOfUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListSkillGroupsOfUserResponse(doRPCRequest(make_shared<string>("ListSkillGroupsOfUser"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListSkillGroupsOfUserResponse Alibabacloud_CCC20170705::Client::listSkillGroupsOfUser(shared_ptr<ListSkillGroupsOfUserRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSkillGroupsOfUserWithOptions(request, runtime);
 }
 
 ListSurveysResponse Alibabacloud_CCC20170705::Client::listSurveysWithOptions(shared_ptr<ListSurveysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1585,6 +1652,19 @@ ModifyCabInstanceResponse Alibabacloud_CCC20170705::Client::modifyCabInstanceWit
 ModifyCabInstanceResponse Alibabacloud_CCC20170705::Client::modifyCabInstance(shared_ptr<ModifyCabInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyCabInstanceWithOptions(request, runtime);
+}
+
+ModifyCallRatioResponse Alibabacloud_CCC20170705::Client::modifyCallRatioWithOptions(shared_ptr<ModifyCallRatioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ModifyCallRatioResponse(doRPCRequest(make_shared<string>("ModifyCallRatio"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ModifyCallRatioResponse Alibabacloud_CCC20170705::Client::modifyCallRatio(shared_ptr<ModifyCallRatioRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyCallRatioWithOptions(request, runtime);
 }
 
 ModifyPhoneNumberResponse Alibabacloud_CCC20170705::Client::modifyPhoneNumberWithOptions(shared_ptr<ModifyPhoneNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1910,6 +1990,19 @@ SaveStatsResponse Alibabacloud_CCC20170705::Client::saveStatsWithOptions(shared_
 SaveStatsResponse Alibabacloud_CCC20170705::Client::saveStats(shared_ptr<SaveStatsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return saveStatsWithOptions(request, runtime);
+}
+
+SaveTerminalLogResponse Alibabacloud_CCC20170705::Client::saveTerminalLogWithOptions(shared_ptr<SaveTerminalLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return SaveTerminalLogResponse(doRPCRequest(make_shared<string>("SaveTerminalLog"), make_shared<string>("2017-07-05"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+SaveTerminalLogResponse Alibabacloud_CCC20170705::Client::saveTerminalLog(shared_ptr<SaveTerminalLogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return saveTerminalLogWithOptions(request, runtime);
 }
 
 SaveWebRTCStatsResponse Alibabacloud_CCC20170705::Client::saveWebRTCStatsWithOptions(shared_ptr<SaveWebRTCStatsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
