@@ -885,6 +885,7 @@ public:
   shared_ptr<bool> keepInstanceName{};
   shared_ptr<string> keyPair{};
   shared_ptr<string> kubernetesVersion{};
+  shared_ptr<string> loadBalancerSpec{};
   shared_ptr<string> loggingType{};
   shared_ptr<string> loginPassword{};
   shared_ptr<bool> masterAutoRenew{};
@@ -1030,6 +1031,9 @@ public:
     }
     if (kubernetesVersion) {
       res["kubernetes_version"] = boost::any(*kubernetesVersion);
+    }
+    if (loadBalancerSpec) {
+      res["load_balancer_spec"] = boost::any(*loadBalancerSpec);
     }
     if (loggingType) {
       res["logging_type"] = boost::any(*loggingType);
@@ -1313,6 +1317,9 @@ public:
     }
     if (m.find("kubernetes_version") != m.end() && !m["kubernetes_version"].empty()) {
       kubernetesVersion = make_shared<string>(boost::any_cast<string>(m["kubernetes_version"]));
+    }
+    if (m.find("load_balancer_spec") != m.end() && !m["load_balancer_spec"].empty()) {
+      loadBalancerSpec = make_shared<string>(boost::any_cast<string>(m["load_balancer_spec"]));
     }
     if (m.find("logging_type") != m.end() && !m["logging_type"].empty()) {
       loggingType = make_shared<string>(boost::any_cast<string>(m["logging_type"]));
@@ -1743,6 +1750,63 @@ public:
 
   virtual ~CreateClusterNodePoolRequestAutoScaling() = default;
 };
+class CreateClusterNodePoolRequestInterconnectConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> ccnId{};
+  shared_ptr<string> ccnRegionId{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> improvedPeriod{};
+
+  CreateClusterNodePoolRequestInterconnectConfig() {}
+
+  explicit CreateClusterNodePoolRequestInterconnectConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["bandwidth"] = boost::any(*bandwidth);
+    }
+    if (ccnId) {
+      res["ccn_id"] = boost::any(*ccnId);
+    }
+    if (ccnRegionId) {
+      res["ccn_region_id"] = boost::any(*ccnRegionId);
+    }
+    if (cenId) {
+      res["cen_id"] = boost::any(*cenId);
+    }
+    if (improvedPeriod) {
+      res["improved_period"] = boost::any(*improvedPeriod);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bandwidth") != m.end() && !m["bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["bandwidth"]));
+    }
+    if (m.find("ccn_id") != m.end() && !m["ccn_id"].empty()) {
+      ccnId = make_shared<string>(boost::any_cast<string>(m["ccn_id"]));
+    }
+    if (m.find("ccn_region_id") != m.end() && !m["ccn_region_id"].empty()) {
+      ccnRegionId = make_shared<string>(boost::any_cast<string>(m["ccn_region_id"]));
+    }
+    if (m.find("cen_id") != m.end() && !m["cen_id"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["cen_id"]));
+    }
+    if (m.find("improved_period") != m.end() && !m["improved_period"].empty()) {
+      improvedPeriod = make_shared<string>(boost::any_cast<string>(m["improved_period"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestInterconnectConfig() = default;
+};
 class CreateClusterNodePoolRequestKubernetesConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> cmsEnabled{};
@@ -1943,6 +2007,7 @@ class CreateClusterNodePoolRequestNodepoolInfo : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> type{};
 
   CreateClusterNodePoolRequestNodepoolInfo() {}
 
@@ -1960,6 +2025,9 @@ public:
     if (resourceGroupId) {
       res["resource_group_id"] = boost::any(*resourceGroupId);
     }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -1969,6 +2037,9 @@ public:
     }
     if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
   }
 
@@ -2389,8 +2460,11 @@ class CreateClusterNodePoolRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateClusterNodePoolRequestAutoScaling> autoScaling{};
   shared_ptr<long> count{};
+  shared_ptr<CreateClusterNodePoolRequestInterconnectConfig> interconnectConfig{};
+  shared_ptr<string> interconnectMode{};
   shared_ptr<CreateClusterNodePoolRequestKubernetesConfig> kubernetesConfig{};
   shared_ptr<CreateClusterNodePoolRequestManagement> management{};
+  shared_ptr<long> maxNodes{};
   shared_ptr<CreateClusterNodePoolRequestNodepoolInfo> nodepoolInfo{};
   shared_ptr<CreateClusterNodePoolRequestScalingGroup> scalingGroup{};
   shared_ptr<CreateClusterNodePoolRequestTeeConfig> teeConfig{};
@@ -2411,11 +2485,20 @@ public:
     if (count) {
       res["count"] = boost::any(*count);
     }
+    if (interconnectConfig) {
+      res["interconnect_config"] = interconnectConfig ? boost::any(interconnectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interconnectMode) {
+      res["interconnect_mode"] = boost::any(*interconnectMode);
+    }
     if (kubernetesConfig) {
       res["kubernetes_config"] = kubernetesConfig ? boost::any(kubernetesConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (management) {
       res["management"] = management ? boost::any(management->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxNodes) {
+      res["max_nodes"] = boost::any(*maxNodes);
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2440,6 +2523,16 @@ public:
     if (m.find("count") != m.end() && !m["count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["count"]));
     }
+    if (m.find("interconnect_config") != m.end() && !m["interconnect_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["interconnect_config"].type()) {
+        CreateClusterNodePoolRequestInterconnectConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["interconnect_config"]));
+        interconnectConfig = make_shared<CreateClusterNodePoolRequestInterconnectConfig>(model1);
+      }
+    }
+    if (m.find("interconnect_mode") != m.end() && !m["interconnect_mode"].empty()) {
+      interconnectMode = make_shared<string>(boost::any_cast<string>(m["interconnect_mode"]));
+    }
     if (m.find("kubernetes_config") != m.end() && !m["kubernetes_config"].empty()) {
       if (typeid(map<string, boost::any>) == m["kubernetes_config"].type()) {
         CreateClusterNodePoolRequestKubernetesConfig model1;
@@ -2453,6 +2546,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["management"]));
         management = make_shared<CreateClusterNodePoolRequestManagement>(model1);
       }
+    }
+    if (m.find("max_nodes") != m.end() && !m["max_nodes"].empty()) {
+      maxNodes = make_shared<long>(boost::any_cast<long>(m["max_nodes"]));
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["nodepool_info"].type()) {
@@ -5234,6 +5330,63 @@ public:
 
   virtual ~DescribeClusterNodePoolDetailResponseBodyAutoScaling() = default;
 };
+class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> ccnId{};
+  shared_ptr<string> ccnRegionId{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> improvedPeriod{};
+
+  DescribeClusterNodePoolDetailResponseBodyInterconnectConfig() {}
+
+  explicit DescribeClusterNodePoolDetailResponseBodyInterconnectConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["bandwidth"] = boost::any(*bandwidth);
+    }
+    if (ccnId) {
+      res["ccn_id"] = boost::any(*ccnId);
+    }
+    if (ccnRegionId) {
+      res["ccn_region_id"] = boost::any(*ccnRegionId);
+    }
+    if (cenId) {
+      res["cen_id"] = boost::any(*cenId);
+    }
+    if (improvedPeriod) {
+      res["improved_period"] = boost::any(*improvedPeriod);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bandwidth") != m.end() && !m["bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["bandwidth"]));
+    }
+    if (m.find("ccn_id") != m.end() && !m["ccn_id"].empty()) {
+      ccnId = make_shared<string>(boost::any_cast<string>(m["ccn_id"]));
+    }
+    if (m.find("ccn_region_id") != m.end() && !m["ccn_region_id"].empty()) {
+      ccnRegionId = make_shared<string>(boost::any_cast<string>(m["ccn_region_id"]));
+    }
+    if (m.find("cen_id") != m.end() && !m["cen_id"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["cen_id"]));
+    }
+    if (m.find("improved_period") != m.end() && !m["improved_period"].empty()) {
+      improvedPeriod = make_shared<string>(boost::any_cast<string>(m["improved_period"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolDetailResponseBodyInterconnectConfig() = default;
+};
 class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> cmsEnabled{};
@@ -5970,8 +6123,11 @@ public:
 class DescribeClusterNodePoolDetailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyAutoScaling> autoScaling{};
+  shared_ptr<DescribeClusterNodePoolDetailResponseBodyInterconnectConfig> interconnectConfig{};
+  shared_ptr<string> interconnectMode{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyKubernetesConfig> kubernetesConfig{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagement> management{};
+  shared_ptr<long> maxNodes{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyNodepoolInfo> nodepoolInfo{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyScalingGroup> scalingGroup{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyStatus> status{};
@@ -5990,11 +6146,20 @@ public:
     if (autoScaling) {
       res["auto_scaling"] = autoScaling ? boost::any(autoScaling->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (interconnectConfig) {
+      res["interconnect_config"] = interconnectConfig ? boost::any(interconnectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interconnectMode) {
+      res["interconnect_mode"] = boost::any(*interconnectMode);
+    }
     if (kubernetesConfig) {
       res["kubernetes_config"] = kubernetesConfig ? boost::any(kubernetesConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (management) {
       res["management"] = management ? boost::any(management->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxNodes) {
+      res["max_nodes"] = boost::any(*maxNodes);
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6019,6 +6184,16 @@ public:
         autoScaling = make_shared<DescribeClusterNodePoolDetailResponseBodyAutoScaling>(model1);
       }
     }
+    if (m.find("interconnect_config") != m.end() && !m["interconnect_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["interconnect_config"].type()) {
+        DescribeClusterNodePoolDetailResponseBodyInterconnectConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["interconnect_config"]));
+        interconnectConfig = make_shared<DescribeClusterNodePoolDetailResponseBodyInterconnectConfig>(model1);
+      }
+    }
+    if (m.find("interconnect_mode") != m.end() && !m["interconnect_mode"].empty()) {
+      interconnectMode = make_shared<string>(boost::any_cast<string>(m["interconnect_mode"]));
+    }
     if (m.find("kubernetes_config") != m.end() && !m["kubernetes_config"].empty()) {
       if (typeid(map<string, boost::any>) == m["kubernetes_config"].type()) {
         DescribeClusterNodePoolDetailResponseBodyKubernetesConfig model1;
@@ -6032,6 +6207,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["management"]));
         management = make_shared<DescribeClusterNodePoolDetailResponseBodyManagement>(model1);
       }
+    }
+    if (m.find("max_nodes") != m.end() && !m["max_nodes"].empty()) {
+      maxNodes = make_shared<long>(boost::any_cast<long>(m["max_nodes"]));
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["nodepool_info"].type()) {
@@ -6188,6 +6366,63 @@ public:
 
 
   virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling() = default;
+};
+class DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> ccnId{};
+  shared_ptr<string> ccnRegionId{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> improvedPeriod{};
+
+  DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig() {}
+
+  explicit DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["bandwidth"] = boost::any(*bandwidth);
+    }
+    if (ccnId) {
+      res["ccn_id"] = boost::any(*ccnId);
+    }
+    if (ccnRegionId) {
+      res["ccn_region_id"] = boost::any(*ccnRegionId);
+    }
+    if (cenId) {
+      res["cen_id"] = boost::any(*cenId);
+    }
+    if (improvedPeriod) {
+      res["improved_period"] = boost::any(*improvedPeriod);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bandwidth") != m.end() && !m["bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["bandwidth"]));
+    }
+    if (m.find("ccn_id") != m.end() && !m["ccn_id"].empty()) {
+      ccnId = make_shared<string>(boost::any_cast<string>(m["ccn_id"]));
+    }
+    if (m.find("ccn_region_id") != m.end() && !m["ccn_region_id"].empty()) {
+      ccnRegionId = make_shared<string>(boost::any_cast<string>(m["ccn_region_id"]));
+    }
+    if (m.find("cen_id") != m.end() && !m["cen_id"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["cen_id"]));
+    }
+    if (m.find("improved_period") != m.end() && !m["improved_period"].empty()) {
+      improvedPeriod = make_shared<string>(boost::any_cast<string>(m["improved_period"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig() = default;
 };
 class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig : public Darabonba::Model {
 public:
@@ -6925,8 +7160,11 @@ public:
 class DescribeClusterNodePoolsResponseBodyNodepools : public Darabonba::Model {
 public:
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling> autoScaling{};
+  shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig> interconnectConfig{};
+  shared_ptr<string> interconnectMode{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig> kubernetesConfig{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagement> management{};
+  shared_ptr<long> maxNodes{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo> nodepoolInfo{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup> scalingGroup{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsStatus> status{};
@@ -6945,11 +7183,20 @@ public:
     if (autoScaling) {
       res["auto_scaling"] = autoScaling ? boost::any(autoScaling->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (interconnectConfig) {
+      res["interconnect_config"] = interconnectConfig ? boost::any(interconnectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interconnectMode) {
+      res["interconnect_mode"] = boost::any(*interconnectMode);
+    }
     if (kubernetesConfig) {
       res["kubernetes_config"] = kubernetesConfig ? boost::any(kubernetesConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (management) {
       res["management"] = management ? boost::any(management->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (maxNodes) {
+      res["max_nodes"] = boost::any(*maxNodes);
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6974,6 +7221,16 @@ public:
         autoScaling = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling>(model1);
       }
     }
+    if (m.find("interconnect_config") != m.end() && !m["interconnect_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["interconnect_config"].type()) {
+        DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["interconnect_config"]));
+        interconnectConfig = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig>(model1);
+      }
+    }
+    if (m.find("interconnect_mode") != m.end() && !m["interconnect_mode"].empty()) {
+      interconnectMode = make_shared<string>(boost::any_cast<string>(m["interconnect_mode"]));
+    }
     if (m.find("kubernetes_config") != m.end() && !m["kubernetes_config"].empty()) {
       if (typeid(map<string, boost::any>) == m["kubernetes_config"].type()) {
         DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig model1;
@@ -6987,6 +7244,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["management"]));
         management = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsManagement>(model1);
       }
+    }
+    if (m.find("max_nodes") != m.end() && !m["max_nodes"].empty()) {
+      maxNodes = make_shared<long>(boost::any_cast<long>(m["max_nodes"]));
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["nodepool_info"].type()) {

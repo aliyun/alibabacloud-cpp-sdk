@@ -309,6 +309,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->kubernetesVersion)) {
     (*body)["kubernetes_version"] = *request->kubernetesVersion;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerSpec)) {
+    (*body)["load_balancer_spec"] = *request->loadBalancerSpec;
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->loggingType)) {
     (*body)["logging_type"] = *request->loggingType;
   }
@@ -503,11 +506,20 @@ CreateClusterNodePoolResponse Alibabacloud_CS20151215::Client::createClusterNode
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
     (*body)["count"] = *request->count;
   }
+  if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestInterconnectConfig>(request->interconnectConfig)) {
+    (*body)["interconnect_config"] = *request->interconnectConfig;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interconnectMode)) {
+    (*body)["interconnect_mode"] = *request->interconnectMode;
+  }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestKubernetesConfig>(request->kubernetesConfig)) {
     (*body)["kubernetes_config"] = *request->kubernetesConfig;
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestManagement>(request->management)) {
     (*body)["management"] = *request->management;
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxNodes)) {
+    (*body)["max_nodes"] = *request->maxNodes;
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestNodepoolInfo>(request->nodepoolInfo)) {
     (*body)["nodepool_info"] = *request->nodepoolInfo;
