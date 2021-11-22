@@ -115,14 +115,14 @@ CreateStackInstancesResponse Alibabacloud_ROS20190910::Client::createStackInstan
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
-    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<CreateStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
+    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
     request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<CreateStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
-    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
+    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
@@ -194,14 +194,14 @@ DeleteStackInstancesResponse Alibabacloud_ROS20190910::Client::deleteStackInstan
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
-    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<DeleteStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
+    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
     request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<DeleteStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
-    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
+    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
@@ -323,6 +323,19 @@ GetChangeSetResponse Alibabacloud_ROS20190910::Client::getChangeSet(shared_ptr<G
   return getChangeSetWithOptions(request, runtime);
 }
 
+GetFeatureDetailsResponse Alibabacloud_ROS20190910::Client::getFeatureDetailsWithOptions(shared_ptr<GetFeatureDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetFeatureDetailsResponse(doRPCRequest(make_shared<string>("GetFeatureDetails"), make_shared<string>("2019-09-10"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetFeatureDetailsResponse Alibabacloud_ROS20190910::Client::getFeatureDetails(shared_ptr<GetFeatureDetailsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getFeatureDetailsWithOptions(request, runtime);
+}
+
 GetResourceTypeResponse Alibabacloud_ROS20190910::Client::getResourceTypeWithOptions(shared_ptr<GetResourceTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -347,6 +360,19 @@ GetResourceTypeTemplateResponse Alibabacloud_ROS20190910::Client::getResourceTyp
 GetResourceTypeTemplateResponse Alibabacloud_ROS20190910::Client::getResourceTypeTemplate(shared_ptr<GetResourceTypeTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getResourceTypeTemplateWithOptions(request, runtime);
+}
+
+GetServiceProvisionsResponse Alibabacloud_ROS20190910::Client::getServiceProvisionsWithOptions(shared_ptr<GetServiceProvisionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetServiceProvisionsResponse(doRPCRequest(make_shared<string>("GetServiceProvisions"), make_shared<string>("2019-09-10"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetServiceProvisionsResponse Alibabacloud_ROS20190910::Client::getServiceProvisions(shared_ptr<GetServiceProvisionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getServiceProvisionsWithOptions(request, runtime);
 }
 
 GetStackResponse Alibabacloud_ROS20190910::Client::getStackWithOptions(shared_ptr<GetStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -464,6 +490,24 @@ GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEst
 GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEstimateCost(shared_ptr<GetTemplateEstimateCostRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTemplateEstimateCostWithOptions(request, runtime);
+}
+
+GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTemplateParameterConstraintsWithOptions(shared_ptr<GetTemplateParameterConstraintsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetTemplateParameterConstraintsShrinkRequest> request = make_shared<GetTemplateParameterConstraintsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->parametersKeyFilter)) {
+    request->parametersKeyFilterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parametersKeyFilter, make_shared<string>("ParametersKeyFilter"), make_shared<string>("json")));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetTemplateParameterConstraintsResponse(doRPCRequest(make_shared<string>("GetTemplateParameterConstraints"), make_shared<string>("2019-09-10"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTemplateParameterConstraints(shared_ptr<GetTemplateParameterConstraintsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTemplateParameterConstraintsWithOptions(request, runtime);
 }
 
 GetTemplateSummaryResponse Alibabacloud_ROS20190910::Client::getTemplateSummaryWithOptions(shared_ptr<GetTemplateSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -658,19 +702,6 @@ ListTagValuesResponse Alibabacloud_ROS20190910::Client::listTagValues(shared_ptr
   return listTagValuesWithOptions(request, runtime);
 }
 
-ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListTemplatesResponse(doRPCRequest(make_shared<string>("ListTemplates"), make_shared<string>("2019-09-10"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplates(shared_ptr<ListTemplatesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listTemplatesWithOptions(request, runtime);
-}
-
 ListTemplateVersionsResponse Alibabacloud_ROS20190910::Client::listTemplateVersionsWithOptions(shared_ptr<ListTemplateVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -682,6 +713,19 @@ ListTemplateVersionsResponse Alibabacloud_ROS20190910::Client::listTemplateVersi
 ListTemplateVersionsResponse Alibabacloud_ROS20190910::Client::listTemplateVersions(shared_ptr<ListTemplateVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTemplateVersionsWithOptions(request, runtime);
+}
+
+ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListTemplatesResponse(doRPCRequest(make_shared<string>("ListTemplates"), make_shared<string>("2019-09-10"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplates(shared_ptr<ListTemplatesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTemplatesWithOptions(request, runtime);
 }
 
 MoveResourceGroupResponse Alibabacloud_ROS20190910::Client::moveResourceGroupWithOptions(shared_ptr<MoveResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -821,17 +865,17 @@ UpdateStackGroupResponse Alibabacloud_ROS20190910::Client::updateStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
-    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
-    request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
-  }
   if (!Darabonba_Util::Client::isUnset<UpdateStackGroupRequestAutoDeployment>(tmpReq->autoDeployment)) {
     request->autoDeploymentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->autoDeployment->toMap()), make_shared<string>("AutoDeployment"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateStackGroupRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
     request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
+    request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
+    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
@@ -851,14 +895,14 @@ UpdateStackInstancesResponse Alibabacloud_ROS20190910::Client::updateStackInstan
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
-    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<UpdateStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
+    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->operationPreferences)) {
     request->operationPreferencesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->operationPreferences, make_shared<string>("OperationPreferences"), make_shared<string>("json")));
   }
-  if (!Darabonba_Util::Client::isUnset<UpdateStackInstancesRequestDeploymentTargets>(tmpReq->deploymentTargets)) {
-    request->deploymentTargetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->deploymentTargets->toMap()), make_shared<string>("DeploymentTargets"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->regionIds)) {
+    request->regionIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->regionIds, make_shared<string>("RegionIds"), make_shared<string>("json")));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
