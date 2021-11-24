@@ -875,6 +875,7 @@ public:
   shared_ptr<string> customSan{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> disableRollback{};
+  shared_ptr<bool> enableRrsa{};
   shared_ptr<string> encryptionProviderKey{};
   shared_ptr<bool> endpointPublicAccess{};
   shared_ptr<bool> formatDisk{};
@@ -1001,6 +1002,9 @@ public:
     }
     if (disableRollback) {
       res["disable_rollback"] = boost::any(*disableRollback);
+    }
+    if (enableRrsa) {
+      res["enable_rrsa"] = boost::any(*enableRrsa);
     }
     if (encryptionProviderKey) {
       res["encryption_provider_key"] = boost::any(*encryptionProviderKey);
@@ -1280,6 +1284,9 @@ public:
     }
     if (m.find("disable_rollback") != m.end() && !m["disable_rollback"].empty()) {
       disableRollback = make_shared<bool>(boost::any_cast<bool>(m["disable_rollback"]));
+    }
+    if (m.find("enable_rrsa") != m.end() && !m["enable_rrsa"].empty()) {
+      enableRrsa = make_shared<bool>(boost::any_cast<bool>(m["enable_rrsa"]));
     }
     if (m.find("encryption_provider_key") != m.end() && !m["encryption_provider_key"].empty()) {
       encryptionProviderKey = make_shared<string>(boost::any_cast<string>(m["encryption_provider_key"]));
@@ -3706,9 +3713,75 @@ public:
 
   virtual ~DeleteKubernetesTriggerResponse() = default;
 };
+class DeletePolicyInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceName{};
+
+  DeletePolicyInstanceRequest() {}
+
+  explicit DeletePolicyInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceName) {
+      res["instance_name"] = boost::any(*instanceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instance_name") != m.end() && !m["instance_name"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["instance_name"]));
+    }
+  }
+
+
+  virtual ~DeletePolicyInstanceRequest() = default;
+};
+class DeletePolicyInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instances{};
+
+  DeletePolicyInstanceResponseBody() {}
+
+  explicit DeletePolicyInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instances) {
+      res["instances"] = boost::any(*instances);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instances") != m.end() && !m["instances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instances = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeletePolicyInstanceResponseBody() = default;
+};
 class DeletePolicyInstanceResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeletePolicyInstanceResponseBody> body{};
 
   DeletePolicyInstanceResponse() {}
 
@@ -3720,12 +3793,18 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
   }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -3738,6 +3817,13 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePolicyInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePolicyInstanceResponseBody>(model1);
+      }
     }
   }
 
@@ -3868,9 +3954,46 @@ public:
 
   virtual ~DeployPolicyInstanceRequest() = default;
 };
+class DeployPolicyInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instances{};
+
+  DeployPolicyInstanceResponseBody() {}
+
+  explicit DeployPolicyInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instances) {
+      res["instances"] = boost::any(*instances);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instances") != m.end() && !m["instances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instances = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeployPolicyInstanceResponseBody() = default;
+};
 class DeployPolicyInstanceResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeployPolicyInstanceResponseBody> body{};
 
   DeployPolicyInstanceResponse() {}
 
@@ -3882,12 +4005,18 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
   }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -3900,6 +4029,13 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeployPolicyInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeployPolicyInstanceResponseBody>(model1);
+      }
     }
   }
 
@@ -13739,6 +13875,7 @@ public:
   shared_ptr<bool> apiServerEip{};
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> deletionProtection{};
+  shared_ptr<bool> enableRrsa{};
   shared_ptr<string> ingressDomainRebinding{};
   shared_ptr<string> ingressLoadbalancerId{};
   shared_ptr<bool> instanceDeletionProtection{};
@@ -13763,6 +13900,9 @@ public:
     }
     if (deletionProtection) {
       res["deletion_protection"] = boost::any(*deletionProtection);
+    }
+    if (enableRrsa) {
+      res["enable_rrsa"] = boost::any(*enableRrsa);
     }
     if (ingressDomainRebinding) {
       res["ingress_domain_rebinding"] = boost::any(*ingressDomainRebinding);
@@ -13791,6 +13931,9 @@ public:
     }
     if (m.find("deletion_protection") != m.end() && !m["deletion_protection"].empty()) {
       deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["deletion_protection"]));
+    }
+    if (m.find("enable_rrsa") != m.end() && !m["enable_rrsa"].empty()) {
+      enableRrsa = make_shared<bool>(boost::any_cast<bool>(m["enable_rrsa"]));
     }
     if (m.find("ingress_domain_rebinding") != m.end() && !m["ingress_domain_rebinding"].empty()) {
       ingressDomainRebinding = make_shared<string>(boost::any_cast<string>(m["ingress_domain_rebinding"]));
@@ -15113,9 +15256,46 @@ public:
 
   virtual ~ModifyPolicyInstanceRequest() = default;
 };
+class ModifyPolicyInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instances{};
+
+  ModifyPolicyInstanceResponseBody() {}
+
+  explicit ModifyPolicyInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instances) {
+      res["instances"] = boost::any(*instances);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instances") != m.end() && !m["instances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["instances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["instances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instances = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyPolicyInstanceResponseBody() = default;
+};
 class ModifyPolicyInstanceResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<ModifyPolicyInstanceResponseBody> body{};
 
   ModifyPolicyInstanceResponse() {}
 
@@ -15127,12 +15307,18 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
   }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -15145,6 +15331,13 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyPolicyInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyPolicyInstanceResponseBody>(model1);
+      }
     }
   }
 
@@ -17425,10 +17618,10 @@ public:
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteKubernetesTriggerResponse deleteKubernetesTrigger(shared_ptr<string> Id);
   DeleteKubernetesTriggerResponse deleteKubernetesTriggerWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeletePolicyInstanceResponse deletePolicyInstance(shared_ptr<string> clusterId, shared_ptr<string> policyName, shared_ptr<string> instanceId);
+  DeletePolicyInstanceResponse deletePolicyInstance(shared_ptr<string> clusterId, shared_ptr<string> policyName, shared_ptr<DeletePolicyInstanceRequest> request);
   DeletePolicyInstanceResponse deletePolicyInstanceWithOptions(shared_ptr<string> clusterId,
                                                                shared_ptr<string> policyName,
-                                                               shared_ptr<string> instanceId,
+                                                               shared_ptr<DeletePolicyInstanceRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTemplateResponse deleteTemplate(shared_ptr<string> TemplateId);
