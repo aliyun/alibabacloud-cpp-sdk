@@ -3,6 +3,7 @@
 #include <alibabacloud/rtc_20180111.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -39,10 +40,41 @@ string Alibabacloud_Rtc20180111::Client::getEndpoint(shared_ptr<string> productI
 
 AddRecordTemplateResponse Alibabacloud_Rtc20180111::Client::addRecordTemplateWithOptions(shared_ptr<AddRecordTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("BackgroundColor", *request->backgroundColor));
+  query->insert(pair<string, vector<AddRecordTemplateRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  query->insert(pair<string, vector<AddRecordTemplateRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  query->insert(pair<string, long>("DelayStopTime", *request->delayStopTime));
+  query->insert(pair<string, bool>("EnableM3u8DateTime", *request->enableM3u8DateTime));
+  query->insert(pair<string, long>("FileSplitInterval", *request->fileSplitInterval));
+  query->insert(pair<string, vector<string>>("Formats", *request->formats));
+  query->insert(pair<string, string>("HttpCallbackUrl", *request->httpCallbackUrl));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, string>("MnsQueue", *request->mnsQueue));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, string>("OssBucket", *request->ossBucket));
+  query->insert(pair<string, string>("OssFilePrefix", *request->ossFilePrefix));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TaskProfile", *request->taskProfile));
+  query->insert(pair<string, vector<AddRecordTemplateRequestWatermarks>>("Watermarks", *request->watermarks));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AddRecordTemplateResponse(doRPCRequest(make_shared<string>("AddRecordTemplate"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddRecordTemplate"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddRecordTemplateResponse(callApi(params, req, runtime));
 }
 
 AddRecordTemplateResponse Alibabacloud_Rtc20180111::Client::addRecordTemplate(shared_ptr<AddRecordTemplateRequest> request) {
@@ -52,10 +84,31 @@ AddRecordTemplateResponse Alibabacloud_Rtc20180111::Client::addRecordTemplate(sh
 
 CreateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::createAutoLiveStreamRuleWithOptions(shared_ptr<CreateAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("CallBack", *request->callBack));
+  query->insert(pair<string, vector<string>>("ChannelIdPrefixes", *request->channelIdPrefixes));
+  query->insert(pair<string, vector<string>>("ChannelIds", *request->channelIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("PlayDomain", *request->playDomain));
+  query->insert(pair<string, string>("RuleName", *request->ruleName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("CreateAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 CreateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::createAutoLiveStreamRule(shared_ptr<CreateAutoLiveStreamRuleRequest> request) {
@@ -65,10 +118,30 @@ CreateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::createAutoLiv
 
 CreateEventSubscribeResponse Alibabacloud_Rtc20180111::Client::createEventSubscribeWithOptions(shared_ptr<CreateEventSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("CallbackUrl", *request->callbackUrl));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, vector<string>>("Events", *request->events));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, vector<string>>("Users", *request->users));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateEventSubscribeResponse(doRPCRequest(make_shared<string>("CreateEventSubscribe"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateEventSubscribe"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateEventSubscribeResponse(callApi(params, req, runtime));
 }
 
 CreateEventSubscribeResponse Alibabacloud_Rtc20180111::Client::createEventSubscribe(shared_ptr<CreateEventSubscribeRequest> request) {
@@ -78,10 +151,28 @@ CreateEventSubscribeResponse Alibabacloud_Rtc20180111::Client::createEventSubscr
 
 CreateMPULayoutResponse Alibabacloud_Rtc20180111::Client::createMPULayoutWithOptions(shared_ptr<CreateMPULayoutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("AudioMixCount", *request->audioMixCount));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, vector<CreateMPULayoutRequestPanes>>("Panes", *request->panes));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateMPULayoutResponse(doRPCRequest(make_shared<string>("CreateMPULayout"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMPULayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMPULayoutResponse(callApi(params, req, runtime));
 }
 
 CreateMPULayoutResponse Alibabacloud_Rtc20180111::Client::createMPULayout(shared_ptr<CreateMPULayoutRequest> request) {
@@ -89,25 +180,28 @@ CreateMPULayoutResponse Alibabacloud_Rtc20180111::Client::createMPULayout(shared
   return createMPULayoutWithOptions(request, runtime);
 }
 
-CreateRecordIndexFileResponse Alibabacloud_Rtc20180111::Client::createRecordIndexFileWithOptions(shared_ptr<CreateRecordIndexFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CreateRecordIndexFileResponse(doRPCRequest(make_shared<string>("CreateRecordIndexFile"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CreateRecordIndexFileResponse Alibabacloud_Rtc20180111::Client::createRecordIndexFile(shared_ptr<CreateRecordIndexFileRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createRecordIndexFileWithOptions(request, runtime);
-}
-
 DeleteAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::deleteAutoLiveStreamRuleWithOptions(shared_ptr<DeleteAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("RuleId", *request->ruleId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("DeleteAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 DeleteAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::deleteAutoLiveStreamRule(shared_ptr<DeleteAutoLiveStreamRuleRequest> request) {
@@ -117,10 +211,26 @@ DeleteAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::deleteAutoLiv
 
 DeleteEventSubscribeResponse Alibabacloud_Rtc20180111::Client::deleteEventSubscribeWithOptions(shared_ptr<DeleteEventSubscribeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("SubscribeId", *request->subscribeId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteEventSubscribeResponse(doRPCRequest(make_shared<string>("DeleteEventSubscribe"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEventSubscribe"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEventSubscribeResponse(callApi(params, req, runtime));
 }
 
 DeleteEventSubscribeResponse Alibabacloud_Rtc20180111::Client::deleteEventSubscribe(shared_ptr<DeleteEventSubscribeRequest> request) {
@@ -130,10 +240,26 @@ DeleteEventSubscribeResponse Alibabacloud_Rtc20180111::Client::deleteEventSubscr
 
 DeleteMPULayoutResponse Alibabacloud_Rtc20180111::Client::deleteMPULayoutWithOptions(shared_ptr<DeleteMPULayoutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("LayoutId", *request->layoutId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteMPULayoutResponse(doRPCRequest(make_shared<string>("DeleteMPULayout"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMPULayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMPULayoutResponse(callApi(params, req, runtime));
 }
 
 DeleteMPULayoutResponse Alibabacloud_Rtc20180111::Client::deleteMPULayout(shared_ptr<DeleteMPULayoutRequest> request) {
@@ -143,10 +269,26 @@ DeleteMPULayoutResponse Alibabacloud_Rtc20180111::Client::deleteMPULayout(shared
 
 DeleteRecordTemplateResponse Alibabacloud_Rtc20180111::Client::deleteRecordTemplateWithOptions(shared_ptr<DeleteRecordTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TemplateId", *request->templateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteRecordTemplateResponse(doRPCRequest(make_shared<string>("DeleteRecordTemplate"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRecordTemplate"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRecordTemplateResponse(callApi(params, req, runtime));
 }
 
 DeleteRecordTemplateResponse Alibabacloud_Rtc20180111::Client::deleteRecordTemplate(shared_ptr<DeleteRecordTemplateRequest> request) {
@@ -156,10 +298,25 @@ DeleteRecordTemplateResponse Alibabacloud_Rtc20180111::Client::deleteRecordTempl
 
 DescribeAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::describeAutoLiveStreamRuleWithOptions(shared_ptr<DescribeAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("DescribeAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 DescribeAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::describeAutoLiveStreamRule(shared_ptr<DescribeAutoLiveStreamRuleRequest> request) {
@@ -169,10 +326,29 @@ DescribeAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::describeAut
 
 DescribeChannelParticipantsResponse Alibabacloud_Rtc20180111::Client::describeChannelParticipantsWithOptions(shared_ptr<DescribeChannelParticipantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, string>("Order", *request->order));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNum", *request->pageNum));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeChannelParticipantsResponse(doRPCRequest(make_shared<string>("DescribeChannelParticipants"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeChannelParticipants"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeChannelParticipantsResponse(callApi(params, req, runtime));
 }
 
 DescribeChannelParticipantsResponse Alibabacloud_Rtc20180111::Client::describeChannelParticipants(shared_ptr<DescribeChannelParticipantsRequest> request) {
@@ -182,10 +358,26 @@ DescribeChannelParticipantsResponse Alibabacloud_Rtc20180111::Client::describeCh
 
 DescribeChannelUsersResponse Alibabacloud_Rtc20180111::Client::describeChannelUsersWithOptions(shared_ptr<DescribeChannelUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeChannelUsersResponse(doRPCRequest(make_shared<string>("DescribeChannelUsers"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeChannelUsers"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeChannelUsersResponse(callApi(params, req, runtime));
 }
 
 DescribeChannelUsersResponse Alibabacloud_Rtc20180111::Client::describeChannelUsers(shared_ptr<DescribeChannelUsersRequest> request) {
@@ -195,10 +387,29 @@ DescribeChannelUsersResponse Alibabacloud_Rtc20180111::Client::describeChannelUs
 
 DescribeMPULayoutInfoListResponse Alibabacloud_Rtc20180111::Client::describeMPULayoutInfoListWithOptions(shared_ptr<DescribeMPULayoutInfoListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("LayoutId", *request->layoutId));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNum", *request->pageNum));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeMPULayoutInfoListResponse(doRPCRequest(make_shared<string>("DescribeMPULayoutInfoList"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMPULayoutInfoList"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMPULayoutInfoListResponse(callApi(params, req, runtime));
 }
 
 DescribeMPULayoutInfoListResponse Alibabacloud_Rtc20180111::Client::describeMPULayoutInfoList(shared_ptr<DescribeMPULayoutInfoListRequest> request) {
@@ -208,10 +419,31 @@ DescribeMPULayoutInfoListResponse Alibabacloud_Rtc20180111::Client::describeMPUL
 
 DescribeRecordFilesResponse Alibabacloud_Rtc20180111::Client::describeRecordFilesWithOptions(shared_ptr<DescribeRecordFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, string>("EndTime", *request->endTime));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNum", *request->pageNum));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("StartTime", *request->startTime));
+  query->insert(pair<string, vector<string>>("TaskIds", *request->taskIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeRecordFilesResponse(doRPCRequest(make_shared<string>("DescribeRecordFiles"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRecordFiles"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRecordFilesResponse(callApi(params, req, runtime));
 }
 
 DescribeRecordFilesResponse Alibabacloud_Rtc20180111::Client::describeRecordFiles(shared_ptr<DescribeRecordFilesRequest> request) {
@@ -219,25 +451,30 @@ DescribeRecordFilesResponse Alibabacloud_Rtc20180111::Client::describeRecordFile
   return describeRecordFilesWithOptions(request, runtime);
 }
 
-DescribeRecordTasksResponse Alibabacloud_Rtc20180111::Client::describeRecordTasksWithOptions(shared_ptr<DescribeRecordTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeRecordTasksResponse(doRPCRequest(make_shared<string>("DescribeRecordTasks"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeRecordTasksResponse Alibabacloud_Rtc20180111::Client::describeRecordTasks(shared_ptr<DescribeRecordTasksRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRecordTasksWithOptions(request, runtime);
-}
-
 DescribeRecordTemplatesResponse Alibabacloud_Rtc20180111::Client::describeRecordTemplatesWithOptions(shared_ptr<DescribeRecordTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNum", *request->pageNum));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, vector<string>>("TemplateIds", *request->templateIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeRecordTemplatesResponse(doRPCRequest(make_shared<string>("DescribeRecordTemplates"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRecordTemplates"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRecordTemplatesResponse(callApi(params, req, runtime));
 }
 
 DescribeRecordTemplatesResponse Alibabacloud_Rtc20180111::Client::describeRecordTemplates(shared_ptr<DescribeRecordTemplatesRequest> request) {
@@ -247,10 +484,27 @@ DescribeRecordTemplatesResponse Alibabacloud_Rtc20180111::Client::describeRecord
 
 DescribeUserInfoInChannelResponse Alibabacloud_Rtc20180111::Client::describeUserInfoInChannelWithOptions(shared_ptr<DescribeUserInfoInChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("UserId", *request->userId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeUserInfoInChannelResponse(doRPCRequest(make_shared<string>("DescribeUserInfoInChannel"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeUserInfoInChannel"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeUserInfoInChannelResponse(callApi(params, req, runtime));
 }
 
 DescribeUserInfoInChannelResponse Alibabacloud_Rtc20180111::Client::describeUserInfoInChannel(shared_ptr<DescribeUserInfoInChannelRequest> request) {
@@ -260,10 +514,26 @@ DescribeUserInfoInChannelResponse Alibabacloud_Rtc20180111::Client::describeUser
 
 DisableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::disableAutoLiveStreamRuleWithOptions(shared_ptr<DisableAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("RuleId", *request->ruleId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DisableAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("DisableAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 DisableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::disableAutoLiveStreamRule(shared_ptr<DisableAutoLiveStreamRuleRequest> request) {
@@ -273,10 +543,26 @@ DisableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::disableAutoL
 
 EnableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::enableAutoLiveStreamRuleWithOptions(shared_ptr<EnableAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("RuleId", *request->ruleId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return EnableAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("EnableAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 EnableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::enableAutoLiveStreamRule(shared_ptr<EnableAutoLiveStreamRuleRequest> request) {
@@ -286,10 +572,26 @@ EnableAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::enableAutoLiv
 
 GetMPUTaskStatusResponse Alibabacloud_Rtc20180111::Client::getMPUTaskStatusWithOptions(shared_ptr<GetMPUTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetMPUTaskStatusResponse(doRPCRequest(make_shared<string>("GetMPUTaskStatus"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMPUTaskStatus"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMPUTaskStatusResponse(callApi(params, req, runtime));
 }
 
 GetMPUTaskStatusResponse Alibabacloud_Rtc20180111::Client::getMPUTaskStatus(shared_ptr<GetMPUTaskStatusRequest> request) {
@@ -299,10 +601,29 @@ GetMPUTaskStatusResponse Alibabacloud_Rtc20180111::Client::getMPUTaskStatus(shar
 
 ModifyMPULayoutResponse Alibabacloud_Rtc20180111::Client::modifyMPULayoutWithOptions(shared_ptr<ModifyMPULayoutRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("AudioMixCount", *request->audioMixCount));
+  query->insert(pair<string, long>("LayoutId", *request->layoutId));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, vector<ModifyMPULayoutRequestPanes>>("Panes", *request->panes));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ModifyMPULayoutResponse(doRPCRequest(make_shared<string>("ModifyMPULayout"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyMPULayout"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyMPULayoutResponse(callApi(params, req, runtime));
 }
 
 ModifyMPULayoutResponse Alibabacloud_Rtc20180111::Client::modifyMPULayout(shared_ptr<ModifyMPULayoutRequest> request) {
@@ -312,10 +633,27 @@ ModifyMPULayoutResponse Alibabacloud_Rtc20180111::Client::modifyMPULayout(shared
 
 RemoveTerminalsResponse Alibabacloud_Rtc20180111::Client::removeTerminalsWithOptions(shared_ptr<RemoveTerminalsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, vector<string>>("TerminalIds", *request->terminalIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return RemoveTerminalsResponse(doRPCRequest(make_shared<string>("RemoveTerminals"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveTerminals"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveTerminalsResponse(callApi(params, req, runtime));
 }
 
 RemoveTerminalsResponse Alibabacloud_Rtc20180111::Client::removeTerminals(shared_ptr<RemoveTerminalsRequest> request) {
@@ -325,10 +663,52 @@ RemoveTerminalsResponse Alibabacloud_Rtc20180111::Client::removeTerminals(shared
 
 StartMPUTaskResponse Alibabacloud_Rtc20180111::Client::startMPUTaskWithOptions(shared_ptr<StartMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("BackgroundColor", *request->backgroundColor));
+  query->insert(pair<string, vector<StartMPUTaskRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, vector<StartMPUTaskRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  query->insert(pair<string, long>("CropMode", *request->cropMode));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, long>("MixMode", *request->mixMode));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PayloadType", *request->payloadType));
+  query->insert(pair<string, long>("ReportVad", *request->reportVad));
+  query->insert(pair<string, long>("RtpExtInfo", *request->rtpExtInfo));
+  query->insert(pair<string, string>("SourceType", *request->sourceType));
+  query->insert(pair<string, long>("StreamType", *request->streamType));
+  query->insert(pair<string, string>("StreamURL", *request->streamURL));
+  query->insert(pair<string, vector<string>>("SubSpecAudioUsers", *request->subSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("SubSpecCameraUsers", *request->subSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("SubSpecShareScreenUsers", *request->subSpecShareScreenUsers));
+  query->insert(pair<string, vector<string>>("SubSpecUsers", *request->subSpecUsers));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
+  query->insert(pair<string, long>("TaskType", *request->taskType));
+  query->insert(pair<string, long>("TimeStampRef", *request->timeStampRef));
+  query->insert(pair<string, vector<string>>("UnsubSpecAudioUsers", *request->unsubSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecCameraUsers", *request->unsubSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecShareScreenUsers", *request->unsubSpecShareScreenUsers));
+  query->insert(pair<string, vector<StartMPUTaskRequestUserPanes>>("UserPanes", *request->userPanes));
+  query->insert(pair<string, long>("VadInterval", *request->vadInterval));
+  query->insert(pair<string, vector<StartMPUTaskRequestWatermarks>>("Watermarks", *request->watermarks));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartMPUTaskResponse(doRPCRequest(make_shared<string>("StartMPUTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartMPUTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartMPUTaskResponse(callApi(params, req, runtime));
 }
 
 StartMPUTaskResponse Alibabacloud_Rtc20180111::Client::startMPUTask(shared_ptr<StartMPUTaskRequest> request) {
@@ -338,10 +718,43 @@ StartMPUTaskResponse Alibabacloud_Rtc20180111::Client::startMPUTask(shared_ptr<S
 
 StartRecordTaskResponse Alibabacloud_Rtc20180111::Client::startRecordTaskWithOptions(shared_ptr<StartRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, long>("CropMode", *request->cropMode));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, long>("MixMode", *request->mixMode));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("SourceType", *request->sourceType));
+  query->insert(pair<string, long>("StreamType", *request->streamType));
+  query->insert(pair<string, vector<string>>("SubSpecAudioUsers", *request->subSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("SubSpecCameraUsers", *request->subSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("SubSpecShareScreenUsers", *request->subSpecShareScreenUsers));
+  query->insert(pair<string, vector<string>>("SubSpecUsers", *request->subSpecUsers));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
+  query->insert(pair<string, string>("TaskProfile", *request->taskProfile));
+  query->insert(pair<string, string>("TemplateId", *request->templateId));
+  query->insert(pair<string, vector<string>>("UnsubSpecAudioUsers", *request->unsubSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecCameraUsers", *request->unsubSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecShareScreenUsers", *request->unsubSpecShareScreenUsers));
+  query->insert(pair<string, vector<StartRecordTaskRequestUserPanes>>("UserPanes", *request->userPanes));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartRecordTaskResponse(doRPCRequest(make_shared<string>("StartRecordTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartRecordTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartRecordTaskResponse(callApi(params, req, runtime));
 }
 
 StartRecordTaskResponse Alibabacloud_Rtc20180111::Client::startRecordTask(shared_ptr<StartRecordTaskRequest> request) {
@@ -351,10 +764,27 @@ StartRecordTaskResponse Alibabacloud_Rtc20180111::Client::startRecordTask(shared
 
 StopChannelUserPublishResponse Alibabacloud_Rtc20180111::Client::stopChannelUserPublishWithOptions(shared_ptr<StopChannelUserPublishRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("UserId", *request->userId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopChannelUserPublishResponse(doRPCRequest(make_shared<string>("StopChannelUserPublish"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopChannelUserPublish"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopChannelUserPublishResponse(callApi(params, req, runtime));
 }
 
 StopChannelUserPublishResponse Alibabacloud_Rtc20180111::Client::stopChannelUserPublish(shared_ptr<StopChannelUserPublishRequest> request) {
@@ -364,10 +794,26 @@ StopChannelUserPublishResponse Alibabacloud_Rtc20180111::Client::stopChannelUser
 
 StopMPUTaskResponse Alibabacloud_Rtc20180111::Client::stopMPUTaskWithOptions(shared_ptr<StopMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopMPUTaskResponse(doRPCRequest(make_shared<string>("StopMPUTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopMPUTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopMPUTaskResponse(callApi(params, req, runtime));
 }
 
 StopMPUTaskResponse Alibabacloud_Rtc20180111::Client::stopMPUTask(shared_ptr<StopMPUTaskRequest> request) {
@@ -377,10 +823,26 @@ StopMPUTaskResponse Alibabacloud_Rtc20180111::Client::stopMPUTask(shared_ptr<Sto
 
 StopRecordTaskResponse Alibabacloud_Rtc20180111::Client::stopRecordTaskWithOptions(shared_ptr<StopRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopRecordTaskResponse(doRPCRequest(make_shared<string>("StopRecordTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopRecordTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopRecordTaskResponse(callApi(params, req, runtime));
 }
 
 StopRecordTaskResponse Alibabacloud_Rtc20180111::Client::stopRecordTask(shared_ptr<StopRecordTaskRequest> request) {
@@ -390,10 +852,32 @@ StopRecordTaskResponse Alibabacloud_Rtc20180111::Client::stopRecordTask(shared_p
 
 UpdateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::updateAutoLiveStreamRuleWithOptions(shared_ptr<UpdateAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("CallBack", *request->callBack));
+  query->insert(pair<string, vector<string>>("ChannelIdPrefixes", *request->channelIdPrefixes));
+  query->insert(pair<string, vector<string>>("ChannelIds", *request->channelIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("PlayDomain", *request->playDomain));
+  query->insert(pair<string, long>("RuleId", *request->ruleId));
+  query->insert(pair<string, string>("RuleName", *request->ruleName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateAutoLiveStreamRuleResponse(doRPCRequest(make_shared<string>("UpdateAutoLiveStreamRule"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAutoLiveStreamRule"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAutoLiveStreamRuleResponse(callApi(params, req, runtime));
 }
 
 UpdateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::updateAutoLiveStreamRule(shared_ptr<UpdateAutoLiveStreamRuleRequest> request) {
@@ -403,10 +887,44 @@ UpdateAutoLiveStreamRuleResponse Alibabacloud_Rtc20180111::Client::updateAutoLiv
 
 UpdateMPUTaskResponse Alibabacloud_Rtc20180111::Client::updateMPUTaskWithOptions(shared_ptr<UpdateMPUTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("BackgroundColor", *request->backgroundColor));
+  query->insert(pair<string, vector<UpdateMPUTaskRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  query->insert(pair<string, vector<UpdateMPUTaskRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  query->insert(pair<string, long>("CropMode", *request->cropMode));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, long>("MixMode", *request->mixMode));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("SourceType", *request->sourceType));
+  query->insert(pair<string, long>("StreamType", *request->streamType));
+  query->insert(pair<string, vector<string>>("SubSpecAudioUsers", *request->subSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("SubSpecCameraUsers", *request->subSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("SubSpecShareScreenUsers", *request->subSpecShareScreenUsers));
+  query->insert(pair<string, vector<string>>("SubSpecUsers", *request->subSpecUsers));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
+  query->insert(pair<string, vector<string>>("UnsubSpecAudioUsers", *request->unsubSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecCameraUsers", *request->unsubSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecShareScreenUsers", *request->unsubSpecShareScreenUsers));
+  query->insert(pair<string, vector<UpdateMPUTaskRequestUserPanes>>("UserPanes", *request->userPanes));
+  query->insert(pair<string, vector<UpdateMPUTaskRequestWatermarks>>("Watermarks", *request->watermarks));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateMPUTaskResponse(doRPCRequest(make_shared<string>("UpdateMPUTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMPUTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMPUTaskResponse(callApi(params, req, runtime));
 }
 
 UpdateMPUTaskResponse Alibabacloud_Rtc20180111::Client::updateMPUTask(shared_ptr<UpdateMPUTaskRequest> request) {
@@ -416,10 +934,37 @@ UpdateMPUTaskResponse Alibabacloud_Rtc20180111::Client::updateMPUTask(shared_ptr
 
 UpdateRecordTaskResponse Alibabacloud_Rtc20180111::Client::updateRecordTaskWithOptions(shared_ptr<UpdateRecordTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, string>("ChannelId", *request->channelId));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, vector<string>>("SubSpecAudioUsers", *request->subSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("SubSpecCameraUsers", *request->subSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("SubSpecShareScreenUsers", *request->subSpecShareScreenUsers));
+  query->insert(pair<string, vector<string>>("SubSpecUsers", *request->subSpecUsers));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
+  query->insert(pair<string, string>("TemplateId", *request->templateId));
+  query->insert(pair<string, vector<string>>("UnsubSpecAudioUsers", *request->unsubSpecAudioUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecCameraUsers", *request->unsubSpecCameraUsers));
+  query->insert(pair<string, vector<string>>("UnsubSpecShareScreenUsers", *request->unsubSpecShareScreenUsers));
+  query->insert(pair<string, vector<UpdateRecordTaskRequestUserPanes>>("UserPanes", *request->userPanes));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateRecordTaskResponse(doRPCRequest(make_shared<string>("UpdateRecordTask"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateRecordTask"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateRecordTaskResponse(callApi(params, req, runtime));
 }
 
 UpdateRecordTaskResponse Alibabacloud_Rtc20180111::Client::updateRecordTask(shared_ptr<UpdateRecordTaskRequest> request) {
@@ -429,10 +974,42 @@ UpdateRecordTaskResponse Alibabacloud_Rtc20180111::Client::updateRecordTask(shar
 
 UpdateRecordTemplateResponse Alibabacloud_Rtc20180111::Client::updateRecordTemplateWithOptions(shared_ptr<UpdateRecordTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AppId", *request->appId));
+  query->insert(pair<string, long>("BackgroundColor", *request->backgroundColor));
+  query->insert(pair<string, vector<UpdateRecordTemplateRequestBackgrounds>>("Backgrounds", *request->backgrounds));
+  query->insert(pair<string, vector<UpdateRecordTemplateRequestClockWidgets>>("ClockWidgets", *request->clockWidgets));
+  query->insert(pair<string, long>("DelayStopTime", *request->delayStopTime));
+  query->insert(pair<string, bool>("EnableM3u8DateTime", *request->enableM3u8DateTime));
+  query->insert(pair<string, long>("FileSplitInterval", *request->fileSplitInterval));
+  query->insert(pair<string, vector<string>>("Formats", *request->formats));
+  query->insert(pair<string, string>("HttpCallbackUrl", *request->httpCallbackUrl));
+  query->insert(pair<string, vector<long>>("LayoutIds", *request->layoutIds));
+  query->insert(pair<string, long>("MediaEncode", *request->mediaEncode));
+  query->insert(pair<string, string>("MnsQueue", *request->mnsQueue));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, string>("OssBucket", *request->ossBucket));
+  query->insert(pair<string, string>("OssFilePrefix", *request->ossFilePrefix));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("TaskProfile", *request->taskProfile));
+  query->insert(pair<string, string>("TemplateId", *request->templateId));
+  query->insert(pair<string, vector<UpdateRecordTemplateRequestWatermarks>>("Watermarks", *request->watermarks));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateRecordTemplateResponse(doRPCRequest(make_shared<string>("UpdateRecordTemplate"), make_shared<string>("2018-01-11"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateRecordTemplate"))},
+    {"version", boost::any(string("2018-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateRecordTemplateResponse(callApi(params, req, runtime));
 }
 
 UpdateRecordTemplateResponse Alibabacloud_Rtc20180111::Client::updateRecordTemplate(shared_ptr<UpdateRecordTemplateRequest> request) {
