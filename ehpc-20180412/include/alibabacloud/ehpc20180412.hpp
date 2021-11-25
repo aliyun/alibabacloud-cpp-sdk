@@ -2239,6 +2239,7 @@ public:
   shared_ptr<string> password{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
+  shared_ptr<string> plugin{};
   shared_ptr<vector<CreateClusterRequestPostInstallScript>> postInstallScript{};
   shared_ptr<string> remoteDirectory{};
   shared_ptr<string> remoteVisEnable{};
@@ -2256,6 +2257,7 @@ public:
   shared_ptr<string> volumeProtocol{};
   shared_ptr<string> volumeType{};
   shared_ptr<string> vpcId{};
+  shared_ptr<bool> withoutAgent{};
   shared_ptr<bool> withoutElasticIp{};
   shared_ptr<string> zoneId{};
 
@@ -2361,6 +2363,9 @@ public:
     if (periodUnit) {
       res["PeriodUnit"] = boost::any(*periodUnit);
     }
+    if (plugin) {
+      res["Plugin"] = boost::any(*plugin);
+    }
     if (postInstallScript) {
       vector<boost::any> temp1;
       for(auto item1:*postInstallScript){
@@ -2415,6 +2420,9 @@ public:
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
+    }
+    if (withoutAgent) {
+      res["WithoutAgent"] = boost::any(*withoutAgent);
     }
     if (withoutElasticIp) {
       res["WithoutElasticIp"] = boost::any(*withoutElasticIp);
@@ -2534,6 +2542,9 @@ public:
     if (m.find("PeriodUnit") != m.end() && !m["PeriodUnit"].empty()) {
       periodUnit = make_shared<string>(boost::any_cast<string>(m["PeriodUnit"]));
     }
+    if (m.find("Plugin") != m.end() && !m["Plugin"].empty()) {
+      plugin = make_shared<string>(boost::any_cast<string>(m["Plugin"]));
+    }
     if (m.find("PostInstallScript") != m.end() && !m["PostInstallScript"].empty()) {
       if (typeid(vector<boost::any>) == m["PostInstallScript"].type()) {
         vector<CreateClusterRequestPostInstallScript> expect1;
@@ -2594,6 +2605,9 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("WithoutAgent") != m.end() && !m["WithoutAgent"].empty()) {
+      withoutAgent = make_shared<bool>(boost::any_cast<bool>(m["WithoutAgent"]));
     }
     if (m.find("WithoutElasticIp") != m.end() && !m["WithoutElasticIp"].empty()) {
       withoutElasticIp = make_shared<bool>(boost::any_cast<bool>(m["WithoutElasticIp"]));
@@ -3939,6 +3953,7 @@ public:
   shared_ptr<string> clockTime{};
   shared_ptr<string> commandLine{};
   shared_ptr<long> gpu{};
+  shared_ptr<string> inputFileUrl{};
   shared_ptr<string> mem{};
   shared_ptr<string> name{};
   shared_ptr<long> node{};
@@ -3951,7 +3966,9 @@ public:
   shared_ptr<string> stdoutRedirectPath{};
   shared_ptr<long> task{};
   shared_ptr<long> thread{};
+  shared_ptr<string> unzipCmd{};
   shared_ptr<string> variables{};
+  shared_ptr<bool> withUnzipCmd{};
 
   CreateJobTemplateRequest() {}
 
@@ -3974,6 +3991,9 @@ public:
     }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
+    }
+    if (inputFileUrl) {
+      res["InputFileUrl"] = boost::any(*inputFileUrl);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -4011,8 +4031,14 @@ public:
     if (thread) {
       res["Thread"] = boost::any(*thread);
     }
+    if (unzipCmd) {
+      res["UnzipCmd"] = boost::any(*unzipCmd);
+    }
     if (variables) {
       res["Variables"] = boost::any(*variables);
+    }
+    if (withUnzipCmd) {
+      res["WithUnzipCmd"] = boost::any(*withUnzipCmd);
     }
     return res;
   }
@@ -4029,6 +4055,9 @@ public:
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("InputFileUrl") != m.end() && !m["InputFileUrl"].empty()) {
+      inputFileUrl = make_shared<string>(boost::any_cast<string>(m["InputFileUrl"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<string>(boost::any_cast<string>(m["Mem"]));
@@ -4066,8 +4095,14 @@ public:
     if (m.find("Thread") != m.end() && !m["Thread"].empty()) {
       thread = make_shared<long>(boost::any_cast<long>(m["Thread"]));
     }
+    if (m.find("UnzipCmd") != m.end() && !m["UnzipCmd"].empty()) {
+      unzipCmd = make_shared<string>(boost::any_cast<string>(m["UnzipCmd"]));
+    }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
       variables = make_shared<string>(boost::any_cast<string>(m["Variables"]));
+    }
+    if (m.find("WithUnzipCmd") != m.end() && !m["WithUnzipCmd"].empty()) {
+      withUnzipCmd = make_shared<bool>(boost::any_cast<bool>(m["WithUnzipCmd"]));
     }
   }
 
@@ -9253,6 +9288,7 @@ public:
   shared_ptr<string> clockTime{};
   shared_ptr<string> commandLine{};
   shared_ptr<long> gpu{};
+  shared_ptr<string> inputFileUrl{};
   shared_ptr<string> mem{};
   shared_ptr<string> name{};
   shared_ptr<long> node{};
@@ -9266,7 +9302,9 @@ public:
   shared_ptr<long> task{};
   shared_ptr<string> templateId{};
   shared_ptr<long> thread{};
+  shared_ptr<string> unzipCmd{};
   shared_ptr<string> variables{};
+  shared_ptr<bool> withUnzipCmd{};
 
   EditJobTemplateRequest() {}
 
@@ -9289,6 +9327,9 @@ public:
     }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
+    }
+    if (inputFileUrl) {
+      res["InputFileUrl"] = boost::any(*inputFileUrl);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -9329,8 +9370,14 @@ public:
     if (thread) {
       res["Thread"] = boost::any(*thread);
     }
+    if (unzipCmd) {
+      res["UnzipCmd"] = boost::any(*unzipCmd);
+    }
     if (variables) {
       res["Variables"] = boost::any(*variables);
+    }
+    if (withUnzipCmd) {
+      res["WithUnzipCmd"] = boost::any(*withUnzipCmd);
     }
     return res;
   }
@@ -9347,6 +9394,9 @@ public:
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
+    }
+    if (m.find("InputFileUrl") != m.end() && !m["InputFileUrl"].empty()) {
+      inputFileUrl = make_shared<string>(boost::any_cast<string>(m["InputFileUrl"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<string>(boost::any_cast<string>(m["Mem"]));
@@ -9387,8 +9437,14 @@ public:
     if (m.find("Thread") != m.end() && !m["Thread"].empty()) {
       thread = make_shared<long>(boost::any_cast<long>(m["Thread"]));
     }
+    if (m.find("UnzipCmd") != m.end() && !m["UnzipCmd"].empty()) {
+      unzipCmd = make_shared<string>(boost::any_cast<string>(m["UnzipCmd"]));
+    }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
       variables = make_shared<string>(boost::any_cast<string>(m["Variables"]));
+    }
+    if (m.find("WithUnzipCmd") != m.end() && !m["WithUnzipCmd"].empty()) {
+      withUnzipCmd = make_shared<bool>(boost::any_cast<bool>(m["WithUnzipCmd"]));
     }
   }
 
@@ -18077,6 +18133,7 @@ public:
   shared_ptr<string> commandLine{};
   shared_ptr<long> gpu{};
   shared_ptr<string> id{};
+  shared_ptr<string> inputFileUrl{};
   shared_ptr<string> mem{};
   shared_ptr<string> name{};
   shared_ptr<long> node{};
@@ -18089,7 +18146,9 @@ public:
   shared_ptr<string> stdoutRedirectPath{};
   shared_ptr<long> task{};
   shared_ptr<long> thread{};
+  shared_ptr<string> unzipCmd{};
   shared_ptr<string> variables{};
+  shared_ptr<bool> withUnzipCmd{};
 
   ListJobTemplatesResponseBodyTemplatesJobTemplates() {}
 
@@ -18115,6 +18174,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (inputFileUrl) {
+      res["InputFileUrl"] = boost::any(*inputFileUrl);
     }
     if (mem) {
       res["Mem"] = boost::any(*mem);
@@ -18152,8 +18214,14 @@ public:
     if (thread) {
       res["Thread"] = boost::any(*thread);
     }
+    if (unzipCmd) {
+      res["UnzipCmd"] = boost::any(*unzipCmd);
+    }
     if (variables) {
       res["Variables"] = boost::any(*variables);
+    }
+    if (withUnzipCmd) {
+      res["WithUnzipCmd"] = boost::any(*withUnzipCmd);
     }
     return res;
   }
@@ -18173,6 +18241,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("InputFileUrl") != m.end() && !m["InputFileUrl"].empty()) {
+      inputFileUrl = make_shared<string>(boost::any_cast<string>(m["InputFileUrl"]));
     }
     if (m.find("Mem") != m.end() && !m["Mem"].empty()) {
       mem = make_shared<string>(boost::any_cast<string>(m["Mem"]));
@@ -18210,8 +18281,14 @@ public:
     if (m.find("Thread") != m.end() && !m["Thread"].empty()) {
       thread = make_shared<long>(boost::any_cast<long>(m["Thread"]));
     }
+    if (m.find("UnzipCmd") != m.end() && !m["UnzipCmd"].empty()) {
+      unzipCmd = make_shared<string>(boost::any_cast<string>(m["UnzipCmd"]));
+    }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
       variables = make_shared<string>(boost::any_cast<string>(m["Variables"]));
+    }
+    if (m.find("WithUnzipCmd") != m.end() && !m["WithUnzipCmd"].empty()) {
+      withUnzipCmd = make_shared<bool>(boost::any_cast<bool>(m["WithUnzipCmd"]));
     }
   }
 
