@@ -599,6 +599,7 @@ class AddSubSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
   shared_ptr<string> sceneId{};
+  shared_ptr<string> uploadType{};
 
   AddSubSceneRequest() {}
 
@@ -616,6 +617,9 @@ public:
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
     }
+    if (uploadType) {
+      res["UploadType"] = boost::any(*uploadType);
+    }
     return res;
   }
 
@@ -625,6 +629,9 @@ public:
     }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("UploadType") != m.end() && !m["UploadType"].empty()) {
+      uploadType = make_shared<string>(boost::any_cast<string>(m["UploadType"]));
     }
   }
 
@@ -6250,6 +6257,7 @@ public:
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
   shared_ptr<long> status{};
+  shared_ptr<string> type{};
   shared_ptr<string> url{};
 
   ListSubSceneResponseBodyList() {}
@@ -6301,6 +6309,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -6346,6 +6357,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -7561,6 +7575,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<string> taskId{};
 
   RectVerticalResponseBody() {}
 
@@ -7584,6 +7599,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -7599,6 +7617,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
