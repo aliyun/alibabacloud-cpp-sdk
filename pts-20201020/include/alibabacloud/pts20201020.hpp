@@ -1045,7 +1045,6 @@ public:
   shared_ptr<vector<string>> sampleMetricList{};
   shared_ptr<map<string, boost::any>> samplerMap{};
   shared_ptr<bool> success{};
-  shared_ptr<long> totalCount{};
 
   GetJMeterSampleMetricsResponseBody() {}
 
@@ -1074,9 +1073,6 @@ public:
     }
     if (success) {
       res["Success"] = boost::any(*success);
-    }
-    if (totalCount) {
-      res["TotalCount"] = boost::any(*totalCount);
     }
     return res;
   }
@@ -1111,9 +1107,6 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
