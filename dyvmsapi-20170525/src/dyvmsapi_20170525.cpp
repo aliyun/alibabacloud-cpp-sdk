@@ -3,6 +3,7 @@
 #include <alibabacloud/dyvmsapi_20170525.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -39,10 +40,27 @@ string Alibabacloud_Dyvmsapi20170525::Client::getEndpoint(shared_ptr<string> pro
 
 AddRtcAccountResponse Alibabacloud_Dyvmsapi20170525::Client::addRtcAccountWithOptions(shared_ptr<AddRtcAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("DeviceId", *request->deviceId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AddRtcAccountResponse(doRPCRequest(make_shared<string>("AddRtcAccount"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddRtcAccount"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddRtcAccountResponse(callApi(params, req, runtime));
 }
 
 AddRtcAccountResponse Alibabacloud_Dyvmsapi20170525::Client::addRtcAccount(shared_ptr<AddRtcAccountRequest> request) {
@@ -52,10 +70,31 @@ AddRtcAccountResponse Alibabacloud_Dyvmsapi20170525::Client::addRtcAccount(share
 
 AddVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::addVirtualNumberRelationWithOptions(shared_ptr<AddVirtualNumberRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CorpNameList", *request->corpNameList));
+  query->insert(pair<string, string>("NumberList", *request->numberList));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("PhoneNum", *request->phoneNum));
+  query->insert(pair<string, string>("ProdCode", *request->prodCode));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("RouteType", *request->routeType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AddVirtualNumberRelationResponse(doRPCRequest(make_shared<string>("AddVirtualNumberRelation"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddVirtualNumberRelation"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddVirtualNumberRelationResponse(callApi(params, req, runtime));
 }
 
 AddVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::addVirtualNumberRelation(shared_ptr<AddVirtualNumberRelationRequest> request) {
@@ -65,10 +104,37 @@ AddVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::addVirtu
 
 BatchRobotSmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::batchRobotSmartCallWithOptions(shared_ptr<BatchRobotSmartCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, string>("CorpName", *request->corpName));
+  query->insert(pair<string, string>("DialogId", *request->dialogId));
+  query->insert(pair<string, bool>("EarlyMediaAsr", *request->earlyMediaAsr));
+  query->insert(pair<string, bool>("IsSelfLine", *request->isSelfLine));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, bool>("ScheduleCall", *request->scheduleCall));
+  query->insert(pair<string, long>("ScheduleTime", *request->scheduleTime));
+  query->insert(pair<string, string>("TaskName", *request->taskName));
+  query->insert(pair<string, string>("TtsParam", *request->ttsParam));
+  query->insert(pair<string, string>("TtsParamHead", *request->ttsParamHead));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return BatchRobotSmartCallResponse(doRPCRequest(make_shared<string>("BatchRobotSmartCall"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchRobotSmartCall"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchRobotSmartCallResponse(callApi(params, req, runtime));
 }
 
 BatchRobotSmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::batchRobotSmartCall(shared_ptr<BatchRobotSmartCallRequest> request) {
@@ -76,25 +142,29 @@ BatchRobotSmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::batchRobotSma
   return batchRobotSmartCallWithOptions(request, runtime);
 }
 
-BindNumberAndVoipIdResponse Alibabacloud_Dyvmsapi20170525::Client::bindNumberAndVoipIdWithOptions(shared_ptr<BindNumberAndVoipIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return BindNumberAndVoipIdResponse(doRPCRequest(make_shared<string>("BindNumberAndVoipId"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-BindNumberAndVoipIdResponse Alibabacloud_Dyvmsapi20170525::Client::bindNumberAndVoipId(shared_ptr<BindNumberAndVoipIdRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return bindNumberAndVoipIdWithOptions(request, runtime);
-}
-
 CancelCallResponse Alibabacloud_Dyvmsapi20170525::Client::cancelCallWithOptions(shared_ptr<CancelCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CallId", *request->callId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CancelCallResponse(doRPCRequest(make_shared<string>("CancelCall"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelCall"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelCallResponse(callApi(params, req, runtime));
 }
 
 CancelCallResponse Alibabacloud_Dyvmsapi20170525::Client::cancelCall(shared_ptr<CancelCallRequest> request) {
@@ -104,10 +174,27 @@ CancelCallResponse Alibabacloud_Dyvmsapi20170525::Client::cancelCall(shared_ptr<
 
 CancelOrderRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelOrderRobotTaskWithOptions(shared_ptr<CancelOrderRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CancelOrderRobotTaskResponse(doRPCRequest(make_shared<string>("CancelOrderRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelOrderRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelOrderRobotTaskResponse(callApi(params, req, runtime));
 }
 
 CancelOrderRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelOrderRobotTask(shared_ptr<CancelOrderRobotTaskRequest> request) {
@@ -117,10 +204,27 @@ CancelOrderRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelOrderR
 
 CancelRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelRobotTaskWithOptions(shared_ptr<CancelRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CancelRobotTaskResponse(doRPCRequest(make_shared<string>("CancelRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelRobotTaskResponse(callApi(params, req, runtime));
 }
 
 CancelRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelRobotTask(shared_ptr<CancelRobotTaskRequest> request) {
@@ -130,10 +234,35 @@ CancelRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelRobotTask(s
 
 ClickToDialResponse Alibabacloud_Dyvmsapi20170525::Client::clickToDialWithOptions(shared_ptr<ClickToDialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, bool>("AsrFlag", *request->asrFlag));
+  query->insert(pair<string, string>("AsrModelId", *request->asrModelId));
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, string>("CallerNumber", *request->callerNumber));
+  query->insert(pair<string, string>("CallerShowNumber", *request->callerShowNumber));
+  query->insert(pair<string, string>("OutId", *request->outId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, bool>("RecordFlag", *request->recordFlag));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ClickToDialResponse(doRPCRequest(make_shared<string>("ClickToDial"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ClickToDial"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ClickToDialResponse(callApi(params, req, runtime));
 }
 
 ClickToDialResponse Alibabacloud_Dyvmsapi20170525::Client::clickToDial(shared_ptr<ClickToDialRequest> request) {
@@ -141,25 +270,39 @@ ClickToDialResponse Alibabacloud_Dyvmsapi20170525::Client::clickToDial(shared_pt
   return clickToDialWithOptions(request, runtime);
 }
 
-CloseSipAccountResponse Alibabacloud_Dyvmsapi20170525::Client::closeSipAccountWithOptions(shared_ptr<CloseSipAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CloseSipAccountResponse(doRPCRequest(make_shared<string>("CloseSipAccount"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CloseSipAccountResponse Alibabacloud_Dyvmsapi20170525::Client::closeSipAccount(shared_ptr<CloseSipAccountRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return closeSipAccountWithOptions(request, runtime);
-}
-
 CreateCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createCallTaskWithOptions(shared_ptr<CreateCallTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("BizType", *request->bizType));
+  query->insert(pair<string, string>("Data", *request->data));
+  query->insert(pair<string, string>("DataType", *request->dataType));
+  query->insert(pair<string, string>("FireTime", *request->fireTime));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("Resource", *request->resource));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  query->insert(pair<string, string>("ScheduleType", *request->scheduleType));
+  query->insert(pair<string, string>("StopTime", *request->stopTime));
+  query->insert(pair<string, string>("TaskName", *request->taskName));
+  query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  query->insert(pair<string, string>("TemplateName", *request->templateName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateCallTaskResponse(doRPCRequest(make_shared<string>("CreateCallTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCallTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCallTaskResponse(callApi(params, req, runtime));
 }
 
 CreateCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createCallTask(shared_ptr<CreateCallTaskRequest> request) {
@@ -169,10 +312,36 @@ CreateCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createCallTask(sha
 
 CreateRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createRobotTaskWithOptions(shared_ptr<CreateRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Caller", *request->caller));
+  query->insert(pair<string, string>("CorpName", *request->corpName));
+  query->insert(pair<string, long>("DialogId", *request->dialogId));
+  query->insert(pair<string, bool>("IsSelfLine", *request->isSelfLine));
+  query->insert(pair<string, bool>("NumberStatusIdent", *request->numberStatusIdent));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("RecallInterval", *request->recallInterval));
+  query->insert(pair<string, string>("RecallStateCodes", *request->recallStateCodes));
+  query->insert(pair<string, long>("RecallTimes", *request->recallTimes));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("RetryType", *request->retryType));
+  query->insert(pair<string, string>("TaskName", *request->taskName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateRobotTaskResponse(doRPCRequest(make_shared<string>("CreateRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateRobotTaskResponse(callApi(params, req, runtime));
 }
 
 CreateRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createRobotTask(shared_ptr<CreateRobotTaskRequest> request) {
@@ -180,25 +349,29 @@ CreateRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createRobotTask(s
   return createRobotTaskWithOptions(request, runtime);
 }
 
-CreateSipAccountResponse Alibabacloud_Dyvmsapi20170525::Client::createSipAccountWithOptions(shared_ptr<CreateSipAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CreateSipAccountResponse(doRPCRequest(make_shared<string>("CreateSipAccount"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CreateSipAccountResponse Alibabacloud_Dyvmsapi20170525::Client::createSipAccount(shared_ptr<CreateSipAccountRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createSipAccountWithOptions(request, runtime);
-}
-
 DeleteRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::deleteRobotTaskWithOptions(shared_ptr<DeleteRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteRobotTaskResponse(doRPCRequest(make_shared<string>("DeleteRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteRobotTaskResponse(callApi(params, req, runtime));
 }
 
 DeleteRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::deleteRobotTask(shared_ptr<DeleteRobotTaskRequest> request) {
@@ -206,51 +379,31 @@ DeleteRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::deleteRobotTask(s
   return deleteRobotTaskWithOptions(request, runtime);
 }
 
-DescribeRecordDataResponse Alibabacloud_Dyvmsapi20170525::Client::describeRecordDataWithOptions(shared_ptr<DescribeRecordDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DescribeRecordDataResponse(doRPCRequest(make_shared<string>("DescribeRecordData"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DescribeRecordDataResponse Alibabacloud_Dyvmsapi20170525::Client::describeRecordData(shared_ptr<DescribeRecordDataRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRecordDataWithOptions(request, runtime);
-}
-
-DoRtcNumberAuthResponse Alibabacloud_Dyvmsapi20170525::Client::doRtcNumberAuthWithOptions(shared_ptr<DoRtcNumberAuthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DoRtcNumberAuthResponse(doRPCRequest(make_shared<string>("DoRtcNumberAuth"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DoRtcNumberAuthResponse Alibabacloud_Dyvmsapi20170525::Client::doRtcNumberAuth(shared_ptr<DoRtcNumberAuthRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return doRtcNumberAuthWithOptions(request, runtime);
-}
-
-DoubleCallSeatResponse Alibabacloud_Dyvmsapi20170525::Client::doubleCallSeatWithOptions(shared_ptr<DoubleCallSeatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DoubleCallSeatResponse(doRPCRequest(make_shared<string>("DoubleCallSeat"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DoubleCallSeatResponse Alibabacloud_Dyvmsapi20170525::Client::doubleCallSeat(shared_ptr<DoubleCallSeatRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return doubleCallSeatWithOptions(request, runtime);
-}
-
 ExecuteCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::executeCallTaskWithOptions(shared_ptr<ExecuteCallTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FireTime", *request->fireTime));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("Status", *request->status));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ExecuteCallTaskResponse(doRPCRequest(make_shared<string>("ExecuteCallTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecuteCallTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExecuteCallTaskResponse(callApi(params, req, runtime));
 }
 
 ExecuteCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::executeCallTask(shared_ptr<ExecuteCallTaskRequest> request) {
@@ -260,10 +413,27 @@ ExecuteCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::executeCallTask(s
 
 GetCallInfoResponse Alibabacloud_Dyvmsapi20170525::Client::getCallInfoWithOptions(shared_ptr<GetCallInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("RtcId", *request->rtcId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetCallInfoResponse(doRPCRequest(make_shared<string>("GetCallInfo"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCallInfo"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCallInfoResponse(callApi(params, req, runtime));
 }
 
 GetCallInfoResponse Alibabacloud_Dyvmsapi20170525::Client::getCallInfo(shared_ptr<GetCallInfoRequest> request) {
@@ -273,10 +443,27 @@ GetCallInfoResponse Alibabacloud_Dyvmsapi20170525::Client::getCallInfo(shared_pt
 
 GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::getHotlineQualificationByOrderWithOptions(shared_ptr<GetHotlineQualificationByOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("OrderId", *request->orderId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetHotlineQualificationByOrderResponse(doRPCRequest(make_shared<string>("GetHotlineQualificationByOrder"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetHotlineQualificationByOrder"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetHotlineQualificationByOrderResponse(callApi(params, req, runtime));
 }
 
 GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::getHotlineQualificationByOrder(shared_ptr<GetHotlineQualificationByOrderRequest> request) {
@@ -284,12 +471,60 @@ GetHotlineQualificationByOrderResponse Alibabacloud_Dyvmsapi20170525::Client::ge
   return getHotlineQualificationByOrderWithOptions(request, runtime);
 }
 
-GetRtcTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getRtcTokenWithOptions(shared_ptr<GetRtcTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetMqttTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getMqttTokenWithOptions(shared_ptr<GetMqttTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetRtcTokenResponse(doRPCRequest(make_shared<string>("GetRtcToken"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMqttToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMqttTokenResponse(callApi(params, req, runtime));
+}
+
+GetMqttTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getMqttToken(shared_ptr<GetMqttTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMqttTokenWithOptions(request, runtime);
+}
+
+GetRtcTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getRtcTokenWithOptions(shared_ptr<GetRtcTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("DeviceId", *request->deviceId));
+  query->insert(pair<string, bool>("IsCustomAccount", *request->isCustomAccount));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("UserId", *request->userId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRtcToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRtcTokenResponse(callApi(params, req, runtime));
 }
 
 GetRtcTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getRtcToken(shared_ptr<GetRtcTokenRequest> request) {
@@ -299,10 +534,27 @@ GetRtcTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getRtcToken(shared_pt
 
 GetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getTokenWithOptions(shared_ptr<GetTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("TokenType", *request->tokenType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetTokenResponse(doRPCRequest(make_shared<string>("GetToken"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTokenResponse(callApi(params, req, runtime));
 }
 
 GetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getToken(shared_ptr<GetTokenRequest> request) {
@@ -312,10 +564,36 @@ GetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::getToken(shared_ptr<GetT
 
 IvrCallResponse Alibabacloud_Dyvmsapi20170525::Client::ivrCallWithOptions(shared_ptr<IvrCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ByeCode", *request->byeCode));
+  query->insert(pair<string, string>("ByeTtsParams", *request->byeTtsParams));
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, vector<IvrCallRequestMenuKeyMap>>("MenuKeyMap", *request->menuKeyMap));
+  query->insert(pair<string, string>("OutId", *request->outId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PlayTimes", *request->playTimes));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("StartCode", *request->startCode));
+  query->insert(pair<string, string>("StartTtsParams", *request->startTtsParams));
+  query->insert(pair<string, long>("Timeout", *request->timeout));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return IvrCallResponse(doRPCRequest(make_shared<string>("IvrCall"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("IvrCall"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return IvrCallResponse(callApi(params, req, runtime));
 }
 
 IvrCallResponse Alibabacloud_Dyvmsapi20170525::Client::ivrCall(shared_ptr<IvrCallRequest> request) {
@@ -325,10 +603,33 @@ IvrCallResponse Alibabacloud_Dyvmsapi20170525::Client::ivrCall(shared_ptr<IvrCal
 
 ListCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTaskWithOptions(shared_ptr<ListCallTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("BizType", *request->bizType));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("Status", *request->status));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
+  query->insert(pair<string, string>("TaskName", *request->taskName));
+  query->insert(pair<string, string>("TemplateName", *request->templateName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListCallTaskResponse(doRPCRequest(make_shared<string>("ListCallTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCallTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCallTaskResponse(callApi(params, req, runtime));
 }
 
 ListCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTask(shared_ptr<ListCallTaskRequest> request) {
@@ -338,10 +639,31 @@ ListCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTask(shared_
 
 ListCallTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTaskDetailWithOptions(shared_ptr<ListCallTaskDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledNum", *request->calledNum));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("Status", *request->status));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListCallTaskDetailResponse(doRPCRequest(make_shared<string>("ListCallTaskDetail"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCallTaskDetail"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCallTaskDetailResponse(callApi(params, req, runtime));
 }
 
 ListCallTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTaskDetail(shared_ptr<ListCallTaskDetailRequest> request) {
@@ -351,10 +673,30 @@ ListCallTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::listCallTaskDe
 
 ListHotlineTransferNumberResponse Alibabacloud_Dyvmsapi20170525::Client::listHotlineTransferNumberWithOptions(shared_ptr<ListHotlineTransferNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("HotlineNumber", *request->hotlineNumber));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("QualificationId", *request->qualificationId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListHotlineTransferNumberResponse(doRPCRequest(make_shared<string>("ListHotlineTransferNumber"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHotlineTransferNumber"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHotlineTransferNumberResponse(callApi(params, req, runtime));
 }
 
 ListHotlineTransferNumberResponse Alibabacloud_Dyvmsapi20170525::Client::listHotlineTransferNumber(shared_ptr<ListHotlineTransferNumberRequest> request) {
@@ -364,10 +706,30 @@ ListHotlineTransferNumberResponse Alibabacloud_Dyvmsapi20170525::Client::listHot
 
 ListHotlineTransferRegisterFileResponse Alibabacloud_Dyvmsapi20170525::Client::listHotlineTransferRegisterFileWithOptions(shared_ptr<ListHotlineTransferRegisterFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("HotlineNumber", *request->hotlineNumber));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("QualificationId", *request->qualificationId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListHotlineTransferRegisterFileResponse(doRPCRequest(make_shared<string>("ListHotlineTransferRegisterFile"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListHotlineTransferRegisterFile"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListHotlineTransferRegisterFileResponse(callApi(params, req, runtime));
 }
 
 ListHotlineTransferRegisterFileResponse Alibabacloud_Dyvmsapi20170525::Client::listHotlineTransferRegisterFile(shared_ptr<ListHotlineTransferRegisterFileRequest> request) {
@@ -375,51 +737,31 @@ ListHotlineTransferRegisterFileResponse Alibabacloud_Dyvmsapi20170525::Client::l
   return listHotlineTransferRegisterFileWithOptions(request, runtime);
 }
 
-ListOrderedNumbersResponse Alibabacloud_Dyvmsapi20170525::Client::listOrderedNumbersWithOptions(shared_ptr<ListOrderedNumbersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListOrderedNumbersResponse(doRPCRequest(make_shared<string>("ListOrderedNumbers"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListOrderedNumbersResponse Alibabacloud_Dyvmsapi20170525::Client::listOrderedNumbers(shared_ptr<ListOrderedNumbersRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listOrderedNumbersWithOptions(request, runtime);
-}
-
-ListOutboundStrategiesResponse Alibabacloud_Dyvmsapi20170525::Client::listOutboundStrategiesWithOptions(shared_ptr<ListOutboundStrategiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListOutboundStrategiesResponse(doRPCRequest(make_shared<string>("ListOutboundStrategies"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListOutboundStrategiesResponse Alibabacloud_Dyvmsapi20170525::Client::listOutboundStrategies(shared_ptr<ListOutboundStrategiesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listOutboundStrategiesWithOptions(request, runtime);
-}
-
-ListRobotTaskCallsResponse Alibabacloud_Dyvmsapi20170525::Client::listRobotTaskCallsWithOptions(shared_ptr<ListRobotTaskCallsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListRobotTaskCallsResponse(doRPCRequest(make_shared<string>("ListRobotTaskCalls"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListRobotTaskCallsResponse Alibabacloud_Dyvmsapi20170525::Client::listRobotTaskCalls(shared_ptr<ListRobotTaskCallsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listRobotTaskCallsWithOptions(request, runtime);
-}
-
 QueryCallDetailByCallIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallDetailByCallIdWithOptions(shared_ptr<QueryCallDetailByCallIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CallId", *request->callId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("ProdId", *request->prodId));
+  query->insert(pair<string, long>("QueryDate", *request->queryDate));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryCallDetailByCallIdResponse(doRPCRequest(make_shared<string>("QueryCallDetailByCallId"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCallDetailByCallId"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCallDetailByCallIdResponse(callApi(params, req, runtime));
 }
 
 QueryCallDetailByCallIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallDetailByCallId(shared_ptr<QueryCallDetailByCallIdRequest> request) {
@@ -429,10 +771,29 @@ QueryCallDetailByCallIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCall
 
 QueryCallDetailByTaskIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallDetailByTaskIdWithOptions(shared_ptr<QueryCallDetailByTaskIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Callee", *request->callee));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("QueryDate", *request->queryDate));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryCallDetailByTaskIdResponse(doRPCRequest(make_shared<string>("QueryCallDetailByTaskId"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCallDetailByTaskId"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCallDetailByTaskIdResponse(callApi(params, req, runtime));
 }
 
 QueryCallDetailByTaskIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallDetailByTaskId(shared_ptr<QueryCallDetailByTaskIdRequest> request) {
@@ -442,10 +803,27 @@ QueryCallDetailByTaskIdResponse Alibabacloud_Dyvmsapi20170525::Client::queryCall
 
 QueryCallInPoolTransferConfigResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallInPoolTransferConfigWithOptions(shared_ptr<QueryCallInPoolTransferConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryCallInPoolTransferConfigResponse(doRPCRequest(make_shared<string>("QueryCallInPoolTransferConfig"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCallInPoolTransferConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCallInPoolTransferConfigResponse(callApi(params, req, runtime));
 }
 
 QueryCallInPoolTransferConfigResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallInPoolTransferConfig(shared_ptr<QueryCallInPoolTransferConfigRequest> request) {
@@ -455,10 +833,31 @@ QueryCallInPoolTransferConfigResponse Alibabacloud_Dyvmsapi20170525::Client::que
 
 QueryCallInTransferRecordResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallInTransferRecordWithOptions(shared_ptr<QueryCallInTransferRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CallInCaller", *request->callInCaller));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  query->insert(pair<string, string>("QueryDate", *request->queryDate));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryCallInTransferRecordResponse(doRPCRequest(make_shared<string>("QueryCallInTransferRecord"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryCallInTransferRecord"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryCallInTransferRecordResponse(callApi(params, req, runtime));
 }
 
 QueryCallInTransferRecordResponse Alibabacloud_Dyvmsapi20170525::Client::queryCallInTransferRecord(shared_ptr<QueryCallInTransferRecordRequest> request) {
@@ -468,10 +867,27 @@ QueryCallInTransferRecordResponse Alibabacloud_Dyvmsapi20170525::Client::queryCa
 
 QueryRobotInfoListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotInfoListWithOptions(shared_ptr<QueryRobotInfoListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AuditStatus", *request->auditStatus));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotInfoListResponse(doRPCRequest(make_shared<string>("QueryRobotInfoList"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotInfoList"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotInfoListResponse(callApi(params, req, runtime));
 }
 
 QueryRobotInfoListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotInfoList(shared_ptr<QueryRobotInfoListRequest> request) {
@@ -481,10 +897,29 @@ QueryRobotInfoListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotInfo
 
 QueryRobotTaskCallDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskCallDetailWithOptions(shared_ptr<QueryRobotTaskCallDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Callee", *request->callee));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("QueryDate", *request->queryDate));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotTaskCallDetailResponse(doRPCRequest(make_shared<string>("QueryRobotTaskCallDetail"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotTaskCallDetail"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotTaskCallDetailResponse(callApi(params, req, runtime));
 }
 
 QueryRobotTaskCallDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskCallDetail(shared_ptr<QueryRobotTaskCallDetailRequest> request) {
@@ -494,10 +929,36 @@ QueryRobotTaskCallDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRob
 
 QueryRobotTaskCallListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskCallListWithOptions(shared_ptr<QueryRobotTaskCallListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CallResult", *request->callResult));
+  query->insert(pair<string, string>("Called", *request->called));
+  query->insert(pair<string, string>("DialogCountFrom", *request->dialogCountFrom));
+  query->insert(pair<string, string>("DialogCountTo", *request->dialogCountTo));
+  query->insert(pair<string, string>("DurationFrom", *request->durationFrom));
+  query->insert(pair<string, string>("DurationTo", *request->durationTo));
+  query->insert(pair<string, string>("HangupDirection", *request->hangupDirection));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotTaskCallListResponse(doRPCRequest(make_shared<string>("QueryRobotTaskCallList"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotTaskCallList"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotTaskCallListResponse(callApi(params, req, runtime));
 }
 
 QueryRobotTaskCallListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskCallList(shared_ptr<QueryRobotTaskCallListRequest> request) {
@@ -507,10 +968,27 @@ QueryRobotTaskCallListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobot
 
 QueryRobotTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskDetailWithOptions(shared_ptr<QueryRobotTaskDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("Id", *request->id));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotTaskDetailResponse(doRPCRequest(make_shared<string>("QueryRobotTaskDetail"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotTaskDetail"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotTaskDetailResponse(callApi(params, req, runtime));
 }
 
 QueryRobotTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskDetail(shared_ptr<QueryRobotTaskDetailRequest> request) {
@@ -520,10 +998,31 @@ QueryRobotTaskDetailResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTa
 
 QueryRobotTaskListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskListWithOptions(shared_ptr<QueryRobotTaskListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("Status", *request->status));
+  query->insert(pair<string, string>("TaskName", *request->taskName));
+  query->insert(pair<string, string>("Time", *request->time));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotTaskListResponse(doRPCRequest(make_shared<string>("QueryRobotTaskList"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotTaskList"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotTaskListResponse(callApi(params, req, runtime));
 }
 
 QueryRobotTaskListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTaskList(shared_ptr<QueryRobotTaskListRequest> request) {
@@ -533,10 +1032,26 @@ QueryRobotTaskListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotTask
 
 QueryRobotv2AllListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotv2AllListWithOptions(shared_ptr<QueryRobotv2AllListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryRobotv2AllListResponse(doRPCRequest(make_shared<string>("QueryRobotv2AllList"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryRobotv2AllList"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryRobotv2AllListResponse(callApi(params, req, runtime));
 }
 
 QueryRobotv2AllListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotv2AllList(shared_ptr<QueryRobotv2AllListRequest> request) {
@@ -544,25 +1059,32 @@ QueryRobotv2AllListResponse Alibabacloud_Dyvmsapi20170525::Client::queryRobotv2A
   return queryRobotv2AllListWithOptions(request, runtime);
 }
 
-QueryRtcNumberAuthStatusResponse Alibabacloud_Dyvmsapi20170525::Client::queryRtcNumberAuthStatusWithOptions(shared_ptr<QueryRtcNumberAuthStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return QueryRtcNumberAuthStatusResponse(doRPCRequest(make_shared<string>("QueryRtcNumberAuthStatus"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-QueryRtcNumberAuthStatusResponse Alibabacloud_Dyvmsapi20170525::Client::queryRtcNumberAuthStatus(shared_ptr<QueryRtcNumberAuthStatusRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryRtcNumberAuthStatusWithOptions(request, runtime);
-}
-
 QueryVirtualNumberResponse Alibabacloud_Dyvmsapi20170525::Client::queryVirtualNumberWithOptions(shared_ptr<QueryVirtualNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ProdCode", *request->prodCode));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("RouteType", *request->routeType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryVirtualNumberResponse(doRPCRequest(make_shared<string>("QueryVirtualNumber"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryVirtualNumber"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryVirtualNumberResponse(callApi(params, req, runtime));
 }
 
 QueryVirtualNumberResponse Alibabacloud_Dyvmsapi20170525::Client::queryVirtualNumber(shared_ptr<QueryVirtualNumberRequest> request) {
@@ -572,10 +1094,35 @@ QueryVirtualNumberResponse Alibabacloud_Dyvmsapi20170525::Client::queryVirtualNu
 
 QueryVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::queryVirtualNumberRelationWithOptions(shared_ptr<QueryVirtualNumberRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PageNo", *request->pageNo));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("PhoneNum", *request->phoneNum));
+  query->insert(pair<string, string>("ProdCode", *request->prodCode));
+  query->insert(pair<string, long>("QualificationId", *request->qualificationId));
+  query->insert(pair<string, string>("RegionNameCity", *request->regionNameCity));
+  query->insert(pair<string, string>("RelatedNum", *request->relatedNum));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("RouteType", *request->routeType));
+  query->insert(pair<string, long>("SpecId", *request->specId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryVirtualNumberRelationResponse(doRPCRequest(make_shared<string>("QueryVirtualNumberRelation"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryVirtualNumberRelation"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryVirtualNumberRelationResponse(callApi(params, req, runtime));
 }
 
 QueryVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::queryVirtualNumberRelation(shared_ptr<QueryVirtualNumberRelationRequest> request) {
@@ -583,38 +1130,61 @@ QueryVirtualNumberRelationResponse Alibabacloud_Dyvmsapi20170525::Client::queryV
   return queryVirtualNumberRelationWithOptions(request, runtime);
 }
 
-QueryVoipNumberBindInfosResponse Alibabacloud_Dyvmsapi20170525::Client::queryVoipNumberBindInfosWithOptions(shared_ptr<QueryVoipNumberBindInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+RefreshMqttTokenResponse Alibabacloud_Dyvmsapi20170525::Client::refreshMqttTokenWithOptions(shared_ptr<RefreshMqttTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ClientId", *request->clientId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return QueryVoipNumberBindInfosResponse(doRPCRequest(make_shared<string>("QueryVoipNumberBindInfos"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-QueryVoipNumberBindInfosResponse Alibabacloud_Dyvmsapi20170525::Client::queryVoipNumberBindInfos(shared_ptr<QueryVoipNumberBindInfosRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryVoipNumberBindInfosWithOptions(request, runtime);
-}
-
-ReportVoipProblemsResponse Alibabacloud_Dyvmsapi20170525::Client::reportVoipProblemsWithOptions(shared_ptr<ReportVoipProblemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RefreshMqttToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  return ReportVoipProblemsResponse(doRPCRequest(make_shared<string>("ReportVoipProblems"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return RefreshMqttTokenResponse(callApi(params, req, runtime));
 }
 
-ReportVoipProblemsResponse Alibabacloud_Dyvmsapi20170525::Client::reportVoipProblems(shared_ptr<ReportVoipProblemsRequest> request) {
+RefreshMqttTokenResponse Alibabacloud_Dyvmsapi20170525::Client::refreshMqttToken(shared_ptr<RefreshMqttTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return reportVoipProblemsWithOptions(request, runtime);
+  return refreshMqttTokenWithOptions(request, runtime);
 }
 
 SendVerificationResponse Alibabacloud_Dyvmsapi20170525::Client::sendVerificationWithOptions(shared_ptr<SendVerificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("BizType", *request->bizType));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("Target", *request->target));
+  query->insert(pair<string, string>("VerifyType", *request->verifyType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SendVerificationResponse(doRPCRequest(make_shared<string>("SendVerification"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SendVerification"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SendVerificationResponse(callApi(params, req, runtime));
 }
 
 SendVerificationResponse Alibabacloud_Dyvmsapi20170525::Client::sendVerification(shared_ptr<SendVerificationRequest> request) {
@@ -624,10 +1194,30 @@ SendVerificationResponse Alibabacloud_Dyvmsapi20170525::Client::sendVerification
 
 SetTransferCalleePoolConfigResponse Alibabacloud_Dyvmsapi20170525::Client::setTransferCalleePoolConfigWithOptions(shared_ptr<SetTransferCalleePoolConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledRouteMode", *request->calledRouteMode));
+  query->insert(pair<string, vector<SetTransferCalleePoolConfigRequestDetails>>("Details", *request->details));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  query->insert(pair<string, string>("QualificationId", *request->qualificationId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SetTransferCalleePoolConfigResponse(doRPCRequest(make_shared<string>("SetTransferCalleePoolConfig"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetTransferCalleePoolConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetTransferCalleePoolConfigResponse(callApi(params, req, runtime));
 }
 
 SetTransferCalleePoolConfigResponse Alibabacloud_Dyvmsapi20170525::Client::setTransferCalleePoolConfig(shared_ptr<SetTransferCalleePoolConfigRequest> request) {
@@ -637,10 +1227,34 @@ SetTransferCalleePoolConfigResponse Alibabacloud_Dyvmsapi20170525::Client::setTr
 
 SingleCallByTtsResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByTtsWithOptions(shared_ptr<SingleCallByTtsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, string>("OutId", *request->outId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PlayTimes", *request->playTimes));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("Speed", *request->speed));
+  query->insert(pair<string, string>("TtsCode", *request->ttsCode));
+  query->insert(pair<string, string>("TtsParam", *request->ttsParam));
+  query->insert(pair<string, long>("Volume", *request->volume));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SingleCallByTtsResponse(doRPCRequest(make_shared<string>("SingleCallByTts"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SingleCallByTts"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SingleCallByTtsResponse(callApi(params, req, runtime));
 }
 
 SingleCallByTtsResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByTts(shared_ptr<SingleCallByTtsRequest> request) {
@@ -650,10 +1264,33 @@ SingleCallByTtsResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByTts(s
 
 SingleCallByVoiceResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByVoiceWithOptions(shared_ptr<SingleCallByVoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, string>("OutId", *request->outId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PlayTimes", *request->playTimes));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("Speed", *request->speed));
+  query->insert(pair<string, string>("VoiceCode", *request->voiceCode));
+  query->insert(pair<string, long>("Volume", *request->volume));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SingleCallByVoiceResponse(doRPCRequest(make_shared<string>("SingleCallByVoice"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SingleCallByVoice"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SingleCallByVoiceResponse(callApi(params, req, runtime));
 }
 
 SingleCallByVoiceResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByVoice(shared_ptr<SingleCallByVoiceRequest> request) {
@@ -663,10 +1300,52 @@ SingleCallByVoiceResponse Alibabacloud_Dyvmsapi20170525::Client::singleCallByVoi
 
 SmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::smartCallWithOptions(shared_ptr<SmartCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, bool>("ActionCodeBreak", *request->actionCodeBreak));
+  query->insert(pair<string, long>("ActionCodeTimeBreak", *request->actionCodeTimeBreak));
+  query->insert(pair<string, string>("AsrBaseId", *request->asrBaseId));
+  query->insert(pair<string, string>("AsrModelId", *request->asrModelId));
+  query->insert(pair<string, string>("BackgroundFileCode", *request->backgroundFileCode));
+  query->insert(pair<string, long>("BackgroundSpeed", *request->backgroundSpeed));
+  query->insert(pair<string, long>("BackgroundVolume", *request->backgroundVolume));
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
+  query->insert(pair<string, string>("DynamicId", *request->dynamicId));
+  query->insert(pair<string, bool>("EarlyMediaAsr", *request->earlyMediaAsr));
+  query->insert(pair<string, bool>("EnableITN", *request->enableITN));
+  query->insert(pair<string, long>("MuteTime", *request->muteTime));
+  query->insert(pair<string, string>("OutId", *request->outId));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, long>("PauseTime", *request->pauseTime));
+  query->insert(pair<string, bool>("RecordFlag", *request->recordFlag));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));
+  query->insert(pair<string, long>("Speed", *request->speed));
+  query->insert(pair<string, long>("StreamAsr", *request->streamAsr));
+  query->insert(pair<string, bool>("TtsConf", *request->ttsConf));
+  query->insert(pair<string, long>("TtsSpeed", *request->ttsSpeed));
+  query->insert(pair<string, string>("TtsStyle", *request->ttsStyle));
+  query->insert(pair<string, long>("TtsVolume", *request->ttsVolume));
+  query->insert(pair<string, string>("VoiceCode", *request->voiceCode));
+  query->insert(pair<string, string>("VoiceCodeParam", *request->voiceCodeParam));
+  query->insert(pair<string, long>("Volume", *request->volume));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SmartCallResponse(doRPCRequest(make_shared<string>("SmartCall"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SmartCall"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SmartCallResponse(callApi(params, req, runtime));
 }
 
 SmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::smartCall(shared_ptr<SmartCallRequest> request) {
@@ -676,10 +1355,29 @@ SmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::smartCall(shared_ptr<Sm
 
 SmartCallOperateResponse Alibabacloud_Dyvmsapi20170525::Client::smartCallOperateWithOptions(shared_ptr<SmartCallOperateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CallId", *request->callId));
+  query->insert(pair<string, string>("Command", *request->command));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("Param", *request->param));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SmartCallOperateResponse(doRPCRequest(make_shared<string>("SmartCallOperate"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SmartCallOperate"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SmartCallOperateResponse(callApi(params, req, runtime));
 }
 
 SmartCallOperateResponse Alibabacloud_Dyvmsapi20170525::Client::smartCallOperate(shared_ptr<SmartCallOperateRequest> request) {
@@ -687,25 +1385,30 @@ SmartCallOperateResponse Alibabacloud_Dyvmsapi20170525::Client::smartCallOperate
   return smartCallOperateWithOptions(request, runtime);
 }
 
-StartMicroOutboundResponse Alibabacloud_Dyvmsapi20170525::Client::startMicroOutboundWithOptions(shared_ptr<StartMicroOutboundRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return StartMicroOutboundResponse(doRPCRequest(make_shared<string>("StartMicroOutbound"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-StartMicroOutboundResponse Alibabacloud_Dyvmsapi20170525::Client::startMicroOutbound(shared_ptr<StartMicroOutboundRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return startMicroOutboundWithOptions(request, runtime);
-}
-
 StartRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::startRobotTaskWithOptions(shared_ptr<StartRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("ScheduleTime", *request->scheduleTime));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartRobotTaskResponse(doRPCRequest(make_shared<string>("StartRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartRobotTaskResponse(callApi(params, req, runtime));
 }
 
 StartRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::startRobotTask(shared_ptr<StartRobotTaskRequest> request) {
@@ -715,10 +1418,27 @@ StartRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::startRobotTask(sha
 
 StopRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::stopRobotTaskWithOptions(shared_ptr<StopRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, long>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopRobotTaskResponse(doRPCRequest(make_shared<string>("StopRobotTask"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopRobotTask"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopRobotTaskResponse(callApi(params, req, runtime));
 }
 
 StopRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::stopRobotTask(shared_ptr<StopRobotTaskRequest> request) {
@@ -728,10 +1448,36 @@ StopRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::stopRobotTask(share
 
 SubmitHotlineTransferRegisterResponse Alibabacloud_Dyvmsapi20170525::Client::submitHotlineTransferRegisterWithOptions(shared_ptr<SubmitHotlineTransferRegisterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Agreement", *request->agreement));
+  query->insert(pair<string, string>("HotlineNumber", *request->hotlineNumber));
+  query->insert(pair<string, string>("OperatorIdentityCard", *request->operatorIdentityCard));
+  query->insert(pair<string, string>("OperatorMail", *request->operatorMail));
+  query->insert(pair<string, string>("OperatorMailVerifyCode", *request->operatorMailVerifyCode));
+  query->insert(pair<string, string>("OperatorMobile", *request->operatorMobile));
+  query->insert(pair<string, string>("OperatorMobileVerifyCode", *request->operatorMobileVerifyCode));
+  query->insert(pair<string, string>("OperatorName", *request->operatorName));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("QualificationId", *request->qualificationId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, vector<SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos>>("TransferPhoneNumberInfos", *request->transferPhoneNumberInfos));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SubmitHotlineTransferRegisterResponse(doRPCRequest(make_shared<string>("SubmitHotlineTransferRegister"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitHotlineTransferRegister"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitHotlineTransferRegisterResponse(callApi(params, req, runtime));
 }
 
 SubmitHotlineTransferRegisterResponse Alibabacloud_Dyvmsapi20170525::Client::submitHotlineTransferRegister(shared_ptr<SubmitHotlineTransferRegisterRequest> request) {
@@ -739,68 +1485,36 @@ SubmitHotlineTransferRegisterResponse Alibabacloud_Dyvmsapi20170525::Client::sub
   return submitHotlineTransferRegisterWithOptions(request, runtime);
 }
 
-UnbindNumberAndVoipIdResponse Alibabacloud_Dyvmsapi20170525::Client::unbindNumberAndVoipIdWithOptions(shared_ptr<UnbindNumberAndVoipIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return UnbindNumberAndVoipIdResponse(doRPCRequest(make_shared<string>("UnbindNumberAndVoipId"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-UnbindNumberAndVoipIdResponse Alibabacloud_Dyvmsapi20170525::Client::unbindNumberAndVoipId(shared_ptr<UnbindNumberAndVoipIdRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return unbindNumberAndVoipIdWithOptions(request, runtime);
-}
-
-UndoRtcNumberAuthResponse Alibabacloud_Dyvmsapi20170525::Client::undoRtcNumberAuthWithOptions(shared_ptr<UndoRtcNumberAuthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return UndoRtcNumberAuthResponse(doRPCRequest(make_shared<string>("UndoRtcNumberAuth"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-UndoRtcNumberAuthResponse Alibabacloud_Dyvmsapi20170525::Client::undoRtcNumberAuth(shared_ptr<UndoRtcNumberAuthRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return undoRtcNumberAuthWithOptions(request, runtime);
-}
-
 UploadRobotTaskCalledFileResponse Alibabacloud_Dyvmsapi20170525::Client::uploadRobotTaskCalledFileWithOptions(shared_ptr<UploadRobotTaskCalledFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
+  query->insert(pair<string, long>("Id", *request->id));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  query->insert(pair<string, string>("TtsParam", *request->ttsParam));
+  query->insert(pair<string, string>("TtsParamHead", *request->ttsParamHead));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UploadRobotTaskCalledFileResponse(doRPCRequest(make_shared<string>("UploadRobotTaskCalledFile"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UploadRobotTaskCalledFile"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UploadRobotTaskCalledFileResponse(callApi(params, req, runtime));
 }
 
 UploadRobotTaskCalledFileResponse Alibabacloud_Dyvmsapi20170525::Client::uploadRobotTaskCalledFile(shared_ptr<UploadRobotTaskCalledFileRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return uploadRobotTaskCalledFileWithOptions(request, runtime);
-}
-
-VoipAddAccountResponse Alibabacloud_Dyvmsapi20170525::Client::voipAddAccountWithOptions(shared_ptr<VoipAddAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return VoipAddAccountResponse(doRPCRequest(make_shared<string>("VoipAddAccount"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-VoipAddAccountResponse Alibabacloud_Dyvmsapi20170525::Client::voipAddAccount(shared_ptr<VoipAddAccountRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return voipAddAccountWithOptions(request, runtime);
-}
-
-VoipGetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::voipGetTokenWithOptions(shared_ptr<VoipGetTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return VoipGetTokenResponse(doRPCRequest(make_shared<string>("VoipGetToken"), make_shared<string>("2017-05-25"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-VoipGetTokenResponse Alibabacloud_Dyvmsapi20170525::Client::voipGetToken(shared_ptr<VoipGetTokenRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return voipGetTokenWithOptions(request, runtime);
 }
 
