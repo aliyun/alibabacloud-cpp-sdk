@@ -400,6 +400,8 @@ CreateBasicAcceleratorResponse Alibabacloud_Ga20191120::Client::createBasicAccel
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  query->insert(pair<string, long>("AutoRenewDuration", *request->autoRenewDuration));
   query->insert(pair<string, string>("AutoUseCoupon", *request->autoUseCoupon));
   query->insert(pair<string, string>("ClientToken", *request->clientToken));
   query->insert(pair<string, long>("Duration", *request->duration));
@@ -1104,6 +1106,34 @@ DescribeAcceleratorResponse Alibabacloud_Ga20191120::Client::describeAccelerator
 DescribeAcceleratorResponse Alibabacloud_Ga20191120::Client::describeAccelerator(shared_ptr<DescribeAcceleratorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeAcceleratorWithOptions(request, runtime);
+}
+
+DescribeAcceleratorAutoRenewAttributeResponse Alibabacloud_Ga20191120::Client::describeAcceleratorAutoRenewAttributeWithOptions(shared_ptr<DescribeAcceleratorAutoRenewAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeAcceleratorAutoRenewAttribute"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeAcceleratorAutoRenewAttributeResponse(callApi(params, req, runtime));
+}
+
+DescribeAcceleratorAutoRenewAttributeResponse Alibabacloud_Ga20191120::Client::describeAcceleratorAutoRenewAttribute(shared_ptr<DescribeAcceleratorAutoRenewAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeAcceleratorAutoRenewAttributeWithOptions(request, runtime);
 }
 
 DescribeBandwidthPackageResponse Alibabacloud_Ga20191120::Client::describeBandwidthPackageWithOptions(shared_ptr<DescribeBandwidthPackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2117,6 +2147,39 @@ UpdateAcceleratorResponse Alibabacloud_Ga20191120::Client::updateAcceleratorWith
 UpdateAcceleratorResponse Alibabacloud_Ga20191120::Client::updateAccelerator(shared_ptr<UpdateAcceleratorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAcceleratorWithOptions(request, runtime);
+}
+
+UpdateAcceleratorAutoRenewAttributeResponse Alibabacloud_Ga20191120::Client::updateAcceleratorAutoRenewAttributeWithOptions(shared_ptr<UpdateAcceleratorAutoRenewAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  query->insert(pair<string, bool>("AutoRenew", *request->autoRenew));
+  query->insert(pair<string, long>("AutoRenewDuration", *request->autoRenewDuration));
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("RenewalStatus", *request->renewalStatus));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAcceleratorAutoRenewAttribute"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAcceleratorAutoRenewAttributeResponse(callApi(params, req, runtime));
+}
+
+UpdateAcceleratorAutoRenewAttributeResponse Alibabacloud_Ga20191120::Client::updateAcceleratorAutoRenewAttribute(shared_ptr<UpdateAcceleratorAutoRenewAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateAcceleratorAutoRenewAttributeWithOptions(request, runtime);
 }
 
 UpdateAcceleratorConfirmResponse Alibabacloud_Ga20191120::Client::updateAcceleratorConfirmWithOptions(shared_ptr<UpdateAcceleratorConfirmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

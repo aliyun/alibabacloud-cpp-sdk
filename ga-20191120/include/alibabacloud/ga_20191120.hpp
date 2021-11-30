@@ -1944,6 +1944,8 @@ public:
 class CreateBasicAcceleratorRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewDuration{};
   shared_ptr<string> autoUseCoupon{};
   shared_ptr<string> clientToken{};
   shared_ptr<long> duration{};
@@ -1962,6 +1964,12 @@ public:
     map<string, boost::any> res;
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewDuration) {
+      res["AutoRenewDuration"] = boost::any(*autoRenewDuration);
     }
     if (autoUseCoupon) {
       res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
@@ -1984,6 +1992,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("AutoRenewDuration") != m.end() && !m["AutoRenewDuration"].empty()) {
+      autoRenewDuration = make_shared<long>(boost::any_cast<long>(m["AutoRenewDuration"]));
     }
     if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
       autoUseCoupon = make_shared<string>(boost::any_cast<string>(m["AutoUseCoupon"]));
@@ -6489,6 +6503,151 @@ public:
 
 
   virtual ~DescribeAcceleratorResponse() = default;
+};
+class DescribeAcceleratorAutoRenewAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> regionId{};
+
+  DescribeAcceleratorAutoRenewAttributeRequest() {}
+
+  explicit DescribeAcceleratorAutoRenewAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeAcceleratorAutoRenewAttributeRequest() = default;
+};
+class DescribeAcceleratorAutoRenewAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewDuration{};
+  shared_ptr<string> renewalStatus{};
+  shared_ptr<string> requestId{};
+
+  DescribeAcceleratorAutoRenewAttributeResponseBody() {}
+
+  explicit DescribeAcceleratorAutoRenewAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewDuration) {
+      res["AutoRenewDuration"] = boost::any(*autoRenewDuration);
+    }
+    if (renewalStatus) {
+      res["RenewalStatus"] = boost::any(*renewalStatus);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("AutoRenewDuration") != m.end() && !m["AutoRenewDuration"].empty()) {
+      autoRenewDuration = make_shared<long>(boost::any_cast<long>(m["AutoRenewDuration"]));
+    }
+    if (m.find("RenewalStatus") != m.end() && !m["RenewalStatus"].empty()) {
+      renewalStatus = make_shared<string>(boost::any_cast<string>(m["RenewalStatus"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAcceleratorAutoRenewAttributeResponseBody() = default;
+};
+class DescribeAcceleratorAutoRenewAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeAcceleratorAutoRenewAttributeResponseBody> body{};
+
+  DescribeAcceleratorAutoRenewAttributeResponse() {}
+
+  explicit DescribeAcceleratorAutoRenewAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAcceleratorAutoRenewAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAcceleratorAutoRenewAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAcceleratorAutoRenewAttributeResponse() = default;
 };
 class DescribeBandwidthPackageRequest : public Darabonba::Model {
 public:
@@ -11111,6 +11270,7 @@ public:
 class ListAvailableBusiRegionsResponseBodyRegions : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
+  shared_ptr<bool> pop{};
   shared_ptr<string> regionId{};
 
   ListAvailableBusiRegionsResponseBodyRegions() {}
@@ -11126,6 +11286,9 @@ public:
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
+    if (pop) {
+      res["Pop"] = boost::any(*pop);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -11135,6 +11298,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("Pop") != m.end() && !m["Pop"].empty()) {
+      pop = make_shared<bool>(boost::any_cast<bool>(m["Pop"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -15307,6 +15473,165 @@ public:
 
   virtual ~UpdateAcceleratorResponse() = default;
 };
+class UpdateAcceleratorAutoRenewAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<bool> autoRenew{};
+  shared_ptr<long> autoRenewDuration{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> renewalStatus{};
+
+  UpdateAcceleratorAutoRenewAttributeRequest() {}
+
+  explicit UpdateAcceleratorAutoRenewAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
+    }
+    if (autoRenewDuration) {
+      res["AutoRenewDuration"] = boost::any(*autoRenewDuration);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (renewalStatus) {
+      res["RenewalStatus"] = boost::any(*renewalStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
+    }
+    if (m.find("AutoRenewDuration") != m.end() && !m["AutoRenewDuration"].empty()) {
+      autoRenewDuration = make_shared<long>(boost::any_cast<long>(m["AutoRenewDuration"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RenewalStatus") != m.end() && !m["RenewalStatus"].empty()) {
+      renewalStatus = make_shared<string>(boost::any_cast<string>(m["RenewalStatus"]));
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorAutoRenewAttributeRequest() = default;
+};
+class UpdateAcceleratorAutoRenewAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> requestId{};
+
+  UpdateAcceleratorAutoRenewAttributeResponseBody() {}
+
+  explicit UpdateAcceleratorAutoRenewAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorAutoRenewAttributeResponseBody() = default;
+};
+class UpdateAcceleratorAutoRenewAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateAcceleratorAutoRenewAttributeResponseBody> body{};
+
+  UpdateAcceleratorAutoRenewAttributeResponse() {}
+
+  explicit UpdateAcceleratorAutoRenewAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAcceleratorAutoRenewAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAcceleratorAutoRenewAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorAutoRenewAttributeResponse() = default;
+};
 class UpdateAcceleratorConfirmRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -18209,6 +18534,8 @@ public:
   DeleteSpareIpsResponse deleteSpareIps(shared_ptr<DeleteSpareIpsRequest> request);
   DescribeAcceleratorResponse describeAcceleratorWithOptions(shared_ptr<DescribeAcceleratorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAcceleratorResponse describeAccelerator(shared_ptr<DescribeAcceleratorRequest> request);
+  DescribeAcceleratorAutoRenewAttributeResponse describeAcceleratorAutoRenewAttributeWithOptions(shared_ptr<DescribeAcceleratorAutoRenewAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAcceleratorAutoRenewAttributeResponse describeAcceleratorAutoRenewAttribute(shared_ptr<DescribeAcceleratorAutoRenewAttributeRequest> request);
   DescribeBandwidthPackageResponse describeBandwidthPackageWithOptions(shared_ptr<DescribeBandwidthPackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeBandwidthPackageResponse describeBandwidthPackage(shared_ptr<DescribeBandwidthPackageRequest> request);
   DescribeEndpointGroupResponse describeEndpointGroupWithOptions(shared_ptr<DescribeEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18277,6 +18604,8 @@ public:
   ReplaceBandwidthPackageResponse replaceBandwidthPackage(shared_ptr<ReplaceBandwidthPackageRequest> request);
   UpdateAcceleratorResponse updateAcceleratorWithOptions(shared_ptr<UpdateAcceleratorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAcceleratorResponse updateAccelerator(shared_ptr<UpdateAcceleratorRequest> request);
+  UpdateAcceleratorAutoRenewAttributeResponse updateAcceleratorAutoRenewAttributeWithOptions(shared_ptr<UpdateAcceleratorAutoRenewAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAcceleratorAutoRenewAttributeResponse updateAcceleratorAutoRenewAttribute(shared_ptr<UpdateAcceleratorAutoRenewAttributeRequest> request);
   UpdateAcceleratorConfirmResponse updateAcceleratorConfirmWithOptions(shared_ptr<UpdateAcceleratorConfirmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAcceleratorConfirmResponse updateAcceleratorConfirm(shared_ptr<UpdateAcceleratorConfirmRequest> request);
   UpdateAclAttributeResponse updateAclAttributeWithOptions(shared_ptr<UpdateAclAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
