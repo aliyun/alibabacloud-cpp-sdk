@@ -8183,6 +8183,636 @@ public:
 
   virtual ~GetListenerAttributeResponse() = default;
 };
+class GetListenerHealthStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> includeRule{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+
+  GetListenerHealthStatusRequest() {}
+
+  explicit GetListenerHealthStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (includeRule) {
+      res["IncludeRule"] = boost::any(*includeRule);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IncludeRule") != m.end() && !m["IncludeRule"].empty()) {
+      includeRule = make_shared<bool>(boost::any_cast<bool>(m["IncludeRule"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusRequest() = default;
+};
+class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason : public Darabonba::Model {
+public:
+  shared_ptr<string> actualResponse{};
+  shared_ptr<string> expectedResponse{};
+  shared_ptr<string> reasonCode{};
+
+  GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason() {}
+
+  explicit GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actualResponse) {
+      res["ActualResponse"] = boost::any(*actualResponse);
+    }
+    if (expectedResponse) {
+      res["ExpectedResponse"] = boost::any(*expectedResponse);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActualResponse") != m.end() && !m["ActualResponse"].empty()) {
+      actualResponse = make_shared<string>(boost::any_cast<string>(m["ActualResponse"]));
+    }
+    if (m.find("ExpectedResponse") != m.end() && !m["ExpectedResponse"].empty()) {
+      expectedResponse = make_shared<string>(boost::any_cast<string>(m["ExpectedResponse"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason() = default;
+};
+class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason> reason{};
+  shared_ptr<string> serverId{};
+  shared_ptr<string> serverIp{};
+  shared_ptr<string> status{};
+
+  GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers() {}
+
+  explicit GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (reason) {
+      res["Reason"] = reason ? boost::any(reason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serverId) {
+      res["ServerId"] = boost::any(*serverId);
+    }
+    if (serverIp) {
+      res["ServerIp"] = boost::any(*serverIp);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Reason"].type()) {
+        GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Reason"]));
+        reason = make_shared<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason>(model1);
+      }
+    }
+    if (m.find("ServerId") != m.end() && !m["ServerId"].empty()) {
+      serverId = make_shared<string>(boost::any_cast<string>(m["ServerId"]));
+    }
+    if (m.find("ServerIp") != m.end() && !m["ServerIp"].empty()) {
+      serverIp = make_shared<string>(boost::any_cast<string>(m["ServerIp"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers() = default;
+};
+class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> actionType{};
+  shared_ptr<string> healthCheckEnabled{};
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers>> nonNormalServers{};
+  shared_ptr<string> serverGroupId{};
+
+  GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos() {}
+
+  explicit GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    if (healthCheckEnabled) {
+      res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
+    }
+    if (nonNormalServers) {
+      vector<boost::any> temp1;
+      for(auto item1:*nonNormalServers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NonNormalServers"] = boost::any(temp1);
+    }
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["ActionType"]));
+    }
+    if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
+      healthCheckEnabled = make_shared<string>(boost::any_cast<string>(m["HealthCheckEnabled"]));
+    }
+    if (m.find("NonNormalServers") != m.end() && !m["NonNormalServers"].empty()) {
+      if (typeid(vector<boost::any>) == m["NonNormalServers"].type()) {
+        vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NonNormalServers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nonNormalServers = make_shared<vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers>>(expect1);
+      }
+    }
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos() = default;
+};
+class GetListenerHealthStatusResponseBodyListenerHealthStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> listenerId{};
+  shared_ptr<long> listenerPort{};
+  shared_ptr<string> listenerProtocol{};
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos>> serverGroupInfos{};
+
+  GetListenerHealthStatusResponseBodyListenerHealthStatus() {}
+
+  explicit GetListenerHealthStatusResponseBodyListenerHealthStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (listenerPort) {
+      res["ListenerPort"] = boost::any(*listenerPort);
+    }
+    if (listenerProtocol) {
+      res["ListenerProtocol"] = boost::any(*listenerProtocol);
+    }
+    if (serverGroupInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serverGroupInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServerGroupInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
+      listenerPort = make_shared<long>(boost::any_cast<long>(m["ListenerPort"]));
+    }
+    if (m.find("ListenerProtocol") != m.end() && !m["ListenerProtocol"].empty()) {
+      listenerProtocol = make_shared<string>(boost::any_cast<string>(m["ListenerProtocol"]));
+    }
+    if (m.find("ServerGroupInfos") != m.end() && !m["ServerGroupInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServerGroupInfos"].type()) {
+        vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServerGroupInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serverGroupInfos = make_shared<vector<GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyListenerHealthStatus() = default;
+};
+class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason : public Darabonba::Model {
+public:
+  shared_ptr<string> actualResponse{};
+  shared_ptr<string> expectedResponse{};
+  shared_ptr<string> reasonCode{};
+
+  GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason() {}
+
+  explicit GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actualResponse) {
+      res["ActualResponse"] = boost::any(*actualResponse);
+    }
+    if (expectedResponse) {
+      res["ExpectedResponse"] = boost::any(*expectedResponse);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActualResponse") != m.end() && !m["ActualResponse"].empty()) {
+      actualResponse = make_shared<string>(boost::any_cast<string>(m["ActualResponse"]));
+    }
+    if (m.find("ExpectedResponse") != m.end() && !m["ExpectedResponse"].empty()) {
+      expectedResponse = make_shared<string>(boost::any_cast<string>(m["ExpectedResponse"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason() = default;
+};
+class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers : public Darabonba::Model {
+public:
+  shared_ptr<long> port{};
+  shared_ptr<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason> reason{};
+  shared_ptr<string> serverId{};
+  shared_ptr<string> serverIp{};
+  shared_ptr<string> status{};
+
+  GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers() {}
+
+  explicit GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (reason) {
+      res["Reason"] = reason ? boost::any(reason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (serverId) {
+      res["ServerId"] = boost::any(*serverId);
+    }
+    if (serverIp) {
+      res["ServerIp"] = boost::any(*serverIp);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Reason"].type()) {
+        GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Reason"]));
+        reason = make_shared<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason>(model1);
+      }
+    }
+    if (m.find("ServerId") != m.end() && !m["ServerId"].empty()) {
+      serverId = make_shared<string>(boost::any_cast<string>(m["ServerId"]));
+    }
+    if (m.find("ServerIp") != m.end() && !m["ServerIp"].empty()) {
+      serverIp = make_shared<string>(boost::any_cast<string>(m["ServerIp"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers() = default;
+};
+class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> actionType{};
+  shared_ptr<string> healthCheckEnabled{};
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers>> nonNormalServers{};
+  shared_ptr<string> serverGroupId{};
+
+  GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos() {}
+
+  explicit GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (actionType) {
+      res["ActionType"] = boost::any(*actionType);
+    }
+    if (healthCheckEnabled) {
+      res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
+    }
+    if (nonNormalServers) {
+      vector<boost::any> temp1;
+      for(auto item1:*nonNormalServers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NonNormalServers"] = boost::any(temp1);
+    }
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActionType") != m.end() && !m["ActionType"].empty()) {
+      actionType = make_shared<string>(boost::any_cast<string>(m["ActionType"]));
+    }
+    if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
+      healthCheckEnabled = make_shared<string>(boost::any_cast<string>(m["HealthCheckEnabled"]));
+    }
+    if (m.find("NonNormalServers") != m.end() && !m["NonNormalServers"].empty()) {
+      if (typeid(vector<boost::any>) == m["NonNormalServers"].type()) {
+        vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NonNormalServers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nonNormalServers = make_shared<vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers>>(expect1);
+      }
+    }
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos() = default;
+};
+class GetListenerHealthStatusResponseBodyRuleHealthStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> ruleId{};
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos>> serverGroupInfos{};
+
+  GetListenerHealthStatusResponseBodyRuleHealthStatus() {}
+
+  explicit GetListenerHealthStatusResponseBodyRuleHealthStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    if (serverGroupInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serverGroupInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServerGroupInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
+    }
+    if (m.find("ServerGroupInfos") != m.end() && !m["ServerGroupInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServerGroupInfos"].type()) {
+        vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServerGroupInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serverGroupInfos = make_shared<vector<GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBodyRuleHealthStatus() = default;
+};
+class GetListenerHealthStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyListenerHealthStatus>> listenerHealthStatus{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetListenerHealthStatusResponseBodyRuleHealthStatus>> ruleHealthStatus{};
+
+  GetListenerHealthStatusResponseBody() {}
+
+  explicit GetListenerHealthStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (listenerHealthStatus) {
+      vector<boost::any> temp1;
+      for(auto item1:*listenerHealthStatus){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ListenerHealthStatus"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (ruleHealthStatus) {
+      vector<boost::any> temp1;
+      for(auto item1:*ruleHealthStatus){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RuleHealthStatus"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ListenerHealthStatus") != m.end() && !m["ListenerHealthStatus"].empty()) {
+      if (typeid(vector<boost::any>) == m["ListenerHealthStatus"].type()) {
+        vector<GetListenerHealthStatusResponseBodyListenerHealthStatus> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ListenerHealthStatus"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyListenerHealthStatus model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        listenerHealthStatus = make_shared<vector<GetListenerHealthStatusResponseBodyListenerHealthStatus>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RuleHealthStatus") != m.end() && !m["RuleHealthStatus"].empty()) {
+      if (typeid(vector<boost::any>) == m["RuleHealthStatus"].type()) {
+        vector<GetListenerHealthStatusResponseBodyRuleHealthStatus> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RuleHealthStatus"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetListenerHealthStatusResponseBodyRuleHealthStatus model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ruleHealthStatus = make_shared<vector<GetListenerHealthStatusResponseBodyRuleHealthStatus>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponseBody() = default;
+};
+class GetListenerHealthStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetListenerHealthStatusResponseBody> body{};
+
+  GetListenerHealthStatusResponse() {}
+
+  explicit GetListenerHealthStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetListenerHealthStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetListenerHealthStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetListenerHealthStatusResponse() = default;
+};
 class GetLoadBalancerAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> loadBalancerId{};
@@ -8424,6 +9054,7 @@ public:
 class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
+  shared_ptr<string> ipv6Address{};
 
   GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses() {}
 
@@ -8438,12 +9069,18 @@ public:
     if (address) {
       res["Address"] = boost::any(*address);
     }
+    if (ipv6Address) {
+      res["Ipv6Address"] = boost::any(*ipv6Address);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Address") != m.end() && !m["Address"].empty()) {
       address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
+      ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
     }
   }
 
@@ -8511,11 +9148,13 @@ class GetLoadBalancerAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GetLoadBalancerAttributeResponseBodyAccessLogConfig> accessLogConfig{};
   shared_ptr<string> addressAllocatedMode{};
+  shared_ptr<string> addressIpVersion{};
   shared_ptr<string> addressType{};
   shared_ptr<string> bandwidthPackageId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> DNSName{};
   shared_ptr<GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig> deletionProtectionConfig{};
+  shared_ptr<string> ipv6AddressType{};
   shared_ptr<GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig> loadBalancerBillingConfig{};
   shared_ptr<string> loadBalancerBussinessStatus{};
   shared_ptr<string> loadBalancerEdition{};
@@ -8547,6 +9186,9 @@ public:
     if (addressAllocatedMode) {
       res["AddressAllocatedMode"] = boost::any(*addressAllocatedMode);
     }
+    if (addressIpVersion) {
+      res["AddressIpVersion"] = boost::any(*addressIpVersion);
+    }
     if (addressType) {
       res["AddressType"] = boost::any(*addressType);
     }
@@ -8561,6 +9203,9 @@ public:
     }
     if (deletionProtectionConfig) {
       res["DeletionProtectionConfig"] = deletionProtectionConfig ? boost::any(deletionProtectionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipv6AddressType) {
+      res["Ipv6AddressType"] = boost::any(*ipv6AddressType);
     }
     if (loadBalancerBillingConfig) {
       res["LoadBalancerBillingConfig"] = loadBalancerBillingConfig ? boost::any(loadBalancerBillingConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8630,6 +9275,9 @@ public:
     if (m.find("AddressAllocatedMode") != m.end() && !m["AddressAllocatedMode"].empty()) {
       addressAllocatedMode = make_shared<string>(boost::any_cast<string>(m["AddressAllocatedMode"]));
     }
+    if (m.find("AddressIpVersion") != m.end() && !m["AddressIpVersion"].empty()) {
+      addressIpVersion = make_shared<string>(boost::any_cast<string>(m["AddressIpVersion"]));
+    }
     if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
       addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
     }
@@ -8648,6 +9296,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeletionProtectionConfig"]));
         deletionProtectionConfig = make_shared<GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig>(model1);
       }
+    }
+    if (m.find("Ipv6AddressType") != m.end() && !m["Ipv6AddressType"].empty()) {
+      ipv6AddressType = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressType"]));
     }
     if (m.find("LoadBalancerBillingConfig") != m.end() && !m["LoadBalancerBillingConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["LoadBalancerBillingConfig"].type()) {
@@ -9317,6 +9968,7 @@ public:
   shared_ptr<string> aclName{};
   shared_ptr<string> aclStatus{};
   shared_ptr<string> addressIPVersion{};
+  shared_ptr<bool> configManagedEnabled{};
   shared_ptr<string> resourceGroupId{};
 
   ListAclsResponseBodyAcls() {}
@@ -9341,6 +9993,9 @@ public:
     if (addressIPVersion) {
       res["AddressIPVersion"] = boost::any(*addressIPVersion);
     }
+    if (configManagedEnabled) {
+      res["ConfigManagedEnabled"] = boost::any(*configManagedEnabled);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -9359,6 +10014,9 @@ public:
     }
     if (m.find("AddressIPVersion") != m.end() && !m["AddressIPVersion"].empty()) {
       addressIPVersion = make_shared<string>(boost::any_cast<string>(m["AddressIPVersion"]));
+    }
+    if (m.find("ConfigManagedEnabled") != m.end() && !m["ConfigManagedEnabled"].empty()) {
+      configManagedEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConfigManagedEnabled"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -11409,11 +12067,13 @@ class ListLoadBalancersResponseBodyLoadBalancers : public Darabonba::Model {
 public:
   shared_ptr<ListLoadBalancersResponseBodyLoadBalancersAccessLogConfig> accessLogConfig{};
   shared_ptr<string> addressAllocatedMode{};
+  shared_ptr<string> addressIpVersion{};
   shared_ptr<string> addressType{};
   shared_ptr<string> bandwidthPackageId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> DNSName{};
   shared_ptr<ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig> deletionProtectionConfig{};
+  shared_ptr<string> ipv6AddressType{};
   shared_ptr<ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig> loadBalancerBillingConfig{};
   shared_ptr<string> loadBalancerBussinessStatus{};
   shared_ptr<string> loadBalancerEdition{};
@@ -11442,6 +12102,9 @@ public:
     if (addressAllocatedMode) {
       res["AddressAllocatedMode"] = boost::any(*addressAllocatedMode);
     }
+    if (addressIpVersion) {
+      res["AddressIpVersion"] = boost::any(*addressIpVersion);
+    }
     if (addressType) {
       res["AddressType"] = boost::any(*addressType);
     }
@@ -11456,6 +12119,9 @@ public:
     }
     if (deletionProtectionConfig) {
       res["DeletionProtectionConfig"] = deletionProtectionConfig ? boost::any(deletionProtectionConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipv6AddressType) {
+      res["Ipv6AddressType"] = boost::any(*ipv6AddressType);
     }
     if (loadBalancerBillingConfig) {
       res["LoadBalancerBillingConfig"] = loadBalancerBillingConfig ? boost::any(loadBalancerBillingConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11512,6 +12178,9 @@ public:
     if (m.find("AddressAllocatedMode") != m.end() && !m["AddressAllocatedMode"].empty()) {
       addressAllocatedMode = make_shared<string>(boost::any_cast<string>(m["AddressAllocatedMode"]));
     }
+    if (m.find("AddressIpVersion") != m.end() && !m["AddressIpVersion"].empty()) {
+      addressIpVersion = make_shared<string>(boost::any_cast<string>(m["AddressIpVersion"]));
+    }
     if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
       addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
     }
@@ -11530,6 +12199,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeletionProtectionConfig"]));
         deletionProtectionConfig = make_shared<ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig>(model1);
       }
+    }
+    if (m.find("Ipv6AddressType") != m.end() && !m["Ipv6AddressType"].empty()) {
+      ipv6AddressType = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressType"]));
     }
     if (m.find("LoadBalancerBillingConfig") != m.end() && !m["LoadBalancerBillingConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["LoadBalancerBillingConfig"].type()) {
@@ -13948,7 +14620,9 @@ public:
 };
 class ListServerGroupsResponseBodyServerGroups : public Darabonba::Model {
 public:
+  shared_ptr<bool> configManagedEnabled{};
   shared_ptr<ListServerGroupsResponseBodyServerGroupsHealthCheckConfig> healthCheckConfig{};
+  shared_ptr<bool> ipv6Enabled{};
   shared_ptr<string> protocol{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
@@ -13959,6 +14633,7 @@ public:
   shared_ptr<string> serverGroupType{};
   shared_ptr<ListServerGroupsResponseBodyServerGroupsStickySessionConfig> stickySessionConfig{};
   shared_ptr<vector<ListServerGroupsResponseBodyServerGroupsTags>> tags{};
+  shared_ptr<bool> upstreamKeepaliveEnabled{};
   shared_ptr<string> vpcId{};
 
   ListServerGroupsResponseBodyServerGroups() {}
@@ -13971,8 +14646,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (configManagedEnabled) {
+      res["ConfigManagedEnabled"] = boost::any(*configManagedEnabled);
+    }
     if (healthCheckConfig) {
       res["HealthCheckConfig"] = healthCheckConfig ? boost::any(healthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipv6Enabled) {
+      res["Ipv6Enabled"] = boost::any(*ipv6Enabled);
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
@@ -14008,6 +14689,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (upstreamKeepaliveEnabled) {
+      res["UpstreamKeepaliveEnabled"] = boost::any(*upstreamKeepaliveEnabled);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -14015,12 +14699,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigManagedEnabled") != m.end() && !m["ConfigManagedEnabled"].empty()) {
+      configManagedEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConfigManagedEnabled"]));
+    }
     if (m.find("HealthCheckConfig") != m.end() && !m["HealthCheckConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["HealthCheckConfig"].type()) {
         ListServerGroupsResponseBodyServerGroupsHealthCheckConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HealthCheckConfig"]));
         healthCheckConfig = make_shared<ListServerGroupsResponseBodyServerGroupsHealthCheckConfig>(model1);
       }
+    }
+    if (m.find("Ipv6Enabled") != m.end() && !m["Ipv6Enabled"].empty()) {
+      ipv6Enabled = make_shared<bool>(boost::any_cast<bool>(m["Ipv6Enabled"]));
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
@@ -14065,6 +14755,9 @@ public:
         }
         tags = make_shared<vector<ListServerGroupsResponseBodyServerGroupsTags>>(expect1);
       }
+    }
+    if (m.find("UpstreamKeepaliveEnabled") != m.end() && !m["UpstreamKeepaliveEnabled"].empty()) {
+      upstreamKeepaliveEnabled = make_shared<bool>(boost::any_cast<bool>(m["UpstreamKeepaliveEnabled"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -21184,6 +21877,8 @@ public:
   GetHealthCheckTemplateAttributeResponse getHealthCheckTemplateAttribute(shared_ptr<GetHealthCheckTemplateAttributeRequest> request);
   GetListenerAttributeResponse getListenerAttributeWithOptions(shared_ptr<GetListenerAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetListenerAttributeResponse getListenerAttribute(shared_ptr<GetListenerAttributeRequest> request);
+  GetListenerHealthStatusResponse getListenerHealthStatusWithOptions(shared_ptr<GetListenerHealthStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetListenerHealthStatusResponse getListenerHealthStatus(shared_ptr<GetListenerHealthStatusRequest> request);
   GetLoadBalancerAttributeResponse getLoadBalancerAttributeWithOptions(shared_ptr<GetLoadBalancerAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLoadBalancerAttributeResponse getLoadBalancerAttribute(shared_ptr<GetLoadBalancerAttributeRequest> request);
   ListAclEntriesResponse listAclEntriesWithOptions(shared_ptr<ListAclEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
