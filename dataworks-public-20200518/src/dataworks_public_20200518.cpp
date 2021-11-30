@@ -327,6 +327,19 @@ CreateDataSourceResponse Alibabacloud_Dataworks-public20200518::Client::createDa
   return createDataSourceWithOptions(request, runtime);
 }
 
+CreateExportMigrationResponse Alibabacloud_Dataworks-public20200518::Client::createExportMigrationWithOptions(shared_ptr<CreateExportMigrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return CreateExportMigrationResponse(doRPCRequest(make_shared<string>("CreateExportMigration"), make_shared<string>("2020-05-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+CreateExportMigrationResponse Alibabacloud_Dataworks-public20200518::Client::createExportMigration(shared_ptr<CreateExportMigrationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createExportMigrationWithOptions(request, runtime);
+}
+
 CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWithOptions(shared_ptr<CreateFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1593,6 +1606,19 @@ GetMigrationProcessResponse Alibabacloud_Dataworks-public20200518::Client::getMi
   return getMigrationProcessWithOptions(request, runtime);
 }
 
+GetMigrationSummaryResponse Alibabacloud_Dataworks-public20200518::Client::getMigrationSummaryWithOptions(shared_ptr<GetMigrationSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return GetMigrationSummaryResponse(doRPCRequest(make_shared<string>("GetMigrationSummary"), make_shared<string>("2020-05-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+GetMigrationSummaryResponse Alibabacloud_Dataworks-public20200518::Client::getMigrationSummary(shared_ptr<GetMigrationSummaryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMigrationSummaryWithOptions(request, runtime);
+}
+
 GetNodeResponse Alibabacloud_Dataworks-public20200518::Client::getNodeWithOptions(shared_ptr<GetNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1985,6 +2011,19 @@ ListDISyncTasksResponse Alibabacloud_Dataworks-public20200518::Client::listDISyn
 ListDISyncTasksResponse Alibabacloud_Dataworks-public20200518::Client::listDISyncTasks(shared_ptr<ListDISyncTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listDISyncTasksWithOptions(request, runtime);
+}
+
+ListDagsResponse Alibabacloud_Dataworks-public20200518::Client::listDagsWithOptions(shared_ptr<ListDagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDagsResponse(doRPCRequest(make_shared<string>("ListDags"), make_shared<string>("2020-05-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDagsResponse Alibabacloud_Dataworks-public20200518::Client::listDags(shared_ptr<ListDagsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDagsWithOptions(request, runtime);
 }
 
 ListDataServiceApiAuthoritiesResponse Alibabacloud_Dataworks-public20200518::Client::listDataServiceApiAuthoritiesWithOptions(shared_ptr<ListDataServiceApiAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
