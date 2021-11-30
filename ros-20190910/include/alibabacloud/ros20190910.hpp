@@ -2211,6 +2211,477 @@ public:
 
   virtual ~CreateTemplateResponse() = default;
 };
+class CreateTemplateScratchRequestPreferenceParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  CreateTemplateScratchRequestPreferenceParameters() {}
+
+  explicit CreateTemplateScratchRequestPreferenceParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequestPreferenceParameters() = default;
+};
+class CreateTemplateScratchRequestSourceResourceGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  CreateTemplateScratchRequestSourceResourceGroup() {}
+
+  explicit CreateTemplateScratchRequestSourceResourceGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequestSourceResourceGroup() = default;
+};
+class CreateTemplateScratchRequestSourceResources : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  CreateTemplateScratchRequestSourceResources() {}
+
+  explicit CreateTemplateScratchRequestSourceResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequestSourceResources() = default;
+};
+class CreateTemplateScratchRequestSourceTag : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> resourceTags{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  CreateTemplateScratchRequestSourceTag() {}
+
+  explicit CreateTemplateScratchRequestSourceTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTags) {
+      res["ResourceTags"] = boost::any(*resourceTags);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTags") != m.end() && !m["ResourceTags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceTags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceTags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequestSourceTag() = default;
+};
+class CreateTemplateScratchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionMode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<vector<CreateTemplateScratchRequestPreferenceParameters>> preferenceParameters{};
+  shared_ptr<string> regionId{};
+  shared_ptr<CreateTemplateScratchRequestSourceResourceGroup> sourceResourceGroup{};
+  shared_ptr<vector<CreateTemplateScratchRequestSourceResources>> sourceResources{};
+  shared_ptr<CreateTemplateScratchRequestSourceTag> sourceTag{};
+  shared_ptr<string> templateScratchType{};
+
+  CreateTemplateScratchRequest() {}
+
+  explicit CreateTemplateScratchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*preferenceParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceResourceGroup) {
+      res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceResources"] = boost::any(temp1);
+    }
+    if (sourceTag) {
+      res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (templateScratchType) {
+      res["TemplateScratchType"] = boost::any(*templateScratchType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreferenceParameters"].type()) {
+        vector<CreateTemplateScratchRequestPreferenceParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreferenceParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTemplateScratchRequestPreferenceParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preferenceParameters = make_shared<vector<CreateTemplateScratchRequestPreferenceParameters>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
+        CreateTemplateScratchRequestSourceResourceGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceResourceGroup"]));
+        sourceResourceGroup = make_shared<CreateTemplateScratchRequestSourceResourceGroup>(model1);
+      }
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceResources"].type()) {
+        vector<CreateTemplateScratchRequestSourceResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTemplateScratchRequestSourceResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceResources = make_shared<vector<CreateTemplateScratchRequestSourceResources>>(expect1);
+      }
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceTag"].type()) {
+        CreateTemplateScratchRequestSourceTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceTag"]));
+        sourceTag = make_shared<CreateTemplateScratchRequestSourceTag>(model1);
+      }
+    }
+    if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
+      templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequest() = default;
+};
+class CreateTemplateScratchShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionMode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<string> preferenceParametersShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sourceResourceGroupShrink{};
+  shared_ptr<string> sourceResourcesShrink{};
+  shared_ptr<string> sourceTagShrink{};
+  shared_ptr<string> templateScratchType{};
+
+  CreateTemplateScratchShrinkRequest() {}
+
+  explicit CreateTemplateScratchShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParametersShrink) {
+      res["PreferenceParameters"] = boost::any(*preferenceParametersShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceResourceGroupShrink) {
+      res["SourceResourceGroup"] = boost::any(*sourceResourceGroupShrink);
+    }
+    if (sourceResourcesShrink) {
+      res["SourceResources"] = boost::any(*sourceResourcesShrink);
+    }
+    if (sourceTagShrink) {
+      res["SourceTag"] = boost::any(*sourceTagShrink);
+    }
+    if (templateScratchType) {
+      res["TemplateScratchType"] = boost::any(*templateScratchType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      preferenceParametersShrink = make_shared<string>(boost::any_cast<string>(m["PreferenceParameters"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      sourceResourceGroupShrink = make_shared<string>(boost::any_cast<string>(m["SourceResourceGroup"]));
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      sourceResourcesShrink = make_shared<string>(boost::any_cast<string>(m["SourceResources"]));
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      sourceTagShrink = make_shared<string>(boost::any_cast<string>(m["SourceTag"]));
+    }
+    if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
+      templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchShrinkRequest() = default;
+};
+class CreateTemplateScratchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateScratchId{};
+
+  CreateTemplateScratchResponseBody() {}
+
+  explicit CreateTemplateScratchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchResponseBody() = default;
+};
+class CreateTemplateScratchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateTemplateScratchResponseBody> body{};
+
+  CreateTemplateScratchResponse() {}
+
+  explicit CreateTemplateScratchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTemplateScratchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTemplateScratchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchResponse() = default;
+};
 class DeleteChangeSetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetId{};
@@ -3016,6 +3487,123 @@ public:
 
 
   virtual ~DeleteTemplateResponse() = default;
+};
+class DeleteTemplateScratchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> templateScratchId{};
+
+  DeleteTemplateScratchRequest() {}
+
+  explicit DeleteTemplateScratchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~DeleteTemplateScratchRequest() = default;
+};
+class DeleteTemplateScratchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteTemplateScratchResponseBody() {}
+
+  explicit DeleteTemplateScratchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteTemplateScratchResponseBody() = default;
+};
+class DeleteTemplateScratchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteTemplateScratchResponseBody> body{};
+
+  DeleteTemplateScratchResponse() {}
+
+  explicit DeleteTemplateScratchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteTemplateScratchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteTemplateScratchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteTemplateScratchResponse() = default;
 };
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
@@ -3910,6 +4498,206 @@ public:
 
 
   virtual ~ExecuteChangeSetResponse() = default;
+};
+class GenerateTemplateByScratchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> provisionRegionId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> templateScratchId{};
+
+  GenerateTemplateByScratchRequest() {}
+
+  explicit GenerateTemplateByScratchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (provisionRegionId) {
+      res["ProvisionRegionId"] = boost::any(*provisionRegionId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProvisionRegionId") != m.end() && !m["ProvisionRegionId"].empty()) {
+      provisionRegionId = make_shared<string>(boost::any_cast<string>(m["ProvisionRegionId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~GenerateTemplateByScratchRequest() = default;
+};
+class GenerateTemplateByScratchResponseBodyResourcesToImport : public Darabonba::Model {
+public:
+  shared_ptr<string> logicalResourceId{};
+  shared_ptr<map<string, boost::any>> resourceIdentifier{};
+  shared_ptr<string> resourceType{};
+
+  GenerateTemplateByScratchResponseBodyResourcesToImport() {}
+
+  explicit GenerateTemplateByScratchResponseBodyResourcesToImport(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logicalResourceId) {
+      res["LogicalResourceId"] = boost::any(*logicalResourceId);
+    }
+    if (resourceIdentifier) {
+      res["ResourceIdentifier"] = boost::any(*resourceIdentifier);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogicalResourceId") != m.end() && !m["LogicalResourceId"].empty()) {
+      logicalResourceId = make_shared<string>(boost::any_cast<string>(m["LogicalResourceId"]));
+    }
+    if (m.find("ResourceIdentifier") != m.end() && !m["ResourceIdentifier"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceIdentifier"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceIdentifier = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GenerateTemplateByScratchResponseBodyResourcesToImport() = default;
+};
+class GenerateTemplateByScratchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GenerateTemplateByScratchResponseBodyResourcesToImport>> resourcesToImport{};
+  shared_ptr<string> templateBody{};
+
+  GenerateTemplateByScratchResponseBody() {}
+
+  explicit GenerateTemplateByScratchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourcesToImport) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourcesToImport){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourcesToImport"] = boost::any(temp1);
+    }
+    if (templateBody) {
+      res["TemplateBody"] = boost::any(*templateBody);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourcesToImport") != m.end() && !m["ResourcesToImport"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourcesToImport"].type()) {
+        vector<GenerateTemplateByScratchResponseBodyResourcesToImport> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourcesToImport"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateTemplateByScratchResponseBodyResourcesToImport model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourcesToImport = make_shared<vector<GenerateTemplateByScratchResponseBodyResourcesToImport>>(expect1);
+      }
+    }
+    if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
+      templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
+    }
+  }
+
+
+  virtual ~GenerateTemplateByScratchResponseBody() = default;
+};
+class GenerateTemplateByScratchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GenerateTemplateByScratchResponseBody> body{};
+
+  GenerateTemplateByScratchResponse() {}
+
+  explicit GenerateTemplateByScratchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateTemplateByScratchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateTemplateByScratchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateTemplateByScratchResponse() = default;
 };
 class GenerateTemplatePolicyRequest : public Darabonba::Model {
 public:
@@ -8775,6 +9563,522 @@ public:
 
   virtual ~GetTemplateParameterConstraintsResponse() = default;
 };
+class GetTemplateScratchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> showDataOption{};
+  shared_ptr<string> templateScratchId{};
+
+  GetTemplateScratchRequest() {}
+
+  explicit GetTemplateScratchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (showDataOption) {
+      res["ShowDataOption"] = boost::any(*showDataOption);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ShowDataOption") != m.end() && !m["ShowDataOption"].empty()) {
+      showDataOption = make_shared<string>(boost::any_cast<string>(m["ShowDataOption"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchRequest() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratchSourceResources : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  GetTemplateScratchResponseBodyTemplateScratchSourceResources() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchSourceResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchSourceResources() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratchSourceTag : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> resourceTags{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  GetTemplateScratchResponseBodyTemplateScratchSourceTag() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchSourceTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTags) {
+      res["ResourceTags"] = boost::any(*resourceTags);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTags") != m.end() && !m["ResourceTags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceTags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceTags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchSourceTag() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratchStacks : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
+
+  GetTemplateScratchResponseBodyTemplateScratchStacks() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchStacks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchStacks() = default;
+};
+class GetTemplateScratchResponseBodyTemplateScratch : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> failedCode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters>> preferenceParameters{};
+  shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup> sourceResourceGroup{};
+  shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchSourceResources>> sourceResources{};
+  shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceTag> sourceTag{};
+  shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchStacks>> stacks{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusReason{};
+  shared_ptr<map<string, boost::any>> templateScratchData{};
+  shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchType{};
+  shared_ptr<string> updateTime{};
+
+  GetTemplateScratchResponseBodyTemplateScratch() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (failedCode) {
+      res["FailedCode"] = boost::any(*failedCode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*preferenceParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (sourceResourceGroup) {
+      res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceResources"] = boost::any(temp1);
+    }
+    if (sourceTag) {
+      res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stacks) {
+      vector<boost::any> temp1;
+      for(auto item1:*stacks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Stacks"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusReason) {
+      res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (templateScratchData) {
+      res["TemplateScratchData"] = boost::any(*templateScratchData);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchType) {
+      res["TemplateScratchType"] = boost::any(*templateScratchType);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FailedCode") != m.end() && !m["FailedCode"].empty()) {
+      failedCode = make_shared<string>(boost::any_cast<string>(m["FailedCode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreferenceParameters"].type()) {
+        vector<GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreferenceParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preferenceParameters = make_shared<vector<GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters>>(expect1);
+      }
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
+        GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceResourceGroup"]));
+        sourceResourceGroup = make_shared<GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup>(model1);
+      }
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceResources"].type()) {
+        vector<GetTemplateScratchResponseBodyTemplateScratchSourceResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateScratchResponseBodyTemplateScratchSourceResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceResources = make_shared<vector<GetTemplateScratchResponseBodyTemplateScratchSourceResources>>(expect1);
+      }
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceTag"].type()) {
+        GetTemplateScratchResponseBodyTemplateScratchSourceTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceTag"]));
+        sourceTag = make_shared<GetTemplateScratchResponseBodyTemplateScratchSourceTag>(model1);
+      }
+    }
+    if (m.find("Stacks") != m.end() && !m["Stacks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Stacks"].type()) {
+        vector<GetTemplateScratchResponseBodyTemplateScratchStacks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Stacks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateScratchResponseBodyTemplateScratchStacks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stacks = make_shared<vector<GetTemplateScratchResponseBodyTemplateScratchStacks>>(expect1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
+      statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("TemplateScratchData") != m.end() && !m["TemplateScratchData"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TemplateScratchData"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      templateScratchData = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
+      templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratch() = default;
+};
+class GetTemplateScratchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<GetTemplateScratchResponseBodyTemplateScratch> templateScratch{};
+
+  GetTemplateScratchResponseBody() {}
+
+  explicit GetTemplateScratchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateScratch) {
+      res["TemplateScratch"] = templateScratch ? boost::any(templateScratch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateScratch") != m.end() && !m["TemplateScratch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TemplateScratch"].type()) {
+        GetTemplateScratchResponseBodyTemplateScratch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TemplateScratch"]));
+        templateScratch = make_shared<GetTemplateScratchResponseBodyTemplateScratch>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBody() = default;
+};
+class GetTemplateScratchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetTemplateScratchResponseBody> body{};
+
+  GetTemplateScratchResponse() {}
+
+  explicit GetTemplateScratchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTemplateScratchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTemplateScratchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponse() = default;
+};
 class GetTemplateSummaryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetId{};
@@ -12709,6 +14013,505 @@ public:
 
   virtual ~ListTagValuesResponse() = default;
 };
+class ListTemplateScratchesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchType{};
+
+  ListTemplateScratchesRequest() {}
+
+  explicit ListTemplateScratchesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchType) {
+      res["TemplateScratchType"] = boost::any(*templateScratchType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
+      templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesRequest() = default;
+};
+class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters() = default;
+};
+class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup() = default;
+};
+class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  ListTemplateScratchesResponseBodyTemplateScratchesSourceResources() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratchesSourceResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratchesSourceResources() = default;
+};
+class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> resourceTags{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  ListTemplateScratchesResponseBodyTemplateScratchesSourceTag() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratchesSourceTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTags) {
+      res["ResourceTags"] = boost::any(*resourceTags);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTags") != m.end() && !m["ResourceTags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceTags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceTags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratchesSourceTag() = default;
+};
+class ListTemplateScratchesResponseBodyTemplateScratches : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> failedCode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters>> preferenceParameters{};
+  shared_ptr<ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup> sourceResourceGroup{};
+  shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratchesSourceResources>> sourceResources{};
+  shared_ptr<ListTemplateScratchesResponseBodyTemplateScratchesSourceTag> sourceTag{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusReason{};
+  shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchType{};
+  shared_ptr<string> updateTime{};
+
+  ListTemplateScratchesResponseBodyTemplateScratches() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratches(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (failedCode) {
+      res["FailedCode"] = boost::any(*failedCode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*preferenceParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (sourceResourceGroup) {
+      res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceResources"] = boost::any(temp1);
+    }
+    if (sourceTag) {
+      res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusReason) {
+      res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchType) {
+      res["TemplateScratchType"] = boost::any(*templateScratchType);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("FailedCode") != m.end() && !m["FailedCode"].empty()) {
+      failedCode = make_shared<string>(boost::any_cast<string>(m["FailedCode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreferenceParameters"].type()) {
+        vector<ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreferenceParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preferenceParameters = make_shared<vector<ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters>>(expect1);
+      }
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
+        ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceResourceGroup"]));
+        sourceResourceGroup = make_shared<ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup>(model1);
+      }
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceResources"].type()) {
+        vector<ListTemplateScratchesResponseBodyTemplateScratchesSourceResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateScratchesResponseBodyTemplateScratchesSourceResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceResources = make_shared<vector<ListTemplateScratchesResponseBodyTemplateScratchesSourceResources>>(expect1);
+      }
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceTag"].type()) {
+        ListTemplateScratchesResponseBodyTemplateScratchesSourceTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceTag"]));
+        sourceTag = make_shared<ListTemplateScratchesResponseBodyTemplateScratchesSourceTag>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
+      statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
+      templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratches() = default;
+};
+class ListTemplateScratchesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratches>> templateScratches{};
+  shared_ptr<long> totalCount{};
+
+  ListTemplateScratchesResponseBody() {}
+
+  explicit ListTemplateScratchesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateScratches) {
+      vector<boost::any> temp1;
+      for(auto item1:*templateScratches){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TemplateScratches"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateScratches") != m.end() && !m["TemplateScratches"].empty()) {
+      if (typeid(vector<boost::any>) == m["TemplateScratches"].type()) {
+        vector<ListTemplateScratchesResponseBodyTemplateScratches> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TemplateScratches"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateScratchesResponseBodyTemplateScratches model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        templateScratches = make_shared<vector<ListTemplateScratchesResponseBodyTemplateScratches>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBody() = default;
+};
+class ListTemplateScratchesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListTemplateScratchesResponseBody> body{};
+
+  ListTemplateScratchesResponse() {}
+
+  explicit ListTemplateScratchesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTemplateScratchesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTemplateScratchesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponse() = default;
+};
 class ListTemplateVersionsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
@@ -16573,6 +18376,477 @@ public:
 
   virtual ~UpdateTemplateResponse() = default;
 };
+class UpdateTemplateScratchRequestPreferenceParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  UpdateTemplateScratchRequestPreferenceParameters() {}
+
+  explicit UpdateTemplateScratchRequestPreferenceParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchRequestPreferenceParameters() = default;
+};
+class UpdateTemplateScratchRequestSourceResourceGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  UpdateTemplateScratchRequestSourceResourceGroup() {}
+
+  explicit UpdateTemplateScratchRequestSourceResourceGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchRequestSourceResourceGroup() = default;
+};
+class UpdateTemplateScratchRequestSourceResources : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  UpdateTemplateScratchRequestSourceResources() {}
+
+  explicit UpdateTemplateScratchRequestSourceResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchRequestSourceResources() = default;
+};
+class UpdateTemplateScratchRequestSourceTag : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> resourceTags{};
+  shared_ptr<vector<string>> resourceTypeFilter{};
+
+  UpdateTemplateScratchRequestSourceTag() {}
+
+  explicit UpdateTemplateScratchRequestSourceTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceTags) {
+      res["ResourceTags"] = boost::any(*resourceTags);
+    }
+    if (resourceTypeFilter) {
+      res["ResourceTypeFilter"] = boost::any(*resourceTypeFilter);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceTags") != m.end() && !m["ResourceTags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResourceTags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resourceTags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResourceTypeFilter") != m.end() && !m["ResourceTypeFilter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypeFilter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypeFilter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypeFilter = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchRequestSourceTag() = default;
+};
+class UpdateTemplateScratchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionMode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<vector<UpdateTemplateScratchRequestPreferenceParameters>> preferenceParameters{};
+  shared_ptr<string> regionId{};
+  shared_ptr<UpdateTemplateScratchRequestSourceResourceGroup> sourceResourceGroup{};
+  shared_ptr<vector<UpdateTemplateScratchRequestSourceResources>> sourceResources{};
+  shared_ptr<UpdateTemplateScratchRequestSourceTag> sourceTag{};
+  shared_ptr<string> templateScratchId{};
+
+  UpdateTemplateScratchRequest() {}
+
+  explicit UpdateTemplateScratchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*preferenceParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceResourceGroup) {
+      res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceResources"] = boost::any(temp1);
+    }
+    if (sourceTag) {
+      res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreferenceParameters"].type()) {
+        vector<UpdateTemplateScratchRequestPreferenceParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreferenceParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTemplateScratchRequestPreferenceParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preferenceParameters = make_shared<vector<UpdateTemplateScratchRequestPreferenceParameters>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
+        UpdateTemplateScratchRequestSourceResourceGroup model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceResourceGroup"]));
+        sourceResourceGroup = make_shared<UpdateTemplateScratchRequestSourceResourceGroup>(model1);
+      }
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceResources"].type()) {
+        vector<UpdateTemplateScratchRequestSourceResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTemplateScratchRequestSourceResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceResources = make_shared<vector<UpdateTemplateScratchRequestSourceResources>>(expect1);
+      }
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceTag"].type()) {
+        UpdateTemplateScratchRequestSourceTag model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceTag"]));
+        sourceTag = make_shared<UpdateTemplateScratchRequestSourceTag>(model1);
+      }
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchRequest() = default;
+};
+class UpdateTemplateScratchShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> executionMode{};
+  shared_ptr<string> logicalIdStrategy{};
+  shared_ptr<string> preferenceParametersShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sourceResourceGroupShrink{};
+  shared_ptr<string> sourceResourcesShrink{};
+  shared_ptr<string> sourceTagShrink{};
+  shared_ptr<string> templateScratchId{};
+
+  UpdateTemplateScratchShrinkRequest() {}
+
+  explicit UpdateTemplateScratchShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (executionMode) {
+      res["ExecutionMode"] = boost::any(*executionMode);
+    }
+    if (logicalIdStrategy) {
+      res["LogicalIdStrategy"] = boost::any(*logicalIdStrategy);
+    }
+    if (preferenceParametersShrink) {
+      res["PreferenceParameters"] = boost::any(*preferenceParametersShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceResourceGroupShrink) {
+      res["SourceResourceGroup"] = boost::any(*sourceResourceGroupShrink);
+    }
+    if (sourceResourcesShrink) {
+      res["SourceResources"] = boost::any(*sourceResourcesShrink);
+    }
+    if (sourceTagShrink) {
+      res["SourceTag"] = boost::any(*sourceTagShrink);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExecutionMode") != m.end() && !m["ExecutionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["ExecutionMode"]));
+    }
+    if (m.find("LogicalIdStrategy") != m.end() && !m["LogicalIdStrategy"].empty()) {
+      logicalIdStrategy = make_shared<string>(boost::any_cast<string>(m["LogicalIdStrategy"]));
+    }
+    if (m.find("PreferenceParameters") != m.end() && !m["PreferenceParameters"].empty()) {
+      preferenceParametersShrink = make_shared<string>(boost::any_cast<string>(m["PreferenceParameters"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
+      sourceResourceGroupShrink = make_shared<string>(boost::any_cast<string>(m["SourceResourceGroup"]));
+    }
+    if (m.find("SourceResources") != m.end() && !m["SourceResources"].empty()) {
+      sourceResourcesShrink = make_shared<string>(boost::any_cast<string>(m["SourceResources"]));
+    }
+    if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
+      sourceTagShrink = make_shared<string>(boost::any_cast<string>(m["SourceTag"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchShrinkRequest() = default;
+};
+class UpdateTemplateScratchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> templateScratchId{};
+
+  UpdateTemplateScratchResponseBody() {}
+
+  explicit UpdateTemplateScratchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchResponseBody() = default;
+};
+class UpdateTemplateScratchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateTemplateScratchResponseBody> body{};
+
+  UpdateTemplateScratchResponse() {}
+
+  explicit UpdateTemplateScratchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateTemplateScratchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTemplateScratchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateTemplateScratchResponse() = default;
+};
 class ValidateTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -16818,6 +19092,8 @@ public:
   CreateStackInstancesResponse createStackInstances(shared_ptr<CreateStackInstancesRequest> request);
   CreateTemplateResponse createTemplateWithOptions(shared_ptr<CreateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTemplateResponse createTemplate(shared_ptr<CreateTemplateRequest> request);
+  CreateTemplateScratchResponse createTemplateScratchWithOptions(shared_ptr<CreateTemplateScratchRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTemplateScratchResponse createTemplateScratch(shared_ptr<CreateTemplateScratchRequest> request);
   DeleteChangeSetResponse deleteChangeSetWithOptions(shared_ptr<DeleteChangeSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteChangeSetResponse deleteChangeSet(shared_ptr<DeleteChangeSetRequest> request);
   DeleteStackResponse deleteStackWithOptions(shared_ptr<DeleteStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16828,6 +19104,8 @@ public:
   DeleteStackInstancesResponse deleteStackInstances(shared_ptr<DeleteStackInstancesRequest> request);
   DeleteTemplateResponse deleteTemplateWithOptions(shared_ptr<DeleteTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTemplateResponse deleteTemplate(shared_ptr<DeleteTemplateRequest> request);
+  DeleteTemplateScratchResponse deleteTemplateScratchWithOptions(shared_ptr<DeleteTemplateScratchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTemplateScratchResponse deleteTemplateScratch(shared_ptr<DeleteTemplateScratchRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DetectStackDriftResponse detectStackDriftWithOptions(shared_ptr<DetectStackDriftRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16838,6 +19116,8 @@ public:
   DetectStackResourceDriftResponse detectStackResourceDrift(shared_ptr<DetectStackResourceDriftRequest> request);
   ExecuteChangeSetResponse executeChangeSetWithOptions(shared_ptr<ExecuteChangeSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExecuteChangeSetResponse executeChangeSet(shared_ptr<ExecuteChangeSetRequest> request);
+  GenerateTemplateByScratchResponse generateTemplateByScratchWithOptions(shared_ptr<GenerateTemplateByScratchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateTemplateByScratchResponse generateTemplateByScratch(shared_ptr<GenerateTemplateByScratchRequest> request);
   GenerateTemplatePolicyResponse generateTemplatePolicyWithOptions(shared_ptr<GenerateTemplatePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateTemplatePolicyResponse generateTemplatePolicy(shared_ptr<GenerateTemplatePolicyRequest> request);
   GetChangeSetResponse getChangeSetWithOptions(shared_ptr<GetChangeSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16870,6 +19150,8 @@ public:
   GetTemplateEstimateCostResponse getTemplateEstimateCost(shared_ptr<GetTemplateEstimateCostRequest> request);
   GetTemplateParameterConstraintsResponse getTemplateParameterConstraintsWithOptions(shared_ptr<GetTemplateParameterConstraintsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateParameterConstraintsResponse getTemplateParameterConstraints(shared_ptr<GetTemplateParameterConstraintsRequest> request);
+  GetTemplateScratchResponse getTemplateScratchWithOptions(shared_ptr<GetTemplateScratchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTemplateScratchResponse getTemplateScratch(shared_ptr<GetTemplateScratchRequest> request);
   GetTemplateSummaryResponse getTemplateSummaryWithOptions(shared_ptr<GetTemplateSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateSummaryResponse getTemplateSummary(shared_ptr<GetTemplateSummaryRequest> request);
   ListChangeSetsResponse listChangeSetsWithOptions(shared_ptr<ListChangeSetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16900,6 +19182,8 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListTagValuesResponse listTagValuesWithOptions(shared_ptr<ListTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagValuesResponse listTagValues(shared_ptr<ListTagValuesRequest> request);
+  ListTemplateScratchesResponse listTemplateScratchesWithOptions(shared_ptr<ListTemplateScratchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTemplateScratchesResponse listTemplateScratches(shared_ptr<ListTemplateScratchesRequest> request);
   ListTemplateVersionsResponse listTemplateVersionsWithOptions(shared_ptr<ListTemplateVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTemplateVersionsResponse listTemplateVersions(shared_ptr<ListTemplateVersionsRequest> request);
   ListTemplatesResponse listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16932,6 +19216,8 @@ public:
   UpdateStackTemplateByResourcesResponse updateStackTemplateByResources(shared_ptr<UpdateStackTemplateByResourcesRequest> request);
   UpdateTemplateResponse updateTemplateWithOptions(shared_ptr<UpdateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTemplateResponse updateTemplate(shared_ptr<UpdateTemplateRequest> request);
+  UpdateTemplateScratchResponse updateTemplateScratchWithOptions(shared_ptr<UpdateTemplateScratchRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTemplateScratchResponse updateTemplateScratch(shared_ptr<UpdateTemplateScratchRequest> request);
   ValidateTemplateResponse validateTemplateWithOptions(shared_ptr<ValidateTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ValidateTemplateResponse validateTemplate(shared_ptr<ValidateTemplateRequest> request);
 
