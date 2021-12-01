@@ -1932,7 +1932,7 @@ public:
   shared_ptr<long> agentCount{};
   shared_ptr<GetOpenJMeterSceneResponseBodySceneBaseInfo> baseInfo{};
   shared_ptr<long> concurrency{};
-  shared_ptr<string> constantThroughputTimers{};
+  shared_ptr<string> constantThroughputTimerType{};
   shared_ptr<GetOpenJMeterSceneResponseBodySceneDnsCacheConfig> dnsCacheConfig{};
   shared_ptr<long> duration{};
   shared_ptr<string> environmentId{};
@@ -1944,7 +1944,7 @@ public:
   shared_ptr<string> sceneName{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<long> steps{};
-  shared_ptr<string> syncTimers{};
+  shared_ptr<string> syncTimerType{};
   shared_ptr<string> testFile{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -1968,8 +1968,8 @@ public:
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
     }
-    if (constantThroughputTimers) {
-      res["ConstantThroughputTimers"] = boost::any(*constantThroughputTimers);
+    if (constantThroughputTimerType) {
+      res["ConstantThroughputTimerType"] = boost::any(*constantThroughputTimerType);
     }
     if (dnsCacheConfig) {
       res["DnsCacheConfig"] = dnsCacheConfig ? boost::any(dnsCacheConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2008,8 +2008,8 @@ public:
     if (steps) {
       res["Steps"] = boost::any(*steps);
     }
-    if (syncTimers) {
-      res["SyncTimers"] = boost::any(*syncTimers);
+    if (syncTimerType) {
+      res["SyncTimerType"] = boost::any(*syncTimerType);
     }
     if (testFile) {
       res["TestFile"] = boost::any(*testFile);
@@ -2037,8 +2037,8 @@ public:
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
     }
-    if (m.find("ConstantThroughputTimers") != m.end() && !m["ConstantThroughputTimers"].empty()) {
-      constantThroughputTimers = make_shared<string>(boost::any_cast<string>(m["ConstantThroughputTimers"]));
+    if (m.find("ConstantThroughputTimerType") != m.end() && !m["ConstantThroughputTimerType"].empty()) {
+      constantThroughputTimerType = make_shared<string>(boost::any_cast<string>(m["ConstantThroughputTimerType"]));
     }
     if (m.find("DnsCacheConfig") != m.end() && !m["DnsCacheConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["DnsCacheConfig"].type()) {
@@ -2087,8 +2087,8 @@ public:
     if (m.find("Steps") != m.end() && !m["Steps"].empty()) {
       steps = make_shared<long>(boost::any_cast<long>(m["Steps"]));
     }
-    if (m.find("SyncTimers") != m.end() && !m["SyncTimers"].empty()) {
-      syncTimers = make_shared<string>(boost::any_cast<string>(m["SyncTimers"]));
+    if (m.find("SyncTimerType") != m.end() && !m["SyncTimerType"].empty()) {
+      syncTimerType = make_shared<string>(boost::any_cast<string>(m["SyncTimerType"]));
     }
     if (m.find("TestFile") != m.end() && !m["TestFile"].empty()) {
       testFile = make_shared<string>(boost::any_cast<string>(m["TestFile"]));
@@ -8218,7 +8218,7 @@ class SaveOpenJMeterSceneRequestOpenJMeterScene : public Darabonba::Model {
 public:
   shared_ptr<long> agentCount{};
   shared_ptr<long> concurrency{};
-  shared_ptr<string> constantThroughputTimers{};
+  shared_ptr<string> constantThroughputTimerType{};
   shared_ptr<SaveOpenJMeterSceneRequestOpenJMeterSceneDnsCacheConfig> dnsCacheConfig{};
   shared_ptr<long> duration{};
   shared_ptr<string> enviromentId{};
@@ -8231,7 +8231,7 @@ public:
   shared_ptr<string> sceneName{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<long> steps{};
-  shared_ptr<string> syncTimers{};
+  shared_ptr<string> syncTimerType{};
   shared_ptr<string> testFile{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -8252,8 +8252,8 @@ public:
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
     }
-    if (constantThroughputTimers) {
-      res["ConstantThroughputTimers"] = boost::any(*constantThroughputTimers);
+    if (constantThroughputTimerType) {
+      res["ConstantThroughputTimerType"] = boost::any(*constantThroughputTimerType);
     }
     if (dnsCacheConfig) {
       res["DnsCacheConfig"] = dnsCacheConfig ? boost::any(dnsCacheConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8299,8 +8299,8 @@ public:
     if (steps) {
       res["Steps"] = boost::any(*steps);
     }
-    if (syncTimers) {
-      res["SyncTimers"] = boost::any(*syncTimers);
+    if (syncTimerType) {
+      res["SyncTimerType"] = boost::any(*syncTimerType);
     }
     if (testFile) {
       res["TestFile"] = boost::any(*testFile);
@@ -8321,8 +8321,8 @@ public:
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
     }
-    if (m.find("ConstantThroughputTimers") != m.end() && !m["ConstantThroughputTimers"].empty()) {
-      constantThroughputTimers = make_shared<string>(boost::any_cast<string>(m["ConstantThroughputTimers"]));
+    if (m.find("ConstantThroughputTimerType") != m.end() && !m["ConstantThroughputTimerType"].empty()) {
+      constantThroughputTimerType = make_shared<string>(boost::any_cast<string>(m["ConstantThroughputTimerType"]));
     }
     if (m.find("DnsCacheConfig") != m.end() && !m["DnsCacheConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["DnsCacheConfig"].type()) {
@@ -8384,8 +8384,8 @@ public:
     if (m.find("Steps") != m.end() && !m["Steps"].empty()) {
       steps = make_shared<long>(boost::any_cast<long>(m["Steps"]));
     }
-    if (m.find("SyncTimers") != m.end() && !m["SyncTimers"].empty()) {
-      syncTimers = make_shared<string>(boost::any_cast<string>(m["SyncTimers"]));
+    if (m.find("SyncTimerType") != m.end() && !m["SyncTimerType"].empty()) {
+      syncTimerType = make_shared<string>(boost::any_cast<string>(m["SyncTimerType"]));
     }
     if (m.find("TestFile") != m.end() && !m["TestFile"].empty()) {
       testFile = make_shared<string>(boost::any_cast<string>(m["TestFile"]));
