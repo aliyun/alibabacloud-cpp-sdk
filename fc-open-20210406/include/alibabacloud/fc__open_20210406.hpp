@@ -345,6 +345,163 @@ public:
 
   virtual ~CustomContainerConfigInfo() = default;
 };
+class DNSOption : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  DNSOption() {}
+
+  explicit DNSOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~DNSOption() = default;
+};
+class CustomDNS : public Darabonba::Model {
+public:
+  shared_ptr<vector<DNSOption>> dnsOptions{};
+  shared_ptr<vector<string>> nameServers{};
+  shared_ptr<vector<string>> searches{};
+
+  CustomDNS() {}
+
+  explicit CustomDNS(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dnsOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*dnsOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dnsOptions"] = boost::any(temp1);
+    }
+    if (nameServers) {
+      res["nameServers"] = boost::any(*nameServers);
+    }
+    if (searches) {
+      res["searches"] = boost::any(*searches);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dnsOptions") != m.end() && !m["dnsOptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["dnsOptions"].type()) {
+        vector<DNSOption> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dnsOptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DNSOption model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dnsOptions = make_shared<vector<DNSOption>>(expect1);
+      }
+    }
+    if (m.find("nameServers") != m.end() && !m["nameServers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["nameServers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["nameServers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nameServers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("searches") != m.end() && !m["searches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["searches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["searches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      searches = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CustomDNS() = default;
+};
+class CustomRuntimeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> args{};
+  shared_ptr<vector<string>> command{};
+
+  CustomRuntimeConfig() {}
+
+  explicit CustomRuntimeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (args) {
+      res["args"] = boost::any(*args);
+    }
+    if (command) {
+      res["command"] = boost::any(*command);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("args") != m.end() && !m["args"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["args"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["args"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      args = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("command") != m.end() && !m["command"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["command"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      command = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CustomRuntimeConfig() = default;
+};
 class Destination : public Darabonba::Model {
 public:
   shared_ptr<string> destination{};
@@ -453,6 +610,42 @@ public:
 
 
   virtual ~Error() = default;
+};
+class ErrorInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> stackTrace{};
+
+  ErrorInfo() {}
+
+  explicit ErrorInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (stackTrace) {
+      res["stackTrace"] = boost::any(*stackTrace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("stackTrace") != m.end() && !m["stackTrace"].empty()) {
+      stackTrace = make_shared<string>(boost::any_cast<string>(m["stackTrace"]));
+    }
+  }
+
+
+  virtual ~ErrorInfo() = default;
 };
 class HTTPTriggerConfig : public Darabonba::Model {
 public:
@@ -2446,6 +2639,8 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<Code> code{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
+  shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionName{};
@@ -2478,6 +2673,12 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDNS) {
+      res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customRuntimeConfig) {
+      res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -2537,6 +2738,20 @@ public:
         CustomContainerConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfig>(model1);
+      }
+    }
+    if (m.find("customDNS") != m.end() && !m["customDNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customDNS"].type()) {
+        CustomDNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
+        customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customRuntimeConfig"].type()) {
+        CustomRuntimeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customRuntimeConfig"]));
+        customRuntimeConfig = make_shared<CustomRuntimeConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -2606,6 +2821,8 @@ public:
   shared_ptr<long> codeSize{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
+  shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
@@ -2646,6 +2863,12 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDNS) {
+      res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customRuntimeConfig) {
+      res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -2713,6 +2936,20 @@ public:
         CustomContainerConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfig>(model1);
+      }
+    }
+    if (m.find("customDNS") != m.end() && !m["customDNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customDNS"].type()) {
+        CustomDNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
+        customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customRuntimeConfig"].type()) {
+        CustomRuntimeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customRuntimeConfig"]));
+        customRuntimeConfig = make_shared<CustomRuntimeConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -3378,6 +3615,7 @@ class CreateTriggerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> domainName{};
   shared_ptr<string> invocationRole{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> qualifier{};
@@ -3402,6 +3640,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (domainName) {
+      res["domainName"] = boost::any(*domainName);
     }
     if (invocationRole) {
       res["invocationRole"] = boost::any(*invocationRole);
@@ -3436,6 +3677,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("domainName") != m.end() && !m["domainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["domainName"]));
     }
     if (m.find("invocationRole") != m.end() && !m["invocationRole"].empty()) {
       invocationRole = make_shared<string>(boost::any_cast<string>(m["invocationRole"]));
@@ -4678,6 +4922,8 @@ public:
   shared_ptr<long> codeSize{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfigInfo> customContainerConfig{};
+  shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
@@ -4718,6 +4964,12 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDNS) {
+      res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customRuntimeConfig) {
+      res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -4785,6 +5037,20 @@ public:
         CustomContainerConfigInfo model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfigInfo>(model1);
+      }
+    }
+    if (m.find("customDNS") != m.end() && !m["customDNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customDNS"].type()) {
+        CustomDNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
+        customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customRuntimeConfig"].type()) {
+        CustomRuntimeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customRuntimeConfig"]));
+        customRuntimeConfig = make_shared<CustomRuntimeConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -5555,6 +5821,7 @@ public:
 class GetProvisionConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> current{};
+  shared_ptr<string> currentError{};
   shared_ptr<string> resource{};
   shared_ptr<vector<ScheduledActions>> scheduledActions{};
   shared_ptr<long> target{};
@@ -5572,6 +5839,9 @@ public:
     map<string, boost::any> res;
     if (current) {
       res["current"] = boost::any(*current);
+    }
+    if (currentError) {
+      res["currentError"] = boost::any(*currentError);
     }
     if (resource) {
       res["resource"] = boost::any(*resource);
@@ -5599,6 +5869,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
+    }
+    if (m.find("currentError") != m.end() && !m["currentError"].empty()) {
+      currentError = make_shared<string>(boost::any_cast<string>(m["currentError"]));
     }
     if (m.find("resource") != m.end() && !m["resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["resource"]));
@@ -6092,6 +6365,7 @@ class GetTriggerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> domainName{};
   shared_ptr<string> invocationRole{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> qualifier{};
@@ -6116,6 +6390,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (domainName) {
+      res["domainName"] = boost::any(*domainName);
     }
     if (invocationRole) {
       res["invocationRole"] = boost::any(*invocationRole);
@@ -6150,6 +6427,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("domainName") != m.end() && !m["domainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["domainName"]));
     }
     if (m.find("invocationRole") != m.end() && !m["invocationRole"].empty()) {
       invocationRole = make_shared<string>(boost::any_cast<string>(m["invocationRole"]));
@@ -7565,6 +7845,221 @@ public:
 
   virtual ~ListFunctionsResponse() = default;
 };
+class ListInstancesHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xFcAccountId{};
+
+  ListInstancesHeaders() {}
+
+  explicit ListInstancesHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xFcAccountId) {
+      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
+      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+  }
+
+
+  virtual ~ListInstancesHeaders() = default;
+};
+class ListInstancesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> limit{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> qualifier{};
+
+  ListInstancesRequest() {}
+
+  explicit ListInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+  }
+
+
+  virtual ~ListInstancesRequest() = default;
+};
+class ListInstancesResponseBodyInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> versionId{};
+
+  ListInstancesResponseBodyInstances() {}
+
+  explicit ListInstancesResponseBodyInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (versionId) {
+      res["versionId"] = boost::any(*versionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
+      versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyInstances() = default;
+};
+class ListInstancesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListInstancesResponseBodyInstances>> instances{};
+
+  ListInstancesResponseBody() {}
+
+  explicit ListInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instances) {
+      vector<boost::any> temp1;
+      for(auto item1:*instances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["instances"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instances") != m.end() && !m["instances"].empty()) {
+      if (typeid(vector<boost::any>) == m["instances"].type()) {
+        vector<ListInstancesResponseBodyInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["instances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstancesResponseBodyInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instances = make_shared<vector<ListInstancesResponseBodyInstances>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBody() = default;
+};
+class ListInstancesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListInstancesResponseBody> body{};
+
+  ListInstancesResponse() {}
+
+  explicit ListInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListInstancesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListInstancesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListInstancesResponse() = default;
+};
 class ListLayerVersionsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
@@ -8060,6 +8555,7 @@ public:
 class ListProvisionConfigsResponseBodyProvisionConfigs : public Darabonba::Model {
 public:
   shared_ptr<long> current{};
+  shared_ptr<string> currentError{};
   shared_ptr<string> resource{};
   shared_ptr<vector<ScheduledActions>> scheduledActions{};
   shared_ptr<long> target{};
@@ -8077,6 +8573,9 @@ public:
     map<string, boost::any> res;
     if (current) {
       res["current"] = boost::any(*current);
+    }
+    if (currentError) {
+      res["currentError"] = boost::any(*currentError);
     }
     if (resource) {
       res["resource"] = boost::any(*resource);
@@ -8104,6 +8603,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
+    }
+    if (m.find("currentError") != m.end() && !m["currentError"].empty()) {
+      currentError = make_shared<string>(boost::any_cast<string>(m["currentError"]));
     }
     if (m.find("resource") != m.end() && !m["resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["resource"]));
@@ -9237,6 +9739,7 @@ class ListTriggersResponseBodyTriggers : public Darabonba::Model {
 public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> domainName{};
   shared_ptr<string> invocationRole{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> qualifier{};
@@ -9261,6 +9764,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (domainName) {
+      res["domainName"] = boost::any(*domainName);
     }
     if (invocationRole) {
       res["invocationRole"] = boost::any(*invocationRole);
@@ -9295,6 +9801,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("domainName") != m.end() && !m["domainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["domainName"]));
     }
     if (m.find("invocationRole") != m.end() && !m["invocationRole"].empty()) {
       invocationRole = make_shared<string>(boost::any_cast<string>(m["invocationRole"]));
@@ -11163,6 +11672,8 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<Code> code{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
+  shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> handler{};
@@ -11196,6 +11707,12 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDNS) {
+      res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customRuntimeConfig) {
+      res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -11252,6 +11769,20 @@ public:
         CustomContainerConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfig>(model1);
+      }
+    }
+    if (m.find("customDNS") != m.end() && !m["customDNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customDNS"].type()) {
+        CustomDNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
+        customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customRuntimeConfig"].type()) {
+        CustomRuntimeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customRuntimeConfig"]));
+        customRuntimeConfig = make_shared<CustomRuntimeConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -11315,6 +11846,8 @@ public:
   shared_ptr<long> codeSize{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
+  shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
@@ -11354,6 +11887,12 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customDNS) {
+      res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customRuntimeConfig) {
+      res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -11418,6 +11957,20 @@ public:
         CustomContainerConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfig>(model1);
+      }
+    }
+    if (m.find("customDNS") != m.end() && !m["customDNS"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customDNS"].type()) {
+        CustomDNS model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
+        customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customRuntimeConfig"].type()) {
+        CustomRuntimeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customRuntimeConfig"]));
+        customRuntimeConfig = make_shared<CustomRuntimeConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -11939,6 +12492,7 @@ class UpdateTriggerResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> domainName{};
   shared_ptr<string> invocationRole{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> qualifier{};
@@ -11963,6 +12517,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (domainName) {
+      res["domainName"] = boost::any(*domainName);
     }
     if (invocationRole) {
       res["invocationRole"] = boost::any(*invocationRole);
@@ -11997,6 +12554,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("domainName") != m.end() && !m["domainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["domainName"]));
     }
     if (m.find("invocationRole") != m.end() && !m["invocationRole"].empty()) {
       invocationRole = make_shared<string>(boost::any_cast<string>(m["invocationRole"]));
@@ -12274,6 +12834,12 @@ public:
   ListFunctionsResponse listFunctionsWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<ListFunctionsRequest> request,
                                                  shared_ptr<map<string, string>> headers,
+                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListInstancesResponse listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request);
+  ListInstancesResponse listInstancesWithOptions(shared_ptr<string> serviceName,
+                                                 shared_ptr<string> functionName,
+                                                 shared_ptr<ListInstancesRequest> request,
+                                                 shared_ptr<ListInstancesHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLayerVersionsResponse listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request);
   ListLayerVersionsResponse listLayerVersionsWithOptions(shared_ptr<string> layerName,
