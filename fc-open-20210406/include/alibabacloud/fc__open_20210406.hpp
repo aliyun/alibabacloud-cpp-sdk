@@ -5072,7 +5072,6 @@ public:
 };
 class GetProvisionConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> target{};
   shared_ptr<string> qualifier{};
 
   GetProvisionConfigRequest() {}
@@ -5085,9 +5084,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (target) {
-      res["target"] = boost::any(*target);
-    }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
     }
@@ -5095,9 +5091,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("target") != m.end() && !m["target"].empty()) {
-      target = make_shared<long>(boost::any_cast<long>(m["target"]));
-    }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
     }
