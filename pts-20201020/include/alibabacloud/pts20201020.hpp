@@ -8221,7 +8221,7 @@ public:
   shared_ptr<string> constantThroughputTimerType{};
   shared_ptr<SaveOpenJMeterSceneRequestOpenJMeterSceneDnsCacheConfig> dnsCacheConfig{};
   shared_ptr<long> duration{};
-  shared_ptr<string> enviromentId{};
+  shared_ptr<string> environmentId{};
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneFileList>> fileList{};
   shared_ptr<bool> isVpcTest{};
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties>> JMeterProperties{};
@@ -8261,8 +8261,8 @@ public:
     if (duration) {
       res["Duration"] = boost::any(*duration);
     }
-    if (enviromentId) {
-      res["EnviromentId"] = boost::any(*enviromentId);
+    if (environmentId) {
+      res["EnvironmentId"] = boost::any(*environmentId);
     }
     if (fileList) {
       vector<boost::any> temp1;
@@ -8334,8 +8334,8 @@ public:
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
     }
-    if (m.find("EnviromentId") != m.end() && !m["EnviromentId"].empty()) {
-      enviromentId = make_shared<string>(boost::any_cast<string>(m["EnviromentId"]));
+    if (m.find("EnvironmentId") != m.end() && !m["EnvironmentId"].empty()) {
+      environmentId = make_shared<string>(boost::any_cast<string>(m["EnvironmentId"]));
     }
     if (m.find("FileList") != m.end() && !m["FileList"].empty()) {
       if (typeid(vector<boost::any>) == m["FileList"].type()) {
