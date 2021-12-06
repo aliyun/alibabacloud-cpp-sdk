@@ -298,6 +298,32 @@ ListDbfsResponse Alibabacloud_DBFS20200418::Client::listDbfs(shared_ptr<ListDbfs
   return listDbfsWithOptions(request, runtime);
 }
 
+ListDbfsAttachableEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachableEcsInstancesWithOptions(shared_ptr<ListDbfsAttachableEcsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDbfsAttachableEcsInstancesResponse(doRPCRequest(make_shared<string>("ListDbfsAttachableEcsInstances"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDbfsAttachableEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachableEcsInstances(shared_ptr<ListDbfsAttachableEcsInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDbfsAttachableEcsInstancesWithOptions(request, runtime);
+}
+
+ListDbfsAttachedEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachedEcsInstancesWithOptions(shared_ptr<ListDbfsAttachedEcsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  }));
+  return ListDbfsAttachedEcsInstancesResponse(doRPCRequest(make_shared<string>("ListDbfsAttachedEcsInstances"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+}
+
+ListDbfsAttachedEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachedEcsInstances(shared_ptr<ListDbfsAttachedEcsInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDbfsAttachedEcsInstancesWithOptions(request, runtime);
+}
+
 ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshotWithOptions(shared_ptr<ListSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
