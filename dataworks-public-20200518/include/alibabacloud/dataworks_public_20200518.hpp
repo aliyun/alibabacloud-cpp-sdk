@@ -24615,6 +24615,7 @@ public:
   shared_ptr<bool> isPartitionColumn{};
   shared_ptr<bool> isPrimaryKey{};
   shared_ptr<long> position{};
+  shared_ptr<long> relationCount{};
 
   GetMetaTableColumnResponseBodyDataColumnList() {}
 
@@ -24653,6 +24654,9 @@ public:
     if (position) {
       res["Position"] = boost::any(*position);
     }
+    if (relationCount) {
+      res["RelationCount"] = boost::any(*relationCount);
+    }
     return res;
   }
 
@@ -24683,6 +24687,9 @@ public:
     }
     if (m.find("Position") != m.end() && !m["Position"].empty()) {
       position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+    if (m.find("RelationCount") != m.end() && !m["RelationCount"].empty()) {
+      relationCount = make_shared<long>(boost::any_cast<long>(m["RelationCount"]));
     }
   }
 
@@ -25632,6 +25639,7 @@ public:
 };
 class GetMetaTableLineageResponseBodyDataDataEntityList : public Darabonba::Model {
 public:
+  shared_ptr<long> createTimestamp{};
   shared_ptr<string> tableGuid{};
   shared_ptr<string> tableName{};
 
@@ -25645,6 +25653,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
     if (tableGuid) {
       res["TableGuid"] = boost::any(*tableGuid);
     }
@@ -25655,6 +25666,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
     if (m.find("TableGuid") != m.end() && !m["TableGuid"].empty()) {
       tableGuid = make_shared<string>(boost::any_cast<string>(m["TableGuid"]));
     }
