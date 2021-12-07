@@ -4984,6 +4984,92 @@ public:
 
   virtual ~GetChangeSetRequest() = default;
 };
+class GetChangeSetResponseBodyLogTerraformLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> command{};
+  shared_ptr<string> content{};
+  shared_ptr<string> stream{};
+
+  GetChangeSetResponseBodyLogTerraformLogs() {}
+
+  explicit GetChangeSetResponseBodyLogTerraformLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (stream) {
+      res["Stream"] = boost::any(*stream);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      stream = make_shared<string>(boost::any_cast<string>(m["Stream"]));
+    }
+  }
+
+
+  virtual ~GetChangeSetResponseBodyLogTerraformLogs() = default;
+};
+class GetChangeSetResponseBodyLog : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetChangeSetResponseBodyLogTerraformLogs>> terraformLogs{};
+
+  GetChangeSetResponseBodyLog() {}
+
+  explicit GetChangeSetResponseBodyLog(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (terraformLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*terraformLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TerraformLogs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TerraformLogs") != m.end() && !m["TerraformLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["TerraformLogs"].type()) {
+        vector<GetChangeSetResponseBodyLogTerraformLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TerraformLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetChangeSetResponseBodyLogTerraformLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        terraformLogs = make_shared<vector<GetChangeSetResponseBodyLogTerraformLogs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetChangeSetResponseBodyLog() = default;
+};
 class GetChangeSetResponseBodyParameters : public Darabonba::Model {
 public:
   shared_ptr<string> parameterKey{};
@@ -5030,6 +5116,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<string> executionStatus{};
+  shared_ptr<GetChangeSetResponseBodyLog> log{};
   shared_ptr<vector<GetChangeSetResponseBodyParameters>> parameters{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
@@ -5073,6 +5160,9 @@ public:
     }
     if (executionStatus) {
       res["ExecutionStatus"] = boost::any(*executionStatus);
+    }
+    if (log) {
+      res["Log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parameters) {
       vector<boost::any> temp1;
@@ -5144,6 +5234,13 @@ public:
     }
     if (m.find("ExecutionStatus") != m.end() && !m["ExecutionStatus"].empty()) {
       executionStatus = make_shared<string>(boost::any_cast<string>(m["ExecutionStatus"]));
+    }
+    if (m.find("Log") != m.end() && !m["Log"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Log"].type()) {
+        GetChangeSetResponseBodyLog model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Log"]));
+        log = make_shared<GetChangeSetResponseBodyLog>(model1);
+      }
     }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       if (typeid(vector<boost::any>) == m["Parameters"].type()) {
@@ -6339,6 +6436,92 @@ public:
 
   virtual ~GetStackRequest() = default;
 };
+class GetStackResponseBodyLogTerraformLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> command{};
+  shared_ptr<string> content{};
+  shared_ptr<string> stream{};
+
+  GetStackResponseBodyLogTerraformLogs() {}
+
+  explicit GetStackResponseBodyLogTerraformLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (stream) {
+      res["Stream"] = boost::any(*stream);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      stream = make_shared<string>(boost::any_cast<string>(m["Stream"]));
+    }
+  }
+
+
+  virtual ~GetStackResponseBodyLogTerraformLogs() = default;
+};
+class GetStackResponseBodyLog : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetStackResponseBodyLogTerraformLogs>> terraformLogs{};
+
+  GetStackResponseBodyLog() {}
+
+  explicit GetStackResponseBodyLog(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (terraformLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*terraformLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TerraformLogs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TerraformLogs") != m.end() && !m["TerraformLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["TerraformLogs"].type()) {
+        vector<GetStackResponseBodyLogTerraformLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TerraformLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetStackResponseBodyLogTerraformLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        terraformLogs = make_shared<vector<GetStackResponseBodyLogTerraformLogs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetStackResponseBodyLog() = default;
+};
 class GetStackResponseBodyParameters : public Darabonba::Model {
 public:
   shared_ptr<string> parameterKey{};
@@ -6546,6 +6729,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<string> driftDetectionTime{};
+  shared_ptr<GetStackResponseBodyLog> log{};
   shared_ptr<vector<string>> notificationURLs{};
   shared_ptr<vector<map<string, boost::any>>> outputs{};
   shared_ptr<vector<GetStackResponseBodyParameters>> parameters{};
@@ -6591,6 +6775,9 @@ public:
     }
     if (driftDetectionTime) {
       res["DriftDetectionTime"] = boost::any(*driftDetectionTime);
+    }
+    if (log) {
+      res["Log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (notificationURLs) {
       res["NotificationURLs"] = boost::any(*notificationURLs);
@@ -6678,6 +6865,13 @@ public:
     }
     if (m.find("DriftDetectionTime") != m.end() && !m["DriftDetectionTime"].empty()) {
       driftDetectionTime = make_shared<string>(boost::any_cast<string>(m["DriftDetectionTime"]));
+    }
+    if (m.find("Log") != m.end() && !m["Log"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Log"].type()) {
+        GetStackResponseBodyLog model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Log"]));
+        log = make_shared<GetStackResponseBodyLog>(model1);
+      }
     }
     if (m.find("NotificationURLs") != m.end() && !m["NotificationURLs"].empty()) {
       vector<string> toVec1;
@@ -15351,6 +15545,92 @@ public:
 
   virtual ~PreviewStackRequest() = default;
 };
+class PreviewStackResponseBodyStackLogTerraformLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> command{};
+  shared_ptr<string> content{};
+  shared_ptr<string> stream{};
+
+  PreviewStackResponseBodyStackLogTerraformLogs() {}
+
+  explicit PreviewStackResponseBodyStackLogTerraformLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (stream) {
+      res["Stream"] = boost::any(*stream);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      stream = make_shared<string>(boost::any_cast<string>(m["Stream"]));
+    }
+  }
+
+
+  virtual ~PreviewStackResponseBodyStackLogTerraformLogs() = default;
+};
+class PreviewStackResponseBodyStackLog : public Darabonba::Model {
+public:
+  shared_ptr<vector<PreviewStackResponseBodyStackLogTerraformLogs>> terraformLogs{};
+
+  PreviewStackResponseBodyStackLog() {}
+
+  explicit PreviewStackResponseBodyStackLog(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (terraformLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*terraformLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TerraformLogs"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TerraformLogs") != m.end() && !m["TerraformLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["TerraformLogs"].type()) {
+        vector<PreviewStackResponseBodyStackLogTerraformLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TerraformLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PreviewStackResponseBodyStackLogTerraformLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        terraformLogs = make_shared<vector<PreviewStackResponseBodyStackLogTerraformLogs>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewStackResponseBodyStackLog() = default;
+};
 class PreviewStackResponseBodyStackParameters : public Darabonba::Model {
 public:
   shared_ptr<string> parameterKey{};
@@ -15472,6 +15752,7 @@ class PreviewStackResponseBodyStack : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableRollback{};
+  shared_ptr<PreviewStackResponseBodyStackLog> log{};
   shared_ptr<vector<PreviewStackResponseBodyStackParameters>> parameters{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<PreviewStackResponseBodyStackResources>> resources{};
@@ -15495,6 +15776,9 @@ public:
     }
     if (disableRollback) {
       res["DisableRollback"] = boost::any(*disableRollback);
+    }
+    if (log) {
+      res["Log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parameters) {
       vector<boost::any> temp1;
@@ -15534,6 +15818,13 @@ public:
     }
     if (m.find("DisableRollback") != m.end() && !m["DisableRollback"].empty()) {
       disableRollback = make_shared<bool>(boost::any_cast<bool>(m["DisableRollback"]));
+    }
+    if (m.find("Log") != m.end() && !m["Log"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Log"].type()) {
+        PreviewStackResponseBodyStackLog model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Log"]));
+        log = make_shared<PreviewStackResponseBodyStackLog>(model1);
+      }
     }
     if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
       if (typeid(vector<boost::any>) == m["Parameters"].type()) {
