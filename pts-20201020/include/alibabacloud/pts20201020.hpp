@@ -7801,6 +7801,7 @@ public:
   shared_ptr<string> envId{};
   shared_ptr<string> envName{};
   shared_ptr<vector<SaveEnvRequestEnvFiles>> files{};
+  shared_ptr<string> jmeterPluginLabel{};
   shared_ptr<vector<SaveEnvRequestEnvProperties>> properties{};
 
   SaveEnvRequestEnv() {}
@@ -7825,6 +7826,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Files"] = boost::any(temp1);
+    }
+    if (jmeterPluginLabel) {
+      res["JmeterPluginLabel"] = boost::any(*jmeterPluginLabel);
     }
     if (properties) {
       vector<boost::any> temp1;
@@ -7855,6 +7859,9 @@ public:
         }
         files = make_shared<vector<SaveEnvRequestEnvFiles>>(expect1);
       }
+    }
+    if (m.find("JmeterPluginLabel") != m.end() && !m["JmeterPluginLabel"].empty()) {
+      jmeterPluginLabel = make_shared<string>(boost::any_cast<string>(m["JmeterPluginLabel"]));
     }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       if (typeid(vector<boost::any>) == m["Properties"].type()) {
@@ -8225,6 +8232,7 @@ public:
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneFileList>> fileList{};
   shared_ptr<bool> isVpcTest{};
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties>> JMeterProperties{};
+  shared_ptr<string> jmeterPluginLabel{};
   shared_ptr<long> rampUp{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sceneId{};
@@ -8280,6 +8288,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["JMeterProperties"] = boost::any(temp1);
+    }
+    if (jmeterPluginLabel) {
+      res["JmeterPluginLabel"] = boost::any(*jmeterPluginLabel);
     }
     if (rampUp) {
       res["RampUp"] = boost::any(*rampUp);
@@ -8365,6 +8376,9 @@ public:
         }
         JMeterProperties = make_shared<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties>>(expect1);
       }
+    }
+    if (m.find("JmeterPluginLabel") != m.end() && !m["JmeterPluginLabel"].empty()) {
+      jmeterPluginLabel = make_shared<string>(boost::any_cast<string>(m["JmeterPluginLabel"]));
     }
     if (m.find("RampUp") != m.end() && !m["RampUp"].empty()) {
       rampUp = make_shared<long>(boost::any_cast<long>(m["RampUp"]));

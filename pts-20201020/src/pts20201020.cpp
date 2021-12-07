@@ -40,10 +40,24 @@ string Alibabacloud_PTS20201020::Client::getEndpoint(shared_ptr<string> productI
 
 CreatePtsSceneResponse Alibabacloud_PTS20201020::Client::createPtsSceneWithOptions(shared_ptr<CreatePtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Scene", *request->scene));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreatePtsSceneResponse(doRPCRequest(make_shared<string>("CreatePtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePtsSceneResponse(callApi(params, req, runtime));
 }
 
 CreatePtsSceneResponse Alibabacloud_PTS20201020::Client::createPtsScene(shared_ptr<CreatePtsSceneRequest> request) {
@@ -53,10 +67,25 @@ CreatePtsSceneResponse Alibabacloud_PTS20201020::Client::createPtsScene(shared_p
 
 CreatePtsSceneBaseLineFromReportResponse Alibabacloud_PTS20201020::Client::createPtsSceneBaseLineFromReportWithOptions(shared_ptr<CreatePtsSceneBaseLineFromReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ReportId", *request->reportId));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreatePtsSceneBaseLineFromReportResponse(doRPCRequest(make_shared<string>("CreatePtsSceneBaseLineFromReport"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePtsSceneBaseLineFromReport"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePtsSceneBaseLineFromReportResponse(callApi(params, req, runtime));
 }
 
 CreatePtsSceneBaseLineFromReportResponse Alibabacloud_PTS20201020::Client::createPtsSceneBaseLineFromReport(shared_ptr<CreatePtsSceneBaseLineFromReportRequest> request) {
@@ -66,10 +95,24 @@ CreatePtsSceneBaseLineFromReportResponse Alibabacloud_PTS20201020::Client::creat
 
 DeletePtsSceneResponse Alibabacloud_PTS20201020::Client::deletePtsSceneWithOptions(shared_ptr<DeletePtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeletePtsSceneResponse(doRPCRequest(make_shared<string>("DeletePtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePtsSceneResponse(callApi(params, req, runtime));
 }
 
 DeletePtsSceneResponse Alibabacloud_PTS20201020::Client::deletePtsScene(shared_ptr<DeletePtsSceneRequest> request) {
@@ -79,10 +122,24 @@ DeletePtsSceneResponse Alibabacloud_PTS20201020::Client::deletePtsScene(shared_p
 
 DeletePtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::deletePtsSceneBaseLineWithOptions(shared_ptr<DeletePtsSceneBaseLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeletePtsSceneBaseLineResponse(doRPCRequest(make_shared<string>("DeletePtsSceneBaseLine"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePtsSceneBaseLine"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePtsSceneBaseLineResponse(callApi(params, req, runtime));
 }
 
 DeletePtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::deletePtsSceneBaseLine(shared_ptr<DeletePtsSceneBaseLineRequest> request) {
@@ -97,10 +154,24 @@ DeletePtsScenesResponse Alibabacloud_PTS20201020::Client::deletePtsScenesWithOpt
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->sceneIds)) {
     request->sceneIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sceneIds, make_shared<string>("SceneIds"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneIds", *request->sceneIdsShrink));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeletePtsScenesResponse(doRPCRequest(make_shared<string>("DeletePtsScenes"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePtsScenes"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePtsScenesResponse(callApi(params, req, runtime));
 }
 
 DeletePtsScenesResponse Alibabacloud_PTS20201020::Client::deletePtsScenes(shared_ptr<DeletePtsScenesRequest> request) {
@@ -110,10 +181,32 @@ DeletePtsScenesResponse Alibabacloud_PTS20201020::Client::deletePtsScenes(shared
 
 GetJMeterLogsResponse Alibabacloud_PTS20201020::Client::getJMeterLogsWithOptions(shared_ptr<GetJMeterLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("AgentIndex", *request->agentIndex));
+  query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  query->insert(pair<string, long>("EndTime", *request->endTime));
+  query->insert(pair<string, string>("Keyword", *request->keyword));
+  query->insert(pair<string, string>("Level", *request->level));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ReportId", *request->reportId));
+  query->insert(pair<string, string>("Thread", *request->thread));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetJMeterLogsResponse(doRPCRequest(make_shared<string>("GetJMeterLogs"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJMeterLogs"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJMeterLogsResponse(callApi(params, req, runtime));
 }
 
 GetJMeterLogsResponse Alibabacloud_PTS20201020::Client::getJMeterLogs(shared_ptr<GetJMeterLogsRequest> request) {
@@ -123,10 +216,27 @@ GetJMeterLogsResponse Alibabacloud_PTS20201020::Client::getJMeterLogs(shared_ptr
 
 GetJMeterSampleMetricsResponse Alibabacloud_PTS20201020::Client::getJMeterSampleMetricsWithOptions(shared_ptr<GetJMeterSampleMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  query->insert(pair<string, long>("EndTime", *request->endTime));
+  query->insert(pair<string, string>("ReportId", *request->reportId));
+  query->insert(pair<string, long>("SamplerId", *request->samplerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetJMeterSampleMetricsResponse(doRPCRequest(make_shared<string>("GetJMeterSampleMetrics"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJMeterSampleMetrics"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJMeterSampleMetricsResponse(callApi(params, req, runtime));
 }
 
 GetJMeterSampleMetricsResponse Alibabacloud_PTS20201020::Client::getJMeterSampleMetrics(shared_ptr<GetJMeterSampleMetricsRequest> request) {
@@ -136,10 +246,36 @@ GetJMeterSampleMetricsResponse Alibabacloud_PTS20201020::Client::getJMeterSample
 
 GetJMeterSamplingLogsResponse Alibabacloud_PTS20201020::Client::getJMeterSamplingLogsWithOptions(shared_ptr<GetJMeterSamplingLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("AgentId", *request->agentId));
+  query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  query->insert(pair<string, long>("EndTime", *request->endTime));
+  query->insert(pair<string, string>("Keyword", *request->keyword));
+  query->insert(pair<string, long>("MaxRT", *request->maxRT));
+  query->insert(pair<string, long>("MinRT", *request->minRT));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ReportId", *request->reportId));
+  query->insert(pair<string, string>("ResponseCode", *request->responseCode));
+  query->insert(pair<string, long>("SamplerId", *request->samplerId));
+  query->insert(pair<string, bool>("Success", *request->success));
+  query->insert(pair<string, string>("Thread", *request->thread));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetJMeterSamplingLogsResponse(doRPCRequest(make_shared<string>("GetJMeterSamplingLogs"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJMeterSamplingLogs"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJMeterSamplingLogsResponse(callApi(params, req, runtime));
 }
 
 GetJMeterSamplingLogsResponse Alibabacloud_PTS20201020::Client::getJMeterSamplingLogs(shared_ptr<GetJMeterSamplingLogsRequest> request) {
@@ -149,10 +285,24 @@ GetJMeterSamplingLogsResponse Alibabacloud_PTS20201020::Client::getJMeterSamplin
 
 GetJMeterSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getJMeterSceneRunningDataWithOptions(shared_ptr<GetJMeterSceneRunningDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetJMeterSceneRunningDataResponse(doRPCRequest(make_shared<string>("GetJMeterSceneRunningData"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetJMeterSceneRunningData"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetJMeterSceneRunningDataResponse(callApi(params, req, runtime));
 }
 
 GetJMeterSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getJMeterSceneRunningData(shared_ptr<GetJMeterSceneRunningDataRequest> request) {
@@ -162,10 +312,24 @@ GetJMeterSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getJMeterSce
 
 GetOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::getOpenJMeterSceneWithOptions(shared_ptr<GetOpenJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetOpenJMeterSceneResponse(doRPCRequest(make_shared<string>("GetOpenJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetOpenJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetOpenJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 GetOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::getOpenJMeterScene(shared_ptr<GetOpenJMeterSceneRequest> request) {
@@ -175,10 +339,25 @@ GetOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::getOpenJMeterScene(
 
 GetPtsReportDetailsResponse Alibabacloud_PTS20201020::Client::getPtsReportDetailsWithOptions(shared_ptr<GetPtsReportDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("PlanId", *request->planId));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsReportDetailsResponse(doRPCRequest(make_shared<string>("GetPtsReportDetails"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsReportDetails"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsReportDetailsResponse(callApi(params, req, runtime));
 }
 
 GetPtsReportDetailsResponse Alibabacloud_PTS20201020::Client::getPtsReportDetails(shared_ptr<GetPtsReportDetailsRequest> request) {
@@ -188,10 +367,26 @@ GetPtsReportDetailsResponse Alibabacloud_PTS20201020::Client::getPtsReportDetail
 
 GetPtsReportsBySceneIdResponse Alibabacloud_PTS20201020::Client::getPtsReportsBySceneIdWithOptions(shared_ptr<GetPtsReportsBySceneIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsReportsBySceneIdResponse(doRPCRequest(make_shared<string>("GetPtsReportsBySceneId"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsReportsBySceneId"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsReportsBySceneIdResponse(callApi(params, req, runtime));
 }
 
 GetPtsReportsBySceneIdResponse Alibabacloud_PTS20201020::Client::getPtsReportsBySceneId(shared_ptr<GetPtsReportsBySceneIdRequest> request) {
@@ -201,10 +396,24 @@ GetPtsReportsBySceneIdResponse Alibabacloud_PTS20201020::Client::getPtsReportsBy
 
 GetPtsSceneResponse Alibabacloud_PTS20201020::Client::getPtsSceneWithOptions(shared_ptr<GetPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsSceneResponse(doRPCRequest(make_shared<string>("GetPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsSceneResponse(callApi(params, req, runtime));
 }
 
 GetPtsSceneResponse Alibabacloud_PTS20201020::Client::getPtsScene(shared_ptr<GetPtsSceneRequest> request) {
@@ -214,10 +423,24 @@ GetPtsSceneResponse Alibabacloud_PTS20201020::Client::getPtsScene(shared_ptr<Get
 
 GetPtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::getPtsSceneBaseLineWithOptions(shared_ptr<GetPtsSceneBaseLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsSceneBaseLineResponse(doRPCRequest(make_shared<string>("GetPtsSceneBaseLine"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsSceneBaseLine"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsSceneBaseLineResponse(callApi(params, req, runtime));
 }
 
 GetPtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::getPtsSceneBaseLine(shared_ptr<GetPtsSceneBaseLineRequest> request) {
@@ -227,10 +450,25 @@ GetPtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::getPtsSceneBaseLin
 
 GetPtsSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getPtsSceneRunningDataWithOptions(shared_ptr<GetPtsSceneRunningDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("PlanId", *request->planId));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsSceneRunningDataResponse(doRPCRequest(make_shared<string>("GetPtsSceneRunningData"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsSceneRunningData"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsSceneRunningDataResponse(callApi(params, req, runtime));
 }
 
 GetPtsSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getPtsSceneRunningData(shared_ptr<GetPtsSceneRunningDataRequest> request) {
@@ -240,10 +478,24 @@ GetPtsSceneRunningDataResponse Alibabacloud_PTS20201020::Client::getPtsSceneRunn
 
 GetPtsSceneRunningStatusResponse Alibabacloud_PTS20201020::Client::getPtsSceneRunningStatusWithOptions(shared_ptr<GetPtsSceneRunningStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetPtsSceneRunningStatusResponse(doRPCRequest(make_shared<string>("GetPtsSceneRunningStatus"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPtsSceneRunningStatus"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPtsSceneRunningStatusResponse(callApi(params, req, runtime));
 }
 
 GetPtsSceneRunningStatusResponse Alibabacloud_PTS20201020::Client::getPtsSceneRunningStatus(shared_ptr<GetPtsSceneRunningStatusRequest> request) {
@@ -253,10 +505,27 @@ GetPtsSceneRunningStatusResponse Alibabacloud_PTS20201020::Client::getPtsSceneRu
 
 ListEnvsResponse Alibabacloud_PTS20201020::Client::listEnvsWithOptions(shared_ptr<ListEnvsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("EnvId", *request->envId));
+  query->insert(pair<string, string>("EnvName", *request->envName));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListEnvsResponse(doRPCRequest(make_shared<string>("ListEnvs"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEnvs"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEnvsResponse(callApi(params, req, runtime));
 }
 
 ListEnvsResponse Alibabacloud_PTS20201020::Client::listEnvs(shared_ptr<ListEnvsRequest> request) {
@@ -266,10 +535,30 @@ ListEnvsResponse Alibabacloud_PTS20201020::Client::listEnvs(shared_ptr<ListEnvsR
 
 ListJMeterReportsResponse Alibabacloud_PTS20201020::Client::listJMeterReportsWithOptions(shared_ptr<ListJMeterReportsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  query->insert(pair<string, long>("EndTime", *request->endTime));
+  query->insert(pair<string, string>("Keyword", *request->keyword));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("ReportId", *request->reportId));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListJMeterReportsResponse(doRPCRequest(make_shared<string>("ListJMeterReports"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListJMeterReports"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListJMeterReportsResponse(callApi(params, req, runtime));
 }
 
 ListJMeterReportsResponse Alibabacloud_PTS20201020::Client::listJMeterReports(shared_ptr<ListJMeterReportsRequest> request) {
@@ -279,10 +568,27 @@ ListJMeterReportsResponse Alibabacloud_PTS20201020::Client::listJMeterReports(sh
 
 ListOpenJMeterScenesResponse Alibabacloud_PTS20201020::Client::listOpenJMeterScenesWithOptions(shared_ptr<ListOpenJMeterScenesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
+  query->insert(pair<string, string>("SceneName", *request->sceneName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListOpenJMeterScenesResponse(doRPCRequest(make_shared<string>("ListOpenJMeterScenes"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListOpenJMeterScenes"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListOpenJMeterScenesResponse(callApi(params, req, runtime));
 }
 
 ListOpenJMeterScenesResponse Alibabacloud_PTS20201020::Client::listOpenJMeterScenes(shared_ptr<ListOpenJMeterScenesRequest> request) {
@@ -292,10 +598,26 @@ ListOpenJMeterScenesResponse Alibabacloud_PTS20201020::Client::listOpenJMeterSce
 
 ListPtsSceneResponse Alibabacloud_PTS20201020::Client::listPtsSceneWithOptions(shared_ptr<ListPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("KeyWord", *request->keyWord));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListPtsSceneResponse(doRPCRequest(make_shared<string>("ListPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListPtsSceneResponse(callApi(params, req, runtime));
 }
 
 ListPtsSceneResponse Alibabacloud_PTS20201020::Client::listPtsScene(shared_ptr<ListPtsSceneRequest> request) {
@@ -305,10 +627,24 @@ ListPtsSceneResponse Alibabacloud_PTS20201020::Client::listPtsScene(shared_ptr<L
 
 ModifyPtsSceneResponse Alibabacloud_PTS20201020::Client::modifyPtsSceneWithOptions(shared_ptr<ModifyPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Scene", *request->scene));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ModifyPtsSceneResponse(doRPCRequest(make_shared<string>("ModifyPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyPtsSceneResponse(callApi(params, req, runtime));
 }
 
 ModifyPtsSceneResponse Alibabacloud_PTS20201020::Client::modifyPtsScene(shared_ptr<ModifyPtsSceneRequest> request) {
@@ -318,10 +654,24 @@ ModifyPtsSceneResponse Alibabacloud_PTS20201020::Client::modifyPtsScene(shared_p
 
 RemoveEnvResponse Alibabacloud_PTS20201020::Client::removeEnvWithOptions(shared_ptr<RemoveEnvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("EnvId", *request->envId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return RemoveEnvResponse(doRPCRequest(make_shared<string>("RemoveEnv"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveEnv"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveEnvResponse(callApi(params, req, runtime));
 }
 
 RemoveEnvResponse Alibabacloud_PTS20201020::Client::removeEnv(shared_ptr<RemoveEnvRequest> request) {
@@ -331,10 +681,24 @@ RemoveEnvResponse Alibabacloud_PTS20201020::Client::removeEnv(shared_ptr<RemoveE
 
 RemoveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::removeOpenJMeterSceneWithOptions(shared_ptr<RemoveOpenJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return RemoveOpenJMeterSceneResponse(doRPCRequest(make_shared<string>("RemoveOpenJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveOpenJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveOpenJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 RemoveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::removeOpenJMeterScene(shared_ptr<RemoveOpenJMeterSceneRequest> request) {
@@ -349,10 +713,24 @@ SaveEnvResponse Alibabacloud_PTS20201020::Client::saveEnvWithOptions(shared_ptr<
   if (!Darabonba_Util::Client::isUnset<SaveEnvRequestEnv>(tmpReq->env)) {
     request->envShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->env->toMap()), make_shared<string>("Env"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Env", *request->envShrink));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SaveEnvResponse(doRPCRequest(make_shared<string>("SaveEnv"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveEnv"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveEnvResponse(callApi(params, req, runtime));
 }
 
 SaveEnvResponse Alibabacloud_PTS20201020::Client::saveEnv(shared_ptr<SaveEnvRequest> request) {
@@ -367,10 +745,24 @@ SaveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::saveOpenJMeterScen
   if (!Darabonba_Util::Client::isUnset<SaveOpenJMeterSceneRequestOpenJMeterScene>(tmpReq->openJMeterScene)) {
     request->openJMeterSceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->openJMeterScene->toMap()), make_shared<string>("OpenJMeterScene"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("OpenJMeterScene", *request->openJMeterSceneShrink));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return SaveOpenJMeterSceneResponse(doRPCRequest(make_shared<string>("SaveOpenJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveOpenJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveOpenJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 SaveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::saveOpenJMeterScene(shared_ptr<SaveOpenJMeterSceneRequest> request) {
@@ -380,10 +772,24 @@ SaveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::saveOpenJMeterScen
 
 StartDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::startDebugPtsSceneWithOptions(shared_ptr<StartDebugPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartDebugPtsSceneResponse(doRPCRequest(make_shared<string>("StartDebugPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartDebugPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartDebugPtsSceneResponse(callApi(params, req, runtime));
 }
 
 StartDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::startDebugPtsScene(shared_ptr<StartDebugPtsSceneRequest> request) {
@@ -393,10 +799,24 @@ StartDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::startDebugPtsScene(
 
 StartDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startDebuggingJMeterSceneWithOptions(shared_ptr<StartDebuggingJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartDebuggingJMeterSceneResponse(doRPCRequest(make_shared<string>("StartDebuggingJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartDebuggingJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartDebuggingJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 StartDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startDebuggingJMeterScene(shared_ptr<StartDebuggingJMeterSceneRequest> request) {
@@ -406,10 +826,24 @@ StartDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startDebuggi
 
 StartPtsSceneResponse Alibabacloud_PTS20201020::Client::startPtsSceneWithOptions(shared_ptr<StartPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartPtsSceneResponse(doRPCRequest(make_shared<string>("StartPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartPtsSceneResponse(callApi(params, req, runtime));
 }
 
 StartPtsSceneResponse Alibabacloud_PTS20201020::Client::startPtsScene(shared_ptr<StartPtsSceneRequest> request) {
@@ -419,10 +853,24 @@ StartPtsSceneResponse Alibabacloud_PTS20201020::Client::startPtsScene(shared_ptr
 
 StartTestingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startTestingJMeterSceneWithOptions(shared_ptr<StartTestingJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StartTestingJMeterSceneResponse(doRPCRequest(make_shared<string>("StartTestingJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartTestingJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartTestingJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 StartTestingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startTestingJMeterScene(shared_ptr<StartTestingJMeterSceneRequest> request) {
@@ -432,10 +880,25 @@ StartTestingJMeterSceneResponse Alibabacloud_PTS20201020::Client::startTestingJM
 
 StopDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::stopDebugPtsSceneWithOptions(shared_ptr<StopDebugPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("PlanId", *request->planId));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopDebugPtsSceneResponse(doRPCRequest(make_shared<string>("StopDebugPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopDebugPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopDebugPtsSceneResponse(callApi(params, req, runtime));
 }
 
 StopDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::stopDebugPtsScene(shared_ptr<StopDebugPtsSceneRequest> request) {
@@ -445,10 +908,24 @@ StopDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::stopDebugPtsScene(sh
 
 StopDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::stopDebuggingJMeterSceneWithOptions(shared_ptr<StopDebuggingJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopDebuggingJMeterSceneResponse(doRPCRequest(make_shared<string>("StopDebuggingJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopDebuggingJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopDebuggingJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 StopDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::stopDebuggingJMeterScene(shared_ptr<StopDebuggingJMeterSceneRequest> request) {
@@ -458,10 +935,24 @@ StopDebuggingJMeterSceneResponse Alibabacloud_PTS20201020::Client::stopDebugging
 
 StopPtsSceneResponse Alibabacloud_PTS20201020::Client::stopPtsSceneWithOptions(shared_ptr<StopPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopPtsSceneResponse(doRPCRequest(make_shared<string>("StopPtsScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopPtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopPtsSceneResponse(callApi(params, req, runtime));
 }
 
 StopPtsSceneResponse Alibabacloud_PTS20201020::Client::stopPtsScene(shared_ptr<StopPtsSceneRequest> request) {
@@ -471,10 +962,24 @@ StopPtsSceneResponse Alibabacloud_PTS20201020::Client::stopPtsScene(shared_ptr<S
 
 StopTestingJMeterSceneResponse Alibabacloud_PTS20201020::Client::stopTestingJMeterSceneWithOptions(shared_ptr<StopTestingJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return StopTestingJMeterSceneResponse(doRPCRequest(make_shared<string>("StopTestingJMeterScene"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopTestingJMeterScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopTestingJMeterSceneResponse(callApi(params, req, runtime));
 }
 
 StopTestingJMeterSceneResponse Alibabacloud_PTS20201020::Client::stopTestingJMeterScene(shared_ptr<StopTestingJMeterSceneRequest> request) {
@@ -492,10 +997,26 @@ UpdatePtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::updatePtsSceneB
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->sceneBaseline)) {
     request->sceneBaselineShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sceneBaseline, make_shared<string>("SceneBaseline"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ApiBaselines", *request->apiBaselinesShrink));
+  query->insert(pair<string, string>("SceneBaseline", *request->sceneBaselineShrink));
+  query->insert(pair<string, string>("SceneId", *request->sceneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdatePtsSceneBaseLineResponse(doRPCRequest(make_shared<string>("UpdatePtsSceneBaseLine"), make_shared<string>("2020-10-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePtsSceneBaseLine"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePtsSceneBaseLineResponse(callApi(params, req, runtime));
 }
 
 UpdatePtsSceneBaseLineResponse Alibabacloud_PTS20201020::Client::updatePtsSceneBaseLine(shared_ptr<UpdatePtsSceneBaseLineRequest> request) {
