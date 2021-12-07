@@ -2683,6 +2683,453 @@ public:
 
   virtual ~DescribeActiveOperationTaskCountResponse() = default;
 };
+class DescribeActiveOperationTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> allowCancel{};
+  shared_ptr<long> allowChange{};
+  shared_ptr<string> changeLevel{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> insName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> productId{};
+  shared_ptr<string> region{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> status{};
+  shared_ptr<string> taskType{};
+
+  DescribeActiveOperationTasksRequest() {}
+
+  explicit DescribeActiveOperationTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCancel) {
+      res["AllowCancel"] = boost::any(*allowCancel);
+    }
+    if (allowChange) {
+      res["AllowChange"] = boost::any(*allowChange);
+    }
+    if (changeLevel) {
+      res["ChangeLevel"] = boost::any(*changeLevel);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (productId) {
+      res["ProductId"] = boost::any(*productId);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCancel") != m.end() && !m["AllowCancel"].empty()) {
+      allowCancel = make_shared<long>(boost::any_cast<long>(m["AllowCancel"]));
+    }
+    if (m.find("AllowChange") != m.end() && !m["AllowChange"].empty()) {
+      allowChange = make_shared<long>(boost::any_cast<long>(m["AllowChange"]));
+    }
+    if (m.find("ChangeLevel") != m.end() && !m["ChangeLevel"].empty()) {
+      changeLevel = make_shared<string>(boost::any_cast<string>(m["ChangeLevel"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
+      productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~DescribeActiveOperationTasksRequest() = default;
+};
+class DescribeActiveOperationTasksResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCancel{};
+  shared_ptr<string> allowChange{};
+  shared_ptr<string> changeLevel{};
+  shared_ptr<string> changeLevelEn{};
+  shared_ptr<string> changeLevelZh{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> currentAVZ{};
+  shared_ptr<string> dbType{};
+  shared_ptr<string> dbVersion{};
+  shared_ptr<string> deadline{};
+  shared_ptr<long> id{};
+  shared_ptr<string> impact{};
+  shared_ptr<string> impactEn{};
+  shared_ptr<string> impactZh{};
+  shared_ptr<string> insComment{};
+  shared_ptr<string> insName{};
+  shared_ptr<string> modifiedTime{};
+  shared_ptr<string> prepareInterval{};
+  shared_ptr<string> region{};
+  shared_ptr<string> resultInfo{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> status{};
+  shared_ptr<vector<string>> subInsNames{};
+  shared_ptr<string> switchTime{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> taskTypeEn{};
+  shared_ptr<string> taskTypeZh{};
+
+  DescribeActiveOperationTasksResponseBodyItems() {}
+
+  explicit DescribeActiveOperationTasksResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCancel) {
+      res["AllowCancel"] = boost::any(*allowCancel);
+    }
+    if (allowChange) {
+      res["AllowChange"] = boost::any(*allowChange);
+    }
+    if (changeLevel) {
+      res["ChangeLevel"] = boost::any(*changeLevel);
+    }
+    if (changeLevelEn) {
+      res["ChangeLevelEn"] = boost::any(*changeLevelEn);
+    }
+    if (changeLevelZh) {
+      res["ChangeLevelZh"] = boost::any(*changeLevelZh);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (currentAVZ) {
+      res["CurrentAVZ"] = boost::any(*currentAVZ);
+    }
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (dbVersion) {
+      res["DbVersion"] = boost::any(*dbVersion);
+    }
+    if (deadline) {
+      res["Deadline"] = boost::any(*deadline);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (impact) {
+      res["Impact"] = boost::any(*impact);
+    }
+    if (impactEn) {
+      res["ImpactEn"] = boost::any(*impactEn);
+    }
+    if (impactZh) {
+      res["ImpactZh"] = boost::any(*impactZh);
+    }
+    if (insComment) {
+      res["InsComment"] = boost::any(*insComment);
+    }
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (modifiedTime) {
+      res["ModifiedTime"] = boost::any(*modifiedTime);
+    }
+    if (prepareInterval) {
+      res["PrepareInterval"] = boost::any(*prepareInterval);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (resultInfo) {
+      res["ResultInfo"] = boost::any(*resultInfo);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (subInsNames) {
+      res["SubInsNames"] = boost::any(*subInsNames);
+    }
+    if (switchTime) {
+      res["SwitchTime"] = boost::any(*switchTime);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (taskTypeEn) {
+      res["TaskTypeEn"] = boost::any(*taskTypeEn);
+    }
+    if (taskTypeZh) {
+      res["TaskTypeZh"] = boost::any(*taskTypeZh);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCancel") != m.end() && !m["AllowCancel"].empty()) {
+      allowCancel = make_shared<string>(boost::any_cast<string>(m["AllowCancel"]));
+    }
+    if (m.find("AllowChange") != m.end() && !m["AllowChange"].empty()) {
+      allowChange = make_shared<string>(boost::any_cast<string>(m["AllowChange"]));
+    }
+    if (m.find("ChangeLevel") != m.end() && !m["ChangeLevel"].empty()) {
+      changeLevel = make_shared<string>(boost::any_cast<string>(m["ChangeLevel"]));
+    }
+    if (m.find("ChangeLevelEn") != m.end() && !m["ChangeLevelEn"].empty()) {
+      changeLevelEn = make_shared<string>(boost::any_cast<string>(m["ChangeLevelEn"]));
+    }
+    if (m.find("ChangeLevelZh") != m.end() && !m["ChangeLevelZh"].empty()) {
+      changeLevelZh = make_shared<string>(boost::any_cast<string>(m["ChangeLevelZh"]));
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("CurrentAVZ") != m.end() && !m["CurrentAVZ"].empty()) {
+      currentAVZ = make_shared<string>(boost::any_cast<string>(m["CurrentAVZ"]));
+    }
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("DbVersion") != m.end() && !m["DbVersion"].empty()) {
+      dbVersion = make_shared<string>(boost::any_cast<string>(m["DbVersion"]));
+    }
+    if (m.find("Deadline") != m.end() && !m["Deadline"].empty()) {
+      deadline = make_shared<string>(boost::any_cast<string>(m["Deadline"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Impact") != m.end() && !m["Impact"].empty()) {
+      impact = make_shared<string>(boost::any_cast<string>(m["Impact"]));
+    }
+    if (m.find("ImpactEn") != m.end() && !m["ImpactEn"].empty()) {
+      impactEn = make_shared<string>(boost::any_cast<string>(m["ImpactEn"]));
+    }
+    if (m.find("ImpactZh") != m.end() && !m["ImpactZh"].empty()) {
+      impactZh = make_shared<string>(boost::any_cast<string>(m["ImpactZh"]));
+    }
+    if (m.find("InsComment") != m.end() && !m["InsComment"].empty()) {
+      insComment = make_shared<string>(boost::any_cast<string>(m["InsComment"]));
+    }
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
+      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("PrepareInterval") != m.end() && !m["PrepareInterval"].empty()) {
+      prepareInterval = make_shared<string>(boost::any_cast<string>(m["PrepareInterval"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("ResultInfo") != m.end() && !m["ResultInfo"].empty()) {
+      resultInfo = make_shared<string>(boost::any_cast<string>(m["ResultInfo"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("SubInsNames") != m.end() && !m["SubInsNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SubInsNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SubInsNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      subInsNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SwitchTime") != m.end() && !m["SwitchTime"].empty()) {
+      switchTime = make_shared<string>(boost::any_cast<string>(m["SwitchTime"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("TaskTypeEn") != m.end() && !m["TaskTypeEn"].empty()) {
+      taskTypeEn = make_shared<string>(boost::any_cast<string>(m["TaskTypeEn"]));
+    }
+    if (m.find("TaskTypeZh") != m.end() && !m["TaskTypeZh"].empty()) {
+      taskTypeZh = make_shared<string>(boost::any_cast<string>(m["TaskTypeZh"]));
+    }
+  }
+
+
+  virtual ~DescribeActiveOperationTasksResponseBodyItems() = default;
+};
+class DescribeActiveOperationTasksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeActiveOperationTasksResponseBodyItems>> items{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalRecordCount{};
+
+  DescribeActiveOperationTasksResponseBody() {}
+
+  explicit DescribeActiveOperationTasksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalRecordCount) {
+      res["TotalRecordCount"] = boost::any(*totalRecordCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeActiveOperationTasksResponseBodyItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeActiveOperationTasksResponseBodyItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeActiveOperationTasksResponseBodyItems>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalRecordCount") != m.end() && !m["TotalRecordCount"].empty()) {
+      totalRecordCount = make_shared<long>(boost::any_cast<long>(m["TotalRecordCount"]));
+    }
+  }
+
+
+  virtual ~DescribeActiveOperationTasksResponseBody() = default;
+};
+class DescribeActiveOperationTasksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeActiveOperationTasksResponseBody> body{};
+
+  DescribeActiveOperationTasksResponse() {}
+
+  explicit DescribeActiveOperationTasksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeActiveOperationTasksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeActiveOperationTasksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeActiveOperationTasksResponse() = default;
+};
 class DescribeBackupPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceName{};
@@ -12180,6 +12627,8 @@ public:
   DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConf(shared_ptr<DescribeActiveOperationMaintainConfRequest> request);
   DescribeActiveOperationTaskCountResponse describeActiveOperationTaskCountWithOptions(shared_ptr<DescribeActiveOperationTaskCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeActiveOperationTaskCountResponse describeActiveOperationTaskCount(shared_ptr<DescribeActiveOperationTaskCountRequest> request);
+  DescribeActiveOperationTasksResponse describeActiveOperationTasksWithOptions(shared_ptr<DescribeActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeActiveOperationTasksResponse describeActiveOperationTasks(shared_ptr<DescribeActiveOperationTasksRequest> request);
   DescribeBackupPolicyResponse describeBackupPolicyWithOptions(shared_ptr<DescribeBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeBackupPolicyResponse describeBackupPolicy(shared_ptr<DescribeBackupPolicyRequest> request);
   DescribeBackupSetListResponse describeBackupSetListWithOptions(shared_ptr<DescribeBackupSetListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
