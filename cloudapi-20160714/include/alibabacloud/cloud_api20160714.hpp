@@ -12997,441 +12997,6 @@ public:
 
   virtual ~DescribeApiSignaturesResponse() = default;
 };
-class DescribeApiStageRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> groupId{};
-  shared_ptr<string> securityToken{};
-  shared_ptr<string> stageId{};
-
-  DescribeApiStageRequest() {}
-
-  explicit DescribeApiStageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (groupId) {
-      res["GroupId"] = boost::any(*groupId);
-    }
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
-    if (stageId) {
-      res["StageId"] = boost::any(*stageId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
-      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
-    }
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
-    }
-    if (m.find("StageId") != m.end() && !m["StageId"].empty()) {
-      stageId = make_shared<string>(boost::any_cast<string>(m["StageId"]));
-    }
-  }
-
-
-  virtual ~DescribeApiStageRequest() = default;
-};
-class DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem : public Darabonba::Model {
-public:
-  shared_ptr<string> conditionValue{};
-  shared_ptr<long> maxValue{};
-  shared_ptr<long> minValue{};
-  shared_ptr<string> resultValue{};
-
-  DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem() {}
-
-  explicit DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (conditionValue) {
-      res["ConditionValue"] = boost::any(*conditionValue);
-    }
-    if (maxValue) {
-      res["MaxValue"] = boost::any(*maxValue);
-    }
-    if (minValue) {
-      res["MinValue"] = boost::any(*minValue);
-    }
-    if (resultValue) {
-      res["ResultValue"] = boost::any(*resultValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ConditionValue") != m.end() && !m["ConditionValue"].empty()) {
-      conditionValue = make_shared<string>(boost::any_cast<string>(m["ConditionValue"]));
-    }
-    if (m.find("MaxValue") != m.end() && !m["MaxValue"].empty()) {
-      maxValue = make_shared<long>(boost::any_cast<long>(m["MaxValue"]));
-    }
-    if (m.find("MinValue") != m.end() && !m["MinValue"].empty()) {
-      minValue = make_shared<long>(boost::any_cast<long>(m["MinValue"]));
-    }
-    if (m.find("ResultValue") != m.end() && !m["ResultValue"].empty()) {
-      resultValue = make_shared<string>(boost::any_cast<string>(m["ResultValue"]));
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem() = default;
-};
-class DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules : public Darabonba::Model {
-public:
-  shared_ptr<vector<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem>> routeRuleItem{};
-
-  DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules() {}
-
-  explicit DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (routeRuleItem) {
-      vector<boost::any> temp1;
-      for(auto item1:*routeRuleItem){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["RouteRuleItem"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RouteRuleItem") != m.end() && !m["RouteRuleItem"].empty()) {
-      if (typeid(vector<boost::any>) == m["RouteRuleItem"].type()) {
-        vector<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteRuleItem"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        routeRuleItem = make_shared<vector<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRulesRouteRuleItem>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules() = default;
-};
-class DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel : public Darabonba::Model {
-public:
-  shared_ptr<string> location{};
-  shared_ptr<string> parameterCatalog{};
-  shared_ptr<string> parameterType{};
-  shared_ptr<string> routeMatchSymbol{};
-  shared_ptr<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules> routeRules{};
-  shared_ptr<string> serviceParameterName{};
-
-  DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel() {}
-
-  explicit DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (location) {
-      res["Location"] = boost::any(*location);
-    }
-    if (parameterCatalog) {
-      res["ParameterCatalog"] = boost::any(*parameterCatalog);
-    }
-    if (parameterType) {
-      res["ParameterType"] = boost::any(*parameterType);
-    }
-    if (routeMatchSymbol) {
-      res["RouteMatchSymbol"] = boost::any(*routeMatchSymbol);
-    }
-    if (routeRules) {
-      res["RouteRules"] = routeRules ? boost::any(routeRules->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (serviceParameterName) {
-      res["ServiceParameterName"] = boost::any(*serviceParameterName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Location") != m.end() && !m["Location"].empty()) {
-      location = make_shared<string>(boost::any_cast<string>(m["Location"]));
-    }
-    if (m.find("ParameterCatalog") != m.end() && !m["ParameterCatalog"].empty()) {
-      parameterCatalog = make_shared<string>(boost::any_cast<string>(m["ParameterCatalog"]));
-    }
-    if (m.find("ParameterType") != m.end() && !m["ParameterType"].empty()) {
-      parameterType = make_shared<string>(boost::any_cast<string>(m["ParameterType"]));
-    }
-    if (m.find("RouteMatchSymbol") != m.end() && !m["RouteMatchSymbol"].empty()) {
-      routeMatchSymbol = make_shared<string>(boost::any_cast<string>(m["RouteMatchSymbol"]));
-    }
-    if (m.find("RouteRules") != m.end() && !m["RouteRules"].empty()) {
-      if (typeid(map<string, boost::any>) == m["RouteRules"].type()) {
-        DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteRules"]));
-        routeRules = make_shared<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModelRouteRules>(model1);
-      }
-    }
-    if (m.find("ServiceParameterName") != m.end() && !m["ServiceParameterName"].empty()) {
-      serviceParameterName = make_shared<string>(boost::any_cast<string>(m["ServiceParameterName"]));
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel() = default;
-};
-class DescribeApiStageResponseBodyVariablesVariableItem : public Darabonba::Model {
-public:
-  shared_ptr<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel> stageRouteModel{};
-  shared_ptr<bool> supportRoute{};
-  shared_ptr<string> variableName{};
-  shared_ptr<string> variableValue{};
-
-  DescribeApiStageResponseBodyVariablesVariableItem() {}
-
-  explicit DescribeApiStageResponseBodyVariablesVariableItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (stageRouteModel) {
-      res["StageRouteModel"] = stageRouteModel ? boost::any(stageRouteModel->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (supportRoute) {
-      res["SupportRoute"] = boost::any(*supportRoute);
-    }
-    if (variableName) {
-      res["VariableName"] = boost::any(*variableName);
-    }
-    if (variableValue) {
-      res["VariableValue"] = boost::any(*variableValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("StageRouteModel") != m.end() && !m["StageRouteModel"].empty()) {
-      if (typeid(map<string, boost::any>) == m["StageRouteModel"].type()) {
-        DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StageRouteModel"]));
-        stageRouteModel = make_shared<DescribeApiStageResponseBodyVariablesVariableItemStageRouteModel>(model1);
-      }
-    }
-    if (m.find("SupportRoute") != m.end() && !m["SupportRoute"].empty()) {
-      supportRoute = make_shared<bool>(boost::any_cast<bool>(m["SupportRoute"]));
-    }
-    if (m.find("VariableName") != m.end() && !m["VariableName"].empty()) {
-      variableName = make_shared<string>(boost::any_cast<string>(m["VariableName"]));
-    }
-    if (m.find("VariableValue") != m.end() && !m["VariableValue"].empty()) {
-      variableValue = make_shared<string>(boost::any_cast<string>(m["VariableValue"]));
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBodyVariablesVariableItem() = default;
-};
-class DescribeApiStageResponseBodyVariables : public Darabonba::Model {
-public:
-  shared_ptr<vector<DescribeApiStageResponseBodyVariablesVariableItem>> variableItem{};
-
-  DescribeApiStageResponseBodyVariables() {}
-
-  explicit DescribeApiStageResponseBodyVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (variableItem) {
-      vector<boost::any> temp1;
-      for(auto item1:*variableItem){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["VariableItem"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("VariableItem") != m.end() && !m["VariableItem"].empty()) {
-      if (typeid(vector<boost::any>) == m["VariableItem"].type()) {
-        vector<DescribeApiStageResponseBodyVariablesVariableItem> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["VariableItem"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeApiStageResponseBodyVariablesVariableItem model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        variableItem = make_shared<vector<DescribeApiStageResponseBodyVariablesVariableItem>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBodyVariables() = default;
-};
-class DescribeApiStageResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> createdTime{};
-  shared_ptr<string> description{};
-  shared_ptr<string> groupId{};
-  shared_ptr<string> modifiedTime{};
-  shared_ptr<string> requestId{};
-  shared_ptr<string> stageId{};
-  shared_ptr<string> stageName{};
-  shared_ptr<DescribeApiStageResponseBodyVariables> variables{};
-
-  DescribeApiStageResponseBody() {}
-
-  explicit DescribeApiStageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (createdTime) {
-      res["CreatedTime"] = boost::any(*createdTime);
-    }
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (groupId) {
-      res["GroupId"] = boost::any(*groupId);
-    }
-    if (modifiedTime) {
-      res["ModifiedTime"] = boost::any(*modifiedTime);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (stageId) {
-      res["StageId"] = boost::any(*stageId);
-    }
-    if (stageName) {
-      res["StageName"] = boost::any(*stageName);
-    }
-    if (variables) {
-      res["Variables"] = variables ? boost::any(variables->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
-      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
-    }
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
-      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
-    }
-    if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
-      modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("StageId") != m.end() && !m["StageId"].empty()) {
-      stageId = make_shared<string>(boost::any_cast<string>(m["StageId"]));
-    }
-    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
-      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
-    }
-    if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Variables"].type()) {
-        DescribeApiStageResponseBodyVariables model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Variables"]));
-        variables = make_shared<DescribeApiStageResponseBodyVariables>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponseBody() = default;
-};
-class DescribeApiStageResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<DescribeApiStageResponseBody> body{};
-
-  DescribeApiStageResponse() {}
-
-  explicit DescribeApiStageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeApiStageResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeApiStageResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeApiStageResponse() = default;
-};
 class DescribeApiTrafficControlsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiIds{};
@@ -25321,11 +24886,11 @@ public:
 };
 class DescribeVpcAccessesRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> accurateQuery{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> securityToken{};
+  shared_ptr<string> vpcAccessId{};
 
   DescribeVpcAccessesRequest() {}
 
@@ -25337,9 +24902,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (accurateQuery) {
-      res["AccurateQuery"] = boost::any(*accurateQuery);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -25352,13 +24914,13 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (vpcAccessId) {
+      res["VpcAccessId"] = boost::any(*vpcAccessId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccurateQuery") != m.end() && !m["AccurateQuery"].empty()) {
-      accurateQuery = make_shared<bool>(boost::any_cast<bool>(m["AccurateQuery"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -25370,6 +24932,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("VpcAccessId") != m.end() && !m["VpcAccessId"].empty()) {
+      vpcAccessId = make_shared<string>(boost::any_cast<string>(m["VpcAccessId"]));
     }
   }
 
@@ -25384,6 +24949,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> port{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> vpcAccessId{};
   shared_ptr<string> vpcId{};
 
   DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribute() {}
@@ -25414,6 +24980,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (vpcAccessId) {
+      res["VpcAccessId"] = boost::any(*vpcAccessId);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -25438,6 +25007,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VpcAccessId") != m.end() && !m["VpcAccessId"].empty()) {
+      vpcAccessId = make_shared<string>(boost::any_cast<string>(m["VpcAccessId"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -25817,6 +25389,7 @@ public:
   shared_ptr<map<string, boost::any>> globalCondition{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> overwrite{};
+  shared_ptr<string> securityToken{};
 
   DryRunSwaggerRequest() {}
 
@@ -25843,6 +25416,9 @@ public:
     if (overwrite) {
       res["Overwrite"] = boost::any(*overwrite);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -25867,6 +25443,9 @@ public:
     if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
       overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
     }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
   }
 
 
@@ -25879,6 +25458,7 @@ public:
   shared_ptr<string> globalConditionShrink{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> overwrite{};
+  shared_ptr<string> securityToken{};
 
   DryRunSwaggerShrinkRequest() {}
 
@@ -25905,6 +25485,9 @@ public:
     if (overwrite) {
       res["Overwrite"] = boost::any(*overwrite);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -25923,6 +25506,9 @@ public:
     }
     if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
       overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -26434,6 +26020,7 @@ public:
   shared_ptr<map<string, boost::any>> globalCondition{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> overwrite{};
+  shared_ptr<string> securityToken{};
 
   ImportSwaggerRequest() {}
 
@@ -26463,6 +26050,9 @@ public:
     if (overwrite) {
       res["Overwrite"] = boost::any(*overwrite);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -26490,6 +26080,9 @@ public:
     if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
       overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
     }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
   }
 
 
@@ -26503,6 +26096,7 @@ public:
   shared_ptr<string> globalConditionShrink{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> overwrite{};
+  shared_ptr<string> securityToken{};
 
   ImportSwaggerShrinkRequest() {}
 
@@ -26532,6 +26126,9 @@ public:
     if (overwrite) {
       res["Overwrite"] = boost::any(*overwrite);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -26553,6 +26150,9 @@ public:
     }
     if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
       overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -33356,8 +32956,6 @@ public:
   DescribeApiQpsDataResponse describeApiQpsData(shared_ptr<DescribeApiQpsDataRequest> request);
   DescribeApiSignaturesResponse describeApiSignaturesWithOptions(shared_ptr<DescribeApiSignaturesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApiSignaturesResponse describeApiSignatures(shared_ptr<DescribeApiSignaturesRequest> request);
-  DescribeApiStageResponse describeApiStageWithOptions(shared_ptr<DescribeApiStageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeApiStageResponse describeApiStage(shared_ptr<DescribeApiStageRequest> request);
   DescribeApiTrafficControlsResponse describeApiTrafficControlsWithOptions(shared_ptr<DescribeApiTrafficControlsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApiTrafficControlsResponse describeApiTrafficControls(shared_ptr<DescribeApiTrafficControlsRequest> request);
   DescribeApiTrafficDataResponse describeApiTrafficDataWithOptions(shared_ptr<DescribeApiTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
