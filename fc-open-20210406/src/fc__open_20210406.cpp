@@ -64,13 +64,13 @@ string Alibabacloud_FC-Open20210406::Client::getEndpoint(shared_ptr<string> prod
 
 CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateAliasHeaders> headers = make_shared<CreateAliasHeaders>();
   return createAliasWithOptions(serviceName, request, headers, runtime);
 }
 
 CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAliasWithOptions(shared_ptr<string> serviceName,
                                                                                  shared_ptr<CreateAliasRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<CreateAliasHeaders> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -87,20 +87,53 @@ CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAliasWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->versionId)) {
     (*body)["versionId"] = *request->versionId;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateAliasResponse(doROARequest(make_shared<string>("CreateAlias"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateAlias"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateAliasResponse(callApi(params, req, runtime));
 }
 
 CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomain(shared_ptr<CreateCustomDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateCustomDomainHeaders> headers = make_shared<CreateCustomDomainHeaders>();
   return createCustomDomainWithOptions(request, headers, runtime);
 }
 
-CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomainWithOptions(shared_ptr<CreateCustomDomainRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomainWithOptions(shared_ptr<CreateCustomDomainRequest> request, shared_ptr<CreateCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<CertConfig>(request->certConfig)) {
@@ -115,11 +148,44 @@ CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDom
   if (!Darabonba_Util::Client::isUnset<RouteConfig>(request->routeConfig)) {
     (*body)["routeConfig"] = *request->routeConfig;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateCustomDomainResponse(doROARequest(make_shared<string>("CreateCustomDomain"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/custom-domains")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomDomain"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/custom-domains"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomDomainResponse(callApi(params, req, runtime));
 }
 
 CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request) {
@@ -193,25 +259,51 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
-    (*realHeaders)["x-fc-code-checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateFunctionResponse(doROARequest(make_shared<string>("CreateFunction"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFunction"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateFunctionResponse(callApi(params, req, runtime));
 }
 
 CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateLayerVersionHeaders> headers = make_shared<CreateLayerVersionHeaders>();
   return createLayerVersionWithOptions(layerName, request, headers, runtime);
 }
 
 CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersionWithOptions(shared_ptr<string> layerName,
                                                                                                shared_ptr<CreateLayerVersionRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<CreateLayerVersionHeaders> headers,
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
@@ -225,20 +317,53 @@ CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVers
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     (*body)["description"] = *request->description;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateLayerVersionResponse(doROARequest(make_shared<string>("CreateLayerVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers/") + string(*layerName) + string("/versions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateLayerVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers/") + string(*layerName) + string("/versions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateLayerVersionResponse(callApi(params, req, runtime));
 }
 
 CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createService(shared_ptr<CreateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateServiceHeaders> headers = make_shared<CreateServiceHeaders>();
   return createServiceWithOptions(request, headers, runtime);
 }
 
-CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<CreateServiceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
@@ -265,23 +390,56 @@ CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOpt
   if (!Darabonba_Util::Client::isUnset<VPCConfig>(request->vpcConfig)) {
     (*body)["vpcConfig"] = *request->vpcConfig;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateServiceResponse(doROARequest(make_shared<string>("CreateService"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateService"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateServiceResponse(callApi(params, req, runtime));
 }
 
 CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateTriggerHeaders> headers = make_shared<CreateTriggerHeaders>();
   return createTriggerWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOptions(shared_ptr<string> serviceName,
                                                                                      shared_ptr<string> functionName,
                                                                                      shared_ptr<CreateTriggerRequest> request,
-                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<CreateTriggerHeaders> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -308,22 +466,55 @@ CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->triggerType)) {
     (*body)["triggerType"] = *request->triggerType;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateTriggerResponse(doROARequest(make_shared<string>("CreateTrigger"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTrigger"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTriggerResponse(callApi(params, req, runtime));
 }
 
 CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CreateVpcBindingHeaders> headers = make_shared<CreateVpcBindingHeaders>();
   return createVpcBindingWithOptions(serviceName, request, headers, runtime);
 }
 
 CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBindingWithOptions(shared_ptr<string> serviceName,
                                                                                            shared_ptr<CreateVpcBindingRequest> request,
-                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<CreateVpcBindingHeaders> headers,
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -331,11 +522,44 @@ CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBindingW
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     (*body)["vpcId"] = *request->vpcId;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CreateVpcBindingResponse(doROARequest(make_shared<string>("CreateVpcBinding"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings")), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateVpcBinding"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return CreateVpcBindingResponse(callApi(params, req, runtime));
 }
 
 DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
@@ -357,24 +581,86 @@ DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAliasWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteAliasResponse(doROARequest(make_shared<string>("DeleteAlias"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAlias"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteAliasResponse(callApi(params, req, runtime));
 }
 
 DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomain(shared_ptr<string> domainName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeleteCustomDomainHeaders> headers = make_shared<DeleteCustomDomainHeaders>();
   return deleteCustomDomainWithOptions(domainName, headers, runtime);
 }
 
-DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<DeleteCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   domainName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(domainName));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteCustomDomainResponse(doROARequest(make_shared<string>("DeleteCustomDomain"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/custom-domains/") + string(*domainName)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomDomain"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/custom-domains/") + string(*domainName))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteCustomDomainResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName) {
@@ -396,22 +682,51 @@ DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionWithO
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteFunctionResponse(doROARequest(make_shared<string>("DeleteFunction"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFunction"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteFunctionResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeleteFunctionAsyncInvokeConfigHeaders> headers = make_shared<DeleteFunctionAsyncInvokeConfigHeaders>();
   return deleteFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                                          shared_ptr<string> functionName,
                                                                                                                          shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request,
-                                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                                         shared_ptr<DeleteFunctionAsyncInvokeConfigHeaders> headers,
                                                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -420,11 +735,44 @@ DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return DeleteFunctionAsyncInvokeConfigResponse(doROARequest(make_shared<string>("DeleteFunctionAsyncInvokeConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config")), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFunctionAsyncInvokeConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request) {
@@ -452,29 +800,91 @@ DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::delet
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return DeleteFunctionOnDemandConfigResponse(doROARequest(make_shared<string>("DeleteFunctionOnDemandConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config")), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteFunctionOnDemandConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeleteLayerVersionHeaders> headers = make_shared<DeleteLayerVersionHeaders>();
   return deleteLayerVersionWithOptions(layerName, version, headers, runtime);
 }
 
 DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersionWithOptions(shared_ptr<string> layerName,
                                                                                                shared_ptr<string> version,
-                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<DeleteLayerVersionHeaders> headers,
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
   version = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(version));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteLayerVersionResponse(doROARequest(make_shared<string>("DeleteLayerVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteLayerVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteLayerVersionResponse(callApi(params, req, runtime));
 }
 
 DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteService(shared_ptr<string> serviceName) {
@@ -492,28 +902,90 @@ DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteServiceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteServiceResponse(doROARequest(make_shared<string>("DeleteService"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteService"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteServiceResponse(callApi(params, req, runtime));
 }
 
 DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeleteServiceVersionHeaders> headers = make_shared<DeleteServiceVersionHeaders>();
   return deleteServiceVersionWithOptions(serviceName, versionId, headers, runtime);
 }
 
 DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersionWithOptions(shared_ptr<string> serviceName,
                                                                                                    shared_ptr<string> versionId,
-                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<DeleteServiceVersionHeaders> headers,
                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
   versionId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(versionId));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteServiceVersionResponse(doROARequest(make_shared<string>("DeleteServiceVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/versions/") + string(*versionId)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteServiceVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/versions/") + string(*versionId))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteServiceVersionResponse(callApi(params, req, runtime));
 }
 
 DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
@@ -537,28 +1009,90 @@ DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTriggerWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteTriggerResponse(doROARequest(make_shared<string>("DeleteTrigger"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTrigger"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteTriggerResponse(callApi(params, req, runtime));
 }
 
 DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeleteVpcBindingHeaders> headers = make_shared<DeleteVpcBindingHeaders>();
   return deleteVpcBindingWithOptions(serviceName, vpcId, headers, runtime);
 }
 
 DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBindingWithOptions(shared_ptr<string> serviceName,
                                                                                            shared_ptr<string> vpcId,
-                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<DeleteVpcBindingHeaders> headers,
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
   vpcId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(vpcId));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return DeleteVpcBindingResponse(doROARequest(make_shared<string>("DeleteVpcBinding"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings/") + string(*vpcId)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteVpcBinding"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings/") + string(*vpcId))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteVpcBindingResponse(callApi(params, req, runtime));
 }
 
 DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEventSource(shared_ptr<string> serviceName,
@@ -566,7 +1100,7 @@ DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEv
                                                                                           shared_ptr<string> sourceArn,
                                                                                           shared_ptr<DeregisterEventSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<DeregisterEventSourceHeaders> headers = make_shared<DeregisterEventSourceHeaders>();
   return deregisterEventSourceWithOptions(serviceName, functionName, sourceArn, request, headers, runtime);
 }
 
@@ -574,7 +1108,7 @@ DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEv
                                                                                                      shared_ptr<string> functionName,
                                                                                                      shared_ptr<string> sourceArn,
                                                                                                      shared_ptr<DeregisterEventSourceRequest> request,
-                                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                                     shared_ptr<DeregisterEventSourceHeaders> headers,
                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -584,68 +1118,200 @@ DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEv
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return DeregisterEventSourceResponse(doROARequest(make_shared<string>("DeregisterEventSource"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources/") + string(*sourceArn)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeregisterEventSource"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources/") + string(*sourceArn))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeregisterEventSourceResponse(callApi(params, req, runtime));
 }
 
 GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettings() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetAccountSettingsHeaders> headers = make_shared<GetAccountSettingsHeaders>();
   return getAccountSettingsWithOptions(headers, runtime);
 }
 
-GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettingsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettingsWithOptions(shared_ptr<GetAccountSettingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetAccountSettingsResponse(doROARequest(make_shared<string>("GetAccountSettings"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/account-settings")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAccountSettings"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/account-settings"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAccountSettingsResponse(callApi(params, req, runtime));
 }
 
 GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetAliasHeaders> headers = make_shared<GetAliasHeaders>();
   return getAliasWithOptions(serviceName, aliasName, headers, runtime);
 }
 
 GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAliasWithOptions(shared_ptr<string> serviceName,
                                                                            shared_ptr<string> aliasName,
-                                                                           shared_ptr<map<string, string>> headers,
+                                                                           shared_ptr<GetAliasHeaders> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
   aliasName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(aliasName));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetAliasResponse(doROARequest(make_shared<string>("GetAlias"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAlias"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAliasResponse(callApi(params, req, runtime));
 }
 
 GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomain(shared_ptr<string> domainName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetCustomDomainHeaders> headers = make_shared<GetCustomDomainHeaders>();
   return getCustomDomainWithOptions(domainName, headers, runtime);
 }
 
-GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<GetCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   domainName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(domainName));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetCustomDomainResponse(doROARequest(make_shared<string>("GetCustomDomain"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/custom-domains/") + string(*domainName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCustomDomain"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/custom-domains/") + string(*domainName))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCustomDomainResponse(callApi(params, req, runtime));
 }
 
 GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetFunctionHeaders> headers = make_shared<GetFunctionHeaders>();
   return getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunctionWithOptions(shared_ptr<string> serviceName,
                                                                                  shared_ptr<string> functionName,
                                                                                  shared_ptr<GetFunctionRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<GetFunctionHeaders> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -654,23 +1320,56 @@ GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunctionWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetFunctionResponse(doROARequest(make_shared<string>("GetFunction"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFunction"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFunctionResponse(callApi(params, req, runtime));
 }
 
 GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetFunctionAsyncInvokeConfigHeaders> headers = make_shared<GetFunctionAsyncInvokeConfigHeaders>();
   return getFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                                    shared_ptr<string> functionName,
                                                                                                                    shared_ptr<GetFunctionAsyncInvokeConfigRequest> request,
-                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<GetFunctionAsyncInvokeConfigHeaders> headers,
                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -679,23 +1378,56 @@ GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFu
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetFunctionAsyncInvokeConfigResponse(doROARequest(make_shared<string>("GetFunctionAsyncInvokeConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFunctionAsyncInvokeConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetFunctionCodeHeaders> headers = make_shared<GetFunctionCodeHeaders>();
   return getFunctionCodeWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCodeWithOptions(shared_ptr<string> serviceName,
                                                                                          shared_ptr<string> functionName,
                                                                                          shared_ptr<GetFunctionCodeRequest> request,
-                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                         shared_ptr<GetFunctionCodeHeaders> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -704,23 +1436,56 @@ GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCodeWit
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetFunctionCodeResponse(doROARequest(make_shared<string>("GetFunctionCode"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/code")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFunctionCode"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/code"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFunctionCodeResponse(callApi(params, req, runtime));
 }
 
 GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetFunctionOnDemandConfigHeaders> headers = make_shared<GetFunctionOnDemandConfigHeaders>();
   return getFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                              shared_ptr<string> functionName,
                                                                                                              shared_ptr<GetFunctionOnDemandConfigRequest> request,
-                                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                                             shared_ptr<GetFunctionOnDemandConfigHeaders> headers,
                                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -729,55 +1494,154 @@ GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunct
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetFunctionOnDemandConfigResponse(doROARequest(make_shared<string>("GetFunctionOnDemandConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFunctionOnDemandConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetLayerVersionHeaders> headers = make_shared<GetLayerVersionHeaders>();
   return getLayerVersionWithOptions(layerName, version, headers, runtime);
 }
 
 GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionWithOptions(shared_ptr<string> layerName,
                                                                                          shared_ptr<string> version,
-                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                         shared_ptr<GetLayerVersionHeaders> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
   version = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(version));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetLayerVersionResponse(doROARequest(make_shared<string>("GetLayerVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLayerVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLayerVersionResponse(callApi(params, req, runtime));
 }
 
 GetLayerVersionByArnResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionByArn(shared_ptr<string> arn) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetLayerVersionByArnHeaders> headers = make_shared<GetLayerVersionByArnHeaders>();
   return getLayerVersionByArnWithOptions(arn, headers, runtime);
 }
 
-GetLayerVersionByArnResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionByArnWithOptions(shared_ptr<string> arn, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetLayerVersionByArnResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionByArnWithOptions(shared_ptr<string> arn, shared_ptr<GetLayerVersionByArnHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   arn = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(arn));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetLayerVersionByArnResponse(doROARequest(make_shared<string>("GetLayerVersionByArn"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layerarn/") + string(*arn)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLayerVersionByArn"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layerarn/") + string(*arn))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLayerVersionByArnResponse(callApi(params, req, runtime));
 }
 
 GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetProvisionConfigHeaders> headers = make_shared<GetProvisionConfigHeaders>();
   return getProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                shared_ptr<string> functionName,
                                                                                                shared_ptr<GetProvisionConfigRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<GetProvisionConfigHeaders> headers,
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -786,41 +1650,107 @@ GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionCon
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetProvisionConfigResponse(doROARequest(make_shared<string>("GetProvisionConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/provision-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetProvisionConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/provision-config"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetProvisionConfigResponse(callApi(params, req, runtime));
 }
 
 GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTags(shared_ptr<GetResourceTagsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetResourceTagsHeaders> headers = make_shared<GetResourceTagsHeaders>();
   return getResourceTagsWithOptions(request, headers, runtime);
 }
 
-GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTagsWithOptions(shared_ptr<GetResourceTagsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTagsWithOptions(shared_ptr<GetResourceTagsRequest> request, shared_ptr<GetResourceTagsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceArn)) {
     (*query)["resourceArn"] = *request->resourceArn;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetResourceTagsResponse(doROARequest(make_shared<string>("GetResourceTags"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/tag")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetResourceTags"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/tag"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetResourceTagsResponse(callApi(params, req, runtime));
 }
 
 GetServiceResponse Alibabacloud_FC-Open20210406::Client::getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetServiceHeaders> headers = make_shared<GetServiceHeaders>();
   return getServiceWithOptions(serviceName, request, headers, runtime);
 }
 
 GetServiceResponse Alibabacloud_FC-Open20210406::Client::getServiceWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<GetServiceRequest> request,
-                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<GetServiceHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -828,11 +1758,44 @@ GetServiceResponse Alibabacloud_FC-Open20210406::Client::getServiceWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetServiceResponse(doROARequest(make_shared<string>("GetService"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetService"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceResponse(callApi(params, req, runtime));
 }
 
 GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStatefulAsyncInvocation(shared_ptr<string> serviceName,
@@ -840,7 +1803,7 @@ GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStat
                                                                                                     shared_ptr<string> invocationId,
                                                                                                     shared_ptr<GetStatefulAsyncInvocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetStatefulAsyncInvocationHeaders> headers = make_shared<GetStatefulAsyncInvocationHeaders>();
   return getStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
 }
 
@@ -848,7 +1811,7 @@ GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStat
                                                                                                                shared_ptr<string> functionName,
                                                                                                                shared_ptr<string> invocationId,
                                                                                                                shared_ptr<GetStatefulAsyncInvocationRequest> request,
-                                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                                               shared_ptr<GetStatefulAsyncInvocationHeaders> headers,
                                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -858,31 +1821,97 @@ GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStat
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetStatefulAsyncInvocationResponse(doROARequest(make_shared<string>("GetStatefulAsyncInvocation"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations/") + string(*invocationId)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStatefulAsyncInvocation"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations/") + string(*invocationId))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
 GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<GetTriggerHeaders> headers = make_shared<GetTriggerHeaders>();
   return getTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
 }
 
 GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTriggerWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
                                                                                shared_ptr<string> triggerName,
-                                                                               shared_ptr<map<string, string>> headers,
+                                                                               shared_ptr<GetTriggerHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
   functionName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName));
   triggerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(triggerName));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return GetTriggerResponse(doROARequest(make_shared<string>("GetTrigger"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTrigger"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTriggerResponse(callApi(params, req, runtime));
 }
 
 InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request) {
@@ -910,32 +1939,52 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
     (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
-    (*realHeaders)["x-fc-invocation-type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
   }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
-    (*realHeaders)["x-fc-log-type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
   }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcStatefulAsyncInvocationId)) {
-    (*realHeaders)["x-fc-stateful-async-invocation-id"] = Darabonba_Util::Client::toJSONString(headers->xFcStatefulAsyncInvocationId);
+    (*realHeaders)["X-Fc-Stateful-Async-Invocation-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcStatefulAsyncInvocationId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)}
   }));
-  return InvokeFunctionResponse(doROARequest(make_shared<string>("InvokeFunction"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/invocations")), make_shared<string>("byte"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InvokeFunction"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/invocations"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("byte"))}
+  }));
+  return InvokeFunctionResponse(callApi(params, req, runtime));
 }
 
 ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListAliasesHeaders> headers = make_shared<ListAliasesHeaders>();
   return listAliasesWithOptions(serviceName, request, headers, runtime);
 }
 
 ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliasesWithOptions(shared_ptr<string> serviceName,
                                                                                  shared_ptr<ListAliasesRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<ListAliasesHeaders> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -952,20 +2001,53 @@ ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliasesWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListAliasesResponse(doROARequest(make_shared<string>("ListAliases"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAliases"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAliasesResponse(callApi(params, req, runtime));
 }
 
 ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomains(shared_ptr<ListCustomDomainsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListCustomDomainsHeaders> headers = make_shared<ListCustomDomainsHeaders>();
   return listCustomDomainsWithOptions(request, headers, runtime);
 }
 
-ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomainsWithOptions(shared_ptr<ListCustomDomainsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomainsWithOptions(shared_ptr<ListCustomDomainsRequest> request, shared_ptr<ListCustomDomainsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -980,23 +2062,56 @@ ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomain
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListCustomDomainsResponse(doROARequest(make_shared<string>("ListCustomDomains"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/custom-domains")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomDomains"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/custom-domains"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomDomainsResponse(callApi(params, req, runtime));
 }
 
 ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListEventSourcesHeaders> headers = make_shared<ListEventSourcesHeaders>();
   return listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSourcesWithOptions(shared_ptr<string> serviceName,
                                                                                            shared_ptr<string> functionName,
                                                                                            shared_ptr<ListEventSourcesRequest> request,
-                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<ListEventSourcesHeaders> headers,
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1005,23 +2120,56 @@ ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSourcesW
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListEventSourcesResponse(doROARequest(make_shared<string>("ListEventSources"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEventSources"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEventSourcesResponse(callApi(params, req, runtime));
 }
 
 ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListFunctionAsyncInvokeConfigsHeaders> headers = make_shared<ListFunctionAsyncInvokeConfigsHeaders>();
   return listFunctionAsyncInvokeConfigsWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigsWithOptions(shared_ptr<string> serviceName,
                                                                                                                        shared_ptr<string> functionName,
                                                                                                                        shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request,
-                                                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                                                       shared_ptr<ListFunctionAsyncInvokeConfigsHeaders> headers,
                                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1033,22 +2181,55 @@ ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::lis
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     (*query)["nextToken"] = *request->nextToken;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListFunctionAsyncInvokeConfigsResponse(doROARequest(make_shared<string>("ListFunctionAsyncInvokeConfigs"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-configs")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListFunctionAsyncInvokeConfigs"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-configs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListFunctionAsyncInvokeConfigsResponse(callApi(params, req, runtime));
 }
 
 ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListFunctionsHeaders> headers = make_shared<ListFunctionsHeaders>();
   return listFunctionsWithOptions(serviceName, request, headers, runtime);
 }
 
 ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOptions(shared_ptr<string> serviceName,
                                                                                      shared_ptr<ListFunctionsRequest> request,
-                                                                                     shared_ptr<map<string, string>> headers,
+                                                                                     shared_ptr<ListFunctionsHeaders> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1068,11 +2249,44 @@ ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListFunctionsResponse(doROARequest(make_shared<string>("ListFunctions"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListFunctions"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListFunctionsResponse(callApi(params, req, runtime));
 }
 
 ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request) {
@@ -1110,18 +2324,29 @@ ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOpt
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListInstancesResponse(doROARequest(make_shared<string>("ListInstances"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/instances")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListInstances"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/instances"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListInstancesResponse(callApi(params, req, runtime));
 }
 
 ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListLayerVersionsHeaders> headers = make_shared<ListLayerVersionsHeaders>();
   return listLayerVersionsWithOptions(layerName, request, headers, runtime);
 }
 
 ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersionsWithOptions(shared_ptr<string> layerName,
                                                                                              shared_ptr<ListLayerVersionsRequest> request,
-                                                                                             shared_ptr<map<string, string>> headers,
+                                                                                             shared_ptr<ListLayerVersionsHeaders> headers,
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
@@ -1132,20 +2357,53 @@ ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersion
   if (!Darabonba_Util::Client::isUnset<long>(request->startVersion)) {
     (*query)["startVersion"] = *request->startVersion;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListLayerVersionsResponse(doROARequest(make_shared<string>("ListLayerVersions"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers/") + string(*layerName) + string("/versions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLayerVersions"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers/") + string(*layerName) + string("/versions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLayerVersionsResponse(callApi(params, req, runtime));
 }
 
 ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayers(shared_ptr<ListLayersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListLayersHeaders> headers = make_shared<ListLayersHeaders>();
   return listLayersWithOptions(request, headers, runtime);
 }
 
-ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(shared_ptr<ListLayersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(shared_ptr<ListLayersRequest> request, shared_ptr<ListLayersHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -1160,20 +2418,53 @@ ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListLayersResponse(doROARequest(make_shared<string>("ListLayers"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLayers"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLayersResponse(callApi(params, req, runtime));
 }
 
 ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListOnDemandConfigsHeaders> headers = make_shared<ListOnDemandConfigsHeaders>();
   return listOnDemandConfigsWithOptions(request, headers, runtime);
 }
 
-ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigsWithOptions(shared_ptr<ListOnDemandConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigsWithOptions(shared_ptr<ListOnDemandConfigsRequest> request, shared_ptr<ListOnDemandConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -1188,20 +2479,53 @@ ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandCo
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListOnDemandConfigsResponse(doROARequest(make_shared<string>("ListOnDemandConfigs"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/on-demand-configs")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListOnDemandConfigs"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/on-demand-configs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListOnDemandConfigsResponse(callApi(params, req, runtime));
 }
 
 ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListProvisionConfigsHeaders> headers = make_shared<ListProvisionConfigsHeaders>();
   return listProvisionConfigsWithOptions(request, headers, runtime);
 }
 
-ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigsWithOptions(shared_ptr<ListProvisionConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigsWithOptions(shared_ptr<ListProvisionConfigsRequest> request, shared_ptr<ListProvisionConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -1216,20 +2540,53 @@ ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvision
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     (*query)["serviceName"] = *request->serviceName;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListProvisionConfigsResponse(doROARequest(make_shared<string>("ListProvisionConfigs"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/provision-configs")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListProvisionConfigs"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/provision-configs"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListProvisionConfigsResponse(callApi(params, req, runtime));
 }
 
 ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListReservedCapacitiesHeaders> headers = make_shared<ListReservedCapacitiesHeaders>();
   return listReservedCapacitiesWithOptions(request, headers, runtime);
 }
 
-ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacitiesWithOptions(shared_ptr<ListReservedCapacitiesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacitiesWithOptions(shared_ptr<ListReservedCapacitiesRequest> request, shared_ptr<ListReservedCapacitiesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
@@ -1238,22 +2595,55 @@ ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReserve
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     (*query)["nextToken"] = *request->nextToken;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListReservedCapacitiesResponse(doROARequest(make_shared<string>("ListReservedCapacities"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/reserved-capacities")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListReservedCapacities"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/reserved-capacities"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListReservedCapacitiesResponse(callApi(params, req, runtime));
 }
 
 ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListServiceVersionsHeaders> headers = make_shared<ListServiceVersionsHeaders>();
   return listServiceVersionsWithOptions(serviceName, request, headers, runtime);
 }
 
 ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersionsWithOptions(shared_ptr<string> serviceName,
                                                                                                  shared_ptr<ListServiceVersionsRequest> request,
-                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<ListServiceVersionsHeaders> headers,
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1270,20 +2660,53 @@ ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVer
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListServiceVersionsResponse(doROARequest(make_shared<string>("ListServiceVersions"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/versions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceVersions"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/versions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServiceVersionsResponse(callApi(params, req, runtime));
 }
 
 ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServices(shared_ptr<ListServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListServicesHeaders> headers = make_shared<ListServicesHeaders>();
   return listServicesWithOptions(request, headers, runtime);
 }
 
-ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<ListServicesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -1298,23 +2721,56 @@ ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListServicesResponse(doROARequest(make_shared<string>("ListServices"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServices"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServicesResponse(callApi(params, req, runtime));
 }
 
 ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListStatefulAsyncInvocationsHeaders> headers = make_shared<ListStatefulAsyncInvocationsHeaders>();
   return listStatefulAsyncInvocationsWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationsWithOptions(shared_ptr<string> serviceName,
                                                                                                                    shared_ptr<string> functionName,
                                                                                                                    shared_ptr<ListStatefulAsyncInvocationsRequest> request,
-                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<ListStatefulAsyncInvocationsHeaders> headers,
                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1347,20 +2803,53 @@ ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listS
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     (*query)["status"] = *request->status;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListStatefulAsyncInvocationsResponse(doROARequest(make_shared<string>("ListStatefulAsyncInvocations"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListStatefulAsyncInvocations"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListStatefulAsyncInvocationsResponse(callApi(params, req, runtime));
 }
 
 ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListTaggedResourcesHeaders> headers = make_shared<ListTaggedResourcesHeaders>();
   return listTaggedResourcesWithOptions(request, headers, runtime);
 }
 
-ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResourcesWithOptions(shared_ptr<ListTaggedResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResourcesWithOptions(shared_ptr<ListTaggedResourcesRequest> request, shared_ptr<ListTaggedResourcesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
@@ -1369,23 +2858,56 @@ ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedReso
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     (*query)["nextToken"] = *request->nextToken;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListTaggedResourcesResponse(doROARequest(make_shared<string>("ListTaggedResources"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/tags")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTaggedResources"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/tags"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTaggedResourcesResponse(callApi(params, req, runtime));
 }
 
 ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListTriggersHeaders> headers = make_shared<ListTriggersHeaders>();
   return listTriggersWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptions(shared_ptr<string> serviceName,
                                                                                    shared_ptr<string> functionName,
                                                                                    shared_ptr<ListTriggersRequest> request,
-                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<ListTriggersHeaders> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1403,63 +2925,195 @@ ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->startKey)) {
     (*query)["startKey"] = *request->startKey;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListTriggersResponse(doROARequest(make_shared<string>("ListTriggers"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTriggers"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTriggersResponse(callApi(params, req, runtime));
 }
 
 ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindings(shared_ptr<string> serviceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<ListVpcBindingsHeaders> headers = make_shared<ListVpcBindingsHeaders>();
   return listVpcBindingsWithOptions(serviceName, headers, runtime);
 }
 
-ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindingsWithOptions(shared_ptr<string> serviceName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindingsWithOptions(shared_ptr<string> serviceName, shared_ptr<ListVpcBindingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return ListVpcBindingsResponse(doROARequest(make_shared<string>("ListVpcBindings"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("GET"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListVpcBindings"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/bindings"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListVpcBindingsResponse(callApi(params, req, runtime));
 }
 
 PermanentDeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::permanentDeleteLayerVersion(shared_ptr<string> userID, shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<PermanentDeleteLayerVersionHeaders> headers = make_shared<PermanentDeleteLayerVersionHeaders>();
   return permanentDeleteLayerVersionWithOptions(userID, layerName, version, headers, runtime);
 }
 
 PermanentDeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::permanentDeleteLayerVersionWithOptions(shared_ptr<string> userID,
                                                                                                                  shared_ptr<string> layerName,
                                                                                                                  shared_ptr<string> version,
-                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                 shared_ptr<PermanentDeleteLayerVersionHeaders> headers,
                                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   userID = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userID));
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
   version = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(version));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return PermanentDeleteLayerVersionResponse(doROARequest(make_shared<string>("PermanentDeleteLayerVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/adminlayers/") + string(*userID) + string("/") + string(*layerName) + string("/versions/") + string(*version)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PermanentDeleteLayerVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/adminlayers/") + string(*userID) + string("/") + string(*layerName) + string("/versions/") + string(*version))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return PermanentDeleteLayerVersionResponse(callApi(params, req, runtime));
 }
 
 PublishLayerAsPublicResponse Alibabacloud_FC-Open20210406::Client::publishLayerAsPublic(shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<PublishLayerAsPublicHeaders> headers = make_shared<PublishLayerAsPublicHeaders>();
   return publishLayerAsPublicWithOptions(layerName, version, headers, runtime);
 }
 
 PublishLayerAsPublicResponse Alibabacloud_FC-Open20210406::Client::publishLayerAsPublicWithOptions(shared_ptr<string> layerName,
                                                                                                    shared_ptr<string> version,
-                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<PublishLayerAsPublicHeaders> headers,
                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   layerName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(layerName));
   version = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(version));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
   }));
-  return PublishLayerAsPublicResponse(doROARequest(make_shared<string>("PublishLayerAsPublic"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PublishLayerAsPublic"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/layers/") + string(*layerName) + string("/versions/") + string(*version))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return PublishLayerAsPublicResponse(callApi(params, req, runtime));
 }
 
 PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request) {
@@ -1485,23 +3139,52 @@ PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServi
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return PublishServiceVersionResponse(doROARequest(make_shared<string>("PublishServiceVersion"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/versions")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PublishServiceVersion"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/versions"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PublishServiceVersionResponse(callApi(params, req, runtime));
 }
 
 PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<PutFunctionAsyncInvokeConfigHeaders> headers = make_shared<PutFunctionAsyncInvokeConfigHeaders>();
   return putFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                                    shared_ptr<string> functionName,
                                                                                                                    shared_ptr<PutFunctionAsyncInvokeConfigRequest> request,
-                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<PutFunctionAsyncInvokeConfigHeaders> headers,
                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1523,12 +3206,45 @@ PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFu
   if (!Darabonba_Util::Client::isUnset<bool>(request->statefulInvocation)) {
     (*body)["statefulInvocation"] = *request->statefulInvocation;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return PutFunctionAsyncInvokeConfigResponse(doROARequest(make_shared<string>("PutFunctionAsyncInvokeConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutFunctionAsyncInvokeConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/async-invoke-config"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request) {
@@ -1560,24 +3276,53 @@ PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunct
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return PutFunctionOnDemandConfigResponse(doROARequest(make_shared<string>("PutFunctionOnDemandConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutFunctionOnDemandConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/on-demand-config"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<PutProvisionConfigHeaders> headers = make_shared<PutProvisionConfigHeaders>();
   return putProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                                                                shared_ptr<string> functionName,
                                                                                                shared_ptr<PutProvisionConfigRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<PutProvisionConfigHeaders> headers,
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1596,24 +3341,57 @@ PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionCon
   if (!Darabonba_Util::Client::isUnset<vector<TargetTrackingPolicies>>(request->targetTrackingPolicies)) {
     (*body)["targetTrackingPolicies"] = *request->targetTrackingPolicies;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return PutProvisionConfigResponse(doROARequest(make_shared<string>("PutProvisionConfig"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/provision-config")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutProvisionConfig"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/provision-config"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutProvisionConfigResponse(callApi(params, req, runtime));
 }
 
 RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<RegisterEventSourceHeaders> headers = make_shared<RegisterEventSourceHeaders>();
   return registerEventSourceWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSourceWithOptions(shared_ptr<string> serviceName,
                                                                                                  shared_ptr<string> functionName,
                                                                                                  shared_ptr<RegisterEventSourceRequest> request,
-                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                 shared_ptr<RegisterEventSourceHeaders> headers,
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1626,12 +3404,45 @@ RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventS
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceArn)) {
     (*body)["sourceArn"] = *request->sourceArn;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return RegisterEventSourceResponse(doROARequest(make_shared<string>("RegisterEventSource"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources")), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RegisterEventSource"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/event-sources"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RegisterEventSourceResponse(callApi(params, req, runtime));
 }
 
 StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
@@ -1639,7 +3450,7 @@ StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopSt
                                                                                                       shared_ptr<string> invocationId,
                                                                                                       shared_ptr<StopStatefulAsyncInvocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<StopStatefulAsyncInvocationHeaders> headers = make_shared<StopStatefulAsyncInvocationHeaders>();
   return stopStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
 }
 
@@ -1647,7 +3458,7 @@ StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopSt
                                                                                                                  shared_ptr<string> functionName,
                                                                                                                  shared_ptr<string> invocationId,
                                                                                                                  shared_ptr<StopStatefulAsyncInvocationRequest> request,
-                                                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                                                 shared_ptr<StopStatefulAsyncInvocationHeaders> headers,
                                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
@@ -1657,20 +3468,53 @@ StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopSt
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     (*query)["qualifier"] = *request->qualifier;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return StopStatefulAsyncInvocationResponse(doROARequest(make_shared<string>("StopStatefulAsyncInvocation"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations/") + string(*invocationId)), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopStatefulAsyncInvocation"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/stateful-async-invocations/") + string(*invocationId))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return StopStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
 TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResource(shared_ptr<TagResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<TagResourceHeaders> headers = make_shared<TagResourceHeaders>();
   return tagResourceWithOptions(request, headers, runtime);
 }
 
-TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<TagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceArn)) {
@@ -1679,20 +3523,53 @@ TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->tags)) {
     (*body)["tags"] = *request->tags;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return TagResourceResponse(doROARequest(make_shared<string>("TagResource"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/tag")), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TagResource"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/tag"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return TagResourceResponse(callApi(params, req, runtime));
 }
 
 UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResource(shared_ptr<UntagResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<UntagResourceHeaders> headers = make_shared<UntagResourceHeaders>();
   return untagResourceWithOptions(request, headers, runtime);
 }
 
-UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOptions(shared_ptr<UntagResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOptions(shared_ptr<UntagResourceRequest> request, shared_ptr<UntagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
@@ -1704,11 +3581,44 @@ UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOpt
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagKeys)) {
     (*body)["tagKeys"] = *request->tagKeys;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UntagResourceResponse(doROARequest(make_shared<string>("UntagResource"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("DELETE"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/tag")), make_shared<string>("none"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UntagResource"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/tag"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return UntagResourceResponse(callApi(params, req, runtime));
 }
 
 UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request) {
@@ -1742,22 +3652,51 @@ UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAliasWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(headers->ifMatch)) {
     (*realHeaders)["If-Match"] = Darabonba_Util::Client::toJSONString(headers->ifMatch);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateAliasResponse(doROARequest(make_shared<string>("UpdateAlias"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateAlias"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/aliases/") + string(*aliasName))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateAliasResponse(callApi(params, req, runtime));
 }
 
 UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<UpdateCustomDomainHeaders> headers = make_shared<UpdateCustomDomainHeaders>();
   return updateCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomainWithOptions(shared_ptr<string> domainName,
                                                                                                shared_ptr<UpdateCustomDomainRequest> request,
-                                                                                               shared_ptr<map<string, string>> headers,
+                                                                                               shared_ptr<UpdateCustomDomainHeaders> headers,
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   domainName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(domainName));
@@ -1771,11 +3710,44 @@ UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDom
   if (!Darabonba_Util::Client::isUnset<RouteConfig>(request->routeConfig)) {
     (*body)["routeConfig"] = *request->routeConfig;
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateCustomDomainResponse(doROARequest(make_shared<string>("UpdateCustomDomain"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/custom-domains/") + string(*domainName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomDomain"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/custom-domains/") + string(*domainName))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomDomainResponse(callApi(params, req, runtime));
 }
 
 UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request) {
@@ -1855,13 +3827,36 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
     (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
   }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
-    (*realHeaders)["x-fc-code-checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateFunctionResponse(doROARequest(make_shared<string>("UpdateFunction"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateFunction"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateFunctionResponse(callApi(params, req, runtime));
 }
 
 UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request) {
@@ -1908,11 +3903,37 @@ UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateServiceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
     (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateServiceResponse(doROARequest(make_shared<string>("UpdateService"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateService"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateServiceResponse(callApi(params, req, runtime));
 }
 
 UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTrigger(shared_ptr<string> serviceName,
@@ -1957,10 +3978,36 @@ UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTriggerWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
     (*realHeaders)["X-Fc-Account-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcAccountId);
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcCodeChecksum)) {
+    (*realHeaders)["X-Fc-Code-Checksum"] = Darabonba_Util::Client::toJSONString(headers->xFcCodeChecksum);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    (*realHeaders)["X-Fc-Date"] = Darabonba_Util::Client::toJSONString(headers->xFcDate);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcInvocationType)) {
+    (*realHeaders)["X-Fc-Invocation-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcInvocationType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
+    (*realHeaders)["X-Fc-Log-Type"] = Darabonba_Util::Client::toJSONString(headers->xFcLogType);
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    (*realHeaders)["X-Fc-Trace-Id"] = Darabonba_Util::Client::toJSONString(headers->xFcTraceId);
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateTriggerResponse(doROARequest(make_shared<string>("UpdateTrigger"), make_shared<string>("2021-04-06"), make_shared<string>("HTTPS"), make_shared<string>("PUT"), make_shared<string>("AK"), make_shared<string>(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName)), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTrigger"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/triggers/") + string(*triggerName))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTriggerResponse(callApi(params, req, runtime));
 }
 
