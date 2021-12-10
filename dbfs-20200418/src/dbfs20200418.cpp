@@ -3,6 +3,7 @@
 #include <alibabacloud/dbfs20200418.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -79,10 +80,27 @@ string Alibabacloud_DBFS20200418::Client::getEndpoint(shared_ptr<string> product
 
 AddTagsBatchResponse Alibabacloud_DBFS20200418::Client::addTagsBatchWithOptions(shared_ptr<AddTagsBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("DbfsList", *request->dbfsList));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("Tags", *request->tags));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AddTagsBatchResponse(doRPCRequest(make_shared<string>("AddTagsBatch"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddTagsBatch"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddTagsBatchResponse(callApi(params, req, runtime));
 }
 
 AddTagsBatchResponse Alibabacloud_DBFS20200418::Client::addTagsBatch(shared_ptr<AddTagsBatchRequest> request) {
@@ -92,10 +110,29 @@ AddTagsBatchResponse Alibabacloud_DBFS20200418::Client::addTagsBatch(shared_ptr<
 
 AttachDbfsResponse Alibabacloud_DBFS20200418::Client::attachDbfsWithOptions(shared_ptr<AttachDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("AttachMode", *request->attachMode));
+  query->insert(pair<string, string>("AttachPoint", *request->attachPoint));
+  query->insert(pair<string, string>("ECSInstanceId", *request->ECSInstanceId));
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("ServerUrl", *request->serverUrl));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return AttachDbfsResponse(doRPCRequest(make_shared<string>("AttachDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AttachDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AttachDbfsResponse(callApi(params, req, runtime));
 }
 
 AttachDbfsResponse Alibabacloud_DBFS20200418::Client::attachDbfs(shared_ptr<AttachDbfsRequest> request) {
@@ -103,25 +140,40 @@ AttachDbfsResponse Alibabacloud_DBFS20200418::Client::attachDbfs(shared_ptr<Atta
   return attachDbfsWithOptions(request, runtime);
 }
 
-CreateConstantsResponse Alibabacloud_DBFS20200418::Client::createConstantsWithOptions(shared_ptr<CreateConstantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CreateConstantsResponse(doRPCRequest(make_shared<string>("CreateConstants"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CreateConstantsResponse Alibabacloud_DBFS20200418::Client::createConstants(shared_ptr<CreateConstantsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createConstantsWithOptions(request, runtime);
-}
-
 CreateDbfsResponse Alibabacloud_DBFS20200418::Client::createDbfsWithOptions(shared_ptr<CreateDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Category", *request->category));
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, bool>("DeleteSnapshot", *request->deleteSnapshot));
+  query->insert(pair<string, bool>("EnableRaid", *request->enableRaid));
+  query->insert(pair<string, bool>("Encryption", *request->encryption));
+  query->insert(pair<string, string>("FsName", *request->fsName));
+  query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  query->insert(pair<string, string>("KMSKeyId", *request->KMSKeyId));
+  query->insert(pair<string, string>("PerformanceLevel", *request->performanceLevel));
+  query->insert(pair<string, long>("RaidStripeUnitNumber", *request->raidStripeUnitNumber));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, long>("SizeG", *request->sizeG));
+  query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
+  query->insert(pair<string, string>("UsedScene", *request->usedScene));
+  query->insert(pair<string, string>("ZoneId", *request->zoneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateDbfsResponse(doRPCRequest(make_shared<string>("CreateDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDbfsResponse(callApi(params, req, runtime));
 }
 
 CreateDbfsResponse Alibabacloud_DBFS20200418::Client::createDbfs(shared_ptr<CreateDbfsRequest> request) {
@@ -131,10 +183,25 @@ CreateDbfsResponse Alibabacloud_DBFS20200418::Client::createDbfs(shared_ptr<Crea
 
 CreateServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::createServiceLinkedRoleWithOptions(shared_ptr<CreateServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateServiceLinkedRoleResponse(doRPCRequest(make_shared<string>("CreateServiceLinkedRole"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateServiceLinkedRole"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateServiceLinkedRoleResponse(callApi(params, req, runtime));
 }
 
 CreateServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::createServiceLinkedRole(shared_ptr<CreateServiceLinkedRoleRequest> request) {
@@ -144,10 +211,29 @@ CreateServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::createService
 
 CreateSnapshotResponse Alibabacloud_DBFS20200418::Client::createSnapshotWithOptions(shared_ptr<CreateSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("Description", *request->description));
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, long>("RetentionDays", *request->retentionDays));
+  query->insert(pair<string, string>("SnapshotName", *request->snapshotName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return CreateSnapshotResponse(doRPCRequest(make_shared<string>("CreateSnapshot"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSnapshot"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSnapshotResponse(callApi(params, req, runtime));
 }
 
 CreateSnapshotResponse Alibabacloud_DBFS20200418::Client::createSnapshot(shared_ptr<CreateSnapshotRequest> request) {
@@ -155,25 +241,27 @@ CreateSnapshotResponse Alibabacloud_DBFS20200418::Client::createSnapshot(shared_
   return createSnapshotWithOptions(request, runtime);
 }
 
-DeleteConstantsResponse Alibabacloud_DBFS20200418::Client::deleteConstantsWithOptions(shared_ptr<DeleteConstantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DeleteConstantsResponse(doRPCRequest(make_shared<string>("DeleteConstants"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DeleteConstantsResponse Alibabacloud_DBFS20200418::Client::deleteConstants(shared_ptr<DeleteConstantsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteConstantsWithOptions(request, runtime);
-}
-
 DeleteDbfsResponse Alibabacloud_DBFS20200418::Client::deleteDbfsWithOptions(shared_ptr<DeleteDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteDbfsResponse(doRPCRequest(make_shared<string>("DeleteDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDbfsResponse(callApi(params, req, runtime));
 }
 
 DeleteDbfsResponse Alibabacloud_DBFS20200418::Client::deleteDbfs(shared_ptr<DeleteDbfsRequest> request) {
@@ -183,10 +271,26 @@ DeleteDbfsResponse Alibabacloud_DBFS20200418::Client::deleteDbfs(shared_ptr<Dele
 
 DeleteSnapshotResponse Alibabacloud_DBFS20200418::Client::deleteSnapshotWithOptions(shared_ptr<DeleteSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, bool>("Force", *request->force));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteSnapshotResponse(doRPCRequest(make_shared<string>("DeleteSnapshot"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteSnapshot"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteSnapshotResponse(callApi(params, req, runtime));
 }
 
 DeleteSnapshotResponse Alibabacloud_DBFS20200418::Client::deleteSnapshot(shared_ptr<DeleteSnapshotRequest> request) {
@@ -196,10 +300,26 @@ DeleteSnapshotResponse Alibabacloud_DBFS20200418::Client::deleteSnapshot(shared_
 
 DeleteTagsBatchResponse Alibabacloud_DBFS20200418::Client::deleteTagsBatchWithOptions(shared_ptr<DeleteTagsBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("DbfsList", *request->dbfsList));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("Tags", *request->tags));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DeleteTagsBatchResponse(doRPCRequest(make_shared<string>("DeleteTagsBatch"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTagsBatch"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteTagsBatchResponse(callApi(params, req, runtime));
 }
 
 DeleteTagsBatchResponse Alibabacloud_DBFS20200418::Client::deleteTagsBatch(shared_ptr<DeleteTagsBatchRequest> request) {
@@ -209,10 +329,26 @@ DeleteTagsBatchResponse Alibabacloud_DBFS20200418::Client::deleteTagsBatch(share
 
 DescribeDbfsSpecificationsResponse Alibabacloud_DBFS20200418::Client::describeDbfsSpecificationsWithOptions(shared_ptr<DescribeDbfsSpecificationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("Category", *request->category));
+  query->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeDbfsSpecificationsResponse(doRPCRequest(make_shared<string>("DescribeDbfsSpecifications"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDbfsSpecifications"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDbfsSpecificationsResponse(callApi(params, req, runtime));
 }
 
 DescribeDbfsSpecificationsResponse Alibabacloud_DBFS20200418::Client::describeDbfsSpecifications(shared_ptr<DescribeDbfsSpecificationsRequest> request) {
@@ -222,10 +358,24 @@ DescribeDbfsSpecificationsResponse Alibabacloud_DBFS20200418::Client::describeDb
 
 DescribeInstanceTypesResponse Alibabacloud_DBFS20200418::Client::describeInstanceTypesWithOptions(shared_ptr<DescribeInstanceTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DescribeInstanceTypesResponse(doRPCRequest(make_shared<string>("DescribeInstanceTypes"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceTypes"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceTypesResponse(callApi(params, req, runtime));
 }
 
 DescribeInstanceTypesResponse Alibabacloud_DBFS20200418::Client::describeInstanceTypes(shared_ptr<DescribeInstanceTypesRequest> request) {
@@ -235,10 +385,26 @@ DescribeInstanceTypesResponse Alibabacloud_DBFS20200418::Client::describeInstanc
 
 DetachDbfsResponse Alibabacloud_DBFS20200418::Client::detachDbfsWithOptions(shared_ptr<DetachDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ECSInstanceId", *request->ECSInstanceId));
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return DetachDbfsResponse(doRPCRequest(make_shared<string>("DetachDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetachDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetachDbfsResponse(callApi(params, req, runtime));
 }
 
 DetachDbfsResponse Alibabacloud_DBFS20200418::Client::detachDbfs(shared_ptr<DetachDbfsRequest> request) {
@@ -248,10 +414,25 @@ DetachDbfsResponse Alibabacloud_DBFS20200418::Client::detachDbfs(shared_ptr<Deta
 
 GetDbfsResponse Alibabacloud_DBFS20200418::Client::getDbfsWithOptions(shared_ptr<GetDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetDbfsResponse(doRPCRequest(make_shared<string>("GetDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDbfsResponse(callApi(params, req, runtime));
 }
 
 GetDbfsResponse Alibabacloud_DBFS20200418::Client::getDbfs(shared_ptr<GetDbfsRequest> request) {
@@ -261,10 +442,24 @@ GetDbfsResponse Alibabacloud_DBFS20200418::Client::getDbfs(shared_ptr<GetDbfsReq
 
 GetServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::getServiceLinkedRoleWithOptions(shared_ptr<GetServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return GetServiceLinkedRoleResponse(doRPCRequest(make_shared<string>("GetServiceLinkedRole"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetServiceLinkedRole"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceLinkedRoleResponse(callApi(params, req, runtime));
 }
 
 GetServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::getServiceLinkedRole(shared_ptr<GetServiceLinkedRoleRequest> request) {
@@ -272,25 +467,33 @@ GetServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::getServiceLinked
   return getServiceLinkedRoleWithOptions(request, runtime);
 }
 
-ListConstantsResponse Alibabacloud_DBFS20200418::Client::listConstantsWithOptions(shared_ptr<ListConstantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListConstantsResponse(doRPCRequest(make_shared<string>("ListConstants"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListConstantsResponse Alibabacloud_DBFS20200418::Client::listConstants(shared_ptr<ListConstantsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listConstantsWithOptions(request, runtime);
-}
-
 ListDbfsResponse Alibabacloud_DBFS20200418::Client::listDbfsWithOptions(shared_ptr<ListDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FilterKey", *request->filterKey));
+  query->insert(pair<string, string>("FilterValue", *request->filterValue));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("SortKey", *request->sortKey));
+  query->insert(pair<string, string>("SortType", *request->sortType));
+  query->insert(pair<string, string>("Tags", *request->tags));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListDbfsResponse(doRPCRequest(make_shared<string>("ListDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDbfsResponse(callApi(params, req, runtime));
 }
 
 ListDbfsResponse Alibabacloud_DBFS20200418::Client::listDbfs(shared_ptr<ListDbfsRequest> request) {
@@ -300,10 +503,24 @@ ListDbfsResponse Alibabacloud_DBFS20200418::Client::listDbfs(shared_ptr<ListDbfs
 
 ListDbfsAttachableEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachableEcsInstancesWithOptions(shared_ptr<ListDbfsAttachableEcsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListDbfsAttachableEcsInstancesResponse(doRPCRequest(make_shared<string>("ListDbfsAttachableEcsInstances"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDbfsAttachableEcsInstances"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDbfsAttachableEcsInstancesResponse(callApi(params, req, runtime));
 }
 
 ListDbfsAttachableEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachableEcsInstances(shared_ptr<ListDbfsAttachableEcsInstancesRequest> request) {
@@ -313,10 +530,25 @@ ListDbfsAttachableEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDb
 
 ListDbfsAttachedEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachedEcsInstancesWithOptions(shared_ptr<ListDbfsAttachedEcsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListDbfsAttachedEcsInstancesResponse(doRPCRequest(make_shared<string>("ListDbfsAttachedEcsInstances"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDbfsAttachedEcsInstances"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDbfsAttachedEcsInstancesResponse(callApi(params, req, runtime));
 }
 
 ListDbfsAttachedEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfsAttachedEcsInstances(shared_ptr<ListDbfsAttachedEcsInstancesRequest> request) {
@@ -326,10 +558,35 @@ ListDbfsAttachedEcsInstancesResponse Alibabacloud_DBFS20200418::Client::listDbfs
 
 ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshotWithOptions(shared_ptr<ListSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FilterKey", *request->filterKey));
+  query->insert(pair<string, string>("FilterValue", *request->filterValue));
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("SnapshotIds", *request->snapshotIds));
+  query->insert(pair<string, string>("SnapshotName", *request->snapshotName));
+  query->insert(pair<string, string>("SnapshotType", *request->snapshotType));
+  query->insert(pair<string, string>("SortKey", *request->sortKey));
+  query->insert(pair<string, string>("SortType", *request->sortType));
+  query->insert(pair<string, string>("Status", *request->status));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListSnapshotResponse(doRPCRequest(make_shared<string>("ListSnapshot"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSnapshot"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSnapshotResponse(callApi(params, req, runtime));
 }
 
 ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshot(shared_ptr<ListSnapshotRequest> request) {
@@ -339,10 +596,24 @@ ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshot(shared_ptr<
 
 ListTagKeysResponse Alibabacloud_DBFS20200418::Client::listTagKeysWithOptions(shared_ptr<ListTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListTagKeysResponse(doRPCRequest(make_shared<string>("ListTagKeys"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTagKeys"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTagKeysResponse(callApi(params, req, runtime));
 }
 
 ListTagKeysResponse Alibabacloud_DBFS20200418::Client::listTagKeys(shared_ptr<ListTagKeysRequest> request) {
@@ -352,10 +623,25 @@ ListTagKeysResponse Alibabacloud_DBFS20200418::Client::listTagKeys(shared_ptr<Li
 
 ListTagValuesResponse Alibabacloud_DBFS20200418::Client::listTagValuesWithOptions(shared_ptr<ListTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("TagKey", *request->tagKey));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListTagValuesResponse(doRPCRequest(make_shared<string>("ListTagValues"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTagValues"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTagValuesResponse(callApi(params, req, runtime));
 }
 
 ListTagValuesResponse Alibabacloud_DBFS20200418::Client::listTagValues(shared_ptr<ListTagValuesRequest> request) {
@@ -365,10 +651,30 @@ ListTagValuesResponse Alibabacloud_DBFS20200418::Client::listTagValues(shared_pt
 
 ListTaskResponse Alibabacloud_DBFS20200418::Client::listTaskWithOptions(shared_ptr<ListTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FilterKey", *request->filterKey));
+  query->insert(pair<string, string>("FilterValue", *request->filterValue));
+  query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  query->insert(pair<string, long>("PageSize", *request->pageSize));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("SortKey", *request->sortKey));
+  query->insert(pair<string, string>("SortType", *request->sortType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ListTaskResponse(doRPCRequest(make_shared<string>("ListTask"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTask"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTaskResponse(callApi(params, req, runtime));
 }
 
 ListTaskResponse Alibabacloud_DBFS20200418::Client::listTask(shared_ptr<ListTaskRequest> request) {
@@ -376,25 +682,28 @@ ListTaskResponse Alibabacloud_DBFS20200418::Client::listTask(shared_ptr<ListTask
   return listTaskWithOptions(request, runtime);
 }
 
-OpreateConstantsResponse Alibabacloud_DBFS20200418::Client::opreateConstantsWithOptions(shared_ptr<OpreateConstantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return OpreateConstantsResponse(doRPCRequest(make_shared<string>("OpreateConstants"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-OpreateConstantsResponse Alibabacloud_DBFS20200418::Client::opreateConstants(shared_ptr<OpreateConstantsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return opreateConstantsWithOptions(request, runtime);
-}
-
 RenameDbfsResponse Alibabacloud_DBFS20200418::Client::renameDbfsWithOptions(shared_ptr<RenameDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("FsName", *request->fsName));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return RenameDbfsResponse(doRPCRequest(make_shared<string>("RenameDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RenameDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RenameDbfsResponse(callApi(params, req, runtime));
 }
 
 RenameDbfsResponse Alibabacloud_DBFS20200418::Client::renameDbfs(shared_ptr<RenameDbfsRequest> request) {
@@ -404,10 +713,26 @@ RenameDbfsResponse Alibabacloud_DBFS20200418::Client::renameDbfs(shared_ptr<Rena
 
 ResetDbfsResponse Alibabacloud_DBFS20200418::Client::resetDbfsWithOptions(shared_ptr<ResetDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ResetDbfsResponse(doRPCRequest(make_shared<string>("ResetDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResetDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResetDbfsResponse(callApi(params, req, runtime));
 }
 
 ResetDbfsResponse Alibabacloud_DBFS20200418::Client::resetDbfs(shared_ptr<ResetDbfsRequest> request) {
@@ -417,10 +742,26 @@ ResetDbfsResponse Alibabacloud_DBFS20200418::Client::resetDbfs(shared_ptr<ResetD
 
 ResizeDbfsResponse Alibabacloud_DBFS20200418::Client::resizeDbfsWithOptions(shared_ptr<ResizeDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("FsId", *request->fsId));
+  query->insert(pair<string, long>("NewSizeG", *request->newSizeG));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return ResizeDbfsResponse(doRPCRequest(make_shared<string>("ResizeDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResizeDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResizeDbfsResponse(callApi(params, req, runtime));
 }
 
 ResizeDbfsResponse Alibabacloud_DBFS20200418::Client::resizeDbfs(shared_ptr<ResizeDbfsRequest> request) {
@@ -430,10 +771,26 @@ ResizeDbfsResponse Alibabacloud_DBFS20200418::Client::resizeDbfs(shared_ptr<Resi
 
 TagDbfsResponse Alibabacloud_DBFS20200418::Client::tagDbfsWithOptions(shared_ptr<TagDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("DbfsId", *request->dbfsId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("Tags", *request->tags));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return TagDbfsResponse(doRPCRequest(make_shared<string>("TagDbfs"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TagDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TagDbfsResponse(callApi(params, req, runtime));
 }
 
 TagDbfsResponse Alibabacloud_DBFS20200418::Client::tagDbfs(shared_ptr<TagDbfsRequest> request) {
@@ -441,25 +798,28 @@ TagDbfsResponse Alibabacloud_DBFS20200418::Client::tagDbfs(shared_ptr<TagDbfsReq
   return tagDbfsWithOptions(request, runtime);
 }
 
-UpdateConstantsResponse Alibabacloud_DBFS20200418::Client::updateConstantsWithOptions(shared_ptr<UpdateConstantsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return UpdateConstantsResponse(doRPCRequest(make_shared<string>("UpdateConstants"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-UpdateConstantsResponse Alibabacloud_DBFS20200418::Client::updateConstants(shared_ptr<UpdateConstantsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateConstantsWithOptions(request, runtime);
-}
-
 UpdateTaskResponse Alibabacloud_DBFS20200418::Client::updateTaskWithOptions(shared_ptr<UpdateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("TaskIds", *request->taskIds));
+  query->insert(pair<string, long>("TaskProgress", *request->taskProgress));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Darabonba_Util::Client::toMap(request))}
   }));
-  return UpdateTaskResponse(doRPCRequest(make_shared<string>("UpdateTask"), make_shared<string>("2020-04-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTask"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTaskResponse(callApi(params, req, runtime));
 }
 
 UpdateTaskResponse Alibabacloud_DBFS20200418::Client::updateTask(shared_ptr<UpdateTaskRequest> request) {
