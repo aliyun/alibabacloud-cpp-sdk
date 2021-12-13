@@ -1660,6 +1660,8 @@ class DescribeConfigurationRecorderResponseBodyConfigurationRecorder : public Da
 public:
   shared_ptr<long> accountId{};
   shared_ptr<string> configurationRecorderStatus{};
+  shared_ptr<string> organizationEnableStatus{};
+  shared_ptr<long> organizationMasterId{};
   shared_ptr<vector<string>> resourceTypes{};
 
   DescribeConfigurationRecorderResponseBodyConfigurationRecorder() {}
@@ -1678,6 +1680,12 @@ public:
     if (configurationRecorderStatus) {
       res["ConfigurationRecorderStatus"] = boost::any(*configurationRecorderStatus);
     }
+    if (organizationEnableStatus) {
+      res["OrganizationEnableStatus"] = boost::any(*organizationEnableStatus);
+    }
+    if (organizationMasterId) {
+      res["OrganizationMasterId"] = boost::any(*organizationMasterId);
+    }
     if (resourceTypes) {
       res["ResourceTypes"] = boost::any(*resourceTypes);
     }
@@ -1690,6 +1698,12 @@ public:
     }
     if (m.find("ConfigurationRecorderStatus") != m.end() && !m["ConfigurationRecorderStatus"].empty()) {
       configurationRecorderStatus = make_shared<string>(boost::any_cast<string>(m["ConfigurationRecorderStatus"]));
+    }
+    if (m.find("OrganizationEnableStatus") != m.end() && !m["OrganizationEnableStatus"].empty()) {
+      organizationEnableStatus = make_shared<string>(boost::any_cast<string>(m["OrganizationEnableStatus"]));
+    }
+    if (m.find("OrganizationMasterId") != m.end() && !m["OrganizationMasterId"].empty()) {
+      organizationMasterId = make_shared<long>(boost::any_cast<long>(m["OrganizationMasterId"]));
     }
     if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
       vector<string> toVec1;
