@@ -5376,6 +5376,7 @@ class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes : public Dara
 public:
   shared_ptr<vector<string>> customTag{};
   shared_ptr<vector<string>> estimateCost{};
+  shared_ptr<vector<string>> resourceGroup{};
   shared_ptr<vector<string>> systemTag{};
 
   GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes() {}
@@ -5393,6 +5394,9 @@ public:
     }
     if (estimateCost) {
       res["EstimateCost"] = boost::any(*estimateCost);
+    }
+    if (resourceGroup) {
+      res["ResourceGroup"] = boost::any(*resourceGroup);
     }
     if (systemTag) {
       res["SystemTag"] = boost::any(*systemTag);
@@ -5420,6 +5424,16 @@ public:
         }
       }
       estimateCost = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceGroup"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceGroup"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceGroup = make_shared<vector<string>>(toVec1);
     }
     if (m.find("SystemTag") != m.end() && !m["SystemTag"].empty()) {
       vector<string> toVec1;
@@ -5718,6 +5732,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceType{};
   shared_ptr<bool> supportDriftDetection{};
+  shared_ptr<bool> supportScratchDetection{};
 
   GetResourceTypeResponseBody() {}
 
@@ -5743,6 +5758,9 @@ public:
     }
     if (supportDriftDetection) {
       res["SupportDriftDetection"] = boost::any(*supportDriftDetection);
+    }
+    if (supportScratchDetection) {
+      res["SupportScratchDetection"] = boost::any(*supportScratchDetection);
     }
     return res;
   }
@@ -5772,6 +5790,9 @@ public:
     }
     if (m.find("SupportDriftDetection") != m.end() && !m["SupportDriftDetection"].empty()) {
       supportDriftDetection = make_shared<bool>(boost::any_cast<bool>(m["SupportDriftDetection"]));
+    }
+    if (m.find("SupportScratchDetection") != m.end() && !m["SupportScratchDetection"].empty()) {
+      supportScratchDetection = make_shared<bool>(boost::any_cast<bool>(m["SupportScratchDetection"]));
     }
   }
 
@@ -9143,6 +9164,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> templateScratchId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> templateVersion{};
 
@@ -9174,6 +9196,9 @@ public:
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
     }
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
@@ -9209,6 +9234,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
@@ -15430,6 +15458,7 @@ public:
   shared_ptr<string> stackPolicyURL{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> templateScratchId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> templateVersion{};
   shared_ptr<long> timeoutInMinutes{};
@@ -15477,6 +15506,9 @@ public:
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
     }
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
@@ -15530,6 +15562,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
