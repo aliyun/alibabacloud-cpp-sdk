@@ -15,6 +15,214 @@
 using namespace std;
 
 namespace Alibabacloud_Aliyunape20210908 {
+class ApeInnerCommonApiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appName{};
+  shared_ptr<string> channel{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> lat{};
+  shared_ptr<string> lon{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> spCode{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> station{};
+
+  ApeInnerCommonApiRequest() {}
+
+  explicit ApeInnerCommonApiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (channel) {
+      res["Channel"] = boost::any(*channel);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (lat) {
+      res["Lat"] = boost::any(*lat);
+    }
+    if (lon) {
+      res["Lon"] = boost::any(*lon);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (spCode) {
+      res["SpCode"] = boost::any(*spCode);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (station) {
+      res["Station"] = boost::any(*station);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["Channel"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Lat") != m.end() && !m["Lat"].empty()) {
+      lat = make_shared<string>(boost::any_cast<string>(m["Lat"]));
+    }
+    if (m.find("Lon") != m.end() && !m["Lon"].empty()) {
+      lon = make_shared<string>(boost::any_cast<string>(m["Lon"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SpCode") != m.end() && !m["SpCode"].empty()) {
+      spCode = make_shared<string>(boost::any_cast<string>(m["SpCode"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Station") != m.end() && !m["Station"].empty()) {
+      station = make_shared<string>(boost::any_cast<string>(m["Station"]));
+    }
+  }
+
+
+  virtual ~ApeInnerCommonApiRequest() = default;
+};
+class ApeInnerCommonApiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> rt{};
+  shared_ptr<bool> success{};
+
+  ApeInnerCommonApiResponseBody() {}
+
+  explicit ApeInnerCommonApiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rt) {
+      res["Rt"] = boost::any(*rt);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rt") != m.end() && !m["Rt"].empty()) {
+      rt = make_shared<long>(boost::any_cast<long>(m["Rt"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ApeInnerCommonApiResponseBody() = default;
+};
+class ApeInnerCommonApiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ApeInnerCommonApiResponseBody> body{};
+
+  ApeInnerCommonApiResponse() {}
+
+  explicit ApeInnerCommonApiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApeInnerCommonApiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApeInnerCommonApiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApeInnerCommonApiResponse() = default;
+};
 class HistoricalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -922,6 +1130,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ApeInnerCommonApiResponse apeInnerCommonApiWithOptions(shared_ptr<ApeInnerCommonApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApeInnerCommonApiResponse apeInnerCommonApi(shared_ptr<ApeInnerCommonApiRequest> request);
   HistoricalResponse historicalWithOptions(shared_ptr<HistoricalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HistoricalResponse historical(shared_ptr<HistoricalRequest> request);
   StationDayResponse stationDayWithOptions(shared_ptr<StationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
