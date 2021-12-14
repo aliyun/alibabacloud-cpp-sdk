@@ -18,6 +18,7 @@ class AddMemberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
   shared_ptr<string> fromUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> toUserId{};
 
   AddMemberRequest() {}
@@ -36,6 +37,9 @@ public:
     if (fromUserId) {
       res["FromUserId"] = boost::any(*fromUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (toUserId) {
       res["ToUserId"] = boost::any(*toUserId);
     }
@@ -48,6 +52,9 @@ public:
     }
     if (m.find("FromUserId") != m.end() && !m["FromUserId"].empty()) {
       fromUserId = make_shared<string>(boost::any_cast<string>(m["FromUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ToUserId") != m.end() && !m["ToUserId"].empty()) {
       toUserId = make_shared<string>(boost::any_cast<string>(m["ToUserId"]));
@@ -142,6 +149,7 @@ class AgreeLinkMicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
   shared_ptr<string> fromUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> toUserId{};
 
   AgreeLinkMicRequest() {}
@@ -160,6 +168,9 @@ public:
     if (fromUserId) {
       res["FromUserId"] = boost::any(*fromUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (toUserId) {
       res["ToUserId"] = boost::any(*toUserId);
     }
@@ -172,6 +183,9 @@ public:
     }
     if (m.find("FromUserId") != m.end() && !m["FromUserId"].empty()) {
       fromUserId = make_shared<string>(boost::any_cast<string>(m["FromUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ToUserId") != m.end() && !m["ToUserId"].empty()) {
       toUserId = make_shared<string>(boost::any_cast<string>(m["ToUserId"]));
@@ -265,6 +279,7 @@ public:
 class ApplyLinkMicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   ApplyLinkMicRequest() {}
@@ -280,6 +295,9 @@ public:
     if (conferenceId) {
       res["ConferenceId"] = boost::any(*conferenceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -289,6 +307,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -385,6 +406,7 @@ public:
   shared_ptr<string> certificatePrivateKey{};
   shared_ptr<string> certificatePublicKey{};
   shared_ptr<string> domainName{};
+  shared_ptr<string> regionId{};
 
   AttachStandardRoomHttpsCertificateRequest() {}
 
@@ -408,6 +430,9 @@ public:
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -423,6 +448,9 @@ public:
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -553,6 +581,7 @@ public:
 class BanAllCommentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -569,6 +598,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -581,6 +613,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -686,6 +721,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<long> banCommentTime{};
   shared_ptr<string> banCommentUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -708,6 +744,9 @@ public:
     if (banCommentUser) {
       res["BanCommentUser"] = boost::any(*banCommentUser);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -726,6 +765,9 @@ public:
     }
     if (m.find("BanCommentUser") != m.end() && !m["BanCommentUser"].empty()) {
       banCommentUser = make_shared<string>(boost::any_cast<string>(m["BanCommentUser"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -829,6 +871,7 @@ public:
 class CancelApplyLinkMicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   CancelApplyLinkMicRequest() {}
@@ -844,6 +887,9 @@ public:
     if (conferenceId) {
       res["ConferenceId"] = boost::any(*conferenceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -853,6 +899,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -946,6 +995,7 @@ public:
 class CancelBanAllCommentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -962,6 +1012,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -974,6 +1027,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -1078,6 +1134,7 @@ class CancelBanCommentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> banCommentUser{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -1097,6 +1154,9 @@ public:
     if (banCommentUser) {
       res["BanCommentUser"] = boost::any(*banCommentUser);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -1112,6 +1172,9 @@ public:
     }
     if (m.find("BanCommentUser") != m.end() && !m["BanCommentUser"].empty()) {
       banCommentUser = make_shared<string>(boost::any_cast<string>(m["BanCommentUser"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -1216,6 +1279,7 @@ class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
   shared_ptr<string> appTemplateId{};
+  shared_ptr<string> regionId{};
 
   CreateAppRequest() {}
 
@@ -1233,6 +1297,9 @@ public:
     if (appTemplateId) {
       res["AppTemplateId"] = boost::any(*appTemplateId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -1242,6 +1309,9 @@ public:
     }
     if (m.find("AppTemplateId") != m.end() && !m["AppTemplateId"].empty()) {
       appTemplateId = make_shared<string>(boost::any_cast<string>(m["AppTemplateId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -1374,6 +1444,7 @@ public:
   shared_ptr<string> appTemplateName{};
   shared_ptr<vector<string>> componentList{};
   shared_ptr<string> integrationMode{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> scene{};
 
   CreateAppTemplateRequest() {}
@@ -1394,6 +1465,9 @@ public:
     }
     if (integrationMode) {
       res["IntegrationMode"] = boost::any(*integrationMode);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (scene) {
       res["Scene"] = boost::any(*scene);
@@ -1418,6 +1492,9 @@ public:
     if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
       integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
     }
@@ -1431,6 +1508,7 @@ public:
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> componentListShrink{};
   shared_ptr<string> integrationMode{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> scene{};
 
   CreateAppTemplateShrinkRequest() {}
@@ -1452,6 +1530,9 @@ public:
     if (integrationMode) {
       res["IntegrationMode"] = boost::any(*integrationMode);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (scene) {
       res["Scene"] = boost::any(*scene);
     }
@@ -1467,6 +1548,9 @@ public:
     }
     if (m.find("IntegrationMode") != m.end() && !m["IntegrationMode"].empty()) {
       integrationMode = make_shared<string>(boost::any_cast<string>(m["IntegrationMode"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
       scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
@@ -1602,6 +1686,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> createNickname{};
   shared_ptr<string> createUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
 
   CreateClassRequest() {}
@@ -1623,6 +1708,9 @@ public:
     if (createUserId) {
       res["CreateUserId"] = boost::any(*createUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -1638,6 +1726,9 @@ public:
     }
     if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
       createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -1834,6 +1925,7 @@ public:
 class CreateConferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
@@ -1851,6 +1943,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -1866,6 +1961,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -2009,6 +2107,7 @@ public:
   shared_ptr<long> codeLevel{};
   shared_ptr<string> introduction{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
@@ -2038,6 +2137,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -2065,6 +2167,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -2209,6 +2314,7 @@ public:
   shared_ptr<string> coverUrl{};
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
 
@@ -2239,6 +2345,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (title) {
       res["Title"] = boost::any(*title);
@@ -2273,6 +2382,9 @@ public:
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
@@ -2292,6 +2404,7 @@ public:
   shared_ptr<string> coverUrl{};
   shared_ptr<string> extensionShrink{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
 
@@ -2323,6 +2436,9 @@ public:
     if (notice) {
       res["Notice"] = boost::any(*notice);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -2350,6 +2466,9 @@ public:
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -2707,6 +2826,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomOwnerId{};
   shared_ptr<string> templateId{};
@@ -2730,6 +2850,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -2761,6 +2884,9 @@ public:
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
     }
@@ -2783,6 +2909,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> extensionShrink{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomOwnerId{};
   shared_ptr<string> templateId{};
@@ -2806,6 +2933,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -2831,6 +2961,9 @@ public:
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -2973,6 +3106,7 @@ public:
 class DeleteAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
 
   DeleteAppRequest() {}
 
@@ -2987,12 +3121,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -3083,6 +3223,7 @@ public:
 class DeleteAppTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateId{};
+  shared_ptr<string> regionId{};
 
   DeleteAppTemplateRequest() {}
 
@@ -3097,12 +3238,18 @@ public:
     if (appTemplateId) {
       res["AppTemplateId"] = boost::any(*appTemplateId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppTemplateId") != m.end() && !m["AppTemplateId"].empty()) {
       appTemplateId = make_shared<string>(boost::any_cast<string>(m["AppTemplateId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -3194,6 +3341,7 @@ class DeleteClassRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> classId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   DeleteClassRequest() {}
@@ -3212,6 +3360,9 @@ public:
     if (classId) {
       res["ClassId"] = boost::any(*classId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -3224,6 +3375,9 @@ public:
     }
     if (m.find("ClassId") != m.end() && !m["ClassId"].empty()) {
       classId = make_shared<string>(boost::any_cast<string>(m["ClassId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -3318,6 +3472,7 @@ class DeleteCommentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> commentIdList{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -3336,6 +3491,9 @@ public:
     }
     if (commentIdList) {
       res["CommentIdList"] = boost::any(*commentIdList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -3359,6 +3517,9 @@ public:
         }
       }
       commentIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -3496,6 +3657,7 @@ class DeleteConferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -3515,6 +3677,9 @@ public:
     if (conferenceId) {
       res["ConferenceId"] = boost::any(*conferenceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -3530,6 +3695,9 @@ public:
     }
     if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -3626,6 +3794,7 @@ public:
 class DeleteLiveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
 
   DeleteLiveRequest() {}
 
@@ -3640,12 +3809,18 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -3737,6 +3912,7 @@ class DeleteLiveRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   DeleteLiveRoomRequest() {}
@@ -3755,6 +3931,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -3767,6 +3946,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -3860,6 +4042,7 @@ public:
 class DeleteRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
 
   DeleteRoomRequest() {}
@@ -3875,6 +4058,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -3884,6 +4070,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -3977,6 +4166,7 @@ public:
 class GetAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
 
   GetAppRequest() {}
 
@@ -3991,12 +4181,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -4197,6 +4393,7 @@ public:
 class GetAppTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateId{};
+  shared_ptr<string> regionId{};
 
   GetAppTemplateRequest() {}
 
@@ -4211,12 +4408,18 @@ public:
     if (appTemplateId) {
       res["AppTemplateId"] = boost::any(*appTemplateId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppTemplateId") != m.end() && !m["AppTemplateId"].empty()) {
       appTemplateId = make_shared<string>(boost::any_cast<string>(m["AppTemplateId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -4469,6 +4672,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appKey{};
   shared_ptr<string> deviceId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   GetAuthTokenRequest() {}
@@ -4490,6 +4694,9 @@ public:
     if (deviceId) {
       res["DeviceId"] = boost::any(*deviceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -4505,6 +4712,9 @@ public:
     }
     if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -4653,6 +4863,7 @@ class GetClassDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> classId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   GetClassDetailRequest() {}
@@ -4671,6 +4882,9 @@ public:
     if (classId) {
       res["ClassId"] = boost::any(*classId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -4683,6 +4897,9 @@ public:
     }
     if (m.find("ClassId") != m.end() && !m["ClassId"].empty()) {
       classId = make_shared<string>(boost::any_cast<string>(m["ClassId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -4893,6 +5110,7 @@ public:
 class GetConferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> regionId{};
 
   GetConferenceRequest() {}
 
@@ -4907,12 +5125,18 @@ public:
     if (conferenceId) {
       res["ConferenceId"] = boost::any(*conferenceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -5092,6 +5316,7 @@ public:
 class GetDomainOwnerVerifyContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> liveDomainName{};
+  shared_ptr<string> regionId{};
 
   GetDomainOwnerVerifyContentRequest() {}
 
@@ -5106,12 +5331,18 @@ public:
     if (liveDomainName) {
       res["LiveDomainName"] = boost::any(*liveDomainName);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LiveDomainName") != m.end() && !m["LiveDomainName"].empty()) {
       liveDomainName = make_shared<string>(boost::any_cast<string>(m["LiveDomainName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -5239,6 +5470,35 @@ public:
 
   virtual ~GetDomainOwnerVerifyContentResponse() = default;
 };
+class GetImpProductStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  GetImpProductStatusRequest() {}
+
+  explicit GetImpProductStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetImpProductStatusRequest() = default;
+};
 class GetImpProductStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -5330,6 +5590,7 @@ public:
 class GetLiveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
 
   GetLiveRequest() {}
 
@@ -5344,12 +5605,18 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -5719,6 +5986,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> liveDomainList{};
   shared_ptr<string> liveDomainType{};
+  shared_ptr<string> regionId{};
 
   GetLiveDomainStatusRequest() {}
 
@@ -5738,6 +6006,9 @@ public:
     }
     if (liveDomainType) {
       res["LiveDomainType"] = boost::any(*liveDomainType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     return res;
   }
@@ -5759,6 +6030,9 @@ public:
     if (m.find("LiveDomainType") != m.end() && !m["LiveDomainType"].empty()) {
       liveDomainType = make_shared<string>(boost::any_cast<string>(m["LiveDomainType"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
   }
 
 
@@ -5769,6 +6043,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveDomainListShrink{};
   shared_ptr<string> liveDomainType{};
+  shared_ptr<string> regionId{};
 
   GetLiveDomainStatusShrinkRequest() {}
 
@@ -5789,6 +6064,9 @@ public:
     if (liveDomainType) {
       res["LiveDomainType"] = boost::any(*liveDomainType);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -5801,6 +6079,9 @@ public:
     }
     if (m.find("LiveDomainType") != m.end() && !m["LiveDomainType"].empty()) {
       liveDomainType = make_shared<string>(boost::any_cast<string>(m["LiveDomainType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -5989,6 +6270,7 @@ class GetLiveRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
 
   GetLiveRoomRequest() {}
 
@@ -6006,6 +6288,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -6015,6 +6300,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -6414,6 +6702,7 @@ class GetLiveRoomStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
 
   GetLiveRoomStatisticsRequest() {}
 
@@ -6431,6 +6720,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -6440,6 +6732,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -6636,6 +6931,7 @@ public:
   shared_ptr<string> liveId{};
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
 
   GetLiveRoomUserStatisticsRequest() {}
 
@@ -6659,6 +6955,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -6674,6 +6973,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -6882,6 +7184,7 @@ public:
 class GetRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
 
   GetRoomRequest() {}
@@ -6897,6 +7200,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -6906,6 +7212,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -7223,6 +7532,7 @@ public:
 class GetStandardRoomHttpsCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certificateId{};
+  shared_ptr<string> regionId{};
 
   GetStandardRoomHttpsCertificateRequest() {}
 
@@ -7237,12 +7547,18 @@ public:
     if (certificateId) {
       res["CertificateId"] = boost::any(*certificateId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
       certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -7398,6 +7714,7 @@ public:
   shared_ptr<string> bizId{};
   shared_ptr<string> bizType{};
   shared_ptr<string> platform{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
   shared_ptr<string> userNick{};
 
@@ -7426,6 +7743,9 @@ public:
     if (platform) {
       res["Platform"] = boost::any(*platform);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -7450,6 +7770,9 @@ public:
     }
     if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
       platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -7587,6 +7910,7 @@ class ListAppTemplatesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> pageNumber{};
   shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
 
   ListAppTemplatesRequest() {}
 
@@ -7604,6 +7928,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -7613,6 +7940,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -7929,6 +8259,7 @@ public:
   shared_ptr<string> conferenceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
 
   ListApplyLinkMicUsersRequest() {}
 
@@ -7949,6 +8280,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -7961,6 +8295,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -8121,6 +8458,7 @@ public:
   shared_ptr<string> integrationMode{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> status{};
 
   ListAppsRequest() {}
@@ -8142,6 +8480,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -8157,6 +8498,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -8426,6 +8770,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> status{};
 
   ListClassesRequest() {}
@@ -8447,6 +8792,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -8462,6 +8810,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -8738,6 +9089,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<long> sortType{};
   shared_ptr<string> userId{};
@@ -8761,6 +9113,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -8782,6 +9137,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -9040,6 +9398,7 @@ class ListComponentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appTemplateId{};
+  shared_ptr<string> regionId{};
 
   ListComponentsRequest() {}
 
@@ -9057,6 +9416,9 @@ public:
     if (appTemplateId) {
       res["AppTemplateId"] = boost::any(*appTemplateId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -9066,6 +9428,9 @@ public:
     }
     if (m.find("AppTemplateId") != m.end() && !m["AppTemplateId"].empty()) {
       appTemplateId = make_shared<string>(boost::any_cast<string>(m["AppTemplateId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -9533,6 +9898,7 @@ public:
   shared_ptr<string> conferenceId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
 
   ListConferenceUsersRequest() {}
 
@@ -9553,6 +9919,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -9565,6 +9934,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -9768,6 +10140,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
   shared_ptr<long> status{};
 
   ListLiveRoomsRequest() {}
@@ -9789,6 +10162,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -9804,6 +10180,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -10098,6 +10477,7 @@ class ListLiveRoomsByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<vector<string>> liveIdList{};
+  shared_ptr<string> regionId{};
 
   ListLiveRoomsByIdRequest() {}
 
@@ -10114,6 +10494,9 @@ public:
     }
     if (liveIdList) {
       res["LiveIdList"] = boost::any(*liveIdList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     return res;
   }
@@ -10132,6 +10515,9 @@ public:
       }
       liveIdList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
   }
 
 
@@ -10141,6 +10527,7 @@ class ListLiveRoomsByIdShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveIdListShrink{};
+  shared_ptr<string> regionId{};
 
   ListLiveRoomsByIdShrinkRequest() {}
 
@@ -10158,6 +10545,9 @@ public:
     if (liveIdListShrink) {
       res["LiveIdList"] = boost::any(*liveIdListShrink);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -10167,6 +10557,9 @@ public:
     }
     if (m.find("LiveIdList") != m.end() && !m["LiveIdList"].empty()) {
       liveIdListShrink = make_shared<string>(boost::any_cast<string>(m["LiveIdList"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -10437,6 +10830,7 @@ class ListRoomLivesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> queryTimestamp{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<vector<string>> roomIdList{};
   shared_ptr<long> size{};
@@ -10457,6 +10851,9 @@ public:
     }
     if (queryTimestamp) {
       res["QueryTimestamp"] = boost::any(*queryTimestamp);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -10479,6 +10876,9 @@ public:
     }
     if (m.find("QueryTimestamp") != m.end() && !m["QueryTimestamp"].empty()) {
       queryTimestamp = make_shared<long>(boost::any_cast<long>(m["QueryTimestamp"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -10508,6 +10908,7 @@ class ListRoomLivesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> queryTimestamp{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomIdListShrink{};
   shared_ptr<long> size{};
@@ -10528,6 +10929,9 @@ public:
     }
     if (queryTimestamp) {
       res["QueryTimestamp"] = boost::any(*queryTimestamp);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -10550,6 +10954,9 @@ public:
     }
     if (m.find("QueryTimestamp") != m.end() && !m["QueryTimestamp"].empty()) {
       queryTimestamp = make_shared<long>(boost::any_cast<long>(m["QueryTimestamp"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -10821,11 +11228,273 @@ public:
 
   virtual ~ListRoomLivesResponse() = default;
 };
+class ListRoomUsersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> roomId{};
+
+  ListRoomUsersRequest() {}
+
+  explicit ListRoomUsersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (roomId) {
+      res["RoomId"] = boost::any(*roomId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
+      roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
+    }
+  }
+
+
+  virtual ~ListRoomUsersRequest() = default;
+};
+class ListRoomUsersResponseBodyResultRoomUserList : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> extension{};
+  shared_ptr<string> nick{};
+  shared_ptr<string> userId{};
+
+  ListRoomUsersResponseBodyResultRoomUserList() {}
+
+  explicit ListRoomUsersResponseBodyResultRoomUserList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
+    if (nick) {
+      res["Nick"] = boost::any(*nick);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Extension"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extension = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Nick") != m.end() && !m["Nick"].empty()) {
+      nick = make_shared<string>(boost::any_cast<string>(m["Nick"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~ListRoomUsersResponseBodyResultRoomUserList() = default;
+};
+class ListRoomUsersResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<bool> hasMore{};
+  shared_ptr<long> pageTotal{};
+  shared_ptr<vector<ListRoomUsersResponseBodyResultRoomUserList>> roomUserList{};
+  shared_ptr<long> totalCount{};
+
+  ListRoomUsersResponseBodyResult() {}
+
+  explicit ListRoomUsersResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hasMore) {
+      res["HasMore"] = boost::any(*hasMore);
+    }
+    if (pageTotal) {
+      res["PageTotal"] = boost::any(*pageTotal);
+    }
+    if (roomUserList) {
+      vector<boost::any> temp1;
+      for(auto item1:*roomUserList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RoomUserList"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HasMore") != m.end() && !m["HasMore"].empty()) {
+      hasMore = make_shared<bool>(boost::any_cast<bool>(m["HasMore"]));
+    }
+    if (m.find("PageTotal") != m.end() && !m["PageTotal"].empty()) {
+      pageTotal = make_shared<long>(boost::any_cast<long>(m["PageTotal"]));
+    }
+    if (m.find("RoomUserList") != m.end() && !m["RoomUserList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RoomUserList"].type()) {
+        vector<ListRoomUsersResponseBodyResultRoomUserList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RoomUserList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRoomUsersResponseBodyResultRoomUserList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        roomUserList = make_shared<vector<ListRoomUsersResponseBodyResultRoomUserList>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListRoomUsersResponseBodyResult() = default;
+};
+class ListRoomUsersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<ListRoomUsersResponseBodyResult> result{};
+
+  ListRoomUsersResponseBody() {}
+
+  explicit ListRoomUsersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ListRoomUsersResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ListRoomUsersResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRoomUsersResponseBody() = default;
+};
+class ListRoomUsersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListRoomUsersResponseBody> body{};
+
+  ListRoomUsersResponse() {}
+
+  explicit ListRoomUsersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListRoomUsersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListRoomUsersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListRoomUsersResponse() = default;
+};
 class ListRoomsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
 
   ListRoomsRequest() {}
 
@@ -10846,6 +11515,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -10858,6 +11530,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -11196,6 +11871,7 @@ public:
 class PublishLiveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   PublishLiveRequest() {}
@@ -11211,6 +11887,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -11220,6 +11899,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -11382,6 +12064,7 @@ class PublishLiveRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   PublishLiveRoomRequest() {}
@@ -11400,6 +12083,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -11412,6 +12098,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -11560,6 +12249,7 @@ class RejectLinkMicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
   shared_ptr<string> fromUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> toUserId{};
 
   RejectLinkMicRequest() {}
@@ -11578,6 +12268,9 @@ public:
     if (fromUserId) {
       res["FromUserId"] = boost::any(*fromUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (toUserId) {
       res["ToUserId"] = boost::any(*toUserId);
     }
@@ -11590,6 +12283,9 @@ public:
     }
     if (m.find("FromUserId") != m.end() && !m["FromUserId"].empty()) {
       fromUserId = make_shared<string>(boost::any_cast<string>(m["FromUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ToUserId") != m.end() && !m["ToUserId"].empty()) {
       toUserId = make_shared<string>(boost::any_cast<string>(m["ToUserId"]));
@@ -11684,6 +12380,7 @@ class RemoveMemberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
   shared_ptr<string> fromUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> toUserId{};
 
   RemoveMemberRequest() {}
@@ -11702,6 +12399,9 @@ public:
     if (fromUserId) {
       res["FromUserId"] = boost::any(*fromUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (toUserId) {
       res["ToUserId"] = boost::any(*toUserId);
     }
@@ -11714,6 +12414,9 @@ public:
     }
     if (m.find("FromUserId") != m.end() && !m["FromUserId"].empty()) {
       fromUserId = make_shared<string>(boost::any_cast<string>(m["FromUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ToUserId") != m.end() && !m["ToUserId"].empty()) {
       toUserId = make_shared<string>(boost::any_cast<string>(m["ToUserId"]));
@@ -11809,6 +12512,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> content{};
   shared_ptr<map<string, string>> extension{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> senderId{};
   shared_ptr<string> senderNick{};
@@ -11831,6 +12535,9 @@ public:
     }
     if (extension) {
       res["Extension"] = boost::any(*extension);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -11859,6 +12566,9 @@ public:
       }
       extension = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
     }
@@ -11878,6 +12588,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> content{};
   shared_ptr<string> extensionShrink{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> senderId{};
   shared_ptr<string> senderNick{};
@@ -11901,6 +12612,9 @@ public:
     if (extensionShrink) {
       res["Extension"] = boost::any(*extensionShrink);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -11922,6 +12636,9 @@ public:
     }
     if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
       extensionShrink = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -12135,6 +12852,7 @@ class SendCustomMessageToAllRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> body{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
 
   SendCustomMessageToAllRequest() {}
@@ -12153,6 +12871,9 @@ public:
     if (body) {
       res["Body"] = boost::any(*body);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -12165,6 +12886,9 @@ public:
     }
     if (m.find("Body") != m.end() && !m["Body"].empty()) {
       body = make_shared<string>(boost::any_cast<string>(m["Body"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -12300,6 +13024,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> body{};
   shared_ptr<vector<string>> receiverList{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
 
   SendCustomMessageToUsersRequest() {}
@@ -12320,6 +13045,9 @@ public:
     }
     if (receiverList) {
       res["ReceiverList"] = boost::any(*receiverList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -12343,6 +13071,9 @@ public:
         }
       }
       receiverList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -12477,6 +13208,7 @@ class StopClassRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> classId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   StopClassRequest() {}
@@ -12495,6 +13227,9 @@ public:
     if (classId) {
       res["ClassId"] = boost::any(*classId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -12507,6 +13242,9 @@ public:
     }
     if (m.find("ClassId") != m.end() && !m["ClassId"].empty()) {
       classId = make_shared<string>(boost::any_cast<string>(m["ClassId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -12601,6 +13339,7 @@ class StopLiveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> userId{};
 
@@ -12620,6 +13359,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -12635,6 +13377,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -12732,6 +13477,7 @@ class StopLiveRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> userId{};
 
   StopLiveRoomRequest() {}
@@ -12750,6 +13496,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -12762,6 +13511,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -12857,6 +13609,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> appStatus{};
+  shared_ptr<string> regionId{};
 
   UpdateAppRequest() {}
 
@@ -12877,6 +13630,9 @@ public:
     if (appStatus) {
       res["AppStatus"] = boost::any(*appStatus);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -12889,6 +13645,9 @@ public:
     }
     if (m.find("AppStatus") != m.end() && !m["AppStatus"].empty()) {
       appStatus = make_shared<string>(boost::any_cast<string>(m["AppStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -12981,6 +13740,7 @@ public:
   shared_ptr<string> appTemplateId{};
   shared_ptr<string> appTemplateName{};
   shared_ptr<vector<string>> componentList{};
+  shared_ptr<string> regionId{};
 
   UpdateAppTemplateRequest() {}
 
@@ -13000,6 +13760,9 @@ public:
     }
     if (componentList) {
       res["ComponentList"] = boost::any(*componentList);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     return res;
   }
@@ -13021,6 +13784,9 @@ public:
       }
       componentList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
   }
 
 
@@ -13031,6 +13797,7 @@ public:
   shared_ptr<string> appTemplateId{};
   shared_ptr<string> appTemplateName{};
   shared_ptr<string> componentListShrink{};
+  shared_ptr<string> regionId{};
 
   UpdateAppTemplateShrinkRequest() {}
 
@@ -13051,6 +13818,9 @@ public:
     if (componentListShrink) {
       res["ComponentList"] = boost::any(*componentListShrink);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -13063,6 +13833,9 @@ public:
     }
     if (m.find("ComponentList") != m.end() && !m["ComponentList"].empty()) {
       componentListShrink = make_shared<string>(boost::any_cast<string>(m["ComponentList"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -13190,6 +13963,7 @@ class UpdateAppTemplateConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateId{};
   shared_ptr<vector<UpdateAppTemplateConfigRequestConfigList>> configList{};
+  shared_ptr<string> regionId{};
 
   UpdateAppTemplateConfigRequest() {}
 
@@ -13211,6 +13985,9 @@ public:
       }
       res["ConfigList"] = boost::any(temp1);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -13231,6 +14008,9 @@ public:
         configList = make_shared<vector<UpdateAppTemplateConfigRequestConfigList>>(expect1);
       }
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
   }
 
 
@@ -13240,6 +14020,7 @@ class UpdateAppTemplateConfigShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appTemplateId{};
   shared_ptr<string> configListShrink{};
+  shared_ptr<string> regionId{};
 
   UpdateAppTemplateConfigShrinkRequest() {}
 
@@ -13257,6 +14038,9 @@ public:
     if (configListShrink) {
       res["ConfigList"] = boost::any(*configListShrink);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -13266,6 +14050,9 @@ public:
     }
     if (m.find("ConfigList") != m.end() && !m["ConfigList"].empty()) {
       configListShrink = make_shared<string>(boost::any_cast<string>(m["ConfigList"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -13449,6 +14236,7 @@ public:
   shared_ptr<string> classId{};
   shared_ptr<string> createNickname{};
   shared_ptr<string> createUserId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
 
   UpdateClassRequest() {}
@@ -13473,6 +14261,9 @@ public:
     if (createUserId) {
       res["CreateUserId"] = boost::any(*createUserId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -13491,6 +14282,9 @@ public:
     }
     if (m.find("CreateUserId") != m.end() && !m["CreateUserId"].empty()) {
       createUserId = make_shared<string>(boost::any_cast<string>(m["CreateUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -13584,6 +14378,7 @@ public:
 class UpdateConferenceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> conferenceId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
 
   UpdateConferenceRequest() {}
@@ -13599,6 +14394,9 @@ public:
     if (conferenceId) {
       res["ConferenceId"] = boost::any(*conferenceId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -13608,6 +14406,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ConferenceId") != m.end() && !m["ConferenceId"].empty()) {
       conferenceId = make_shared<string>(boost::any_cast<string>(m["ConferenceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -13702,6 +14503,7 @@ class UpdateLiveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> introduction{};
   shared_ptr<string> liveId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
 
   UpdateLiveRequest() {}
@@ -13720,6 +14522,9 @@ public:
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -13732,6 +14537,9 @@ public:
     }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -13831,6 +14639,7 @@ public:
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> liveId{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
 
@@ -13864,6 +14673,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (title) {
       res["Title"] = boost::any(*title);
@@ -13901,6 +14713,9 @@ public:
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
@@ -13921,6 +14736,7 @@ public:
   shared_ptr<string> extensionShrink{};
   shared_ptr<string> liveId{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> title{};
   shared_ptr<string> userId{};
 
@@ -13955,6 +14771,9 @@ public:
     if (notice) {
       res["Notice"] = boost::any(*notice);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -13985,6 +14804,9 @@ public:
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -14083,6 +14905,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomOwnerId{};
   shared_ptr<string> title{};
@@ -14105,6 +14928,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
@@ -14133,6 +14959,9 @@ public:
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
     }
@@ -14152,6 +14981,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> extensionShrink{};
   shared_ptr<string> notice{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomOwnerId{};
   shared_ptr<string> title{};
@@ -14175,6 +15005,9 @@ public:
     if (notice) {
       res["Notice"] = boost::any(*notice);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
     }
@@ -14196,6 +15029,9 @@ public:
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
@@ -14295,6 +15131,7 @@ public:
 class VerifyDomainOwnerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> liveDomainName{};
+  shared_ptr<string> regionId{};
 
   VerifyDomainOwnerRequest() {}
 
@@ -14309,12 +15146,18 @@ public:
     if (liveDomainName) {
       res["LiveDomainName"] = boost::any(*liveDomainName);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LiveDomainName") != m.end() && !m["LiveDomainName"].empty()) {
       liveDomainName = make_shared<string>(boost::any_cast<string>(m["LiveDomainName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -14479,8 +15322,8 @@ public:
   GetConferenceResponse getConference(shared_ptr<GetConferenceRequest> request);
   GetDomainOwnerVerifyContentResponse getDomainOwnerVerifyContentWithOptions(shared_ptr<GetDomainOwnerVerifyContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDomainOwnerVerifyContentResponse getDomainOwnerVerifyContent(shared_ptr<GetDomainOwnerVerifyContentRequest> request);
-  GetImpProductStatusResponse getImpProductStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetImpProductStatusResponse getImpProductStatus();
+  GetImpProductStatusResponse getImpProductStatusWithOptions(shared_ptr<GetImpProductStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetImpProductStatusResponse getImpProductStatus(shared_ptr<GetImpProductStatusRequest> request);
   GetLiveResponse getLiveWithOptions(shared_ptr<GetLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLiveResponse getLive(shared_ptr<GetLiveRequest> request);
   GetLiveDomainStatusResponse getLiveDomainStatusWithOptions(shared_ptr<GetLiveDomainStatusRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -14517,6 +15360,8 @@ public:
   ListLiveRoomsByIdResponse listLiveRoomsById(shared_ptr<ListLiveRoomsByIdRequest> request);
   ListRoomLivesResponse listRoomLivesWithOptions(shared_ptr<ListRoomLivesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoomLivesResponse listRoomLives(shared_ptr<ListRoomLivesRequest> request);
+  ListRoomUsersResponse listRoomUsersWithOptions(shared_ptr<ListRoomUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListRoomUsersResponse listRoomUsers(shared_ptr<ListRoomUsersRequest> request);
   ListRoomsResponse listRoomsWithOptions(shared_ptr<ListRoomsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRoomsResponse listRooms(shared_ptr<ListRoomsRequest> request);
   PublishLiveResponse publishLiveWithOptions(shared_ptr<PublishLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
