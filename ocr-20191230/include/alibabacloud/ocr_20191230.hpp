@@ -9615,6 +9615,7 @@ class RecognizeVideoCharacterResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<RecognizeVideoCharacterResponseBodyDataFrames>> frames{};
   shared_ptr<long> height{};
+  shared_ptr<string> inputFile{};
   shared_ptr<long> width{};
 
   RecognizeVideoCharacterResponseBodyData() {}
@@ -9636,6 +9637,9 @@ public:
     }
     if (height) {
       res["Height"] = boost::any(*height);
+    }
+    if (inputFile) {
+      res["InputFile"] = boost::any(*inputFile);
     }
     if (width) {
       res["Width"] = boost::any(*width);
@@ -9659,6 +9663,9 @@ public:
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("InputFile") != m.end() && !m["InputFile"].empty()) {
+      inputFile = make_shared<string>(boost::any_cast<string>(m["InputFile"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
