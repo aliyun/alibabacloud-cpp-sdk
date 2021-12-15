@@ -47,8 +47,7 @@ DescribeEmptyNumberDetectResponse Alibabacloud_Dytnsapi20200217::Client::describ
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeEmptyNumberDetect"))},
@@ -58,7 +57,7 @@ DescribeEmptyNumberDetectResponse Alibabacloud_Dytnsapi20200217::Client::describ
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeEmptyNumberDetectResponse(callApi(params, req, runtime));
@@ -81,8 +80,7 @@ DescribePhoneNumberAnalysisResponse Alibabacloud_Dytnsapi20200217::Client::descr
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePhoneNumberAnalysis"))},
@@ -92,7 +90,7 @@ DescribePhoneNumberAnalysisResponse Alibabacloud_Dytnsapi20200217::Client::descr
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePhoneNumberAnalysisResponse(callApi(params, req, runtime));
@@ -111,8 +109,7 @@ DescribePhoneNumberAttributeResponse Alibabacloud_Dytnsapi20200217::Client::desc
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePhoneNumberAttribute"))},
@@ -122,7 +119,7 @@ DescribePhoneNumberAttributeResponse Alibabacloud_Dytnsapi20200217::Client::desc
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePhoneNumberAttributeResponse(callApi(params, req, runtime));
@@ -142,8 +139,7 @@ DescribePhoneNumberResaleResponse Alibabacloud_Dytnsapi20200217::Client::describ
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   query->insert(pair<string, string>("Since", *request->since));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePhoneNumberResale"))},
@@ -153,7 +149,7 @@ DescribePhoneNumberResaleResponse Alibabacloud_Dytnsapi20200217::Client::describ
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePhoneNumberResaleResponse(callApi(params, req, runtime));
@@ -172,8 +168,7 @@ DescribePhoneNumberStatusResponse Alibabacloud_Dytnsapi20200217::Client::describ
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePhoneNumberStatus"))},
@@ -183,7 +178,7 @@ DescribePhoneNumberStatusResponse Alibabacloud_Dytnsapi20200217::Client::describ
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePhoneNumberStatusResponse(callApi(params, req, runtime));
@@ -204,7 +199,7 @@ PvrCallbackFCUResponse Alibabacloud_Dytnsapi20200217::Client::pvrCallbackFCUWith
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("none"))}
   }));
   return PvrCallbackFCUResponse(callApi(params, req, runtime));
