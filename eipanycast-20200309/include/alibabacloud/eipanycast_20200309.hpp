@@ -393,6 +393,7 @@ class DescribeAnycastEipAddressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> anycastId{};
   shared_ptr<string> bindInstanceId{};
+  shared_ptr<string> ip{};
 
   DescribeAnycastEipAddressRequest() {}
 
@@ -410,6 +411,9 @@ public:
     if (bindInstanceId) {
       res["BindInstanceId"] = boost::any(*bindInstanceId);
     }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
     return res;
   }
 
@@ -419,6 +423,9 @@ public:
     }
     if (m.find("BindInstanceId") != m.end() && !m["BindInstanceId"].empty()) {
       bindInstanceId = make_shared<string>(boost::any_cast<string>(m["BindInstanceId"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
     }
   }
 

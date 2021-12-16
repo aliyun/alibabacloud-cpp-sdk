@@ -49,8 +49,7 @@ AllocateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::alloc
   query->insert(pair<string, string>("Name", *request->name));
   query->insert(pair<string, string>("ServiceLocation", *request->serviceLocation));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AllocateAnycastEipAddress"))},
@@ -60,7 +59,7 @@ AllocateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::alloc
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AllocateAnycastEipAddressResponse(callApi(params, req, runtime));
@@ -84,8 +83,7 @@ AssociateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::asso
   query->insert(pair<string, vector<AssociateAnycastEipAddressRequestPopLocations>>("PopLocations", *request->popLocations));
   query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AssociateAnycastEipAddress"))},
@@ -95,7 +93,7 @@ AssociateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::asso
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AssociateAnycastEipAddressResponse(callApi(params, req, runtime));
@@ -111,9 +109,9 @@ DescribeAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::descr
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AnycastId", *request->anycastId));
   query->insert(pair<string, string>("BindInstanceId", *request->bindInstanceId));
+  query->insert(pair<string, string>("Ip", *request->ip));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeAnycastEipAddress"))},
@@ -123,7 +121,7 @@ DescribeAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::descr
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeAnycastEipAddressResponse(callApi(params, req, runtime));
@@ -139,8 +137,7 @@ DescribeAnycastPopLocationsResponse Alibabacloud_Eipanycast20200309::Client::des
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("ServiceLocation", *request->serviceLocation));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeAnycastPopLocations"))},
@@ -150,7 +147,7 @@ DescribeAnycastPopLocationsResponse Alibabacloud_Eipanycast20200309::Client::des
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeAnycastPopLocationsResponse(callApi(params, req, runtime));
@@ -166,8 +163,7 @@ DescribeAnycastServerRegionsResponse Alibabacloud_Eipanycast20200309::Client::de
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("ServiceLocation", *request->serviceLocation));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeAnycastServerRegions"))},
@@ -177,7 +173,7 @@ DescribeAnycastServerRegionsResponse Alibabacloud_Eipanycast20200309::Client::de
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeAnycastServerRegionsResponse(callApi(params, req, runtime));
@@ -203,8 +199,7 @@ ListAnycastEipAddressesResponse Alibabacloud_Eipanycast20200309::Client::listAny
   query->insert(pair<string, string>("ServiceLocation", *request->serviceLocation));
   query->insert(pair<string, string>("Status", *request->status));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAnycastEipAddresses"))},
@@ -214,7 +209,7 @@ ListAnycastEipAddressesResponse Alibabacloud_Eipanycast20200309::Client::listAny
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAnycastEipAddressesResponse(callApi(params, req, runtime));
@@ -232,8 +227,7 @@ ModifyAnycastEipAddressAttributeResponse Alibabacloud_Eipanycast20200309::Client
   query->insert(pair<string, string>("Description", *request->description));
   query->insert(pair<string, string>("Name", *request->name));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ModifyAnycastEipAddressAttribute"))},
@@ -243,7 +237,7 @@ ModifyAnycastEipAddressAttributeResponse Alibabacloud_Eipanycast20200309::Client
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyAnycastEipAddressAttributeResponse(callApi(params, req, runtime));
@@ -260,8 +254,7 @@ ModifyAnycastEipAddressSpecResponse Alibabacloud_Eipanycast20200309::Client::mod
   query->insert(pair<string, string>("AnycastId", *request->anycastId));
   query->insert(pair<string, string>("Bandwidth", *request->bandwidth));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ModifyAnycastEipAddressSpec"))},
@@ -271,7 +264,7 @@ ModifyAnycastEipAddressSpecResponse Alibabacloud_Eipanycast20200309::Client::mod
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyAnycastEipAddressSpecResponse(callApi(params, req, runtime));
@@ -288,8 +281,7 @@ ReleaseAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::releas
   query->insert(pair<string, string>("AnycastId", *request->anycastId));
   query->insert(pair<string, string>("ClientToken", *request->clientToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ReleaseAnycastEipAddress"))},
@@ -299,7 +291,7 @@ ReleaseAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::releas
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ReleaseAnycastEipAddressResponse(callApi(params, req, runtime));
@@ -321,8 +313,7 @@ UnassociateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::un
   query->insert(pair<string, string>("DryRun", *request->dryRun));
   query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UnassociateAnycastEipAddress"))},
@@ -332,7 +323,7 @@ UnassociateAnycastEipAddressResponse Alibabacloud_Eipanycast20200309::Client::un
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UnassociateAnycastEipAddressResponse(callApi(params, req, runtime));
@@ -354,8 +345,7 @@ UpdateAnycastEipAddressAssociationsResponse Alibabacloud_Eipanycast20200309::Cli
   query->insert(pair<string, vector<UpdateAnycastEipAddressAssociationsRequestPopLocationAddList>>("PopLocationAddList", *request->popLocationAddList));
   query->insert(pair<string, vector<UpdateAnycastEipAddressAssociationsRequestPopLocationDeleteList>>("PopLocationDeleteList", *request->popLocationDeleteList));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateAnycastEipAddressAssociations"))},
@@ -365,7 +355,7 @@ UpdateAnycastEipAddressAssociationsResponse Alibabacloud_Eipanycast20200309::Cli
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateAnycastEipAddressAssociationsResponse(callApi(params, req, runtime));
