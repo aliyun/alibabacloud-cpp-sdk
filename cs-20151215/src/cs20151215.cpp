@@ -90,43 +90,43 @@ AttachInstancesResponse Alibabacloud_CS20151215::Client::attachInstancesWithOpti
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuPolicy)) {
-    (*body)["cpu_policy"] = *request->cpuPolicy;
+    body->insert(pair<string, string>("cpu_policy", *request->cpuPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->formatDisk)) {
-    (*body)["format_disk"] = *request->formatDisk;
+    body->insert(pair<string, bool>("format_disk", *request->formatDisk));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
-    (*body)["image_id"] = *request->imageId;
+    body->insert(pair<string, string>("image_id", *request->imageId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instances)) {
-    (*body)["instances"] = *request->instances;
+    body->insert(pair<string, vector<string>>("instances", *request->instances));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isEdgeWorker)) {
-    (*body)["is_edge_worker"] = *request->isEdgeWorker;
+    body->insert(pair<string, bool>("is_edge_worker", *request->isEdgeWorker));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepInstanceName)) {
-    (*body)["keep_instance_name"] = *request->keepInstanceName;
+    body->insert(pair<string, bool>("keep_instance_name", *request->keepInstanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPair)) {
-    (*body)["key_pair"] = *request->keyPair;
+    body->insert(pair<string, string>("key_pair", *request->keyPair));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodepoolId)) {
-    (*body)["nodepool_id"] = *request->nodepoolId;
+    body->insert(pair<string, string>("nodepool_id", *request->nodepoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
-    (*body)["password"] = *request->password;
+    body->insert(pair<string, string>("password", *request->password));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->rdsInstances)) {
-    (*body)["rds_instances"] = *request->rdsInstances;
+    body->insert(pair<string, vector<string>>("rds_instances", *request->rdsInstances));
   }
   if (!Darabonba_Util::Client::isUnset<Runtime>(request->runtime)) {
-    (*body)["runtime"] = *request->runtime;
+    body->insert(pair<string, Runtime>("runtime", *request->runtime));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Tag>>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, vector<Tag>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
-    (*body)["user_data"] = *request->userData;
+    body->insert(pair<string, string>("user_data", *request->userData));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -214,7 +214,7 @@ CancelWorkflowResponse Alibabacloud_CS20151215::Client::cancelWorkflowWithOption
   workflowName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workflowName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*body)["action"] = *request->action;
+    body->insert(pair<string, string>("action", *request->action));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -248,19 +248,19 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->coolDownDuration)) {
-    (*body)["cool_down_duration"] = *request->coolDownDuration;
+    body->insert(pair<string, string>("cool_down_duration", *request->coolDownDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuUtilizationThreshold)) {
-    (*body)["gpu_utilization_threshold"] = *request->gpuUtilizationThreshold;
+    body->insert(pair<string, string>("gpu_utilization_threshold", *request->gpuUtilizationThreshold));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scanInterval)) {
-    (*body)["scan_interval"] = *request->scanInterval;
+    body->insert(pair<string, string>("scan_interval", *request->scanInterval));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->unneededDuration)) {
-    (*body)["unneeded_duration"] = *request->unneededDuration;
+    body->insert(pair<string, string>("unneeded_duration", *request->unneededDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->utilizationThreshold)) {
-    (*body)["utilization_threshold"] = *request->utilizationThreshold;
+    body->insert(pair<string, string>("utilization_threshold", *request->utilizationThreshold));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -290,253 +290,253 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<Addon>>(request->addons)) {
-    (*body)["addons"] = *request->addons;
+    body->insert(pair<string, vector<Addon>>("addons", *request->addons));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiAudiences)) {
-    (*body)["api_audiences"] = *request->apiAudiences;
+    body->insert(pair<string, string>("api_audiences", *request->apiAudiences));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->cisEnabled)) {
-    (*body)["cis_enabled"] = *request->cisEnabled;
+    body->insert(pair<string, bool>("cis_enabled", *request->cisEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->cloudMonitorFlags)) {
-    (*body)["cloud_monitor_flags"] = *request->cloudMonitorFlags;
+    body->insert(pair<string, bool>("cloud_monitor_flags", *request->cloudMonitorFlags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterDomain)) {
-    (*body)["cluster_domain"] = *request->clusterDomain;
+    body->insert(pair<string, string>("cluster_domain", *request->clusterDomain));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpec)) {
-    (*body)["cluster_spec"] = *request->clusterSpec;
+    body->insert(pair<string, string>("cluster_spec", *request->clusterSpec));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
-    (*body)["cluster_type"] = *request->clusterType;
+    body->insert(pair<string, string>("cluster_type", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->containerCidr)) {
-    (*body)["container_cidr"] = *request->containerCidr;
+    body->insert(pair<string, string>("container_cidr", *request->containerCidr));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->controlplaneLogComponents)) {
-    (*body)["controlplane_log_components"] = *request->controlplaneLogComponents;
+    body->insert(pair<string, vector<string>>("controlplane_log_components", *request->controlplaneLogComponents));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->controlplaneLogProject)) {
-    (*body)["controlplane_log_project"] = *request->controlplaneLogProject;
+    body->insert(pair<string, string>("controlplane_log_project", *request->controlplaneLogProject));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->controlplaneLogTtl)) {
-    (*body)["controlplane_log_ttl"] = *request->controlplaneLogTtl;
+    body->insert(pair<string, string>("controlplane_log_ttl", *request->controlplaneLogTtl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuPolicy)) {
-    (*body)["cpu_policy"] = *request->cpuPolicy;
+    body->insert(pair<string, string>("cpu_policy", *request->cpuPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->customSan)) {
-    (*body)["custom_san"] = *request->customSan;
+    body->insert(pair<string, string>("custom_san", *request->customSan));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
-    (*body)["deletion_protection"] = *request->deletionProtection;
+    body->insert(pair<string, bool>("deletion_protection", *request->deletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disableRollback)) {
-    (*body)["disable_rollback"] = *request->disableRollback;
+    body->insert(pair<string, bool>("disable_rollback", *request->disableRollback));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableRrsa)) {
-    (*body)["enable_rrsa"] = *request->enableRrsa;
+    body->insert(pair<string, bool>("enable_rrsa", *request->enableRrsa));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->encryptionProviderKey)) {
-    (*body)["encryption_provider_key"] = *request->encryptionProviderKey;
+    body->insert(pair<string, string>("encryption_provider_key", *request->encryptionProviderKey));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->endpointPublicAccess)) {
-    (*body)["endpoint_public_access"] = *request->endpointPublicAccess;
+    body->insert(pair<string, bool>("endpoint_public_access", *request->endpointPublicAccess));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->formatDisk)) {
-    (*body)["format_disk"] = *request->formatDisk;
+    body->insert(pair<string, bool>("format_disk", *request->formatDisk));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
-    (*body)["image_id"] = *request->imageId;
+    body->insert(pair<string, string>("image_id", *request->imageId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
-    (*body)["image_type"] = *request->imageType;
+    body->insert(pair<string, string>("image_type", *request->imageType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instances)) {
-    (*body)["instances"] = *request->instances;
+    body->insert(pair<string, vector<string>>("instances", *request->instances));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isEnterpriseSecurityGroup)) {
-    (*body)["is_enterprise_security_group"] = *request->isEnterpriseSecurityGroup;
+    body->insert(pair<string, bool>("is_enterprise_security_group", *request->isEnterpriseSecurityGroup));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepInstanceName)) {
-    (*body)["keep_instance_name"] = *request->keepInstanceName;
+    body->insert(pair<string, bool>("keep_instance_name", *request->keepInstanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPair)) {
-    (*body)["key_pair"] = *request->keyPair;
+    body->insert(pair<string, string>("key_pair", *request->keyPair));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->kubernetesVersion)) {
-    (*body)["kubernetes_version"] = *request->kubernetesVersion;
+    body->insert(pair<string, string>("kubernetes_version", *request->kubernetesVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerSpec)) {
-    (*body)["load_balancer_spec"] = *request->loadBalancerSpec;
+    body->insert(pair<string, string>("load_balancer_spec", *request->loadBalancerSpec));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loggingType)) {
-    (*body)["logging_type"] = *request->loggingType;
+    body->insert(pair<string, string>("logging_type", *request->loggingType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginPassword)) {
-    (*body)["login_password"] = *request->loginPassword;
+    body->insert(pair<string, string>("login_password", *request->loginPassword));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->masterAutoRenew)) {
-    (*body)["master_auto_renew"] = *request->masterAutoRenew;
+    body->insert(pair<string, bool>("master_auto_renew", *request->masterAutoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterAutoRenewPeriod)) {
-    (*body)["master_auto_renew_period"] = *request->masterAutoRenewPeriod;
+    body->insert(pair<string, long>("master_auto_renew_period", *request->masterAutoRenewPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterCount)) {
-    (*body)["master_count"] = *request->masterCount;
+    body->insert(pair<string, long>("master_count", *request->masterCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->masterInstanceChargeType)) {
-    (*body)["master_instance_charge_type"] = *request->masterInstanceChargeType;
+    body->insert(pair<string, string>("master_instance_charge_type", *request->masterInstanceChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->masterInstanceTypes)) {
-    (*body)["master_instance_types"] = *request->masterInstanceTypes;
+    body->insert(pair<string, vector<string>>("master_instance_types", *request->masterInstanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterPeriod)) {
-    (*body)["master_period"] = *request->masterPeriod;
+    body->insert(pair<string, long>("master_period", *request->masterPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->masterPeriodUnit)) {
-    (*body)["master_period_unit"] = *request->masterPeriodUnit;
+    body->insert(pair<string, string>("master_period_unit", *request->masterPeriodUnit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->masterSystemDiskCategory)) {
-    (*body)["master_system_disk_category"] = *request->masterSystemDiskCategory;
+    body->insert(pair<string, string>("master_system_disk_category", *request->masterSystemDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->masterSystemDiskPerformanceLevel)) {
-    (*body)["master_system_disk_performance_level"] = *request->masterSystemDiskPerformanceLevel;
+    body->insert(pair<string, string>("master_system_disk_performance_level", *request->masterSystemDiskPerformanceLevel));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->masterSystemDiskSize)) {
-    (*body)["master_system_disk_size"] = *request->masterSystemDiskSize;
+    body->insert(pair<string, long>("master_system_disk_size", *request->masterSystemDiskSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->masterSystemDiskSnapshotPolicyId)) {
-    (*body)["master_system_disk_snapshot_policy_id"] = *request->masterSystemDiskSnapshotPolicyId;
+    body->insert(pair<string, string>("master_system_disk_snapshot_policy_id", *request->masterSystemDiskSnapshotPolicyId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->masterVswitchIds)) {
-    (*body)["master_vswitch_ids"] = *request->masterVswitchIds;
+    body->insert(pair<string, vector<string>>("master_vswitch_ids", *request->masterVswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*body)["name"] = *request->name;
+    body->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->natGateway)) {
-    (*body)["nat_gateway"] = *request->natGateway;
+    body->insert(pair<string, bool>("nat_gateway", *request->natGateway));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeCidrMask)) {
-    (*body)["node_cidr_mask"] = *request->nodeCidrMask;
+    body->insert(pair<string, string>("node_cidr_mask", *request->nodeCidrMask));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeNameMode)) {
-    (*body)["node_name_mode"] = *request->nodeNameMode;
+    body->insert(pair<string, string>("node_name_mode", *request->nodeNameMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodePortRange)) {
-    (*body)["node_port_range"] = *request->nodePortRange;
+    body->insert(pair<string, string>("node_port_range", *request->nodePortRange));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->numOfNodes)) {
-    (*body)["num_of_nodes"] = *request->numOfNodes;
+    body->insert(pair<string, long>("num_of_nodes", *request->numOfNodes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
-    (*body)["os_type"] = *request->osType;
+    body->insert(pair<string, string>("os_type", *request->osType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
-    (*body)["platform"] = *request->platform;
+    body->insert(pair<string, string>("platform", *request->platform));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->podVswitchIds)) {
-    (*body)["pod_vswitch_ids"] = *request->podVswitchIds;
+    body->insert(pair<string, vector<string>>("pod_vswitch_ids", *request->podVswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
-    (*body)["profile"] = *request->profile;
+    body->insert(pair<string, string>("profile", *request->profile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyMode)) {
-    (*body)["proxy_mode"] = *request->proxyMode;
+    body->insert(pair<string, string>("proxy_mode", *request->proxyMode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->rdsInstances)) {
-    (*body)["rds_instances"] = *request->rdsInstances;
+    body->insert(pair<string, vector<string>>("rds_instances", *request->rdsInstances));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    (*body)["region_id"] = *request->regionId;
+    body->insert(pair<string, string>("region_id", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<Runtime>(request->runtime)) {
-    (*body)["runtime"] = *request->runtime;
+    body->insert(pair<string, Runtime>("runtime", *request->runtime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
-    (*body)["security_group_id"] = *request->securityGroupId;
+    body->insert(pair<string, string>("security_group_id", *request->securityGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceAccountIssuer)) {
-    (*body)["service_account_issuer"] = *request->serviceAccountIssuer;
+    body->insert(pair<string, string>("service_account_issuer", *request->serviceAccountIssuer));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceCidr)) {
-    (*body)["service_cidr"] = *request->serviceCidr;
+    body->insert(pair<string, string>("service_cidr", *request->serviceCidr));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceDiscoveryTypes)) {
-    (*body)["service_discovery_types"] = *request->serviceDiscoveryTypes;
+    body->insert(pair<string, vector<string>>("service_discovery_types", *request->serviceDiscoveryTypes));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->snatEntry)) {
-    (*body)["snat_entry"] = *request->snatEntry;
+    body->insert(pair<string, bool>("snat_entry", *request->snatEntry));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->socEnabled)) {
-    (*body)["soc_enabled"] = *request->socEnabled;
+    body->insert(pair<string, bool>("soc_enabled", *request->socEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->sshFlags)) {
-    (*body)["ssh_flags"] = *request->sshFlags;
+    body->insert(pair<string, bool>("ssh_flags", *request->sshFlags));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Tag>>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, vector<Tag>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Taint>>(request->taints)) {
-    (*body)["taints"] = *request->taints;
+    body->insert(pair<string, vector<Taint>>("taints", *request->taints));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeoutMins)) {
-    (*body)["timeout_mins"] = *request->timeoutMins;
+    body->insert(pair<string, long>("timeout_mins", *request->timeoutMins));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->timezone)) {
-    (*body)["timezone"] = *request->timezone;
+    body->insert(pair<string, string>("timezone", *request->timezone));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userCa)) {
-    (*body)["user_ca"] = *request->userCa;
+    body->insert(pair<string, string>("user_ca", *request->userCa));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
-    (*body)["user_data"] = *request->userData;
+    body->insert(pair<string, string>("user_data", *request->userData));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcid)) {
-    (*body)["vpcid"] = *request->vpcid;
+    body->insert(pair<string, string>("vpcid", *request->vpcid));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vswitchIds)) {
-    (*body)["vswitch_ids"] = *request->vswitchIds;
+    body->insert(pair<string, vector<string>>("vswitch_ids", *request->vswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->workerAutoRenew)) {
-    (*body)["worker_auto_renew"] = *request->workerAutoRenew;
+    body->insert(pair<string, bool>("worker_auto_renew", *request->workerAutoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerAutoRenewPeriod)) {
-    (*body)["worker_auto_renew_period"] = *request->workerAutoRenewPeriod;
+    body->insert(pair<string, long>("worker_auto_renew_period", *request->workerAutoRenewPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateClusterRequestWorkerDataDisks>>(request->workerDataDisks)) {
-    (*body)["worker_data_disks"] = *request->workerDataDisks;
+    body->insert(pair<string, vector<CreateClusterRequestWorkerDataDisks>>("worker_data_disks", *request->workerDataDisks));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerInstanceChargeType)) {
-    (*body)["worker_instance_charge_type"] = *request->workerInstanceChargeType;
+    body->insert(pair<string, string>("worker_instance_charge_type", *request->workerInstanceChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workerInstanceTypes)) {
-    (*body)["worker_instance_types"] = *request->workerInstanceTypes;
+    body->insert(pair<string, vector<string>>("worker_instance_types", *request->workerInstanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerPeriod)) {
-    (*body)["worker_period"] = *request->workerPeriod;
+    body->insert(pair<string, long>("worker_period", *request->workerPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerPeriodUnit)) {
-    (*body)["worker_period_unit"] = *request->workerPeriodUnit;
+    body->insert(pair<string, string>("worker_period_unit", *request->workerPeriodUnit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskCategory)) {
-    (*body)["worker_system_disk_category"] = *request->workerSystemDiskCategory;
+    body->insert(pair<string, string>("worker_system_disk_category", *request->workerSystemDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskPerformanceLevel)) {
-    (*body)["worker_system_disk_performance_level"] = *request->workerSystemDiskPerformanceLevel;
+    body->insert(pair<string, string>("worker_system_disk_performance_level", *request->workerSystemDiskPerformanceLevel));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerSystemDiskSize)) {
-    (*body)["worker_system_disk_size"] = *request->workerSystemDiskSize;
+    body->insert(pair<string, long>("worker_system_disk_size", *request->workerSystemDiskSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskSnapshotPolicyId)) {
-    (*body)["worker_system_disk_snapshot_policy_id"] = *request->workerSystemDiskSnapshotPolicyId;
+    body->insert(pair<string, string>("worker_system_disk_snapshot_policy_id", *request->workerSystemDiskSnapshotPolicyId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workerVswitchIds)) {
-    (*body)["worker_vswitch_ids"] = *request->workerVswitchIds;
+    body->insert(pair<string, vector<string>>("worker_vswitch_ids", *request->workerVswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
-    (*body)["zone_id"] = *request->zoneId;
+    body->insert(pair<string, string>("zone_id", *request->zoneId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -570,34 +570,34 @@ CreateClusterNodePoolResponse Alibabacloud_CS20151215::Client::createClusterNode
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestAutoScaling>(request->autoScaling)) {
-    (*body)["auto_scaling"] = *request->autoScaling;
+    body->insert(pair<string, CreateClusterNodePoolRequestAutoScaling>("auto_scaling", *request->autoScaling));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
-    (*body)["count"] = *request->count;
+    body->insert(pair<string, long>("count", *request->count));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestInterconnectConfig>(request->interconnectConfig)) {
-    (*body)["interconnect_config"] = *request->interconnectConfig;
+    body->insert(pair<string, CreateClusterNodePoolRequestInterconnectConfig>("interconnect_config", *request->interconnectConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->interconnectMode)) {
-    (*body)["interconnect_mode"] = *request->interconnectMode;
+    body->insert(pair<string, string>("interconnect_mode", *request->interconnectMode));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestKubernetesConfig>(request->kubernetesConfig)) {
-    (*body)["kubernetes_config"] = *request->kubernetesConfig;
+    body->insert(pair<string, CreateClusterNodePoolRequestKubernetesConfig>("kubernetes_config", *request->kubernetesConfig));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestManagement>(request->management)) {
-    (*body)["management"] = *request->management;
+    body->insert(pair<string, CreateClusterNodePoolRequestManagement>("management", *request->management));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxNodes)) {
-    (*body)["max_nodes"] = *request->maxNodes;
+    body->insert(pair<string, long>("max_nodes", *request->maxNodes));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestNodepoolInfo>(request->nodepoolInfo)) {
-    (*body)["nodepool_info"] = *request->nodepoolInfo;
+    body->insert(pair<string, CreateClusterNodePoolRequestNodepoolInfo>("nodepool_info", *request->nodepoolInfo));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestScalingGroup>(request->scalingGroup)) {
-    (*body)["scaling_group"] = *request->scalingGroup;
+    body->insert(pair<string, CreateClusterNodePoolRequestScalingGroup>("scaling_group", *request->scalingGroup));
   }
   if (!Darabonba_Util::Client::isUnset<CreateClusterNodePoolRequestTeeConfig>(request->teeConfig)) {
-    (*body)["tee_config"] = *request->teeConfig;
+    body->insert(pair<string, CreateClusterNodePoolRequestTeeConfig>("tee_config", *request->teeConfig));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -627,13 +627,13 @@ CreateEdgeMachineResponse Alibabacloud_CS20151215::Client::createEdgeMachineWith
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->hostname)) {
-    (*body)["hostname"] = *request->hostname;
+    body->insert(pair<string, string>("hostname", *request->hostname));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
-    (*body)["model"] = *request->model;
+    body->insert(pair<string, string>("model", *request->model));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sn)) {
-    (*body)["sn"] = *request->sn;
+    body->insert(pair<string, string>("sn", *request->sn));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -663,16 +663,16 @@ CreateKubernetesTriggerResponse Alibabacloud_CS20151215::Client::createKubernete
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*body)["action"] = *request->action;
+    body->insert(pair<string, string>("action", *request->action));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    (*body)["cluster_id"] = *request->clusterId;
+    body->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    (*body)["project_id"] = *request->projectId;
+    body->insert(pair<string, string>("project_id", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*body)["type"] = *request->type;
+    body->insert(pair<string, string>("type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -702,19 +702,19 @@ CreateTemplateResponse Alibabacloud_CS20151215::Client::createTemplateWithOption
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
-    (*body)["description"] = *request->description;
+    body->insert(pair<string, string>("description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*body)["name"] = *request->name;
+    body->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, string>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->template_)) {
-    (*body)["template_"] = *request->template_;
+    body->insert(pair<string, string>("template_", *request->template_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
-    (*body)["template_type"] = *request->templateType;
+    body->insert(pair<string, string>("template_type", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -748,16 +748,16 @@ CreateTriggerResponse Alibabacloud_CS20151215::Client::createTriggerWithOptions(
   clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*body)["action"] = *request->action;
+    body->insert(pair<string, string>("action", *request->action));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    (*body)["cluster_id"] = *request->clusterId;
+    body->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
-    (*body)["project_id"] = *request->projectId;
+    body->insert(pair<string, string>("project_id", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*body)["type"] = *request->type;
+    body->insert(pair<string, string>("type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -775,54 +775,6 @@ CreateTriggerResponse Alibabacloud_CS20151215::Client::createTriggerWithOptions(
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateTriggerResponse(callApi(params, req, runtime));
-}
-
-DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContact() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteAlertContactWithOptions(headers, runtime);
-}
-
-DeleteAlertContactResponse Alibabacloud_CS20151215::Client::deleteAlertContactWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteAlertContact"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/alert/contacts"))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return DeleteAlertContactResponse(callApi(params, req, runtime));
-}
-
-DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroup() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteAlertContactGroupWithOptions(headers, runtime);
-}
-
-DeleteAlertContactGroupResponse Alibabacloud_CS20151215::Client::deleteAlertContactGroupWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteAlertContactGroup"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/alert/contact_groups"))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return DeleteAlertContactGroupResponse(callApi(params, req, runtime));
 }
 
 DeleteClusterResponse Alibabacloud_CS20151215::Client::deleteCluster(shared_ptr<string> ClusterId, shared_ptr<DeleteClusterRequest> request) {
@@ -844,13 +796,13 @@ DeleteClusterResponse Alibabacloud_CS20151215::Client::deleteClusterWithOptions(
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepSlb)) {
-    (*query)["keep_slb"] = *request->keepSlb;
+    query->insert(pair<string, bool>("keep_slb", *request->keepSlb));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->retainAllResources)) {
-    (*query)["retain_all_resources"] = *request->retainAllResources;
+    query->insert(pair<string, bool>("retain_all_resources", *request->retainAllResources));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->retainResourcesShrink)) {
-    (*query)["retain_resources"] = *request->retainResourcesShrink;
+    query->insert(pair<string, string>("retain_resources", *request->retainResourcesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -913,13 +865,13 @@ DeleteClusterNodesResponse Alibabacloud_CS20151215::Client::deleteClusterNodesWi
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->drainNode)) {
-    (*body)["drain_node"] = *request->drainNode;
+    body->insert(pair<string, bool>("drain_node", *request->drainNode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
-    (*body)["nodes"] = *request->nodes;
+    body->insert(pair<string, vector<string>>("nodes", *request->nodes));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->releaseNode)) {
-    (*body)["release_node"] = *request->releaseNode;
+    body->insert(pair<string, bool>("release_node", *request->releaseNode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -953,7 +905,7 @@ DeleteEdgeMachineResponse Alibabacloud_CS20151215::Client::deleteEdgeMachineWith
   edgeMachineid = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(edgeMachineid));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->force)) {
-    (*query)["force"] = *request->force;
+    query->insert(pair<string, string>("force", *request->force));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1014,7 +966,7 @@ DeletePolicyInstanceResponse Alibabacloud_CS20151215::Client::deletePolicyInstan
   policyName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(policyName));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
-    (*query)["instance_name"] = *request->instanceName;
+    query->insert(pair<string, string>("instance_name", *request->instanceName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1104,13 +1056,13 @@ DeployPolicyInstanceResponse Alibabacloud_CS20151215::Client::deployPolicyInstan
   policyName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(policyName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*body)["action"] = *request->action;
+    body->insert(pair<string, string>("action", *request->action));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    (*body)["namespace_"] = *request->namespace_;
+    body->insert(pair<string, string>("namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->parameters)) {
-    (*body)["parameters"] = *request->parameters;
+    body->insert(pair<string, map<string, boost::any>>("parameters", *request->parameters));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1165,10 +1117,10 @@ DescribeAddonsResponse Alibabacloud_CS20151215::Client::describeAddonsWithOption
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
-    (*query)["cluster_type"] = *request->clusterType;
+    query->insert(pair<string, string>("cluster_type", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
-    (*query)["region"] = *request->region;
+    query->insert(pair<string, string>("region", *request->region));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1267,7 +1219,7 @@ DescribeClusterAddonsUpgradeStatusResponse Alibabacloud_CS20151215::Client::desc
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->componentIdsShrink)) {
-    (*query)["componentIds"] = *request->componentIdsShrink;
+    query->insert(pair<string, string>("componentIds", *request->componentIdsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1326,22 +1278,22 @@ DescribeClusterAttachScriptsResponse Alibabacloud_CS20151215::Client::describeCl
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->arch)) {
-    (*body)["arch"] = *request->arch;
+    body->insert(pair<string, string>("arch", *request->arch));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->formatDisk)) {
-    (*body)["format_disk"] = *request->formatDisk;
+    body->insert(pair<string, bool>("format_disk", *request->formatDisk));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->keepInstanceName)) {
-    (*body)["keep_instance_name"] = *request->keepInstanceName;
+    body->insert(pair<string, bool>("keep_instance_name", *request->keepInstanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodepoolId)) {
-    (*body)["nodepool_id"] = *request->nodepoolId;
+    body->insert(pair<string, string>("nodepool_id", *request->nodepoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
-    (*body)["options"] = *request->options;
+    body->insert(pair<string, string>("options", *request->options));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->rdsInstances)) {
-    (*body)["rds_instances"] = *request->rdsInstances;
+    body->insert(pair<string, vector<string>>("rds_instances", *request->rdsInstances));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1504,19 +1456,19 @@ DescribeClusterNodesResponse Alibabacloud_CS20151215::Client::describeClusterNod
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceIds)) {
-    (*query)["instanceIds"] = *request->instanceIds;
+    query->insert(pair<string, string>("instanceIds", *request->instanceIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodepoolId)) {
-    (*query)["nodepool_id"] = *request->nodepoolId;
+    query->insert(pair<string, string>("nodepool_id", *request->nodepoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
-    (*query)["pageNumber"] = *request->pageNumber;
+    query->insert(pair<string, string>("pageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
-    (*query)["pageSize"] = *request->pageSize;
+    query->insert(pair<string, string>("pageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
-    (*query)["state"] = *request->state;
+    query->insert(pair<string, string>("state", *request->state));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1575,10 +1527,10 @@ DescribeClusterUserKubeconfigResponse Alibabacloud_CS20151215::Client::describeC
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->privateIpAddress)) {
-    (*query)["PrivateIpAddress"] = *request->privateIpAddress;
+    query->insert(pair<string, bool>("PrivateIpAddress", *request->privateIpAddress));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->temporaryDurationMinutes)) {
-    (*query)["TemporaryDurationMinutes"] = *request->temporaryDurationMinutes;
+    query->insert(pair<string, long>("TemporaryDurationMinutes", *request->temporaryDurationMinutes));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1612,7 +1564,7 @@ DescribeClusterV2UserKubeconfigResponse Alibabacloud_CS20151215::Client::describ
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->privateIpAddress)) {
-    (*query)["PrivateIpAddress"] = *request->privateIpAddress;
+    query->insert(pair<string, bool>("PrivateIpAddress", *request->privateIpAddress));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1642,10 +1594,10 @@ DescribeClustersResponse Alibabacloud_CS20151215::Client::describeClustersWithOp
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
-    (*query)["clusterType"] = *request->clusterType;
+    query->insert(pair<string, string>("clusterType", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*query)["name"] = *request->name;
+    query->insert(pair<string, string>("name", *request->name));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1675,22 +1627,22 @@ DescribeClustersV1Response Alibabacloud_CS20151215::Client::describeClustersV1Wi
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpec)) {
-    (*query)["cluster_spec"] = *request->clusterSpec;
+    query->insert(pair<string, string>("cluster_spec", *request->clusterSpec));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
-    (*query)["cluster_type"] = *request->clusterType;
+    query->insert(pair<string, string>("cluster_type", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*query)["name"] = *request->name;
+    query->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    (*query)["page_number"] = *request->pageNumber;
+    query->insert(pair<string, long>("page_number", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    (*query)["page_size"] = *request->pageSize;
+    query->insert(pair<string, long>("page_size", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
-    (*query)["profile"] = *request->profile;
+    query->insert(pair<string, string>("profile", *request->profile));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1794,22 +1746,22 @@ DescribeEdgeMachinesResponse Alibabacloud_CS20151215::Client::describeEdgeMachin
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->hostname)) {
-    (*query)["hostname"] = *request->hostname;
+    query->insert(pair<string, string>("hostname", *request->hostname));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifeState)) {
-    (*query)["life_state"] = *request->lifeState;
+    query->insert(pair<string, string>("life_state", *request->lifeState));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->model)) {
-    (*query)["model"] = *request->model;
+    query->insert(pair<string, string>("model", *request->model));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->onlineState)) {
-    (*query)["online_state"] = *request->onlineState;
+    query->insert(pair<string, string>("online_state", *request->onlineState));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    (*query)["page_number"] = *request->pageNumber;
+    query->insert(pair<string, long>("page_number", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    (*query)["page_size"] = *request->pageSize;
+    query->insert(pair<string, long>("page_size", *request->pageSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1839,16 +1791,16 @@ DescribeEventsResponse Alibabacloud_CS20151215::Client::describeEventsWithOption
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
-    (*query)["cluster_id"] = *request->clusterId;
+    query->insert(pair<string, string>("cluster_id", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    (*query)["page_number"] = *request->pageNumber;
+    query->insert(pair<string, long>("page_number", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    (*query)["page_size"] = *request->pageSize;
+    query->insert(pair<string, long>("page_size", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*query)["type"] = *request->type;
+    query->insert(pair<string, string>("type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1882,7 +1834,7 @@ DescribeExternalAgentResponse Alibabacloud_CS20151215::Client::describeExternalA
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
-    (*query)["PrivateIpAddress"] = *request->privateIpAddress;
+    query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1912,16 +1864,19 @@ DescribeKubernetesVersionMetadataResponse Alibabacloud_CS20151215::Client::descr
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
-    (*query)["ClusterType"] = *request->clusterType;
+    query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->kubernetesVersion)) {
-    (*query)["KubernetesVersion"] = *request->kubernetesVersion;
+    query->insert(pair<string, string>("KubernetesVersion", *request->kubernetesVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
-    (*query)["Profile"] = *request->profile;
+    query->insert(pair<string, string>("Profile", *request->profile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
-    (*query)["Region"] = *request->region;
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runtime)) {
+    query->insert(pair<string, string>("runtime", *request->runtime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2029,10 +1984,10 @@ DescribePolicyInstancesResponse Alibabacloud_CS20151215::Client::describePolicyI
   clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
-    (*query)["instance_name"] = *request->instanceName;
+    query->insert(pair<string, string>("instance_name", *request->instanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policyName)) {
-    (*query)["policy_name"] = *request->policyName;
+    query->insert(pair<string, string>("policy_name", *request->policyName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2116,7 +2071,7 @@ DescribeTemplateAttributeResponse Alibabacloud_CS20151215::Client::describeTempl
   TemplateId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TemplateId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
-    (*query)["template_type"] = *request->templateType;
+    query->insert(pair<string, string>("template_type", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2146,13 +2101,13 @@ DescribeTemplatesResponse Alibabacloud_CS20151215::Client::describeTemplatesWith
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
-    (*query)["page_num"] = *request->pageNum;
+    query->insert(pair<string, long>("page_num", *request->pageNum));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    (*query)["page_size"] = *request->pageSize;
+    query->insert(pair<string, long>("page_size", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
-    (*query)["template_type"] = *request->templateType;
+    query->insert(pair<string, string>("template_type", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2186,16 +2141,16 @@ DescribeTriggerResponse Alibabacloud_CS20151215::Client::describeTriggerWithOpti
   clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*query)["Name"] = *request->name;
+    query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    (*query)["Namespace_"] = *request->namespace_;
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*query)["Type"] = *request->type;
+    query->insert(pair<string, string>("Type", *request->type));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*query)["action"] = *request->action;
+    query->insert(pair<string, string>("action", *request->action));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2304,13 +2259,13 @@ EdgeClusterAddEdgeMachineResponse Alibabacloud_CS20151215::Client::edgeClusterAd
   edgeMachineid = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(edgeMachineid));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->expired)) {
-    (*body)["expired"] = *request->expired;
+    body->insert(pair<string, long>("expired", *request->expired));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodepoolId)) {
-    (*body)["nodepool_id"] = *request->nodepoolId;
+    body->insert(pair<string, string>("nodepool_id", *request->nodepoolId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
-    (*body)["options"] = *request->options;
+    body->insert(pair<string, string>("options", *request->options));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2344,16 +2299,16 @@ GetKubernetesTriggerResponse Alibabacloud_CS20151215::Client::getKubernetesTrigg
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*query)["Name"] = *request->name;
+    query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    (*query)["Namespace_"] = *request->namespace_;
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*query)["Type"] = *request->type;
+    query->insert(pair<string, string>("Type", *request->type));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*query)["action"] = *request->action;
+    query->insert(pair<string, string>("action", *request->action));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2476,19 +2431,19 @@ ListTagResourcesResponse Alibabacloud_CS20151215::Client::listTagResourcesWithOp
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
-    (*query)["next_token"] = *request->nextToken;
+    query->insert(pair<string, string>("next_token", *request->nextToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    (*query)["region_id"] = *request->regionId;
+    query->insert(pair<string, string>("region_id", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdsShrink)) {
-    (*query)["resource_ids"] = *request->resourceIdsShrink;
+    query->insert(pair<string, string>("resource_ids", *request->resourceIdsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    (*query)["resource_type"] = *request->resourceType;
+    query->insert(pair<string, string>("resource_type", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
-    (*query)["tags"] = *request->tagsShrink;
+    query->insert(pair<string, string>("tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2547,31 +2502,31 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->apiServerEip)) {
-    (*body)["api_server_eip"] = *request->apiServerEip;
+    body->insert(pair<string, bool>("api_server_eip", *request->apiServerEip));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiServerEipId)) {
-    (*body)["api_server_eip_id"] = *request->apiServerEipId;
+    body->insert(pair<string, string>("api_server_eip_id", *request->apiServerEipId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
-    (*body)["deletion_protection"] = *request->deletionProtection;
+    body->insert(pair<string, bool>("deletion_protection", *request->deletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableRrsa)) {
-    (*body)["enable_rrsa"] = *request->enableRrsa;
+    body->insert(pair<string, bool>("enable_rrsa", *request->enableRrsa));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressDomainRebinding)) {
-    (*body)["ingress_domain_rebinding"] = *request->ingressDomainRebinding;
+    body->insert(pair<string, string>("ingress_domain_rebinding", *request->ingressDomainRebinding));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressLoadbalancerId)) {
-    (*body)["ingress_loadbalancer_id"] = *request->ingressLoadbalancerId;
+    body->insert(pair<string, string>("ingress_loadbalancer_id", *request->ingressLoadbalancerId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->instanceDeletionProtection)) {
-    (*body)["instance_deletion_protection"] = *request->instanceDeletionProtection;
+    body->insert(pair<string, bool>("instance_deletion_protection", *request->instanceDeletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<MaintenanceWindow>(request->maintenanceWindow)) {
-    (*body)["maintenance_window"] = *request->maintenanceWindow;
+    body->insert(pair<string, MaintenanceWindow>("maintenance_window", *request->maintenanceWindow));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    (*body)["resource_group_id"] = *request->resourceGroupId;
+    body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2607,7 +2562,7 @@ ModifyClusterAddonResponse Alibabacloud_CS20151215::Client::modifyClusterAddonWi
   componentId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(componentId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
-    (*body)["config"] = *request->config;
+    body->insert(pair<string, string>("config", *request->config));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2641,7 +2596,7 @@ ModifyClusterConfigurationResponse Alibabacloud_CS20151215::Client::modifyCluste
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<ModifyClusterConfigurationRequestCustomizeConfig>>(request->customizeConfig)) {
-    (*body)["customize_config"] = *request->customizeConfig;
+    body->insert(pair<string, vector<ModifyClusterConfigurationRequestCustomizeConfig>>("customize_config", *request->customizeConfig));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2677,25 +2632,25 @@ ModifyClusterNodePoolResponse Alibabacloud_CS20151215::Client::modifyClusterNode
   NodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(NodepoolId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestAutoScaling>(request->autoScaling)) {
-    (*body)["auto_scaling"] = *request->autoScaling;
+    body->insert(pair<string, ModifyClusterNodePoolRequestAutoScaling>("auto_scaling", *request->autoScaling));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestKubernetesConfig>(request->kubernetesConfig)) {
-    (*body)["kubernetes_config"] = *request->kubernetesConfig;
+    body->insert(pair<string, ModifyClusterNodePoolRequestKubernetesConfig>("kubernetes_config", *request->kubernetesConfig));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestManagement>(request->management)) {
-    (*body)["management"] = *request->management;
+    body->insert(pair<string, ModifyClusterNodePoolRequestManagement>("management", *request->management));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestNodepoolInfo>(request->nodepoolInfo)) {
-    (*body)["nodepool_info"] = *request->nodepoolInfo;
+    body->insert(pair<string, ModifyClusterNodePoolRequestNodepoolInfo>("nodepool_info", *request->nodepoolInfo));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestScalingGroup>(request->scalingGroup)) {
-    (*body)["scaling_group"] = *request->scalingGroup;
+    body->insert(pair<string, ModifyClusterNodePoolRequestScalingGroup>("scaling_group", *request->scalingGroup));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestTeeConfig>(request->teeConfig)) {
-    (*body)["tee_config"] = *request->teeConfig;
+    body->insert(pair<string, ModifyClusterNodePoolRequestTeeConfig>("tee_config", *request->teeConfig));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->updateNodes)) {
-    (*body)["update_nodes"] = *request->updateNodes;
+    body->insert(pair<string, bool>("update_nodes", *request->updateNodes));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2761,16 +2716,16 @@ ModifyPolicyInstanceResponse Alibabacloud_CS20151215::Client::modifyPolicyInstan
   policyName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(policyName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    (*body)["action"] = *request->action;
+    body->insert(pair<string, string>("action", *request->action));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
-    (*body)["instance_name"] = *request->instanceName;
+    body->insert(pair<string, string>("instance_name", *request->instanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    (*body)["namespace_"] = *request->namespace_;
+    body->insert(pair<string, string>("namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->parameters)) {
-    (*body)["parameters"] = *request->parameters;
+    body->insert(pair<string, map<string, boost::any>>("parameters", *request->parameters));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2800,7 +2755,7 @@ OpenAckServiceResponse Alibabacloud_CS20151215::Client::openAckServiceWithOption
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    (*query)["type"] = *request->type;
+    query->insert(pair<string, string>("type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -2888,13 +2843,13 @@ RemoveClusterNodesResponse Alibabacloud_CS20151215::Client::removeClusterNodesWi
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->drainNode)) {
-    (*body)["drain_node"] = *request->drainNode;
+    body->insert(pair<string, bool>("drain_node", *request->drainNode));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
-    (*body)["nodes"] = *request->nodes;
+    body->insert(pair<string, vector<string>>("nodes", *request->nodes));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->releaseNode)) {
-    (*body)["release_node"] = *request->releaseNode;
+    body->insert(pair<string, bool>("release_node", *request->releaseNode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3007,61 +2962,61 @@ ScaleClusterResponse Alibabacloud_CS20151215::Client::scaleClusterWithOptions(sh
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->cloudMonitorFlags)) {
-    (*body)["cloud_monitor_flags"] = *request->cloudMonitorFlags;
+    body->insert(pair<string, bool>("cloud_monitor_flags", *request->cloudMonitorFlags));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
-    (*body)["count"] = *request->count;
+    body->insert(pair<string, long>("count", *request->count));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuPolicy)) {
-    (*body)["cpu_policy"] = *request->cpuPolicy;
+    body->insert(pair<string, string>("cpu_policy", *request->cpuPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disableRollback)) {
-    (*body)["disable_rollback"] = *request->disableRollback;
+    body->insert(pair<string, bool>("disable_rollback", *request->disableRollback));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPair)) {
-    (*body)["key_pair"] = *request->keyPair;
+    body->insert(pair<string, string>("key_pair", *request->keyPair));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginPassword)) {
-    (*body)["login_password"] = *request->loginPassword;
+    body->insert(pair<string, string>("login_password", *request->loginPassword));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ScaleClusterRequestTags>>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, vector<ScaleClusterRequestTags>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ScaleClusterRequestTaints>>(request->taints)) {
-    (*body)["taints"] = *request->taints;
+    body->insert(pair<string, vector<ScaleClusterRequestTaints>>("taints", *request->taints));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vswitchIds)) {
-    (*body)["vswitch_ids"] = *request->vswitchIds;
+    body->insert(pair<string, vector<string>>("vswitch_ids", *request->vswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->workerAutoRenew)) {
-    (*body)["worker_auto_renew"] = *request->workerAutoRenew;
+    body->insert(pair<string, bool>("worker_auto_renew", *request->workerAutoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerAutoRenewPeriod)) {
-    (*body)["worker_auto_renew_period"] = *request->workerAutoRenewPeriod;
+    body->insert(pair<string, long>("worker_auto_renew_period", *request->workerAutoRenewPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->workerDataDisk)) {
-    (*body)["worker_data_disk"] = *request->workerDataDisk;
+    body->insert(pair<string, bool>("worker_data_disk", *request->workerDataDisk));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ScaleClusterRequestWorkerDataDisks>>(request->workerDataDisks)) {
-    (*body)["worker_data_disks"] = *request->workerDataDisks;
+    body->insert(pair<string, vector<ScaleClusterRequestWorkerDataDisks>>("worker_data_disks", *request->workerDataDisks));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerInstanceChargeType)) {
-    (*body)["worker_instance_charge_type"] = *request->workerInstanceChargeType;
+    body->insert(pair<string, string>("worker_instance_charge_type", *request->workerInstanceChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workerInstanceTypes)) {
-    (*body)["worker_instance_types"] = *request->workerInstanceTypes;
+    body->insert(pair<string, vector<string>>("worker_instance_types", *request->workerInstanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerPeriod)) {
-    (*body)["worker_period"] = *request->workerPeriod;
+    body->insert(pair<string, long>("worker_period", *request->workerPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerPeriodUnit)) {
-    (*body)["worker_period_unit"] = *request->workerPeriodUnit;
+    body->insert(pair<string, string>("worker_period_unit", *request->workerPeriodUnit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskCategory)) {
-    (*body)["worker_system_disk_category"] = *request->workerSystemDiskCategory;
+    body->insert(pair<string, string>("worker_system_disk_category", *request->workerSystemDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerSystemDiskSize)) {
-    (*body)["worker_system_disk_size"] = *request->workerSystemDiskSize;
+    body->insert(pair<string, long>("worker_system_disk_size", *request->workerSystemDiskSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3097,7 +3052,7 @@ ScaleClusterNodePoolResponse Alibabacloud_CS20151215::Client::scaleClusterNodePo
   NodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(NodepoolId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
-    (*body)["count"] = *request->count;
+    body->insert(pair<string, long>("count", *request->count));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3131,67 +3086,67 @@ ScaleOutClusterResponse Alibabacloud_CS20151215::Client::scaleOutClusterWithOpti
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->cloudMonitorFlags)) {
-    (*body)["cloud_monitor_flags"] = *request->cloudMonitorFlags;
+    body->insert(pair<string, bool>("cloud_monitor_flags", *request->cloudMonitorFlags));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
-    (*body)["count"] = *request->count;
+    body->insert(pair<string, long>("count", *request->count));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpuPolicy)) {
-    (*body)["cpu_policy"] = *request->cpuPolicy;
+    body->insert(pair<string, string>("cpu_policy", *request->cpuPolicy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
-    (*body)["image_id"] = *request->imageId;
+    body->insert(pair<string, string>("image_id", *request->imageId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPair)) {
-    (*body)["key_pair"] = *request->keyPair;
+    body->insert(pair<string, string>("key_pair", *request->keyPair));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loginPassword)) {
-    (*body)["login_password"] = *request->loginPassword;
+    body->insert(pair<string, string>("login_password", *request->loginPassword));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->rdsInstances)) {
-    (*body)["rds_instances"] = *request->rdsInstances;
+    body->insert(pair<string, vector<string>>("rds_instances", *request->rdsInstances));
   }
   if (!Darabonba_Util::Client::isUnset<Runtime>(request->runtime)) {
-    (*body)["runtime"] = *request->runtime;
+    body->insert(pair<string, Runtime>("runtime", *request->runtime));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Tag>>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, vector<Tag>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Taint>>(request->taints)) {
-    (*body)["taints"] = *request->taints;
+    body->insert(pair<string, vector<Taint>>("taints", *request->taints));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
-    (*body)["user_data"] = *request->userData;
+    body->insert(pair<string, string>("user_data", *request->userData));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vswitchIds)) {
-    (*body)["vswitch_ids"] = *request->vswitchIds;
+    body->insert(pair<string, vector<string>>("vswitch_ids", *request->vswitchIds));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->workerAutoRenew)) {
-    (*body)["worker_auto_renew"] = *request->workerAutoRenew;
+    body->insert(pair<string, bool>("worker_auto_renew", *request->workerAutoRenew));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerAutoRenewPeriod)) {
-    (*body)["worker_auto_renew_period"] = *request->workerAutoRenewPeriod;
+    body->insert(pair<string, long>("worker_auto_renew_period", *request->workerAutoRenewPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ScaleOutClusterRequestWorkerDataDisks>>(request->workerDataDisks)) {
-    (*body)["worker_data_disks"] = *request->workerDataDisks;
+    body->insert(pair<string, vector<ScaleOutClusterRequestWorkerDataDisks>>("worker_data_disks", *request->workerDataDisks));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerInstanceChargeType)) {
-    (*body)["worker_instance_charge_type"] = *request->workerInstanceChargeType;
+    body->insert(pair<string, string>("worker_instance_charge_type", *request->workerInstanceChargeType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workerInstanceTypes)) {
-    (*body)["worker_instance_types"] = *request->workerInstanceTypes;
+    body->insert(pair<string, vector<string>>("worker_instance_types", *request->workerInstanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerPeriod)) {
-    (*body)["worker_period"] = *request->workerPeriod;
+    body->insert(pair<string, long>("worker_period", *request->workerPeriod));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerPeriodUnit)) {
-    (*body)["worker_period_unit"] = *request->workerPeriodUnit;
+    body->insert(pair<string, string>("worker_period_unit", *request->workerPeriodUnit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workerSystemDiskCategory)) {
-    (*body)["worker_system_disk_category"] = *request->workerSystemDiskCategory;
+    body->insert(pair<string, string>("worker_system_disk_category", *request->workerSystemDiskCategory));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->workerSystemDiskSize)) {
-    (*body)["worker_system_disk_size"] = *request->workerSystemDiskSize;
+    body->insert(pair<string, long>("worker_system_disk_size", *request->workerSystemDiskSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3211,31 +3166,6 @@ ScaleOutClusterResponse Alibabacloud_CS20151215::Client::scaleOutClusterWithOpti
   return ScaleOutClusterResponse(callApi(params, req, runtime));
 }
 
-StartAlertResponse Alibabacloud_CS20151215::Client::startAlert(shared_ptr<string> ClusterId) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startAlertWithOptions(ClusterId, headers, runtime);
-}
-
-StartAlertResponse Alibabacloud_CS20151215::Client::startAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartAlert"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/alert/") + string(*ClusterId) + string("/alert_rule/start"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return StartAlertResponse(callApi(params, req, runtime));
-}
-
 StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflow(shared_ptr<StartWorkflowRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -3246,61 +3176,61 @@ StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflowWithOptions(
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingBamOutFilename)) {
-    (*body)["mapping_bam_out_filename"] = *request->mappingBamOutFilename;
+    body->insert(pair<string, string>("mapping_bam_out_filename", *request->mappingBamOutFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingBamOutPath)) {
-    (*body)["mapping_bam_out_path"] = *request->mappingBamOutPath;
+    body->insert(pair<string, string>("mapping_bam_out_path", *request->mappingBamOutPath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingBucketName)) {
-    (*body)["mapping_bucket_name"] = *request->mappingBucketName;
+    body->insert(pair<string, string>("mapping_bucket_name", *request->mappingBucketName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqFirstFilename)) {
-    (*body)["mapping_fastq_first_filename"] = *request->mappingFastqFirstFilename;
+    body->insert(pair<string, string>("mapping_fastq_first_filename", *request->mappingFastqFirstFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqPath)) {
-    (*body)["mapping_fastq_path"] = *request->mappingFastqPath;
+    body->insert(pair<string, string>("mapping_fastq_path", *request->mappingFastqPath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingFastqSecondFilename)) {
-    (*body)["mapping_fastq_second_filename"] = *request->mappingFastqSecondFilename;
+    body->insert(pair<string, string>("mapping_fastq_second_filename", *request->mappingFastqSecondFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingIsMarkDup)) {
-    (*body)["mapping_is_mark_dup"] = *request->mappingIsMarkDup;
+    body->insert(pair<string, string>("mapping_is_mark_dup", *request->mappingIsMarkDup));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingOssRegion)) {
-    (*body)["mapping_oss_region"] = *request->mappingOssRegion;
+    body->insert(pair<string, string>("mapping_oss_region", *request->mappingOssRegion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mappingReferencePath)) {
-    (*body)["mapping_reference_path"] = *request->mappingReferencePath;
+    body->insert(pair<string, string>("mapping_reference_path", *request->mappingReferencePath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->service)) {
-    (*body)["service"] = *request->service;
+    body->insert(pair<string, string>("service", *request->service));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsBucketName)) {
-    (*body)["wgs_bucket_name"] = *request->wgsBucketName;
+    body->insert(pair<string, string>("wgs_bucket_name", *request->wgsBucketName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqFirstFilename)) {
-    (*body)["wgs_fastq_first_filename"] = *request->wgsFastqFirstFilename;
+    body->insert(pair<string, string>("wgs_fastq_first_filename", *request->wgsFastqFirstFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqPath)) {
-    (*body)["wgs_fastq_path"] = *request->wgsFastqPath;
+    body->insert(pair<string, string>("wgs_fastq_path", *request->wgsFastqPath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsFastqSecondFilename)) {
-    (*body)["wgs_fastq_second_filename"] = *request->wgsFastqSecondFilename;
+    body->insert(pair<string, string>("wgs_fastq_second_filename", *request->wgsFastqSecondFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsOssRegion)) {
-    (*body)["wgs_oss_region"] = *request->wgsOssRegion;
+    body->insert(pair<string, string>("wgs_oss_region", *request->wgsOssRegion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsReferencePath)) {
-    (*body)["wgs_reference_path"] = *request->wgsReferencePath;
+    body->insert(pair<string, string>("wgs_reference_path", *request->wgsReferencePath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsVcfOutFilename)) {
-    (*body)["wgs_vcf_out_filename"] = *request->wgsVcfOutFilename;
+    body->insert(pair<string, string>("wgs_vcf_out_filename", *request->wgsVcfOutFilename));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wgsVcfOutPath)) {
-    (*body)["wgs_vcf_out_path"] = *request->wgsVcfOutPath;
+    body->insert(pair<string, string>("wgs_vcf_out_path", *request->wgsVcfOutPath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workflowType)) {
-    (*body)["workflow_type"] = *request->workflowType;
+    body->insert(pair<string, string>("workflow_type", *request->workflowType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3320,31 +3250,6 @@ StartWorkflowResponse Alibabacloud_CS20151215::Client::startWorkflowWithOptions(
   return StartWorkflowResponse(callApi(params, req, runtime));
 }
 
-StopAlertResponse Alibabacloud_CS20151215::Client::stopAlert(shared_ptr<string> ClusterId) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopAlertWithOptions(ClusterId, headers, runtime);
-}
-
-StopAlertResponse Alibabacloud_CS20151215::Client::stopAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StopAlert"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/alert/") + string(*ClusterId) + string("/alert_rule/stop"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return StopAlertResponse(callApi(params, req, runtime));
-}
-
 TagResourcesResponse Alibabacloud_CS20151215::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -3355,16 +3260,16 @@ TagResourcesResponse Alibabacloud_CS20151215::Client::tagResourcesWithOptions(sh
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    (*body)["region_id"] = *request->regionId;
+    body->insert(pair<string, string>("region_id", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceIds)) {
-    (*body)["resource_ids"] = *request->resourceIds;
+    body->insert(pair<string, vector<string>>("resource_ids", *request->resourceIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    (*body)["resource_type"] = *request->resourceType;
+    body->insert(pair<string, string>("resource_type", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<Tag>>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, vector<Tag>>("tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3424,19 +3329,19 @@ UntagResourcesResponse Alibabacloud_CS20151215::Client::untagResourcesWithOption
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
-    (*query)["all"] = *request->all;
+    query->insert(pair<string, bool>("all", *request->all));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    (*query)["region_id"] = *request->regionId;
+    query->insert(pair<string, string>("region_id", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceIds)) {
-    (*query)["resource_ids"] = *request->resourceIds;
+    query->insert(pair<string, vector<string>>("resource_ids", *request->resourceIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    (*query)["resource_type"] = *request->resourceType;
+    query->insert(pair<string, string>("resource_type", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagKeys)) {
-    (*query)["tag_keys"] = *request->tagKeys;
+    query->insert(pair<string, vector<string>>("tag_keys", *request->tagKeys));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3454,31 +3359,6 @@ UntagResourcesResponse Alibabacloud_CS20151215::Client::untagResourcesWithOption
     {"bodyType", boost::any(string("json"))}
   }));
   return UntagResourcesResponse(callApi(params, req, runtime));
-}
-
-UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlert(shared_ptr<string> ClusterId) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
-}
-
-UpdateContactGroupForAlertResponse Alibabacloud_CS20151215::Client::updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateContactGroupForAlert"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/alert/") + string(*ClusterId) + string("/alert_rule/contact_groups"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return UpdateContactGroupForAlertResponse(callApi(params, req, runtime));
 }
 
 UpdateK8sClusterUserConfigExpireResponse Alibabacloud_CS20151215::Client::updateK8sClusterUserConfigExpire(shared_ptr<string> ClusterId) {
@@ -3520,19 +3400,19 @@ UpdateTemplateResponse Alibabacloud_CS20151215::Client::updateTemplateWithOption
   TemplateId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TemplateId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
-    (*body)["description"] = *request->description;
+    body->insert(pair<string, string>("description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    (*body)["name"] = *request->name;
+    body->insert(pair<string, string>("name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
-    (*body)["tags"] = *request->tags;
+    body->insert(pair<string, string>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->template_)) {
-    (*body)["template_"] = *request->template_;
+    body->insert(pair<string, string>("template_", *request->template_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
-    (*body)["template_type"] = *request->templateType;
+    body->insert(pair<string, string>("template_type", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -3566,13 +3446,13 @@ UpgradeClusterResponse Alibabacloud_CS20151215::Client::upgradeClusterWithOption
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->componentName)) {
-    (*body)["component_name"] = *request->componentName;
+    body->insert(pair<string, string>("component_name", *request->componentName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextVersion)) {
-    (*body)["next_version"] = *request->nextVersion;
+    body->insert(pair<string, string>("next_version", *request->nextVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
-    (*body)["version"] = *request->version;
+    body->insert(pair<string, string>("version", *request->version));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

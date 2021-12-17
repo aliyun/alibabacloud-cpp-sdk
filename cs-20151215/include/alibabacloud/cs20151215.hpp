@@ -1819,6 +1819,7 @@ public:
   shared_ptr<bool> cmsEnabled{};
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
+  shared_ptr<string> nodeNameMode{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -1846,6 +1847,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["labels"] = boost::any(temp1);
+    }
+    if (nodeNameMode) {
+      res["node_name_mode"] = boost::any(*nodeNameMode);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -1885,6 +1889,9 @@ public:
         }
         labels = make_shared<vector<Tag>>(expect1);
       }
+    }
+    if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
+      nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -2131,6 +2138,7 @@ public:
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
+  shared_ptr<string> deploymentsetId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
@@ -2184,6 +2192,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data_disks"] = boost::any(temp1);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -2299,6 +2310,9 @@ public:
         }
         dataDisks = make_shared<vector<DataDisk>>(expect1);
       }
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -3250,82 +3264,6 @@ public:
 
 
   virtual ~CreateTriggerResponse() = default;
-};
-class DeleteAlertContactResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  DeleteAlertContactResponse() {}
-
-  explicit DeleteAlertContactResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~DeleteAlertContactResponse() = default;
-};
-class DeleteAlertContactGroupResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  DeleteAlertContactGroupResponse() {}
-
-  explicit DeleteAlertContactGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~DeleteAlertContactGroupResponse() = default;
 };
 class DeleteClusterRequest : public Darabonba::Model {
 public:
@@ -5604,6 +5542,7 @@ public:
   shared_ptr<bool> cmsEnabled{};
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
+  shared_ptr<string> nodeNameMode{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -5631,6 +5570,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["labels"] = boost::any(temp1);
+    }
+    if (nodeNameMode) {
+      res["node_name_mode"] = boost::any(*nodeNameMode);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -5670,6 +5612,9 @@ public:
         }
         labels = make_shared<vector<Tag>>(expect1);
       }
+    }
+    if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
+      nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -5915,6 +5860,7 @@ public:
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
+  shared_ptr<string> deploymentsetId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceTypes{};
@@ -5969,6 +5915,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data_disks"] = boost::any(temp1);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -6087,6 +6036,9 @@ public:
         }
         dataDisks = make_shared<vector<DataDisk>>(expect1);
       }
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -6641,6 +6593,7 @@ public:
   shared_ptr<bool> cmsEnabled{};
   shared_ptr<string> cpuPolicy{};
   shared_ptr<vector<Tag>> labels{};
+  shared_ptr<string> nodeNameMode{};
   shared_ptr<string> runtime{};
   shared_ptr<string> runtimeVersion{};
   shared_ptr<vector<Taint>> taints{};
@@ -6668,6 +6621,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["labels"] = boost::any(temp1);
+    }
+    if (nodeNameMode) {
+      res["node_name_mode"] = boost::any(*nodeNameMode);
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
@@ -6707,6 +6663,9 @@ public:
         }
         labels = make_shared<vector<Tag>>(expect1);
       }
+    }
+    if (m.find("node_name_mode") != m.end() && !m["node_name_mode"].empty()) {
+      nodeNameMode = make_shared<string>(boost::any_cast<string>(m["node_name_mode"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
@@ -6952,6 +6911,7 @@ public:
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
+  shared_ptr<string> deploymentsetId{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceTypes{};
@@ -7006,6 +6966,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data_disks"] = boost::any(temp1);
+    }
+    if (deploymentsetId) {
+      res["deploymentset_id"] = boost::any(*deploymentsetId);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -7124,6 +7087,9 @@ public:
         }
         dataDisks = make_shared<vector<DataDisk>>(expect1);
       }
+    }
+    if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
+      deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -10295,6 +10261,7 @@ public:
   shared_ptr<string> kubernetesVersion{};
   shared_ptr<string> profile{};
   shared_ptr<string> region{};
+  shared_ptr<string> runtime{};
 
   DescribeKubernetesVersionMetadataRequest() {}
 
@@ -10318,6 +10285,9 @@ public:
     if (region) {
       res["Region"] = boost::any(*region);
     }
+    if (runtime) {
+      res["runtime"] = boost::any(*runtime);
+    }
     return res;
   }
 
@@ -10333,6 +10303,9 @@ public:
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
+      runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
     }
   }
 
@@ -16727,44 +16700,6 @@ public:
 
   virtual ~ScaleOutClusterResponse() = default;
 };
-class StartAlertResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  StartAlertResponse() {}
-
-  explicit StartAlertResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~StartAlertResponse() = default;
-};
 class StartWorkflowRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mappingBamOutFilename{};
@@ -17000,44 +16935,6 @@ public:
 
 
   virtual ~StartWorkflowResponse() = default;
-};
-class StopAlertResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  StopAlertResponse() {}
-
-  explicit StopAlertResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~StopAlertResponse() = default;
 };
 class TagResourcesRequest : public Darabonba::Model {
 public:
@@ -17453,44 +17350,6 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
-class UpdateContactGroupForAlertResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  UpdateContactGroupForAlertResponse() {}
-
-  explicit UpdateContactGroupForAlertResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~UpdateContactGroupForAlertResponse() = default;
-};
 class UpdateK8sClusterUserConfigExpireResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -17879,10 +17738,6 @@ public:
                                                  shared_ptr<CreateTriggerRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteAlertContactResponse deleteAlertContact();
-  DeleteAlertContactResponse deleteAlertContactWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteAlertContactGroupResponse deleteAlertContactGroup();
-  DeleteAlertContactGroupResponse deleteAlertContactGroupWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteClusterResponse deleteCluster(shared_ptr<string> ClusterId, shared_ptr<DeleteClusterRequest> request);
   DeleteClusterResponse deleteClusterWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<DeleteClusterRequest> tmpReq,
@@ -18134,12 +17989,8 @@ public:
                                                      shared_ptr<ScaleOutClusterRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartAlertResponse startAlert(shared_ptr<string> ClusterId);
-  StartAlertResponse startAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartWorkflowResponse startWorkflow(shared_ptr<StartWorkflowRequest> request);
   StartWorkflowResponse startWorkflowWithOptions(shared_ptr<StartWorkflowRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopAlertResponse stopAlert(shared_ptr<string> ClusterId);
-  StopAlertResponse stopAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnInstallClusterAddonsResponse unInstallClusterAddons(shared_ptr<string> ClusterId, shared_ptr<UnInstallClusterAddonsRequest> request);
@@ -18149,8 +18000,6 @@ public:
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateContactGroupForAlertResponse updateContactGroupForAlert(shared_ptr<string> ClusterId);
-  UpdateContactGroupForAlertResponse updateContactGroupForAlertWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpire(shared_ptr<string> ClusterId);
   UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpireWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTemplateResponse updateTemplate(shared_ptr<string> TemplateId, shared_ptr<UpdateTemplateRequest> request);
