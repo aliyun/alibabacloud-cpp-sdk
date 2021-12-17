@@ -725,6 +725,7 @@ public:
   shared_ptr<string> endpointDescription{};
   shared_ptr<string> endpointName{};
   shared_ptr<string> endpointType{};
+  shared_ptr<bool> protectedEnabled{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> securityGroupId{};
   shared_ptr<string> serviceId{};
@@ -757,6 +758,9 @@ public:
     }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (protectedEnabled) {
+      res["ProtectedEnabled"] = boost::any(*protectedEnabled);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -801,6 +805,9 @@ public:
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("ProtectedEnabled") != m.end() && !m["ProtectedEnabled"].empty()) {
+      protectedEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProtectedEnabled"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

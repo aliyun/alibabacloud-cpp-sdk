@@ -48,8 +48,7 @@ AddUserToVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::ad
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   query->insert(pair<string, long>("UserId", *request->userId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddUserToVpcEndpointService"))},
@@ -59,7 +58,7 @@ AddUserToVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::ad
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddUserToVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -82,8 +81,7 @@ AddZoneToVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::addZoneTo
   query->insert(pair<string, string>("ZoneId", *request->zoneId));
   query->insert(pair<string, string>("ip", *request->ip));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddZoneToVpcEndpoint"))},
@@ -93,7 +91,7 @@ AddZoneToVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::addZoneTo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddZoneToVpcEndpointResponse(callApi(params, req, runtime));
@@ -115,8 +113,7 @@ AttachResourceToVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Cli
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AttachResourceToVpcEndpointService"))},
@@ -126,7 +123,7 @@ AttachResourceToVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Cli
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AttachResourceToVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -147,8 +144,7 @@ AttachSecurityGroupToVpcEndpointResponse Alibabacloud_Privatelink20200415::Clien
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AttachSecurityGroupToVpcEndpoint"))},
@@ -158,7 +154,7 @@ AttachSecurityGroupToVpcEndpointResponse Alibabacloud_Privatelink20200415::Clien
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AttachSecurityGroupToVpcEndpointResponse(callApi(params, req, runtime));
@@ -179,7 +175,7 @@ CheckProductOpenResponse Alibabacloud_Privatelink20200415::Client::checkProductO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CheckProductOpenResponse(callApi(params, req, runtime));
@@ -198,6 +194,7 @@ CreateVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::createVpcEnd
   query->insert(pair<string, string>("EndpointDescription", *request->endpointDescription));
   query->insert(pair<string, string>("EndpointName", *request->endpointName));
   query->insert(pair<string, string>("EndpointType", *request->endpointType));
+  query->insert(pair<string, bool>("ProtectedEnabled", *request->protectedEnabled));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, vector<string>>("SecurityGroupId", *request->securityGroupId));
@@ -207,8 +204,7 @@ CreateVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::createVpcEnd
   query->insert(pair<string, vector<CreateVpcEndpointRequestZone>>("Zone", *request->zone));
   query->insert(pair<string, long>("ZonePrivateIpAddressCount", *request->zonePrivateIpAddressCount));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateVpcEndpoint"))},
@@ -218,7 +214,7 @@ CreateVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::createVpcEnd
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateVpcEndpointResponse(callApi(params, req, runtime));
@@ -243,8 +239,7 @@ CreateVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::creat
   query->insert(pair<string, string>("ServiceResourceType", *request->serviceResourceType));
   query->insert(pair<string, bool>("ZoneAffinityEnabled", *request->zoneAffinityEnabled));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateVpcEndpointService"))},
@@ -254,7 +249,7 @@ CreateVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::creat
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -274,8 +269,7 @@ DeleteVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::deleteVpcEnd
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVpcEndpoint"))},
@@ -285,7 +279,7 @@ DeleteVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::deleteVpcEnd
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVpcEndpointResponse(callApi(params, req, runtime));
@@ -305,8 +299,7 @@ DeleteVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::delet
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVpcEndpointService"))},
@@ -316,7 +309,7 @@ DeleteVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Client::delet
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -333,8 +326,7 @@ DescribeRegionsResponse Alibabacloud_Privatelink20200415::Client::describeRegion
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeRegions"))},
@@ -344,7 +336,7 @@ DescribeRegionsResponse Alibabacloud_Privatelink20200415::Client::describeRegion
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeRegionsResponse(callApi(params, req, runtime));
@@ -361,8 +353,7 @@ DescribeZonesResponse Alibabacloud_Privatelink20200415::Client::describeZonesWit
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeZones"))},
@@ -372,7 +363,7 @@ DescribeZonesResponse Alibabacloud_Privatelink20200415::Client::describeZonesWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeZonesResponse(callApi(params, req, runtime));
@@ -394,8 +385,7 @@ DetachResourceFromVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::C
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DetachResourceFromVpcEndpointService"))},
@@ -405,7 +395,7 @@ DetachResourceFromVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::C
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DetachResourceFromVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -426,8 +416,7 @@ DetachSecurityGroupFromVpcEndpointResponse Alibabacloud_Privatelink20200415::Cli
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DetachSecurityGroupFromVpcEndpoint"))},
@@ -437,7 +426,7 @@ DetachSecurityGroupFromVpcEndpointResponse Alibabacloud_Privatelink20200415::Cli
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DetachSecurityGroupFromVpcEndpointResponse(callApi(params, req, runtime));
@@ -458,8 +447,7 @@ DisableVpcEndpointConnectionResponse Alibabacloud_Privatelink20200415::Client::d
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DisableVpcEndpointConnection"))},
@@ -469,7 +457,7 @@ DisableVpcEndpointConnectionResponse Alibabacloud_Privatelink20200415::Client::d
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DisableVpcEndpointConnectionResponse(callApi(params, req, runtime));
@@ -491,8 +479,7 @@ EnableVpcEndpointConnectionResponse Alibabacloud_Privatelink20200415::Client::en
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("EnableVpcEndpointConnection"))},
@@ -502,7 +489,7 @@ EnableVpcEndpointConnectionResponse Alibabacloud_Privatelink20200415::Client::en
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return EnableVpcEndpointConnectionResponse(callApi(params, req, runtime));
@@ -520,8 +507,7 @@ GetVpcEndpointAttributeResponse Alibabacloud_Privatelink20200415::Client::getVpc
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVpcEndpointAttribute"))},
@@ -531,7 +517,7 @@ GetVpcEndpointAttributeResponse Alibabacloud_Privatelink20200415::Client::getVpc
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVpcEndpointAttributeResponse(callApi(params, req, runtime));
@@ -549,8 +535,7 @@ GetVpcEndpointServiceAttributeResponse Alibabacloud_Privatelink20200415::Client:
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVpcEndpointServiceAttribute"))},
@@ -560,7 +545,7 @@ GetVpcEndpointServiceAttributeResponse Alibabacloud_Privatelink20200415::Client:
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVpcEndpointServiceAttributeResponse(callApi(params, req, runtime));
@@ -584,8 +569,7 @@ ListVpcEndpointConnectionsResponse Alibabacloud_Privatelink20200415::Client::lis
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointConnections"))},
@@ -595,7 +579,7 @@ ListVpcEndpointConnectionsResponse Alibabacloud_Privatelink20200415::Client::lis
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointConnectionsResponse(callApi(params, req, runtime));
@@ -615,8 +599,7 @@ ListVpcEndpointSecurityGroupsResponse Alibabacloud_Privatelink20200415::Client::
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointSecurityGroups"))},
@@ -626,7 +609,7 @@ ListVpcEndpointSecurityGroupsResponse Alibabacloud_Privatelink20200415::Client::
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointSecurityGroupsResponse(callApi(params, req, runtime));
@@ -646,8 +629,7 @@ ListVpcEndpointServiceResourcesResponse Alibabacloud_Privatelink20200415::Client
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointServiceResources"))},
@@ -657,7 +639,7 @@ ListVpcEndpointServiceResourcesResponse Alibabacloud_Privatelink20200415::Client
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointServiceResourcesResponse(callApi(params, req, runtime));
@@ -678,8 +660,7 @@ ListVpcEndpointServiceUsersResponse Alibabacloud_Privatelink20200415::Client::li
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   query->insert(pair<string, long>("UserId", *request->userId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointServiceUsers"))},
@@ -689,7 +670,7 @@ ListVpcEndpointServiceUsersResponse Alibabacloud_Privatelink20200415::Client::li
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointServiceUsersResponse(callApi(params, req, runtime));
@@ -715,8 +696,7 @@ ListVpcEndpointServicesResponse Alibabacloud_Privatelink20200415::Client::listVp
   query->insert(pair<string, string>("ServiceStatus", *request->serviceStatus));
   query->insert(pair<string, bool>("ZoneAffinityEnabled", *request->zoneAffinityEnabled));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointServices"))},
@@ -726,7 +706,7 @@ ListVpcEndpointServicesResponse Alibabacloud_Privatelink20200415::Client::listVp
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointServicesResponse(callApi(params, req, runtime));
@@ -748,8 +728,7 @@ ListVpcEndpointServicesByEndUserResponse Alibabacloud_Privatelink20200415::Clien
   query->insert(pair<string, string>("ServiceName", *request->serviceName));
   query->insert(pair<string, string>("ServiceType", *request->serviceType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointServicesByEndUser"))},
@@ -759,7 +738,7 @@ ListVpcEndpointServicesByEndUserResponse Alibabacloud_Privatelink20200415::Clien
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointServicesByEndUserResponse(callApi(params, req, runtime));
@@ -779,8 +758,7 @@ ListVpcEndpointZonesResponse Alibabacloud_Privatelink20200415::Client::listVpcEn
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpointZones"))},
@@ -790,7 +768,7 @@ ListVpcEndpointZonesResponse Alibabacloud_Privatelink20200415::Client::listVpcEn
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointZonesResponse(callApi(params, req, runtime));
@@ -816,8 +794,7 @@ ListVpcEndpointsResponse Alibabacloud_Privatelink20200415::Client::listVpcEndpoi
   query->insert(pair<string, string>("ServiceName", *request->serviceName));
   query->insert(pair<string, string>("VpcId", *request->vpcId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVpcEndpoints"))},
@@ -827,7 +804,7 @@ ListVpcEndpointsResponse Alibabacloud_Privatelink20200415::Client::listVpcEndpoi
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVpcEndpointsResponse(callApi(params, req, runtime));
@@ -843,8 +820,7 @@ OpenPrivateLinkServiceResponse Alibabacloud_Privatelink20200415::Client::openPri
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("OpenPrivateLinkService"))},
@@ -854,7 +830,7 @@ OpenPrivateLinkServiceResponse Alibabacloud_Privatelink20200415::Client::openPri
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return OpenPrivateLinkServiceResponse(callApi(params, req, runtime));
@@ -875,8 +851,7 @@ RemoveUserFromVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Clien
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   query->insert(pair<string, long>("UserId", *request->userId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RemoveUserFromVpcEndpointService"))},
@@ -886,7 +861,7 @@ RemoveUserFromVpcEndpointServiceResponse Alibabacloud_Privatelink20200415::Clien
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RemoveUserFromVpcEndpointServiceResponse(callApi(params, req, runtime));
@@ -907,8 +882,7 @@ RemoveZoneFromVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::remo
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ZoneId", *request->zoneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RemoveZoneFromVpcEndpoint"))},
@@ -918,7 +892,7 @@ RemoveZoneFromVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::remo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RemoveZoneFromVpcEndpointResponse(callApi(params, req, runtime));
@@ -940,8 +914,7 @@ UpdateVpcEndpointAttributeResponse Alibabacloud_Privatelink20200415::Client::upd
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("RegionId", *request->regionId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVpcEndpointAttribute"))},
@@ -951,7 +924,7 @@ UpdateVpcEndpointAttributeResponse Alibabacloud_Privatelink20200415::Client::upd
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVpcEndpointAttributeResponse(callApi(params, req, runtime));
@@ -973,8 +946,7 @@ UpdateVpcEndpointConnectionAttributeResponse Alibabacloud_Privatelink20200415::C
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVpcEndpointConnectionAttribute"))},
@@ -984,7 +956,7 @@ UpdateVpcEndpointConnectionAttributeResponse Alibabacloud_Privatelink20200415::C
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVpcEndpointConnectionAttributeResponse(callApi(params, req, runtime));
@@ -1008,8 +980,7 @@ UpdateVpcEndpointServiceAttributeResponse Alibabacloud_Privatelink20200415::Clie
   query->insert(pair<string, string>("ServiceId", *request->serviceId));
   query->insert(pair<string, bool>("ZoneAffinityEnabled", *request->zoneAffinityEnabled));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVpcEndpointServiceAttribute"))},
@@ -1019,7 +990,7 @@ UpdateVpcEndpointServiceAttributeResponse Alibabacloud_Privatelink20200415::Clie
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVpcEndpointServiceAttributeResponse(callApi(params, req, runtime));
