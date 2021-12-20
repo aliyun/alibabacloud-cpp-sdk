@@ -14,6 +14,303 @@
 using namespace std;
 
 namespace Alibabacloud_IoTCC20210513 {
+class AddCidrToConnectionPoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> cidrs{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> connectionPoolId{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+
+  AddCidrToConnectionPoolRequest() {}
+
+  explicit AddCidrToConnectionPoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrs) {
+      res["Cidrs"] = boost::any(*cidrs);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (connectionPoolId) {
+      res["ConnectionPoolId"] = boost::any(*connectionPoolId);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cidrs") != m.end() && !m["Cidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Cidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Cidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cidrs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ConnectionPoolId") != m.end() && !m["ConnectionPoolId"].empty()) {
+      connectionPoolId = make_shared<string>(boost::any_cast<string>(m["ConnectionPoolId"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~AddCidrToConnectionPoolRequest() = default;
+};
+class AddCidrToConnectionPoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AddCidrToConnectionPoolResponseBody() {}
+
+  explicit AddCidrToConnectionPoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddCidrToConnectionPoolResponseBody() = default;
+};
+class AddCidrToConnectionPoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddCidrToConnectionPoolResponseBody> body{};
+
+  AddCidrToConnectionPoolResponse() {}
+
+  explicit AddCidrToConnectionPoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddCidrToConnectionPoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddCidrToConnectionPoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddCidrToConnectionPoolResponse() = default;
+};
+class AddIoTCloudConnectorToGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<vector<string>> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+
+  AddIoTCloudConnectorToGroupRequest() {}
+
+  explicit AddIoTCloudConnectorToGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ioTCloudConnectorId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~AddIoTCloudConnectorToGroupRequest() = default;
+};
+class AddIoTCloudConnectorToGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AddIoTCloudConnectorToGroupResponseBody() {}
+
+  explicit AddIoTCloudConnectorToGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddIoTCloudConnectorToGroupResponseBody() = default;
+};
+class AddIoTCloudConnectorToGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddIoTCloudConnectorToGroupResponseBody> body{};
+
+  AddIoTCloudConnectorToGroupResponse() {}
+
+  explicit AddIoTCloudConnectorToGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddIoTCloudConnectorToGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddIoTCloudConnectorToGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddIoTCloudConnectorToGroupResponse() = default;
+};
 class AssociateIpWithConnectionPoolRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -685,6 +982,200 @@ public:
 
   virtual ~CreateConnectionPoolResponse() = default;
 };
+class CreateGroupAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleDescription{};
+  shared_ptr<string> authorizationRuleName{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> sourceCidrs{};
+
+  CreateGroupAuthorizationRuleRequest() {}
+
+  explicit CreateGroupAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleDescription) {
+      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceCidrs) {
+      res["SourceCidrs"] = boost::any(*sourceCidrs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
+      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceCidrs") != m.end() && !m["SourceCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceCidrs = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleRequest() = default;
+};
+class CreateGroupAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> requestId{};
+
+  CreateGroupAuthorizationRuleResponseBody() {}
+
+  explicit CreateGroupAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleResponseBody() = default;
+};
+class CreateGroupAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateGroupAuthorizationRuleResponseBody> body{};
+
+  CreateGroupAuthorizationRuleResponse() {}
+
+  explicit CreateGroupAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGroupAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGroupAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleResponse() = default;
+};
 class CreateIoTCloudConnectorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> APN{};
@@ -857,6 +1348,151 @@ public:
 
 
   virtual ~CreateIoTCloudConnectorResponse() = default;
+};
+class CreateIoTCloudConnectorGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+
+  CreateIoTCloudConnectorGroupRequest() {}
+
+  explicit CreateIoTCloudConnectorGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateIoTCloudConnectorGroupRequest() = default;
+};
+class CreateIoTCloudConnectorGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> requestId{};
+
+  CreateIoTCloudConnectorGroupResponseBody() {}
+
+  explicit CreateIoTCloudConnectorGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIoTCloudConnectorGroupResponseBody() = default;
+};
+class CreateIoTCloudConnectorGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateIoTCloudConnectorGroupResponseBody> body{};
+
+  CreateIoTCloudConnectorGroupResponse() {}
+
+  explicit CreateIoTCloudConnectorGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIoTCloudConnectorGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIoTCloudConnectorGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIoTCloudConnectorGroupResponse() = default;
 };
 class CreateServiceRequest : public Darabonba::Model {
 public:
@@ -1459,6 +2095,144 @@ public:
 
   virtual ~DeleteConnectionPoolResponse() = default;
 };
+class DeleteGroupAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+
+  DeleteGroupAuthorizationRuleRequest() {}
+
+  explicit DeleteGroupAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleRequest() = default;
+};
+class DeleteGroupAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteGroupAuthorizationRuleResponseBody() {}
+
+  explicit DeleteGroupAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleResponseBody() = default;
+};
+class DeleteGroupAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteGroupAuthorizationRuleResponseBody> body{};
+
+  DeleteGroupAuthorizationRuleResponse() {}
+
+  explicit DeleteGroupAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGroupAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGroupAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleResponse() = default;
+};
 class DeleteIoTCloudConnectorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -1589,6 +2363,137 @@ public:
 
 
   virtual ~DeleteIoTCloudConnectorResponse() = default;
+};
+class DeleteIoTCloudConnectorGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+
+  DeleteIoTCloudConnectorGroupRequest() {}
+
+  explicit DeleteIoTCloudConnectorGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteIoTCloudConnectorGroupRequest() = default;
+};
+class DeleteIoTCloudConnectorGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteIoTCloudConnectorGroupResponseBody() {}
+
+  explicit DeleteIoTCloudConnectorGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteIoTCloudConnectorGroupResponseBody() = default;
+};
+class DeleteIoTCloudConnectorGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteIoTCloudConnectorGroupResponseBody> body{};
+
+  DeleteIoTCloudConnectorGroupResponse() {}
+
+  explicit DeleteIoTCloudConnectorGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteIoTCloudConnectorGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteIoTCloudConnectorGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteIoTCloudConnectorGroupResponse() = default;
 };
 class DeleteServiceRequest : public Darabonba::Model {
 public:
@@ -3640,6 +4545,257 @@ public:
 
   virtual ~ListAuthorizationRulesResponse() = default;
 };
+class ListConnectionPoolAllIpsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> connectionPoolId{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> ip{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
+
+  ListConnectionPoolAllIpsRequest() {}
+
+  explicit ListConnectionPoolAllIpsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectionPoolId) {
+      res["ConnectionPoolId"] = boost::any(*connectionPoolId);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionPoolId") != m.end() && !m["ConnectionPoolId"].empty()) {
+      connectionPoolId = make_shared<string>(boost::any_cast<string>(m["ConnectionPoolId"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListConnectionPoolAllIpsRequest() = default;
+};
+class ListConnectionPoolAllIpsResponseBodyConnectionPoolIps : public Darabonba::Model {
+public:
+  shared_ptr<string> connectionPoolId{};
+  shared_ptr<string> ip{};
+  shared_ptr<long> ipNum{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  ListConnectionPoolAllIpsResponseBodyConnectionPoolIps() {}
+
+  explicit ListConnectionPoolAllIpsResponseBodyConnectionPoolIps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectionPoolId) {
+      res["ConnectionPoolId"] = boost::any(*connectionPoolId);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (ipNum) {
+      res["IpNum"] = boost::any(*ipNum);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionPoolId") != m.end() && !m["ConnectionPoolId"].empty()) {
+      connectionPoolId = make_shared<string>(boost::any_cast<string>(m["ConnectionPoolId"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("IpNum") != m.end() && !m["IpNum"].empty()) {
+      ipNum = make_shared<long>(boost::any_cast<long>(m["IpNum"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListConnectionPoolAllIpsResponseBodyConnectionPoolIps() = default;
+};
+class ListConnectionPoolAllIpsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListConnectionPoolAllIpsResponseBodyConnectionPoolIps>> connectionPoolIps{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListConnectionPoolAllIpsResponseBody() {}
+
+  explicit ListConnectionPoolAllIpsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectionPoolIps) {
+      vector<boost::any> temp1;
+      for(auto item1:*connectionPoolIps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConnectionPoolIps"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionPoolIps") != m.end() && !m["ConnectionPoolIps"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConnectionPoolIps"].type()) {
+        vector<ListConnectionPoolAllIpsResponseBodyConnectionPoolIps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConnectionPoolIps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListConnectionPoolAllIpsResponseBodyConnectionPoolIps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        connectionPoolIps = make_shared<vector<ListConnectionPoolAllIpsResponseBodyConnectionPoolIps>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListConnectionPoolAllIpsResponseBody() = default;
+};
+class ListConnectionPoolAllIpsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListConnectionPoolAllIpsResponseBody> body{};
+
+  ListConnectionPoolAllIpsResponse() {}
+
+  explicit ListConnectionPoolAllIpsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListConnectionPoolAllIpsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListConnectionPoolAllIpsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListConnectionPoolAllIpsResponse() = default;
+};
 class ListConnectionPoolIpsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> connectionPoolId{};
@@ -4156,6 +5312,355 @@ public:
 
   virtual ~ListConnectionPoolsResponse() = default;
 };
+class ListGroupAuthorizationRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> authorizationRuleIds{};
+  shared_ptr<vector<string>> authorizationRuleName{};
+  shared_ptr<vector<string>> authorizationRuleStatus{};
+  shared_ptr<vector<string>> destination{};
+  shared_ptr<vector<string>> destinationType{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<vector<string>> policy{};
+  shared_ptr<string> regionId{};
+
+  ListGroupAuthorizationRulesRequest() {}
+
+  explicit ListGroupAuthorizationRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleIds) {
+      res["AuthorizationRuleIds"] = boost::any(*authorizationRuleIds);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (authorizationRuleStatus) {
+      res["AuthorizationRuleStatus"] = boost::any(*authorizationRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleIds") != m.end() && !m["AuthorizationRuleIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizationRuleIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizationRuleIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizationRuleIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizationRuleName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizationRuleName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizationRuleName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AuthorizationRuleStatus") != m.end() && !m["AuthorizationRuleStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizationRuleStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizationRuleStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizationRuleStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Destination"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Destination"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destination = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationType"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationType"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationType = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Policy"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Policy"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policy = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesRequest() = default;
+};
+class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleDescription{};
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> authorizationRuleName{};
+  shared_ptr<string> authorizationRuleStatus{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> policy{};
+  shared_ptr<vector<string>> sourceCidrs{};
+
+  ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules() {}
+
+  explicit ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleDescription) {
+      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
+    }
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (authorizationRuleStatus) {
+      res["AuthorizationRuleStatus"] = boost::any(*authorizationRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (sourceCidrs) {
+      res["SourceCidrs"] = boost::any(*sourceCidrs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
+      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
+    }
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
+    }
+    if (m.find("AuthorizationRuleStatus") != m.end() && !m["AuthorizationRuleStatus"].empty()) {
+      authorizationRuleStatus = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleStatus"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("SourceCidrs") != m.end() && !m["SourceCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceCidrs = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules() = default;
+};
+class ListGroupAuthorizationRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules>> groupAuthorizationRules{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListGroupAuthorizationRulesResponseBody() {}
+
+  explicit ListGroupAuthorizationRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupAuthorizationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*groupAuthorizationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GroupAuthorizationRules"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupAuthorizationRules") != m.end() && !m["GroupAuthorizationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["GroupAuthorizationRules"].type()) {
+        vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GroupAuthorizationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        groupAuthorizationRules = make_shared<vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponseBody() = default;
+};
+class ListGroupAuthorizationRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListGroupAuthorizationRulesResponseBody> body{};
+
+  ListGroupAuthorizationRulesResponse() {}
+
+  explicit ListGroupAuthorizationRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGroupAuthorizationRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGroupAuthorizationRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponse() = default;
+};
 class ListIoTCloudConnectorAvailableZonesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ioTCloudConnectorId{};
@@ -4294,6 +5799,349 @@ public:
 
   virtual ~ListIoTCloudConnectorAvailableZonesResponse() = default;
 };
+class ListIoTCloudConnectorGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ioTCloudConnectorGroupIds{};
+  shared_ptr<vector<string>> ioTCloudConnectorGroupName{};
+  shared_ptr<vector<string>> ioTCloudConnectorGroupStatus{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  ListIoTCloudConnectorGroupsRequest() {}
+
+  explicit ListIoTCloudConnectorGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ioTCloudConnectorGroupIds) {
+      res["IoTCloudConnectorGroupIds"] = boost::any(*ioTCloudConnectorGroupIds);
+    }
+    if (ioTCloudConnectorGroupName) {
+      res["IoTCloudConnectorGroupName"] = boost::any(*ioTCloudConnectorGroupName);
+    }
+    if (ioTCloudConnectorGroupStatus) {
+      res["IoTCloudConnectorGroupStatus"] = boost::any(*ioTCloudConnectorGroupStatus);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IoTCloudConnectorGroupIds") != m.end() && !m["IoTCloudConnectorGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ioTCloudConnectorGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorGroupName") != m.end() && !m["IoTCloudConnectorGroupName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorGroupName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorGroupName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ioTCloudConnectorGroupName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorGroupStatus") != m.end() && !m["IoTCloudConnectorGroupStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorGroupStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorGroupStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ioTCloudConnectorGroupStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListIoTCloudConnectorGroupsRequest() = default;
+};
+class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<string> ioTCloudConnectorDescription{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> ioTCloudConnectorName{};
+  shared_ptr<string> ioTCloudConnectorStatus{};
+
+  ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors() {}
+
+  explicit ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (ioTCloudConnectorDescription) {
+      res["IoTCloudConnectorDescription"] = boost::any(*ioTCloudConnectorDescription);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (ioTCloudConnectorName) {
+      res["IoTCloudConnectorName"] = boost::any(*ioTCloudConnectorName);
+    }
+    if (ioTCloudConnectorStatus) {
+      res["IoTCloudConnectorStatus"] = boost::any(*ioTCloudConnectorStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("IoTCloudConnectorDescription") != m.end() && !m["IoTCloudConnectorDescription"].empty()) {
+      ioTCloudConnectorDescription = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorDescription"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("IoTCloudConnectorName") != m.end() && !m["IoTCloudConnectorName"].empty()) {
+      ioTCloudConnectorName = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorName"]));
+    }
+    if (m.find("IoTCloudConnectorStatus") != m.end() && !m["IoTCloudConnectorStatus"].empty()) {
+      ioTCloudConnectorStatus = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorStatus"]));
+    }
+  }
+
+
+  virtual ~ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors() = default;
+};
+class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups : public Darabonba::Model {
+public:
+  shared_ptr<long> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> ioTCloudConnectorGroupStatus{};
+  shared_ptr<vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors>> ioTCloudConnectors{};
+  shared_ptr<string> name{};
+
+  ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups() {}
+
+  explicit ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (ioTCloudConnectorGroupStatus) {
+      res["IoTCloudConnectorGroupStatus"] = boost::any(*ioTCloudConnectorGroupStatus);
+    }
+    if (ioTCloudConnectors) {
+      vector<boost::any> temp1;
+      for(auto item1:*ioTCloudConnectors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IoTCloudConnectors"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("IoTCloudConnectorGroupStatus") != m.end() && !m["IoTCloudConnectorGroupStatus"].empty()) {
+      ioTCloudConnectorGroupStatus = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupStatus"]));
+    }
+    if (m.find("IoTCloudConnectors") != m.end() && !m["IoTCloudConnectors"].empty()) {
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectors"].type()) {
+        vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IoTCloudConnectors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ioTCloudConnectors = make_shared<vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups() = default;
+};
+class ListIoTCloudConnectorGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups>> ioTCloudConnectorGroups{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListIoTCloudConnectorGroupsResponseBody() {}
+
+  explicit ListIoTCloudConnectorGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ioTCloudConnectorGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*ioTCloudConnectorGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IoTCloudConnectorGroups"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IoTCloudConnectorGroups") != m.end() && !m["IoTCloudConnectorGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorGroups"].type()) {
+        vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ioTCloudConnectorGroups = make_shared<vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListIoTCloudConnectorGroupsResponseBody() = default;
+};
+class ListIoTCloudConnectorGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListIoTCloudConnectorGroupsResponseBody> body{};
+
+  ListIoTCloudConnectorGroupsResponse() {}
+
+  explicit ListIoTCloudConnectorGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListIoTCloudConnectorGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListIoTCloudConnectorGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListIoTCloudConnectorGroupsResponse() = default;
+};
 class ListIoTCloudConnectorsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> APN{};
@@ -4301,6 +6149,7 @@ public:
   shared_ptr<vector<string>> ioTCloudConnectorIds{};
   shared_ptr<vector<string>> ioTCloudConnectorName{};
   shared_ptr<vector<string>> ioTCloudConnectorStatus{};
+  shared_ptr<bool> isInGroup{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
@@ -4330,6 +6179,9 @@ public:
     }
     if (ioTCloudConnectorStatus) {
       res["IoTCloudConnectorStatus"] = boost::any(*ioTCloudConnectorStatus);
+    }
+    if (isInGroup) {
+      res["IsInGroup"] = boost::any(*isInGroup);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -4397,6 +6249,9 @@ public:
       }
       ioTCloudConnectorStatus = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("IsInGroup") != m.end() && !m["IsInGroup"].empty()) {
+      isInGroup = make_shared<bool>(boost::any_cast<bool>(m["IsInGroup"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -4428,6 +6283,7 @@ public:
   shared_ptr<string> ISP{};
   shared_ptr<string> ioTCloudConnectorBusinessStatus{};
   shared_ptr<string> ioTCloudConnectorDescription{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
   shared_ptr<string> ioTCloudConnectorId{};
   shared_ptr<string> ioTCloudConnectorName{};
   shared_ptr<string> ioTCloudConnectorStatus{};
@@ -4461,6 +6317,9 @@ public:
     }
     if (ioTCloudConnectorDescription) {
       res["IoTCloudConnectorDescription"] = boost::any(*ioTCloudConnectorDescription);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
     }
     if (ioTCloudConnectorId) {
       res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
@@ -4504,6 +6363,9 @@ public:
     }
     if (m.find("IoTCloudConnectorDescription") != m.end() && !m["IoTCloudConnectorDescription"].empty()) {
       ioTCloudConnectorDescription = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorDescription"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
     }
     if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
       ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
@@ -5548,6 +7410,151 @@ public:
 
   virtual ~OpenIoTCloudConnectorServiceResponse() = default;
 };
+class RemoveIoTCloudConnectorFromGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<vector<string>> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+
+  RemoveIoTCloudConnectorFromGroupRequest() {}
+
+  explicit RemoveIoTCloudConnectorFromGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IoTCloudConnectorId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IoTCloudConnectorId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ioTCloudConnectorId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~RemoveIoTCloudConnectorFromGroupRequest() = default;
+};
+class RemoveIoTCloudConnectorFromGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RemoveIoTCloudConnectorFromGroupResponseBody() {}
+
+  explicit RemoveIoTCloudConnectorFromGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveIoTCloudConnectorFromGroupResponseBody() = default;
+};
+class RemoveIoTCloudConnectorFromGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RemoveIoTCloudConnectorFromGroupResponseBody> body{};
+
+  RemoveIoTCloudConnectorFromGroupResponse() {}
+
+  explicit RemoveIoTCloudConnectorFromGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveIoTCloudConnectorFromGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveIoTCloudConnectorFromGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveIoTCloudConnectorFromGroupResponse() = default;
+};
 class UpdateAuthorizationRuleAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleDescription{};
@@ -5908,6 +7915,207 @@ public:
 
   virtual ~UpdateConnectionPoolAttributeResponse() = default;
 };
+class UpdateGroupAuthorizationRuleAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleDescription{};
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> authorizationRuleName{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> sourceCidrs{};
+
+  UpdateGroupAuthorizationRuleAttributeRequest() {}
+
+  explicit UpdateGroupAuthorizationRuleAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleDescription) {
+      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
+    }
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceCidrs) {
+      res["SourceCidrs"] = boost::any(*sourceCidrs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
+      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
+    }
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceCidrs") != m.end() && !m["SourceCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SourceCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SourceCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sourceCidrs = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleAttributeRequest() = default;
+};
+class UpdateGroupAuthorizationRuleAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> requestId{};
+
+  UpdateGroupAuthorizationRuleAttributeResponseBody() {}
+
+  explicit UpdateGroupAuthorizationRuleAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleAttributeResponseBody() = default;
+};
+class UpdateGroupAuthorizationRuleAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateGroupAuthorizationRuleAttributeResponseBody> body{};
+
+  UpdateGroupAuthorizationRuleAttributeResponse() {}
+
+  explicit UpdateGroupAuthorizationRuleAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGroupAuthorizationRuleAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGroupAuthorizationRuleAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleAttributeResponse() = default;
+};
 class UpdateIoTCloudConnectorAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -6066,6 +8274,151 @@ public:
 
 
   virtual ~UpdateIoTCloudConnectorAttributeResponse() = default;
+};
+class UpdateIoTCloudConnectorGroupAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+
+  UpdateIoTCloudConnectorGroupAttributeRequest() {}
+
+  explicit UpdateIoTCloudConnectorGroupAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateIoTCloudConnectorGroupAttributeRequest() = default;
+};
+class UpdateIoTCloudConnectorGroupAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateIoTCloudConnectorGroupAttributeResponseBody() {}
+
+  explicit UpdateIoTCloudConnectorGroupAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateIoTCloudConnectorGroupAttributeResponseBody() = default;
+};
+class UpdateIoTCloudConnectorGroupAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateIoTCloudConnectorGroupAttributeResponseBody> body{};
+
+  UpdateIoTCloudConnectorGroupAttributeResponse() {}
+
+  explicit UpdateIoTCloudConnectorGroupAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateIoTCloudConnectorGroupAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateIoTCloudConnectorGroupAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIoTCloudConnectorGroupAttributeResponse() = default;
 };
 class UpdateServiceAttributeRequest : public Darabonba::Model {
 public:
@@ -6388,6 +8741,10 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddCidrToConnectionPoolResponse addCidrToConnectionPoolWithOptions(shared_ptr<AddCidrToConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddCidrToConnectionPoolResponse addCidrToConnectionPool(shared_ptr<AddCidrToConnectionPoolRequest> request);
+  AddIoTCloudConnectorToGroupResponse addIoTCloudConnectorToGroupWithOptions(shared_ptr<AddIoTCloudConnectorToGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddIoTCloudConnectorToGroupResponse addIoTCloudConnectorToGroup(shared_ptr<AddIoTCloudConnectorToGroupRequest> request);
   AssociateIpWithConnectionPoolResponse associateIpWithConnectionPoolWithOptions(shared_ptr<AssociateIpWithConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssociateIpWithConnectionPoolResponse associateIpWithConnectionPool(shared_ptr<AssociateIpWithConnectionPoolRequest> request);
   AssociateVSwitchWithIoTCloudConnectorResponse associateVSwitchWithIoTCloudConnectorWithOptions(shared_ptr<AssociateVSwitchWithIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6396,8 +8753,12 @@ public:
   CreateAuthorizationRuleResponse createAuthorizationRule(shared_ptr<CreateAuthorizationRuleRequest> request);
   CreateConnectionPoolResponse createConnectionPoolWithOptions(shared_ptr<CreateConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateConnectionPoolResponse createConnectionPool(shared_ptr<CreateConnectionPoolRequest> request);
+  CreateGroupAuthorizationRuleResponse createGroupAuthorizationRuleWithOptions(shared_ptr<CreateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGroupAuthorizationRuleResponse createGroupAuthorizationRule(shared_ptr<CreateGroupAuthorizationRuleRequest> request);
   CreateIoTCloudConnectorResponse createIoTCloudConnectorWithOptions(shared_ptr<CreateIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIoTCloudConnectorResponse createIoTCloudConnector(shared_ptr<CreateIoTCloudConnectorRequest> request);
+  CreateIoTCloudConnectorGroupResponse createIoTCloudConnectorGroupWithOptions(shared_ptr<CreateIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIoTCloudConnectorGroupResponse createIoTCloudConnectorGroup(shared_ptr<CreateIoTCloudConnectorGroupRequest> request);
   CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceResponse createService(shared_ptr<CreateServiceRequest> request);
   CreateServiceEntryResponse createServiceEntryWithOptions(shared_ptr<CreateServiceEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6406,8 +8767,12 @@ public:
   DeleteAuthorizationRuleResponse deleteAuthorizationRule(shared_ptr<DeleteAuthorizationRuleRequest> request);
   DeleteConnectionPoolResponse deleteConnectionPoolWithOptions(shared_ptr<DeleteConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteConnectionPoolResponse deleteConnectionPool(shared_ptr<DeleteConnectionPoolRequest> request);
+  DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRuleWithOptions(shared_ptr<DeleteGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRule(shared_ptr<DeleteGroupAuthorizationRuleRequest> request);
   DeleteIoTCloudConnectorResponse deleteIoTCloudConnectorWithOptions(shared_ptr<DeleteIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIoTCloudConnectorResponse deleteIoTCloudConnector(shared_ptr<DeleteIoTCloudConnectorRequest> request);
+  DeleteIoTCloudConnectorGroupResponse deleteIoTCloudConnectorGroupWithOptions(shared_ptr<DeleteIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteIoTCloudConnectorGroupResponse deleteIoTCloudConnectorGroup(shared_ptr<DeleteIoTCloudConnectorGroupRequest> request);
   DeleteServiceResponse deleteServiceWithOptions(shared_ptr<DeleteServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteServiceResponse deleteService(shared_ptr<DeleteServiceRequest> request);
   DeleteServiceEntryResponse deleteServiceEntryWithOptions(shared_ptr<DeleteServiceEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6432,12 +8797,18 @@ public:
   ListAPNsResponse listAPNs(shared_ptr<ListAPNsRequest> request);
   ListAuthorizationRulesResponse listAuthorizationRulesWithOptions(shared_ptr<ListAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAuthorizationRulesResponse listAuthorizationRules(shared_ptr<ListAuthorizationRulesRequest> request);
+  ListConnectionPoolAllIpsResponse listConnectionPoolAllIpsWithOptions(shared_ptr<ListConnectionPoolAllIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListConnectionPoolAllIpsResponse listConnectionPoolAllIps(shared_ptr<ListConnectionPoolAllIpsRequest> request);
   ListConnectionPoolIpsResponse listConnectionPoolIpsWithOptions(shared_ptr<ListConnectionPoolIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectionPoolIpsResponse listConnectionPoolIps(shared_ptr<ListConnectionPoolIpsRequest> request);
   ListConnectionPoolsResponse listConnectionPoolsWithOptions(shared_ptr<ListConnectionPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectionPoolsResponse listConnectionPools(shared_ptr<ListConnectionPoolsRequest> request);
+  ListGroupAuthorizationRulesResponse listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGroupAuthorizationRulesResponse listGroupAuthorizationRules(shared_ptr<ListGroupAuthorizationRulesRequest> request);
   ListIoTCloudConnectorAvailableZonesResponse listIoTCloudConnectorAvailableZonesWithOptions(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIoTCloudConnectorAvailableZonesResponse listIoTCloudConnectorAvailableZones(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request);
+  ListIoTCloudConnectorGroupsResponse listIoTCloudConnectorGroupsWithOptions(shared_ptr<ListIoTCloudConnectorGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListIoTCloudConnectorGroupsResponse listIoTCloudConnectorGroups(shared_ptr<ListIoTCloudConnectorGroupsRequest> request);
   ListIoTCloudConnectorsResponse listIoTCloudConnectorsWithOptions(shared_ptr<ListIoTCloudConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIoTCloudConnectorsResponse listIoTCloudConnectors(shared_ptr<ListIoTCloudConnectorsRequest> request);
   ListRegionsResponse listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6448,12 +8819,18 @@ public:
   ListServiceEntriesResponse listServiceEntries(shared_ptr<ListServiceEntriesRequest> request);
   OpenIoTCloudConnectorServiceResponse openIoTCloudConnectorServiceWithOptions(shared_ptr<OpenIoTCloudConnectorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenIoTCloudConnectorServiceResponse openIoTCloudConnectorService(shared_ptr<OpenIoTCloudConnectorServiceRequest> request);
+  RemoveIoTCloudConnectorFromGroupResponse removeIoTCloudConnectorFromGroupWithOptions(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveIoTCloudConnectorFromGroupResponse removeIoTCloudConnectorFromGroup(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request);
   UpdateAuthorizationRuleAttributeResponse updateAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAuthorizationRuleAttributeResponse updateAuthorizationRuleAttribute(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request);
   UpdateConnectionPoolAttributeResponse updateConnectionPoolAttributeWithOptions(shared_ptr<UpdateConnectionPoolAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateConnectionPoolAttributeResponse updateConnectionPoolAttribute(shared_ptr<UpdateConnectionPoolAttributeRequest> request);
+  UpdateGroupAuthorizationRuleAttributeResponse updateGroupAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGroupAuthorizationRuleAttributeResponse updateGroupAuthorizationRuleAttribute(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request);
   UpdateIoTCloudConnectorAttributeResponse updateIoTCloudConnectorAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIoTCloudConnectorAttributeResponse updateIoTCloudConnectorAttribute(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request);
+  UpdateIoTCloudConnectorGroupAttributeResponse updateIoTCloudConnectorGroupAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateIoTCloudConnectorGroupAttributeResponse updateIoTCloudConnectorGroupAttribute(shared_ptr<UpdateIoTCloudConnectorGroupAttributeRequest> request);
   UpdateServiceAttributeResponse updateServiceAttributeWithOptions(shared_ptr<UpdateServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateServiceAttributeResponse updateServiceAttribute(shared_ptr<UpdateServiceAttributeRequest> request);
   UpdateServiceEntryAttributeResponse updateServiceEntryAttributeWithOptions(shared_ptr<UpdateServiceEntryAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
