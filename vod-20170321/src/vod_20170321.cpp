@@ -96,8 +96,7 @@ AddAITemplateResponse Alibabacloud_Vod20170321::Client::addAITemplateWithOptions
   query->insert(pair<string, string>("TemplateName", *request->templateName));
   query->insert(pair<string, string>("TemplateType", *request->templateType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddAITemplate"))},
@@ -107,7 +106,7 @@ AddAITemplateResponse Alibabacloud_Vod20170321::Client::addAITemplateWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddAITemplateResponse(callApi(params, req, runtime));
@@ -125,8 +124,7 @@ AddCategoryResponse Alibabacloud_Vod20170321::Client::addCategoryWithOptions(sha
   query->insert(pair<string, long>("ParentId", *request->parentId));
   query->insert(pair<string, string>("Type", *request->type));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddCategory"))},
@@ -136,7 +134,7 @@ AddCategoryResponse Alibabacloud_Vod20170321::Client::addCategoryWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddCategoryResponse(callApi(params, req, runtime));
@@ -160,8 +158,7 @@ AddEditingProjectResponse Alibabacloud_Vod20170321::Client::addEditingProjectWit
   query->insert(pair<string, string>("Timeline", *request->timeline));
   query->insert(pair<string, string>("Title", *request->title));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddEditingProject"))},
@@ -171,7 +168,7 @@ AddEditingProjectResponse Alibabacloud_Vod20170321::Client::addEditingProjectWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddEditingProjectResponse(callApi(params, req, runtime));
@@ -190,8 +187,7 @@ AddTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::addTranscode
   query->insert(pair<string, string>("TranscodeTemplateGroupId", *request->transcodeTemplateGroupId));
   query->insert(pair<string, string>("TranscodeTemplateList", *request->transcodeTemplateList));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddTranscodeTemplateGroup"))},
@@ -201,7 +197,7 @@ AddTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::addTranscode
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -224,8 +220,7 @@ AddVodDomainResponse Alibabacloud_Vod20170321::Client::addVodDomainWithOptions(s
   query->insert(pair<string, string>("Sources", *request->sources));
   query->insert(pair<string, string>("TopLevelDomain", *request->topLevelDomain));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddVodDomain"))},
@@ -235,7 +230,7 @@ AddVodDomainResponse Alibabacloud_Vod20170321::Client::addVodDomainWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddVodDomainResponse(callApi(params, req, runtime));
@@ -254,8 +249,7 @@ AddVodTemplateResponse Alibabacloud_Vod20170321::Client::addVodTemplateWithOptio
   query->insert(pair<string, string>("TemplateConfig", *request->templateConfig));
   query->insert(pair<string, string>("TemplateType", *request->templateType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddVodTemplate"))},
@@ -265,7 +259,7 @@ AddVodTemplateResponse Alibabacloud_Vod20170321::Client::addVodTemplateWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddVodTemplateResponse(callApi(params, req, runtime));
@@ -285,8 +279,7 @@ AddWatermarkResponse Alibabacloud_Vod20170321::Client::addWatermarkWithOptions(s
   query->insert(pair<string, string>("Type", *request->type));
   query->insert(pair<string, string>("WatermarkConfig", *request->watermarkConfig));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AddWatermark"))},
@@ -296,7 +289,7 @@ AddWatermarkResponse Alibabacloud_Vod20170321::Client::addWatermarkWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddWatermarkResponse(callApi(params, req, runtime));
@@ -315,8 +308,7 @@ AttachAppPolicyToIdentityResponse Alibabacloud_Vod20170321::Client::attachAppPol
   query->insert(pair<string, string>("IdentityType", *request->identityType));
   query->insert(pair<string, string>("PolicyNames", *request->policyNames));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("AttachAppPolicyToIdentity"))},
@@ -326,7 +318,7 @@ AttachAppPolicyToIdentityResponse Alibabacloud_Vod20170321::Client::attachAppPol
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AttachAppPolicyToIdentityResponse(callApi(params, req, runtime));
@@ -346,8 +338,7 @@ BatchSetVodDomainConfigsResponse Alibabacloud_Vod20170321::Client::batchSetVodDo
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("BatchSetVodDomainConfigs"))},
@@ -357,7 +348,7 @@ BatchSetVodDomainConfigsResponse Alibabacloud_Vod20170321::Client::batchSetVodDo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return BatchSetVodDomainConfigsResponse(callApi(params, req, runtime));
@@ -375,8 +366,7 @@ BatchStartVodDomainResponse Alibabacloud_Vod20170321::Client::batchStartVodDomai
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("BatchStartVodDomain"))},
@@ -386,7 +376,7 @@ BatchStartVodDomainResponse Alibabacloud_Vod20170321::Client::batchStartVodDomai
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return BatchStartVodDomainResponse(callApi(params, req, runtime));
@@ -404,8 +394,7 @@ BatchStopVodDomainResponse Alibabacloud_Vod20170321::Client::batchStopVodDomainW
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("BatchStopVodDomain"))},
@@ -415,7 +404,7 @@ BatchStopVodDomainResponse Alibabacloud_Vod20170321::Client::batchStopVodDomainW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return BatchStopVodDomainResponse(callApi(params, req, runtime));
@@ -432,8 +421,7 @@ CancelUrlUploadJobsResponse Alibabacloud_Vod20170321::Client::cancelUrlUploadJob
   query->insert(pair<string, string>("JobIds", *request->jobIds));
   query->insert(pair<string, string>("UploadUrls", *request->uploadUrls));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CancelUrlUploadJobs"))},
@@ -443,7 +431,7 @@ CancelUrlUploadJobsResponse Alibabacloud_Vod20170321::Client::cancelUrlUploadJob
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CancelUrlUploadJobsResponse(callApi(params, req, runtime));
@@ -460,8 +448,7 @@ CreateAppInfoResponse Alibabacloud_Vod20170321::Client::createAppInfoWithOptions
   query->insert(pair<string, string>("AppName", *request->appName));
   query->insert(pair<string, string>("Description", *request->description));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateAppInfo"))},
@@ -471,7 +458,7 @@ CreateAppInfoResponse Alibabacloud_Vod20170321::Client::createAppInfoWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateAppInfoResponse(callApi(params, req, runtime));
@@ -487,8 +474,7 @@ CreateAuditResponse Alibabacloud_Vod20170321::Client::createAuditWithOptions(sha
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AuditContent", *request->auditContent));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateAudit"))},
@@ -498,7 +484,7 @@ CreateAuditResponse Alibabacloud_Vod20170321::Client::createAuditWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateAuditResponse(callApi(params, req, runtime));
@@ -524,8 +510,7 @@ CreateUploadAttachedMediaResponse Alibabacloud_Vod20170321::Client::createUpload
   query->insert(pair<string, string>("Title", *request->title));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateUploadAttachedMedia"))},
@@ -535,7 +520,7 @@ CreateUploadAttachedMediaResponse Alibabacloud_Vod20170321::Client::createUpload
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateUploadAttachedMediaResponse(callApi(params, req, runtime));
@@ -559,8 +544,7 @@ CreateUploadImageResponse Alibabacloud_Vod20170321::Client::createUploadImageWit
   query->insert(pair<string, string>("Title", *request->title));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateUploadImage"))},
@@ -570,7 +554,7 @@ CreateUploadImageResponse Alibabacloud_Vod20170321::Client::createUploadImageWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateUploadImageResponse(callApi(params, req, runtime));
@@ -597,8 +581,7 @@ CreateUploadVideoResponse Alibabacloud_Vod20170321::Client::createUploadVideoWit
   query->insert(pair<string, string>("UserData", *request->userData));
   query->insert(pair<string, string>("WorkflowId", *request->workflowId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateUploadVideo"))},
@@ -608,7 +591,7 @@ CreateUploadVideoResponse Alibabacloud_Vod20170321::Client::createUploadVideoWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateUploadVideoResponse(callApi(params, req, runtime));
@@ -633,7 +616,7 @@ CreateVodRealTimeLogDeliveryResponse Alibabacloud_Vod20170321::Client::createVod
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateVodRealTimeLogDeliveryResponse(callApi(params, req, runtime));
@@ -649,8 +632,7 @@ DeleteAIImageInfosResponse Alibabacloud_Vod20170321::Client::deleteAIImageInfosW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AIImageInfoIds", *request->AIImageInfoIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAIImageInfos"))},
@@ -660,7 +642,7 @@ DeleteAIImageInfosResponse Alibabacloud_Vod20170321::Client::deleteAIImageInfosW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteAIImageInfosResponse(callApi(params, req, runtime));
@@ -676,8 +658,7 @@ DeleteAITemplateResponse Alibabacloud_Vod20170321::Client::deleteAITemplateWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAITemplate"))},
@@ -687,7 +668,7 @@ DeleteAITemplateResponse Alibabacloud_Vod20170321::Client::deleteAITemplateWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteAITemplateResponse(callApi(params, req, runtime));
@@ -703,8 +684,7 @@ DeleteAppInfoResponse Alibabacloud_Vod20170321::Client::deleteAppInfoWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AppId", *request->appId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAppInfo"))},
@@ -714,7 +694,7 @@ DeleteAppInfoResponse Alibabacloud_Vod20170321::Client::deleteAppInfoWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteAppInfoResponse(callApi(params, req, runtime));
@@ -730,8 +710,7 @@ DeleteAttachedMediaResponse Alibabacloud_Vod20170321::Client::deleteAttachedMedi
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("MediaIds", *request->mediaIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteAttachedMedia"))},
@@ -741,7 +720,7 @@ DeleteAttachedMediaResponse Alibabacloud_Vod20170321::Client::deleteAttachedMedi
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteAttachedMediaResponse(callApi(params, req, runtime));
@@ -757,8 +736,7 @@ DeleteCategoryResponse Alibabacloud_Vod20170321::Client::deleteCategoryWithOptio
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, long>("CateId", *request->cateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteCategory"))},
@@ -768,7 +746,7 @@ DeleteCategoryResponse Alibabacloud_Vod20170321::Client::deleteCategoryWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteCategoryResponse(callApi(params, req, runtime));
@@ -785,8 +763,7 @@ DeleteDynamicImageResponse Alibabacloud_Vod20170321::Client::deleteDynamicImageW
   query->insert(pair<string, string>("DynamicImageIds", *request->dynamicImageIds));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteDynamicImage"))},
@@ -796,7 +773,7 @@ DeleteDynamicImageResponse Alibabacloud_Vod20170321::Client::deleteDynamicImageW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteDynamicImageResponse(callApi(params, req, runtime));
@@ -816,8 +793,7 @@ DeleteEditingProjectResponse Alibabacloud_Vod20170321::Client::deleteEditingProj
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteEditingProject"))},
@@ -827,7 +803,7 @@ DeleteEditingProjectResponse Alibabacloud_Vod20170321::Client::deleteEditingProj
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteEditingProjectResponse(callApi(params, req, runtime));
@@ -847,8 +823,7 @@ DeleteImageResponse Alibabacloud_Vod20170321::Client::deleteImageWithOptions(sha
   query->insert(pair<string, string>("ImageURLs", *request->imageURLs));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteImage"))},
@@ -858,7 +833,7 @@ DeleteImageResponse Alibabacloud_Vod20170321::Client::deleteImageWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteImageResponse(callApi(params, req, runtime));
@@ -875,8 +850,7 @@ DeleteMessageCallbackResponse Alibabacloud_Vod20170321::Client::deleteMessageCal
   query->insert(pair<string, string>("AppId", *request->appId));
   query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteMessageCallback"))},
@@ -886,7 +860,7 @@ DeleteMessageCallbackResponse Alibabacloud_Vod20170321::Client::deleteMessageCal
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteMessageCallbackResponse(callApi(params, req, runtime));
@@ -903,8 +877,7 @@ DeleteMezzaninesResponse Alibabacloud_Vod20170321::Client::deleteMezzaninesWithO
   query->insert(pair<string, bool>("Force", *request->force));
   query->insert(pair<string, string>("VideoIds", *request->videoIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteMezzanines"))},
@@ -914,7 +887,7 @@ DeleteMezzaninesResponse Alibabacloud_Vod20170321::Client::deleteMezzaninesWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteMezzaninesResponse(callApi(params, req, runtime));
@@ -932,8 +905,7 @@ DeleteMultipartUploadResponse Alibabacloud_Vod20170321::Client::deleteMultipartU
   query->insert(pair<string, string>("MediaType", *request->mediaType));
   query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteMultipartUpload"))},
@@ -943,7 +915,7 @@ DeleteMultipartUploadResponse Alibabacloud_Vod20170321::Client::deleteMultipartU
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteMultipartUploadResponse(callApi(params, req, runtime));
@@ -960,8 +932,7 @@ DeleteStreamResponse Alibabacloud_Vod20170321::Client::deleteStreamWithOptions(s
   query->insert(pair<string, string>("JobIds", *request->jobIds));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteStream"))},
@@ -971,7 +942,7 @@ DeleteStreamResponse Alibabacloud_Vod20170321::Client::deleteStreamWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteStreamResponse(callApi(params, req, runtime));
@@ -989,8 +960,7 @@ DeleteTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::deleteTra
   query->insert(pair<string, string>("TranscodeTemplateGroupId", *request->transcodeTemplateGroupId));
   query->insert(pair<string, string>("TranscodeTemplateIds", *request->transcodeTemplateIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteTranscodeTemplateGroup"))},
@@ -1000,7 +970,7 @@ DeleteTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::deleteTra
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -1016,8 +986,7 @@ DeleteVideoResponse Alibabacloud_Vod20170321::Client::deleteVideoWithOptions(sha
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoIds", *request->videoIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVideo"))},
@@ -1027,7 +996,7 @@ DeleteVideoResponse Alibabacloud_Vod20170321::Client::deleteVideoWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVideoResponse(callApi(params, req, runtime));
@@ -1046,8 +1015,7 @@ DeleteVodDomainResponse Alibabacloud_Vod20170321::Client::deleteVodDomainWithOpt
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVodDomain"))},
@@ -1057,7 +1025,7 @@ DeleteVodDomainResponse Alibabacloud_Vod20170321::Client::deleteVodDomainWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVodDomainResponse(callApi(params, req, runtime));
@@ -1082,7 +1050,7 @@ DeleteVodRealtimeLogDeliveryResponse Alibabacloud_Vod20170321::Client::deleteVod
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVodRealtimeLogDeliveryResponse(callApi(params, req, runtime));
@@ -1101,8 +1069,7 @@ DeleteVodSpecificConfigResponse Alibabacloud_Vod20170321::Client::deleteVodSpeci
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVodSpecificConfig"))},
@@ -1112,7 +1079,7 @@ DeleteVodSpecificConfigResponse Alibabacloud_Vod20170321::Client::deleteVodSpeci
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVodSpecificConfigResponse(callApi(params, req, runtime));
@@ -1128,8 +1095,7 @@ DeleteVodTemplateResponse Alibabacloud_Vod20170321::Client::deleteVodTemplateWit
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VodTemplateId", *request->vodTemplateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteVodTemplate"))},
@@ -1139,7 +1105,7 @@ DeleteVodTemplateResponse Alibabacloud_Vod20170321::Client::deleteVodTemplateWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteVodTemplateResponse(callApi(params, req, runtime));
@@ -1155,8 +1121,7 @@ DeleteWatermarkResponse Alibabacloud_Vod20170321::Client::deleteWatermarkWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("WatermarkId", *request->watermarkId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteWatermark"))},
@@ -1166,7 +1131,7 @@ DeleteWatermarkResponse Alibabacloud_Vod20170321::Client::deleteWatermarkWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteWatermarkResponse(callApi(params, req, runtime));
@@ -1185,8 +1150,7 @@ DescribePlayTopVideosResponse Alibabacloud_Vod20170321::Client::describePlayTopV
   query->insert(pair<string, long>("PageNo", *request->pageNo));
   query->insert(pair<string, long>("PageSize", *request->pageSize));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePlayTopVideos"))},
@@ -1196,7 +1160,7 @@ DescribePlayTopVideosResponse Alibabacloud_Vod20170321::Client::describePlayTopV
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePlayTopVideosResponse(callApi(params, req, runtime));
@@ -1214,8 +1178,7 @@ DescribePlayUserAvgResponse Alibabacloud_Vod20170321::Client::describePlayUserAv
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePlayUserAvg"))},
@@ -1225,7 +1188,7 @@ DescribePlayUserAvgResponse Alibabacloud_Vod20170321::Client::describePlayUserAv
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePlayUserAvgResponse(callApi(params, req, runtime));
@@ -1243,8 +1206,7 @@ DescribePlayUserTotalResponse Alibabacloud_Vod20170321::Client::describePlayUser
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePlayUserTotal"))},
@@ -1254,7 +1216,7 @@ DescribePlayUserTotalResponse Alibabacloud_Vod20170321::Client::describePlayUser
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePlayUserTotalResponse(callApi(params, req, runtime));
@@ -1273,8 +1235,7 @@ DescribePlayVideoStatisResponse Alibabacloud_Vod20170321::Client::describePlayVi
   query->insert(pair<string, string>("StartTime", *request->startTime));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribePlayVideoStatis"))},
@@ -1284,7 +1245,7 @@ DescribePlayVideoStatisResponse Alibabacloud_Vod20170321::Client::describePlayVi
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePlayVideoStatisResponse(callApi(params, req, runtime));
@@ -1304,8 +1265,7 @@ DescribeVodAIDataResponse Alibabacloud_Vod20170321::Client::describeVodAIDataWit
   query->insert(pair<string, string>("Region", *request->region));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodAIData"))},
@@ -1315,7 +1275,7 @@ DescribeVodAIDataResponse Alibabacloud_Vod20170321::Client::describeVodAIDataWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodAIDataResponse(callApi(params, req, runtime));
@@ -1333,8 +1293,7 @@ DescribeVodCertificateListResponse Alibabacloud_Vod20170321::Client::describeVod
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodCertificateList"))},
@@ -1344,7 +1303,7 @@ DescribeVodCertificateListResponse Alibabacloud_Vod20170321::Client::describeVod
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodCertificateListResponse(callApi(params, req, runtime));
@@ -1366,8 +1325,7 @@ DescribeVodDomainBpsDataResponse Alibabacloud_Vod20170321::Client::describeVodDo
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainBpsData"))},
@@ -1377,7 +1335,7 @@ DescribeVodDomainBpsDataResponse Alibabacloud_Vod20170321::Client::describeVodDo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainBpsDataResponse(callApi(params, req, runtime));
@@ -1394,8 +1352,7 @@ DescribeVodDomainCertificateInfoResponse Alibabacloud_Vod20170321::Client::descr
   query->insert(pair<string, string>("DomainName", *request->domainName));
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainCertificateInfo"))},
@@ -1405,7 +1362,7 @@ DescribeVodDomainCertificateInfoResponse Alibabacloud_Vod20170321::Client::descr
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainCertificateInfoResponse(callApi(params, req, runtime));
@@ -1424,8 +1381,7 @@ DescribeVodDomainConfigsResponse Alibabacloud_Vod20170321::Client::describeVodDo
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainConfigs"))},
@@ -1435,7 +1391,7 @@ DescribeVodDomainConfigsResponse Alibabacloud_Vod20170321::Client::describeVodDo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainConfigsResponse(callApi(params, req, runtime));
@@ -1453,8 +1409,7 @@ DescribeVodDomainDetailResponse Alibabacloud_Vod20170321::Client::describeVodDom
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainDetail"))},
@@ -1464,7 +1419,7 @@ DescribeVodDomainDetailResponse Alibabacloud_Vod20170321::Client::describeVodDom
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainDetailResponse(callApi(params, req, runtime));
@@ -1485,8 +1440,7 @@ DescribeVodDomainLogResponse Alibabacloud_Vod20170321::Client::describeVodDomain
   query->insert(pair<string, long>("PageSize", *request->pageSize));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainLog"))},
@@ -1496,7 +1450,7 @@ DescribeVodDomainLogResponse Alibabacloud_Vod20170321::Client::describeVodDomain
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainLogResponse(callApi(params, req, runtime));
@@ -1521,7 +1475,7 @@ DescribeVodDomainRealtimeLogDeliveryResponse Alibabacloud_Vod20170321::Client::d
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainRealtimeLogDeliveryResponse(callApi(params, req, runtime));
@@ -1541,8 +1495,7 @@ DescribeVodDomainSrcBpsDataResponse Alibabacloud_Vod20170321::Client::describeVo
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainSrcBpsData"))},
@@ -1552,7 +1505,7 @@ DescribeVodDomainSrcBpsDataResponse Alibabacloud_Vod20170321::Client::describeVo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainSrcBpsDataResponse(callApi(params, req, runtime));
@@ -1574,8 +1527,7 @@ DescribeVodDomainTrafficDataResponse Alibabacloud_Vod20170321::Client::describeV
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("StartTime", *request->startTime));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainTrafficData"))},
@@ -1585,7 +1537,7 @@ DescribeVodDomainTrafficDataResponse Alibabacloud_Vod20170321::Client::describeV
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainTrafficDataResponse(callApi(params, req, runtime));
@@ -1607,8 +1559,7 @@ DescribeVodDomainUsageDataResponse Alibabacloud_Vod20170321::Client::describeVod
   query->insert(pair<string, string>("StartTime", *request->startTime));
   query->insert(pair<string, string>("Type", *request->type));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodDomainUsageData"))},
@@ -1618,7 +1569,7 @@ DescribeVodDomainUsageDataResponse Alibabacloud_Vod20170321::Client::describeVod
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodDomainUsageDataResponse(callApi(params, req, runtime));
@@ -1635,8 +1586,7 @@ DescribeVodRefreshQuotaResponse Alibabacloud_Vod20170321::Client::describeVodRef
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodRefreshQuota"))},
@@ -1646,7 +1596,7 @@ DescribeVodRefreshQuotaResponse Alibabacloud_Vod20170321::Client::describeVodRef
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodRefreshQuotaResponse(callApi(params, req, runtime));
@@ -1672,8 +1622,7 @@ DescribeVodRefreshTasksResponse Alibabacloud_Vod20170321::Client::describeVodRef
   query->insert(pair<string, string>("Status", *request->status));
   query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodRefreshTasks"))},
@@ -1683,7 +1632,7 @@ DescribeVodRefreshTasksResponse Alibabacloud_Vod20170321::Client::describeVodRef
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodRefreshTasksResponse(callApi(params, req, runtime));
@@ -1704,8 +1653,7 @@ DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStor
   query->insert(pair<string, string>("Storage", *request->storage));
   query->insert(pair<string, string>("StorageType", *request->storageType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodStorageData"))},
@@ -1715,7 +1663,7 @@ DescribeVodStorageDataResponse Alibabacloud_Vod20170321::Client::describeVodStor
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodStorageDataResponse(callApi(params, req, runtime));
@@ -1734,8 +1682,7 @@ DescribeVodTagResourcesResponse Alibabacloud_Vod20170321::Client::describeVodTag
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, vector<DescribeVodTagResourcesRequestTag>>("Tag", *request->tag));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodTagResources"))},
@@ -1745,7 +1692,7 @@ DescribeVodTagResourcesResponse Alibabacloud_Vod20170321::Client::describeVodTag
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodTagResourcesResponse(callApi(params, req, runtime));
@@ -1767,8 +1714,7 @@ DescribeVodTranscodeDataResponse Alibabacloud_Vod20170321::Client::describeVodTr
   query->insert(pair<string, string>("StartTime", *request->startTime));
   query->insert(pair<string, string>("Storage", *request->storage));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodTranscodeData"))},
@@ -1778,7 +1724,7 @@ DescribeVodTranscodeDataResponse Alibabacloud_Vod20170321::Client::describeVodTr
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodTranscodeDataResponse(callApi(params, req, runtime));
@@ -1801,8 +1747,7 @@ DescribeVodUserDomainsResponse Alibabacloud_Vod20170321::Client::describeVodUser
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   query->insert(pair<string, vector<DescribeVodUserDomainsRequestTag>>("Tag", *request->tag));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodUserDomains"))},
@@ -1812,7 +1757,7 @@ DescribeVodUserDomainsResponse Alibabacloud_Vod20170321::Client::describeVodUser
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodUserDomainsResponse(callApi(params, req, runtime));
@@ -1828,8 +1773,7 @@ DescribeVodUserTagsResponse Alibabacloud_Vod20170321::Client::describeVodUserTag
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodUserTags"))},
@@ -1839,7 +1783,7 @@ DescribeVodUserTagsResponse Alibabacloud_Vod20170321::Client::describeVodUserTag
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodUserTagsResponse(callApi(params, req, runtime));
@@ -1856,8 +1800,7 @@ DescribeVodVerifyContentResponse Alibabacloud_Vod20170321::Client::describeVodVe
   query->insert(pair<string, string>("DomainName", *request->domainName));
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeVodVerifyContent"))},
@@ -1867,7 +1810,7 @@ DescribeVodVerifyContentResponse Alibabacloud_Vod20170321::Client::describeVodVe
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeVodVerifyContentResponse(callApi(params, req, runtime));
@@ -1886,8 +1829,7 @@ DetachAppPolicyFromIdentityResponse Alibabacloud_Vod20170321::Client::detachAppP
   query->insert(pair<string, string>("IdentityType", *request->identityType));
   query->insert(pair<string, string>("PolicyNames", *request->policyNames));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DetachAppPolicyFromIdentity"))},
@@ -1897,7 +1839,7 @@ DetachAppPolicyFromIdentityResponse Alibabacloud_Vod20170321::Client::detachAppP
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DetachAppPolicyFromIdentityResponse(callApi(params, req, runtime));
@@ -1922,7 +1864,7 @@ DisableVodRealtimeLogDeliveryResponse Alibabacloud_Vod20170321::Client::disableV
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DisableVodRealtimeLogDeliveryResponse(callApi(params, req, runtime));
@@ -1947,7 +1889,7 @@ EnableVodRealtimeLogDeliveryResponse Alibabacloud_Vod20170321::Client::enableVod
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return EnableVodRealtimeLogDeliveryResponse(callApi(params, req, runtime));
@@ -1967,8 +1909,7 @@ GetAIImageJobsResponse Alibabacloud_Vod20170321::Client::getAIImageJobsWithOptio
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAIImageJobs"))},
@@ -1978,7 +1919,7 @@ GetAIImageJobsResponse Alibabacloud_Vod20170321::Client::getAIImageJobsWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAIImageJobsResponse(callApi(params, req, runtime));
@@ -1994,8 +1935,7 @@ GetAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::getAIMediaAuditJobW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("JobId", *request->jobId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAIMediaAuditJob"))},
@@ -2005,7 +1945,7 @@ GetAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::getAIMediaAuditJobW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAIMediaAuditJobResponse(callApi(params, req, runtime));
@@ -2021,8 +1961,7 @@ GetAITemplateResponse Alibabacloud_Vod20170321::Client::getAITemplateWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAITemplate"))},
@@ -2032,7 +1971,7 @@ GetAITemplateResponse Alibabacloud_Vod20170321::Client::getAITemplateWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAITemplateResponse(callApi(params, req, runtime));
@@ -2052,8 +1991,7 @@ GetAIVideoTagResultResponse Alibabacloud_Vod20170321::Client::getAIVideoTagResul
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAIVideoTagResult"))},
@@ -2063,7 +2001,7 @@ GetAIVideoTagResultResponse Alibabacloud_Vod20170321::Client::getAIVideoTagResul
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAIVideoTagResultResponse(callApi(params, req, runtime));
@@ -2079,8 +2017,7 @@ GetAppInfosResponse Alibabacloud_Vod20170321::Client::getAppInfosWithOptions(sha
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AppIds", *request->appIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAppInfos"))},
@@ -2090,7 +2027,7 @@ GetAppInfosResponse Alibabacloud_Vod20170321::Client::getAppInfosWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAppInfosResponse(callApi(params, req, runtime));
@@ -2108,8 +2045,7 @@ GetAttachedMediaInfoResponse Alibabacloud_Vod20170321::Client::getAttachedMediaI
   query->insert(pair<string, string>("MediaIds", *request->mediaIds));
   query->insert(pair<string, string>("OutputType", *request->outputType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAttachedMediaInfo"))},
@@ -2119,7 +2055,7 @@ GetAttachedMediaInfoResponse Alibabacloud_Vod20170321::Client::getAttachedMediaI
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAttachedMediaInfoResponse(callApi(params, req, runtime));
@@ -2138,8 +2074,7 @@ GetAuditHistoryResponse Alibabacloud_Vod20170321::Client::getAuditHistoryWithOpt
   query->insert(pair<string, string>("SortBy", *request->sortBy));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetAuditHistory"))},
@@ -2149,7 +2084,7 @@ GetAuditHistoryResponse Alibabacloud_Vod20170321::Client::getAuditHistoryWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAuditHistoryResponse(callApi(params, req, runtime));
@@ -2169,8 +2104,7 @@ GetCategoriesResponse Alibabacloud_Vod20170321::Client::getCategoriesWithOptions
   query->insert(pair<string, string>("SortBy", *request->sortBy));
   query->insert(pair<string, string>("Type", *request->type));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetCategories"))},
@@ -2180,7 +2114,7 @@ GetCategoriesResponse Alibabacloud_Vod20170321::Client::getCategoriesWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetCategoriesResponse(callApi(params, req, runtime));
@@ -2196,8 +2130,7 @@ GetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::getDefaultAITempl
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TemplateType", *request->templateType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetDefaultAITemplate"))},
@@ -2207,7 +2140,7 @@ GetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::getDefaultAITempl
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetDefaultAITemplateResponse(callApi(params, req, runtime));
@@ -2227,8 +2160,7 @@ GetEditingProjectResponse Alibabacloud_Vod20170321::Client::getEditingProjectWit
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetEditingProject"))},
@@ -2238,7 +2170,7 @@ GetEditingProjectResponse Alibabacloud_Vod20170321::Client::getEditingProjectWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetEditingProjectResponse(callApi(params, req, runtime));
@@ -2260,8 +2192,7 @@ GetEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::getEditingP
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   query->insert(pair<string, string>("Type", *request->type));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetEditingProjectMaterials"))},
@@ -2271,7 +2202,7 @@ GetEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::getEditingP
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetEditingProjectMaterialsResponse(callApi(params, req, runtime));
@@ -2289,8 +2220,7 @@ GetImageInfoResponse Alibabacloud_Vod20170321::Client::getImageInfoWithOptions(s
   query->insert(pair<string, string>("ImageId", *request->imageId));
   query->insert(pair<string, string>("OutputType", *request->outputType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetImageInfo"))},
@@ -2300,7 +2230,7 @@ GetImageInfoResponse Alibabacloud_Vod20170321::Client::getImageInfoWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetImageInfoResponse(callApi(params, req, runtime));
@@ -2321,8 +2251,7 @@ GetMediaAuditAudioResultDetailResponse Alibabacloud_Vod20170321::Client::getMedi
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMediaAuditAudioResultDetail"))},
@@ -2332,7 +2261,7 @@ GetMediaAuditAudioResultDetailResponse Alibabacloud_Vod20170321::Client::getMedi
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMediaAuditAudioResultDetailResponse(callApi(params, req, runtime));
@@ -2348,8 +2277,7 @@ GetMediaAuditResultResponse Alibabacloud_Vod20170321::Client::getMediaAuditResul
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("MediaId", *request->mediaId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMediaAuditResult"))},
@@ -2359,7 +2287,7 @@ GetMediaAuditResultResponse Alibabacloud_Vod20170321::Client::getMediaAuditResul
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMediaAuditResultResponse(callApi(params, req, runtime));
@@ -2376,8 +2304,7 @@ GetMediaAuditResultDetailResponse Alibabacloud_Vod20170321::Client::getMediaAudi
   query->insert(pair<string, string>("MediaId", *request->mediaId));
   query->insert(pair<string, long>("PageNo", *request->pageNo));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMediaAuditResultDetail"))},
@@ -2387,7 +2314,7 @@ GetMediaAuditResultDetailResponse Alibabacloud_Vod20170321::Client::getMediaAudi
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMediaAuditResultDetailResponse(callApi(params, req, runtime));
@@ -2403,8 +2330,7 @@ GetMediaAuditResultTimelineResponse Alibabacloud_Vod20170321::Client::getMediaAu
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("MediaId", *request->mediaId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMediaAuditResultTimeline"))},
@@ -2414,7 +2340,7 @@ GetMediaAuditResultTimelineResponse Alibabacloud_Vod20170321::Client::getMediaAu
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMediaAuditResultTimelineResponse(callApi(params, req, runtime));
@@ -2434,8 +2360,7 @@ GetMediaDNAResultResponse Alibabacloud_Vod20170321::Client::getMediaDNAResultWit
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMediaDNAResult"))},
@@ -2445,7 +2370,7 @@ GetMediaDNAResultResponse Alibabacloud_Vod20170321::Client::getMediaDNAResultWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMediaDNAResultResponse(callApi(params, req, runtime));
@@ -2462,8 +2387,7 @@ GetMessageCallbackResponse Alibabacloud_Vod20170321::Client::getMessageCallbackW
   query->insert(pair<string, string>("AppId", *request->appId));
   query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMessageCallback"))},
@@ -2473,7 +2397,7 @@ GetMessageCallbackResponse Alibabacloud_Vod20170321::Client::getMessageCallbackW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMessageCallbackResponse(callApi(params, req, runtime));
@@ -2492,8 +2416,7 @@ GetMezzanineInfoResponse Alibabacloud_Vod20170321::Client::getMezzanineInfoWithO
   query->insert(pair<string, string>("OutputType", *request->outputType));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetMezzanineInfo"))},
@@ -2503,7 +2426,7 @@ GetMezzanineInfoResponse Alibabacloud_Vod20170321::Client::getMezzanineInfoWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetMezzanineInfoResponse(callApi(params, req, runtime));
@@ -2528,8 +2451,7 @@ GetPlayInfoResponse Alibabacloud_Vod20170321::Client::getPlayInfoWithOptions(sha
   query->insert(pair<string, string>("StreamType", *request->streamType));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetPlayInfo"))},
@@ -2539,7 +2461,7 @@ GetPlayInfoResponse Alibabacloud_Vod20170321::Client::getPlayInfoWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetPlayInfoResponse(callApi(params, req, runtime));
@@ -2555,8 +2477,7 @@ GetTranscodeSummaryResponse Alibabacloud_Vod20170321::Client::getTranscodeSummar
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoIds", *request->videoIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetTranscodeSummary"))},
@@ -2566,7 +2487,7 @@ GetTranscodeSummaryResponse Alibabacloud_Vod20170321::Client::getTranscodeSummar
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetTranscodeSummaryResponse(callApi(params, req, runtime));
@@ -2582,8 +2503,7 @@ GetTranscodeTaskResponse Alibabacloud_Vod20170321::Client::getTranscodeTaskWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TranscodeTaskId", *request->transcodeTaskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetTranscodeTask"))},
@@ -2593,7 +2513,7 @@ GetTranscodeTaskResponse Alibabacloud_Vod20170321::Client::getTranscodeTaskWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetTranscodeTaskResponse(callApi(params, req, runtime));
@@ -2609,8 +2529,7 @@ GetTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::getTranscode
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TranscodeTemplateGroupId", *request->transcodeTemplateGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetTranscodeTemplateGroup"))},
@@ -2620,7 +2539,7 @@ GetTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::getTranscode
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -2637,8 +2556,7 @@ GetURLUploadInfosResponse Alibabacloud_Vod20170321::Client::getURLUploadInfosWit
   query->insert(pair<string, string>("JobIds", *request->jobIds));
   query->insert(pair<string, string>("UploadURLs", *request->uploadURLs));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetURLUploadInfos"))},
@@ -2648,7 +2566,7 @@ GetURLUploadInfosResponse Alibabacloud_Vod20170321::Client::getURLUploadInfosWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetURLUploadInfosResponse(callApi(params, req, runtime));
@@ -2665,8 +2583,7 @@ GetUploadDetailsResponse Alibabacloud_Vod20170321::Client::getUploadDetailsWithO
   query->insert(pair<string, string>("MediaIds", *request->mediaIds));
   query->insert(pair<string, string>("MediaType", *request->mediaType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetUploadDetails"))},
@@ -2676,7 +2593,7 @@ GetUploadDetailsResponse Alibabacloud_Vod20170321::Client::getUploadDetailsWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetUploadDetailsResponse(callApi(params, req, runtime));
@@ -2692,8 +2609,7 @@ GetVideoInfoResponse Alibabacloud_Vod20170321::Client::getVideoInfoWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVideoInfo"))},
@@ -2703,7 +2619,7 @@ GetVideoInfoResponse Alibabacloud_Vod20170321::Client::getVideoInfoWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVideoInfoResponse(callApi(params, req, runtime));
@@ -2719,8 +2635,7 @@ GetVideoInfosResponse Alibabacloud_Vod20170321::Client::getVideoInfosWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoIds", *request->videoIds));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVideoInfos"))},
@@ -2730,7 +2645,7 @@ GetVideoInfosResponse Alibabacloud_Vod20170321::Client::getVideoInfosWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVideoInfosResponse(callApi(params, req, runtime));
@@ -2753,8 +2668,7 @@ GetVideoListResponse Alibabacloud_Vod20170321::Client::getVideoListWithOptions(s
   query->insert(pair<string, string>("Status", *request->status));
   query->insert(pair<string, string>("StorageLocation", *request->storageLocation));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVideoList"))},
@@ -2764,7 +2678,7 @@ GetVideoListResponse Alibabacloud_Vod20170321::Client::getVideoListWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVideoListResponse(callApi(params, req, runtime));
@@ -2782,8 +2696,7 @@ GetVideoPlayAuthResponse Alibabacloud_Vod20170321::Client::getVideoPlayAuthWithO
   query->insert(pair<string, long>("AuthInfoTimeout", *request->authInfoTimeout));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVideoPlayAuth"))},
@@ -2793,7 +2706,7 @@ GetVideoPlayAuthResponse Alibabacloud_Vod20170321::Client::getVideoPlayAuthWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVideoPlayAuthResponse(callApi(params, req, runtime));
@@ -2809,8 +2722,7 @@ GetVodTemplateResponse Alibabacloud_Vod20170321::Client::getVodTemplateWithOptio
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VodTemplateId", *request->vodTemplateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetVodTemplate"))},
@@ -2820,7 +2732,7 @@ GetVodTemplateResponse Alibabacloud_Vod20170321::Client::getVodTemplateWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVodTemplateResponse(callApi(params, req, runtime));
@@ -2836,8 +2748,7 @@ GetWatermarkResponse Alibabacloud_Vod20170321::Client::getWatermarkWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("WatermarkId", *request->watermarkId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetWatermark"))},
@@ -2847,7 +2758,7 @@ GetWatermarkResponse Alibabacloud_Vod20170321::Client::getWatermarkWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetWatermarkResponse(callApi(params, req, runtime));
@@ -2863,8 +2774,7 @@ ListAIImageInfoResponse Alibabacloud_Vod20170321::Client::listAIImageInfoWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAIImageInfo"))},
@@ -2874,7 +2784,7 @@ ListAIImageInfoResponse Alibabacloud_Vod20170321::Client::listAIImageInfoWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAIImageInfoResponse(callApi(params, req, runtime));
@@ -2894,8 +2804,7 @@ ListAIJobResponse Alibabacloud_Vod20170321::Client::listAIJobWithOptions(shared_
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAIJob"))},
@@ -2905,7 +2814,7 @@ ListAIJobResponse Alibabacloud_Vod20170321::Client::listAIJobWithOptions(shared_
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAIJobResponse(callApi(params, req, runtime));
@@ -2921,8 +2830,7 @@ ListAITemplateResponse Alibabacloud_Vod20170321::Client::listAITemplateWithOptio
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TemplateType", *request->templateType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAITemplate"))},
@@ -2932,7 +2840,7 @@ ListAITemplateResponse Alibabacloud_Vod20170321::Client::listAITemplateWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAITemplateResponse(callApi(params, req, runtime));
@@ -2950,8 +2858,7 @@ ListAppInfoResponse Alibabacloud_Vod20170321::Client::listAppInfoWithOptions(sha
   query->insert(pair<string, long>("PageSize", *request->pageSize));
   query->insert(pair<string, string>("Status", *request->status));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAppInfo"))},
@@ -2961,7 +2868,7 @@ ListAppInfoResponse Alibabacloud_Vod20170321::Client::listAppInfoWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAppInfoResponse(callApi(params, req, runtime));
@@ -2979,8 +2886,7 @@ ListAppPoliciesForIdentityResponse Alibabacloud_Vod20170321::Client::listAppPoli
   query->insert(pair<string, string>("IdentityName", *request->identityName));
   query->insert(pair<string, string>("IdentityType", *request->identityType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAppPoliciesForIdentity"))},
@@ -2990,7 +2896,7 @@ ListAppPoliciesForIdentityResponse Alibabacloud_Vod20170321::Client::listAppPoli
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAppPoliciesForIdentityResponse(callApi(params, req, runtime));
@@ -3006,8 +2912,7 @@ ListAuditSecurityIpResponse Alibabacloud_Vod20170321::Client::listAuditSecurityI
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("SecurityGroupName", *request->securityGroupName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListAuditSecurityIp"))},
@@ -3017,7 +2922,7 @@ ListAuditSecurityIpResponse Alibabacloud_Vod20170321::Client::listAuditSecurityI
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAuditSecurityIpResponse(callApi(params, req, runtime));
@@ -3033,8 +2938,7 @@ ListDynamicImageResponse Alibabacloud_Vod20170321::Client::listDynamicImageWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListDynamicImage"))},
@@ -3044,7 +2948,7 @@ ListDynamicImageResponse Alibabacloud_Vod20170321::Client::listDynamicImageWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListDynamicImageResponse(callApi(params, req, runtime));
@@ -3067,8 +2971,7 @@ ListLiveRecordVideoResponse Alibabacloud_Vod20170321::Client::listLiveRecordVide
   query->insert(pair<string, string>("StartTime", *request->startTime));
   query->insert(pair<string, string>("StreamName", *request->streamName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListLiveRecordVideo"))},
@@ -3078,7 +2981,7 @@ ListLiveRecordVideoResponse Alibabacloud_Vod20170321::Client::listLiveRecordVide
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListLiveRecordVideoResponse(callApi(params, req, runtime));
@@ -3098,8 +3001,7 @@ ListMediaDNADeleteJobResponse Alibabacloud_Vod20170321::Client::listMediaDNADele
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListMediaDNADeleteJob"))},
@@ -3109,7 +3011,7 @@ ListMediaDNADeleteJobResponse Alibabacloud_Vod20170321::Client::listMediaDNADele
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListMediaDNADeleteJobResponse(callApi(params, req, runtime));
@@ -3129,8 +3031,7 @@ ListSnapshotsResponse Alibabacloud_Vod20170321::Client::listSnapshotsWithOptions
   query->insert(pair<string, string>("SnapshotType", *request->snapshotType));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListSnapshots"))},
@@ -3140,7 +3041,7 @@ ListSnapshotsResponse Alibabacloud_Vod20170321::Client::listSnapshotsWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListSnapshotsResponse(callApi(params, req, runtime));
@@ -3160,8 +3061,7 @@ ListTranscodeTaskResponse Alibabacloud_Vod20170321::Client::listTranscodeTaskWit
   query->insert(pair<string, string>("StartTime", *request->startTime));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListTranscodeTask"))},
@@ -3171,7 +3071,7 @@ ListTranscodeTaskResponse Alibabacloud_Vod20170321::Client::listTranscodeTaskWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListTranscodeTaskResponse(callApi(params, req, runtime));
@@ -3187,8 +3087,7 @@ ListTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::listTransco
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AppId", *request->appId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListTranscodeTemplateGroup"))},
@@ -3198,7 +3097,7 @@ ListTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::listTransco
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -3223,7 +3122,7 @@ ListVodRealtimeLogDeliveryDomainsResponse Alibabacloud_Vod20170321::Client::list
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVodRealtimeLogDeliveryDomainsResponse(callApi(params, req, runtime));
@@ -3248,7 +3147,7 @@ ListVodRealtimeLogDeliveryInfosResponse Alibabacloud_Vod20170321::Client::listVo
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVodRealtimeLogDeliveryInfosResponse(callApi(params, req, runtime));
@@ -3265,8 +3164,7 @@ ListVodTemplateResponse Alibabacloud_Vod20170321::Client::listVodTemplateWithOpt
   query->insert(pair<string, string>("AppId", *request->appId));
   query->insert(pair<string, string>("TemplateType", *request->templateType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListVodTemplate"))},
@@ -3276,7 +3174,7 @@ ListVodTemplateResponse Alibabacloud_Vod20170321::Client::listVodTemplateWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVodTemplateResponse(callApi(params, req, runtime));
@@ -3292,8 +3190,7 @@ ListWatermarkResponse Alibabacloud_Vod20170321::Client::listWatermarkWithOptions
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("AppId", *request->appId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListWatermark"))},
@@ -3303,7 +3200,7 @@ ListWatermarkResponse Alibabacloud_Vod20170321::Client::listWatermarkWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListWatermarkResponse(callApi(params, req, runtime));
@@ -3321,8 +3218,7 @@ MoveAppResourceResponse Alibabacloud_Vod20170321::Client::moveAppResourceWithOpt
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, string>("TargetAppId", *request->targetAppId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("MoveAppResource"))},
@@ -3332,7 +3228,7 @@ MoveAppResourceResponse Alibabacloud_Vod20170321::Client::moveAppResourceWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return MoveAppResourceResponse(callApi(params, req, runtime));
@@ -3350,8 +3246,7 @@ PreloadVodObjectCachesResponse Alibabacloud_Vod20170321::Client::preloadVodObjec
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("PreloadVodObjectCaches"))},
@@ -3361,7 +3256,7 @@ PreloadVodObjectCachesResponse Alibabacloud_Vod20170321::Client::preloadVodObjec
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return PreloadVodObjectCachesResponse(callApi(params, req, runtime));
@@ -3387,8 +3282,7 @@ ProduceEditingProjectVideoResponse Alibabacloud_Vod20170321::Client::produceEdit
   query->insert(pair<string, string>("Title", *request->title));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ProduceEditingProjectVideo"))},
@@ -3398,7 +3292,7 @@ ProduceEditingProjectVideoResponse Alibabacloud_Vod20170321::Client::produceEdit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ProduceEditingProjectVideoResponse(callApi(params, req, runtime));
@@ -3417,8 +3311,7 @@ RefreshUploadVideoResponse Alibabacloud_Vod20170321::Client::refreshUploadVideoW
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RefreshUploadVideo"))},
@@ -3428,7 +3321,7 @@ RefreshUploadVideoResponse Alibabacloud_Vod20170321::Client::refreshUploadVideoW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RefreshUploadVideoResponse(callApi(params, req, runtime));
@@ -3447,8 +3340,7 @@ RefreshVodObjectCachesResponse Alibabacloud_Vod20170321::Client::refreshVodObjec
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RefreshVodObjectCaches"))},
@@ -3458,7 +3350,7 @@ RefreshVodObjectCachesResponse Alibabacloud_Vod20170321::Client::refreshVodObjec
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RefreshVodObjectCachesResponse(callApi(params, req, runtime));
@@ -3477,8 +3369,7 @@ RegisterMediaResponse Alibabacloud_Vod20170321::Client::registerMediaWithOptions
   query->insert(pair<string, string>("UserData", *request->userData));
   query->insert(pair<string, string>("WorkflowId", *request->workflowId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RegisterMedia"))},
@@ -3488,7 +3379,7 @@ RegisterMediaResponse Alibabacloud_Vod20170321::Client::registerMediaWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RegisterMediaResponse(callApi(params, req, runtime));
@@ -3514,8 +3405,7 @@ SearchEditingProjectResponse Alibabacloud_Vod20170321::Client::searchEditingProj
   query->insert(pair<string, string>("Status", *request->status));
   query->insert(pair<string, string>("Title", *request->title));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SearchEditingProject"))},
@@ -3525,7 +3415,7 @@ SearchEditingProjectResponse Alibabacloud_Vod20170321::Client::searchEditingProj
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SearchEditingProjectResponse(callApi(params, req, runtime));
@@ -3547,8 +3437,7 @@ SearchMediaResponse Alibabacloud_Vod20170321::Client::searchMediaWithOptions(sha
   query->insert(pair<string, string>("SearchType", *request->searchType));
   query->insert(pair<string, string>("SortBy", *request->sortBy));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SearchMedia"))},
@@ -3558,7 +3447,7 @@ SearchMediaResponse Alibabacloud_Vod20170321::Client::searchMediaWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SearchMediaResponse(callApi(params, req, runtime));
@@ -3576,8 +3465,7 @@ SetAuditSecurityIpResponse Alibabacloud_Vod20170321::Client::setAuditSecurityIpW
   query->insert(pair<string, string>("OperateMode", *request->operateMode));
   query->insert(pair<string, string>("SecurityGroupName", *request->securityGroupName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetAuditSecurityIp"))},
@@ -3587,7 +3475,7 @@ SetAuditSecurityIpResponse Alibabacloud_Vod20170321::Client::setAuditSecurityIpW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetAuditSecurityIpResponse(callApi(params, req, runtime));
@@ -3609,8 +3497,7 @@ SetCrossdomainContentResponse Alibabacloud_Vod20170321::Client::setCrossdomainCo
   query->insert(pair<string, string>("ResourceRealOwnerId", *request->resourceRealOwnerId));
   query->insert(pair<string, string>("StorageLocation", *request->storageLocation));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetCrossdomainContent"))},
@@ -3620,7 +3507,7 @@ SetCrossdomainContentResponse Alibabacloud_Vod20170321::Client::setCrossdomainCo
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetCrossdomainContentResponse(callApi(params, req, runtime));
@@ -3636,8 +3523,7 @@ SetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::setDefaultAITempl
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetDefaultAITemplate"))},
@@ -3647,7 +3533,7 @@ SetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::setDefaultAITempl
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetDefaultAITemplateResponse(callApi(params, req, runtime));
@@ -3663,8 +3549,7 @@ SetDefaultTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::setDe
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("TranscodeTemplateGroupId", *request->transcodeTemplateGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetDefaultTranscodeTemplateGroup"))},
@@ -3674,7 +3559,7 @@ SetDefaultTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::setDe
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetDefaultTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -3690,8 +3575,7 @@ SetDefaultWatermarkResponse Alibabacloud_Vod20170321::Client::setDefaultWatermar
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("WatermarkId", *request->watermarkId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetDefaultWatermark"))},
@@ -3701,7 +3585,7 @@ SetDefaultWatermarkResponse Alibabacloud_Vod20170321::Client::setDefaultWatermar
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetDefaultWatermarkResponse(callApi(params, req, runtime));
@@ -3722,8 +3606,7 @@ SetEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::setEditingP
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetEditingProjectMaterials"))},
@@ -3733,7 +3616,7 @@ SetEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::setEditingP
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetEditingProjectMaterialsResponse(callApi(params, req, runtime));
@@ -3757,8 +3640,7 @@ SetMessageCallbackResponse Alibabacloud_Vod20170321::Client::setMessageCallbackW
   query->insert(pair<string, string>("MnsQueueName", *request->mnsQueueName));
   query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetMessageCallback"))},
@@ -3768,7 +3650,7 @@ SetMessageCallbackResponse Alibabacloud_Vod20170321::Client::setMessageCallbackW
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetMessageCallbackResponse(callApi(params, req, runtime));
@@ -3790,8 +3672,7 @@ SetVodDomainCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainCe
   query->insert(pair<string, string>("SSLPub", *request->SSLPub));
   query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetVodDomainCertificate"))},
@@ -3801,7 +3682,7 @@ SetVodDomainCertificateResponse Alibabacloud_Vod20170321::Client::setVodDomainCe
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetVodDomainCertificateResponse(callApi(params, req, runtime));
@@ -3823,8 +3704,7 @@ SubmitAIImageAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIImageAud
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitAIImageAuditJob"))},
@@ -3834,7 +3714,7 @@ SubmitAIImageAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIImageAud
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitAIImageAuditJobResponse(callApi(params, req, runtime));
@@ -3857,8 +3737,7 @@ SubmitAIImageJobResponse Alibabacloud_Vod20170321::Client::submitAIImageJobWithO
   query->insert(pair<string, string>("UserData", *request->userData));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitAIImageJob"))},
@@ -3868,7 +3747,7 @@ SubmitAIImageJobResponse Alibabacloud_Vod20170321::Client::submitAIImageJobWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitAIImageJobResponse(callApi(params, req, runtime));
@@ -3891,8 +3770,7 @@ SubmitAIJobResponse Alibabacloud_Vod20170321::Client::submitAIJobWithOptions(sha
   query->insert(pair<string, string>("Types", *request->types));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitAIJob"))},
@@ -3902,7 +3780,7 @@ SubmitAIJobResponse Alibabacloud_Vod20170321::Client::submitAIJobWithOptions(sha
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitAIJobResponse(callApi(params, req, runtime));
@@ -3922,8 +3800,7 @@ SubmitAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIMediaAud
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitAIMediaAuditJob"))},
@@ -3933,7 +3810,7 @@ SubmitAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIMediaAud
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitAIMediaAuditJobResponse(callApi(params, req, runtime));
@@ -3951,8 +3828,7 @@ SubmitDynamicImageJobResponse Alibabacloud_Vod20170321::Client::submitDynamicIma
   query->insert(pair<string, string>("OverrideParams", *request->overrideParams));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitDynamicImageJob"))},
@@ -3962,7 +3838,7 @@ SubmitDynamicImageJobResponse Alibabacloud_Vod20170321::Client::submitDynamicIma
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitDynamicImageJobResponse(callApi(params, req, runtime));
@@ -3990,8 +3866,7 @@ SubmitLiveEditingResponse Alibabacloud_Vod20170321::Client::submitLiveEditingWit
   query->insert(pair<string, string>("Title", *request->title));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitLiveEditing"))},
@@ -4001,7 +3876,7 @@ SubmitLiveEditingResponse Alibabacloud_Vod20170321::Client::submitLiveEditingWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitLiveEditingResponse(callApi(params, req, runtime));
@@ -4021,8 +3896,7 @@ SubmitMediaDNADeleteJobResponse Alibabacloud_Vod20170321::Client::submitMediaDNA
   query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitMediaDNADeleteJob"))},
@@ -4032,7 +3906,7 @@ SubmitMediaDNADeleteJobResponse Alibabacloud_Vod20170321::Client::submitMediaDNA
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitMediaDNADeleteJobResponse(callApi(params, req, runtime));
@@ -4049,8 +3923,7 @@ SubmitPreprocessJobsResponse Alibabacloud_Vod20170321::Client::submitPreprocessJ
   query->insert(pair<string, string>("PreprocessType", *request->preprocessType));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitPreprocessJobs"))},
@@ -4060,7 +3933,7 @@ SubmitPreprocessJobsResponse Alibabacloud_Vod20170321::Client::submitPreprocessJ
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitPreprocessJobsResponse(callApi(params, req, runtime));
@@ -4084,8 +3957,7 @@ SubmitSnapshotJobResponse Alibabacloud_Vod20170321::Client::submitSnapshotJobWit
   query->insert(pair<string, string>("VideoId", *request->videoId));
   query->insert(pair<string, string>("Width", *request->width));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitSnapshotJob"))},
@@ -4095,7 +3967,7 @@ SubmitSnapshotJobResponse Alibabacloud_Vod20170321::Client::submitSnapshotJobWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitSnapshotJobResponse(callApi(params, req, runtime));
@@ -4117,8 +3989,7 @@ SubmitTranscodeJobsResponse Alibabacloud_Vod20170321::Client::submitTranscodeJob
   query->insert(pair<string, string>("UserData", *request->userData));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitTranscodeJobs"))},
@@ -4128,7 +3999,7 @@ SubmitTranscodeJobsResponse Alibabacloud_Vod20170321::Client::submitTranscodeJob
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitTranscodeJobsResponse(callApi(params, req, runtime));
@@ -4145,8 +4016,7 @@ SubmitWorkflowJobResponse Alibabacloud_Vod20170321::Client::submitWorkflowJobWit
   query->insert(pair<string, string>("MediaId", *request->mediaId));
   query->insert(pair<string, string>("WorkflowId", *request->workflowId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SubmitWorkflowJob"))},
@@ -4156,7 +4026,7 @@ SubmitWorkflowJobResponse Alibabacloud_Vod20170321::Client::submitWorkflowJobWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitWorkflowJobResponse(callApi(params, req, runtime));
@@ -4175,8 +4045,7 @@ TagVodResourcesResponse Alibabacloud_Vod20170321::Client::tagVodResourcesWithOpt
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, vector<TagVodResourcesRequestTag>>("Tag", *request->tag));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("TagVodResources"))},
@@ -4186,7 +4055,7 @@ TagVodResourcesResponse Alibabacloud_Vod20170321::Client::tagVodResourcesWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return TagVodResourcesResponse(callApi(params, req, runtime));
@@ -4206,8 +4075,7 @@ UnTagVodResourcesResponse Alibabacloud_Vod20170321::Client::unTagVodResourcesWit
   query->insert(pair<string, string>("ResourceType", *request->resourceType));
   query->insert(pair<string, vector<string>>("TagKey", *request->tagKey));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UnTagVodResources"))},
@@ -4217,7 +4085,7 @@ UnTagVodResourcesResponse Alibabacloud_Vod20170321::Client::unTagVodResourcesWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UnTagVodResourcesResponse(callApi(params, req, runtime));
@@ -4235,8 +4103,7 @@ UpdateAITemplateResponse Alibabacloud_Vod20170321::Client::updateAITemplateWithO
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   query->insert(pair<string, string>("TemplateName", *request->templateName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateAITemplate"))},
@@ -4246,7 +4113,7 @@ UpdateAITemplateResponse Alibabacloud_Vod20170321::Client::updateAITemplateWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateAITemplateResponse(callApi(params, req, runtime));
@@ -4265,8 +4132,7 @@ UpdateAppInfoResponse Alibabacloud_Vod20170321::Client::updateAppInfoWithOptions
   query->insert(pair<string, string>("Description", *request->description));
   query->insert(pair<string, string>("Status", *request->status));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateAppInfo"))},
@@ -4276,7 +4142,7 @@ UpdateAppInfoResponse Alibabacloud_Vod20170321::Client::updateAppInfoWithOptions
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateAppInfoResponse(callApi(params, req, runtime));
@@ -4292,8 +4158,7 @@ UpdateAttachedMediaInfosResponse Alibabacloud_Vod20170321::Client::updateAttache
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("UpdateContent", *request->updateContent));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateAttachedMediaInfos"))},
@@ -4303,7 +4168,7 @@ UpdateAttachedMediaInfosResponse Alibabacloud_Vod20170321::Client::updateAttache
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateAttachedMediaInfosResponse(callApi(params, req, runtime));
@@ -4320,8 +4185,7 @@ UpdateCategoryResponse Alibabacloud_Vod20170321::Client::updateCategoryWithOptio
   query->insert(pair<string, long>("CateId", *request->cateId));
   query->insert(pair<string, string>("CateName", *request->cateName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateCategory"))},
@@ -4331,7 +4195,7 @@ UpdateCategoryResponse Alibabacloud_Vod20170321::Client::updateCategoryWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateCategoryResponse(callApi(params, req, runtime));
@@ -4355,8 +4219,7 @@ UpdateEditingProjectResponse Alibabacloud_Vod20170321::Client::updateEditingProj
   query->insert(pair<string, string>("Timeline", *request->timeline));
   query->insert(pair<string, string>("Title", *request->title));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateEditingProject"))},
@@ -4366,7 +4229,7 @@ UpdateEditingProjectResponse Alibabacloud_Vod20170321::Client::updateEditingProj
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateEditingProjectResponse(callApi(params, req, runtime));
@@ -4382,8 +4245,7 @@ UpdateImageInfosResponse Alibabacloud_Vod20170321::Client::updateImageInfosWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("UpdateContent", *request->updateContent));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateImageInfos"))},
@@ -4393,7 +4255,7 @@ UpdateImageInfosResponse Alibabacloud_Vod20170321::Client::updateImageInfosWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateImageInfosResponse(callApi(params, req, runtime));
@@ -4410,8 +4272,7 @@ UpdateStreamInfoResponse Alibabacloud_Vod20170321::Client::updateStreamInfoWithO
   query->insert(pair<string, string>("JobId", *request->jobId));
   query->insert(pair<string, string>("MediaId", *request->mediaId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateStreamInfo"))},
@@ -4421,7 +4282,7 @@ UpdateStreamInfoResponse Alibabacloud_Vod20170321::Client::updateStreamInfoWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateStreamInfoResponse(callApi(params, req, runtime));
@@ -4440,8 +4301,7 @@ UpdateTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::updateTra
   query->insert(pair<string, string>("TranscodeTemplateGroupId", *request->transcodeTemplateGroupId));
   query->insert(pair<string, string>("TranscodeTemplateList", *request->transcodeTemplateList));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateTranscodeTemplateGroup"))},
@@ -4451,7 +4311,7 @@ UpdateTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::updateTra
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateTranscodeTemplateGroupResponse(callApi(params, req, runtime));
@@ -4472,8 +4332,7 @@ UpdateVideoInfoResponse Alibabacloud_Vod20170321::Client::updateVideoInfoWithOpt
   query->insert(pair<string, string>("Title", *request->title));
   query->insert(pair<string, string>("VideoId", *request->videoId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVideoInfo"))},
@@ -4483,7 +4342,7 @@ UpdateVideoInfoResponse Alibabacloud_Vod20170321::Client::updateVideoInfoWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVideoInfoResponse(callApi(params, req, runtime));
@@ -4499,8 +4358,7 @@ UpdateVideoInfosResponse Alibabacloud_Vod20170321::Client::updateVideoInfosWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   query->insert(pair<string, string>("UpdateContent", *request->updateContent));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVideoInfos"))},
@@ -4510,7 +4368,7 @@ UpdateVideoInfosResponse Alibabacloud_Vod20170321::Client::updateVideoInfosWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVideoInfosResponse(callApi(params, req, runtime));
@@ -4530,8 +4388,7 @@ UpdateVodDomainResponse Alibabacloud_Vod20170321::Client::updateVodDomainWithOpt
   query->insert(pair<string, string>("Sources", *request->sources));
   query->insert(pair<string, string>("TopLevelDomain", *request->topLevelDomain));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVodDomain"))},
@@ -4541,7 +4398,7 @@ UpdateVodDomainResponse Alibabacloud_Vod20170321::Client::updateVodDomainWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVodDomainResponse(callApi(params, req, runtime));
@@ -4559,8 +4416,7 @@ UpdateVodTemplateResponse Alibabacloud_Vod20170321::Client::updateVodTemplateWit
   query->insert(pair<string, string>("TemplateConfig", *request->templateConfig));
   query->insert(pair<string, string>("VodTemplateId", *request->vodTemplateId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateVodTemplate"))},
@@ -4570,7 +4426,7 @@ UpdateVodTemplateResponse Alibabacloud_Vod20170321::Client::updateVodTemplateWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateVodTemplateResponse(callApi(params, req, runtime));
@@ -4588,8 +4444,7 @@ UpdateWatermarkResponse Alibabacloud_Vod20170321::Client::updateWatermarkWithOpt
   query->insert(pair<string, string>("WatermarkConfig", *request->watermarkConfig));
   query->insert(pair<string, string>("WatermarkId", *request->watermarkId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateWatermark"))},
@@ -4599,7 +4454,7 @@ UpdateWatermarkResponse Alibabacloud_Vod20170321::Client::updateWatermarkWithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateWatermarkResponse(callApi(params, req, runtime));
@@ -4621,8 +4476,7 @@ UploadMediaByURLResponse Alibabacloud_Vod20170321::Client::uploadMediaByURLWithO
   query->insert(pair<string, string>("UserData", *request->userData));
   query->insert(pair<string, string>("WorkflowId", *request->workflowId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UploadMediaByURL"))},
@@ -4632,7 +4486,7 @@ UploadMediaByURLResponse Alibabacloud_Vod20170321::Client::uploadMediaByURLWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UploadMediaByURLResponse(callApi(params, req, runtime));
@@ -4653,8 +4507,7 @@ UploadStreamByURLResponse Alibabacloud_Vod20170321::Client::uploadStreamByURLWit
   query->insert(pair<string, string>("StreamURL", *request->streamURL));
   query->insert(pair<string, string>("UserData", *request->userData));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UploadStreamByURL"))},
@@ -4664,7 +4517,7 @@ UploadStreamByURLResponse Alibabacloud_Vod20170321::Client::uploadStreamByURLWit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UploadStreamByURLResponse(callApi(params, req, runtime));
@@ -4682,8 +4535,7 @@ VerifyVodDomainOwnerResponse Alibabacloud_Vod20170321::Client::verifyVodDomainOw
   query->insert(pair<string, long>("OwnerId", *request->ownerId));
   query->insert(pair<string, string>("VerifyType", *request->verifyType));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("VerifyVodDomainOwner"))},
@@ -4693,7 +4545,7 @@ VerifyVodDomainOwnerResponse Alibabacloud_Vod20170321::Client::verifyVodDomainOw
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return VerifyVodDomainOwnerResponse(callApi(params, req, runtime));

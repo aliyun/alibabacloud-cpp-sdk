@@ -35948,6 +35948,8 @@ public:
 class UploadStreamByURLResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<string> sourceURL{};
+  shared_ptr<string> streamFileURL{};
   shared_ptr<string> streamJobId{};
 
   UploadStreamByURLResponseBody() {}
@@ -35963,6 +35965,12 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (sourceURL) {
+      res["SourceURL"] = boost::any(*sourceURL);
+    }
+    if (streamFileURL) {
+      res["StreamFileURL"] = boost::any(*streamFileURL);
+    }
     if (streamJobId) {
       res["StreamJobId"] = boost::any(*streamJobId);
     }
@@ -35972,6 +35980,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SourceURL") != m.end() && !m["SourceURL"].empty()) {
+      sourceURL = make_shared<string>(boost::any_cast<string>(m["SourceURL"]));
+    }
+    if (m.find("StreamFileURL") != m.end() && !m["StreamFileURL"].empty()) {
+      streamFileURL = make_shared<string>(boost::any_cast<string>(m["StreamFileURL"]));
     }
     if (m.find("StreamJobId") != m.end() && !m["StreamJobId"].empty()) {
       streamJobId = make_shared<string>(boost::any_cast<string>(m["StreamJobId"]));
