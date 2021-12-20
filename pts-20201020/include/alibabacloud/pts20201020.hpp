@@ -1458,11 +1458,13 @@ public:
   shared_ptr<map<string, boost::any>> allSampleStat{};
   shared_ptr<long> concurrency{};
   shared_ptr<bool> hasReport{};
+  shared_ptr<long> holdFor{};
   shared_ptr<bool> isDebugging{};
   shared_ptr<vector<map<string, boost::any>>> sampleStatList{};
   shared_ptr<string> sceneId{};
   shared_ptr<string> sceneName{};
   shared_ptr<string> stageName{};
+  shared_ptr<long> startTimeTS{};
   shared_ptr<string> status{};
   shared_ptr<long> vum{};
 
@@ -1491,6 +1493,9 @@ public:
     if (hasReport) {
       res["HasReport"] = boost::any(*hasReport);
     }
+    if (holdFor) {
+      res["HoldFor"] = boost::any(*holdFor);
+    }
     if (isDebugging) {
       res["IsDebugging"] = boost::any(*isDebugging);
     }
@@ -1505,6 +1510,9 @@ public:
     }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
+    }
+    if (startTimeTS) {
+      res["StartTimeTS"] = boost::any(*startTimeTS);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -1543,6 +1551,9 @@ public:
     if (m.find("HasReport") != m.end() && !m["HasReport"].empty()) {
       hasReport = make_shared<bool>(boost::any_cast<bool>(m["HasReport"]));
     }
+    if (m.find("HoldFor") != m.end() && !m["HoldFor"].empty()) {
+      holdFor = make_shared<long>(boost::any_cast<long>(m["HoldFor"]));
+    }
     if (m.find("IsDebugging") != m.end() && !m["IsDebugging"].empty()) {
       isDebugging = make_shared<bool>(boost::any_cast<bool>(m["IsDebugging"]));
     }
@@ -1569,6 +1580,9 @@ public:
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("StartTimeTS") != m.end() && !m["StartTimeTS"].empty()) {
+      startTimeTS = make_shared<long>(boost::any_cast<long>(m["StartTimeTS"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -7801,7 +7815,6 @@ public:
   shared_ptr<string> envId{};
   shared_ptr<string> envName{};
   shared_ptr<vector<SaveEnvRequestEnvFiles>> files{};
-  shared_ptr<string> jmeterPluginLabel{};
   shared_ptr<vector<SaveEnvRequestEnvProperties>> properties{};
 
   SaveEnvRequestEnv() {}
@@ -7826,9 +7839,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Files"] = boost::any(temp1);
-    }
-    if (jmeterPluginLabel) {
-      res["JmeterPluginLabel"] = boost::any(*jmeterPluginLabel);
     }
     if (properties) {
       vector<boost::any> temp1;
@@ -7859,9 +7869,6 @@ public:
         }
         files = make_shared<vector<SaveEnvRequestEnvFiles>>(expect1);
       }
-    }
-    if (m.find("JmeterPluginLabel") != m.end() && !m["JmeterPluginLabel"].empty()) {
-      jmeterPluginLabel = make_shared<string>(boost::any_cast<string>(m["JmeterPluginLabel"]));
     }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       if (typeid(vector<boost::any>) == m["Properties"].type()) {
@@ -8232,7 +8239,6 @@ public:
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneFileList>> fileList{};
   shared_ptr<bool> isVpcTest{};
   shared_ptr<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties>> JMeterProperties{};
-  shared_ptr<string> jmeterPluginLabel{};
   shared_ptr<long> rampUp{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sceneId{};
@@ -8288,9 +8294,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["JMeterProperties"] = boost::any(temp1);
-    }
-    if (jmeterPluginLabel) {
-      res["JmeterPluginLabel"] = boost::any(*jmeterPluginLabel);
     }
     if (rampUp) {
       res["RampUp"] = boost::any(*rampUp);
@@ -8376,9 +8379,6 @@ public:
         }
         JMeterProperties = make_shared<vector<SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties>>(expect1);
       }
-    }
-    if (m.find("JmeterPluginLabel") != m.end() && !m["JmeterPluginLabel"].empty()) {
-      jmeterPluginLabel = make_shared<string>(boost::any_cast<string>(m["JmeterPluginLabel"]));
     }
     if (m.find("RampUp") != m.end() && !m["RampUp"].empty()) {
       rampUp = make_shared<long>(boost::any_cast<long>(m["RampUp"]));
