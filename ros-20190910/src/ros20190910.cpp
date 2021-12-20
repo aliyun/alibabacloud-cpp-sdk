@@ -173,6 +173,7 @@ CreateStackResponse Alibabacloud_ROS20190910::Client::createStackWithOptions(sha
   query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   query->insert(pair<string, string>("TemplateScratchId", *request->templateScratchId));
+  query->insert(pair<string, string>("TemplateScratchRegionId", *request->templateScratchRegionId));
   query->insert(pair<string, string>("TemplateURL", *request->templateURL));
   query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   query->insert(pair<string, long>("TimeoutInMinutes", *request->timeoutInMinutes));
@@ -1138,6 +1139,7 @@ GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEst
   query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   query->insert(pair<string, string>("TemplateScratchId", *request->templateScratchId));
+  query->insert(pair<string, string>("TemplateScratchRegionId", *request->templateScratchRegionId));
   query->insert(pair<string, string>("TemplateURL", *request->templateURL));
   query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -1811,6 +1813,7 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   query->insert(pair<string, string>("TemplateId", *request->templateId));
   query->insert(pair<string, string>("TemplateScratchId", *request->templateScratchId));
+  query->insert(pair<string, string>("TemplateScratchRegionId", *request->templateScratchRegionId));
   query->insert(pair<string, string>("TemplateURL", *request->templateURL));
   query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   query->insert(pair<string, long>("TimeoutInMinutes", *request->timeoutInMinutes));

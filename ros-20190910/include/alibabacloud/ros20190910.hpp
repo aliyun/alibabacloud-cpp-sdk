@@ -887,6 +887,7 @@ public:
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchRegionId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> templateVersion{};
   shared_ptr<long> timeoutInMinutes{};
@@ -959,6 +960,9 @@ public:
     }
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchRegionId) {
+      res["TemplateScratchRegionId"] = boost::any(*templateScratchRegionId);
     }
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
@@ -1050,6 +1054,9 @@ public:
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchRegionId") != m.end() && !m["TemplateScratchRegionId"].empty()) {
+      templateScratchRegionId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchRegionId"]));
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
@@ -8868,6 +8875,7 @@ class GetTemplateResponseBodyPermissions : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
   shared_ptr<string> shareOption{};
+  shared_ptr<string> shareSource{};
   shared_ptr<string> templateVersion{};
   shared_ptr<string> versionOption{};
 
@@ -8887,6 +8895,9 @@ public:
     if (shareOption) {
       res["ShareOption"] = boost::any(*shareOption);
     }
+    if (shareSource) {
+      res["ShareSource"] = boost::any(*shareSource);
+    }
     if (templateVersion) {
       res["TemplateVersion"] = boost::any(*templateVersion);
     }
@@ -8902,6 +8913,9 @@ public:
     }
     if (m.find("ShareOption") != m.end() && !m["ShareOption"].empty()) {
       shareOption = make_shared<string>(boost::any_cast<string>(m["ShareOption"]));
+    }
+    if (m.find("ShareSource") != m.end() && !m["ShareSource"].empty()) {
+      shareSource = make_shared<string>(boost::any_cast<string>(m["ShareSource"]));
     }
     if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
       templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
@@ -9165,6 +9179,7 @@ public:
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchRegionId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> templateVersion{};
 
@@ -9199,6 +9214,9 @@ public:
     }
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchRegionId) {
+      res["TemplateScratchRegionId"] = boost::any(*templateScratchRegionId);
     }
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
@@ -9237,6 +9255,9 @@ public:
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchRegionId") != m.end() && !m["TemplateScratchRegionId"].empty()) {
+      templateScratchRegionId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchRegionId"]));
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
@@ -9991,10 +10012,47 @@ public:
 
   virtual ~GetTemplateScratchResponseBodyTemplateScratchSourceTag() = default;
 };
+class GetTemplateScratchResponseBodyTemplateScratchStackProvision : public Darabonba::Model {
+public:
+  shared_ptr<bool> creatable{};
+  shared_ptr<bool> importable{};
+
+  GetTemplateScratchResponseBodyTemplateScratchStackProvision() {}
+
+  explicit GetTemplateScratchResponseBodyTemplateScratchStackProvision(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creatable) {
+      res["Creatable"] = boost::any(*creatable);
+    }
+    if (importable) {
+      res["Importable"] = boost::any(*importable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Creatable") != m.end() && !m["Creatable"].empty()) {
+      creatable = make_shared<bool>(boost::any_cast<bool>(m["Creatable"]));
+    }
+    if (m.find("Importable") != m.end() && !m["Importable"].empty()) {
+      importable = make_shared<bool>(boost::any_cast<bool>(m["Importable"]));
+    }
+  }
+
+
+  virtual ~GetTemplateScratchResponseBodyTemplateScratchStackProvision() = default;
+};
 class GetTemplateScratchResponseBodyTemplateScratchStacks : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
   shared_ptr<string> stackId{};
+  shared_ptr<string> usageType{};
 
   GetTemplateScratchResponseBodyTemplateScratchStacks() {}
 
@@ -10012,6 +10070,9 @@ public:
     if (stackId) {
       res["StackId"] = boost::any(*stackId);
     }
+    if (usageType) {
+      res["UsageType"] = boost::any(*usageType);
+    }
     return res;
   }
 
@@ -10021,6 +10082,9 @@ public:
     }
     if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
       stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
+    }
+    if (m.find("UsageType") != m.end() && !m["UsageType"].empty()) {
+      usageType = make_shared<string>(boost::any_cast<string>(m["UsageType"]));
     }
   }
 
@@ -10037,6 +10101,7 @@ public:
   shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchSourceResources>> sourceResources{};
   shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceTag> sourceTag{};
+  shared_ptr<GetTemplateScratchResponseBodyTemplateScratchStackProvision> stackProvision{};
   shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchStacks>> stacks{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
@@ -10086,6 +10151,9 @@ public:
     }
     if (sourceTag) {
       res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stackProvision) {
+      res["StackProvision"] = stackProvision ? boost::any(stackProvision->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (stacks) {
       vector<boost::any> temp1;
@@ -10166,6 +10234,13 @@ public:
         GetTemplateScratchResponseBodyTemplateScratchSourceTag model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceTag"]));
         sourceTag = make_shared<GetTemplateScratchResponseBodyTemplateScratchSourceTag>(model1);
+      }
+    }
+    if (m.find("StackProvision") != m.end() && !m["StackProvision"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StackProvision"].type()) {
+        GetTemplateScratchResponseBodyTemplateScratchStackProvision model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StackProvision"]));
+        stackProvision = make_shared<GetTemplateScratchResponseBodyTemplateScratchStackProvision>(model1);
       }
     }
     if (m.find("Stacks") != m.end() && !m["Stacks"].empty()) {
@@ -15459,6 +15534,7 @@ public:
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateScratchRegionId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> templateVersion{};
   shared_ptr<long> timeoutInMinutes{};
@@ -15509,6 +15585,9 @@ public:
     }
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateScratchRegionId) {
+      res["TemplateScratchRegionId"] = boost::any(*templateScratchRegionId);
     }
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
@@ -15565,6 +15644,9 @@ public:
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateScratchRegionId") != m.end() && !m["TemplateScratchRegionId"].empty()) {
+      templateScratchRegionId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchRegionId"]));
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
