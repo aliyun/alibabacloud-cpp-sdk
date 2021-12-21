@@ -106,8 +106,7 @@ CreateClusterV2Response Alibabacloud_Ddi20200617::Client::createClusterV2WithOpt
   query->insert(pair<string, string>("WhiteListType", *request->whiteListType));
   query->insert(pair<string, string>("ZoneId", *request->zoneId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateClusterV2"))},
@@ -117,7 +116,7 @@ CreateClusterV2Response Alibabacloud_Ddi20200617::Client::createClusterV2WithOpt
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateClusterV2Response(callApi(params, req, runtime));
@@ -128,6 +127,82 @@ CreateClusterV2Response Alibabacloud_Ddi20200617::Client::createClusterV2(shared
   return createClusterV2WithOptions(request, runtime);
 }
 
+CreateFlowJobResponse Alibabacloud_Ddi20200617::Client::createFlowJobWithOptions(shared_ptr<CreateFlowJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, bool>("Adhoc", *request->adhoc));
+  query->insert(pair<string, string>("AlertConf", *request->alertConf));
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  query->insert(pair<string, string>("CustomVariables", *request->customVariables));
+  query->insert(pair<string, string>("Description", *request->description));
+  query->insert(pair<string, string>("EnvConf", *request->envConf));
+  query->insert(pair<string, string>("FailAct", *request->failAct));
+  query->insert(pair<string, string>("Mode", *request->mode));
+  query->insert(pair<string, string>("MonitorConf", *request->monitorConf));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, string>("ParamConf", *request->paramConf));
+  query->insert(pair<string, string>("Params", *request->params));
+  query->insert(pair<string, string>("ParentCategory", *request->parentCategory));
+  query->insert(pair<string, string>("ProjectId", *request->projectId));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, vector<CreateFlowJobRequestResourceList>>("ResourceList", *request->resourceList));
+  query->insert(pair<string, string>("RetryPolicy", *request->retryPolicy));
+  query->insert(pair<string, string>("RunConf", *request->runConf));
+  query->insert(pair<string, string>("Type", *request->type));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFlowJob"))},
+    {"version", boost::any(string("2020-06-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateFlowJobResponse(callApi(params, req, runtime));
+}
+
+CreateFlowJobResponse Alibabacloud_Ddi20200617::Client::createFlowJob(shared_ptr<CreateFlowJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFlowJobWithOptions(request, runtime);
+}
+
+CreateFlowProjectResponse Alibabacloud_Ddi20200617::Client::createFlowProjectWithOptions(shared_ptr<CreateFlowProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  query->insert(pair<string, string>("Description", *request->description));
+  query->insert(pair<string, string>("Name", *request->name));
+  query->insert(pair<string, string>("ProductType", *request->productType));
+  query->insert(pair<string, string>("RegionId", *request->regionId));
+  query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFlowProject"))},
+    {"version", boost::any(string("2020-06-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateFlowProjectResponse(callApi(params, req, runtime));
+}
+
+CreateFlowProjectResponse Alibabacloud_Ddi20200617::Client::createFlowProject(shared_ptr<CreateFlowProjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFlowProjectWithOptions(request, runtime);
+}
+
 DescribeClusterV2Response Alibabacloud_Ddi20200617::Client::describeClusterV2WithOptions(shared_ptr<DescribeClusterV2Request> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -135,8 +210,7 @@ DescribeClusterV2Response Alibabacloud_Ddi20200617::Client::describeClusterV2Wit
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeClusterV2"))},
@@ -146,7 +220,7 @@ DescribeClusterV2Response Alibabacloud_Ddi20200617::Client::describeClusterV2Wit
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeClusterV2Response(callApi(params, req, runtime));
@@ -176,8 +250,7 @@ ListClustersResponse Alibabacloud_Ddi20200617::Client::listClustersWithOptions(s
   query->insert(pair<string, vector<string>>("StatusList", *request->statusList));
   query->insert(pair<string, vector<ListClustersRequestTag>>("Tag", *request->tag));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListClusters"))},
@@ -187,7 +260,7 @@ ListClustersResponse Alibabacloud_Ddi20200617::Client::listClustersWithOptions(s
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListClustersResponse(callApi(params, req, runtime));
@@ -198,6 +271,31 @@ ListClustersResponse Alibabacloud_Ddi20200617::Client::listClusters(shared_ptr<L
   return listClustersWithOptions(request, runtime);
 }
 
+ListMainVersionsResponse Alibabacloud_Ddi20200617::Client::listMainVersionsWithOptions(shared_ptr<ListMainVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMainVersions"))},
+    {"version", boost::any(string("2020-06-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMainVersionsResponse(callApi(params, req, runtime));
+}
+
+ListMainVersionsResponse Alibabacloud_Ddi20200617::Client::listMainVersions(shared_ptr<ListMainVersionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMainVersionsWithOptions(request, runtime);
+}
+
 ReleaseClusterResponse Alibabacloud_Ddi20200617::Client::releaseClusterWithOptions(shared_ptr<ReleaseClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -206,8 +304,7 @@ ReleaseClusterResponse Alibabacloud_Ddi20200617::Client::releaseClusterWithOptio
   query->insert(pair<string, string>("RegionId", *request->regionId));
   query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ReleaseCluster"))},
@@ -217,7 +314,7 @@ ReleaseClusterResponse Alibabacloud_Ddi20200617::Client::releaseClusterWithOptio
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ReleaseClusterResponse(callApi(params, req, runtime));
