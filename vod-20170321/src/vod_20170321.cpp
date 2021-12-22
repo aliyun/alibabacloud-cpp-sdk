@@ -1516,6 +1516,36 @@ DescribeVodDomainSrcBpsDataResponse Alibabacloud_Vod20170321::Client::describeVo
   return describeVodDomainSrcBpsDataWithOptions(request, runtime);
 }
 
+DescribeVodDomainSrcTrafficDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainSrcTrafficDataWithOptions(shared_ptr<DescribeVodDomainSrcTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  query->insert(pair<string, string>("DomainName", *request->domainName));
+  query->insert(pair<string, string>("EndTime", *request->endTime));
+  query->insert(pair<string, string>("Interval", *request->interval));
+  query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  query->insert(pair<string, string>("StartTime", *request->startTime));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVodDomainSrcTrafficData"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVodDomainSrcTrafficDataResponse(callApi(params, req, runtime));
+}
+
+DescribeVodDomainSrcTrafficDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainSrcTrafficData(shared_ptr<DescribeVodDomainSrcTrafficDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVodDomainSrcTrafficDataWithOptions(request, runtime);
+}
+
 DescribeVodDomainTrafficDataResponse Alibabacloud_Vod20170321::Client::describeVodDomainTrafficDataWithOptions(shared_ptr<DescribeVodDomainTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
