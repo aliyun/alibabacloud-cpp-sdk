@@ -52,7 +52,7 @@ AddContainerAppResponse Alibabacloud_EHPC20180412::Client::addContainerAppWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddContainerAppResponse(callApi(params, req, runtime));
@@ -77,7 +77,7 @@ AddExistedNodesResponse Alibabacloud_EHPC20180412::Client::addExistedNodesWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddExistedNodesResponse(callApi(params, req, runtime));
@@ -102,7 +102,7 @@ AddLocalNodesResponse Alibabacloud_EHPC20180412::Client::addLocalNodesWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddLocalNodesResponse(callApi(params, req, runtime));
@@ -127,7 +127,7 @@ AddNodesResponse Alibabacloud_EHPC20180412::Client::addNodesWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddNodesResponse(callApi(params, req, runtime));
@@ -152,7 +152,7 @@ AddQueueResponse Alibabacloud_EHPC20180412::Client::addQueueWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddQueueResponse(callApi(params, req, runtime));
@@ -177,7 +177,7 @@ AddSecurityGroupResponse Alibabacloud_EHPC20180412::Client::addSecurityGroupWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddSecurityGroupResponse(callApi(params, req, runtime));
@@ -202,7 +202,7 @@ AddUsersResponse Alibabacloud_EHPC20180412::Client::addUsersWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return AddUsersResponse(callApi(params, req, runtime));
@@ -227,7 +227,7 @@ ApplyNodesResponse Alibabacloud_EHPC20180412::Client::applyNodesWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ApplyNodesResponse(callApi(params, req, runtime));
@@ -252,7 +252,7 @@ CreateClusterResponse Alibabacloud_EHPC20180412::Client::createClusterWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateClusterResponse(callApi(params, req, runtime));
@@ -277,7 +277,7 @@ CreateGWSClusterResponse Alibabacloud_EHPC20180412::Client::createGWSClusterWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateGWSClusterResponse(callApi(params, req, runtime));
@@ -302,7 +302,7 @@ CreateGWSImageResponse Alibabacloud_EHPC20180412::Client::createGWSImageWithOpti
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateGWSImageResponse(callApi(params, req, runtime));
@@ -327,7 +327,7 @@ CreateGWSInstanceResponse Alibabacloud_EHPC20180412::Client::createGWSInstanceWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateGWSInstanceResponse(callApi(params, req, runtime));
@@ -352,7 +352,7 @@ CreateHybridClusterResponse Alibabacloud_EHPC20180412::Client::createHybridClust
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateHybridClusterResponse(callApi(params, req, runtime));
@@ -377,7 +377,7 @@ CreateJobFileResponse Alibabacloud_EHPC20180412::Client::createJobFileWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateJobFileResponse(callApi(params, req, runtime));
@@ -402,7 +402,7 @@ CreateJobTemplateResponse Alibabacloud_EHPC20180412::Client::createJobTemplateWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateJobTemplateResponse(callApi(params, req, runtime));
@@ -427,7 +427,7 @@ DeleteClusterResponse Alibabacloud_EHPC20180412::Client::deleteClusterWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteClusterResponse(callApi(params, req, runtime));
@@ -452,7 +452,7 @@ DeleteContainerAppsResponse Alibabacloud_EHPC20180412::Client::deleteContainerAp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteContainerAppsResponse(callApi(params, req, runtime));
@@ -477,7 +477,7 @@ DeleteGWSClusterResponse Alibabacloud_EHPC20180412::Client::deleteGWSClusterWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteGWSClusterResponse(callApi(params, req, runtime));
@@ -502,7 +502,7 @@ DeleteGWSInstanceResponse Alibabacloud_EHPC20180412::Client::deleteGWSInstanceWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteGWSInstanceResponse(callApi(params, req, runtime));
@@ -527,7 +527,7 @@ DeleteImageResponse Alibabacloud_EHPC20180412::Client::deleteImageWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteImageResponse(callApi(params, req, runtime));
@@ -552,7 +552,7 @@ DeleteJobTemplatesResponse Alibabacloud_EHPC20180412::Client::deleteJobTemplates
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteJobTemplatesResponse(callApi(params, req, runtime));
@@ -577,7 +577,7 @@ DeleteJobsResponse Alibabacloud_EHPC20180412::Client::deleteJobsWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteJobsResponse(callApi(params, req, runtime));
@@ -602,7 +602,7 @@ DeleteNodesResponse Alibabacloud_EHPC20180412::Client::deleteNodesWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteNodesResponse(callApi(params, req, runtime));
@@ -627,7 +627,7 @@ DeleteQueueResponse Alibabacloud_EHPC20180412::Client::deleteQueueWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteQueueResponse(callApi(params, req, runtime));
@@ -652,7 +652,7 @@ DeleteSecurityGroupResponse Alibabacloud_EHPC20180412::Client::deleteSecurityGro
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteSecurityGroupResponse(callApi(params, req, runtime));
@@ -677,7 +677,7 @@ DeleteUsersResponse Alibabacloud_EHPC20180412::Client::deleteUsersWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteUsersResponse(callApi(params, req, runtime));
@@ -702,7 +702,7 @@ DescribeAutoScaleConfigResponse Alibabacloud_EHPC20180412::Client::describeAutoS
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeAutoScaleConfigResponse(callApi(params, req, runtime));
@@ -727,7 +727,7 @@ DescribeClusterResponse Alibabacloud_EHPC20180412::Client::describeClusterWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeClusterResponse(callApi(params, req, runtime));
@@ -752,7 +752,7 @@ DescribeContainerAppResponse Alibabacloud_EHPC20180412::Client::describeContaine
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeContainerAppResponse(callApi(params, req, runtime));
@@ -770,8 +770,7 @@ DescribeGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::describeGWSC
   query->insert(pair<string, string>("ClusterId", *request->clusterId));
   query->insert(pair<string, string>("TaskId", *request->taskId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeGWSClusterPolicy"))},
@@ -781,7 +780,7 @@ DescribeGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::describeGWSC
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeGWSClusterPolicyResponse(callApi(params, req, runtime));
@@ -806,7 +805,7 @@ DescribeGWSClustersResponse Alibabacloud_EHPC20180412::Client::describeGWSCluste
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeGWSClustersResponse(callApi(params, req, runtime));
@@ -831,7 +830,7 @@ DescribeGWSImagesResponse Alibabacloud_EHPC20180412::Client::describeGWSImagesWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeGWSImagesResponse(callApi(params, req, runtime));
@@ -856,7 +855,7 @@ DescribeGWSInstancesResponse Alibabacloud_EHPC20180412::Client::describeGWSInsta
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeGWSInstancesResponse(callApi(params, req, runtime));
@@ -881,7 +880,7 @@ DescribeImageResponse Alibabacloud_EHPC20180412::Client::describeImageWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeImageResponse(callApi(params, req, runtime));
@@ -906,7 +905,7 @@ DescribeImageGatewayConfigResponse Alibabacloud_EHPC20180412::Client::describeIm
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeImageGatewayConfigResponse(callApi(params, req, runtime));
@@ -931,7 +930,7 @@ DescribeImagePriceResponse Alibabacloud_EHPC20180412::Client::describeImagePrice
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeImagePriceResponse(callApi(params, req, runtime));
@@ -956,7 +955,7 @@ DescribeJobResponse Alibabacloud_EHPC20180412::Client::describeJobWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeJobResponse(callApi(params, req, runtime));
@@ -981,7 +980,7 @@ DescribeNFSClientStatusResponse Alibabacloud_EHPC20180412::Client::describeNFSCl
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribeNFSClientStatusResponse(callApi(params, req, runtime));
@@ -1006,7 +1005,7 @@ DescribePriceResponse Alibabacloud_EHPC20180412::Client::describePriceWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return DescribePriceResponse(callApi(params, req, runtime));
@@ -1031,7 +1030,7 @@ EcdDeleteDesktopsResponse Alibabacloud_EHPC20180412::Client::ecdDeleteDesktopsWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return EcdDeleteDesktopsResponse(callApi(params, req, runtime));
@@ -1056,7 +1055,7 @@ EditJobTemplateResponse Alibabacloud_EHPC20180412::Client::editJobTemplateWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return EditJobTemplateResponse(callApi(params, req, runtime));
@@ -1081,7 +1080,7 @@ GetAccountingReportResponse Alibabacloud_EHPC20180412::Client::getAccountingRepo
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAccountingReportResponse(callApi(params, req, runtime));
@@ -1106,7 +1105,7 @@ GetAutoScaleConfigResponse Alibabacloud_EHPC20180412::Client::getAutoScaleConfig
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetAutoScaleConfigResponse(callApi(params, req, runtime));
@@ -1131,7 +1130,7 @@ GetCloudMetricLogsResponse Alibabacloud_EHPC20180412::Client::getCloudMetricLogs
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetCloudMetricLogsResponse(callApi(params, req, runtime));
@@ -1156,7 +1155,7 @@ GetCloudMetricProfilingResponse Alibabacloud_EHPC20180412::Client::getCloudMetri
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetCloudMetricProfilingResponse(callApi(params, req, runtime));
@@ -1181,7 +1180,7 @@ GetClusterVolumesResponse Alibabacloud_EHPC20180412::Client::getClusterVolumesWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetClusterVolumesResponse(callApi(params, req, runtime));
@@ -1206,7 +1205,7 @@ GetGWSConnectTicketResponse Alibabacloud_EHPC20180412::Client::getGWSConnectTick
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetGWSConnectTicketResponse(callApi(params, req, runtime));
@@ -1231,7 +1230,7 @@ GetHealthMonitorLogsResponse Alibabacloud_EHPC20180412::Client::getHealthMonitor
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetHealthMonitorLogsResponse(callApi(params, req, runtime));
@@ -1256,7 +1255,7 @@ GetHybridClusterConfigResponse Alibabacloud_EHPC20180412::Client::getHybridClust
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetHybridClusterConfigResponse(callApi(params, req, runtime));
@@ -1281,7 +1280,7 @@ GetIfEcsTypeSupportHtConfigResponse Alibabacloud_EHPC20180412::Client::getIfEcsT
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetIfEcsTypeSupportHtConfigResponse(callApi(params, req, runtime));
@@ -1306,7 +1305,7 @@ GetSchedulerInfoResponse Alibabacloud_EHPC20180412::Client::getSchedulerInfoWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetSchedulerInfoResponse(callApi(params, req, runtime));
@@ -1331,7 +1330,7 @@ GetVisualServiceStatusResponse Alibabacloud_EHPC20180412::Client::getVisualServi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetVisualServiceStatusResponse(callApi(params, req, runtime));
@@ -1356,7 +1355,7 @@ GetWorkbenchTokenResponse Alibabacloud_EHPC20180412::Client::getWorkbenchTokenWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return GetWorkbenchTokenResponse(callApi(params, req, runtime));
@@ -1381,7 +1380,7 @@ InitializeEHPCResponse Alibabacloud_EHPC20180412::Client::initializeEHPCWithOpti
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return InitializeEHPCResponse(callApi(params, req, runtime));
@@ -1406,7 +1405,7 @@ InstallSoftwareResponse Alibabacloud_EHPC20180412::Client::installSoftwareWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return InstallSoftwareResponse(callApi(params, req, runtime));
@@ -1431,7 +1430,7 @@ InvokeShellCommandResponse Alibabacloud_EHPC20180412::Client::invokeShellCommand
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return InvokeShellCommandResponse(callApi(params, req, runtime));
@@ -1456,7 +1455,7 @@ ListAvailableEcsTypesResponse Alibabacloud_EHPC20180412::Client::listAvailableEc
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListAvailableEcsTypesResponse(callApi(params, req, runtime));
@@ -1481,7 +1480,7 @@ ListCloudMetricProfilingsResponse Alibabacloud_EHPC20180412::Client::listCloudMe
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListCloudMetricProfilingsResponse(callApi(params, req, runtime));
@@ -1506,7 +1505,7 @@ ListClusterLogsResponse Alibabacloud_EHPC20180412::Client::listClusterLogsWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListClusterLogsResponse(callApi(params, req, runtime));
@@ -1531,7 +1530,7 @@ ListClustersResponse Alibabacloud_EHPC20180412::Client::listClustersWithOptions(
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListClustersResponse(callApi(params, req, runtime));
@@ -1556,7 +1555,7 @@ ListClustersMetaResponse Alibabacloud_EHPC20180412::Client::listClustersMetaWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListClustersMetaResponse(callApi(params, req, runtime));
@@ -1581,7 +1580,7 @@ ListCommandsResponse Alibabacloud_EHPC20180412::Client::listCommandsWithOptions(
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListCommandsResponse(callApi(params, req, runtime));
@@ -1606,7 +1605,7 @@ ListContainerAppsResponse Alibabacloud_EHPC20180412::Client::listContainerAppsWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListContainerAppsResponse(callApi(params, req, runtime));
@@ -1631,7 +1630,7 @@ ListContainerImagesResponse Alibabacloud_EHPC20180412::Client::listContainerImag
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListContainerImagesResponse(callApi(params, req, runtime));
@@ -1656,7 +1655,7 @@ ListCpfsFileSystemsResponse Alibabacloud_EHPC20180412::Client::listCpfsFileSyste
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListCpfsFileSystemsResponse(callApi(params, req, runtime));
@@ -1677,7 +1676,7 @@ ListCurrentClientVersionResponse Alibabacloud_EHPC20180412::Client::listCurrentC
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListCurrentClientVersionResponse(callApi(params, req, runtime));
@@ -1702,7 +1701,7 @@ ListCustomImagesResponse Alibabacloud_EHPC20180412::Client::listCustomImagesWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListCustomImagesResponse(callApi(params, req, runtime));
@@ -1727,7 +1726,7 @@ ListFileSystemWithMountTargetsResponse Alibabacloud_EHPC20180412::Client::listFi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListFileSystemWithMountTargetsResponse(callApi(params, req, runtime));
@@ -1752,7 +1751,7 @@ ListImagesResponse Alibabacloud_EHPC20180412::Client::listImagesWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListImagesResponse(callApi(params, req, runtime));
@@ -1777,7 +1776,7 @@ ListInstalledSoftwareResponse Alibabacloud_EHPC20180412::Client::listInstalledSo
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListInstalledSoftwareResponse(callApi(params, req, runtime));
@@ -1802,7 +1801,7 @@ ListInvocationResultsResponse Alibabacloud_EHPC20180412::Client::listInvocationR
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListInvocationResultsResponse(callApi(params, req, runtime));
@@ -1827,7 +1826,7 @@ ListInvocationStatusResponse Alibabacloud_EHPC20180412::Client::listInvocationSt
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListInvocationStatusResponse(callApi(params, req, runtime));
@@ -1852,7 +1851,7 @@ ListJobTemplatesResponse Alibabacloud_EHPC20180412::Client::listJobTemplatesWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListJobTemplatesResponse(callApi(params, req, runtime));
@@ -1877,7 +1876,7 @@ ListJobsResponse Alibabacloud_EHPC20180412::Client::listJobsWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListJobsResponse(callApi(params, req, runtime));
@@ -1902,7 +1901,7 @@ ListNodesResponse Alibabacloud_EHPC20180412::Client::listNodesWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListNodesResponse(callApi(params, req, runtime));
@@ -1927,7 +1926,7 @@ ListNodesByQueueResponse Alibabacloud_EHPC20180412::Client::listNodesByQueueWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListNodesByQueueResponse(callApi(params, req, runtime));
@@ -1952,7 +1951,7 @@ ListNodesNoPagingResponse Alibabacloud_EHPC20180412::Client::listNodesNoPagingWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListNodesNoPagingResponse(callApi(params, req, runtime));
@@ -1977,7 +1976,7 @@ ListPreferredEcsTypesResponse Alibabacloud_EHPC20180412::Client::listPreferredEc
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListPreferredEcsTypesResponse(callApi(params, req, runtime));
@@ -2002,7 +2001,7 @@ ListQueuesResponse Alibabacloud_EHPC20180412::Client::listQueuesWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListQueuesResponse(callApi(params, req, runtime));
@@ -2023,7 +2022,7 @@ ListRegionsResponse Alibabacloud_EHPC20180412::Client::listRegionsWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListRegionsResponse(callApi(params, req, runtime));
@@ -2048,7 +2047,7 @@ ListSecurityGroupsResponse Alibabacloud_EHPC20180412::Client::listSecurityGroups
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListSecurityGroupsResponse(callApi(params, req, runtime));
@@ -2073,7 +2072,7 @@ ListSoftwaresResponse Alibabacloud_EHPC20180412::Client::listSoftwaresWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListSoftwaresResponse(callApi(params, req, runtime));
@@ -2098,7 +2097,7 @@ ListTasksResponse Alibabacloud_EHPC20180412::Client::listTasksWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListTasksResponse(callApi(params, req, runtime));
@@ -2123,7 +2122,7 @@ ListUsersResponse Alibabacloud_EHPC20180412::Client::listUsersWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListUsersResponse(callApi(params, req, runtime));
@@ -2148,7 +2147,7 @@ ListVolumesResponse Alibabacloud_EHPC20180412::Client::listVolumesWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ListVolumesResponse(callApi(params, req, runtime));
@@ -2173,7 +2172,7 @@ ModifyClusterAttributesResponse Alibabacloud_EHPC20180412::Client::modifyCluster
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyClusterAttributesResponse(callApi(params, req, runtime));
@@ -2198,7 +2197,7 @@ ModifyContainerAppAttributesResponse Alibabacloud_EHPC20180412::Client::modifyCo
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyContainerAppAttributesResponse(callApi(params, req, runtime));
@@ -2223,7 +2222,7 @@ ModifyImageGatewayConfigResponse Alibabacloud_EHPC20180412::Client::modifyImageG
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyImageGatewayConfigResponse(callApi(params, req, runtime));
@@ -2248,7 +2247,7 @@ ModifyUserGroupsResponse Alibabacloud_EHPC20180412::Client::modifyUserGroupsWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyUserGroupsResponse(callApi(params, req, runtime));
@@ -2273,7 +2272,7 @@ ModifyUserPasswordsResponse Alibabacloud_EHPC20180412::Client::modifyUserPasswor
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyUserPasswordsResponse(callApi(params, req, runtime));
@@ -2298,7 +2297,7 @@ ModifyVisualServicePasswdResponse Alibabacloud_EHPC20180412::Client::modifyVisua
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ModifyVisualServicePasswdResponse(callApi(params, req, runtime));
@@ -2323,7 +2322,7 @@ MountNFSResponse Alibabacloud_EHPC20180412::Client::mountNFSWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return MountNFSResponse(callApi(params, req, runtime));
@@ -2348,7 +2347,7 @@ PullImageResponse Alibabacloud_EHPC20180412::Client::pullImageWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return PullImageResponse(callApi(params, req, runtime));
@@ -2369,7 +2368,7 @@ QueryServicePackAndPriceResponse Alibabacloud_EHPC20180412::Client::queryService
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return QueryServicePackAndPriceResponse(callApi(params, req, runtime));
@@ -2394,7 +2393,7 @@ RecoverClusterResponse Alibabacloud_EHPC20180412::Client::recoverClusterWithOpti
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RecoverClusterResponse(callApi(params, req, runtime));
@@ -2419,7 +2418,7 @@ RerunJobsResponse Alibabacloud_EHPC20180412::Client::rerunJobsWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RerunJobsResponse(callApi(params, req, runtime));
@@ -2444,7 +2443,7 @@ ResetNodesResponse Alibabacloud_EHPC20180412::Client::resetNodesWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return ResetNodesResponse(callApi(params, req, runtime));
@@ -2469,7 +2468,7 @@ RunCloudMetricProfilingResponse Alibabacloud_EHPC20180412::Client::runCloudMetri
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return RunCloudMetricProfilingResponse(callApi(params, req, runtime));
@@ -2494,7 +2493,7 @@ SetAutoScaleConfigResponse Alibabacloud_EHPC20180412::Client::setAutoScaleConfig
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetAutoScaleConfigResponse(callApi(params, req, runtime));
@@ -2516,8 +2515,7 @@ SetGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::setGWSClusterPoli
   query->insert(pair<string, string>("UsbRedirect", *request->usbRedirect));
   query->insert(pair<string, string>("Watermark", *request->watermark));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SetGWSClusterPolicy"))},
@@ -2527,7 +2525,7 @@ SetGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::setGWSClusterPoli
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetGWSClusterPolicyResponse(callApi(params, req, runtime));
@@ -2552,7 +2550,7 @@ SetGWSInstanceNameResponse Alibabacloud_EHPC20180412::Client::setGWSInstanceName
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetGWSInstanceNameResponse(callApi(params, req, runtime));
@@ -2577,7 +2575,7 @@ SetGWSInstanceUserResponse Alibabacloud_EHPC20180412::Client::setGWSInstanceUser
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetGWSInstanceUserResponse(callApi(params, req, runtime));
@@ -2602,7 +2600,7 @@ SetQueueResponse Alibabacloud_EHPC20180412::Client::setQueueWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetQueueResponse(callApi(params, req, runtime));
@@ -2627,7 +2625,7 @@ SetSchedulerInfoResponse Alibabacloud_EHPC20180412::Client::setSchedulerInfoWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SetSchedulerInfoResponse(callApi(params, req, runtime));
@@ -2652,7 +2650,7 @@ StartClusterResponse Alibabacloud_EHPC20180412::Client::startClusterWithOptions(
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StartClusterResponse(callApi(params, req, runtime));
@@ -2677,7 +2675,7 @@ StartGWSInstanceResponse Alibabacloud_EHPC20180412::Client::startGWSInstanceWith
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StartGWSInstanceResponse(callApi(params, req, runtime));
@@ -2702,7 +2700,7 @@ StartNodesResponse Alibabacloud_EHPC20180412::Client::startNodesWithOptions(shar
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StartNodesResponse(callApi(params, req, runtime));
@@ -2727,7 +2725,7 @@ StartVisualServiceResponse Alibabacloud_EHPC20180412::Client::startVisualService
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StartVisualServiceResponse(callApi(params, req, runtime));
@@ -2752,7 +2750,7 @@ StopClusterResponse Alibabacloud_EHPC20180412::Client::stopClusterWithOptions(sh
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StopClusterResponse(callApi(params, req, runtime));
@@ -2777,7 +2775,7 @@ StopGWSInstanceResponse Alibabacloud_EHPC20180412::Client::stopGWSInstanceWithOp
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StopGWSInstanceResponse(callApi(params, req, runtime));
@@ -2802,7 +2800,7 @@ StopJobsResponse Alibabacloud_EHPC20180412::Client::stopJobsWithOptions(shared_p
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StopJobsResponse(callApi(params, req, runtime));
@@ -2827,7 +2825,7 @@ StopNodesResponse Alibabacloud_EHPC20180412::Client::stopNodesWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StopNodesResponse(callApi(params, req, runtime));
@@ -2852,7 +2850,7 @@ StopVisualServiceResponse Alibabacloud_EHPC20180412::Client::stopVisualServiceWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return StopVisualServiceResponse(callApi(params, req, runtime));
@@ -2877,7 +2875,7 @@ SubmitJobResponse Alibabacloud_EHPC20180412::Client::submitJobWithOptions(shared
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitJobResponse(callApi(params, req, runtime));
@@ -2886,6 +2884,31 @@ SubmitJobResponse Alibabacloud_EHPC20180412::Client::submitJobWithOptions(shared
 SubmitJobResponse Alibabacloud_EHPC20180412::Client::submitJob(shared_ptr<SubmitJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitJobWithOptions(request, runtime);
+}
+
+SyncUsersResponse Alibabacloud_EHPC20180412::Client::syncUsersWithOptions(shared_ptr<SyncUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SyncUsers"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SyncUsersResponse(callApi(params, req, runtime));
+}
+
+SyncUsersResponse Alibabacloud_EHPC20180412::Client::syncUsers(shared_ptr<SyncUsersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return syncUsersWithOptions(request, runtime);
 }
 
 UninstallSoftwareResponse Alibabacloud_EHPC20180412::Client::uninstallSoftwareWithOptions(shared_ptr<UninstallSoftwareRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2902,7 +2925,7 @@ UninstallSoftwareResponse Alibabacloud_EHPC20180412::Client::uninstallSoftwareWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UninstallSoftwareResponse(callApi(params, req, runtime));
@@ -2927,7 +2950,7 @@ UpdateClusterVolumesResponse Alibabacloud_EHPC20180412::Client::updateClusterVol
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateClusterVolumesResponse(callApi(params, req, runtime));
@@ -2952,7 +2975,7 @@ UpdateQueueConfigResponse Alibabacloud_EHPC20180412::Client::updateQueueConfigWi
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateQueueConfigResponse(callApi(params, req, runtime));
@@ -2977,7 +3000,7 @@ UpgradeClientResponse Alibabacloud_EHPC20180412::Client::upgradeClientWithOption
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return UpgradeClientResponse(callApi(params, req, runtime));
