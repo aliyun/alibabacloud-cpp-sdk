@@ -132,6 +132,7 @@ CreateAggregateCompliancePackResponse Alibabacloud_Config20200907::Client::creat
   if (!Darabonba_Util::Client::isUnset<vector<CreateAggregateCompliancePackRequestConfigRules>>(tmpReq->configRules)) {
     request->configRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->configRules, make_shared<string>("ConfigRules"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -186,6 +187,7 @@ CreateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::createAgg
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -264,6 +266,7 @@ CreateAggregatorResponse Alibabacloud_Config20200907::Client::createAggregatorWi
   if (!Darabonba_Util::Client::isUnset<vector<CreateAggregatorRequestAggregatorAccounts>>(tmpReq->aggregatorAccounts)) {
     request->aggregatorAccountsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aggregatorAccounts, make_shared<string>("AggregatorAccounts"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorAccountsShrink)) {
     body->insert(pair<string, string>("AggregatorAccounts", *request->aggregatorAccountsShrink));
@@ -309,6 +312,7 @@ CreateCompliancePackResponse Alibabacloud_Config20200907::Client::createComplian
   if (!Darabonba_Util::Client::isUnset<vector<CreateCompliancePackRequestConfigRules>>(tmpReq->configRules)) {
     request->configRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->configRules, make_shared<string>("ConfigRules"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -360,6 +364,7 @@ CreateConfigRuleResponse Alibabacloud_Config20200907::Client::createConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -483,6 +488,7 @@ DeactiveConfigRulesResponse Alibabacloud_Config20200907::Client::deactiveConfigR
 
 DeleteAggregateCompliancePacksResponse Alibabacloud_Config20200907::Client::deleteAggregateCompliancePacksWithOptions(shared_ptr<DeleteAggregateCompliancePacksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -547,6 +553,7 @@ DeleteAggregateConfigRulesResponse Alibabacloud_Config20200907::Client::deleteAg
 
 DeleteAggregatorsResponse Alibabacloud_Config20200907::Client::deleteAggregatorsWithOptions(shared_ptr<DeleteAggregatorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorIds)) {
     body->insert(pair<string, string>("AggregatorIds", *request->aggregatorIds));
@@ -578,6 +585,7 @@ DeleteAggregatorsResponse Alibabacloud_Config20200907::Client::deleteAggregators
 
 DeleteCompliancePacksResponse Alibabacloud_Config20200907::Client::deleteCompliancePacksWithOptions(shared_ptr<DeleteCompliancePacksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -667,6 +675,7 @@ DetachConfigRuleToCompliancePackResponse Alibabacloud_Config20200907::Client::de
 
 GenerateAggregateCompliancePackReportResponse Alibabacloud_Config20200907::Client::generateAggregateCompliancePackReportWithOptions(shared_ptr<GenerateAggregateCompliancePackReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -701,6 +710,7 @@ GenerateAggregateCompliancePackReportResponse Alibabacloud_Config20200907::Clien
 
 GenerateAggregateConfigRulesReportResponse Alibabacloud_Config20200907::Client::generateAggregateConfigRulesReportWithOptions(shared_ptr<GenerateAggregateConfigRulesReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -732,6 +742,7 @@ GenerateAggregateConfigRulesReportResponse Alibabacloud_Config20200907::Client::
 
 GenerateCompliancePackReportResponse Alibabacloud_Config20200907::Client::generateCompliancePackReportWithOptions(shared_ptr<GenerateCompliancePackReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -763,6 +774,7 @@ GenerateCompliancePackReportResponse Alibabacloud_Config20200907::Client::genera
 
 GenerateConfigRulesReportResponse Alibabacloud_Config20200907::Client::generateConfigRulesReportWithOptions(shared_ptr<GenerateConfigRulesReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -1441,6 +1453,7 @@ IgnoreAggregateEvaluationResultsResponse Alibabacloud_Config20200907::Client::ig
   if (!Darabonba_Util::Client::isUnset<vector<IgnoreAggregateEvaluationResultsRequestResources>>(tmpReq->resources)) {
     request->resourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resources, make_shared<string>("Resources"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -1483,6 +1496,7 @@ IgnoreEvaluationResultsResponse Alibabacloud_Config20200907::Client::ignoreEvalu
   if (!Darabonba_Util::Client::isUnset<vector<IgnoreEvaluationResultsRequestResources>>(tmpReq->resources)) {
     request->resourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resources, make_shared<string>("Resources"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleId)) {
     body->insert(pair<string, string>("ConfigRuleId", *request->configRuleId));
@@ -1747,6 +1761,7 @@ RevertAggregateEvaluationResultsResponse Alibabacloud_Config20200907::Client::re
   if (!Darabonba_Util::Client::isUnset<vector<RevertAggregateEvaluationResultsRequestResources>>(tmpReq->resources)) {
     request->resourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resources, make_shared<string>("Resources"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -1786,6 +1801,7 @@ RevertEvaluationResultsResponse Alibabacloud_Config20200907::Client::revertEvalu
   if (!Darabonba_Util::Client::isUnset<vector<RevertEvaluationResultsRequestResources>>(tmpReq->resources)) {
     request->resourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resources, make_shared<string>("Resources"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->configRuleId)) {
     body->insert(pair<string, string>("ConfigRuleId", *request->configRuleId));
@@ -1851,6 +1867,7 @@ UpdateAggregateCompliancePackResponse Alibabacloud_Config20200907::Client::updat
   if (!Darabonba_Util::Client::isUnset<vector<UpdateAggregateCompliancePackRequestConfigRules>>(tmpReq->configRules)) {
     request->configRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->configRules, make_shared<string>("ConfigRules"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -1905,6 +1922,7 @@ UpdateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::updateAgg
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     body->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
@@ -1980,6 +1998,7 @@ UpdateAggregatorResponse Alibabacloud_Config20200907::Client::updateAggregatorWi
   if (!Darabonba_Util::Client::isUnset<vector<UpdateAggregatorRequestAggregatorAccounts>>(tmpReq->aggregatorAccounts)) {
     request->aggregatorAccountsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aggregatorAccounts, make_shared<string>("AggregatorAccounts"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorAccountsShrink)) {
     body->insert(pair<string, string>("AggregatorAccounts", *request->aggregatorAccountsShrink));
@@ -2025,6 +2044,7 @@ UpdateCompliancePackResponse Alibabacloud_Config20200907::Client::updateComplian
   if (!Darabonba_Util::Client::isUnset<vector<UpdateCompliancePackRequestConfigRules>>(tmpReq->configRules)) {
     request->configRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->configRules, make_shared<string>("ConfigRules"), make_shared<string>("json")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -2076,6 +2096,7 @@ UpdateConfigRuleResponse Alibabacloud_Config20200907::Client::updateConfigRuleWi
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->resourceTypesScope)) {
     request->resourceTypesScopeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceTypesScope, make_shared<string>("ResourceTypesScope"), make_shared<string>("simple")));
   }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
