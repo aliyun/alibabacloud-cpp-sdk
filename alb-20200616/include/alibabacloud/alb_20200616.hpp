@@ -18236,6 +18236,208 @@ public:
 
   virtual ~UpdateListenerLogConfigResponse() = default;
 };
+class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings : public Darabonba::Model {
+public:
+  shared_ptr<string> allocationId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> zoneId{};
+
+  UpdateLoadBalancerAddressTypeConfigRequestZoneMappings() {}
+
+  explicit UpdateLoadBalancerAddressTypeConfigRequestZoneMappings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allocationId) {
+      res["AllocationId"] = boost::any(*allocationId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllocationId") != m.end() && !m["AllocationId"].empty()) {
+      allocationId = make_shared<string>(boost::any_cast<string>(m["AllocationId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~UpdateLoadBalancerAddressTypeConfigRequestZoneMappings() = default;
+};
+class UpdateLoadBalancerAddressTypeConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> addressType{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> dryRun{};
+  shared_ptr<string> loadBalancerId{};
+  shared_ptr<vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings>> zoneMappings{};
+
+  UpdateLoadBalancerAddressTypeConfigRequest() {}
+
+  explicit UpdateLoadBalancerAddressTypeConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (loadBalancerId) {
+      res["LoadBalancerId"] = boost::any(*loadBalancerId);
+    }
+    if (zoneMappings) {
+      vector<boost::any> temp1;
+      for(auto item1:*zoneMappings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ZoneMappings"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<string>(boost::any_cast<string>(m["DryRun"]));
+    }
+    if (m.find("LoadBalancerId") != m.end() && !m["LoadBalancerId"].empty()) {
+      loadBalancerId = make_shared<string>(boost::any_cast<string>(m["LoadBalancerId"]));
+    }
+    if (m.find("ZoneMappings") != m.end() && !m["ZoneMappings"].empty()) {
+      if (typeid(vector<boost::any>) == m["ZoneMappings"].type()) {
+        vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ZoneMappings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateLoadBalancerAddressTypeConfigRequestZoneMappings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        zoneMappings = make_shared<vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateLoadBalancerAddressTypeConfigRequest() = default;
+};
+class UpdateLoadBalancerAddressTypeConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+
+  UpdateLoadBalancerAddressTypeConfigResponseBody() {}
+
+  explicit UpdateLoadBalancerAddressTypeConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateLoadBalancerAddressTypeConfigResponseBody() = default;
+};
+class UpdateLoadBalancerAddressTypeConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateLoadBalancerAddressTypeConfigResponseBody> body{};
+
+  UpdateLoadBalancerAddressTypeConfigResponse() {}
+
+  explicit UpdateLoadBalancerAddressTypeConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateLoadBalancerAddressTypeConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateLoadBalancerAddressTypeConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateLoadBalancerAddressTypeConfigResponse() = default;
+};
 class UpdateLoadBalancerAttributeRequestModificationProtectionConfig : public Darabonba::Model {
 public:
   shared_ptr<string> reason{};
@@ -21939,6 +22141,8 @@ public:
   UpdateListenerAttributeResponse updateListenerAttribute(shared_ptr<UpdateListenerAttributeRequest> request);
   UpdateListenerLogConfigResponse updateListenerLogConfigWithOptions(shared_ptr<UpdateListenerLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateListenerLogConfigResponse updateListenerLogConfig(shared_ptr<UpdateListenerLogConfigRequest> request);
+  UpdateLoadBalancerAddressTypeConfigResponse updateLoadBalancerAddressTypeConfigWithOptions(shared_ptr<UpdateLoadBalancerAddressTypeConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateLoadBalancerAddressTypeConfigResponse updateLoadBalancerAddressTypeConfig(shared_ptr<UpdateLoadBalancerAddressTypeConfigRequest> request);
   UpdateLoadBalancerAttributeResponse updateLoadBalancerAttributeWithOptions(shared_ptr<UpdateLoadBalancerAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateLoadBalancerAttributeResponse updateLoadBalancerAttribute(shared_ptr<UpdateLoadBalancerAttributeRequest> request);
   UpdateLoadBalancerEditionResponse updateLoadBalancerEditionWithOptions(shared_ptr<UpdateLoadBalancerEditionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
