@@ -443,6 +443,219 @@ public:
 
   virtual ~AddRelativePositionResponse() = default;
 };
+class AddRoomPlanRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+
+  AddRoomPlanRequest() {}
+
+  explicit AddRoomPlanRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+  }
+
+
+  virtual ~AddRoomPlanRequest() = default;
+};
+class AddRoomPlanResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> accessId{};
+  shared_ptr<string> callback{};
+  shared_ptr<string> dir{};
+  shared_ptr<string> expire{};
+  shared_ptr<string> host{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> signature{};
+
+  AddRoomPlanResponseBodyData() {}
+
+  explicit AddRoomPlanResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessId) {
+      res["AccessId"] = boost::any(*accessId);
+    }
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (dir) {
+      res["Dir"] = boost::any(*dir);
+    }
+    if (expire) {
+      res["Expire"] = boost::any(*expire);
+    }
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessId") != m.end() && !m["AccessId"].empty()) {
+      accessId = make_shared<string>(boost::any_cast<string>(m["AccessId"]));
+    }
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<string>(boost::any_cast<string>(m["Callback"]));
+    }
+    if (m.find("Dir") != m.end() && !m["Dir"].empty()) {
+      dir = make_shared<string>(boost::any_cast<string>(m["Dir"]));
+    }
+    if (m.find("Expire") != m.end() && !m["Expire"].empty()) {
+      expire = make_shared<string>(boost::any_cast<string>(m["Expire"]));
+    }
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
+    }
+  }
+
+
+  virtual ~AddRoomPlanResponseBodyData() = default;
+};
+class AddRoomPlanResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<AddRoomPlanResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddRoomPlanResponseBody() {}
+
+  explicit AddRoomPlanResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AddRoomPlanResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AddRoomPlanResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddRoomPlanResponseBody() = default;
+};
+class AddRoomPlanResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddRoomPlanResponseBody> body{};
+
+  AddRoomPlanResponse() {}
+
+  explicit AddRoomPlanResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddRoomPlanResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddRoomPlanResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddRoomPlanResponse() = default;
+};
 class AddSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -9357,6 +9570,8 @@ public:
   AddProjectResponse addProject(shared_ptr<AddProjectRequest> request);
   AddRelativePositionResponse addRelativePositionWithOptions(shared_ptr<AddRelativePositionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddRelativePositionResponse addRelativePosition(shared_ptr<AddRelativePositionRequest> request);
+  AddRoomPlanResponse addRoomPlanWithOptions(shared_ptr<AddRoomPlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddRoomPlanResponse addRoomPlan(shared_ptr<AddRoomPlanRequest> request);
   AddSceneResponse addSceneWithOptions(shared_ptr<AddSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddSceneResponse addScene(shared_ptr<AddSceneRequest> request);
   AddSubSceneResponse addSubSceneWithOptions(shared_ptr<AddSubSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
