@@ -4130,6 +4130,7 @@ public:
 };
 class GetPtsSceneResponseBodySceneLoadConfigApiLoadConfigList : public Darabonba::Model {
 public:
+  shared_ptr<string> apiId{};
   shared_ptr<long> rpsBegin{};
   shared_ptr<long> rpsLimit{};
 
@@ -4143,6 +4144,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
     if (rpsBegin) {
       res["RpsBegin"] = boost::any(*rpsBegin);
     }
@@ -4153,6 +4157,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
     if (m.find("RpsBegin") != m.end() && !m["RpsBegin"].empty()) {
       rpsBegin = make_shared<long>(boost::any_cast<long>(m["RpsBegin"]));
     }
@@ -4218,6 +4225,7 @@ class GetPtsSceneResponseBodySceneLoadConfigRelationLoadConfigList : public Dara
 public:
   shared_ptr<long> concurrencyBegin{};
   shared_ptr<long> concurrencyLimit{};
+  shared_ptr<string> relationId{};
 
   GetPtsSceneResponseBodySceneLoadConfigRelationLoadConfigList() {}
 
@@ -4235,6 +4243,9 @@ public:
     if (concurrencyLimit) {
       res["ConcurrencyLimit"] = boost::any(*concurrencyLimit);
     }
+    if (relationId) {
+      res["RelationId"] = boost::any(*relationId);
+    }
     return res;
   }
 
@@ -4244,6 +4255,9 @@ public:
     }
     if (m.find("ConcurrencyLimit") != m.end() && !m["ConcurrencyLimit"].empty()) {
       concurrencyLimit = make_shared<long>(boost::any_cast<long>(m["ConcurrencyLimit"]));
+    }
+    if (m.find("RelationId") != m.end() && !m["RelationId"].empty()) {
+      relationId = make_shared<string>(boost::any_cast<string>(m["RelationId"]));
     }
   }
 
