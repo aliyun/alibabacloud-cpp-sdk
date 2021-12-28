@@ -29358,9 +29358,9 @@ public:
 class TriggerNetworkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> actionType{};
-  shared_ptr<string> clientToken{};
   shared_ptr<string> networkType{};
   shared_ptr<string> nodeType{};
+  shared_ptr<string> clientToken{};
 
   TriggerNetworkRequest() {}
 
@@ -29375,14 +29375,14 @@ public:
     if (actionType) {
       res["actionType"] = boost::any(*actionType);
     }
-    if (clientToken) {
-      res["clientToken"] = boost::any(*clientToken);
-    }
     if (networkType) {
       res["networkType"] = boost::any(*networkType);
     }
     if (nodeType) {
       res["nodeType"] = boost::any(*nodeType);
+    }
+    if (clientToken) {
+      res["clientToken"] = boost::any(*clientToken);
     }
     return res;
   }
@@ -29391,14 +29391,14 @@ public:
     if (m.find("actionType") != m.end() && !m["actionType"].empty()) {
       actionType = make_shared<string>(boost::any_cast<string>(m["actionType"]));
     }
-    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
-      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
-    }
     if (m.find("networkType") != m.end() && !m["networkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["networkType"]));
     }
     if (m.find("nodeType") != m.end() && !m["nodeType"].empty()) {
       nodeType = make_shared<string>(boost::any_cast<string>(m["nodeType"]));
+    }
+    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
   }
 
