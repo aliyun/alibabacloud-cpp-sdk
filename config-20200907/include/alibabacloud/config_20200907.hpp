@@ -1116,6 +1116,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -1170,6 +1171,9 @@ public:
     }
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -1235,6 +1239,9 @@ public:
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
     }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
@@ -1262,6 +1269,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -1317,6 +1325,9 @@ public:
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
     }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
@@ -1368,6 +1379,9 @@ public:
     }
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -2086,6 +2100,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -2137,6 +2152,9 @@ public:
     }
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -2199,6 +2217,9 @@ public:
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
     }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
@@ -2225,6 +2246,7 @@ public:
   shared_ptr<long> riskLevel{};
   shared_ptr<string> sourceIdentifier{};
   shared_ptr<string> sourceOwner{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -2277,6 +2299,9 @@ public:
     if (sourceOwner) {
       res["SourceOwner"] = boost::any(*sourceOwner);
     }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
@@ -2325,6 +2350,9 @@ public:
     }
     if (m.find("SourceOwner") != m.end() && !m["SourceOwner"].empty()) {
       sourceOwner = make_shared<string>(boost::any_cast<string>(m["SourceOwner"]));
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -4293,6 +4321,7 @@ class GenerateAggregateConfigRulesReportRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> configRuleIds{};
 
   GenerateAggregateConfigRulesReportRequest() {}
 
@@ -4310,6 +4339,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
     return res;
   }
 
@@ -4320,6 +4352,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
+    }
   }
 
 
@@ -4328,6 +4363,7 @@ public:
 class GenerateAggregateConfigRulesReportResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<string> reportId{};
   shared_ptr<string> requestId{};
 
   GenerateAggregateConfigRulesReportResponseBody() {}
@@ -4343,6 +4379,9 @@ public:
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4352,6 +4391,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4540,6 +4582,7 @@ public:
 class GenerateConfigRulesReportRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> configRuleIds{};
 
   GenerateConfigRulesReportRequest() {}
 
@@ -4554,12 +4597,18 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
     }
   }
 
@@ -4568,6 +4617,7 @@ public:
 };
 class GenerateConfigRulesReportResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> reportId{};
   shared_ptr<string> requestId{};
 
   GenerateConfigRulesReportResponseBody() {}
@@ -4580,6 +4630,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4587,6 +4640,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -5873,6 +5929,7 @@ public:
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleSource> source{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -5942,6 +5999,9 @@ public:
     }
     if (source) {
       res["Source"] = source ? boost::any(source->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -6030,6 +6090,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Source"]));
         source = make_shared<GetAggregateConfigRuleResponseBodyConfigRuleSource>(model1);
       }
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -6546,6 +6609,7 @@ public:
 class GetAggregateConfigRulesReportRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
+  shared_ptr<string> reportId{};
 
   GetAggregateConfigRulesReportRequest() {}
 
@@ -6560,12 +6624,18 @@ public:
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
     }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
     }
   }
 
@@ -6577,6 +6647,7 @@ public:
   shared_ptr<long> accountId{};
   shared_ptr<string> aggregatorId{};
   shared_ptr<long> reportCreateTimestamp{};
+  shared_ptr<string> reportId{};
   shared_ptr<string> reportStatus{};
   shared_ptr<string> reportUrl{};
 
@@ -6599,6 +6670,9 @@ public:
     if (reportCreateTimestamp) {
       res["ReportCreateTimestamp"] = boost::any(*reportCreateTimestamp);
     }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
     if (reportStatus) {
       res["ReportStatus"] = boost::any(*reportStatus);
     }
@@ -6617,6 +6691,9 @@ public:
     }
     if (m.find("ReportCreateTimestamp") != m.end() && !m["ReportCreateTimestamp"].empty()) {
       reportCreateTimestamp = make_shared<long>(boost::any_cast<long>(m["ReportCreateTimestamp"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
     }
     if (m.find("ReportStatus") != m.end() && !m["ReportStatus"].empty()) {
       reportStatus = make_shared<string>(boost::any_cast<string>(m["ReportStatus"]));
@@ -7112,6 +7189,520 @@ public:
 
 
   virtual ~GetAggregateResourceComplianceByPackResponse() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<string> configRuleIds{};
+
+  GetAggregateResourceComplianceGroupByRegionRequest() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionRequest() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances : public Darabonba::Model {
+public:
+  shared_ptr<string> complianceType{};
+  shared_ptr<long> count{};
+
+  GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances>> compliances{};
+  shared_ptr<string> regionId{};
+
+  GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliances) {
+      vector<boost::any> temp1;
+      for(auto item1:*compliances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Compliances"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Compliances") != m.end() && !m["Compliances"].empty()) {
+      if (typeid(vector<boost::any>) == m["Compliances"].type()) {
+        vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Compliances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compliances = make_shared<vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList>> complianceResultList{};
+
+  GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*complianceResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComplianceResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResultList") != m.end() && !m["ComplianceResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComplianceResultList"].type()) {
+        vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComplianceResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        complianceResultList = make_shared<vector<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult> complianceResult{};
+  shared_ptr<string> requestId{};
+
+  GetAggregateResourceComplianceGroupByRegionResponseBody() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResult) {
+      res["ComplianceResult"] = complianceResult ? boost::any(complianceResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResult") != m.end() && !m["ComplianceResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceResult"].type()) {
+        GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceResult"]));
+        complianceResult = make_shared<GetAggregateResourceComplianceGroupByRegionResponseBodyComplianceResult>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionResponseBody() = default;
+};
+class GetAggregateResourceComplianceGroupByRegionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetAggregateResourceComplianceGroupByRegionResponseBody> body{};
+
+  GetAggregateResourceComplianceGroupByRegionResponse() {}
+
+  explicit GetAggregateResourceComplianceGroupByRegionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAggregateResourceComplianceGroupByRegionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAggregateResourceComplianceGroupByRegionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByRegionResponse() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aggregatorId{};
+  shared_ptr<string> configRuleIds{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeRequest() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregatorId) {
+      res["AggregatorId"] = boost::any(*aggregatorId);
+    }
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
+      aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
+    }
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeRequest() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances : public Darabonba::Model {
+public:
+  shared_ptr<string> complianceType{};
+  shared_ptr<long> count{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances>> compliances{};
+  shared_ptr<string> resourceType{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliances) {
+      vector<boost::any> temp1;
+      for(auto item1:*compliances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Compliances"] = boost::any(temp1);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Compliances") != m.end() && !m["Compliances"].empty()) {
+      if (typeid(vector<boost::any>) == m["Compliances"].type()) {
+        vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Compliances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compliances = make_shared<vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances>>(expect1);
+      }
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList>> complianceResultList{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*complianceResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComplianceResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResultList") != m.end() && !m["ComplianceResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComplianceResultList"].type()) {
+        vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComplianceResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        complianceResultList = make_shared<vector<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult> complianceResult{};
+  shared_ptr<string> requestId{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeResponseBody() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResult) {
+      res["ComplianceResult"] = complianceResult ? boost::any(complianceResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResult") != m.end() && !m["ComplianceResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceResult"].type()) {
+        GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceResult"]));
+        complianceResult = make_shared<GetAggregateResourceComplianceGroupByResourceTypeResponseBodyComplianceResult>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeResponseBody() = default;
+};
+class GetAggregateResourceComplianceGroupByResourceTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetAggregateResourceComplianceGroupByResourceTypeResponseBody> body{};
+
+  GetAggregateResourceComplianceGroupByResourceTypeResponse() {}
+
+  explicit GetAggregateResourceComplianceGroupByResourceTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAggregateResourceComplianceGroupByResourceTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAggregateResourceComplianceGroupByResourceTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAggregateResourceComplianceGroupByResourceTypeResponse() = default;
 };
 class GetAggregateResourceComplianceTimelineRequest : public Darabonba::Model {
 public:
@@ -9374,6 +9965,7 @@ public:
   shared_ptr<string> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
   shared_ptr<GetConfigRuleResponseBodyConfigRuleSource> source{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -9443,6 +10035,9 @@ public:
     }
     if (source) {
       res["Source"] = source ? boost::any(source->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -9531,6 +10126,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Source"]));
         source = make_shared<GetConfigRuleResponseBodyConfigRuleSource>(model1);
       }
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -10008,10 +10606,40 @@ public:
 
   virtual ~GetConfigRuleSummaryByRiskLevelResponse() = default;
 };
+class GetConfigRulesReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> reportId{};
+
+  GetConfigRulesReportRequest() {}
+
+  explicit GetConfigRulesReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+  }
+
+
+  virtual ~GetConfigRulesReportRequest() = default;
+};
 class GetConfigRulesReportResponseBodyConfigRulesReport : public Darabonba::Model {
 public:
   shared_ptr<long> accountId{};
   shared_ptr<long> reportCreateTimestamp{};
+  shared_ptr<string> reportId{};
   shared_ptr<string> reportStatus{};
   shared_ptr<string> reportUrl{};
 
@@ -10031,6 +10659,9 @@ public:
     if (reportCreateTimestamp) {
       res["ReportCreateTimestamp"] = boost::any(*reportCreateTimestamp);
     }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
     if (reportStatus) {
       res["ReportStatus"] = boost::any(*reportStatus);
     }
@@ -10046,6 +10677,9 @@ public:
     }
     if (m.find("ReportCreateTimestamp") != m.end() && !m["ReportCreateTimestamp"].empty()) {
       reportCreateTimestamp = make_shared<long>(boost::any_cast<long>(m["ReportCreateTimestamp"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
     }
     if (m.find("ReportStatus") != m.end() && !m["ReportStatus"].empty()) {
       reportStatus = make_shared<string>(boost::any_cast<string>(m["ReportStatus"]));
@@ -10484,6 +11118,330 @@ public:
 
   virtual ~GetDiscoveredResourceCountsGroupByResourceTypeResponse() = default;
 };
+class GetManagedRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifier{};
+
+  GetManagedRuleRequest() {}
+
+  explicit GetManagedRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+  }
+
+
+  virtual ~GetManagedRuleRequest() = default;
+};
+class GetManagedRuleResponseBodyManagedRuleScope : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> complianceResourceTypes{};
+
+  GetManagedRuleResponseBodyManagedRuleScope() {}
+
+  explicit GetManagedRuleResponseBodyManagedRuleScope(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResourceTypes) {
+      res["ComplianceResourceTypes"] = boost::any(*complianceResourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResourceTypes") != m.end() && !m["ComplianceResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ComplianceResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ComplianceResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      complianceResourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetManagedRuleResponseBodyManagedRuleScope() = default;
+};
+class GetManagedRuleResponseBodyManagedRuleSourceDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> maximumExecutionFrequency{};
+  shared_ptr<string> messageType{};
+
+  GetManagedRuleResponseBodyManagedRuleSourceDetails() {}
+
+  explicit GetManagedRuleResponseBodyManagedRuleSourceDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maximumExecutionFrequency) {
+      res["MaximumExecutionFrequency"] = boost::any(*maximumExecutionFrequency);
+    }
+    if (messageType) {
+      res["MessageType"] = boost::any(*messageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaximumExecutionFrequency") != m.end() && !m["MaximumExecutionFrequency"].empty()) {
+      maximumExecutionFrequency = make_shared<string>(boost::any_cast<string>(m["MaximumExecutionFrequency"]));
+    }
+    if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
+      messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
+    }
+  }
+
+
+  virtual ~GetManagedRuleResponseBodyManagedRuleSourceDetails() = default;
+};
+class GetManagedRuleResponseBodyManagedRule : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> compulsoryInputParameterDetails{};
+  shared_ptr<string> configRuleName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> helpUrls{};
+  shared_ptr<string> identifier{};
+  shared_ptr<vector<string>> labels{};
+  shared_ptr<vector<string>> optionalInputParameterDetails{};
+  shared_ptr<long> riskLevel{};
+  shared_ptr<GetManagedRuleResponseBodyManagedRuleScope> scope{};
+  shared_ptr<vector<GetManagedRuleResponseBodyManagedRuleSourceDetails>> sourceDetails{};
+
+  GetManagedRuleResponseBodyManagedRule() {}
+
+  explicit GetManagedRuleResponseBodyManagedRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compulsoryInputParameterDetails) {
+      res["CompulsoryInputParameterDetails"] = boost::any(*compulsoryInputParameterDetails);
+    }
+    if (configRuleName) {
+      res["ConfigRuleName"] = boost::any(*configRuleName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (helpUrls) {
+      res["HelpUrls"] = boost::any(*helpUrls);
+    }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    if (optionalInputParameterDetails) {
+      res["OptionalInputParameterDetails"] = boost::any(*optionalInputParameterDetails);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (scope) {
+      res["Scope"] = scope ? boost::any(scope->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompulsoryInputParameterDetails") != m.end() && !m["CompulsoryInputParameterDetails"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CompulsoryInputParameterDetails"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CompulsoryInputParameterDetails"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      compulsoryInputParameterDetails = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ConfigRuleName") != m.end() && !m["ConfigRuleName"].empty()) {
+      configRuleName = make_shared<string>(boost::any_cast<string>(m["ConfigRuleName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HelpUrls") != m.end() && !m["HelpUrls"].empty()) {
+      helpUrls = make_shared<string>(boost::any_cast<string>(m["HelpUrls"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Labels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OptionalInputParameterDetails") != m.end() && !m["OptionalInputParameterDetails"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OptionalInputParameterDetails"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptionalInputParameterDetails"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      optionalInputParameterDetails = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Scope"].type()) {
+        GetManagedRuleResponseBodyManagedRuleScope model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Scope"]));
+        scope = make_shared<GetManagedRuleResponseBodyManagedRuleScope>(model1);
+      }
+    }
+    if (m.find("SourceDetails") != m.end() && !m["SourceDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceDetails"].type()) {
+        vector<GetManagedRuleResponseBodyManagedRuleSourceDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetManagedRuleResponseBodyManagedRuleSourceDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceDetails = make_shared<vector<GetManagedRuleResponseBodyManagedRuleSourceDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetManagedRuleResponseBodyManagedRule() = default;
+};
+class GetManagedRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetManagedRuleResponseBodyManagedRule> managedRule{};
+  shared_ptr<string> requestId{};
+
+  GetManagedRuleResponseBody() {}
+
+  explicit GetManagedRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managedRule) {
+      res["ManagedRule"] = managedRule ? boost::any(managedRule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagedRule") != m.end() && !m["ManagedRule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ManagedRule"].type()) {
+        GetManagedRuleResponseBodyManagedRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ManagedRule"]));
+        managedRule = make_shared<GetManagedRuleResponseBodyManagedRule>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetManagedRuleResponseBody() = default;
+};
+class GetManagedRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetManagedRuleResponseBody> body{};
+
+  GetManagedRuleResponse() {}
+
+  explicit GetManagedRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetManagedRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetManagedRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetManagedRuleResponse() = default;
+};
 class GetResourceComplianceByConfigRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> complianceType{};
@@ -10861,6 +11819,506 @@ public:
 
 
   virtual ~GetResourceComplianceByPackResponse() = default;
+};
+class GetResourceComplianceGroupByRegionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configRuleIds{};
+
+  GetResourceComplianceGroupByRegionRequest() {}
+
+  explicit GetResourceComplianceGroupByRegionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionRequest() = default;
+};
+class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances : public Darabonba::Model {
+public:
+  shared_ptr<string> complianceType{};
+  shared_ptr<long> count{};
+
+  GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances() {}
+
+  explicit GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances() = default;
+};
+class GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances>> compliances{};
+  shared_ptr<string> regionId{};
+
+  GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList() {}
+
+  explicit GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliances) {
+      vector<boost::any> temp1;
+      for(auto item1:*compliances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Compliances"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Compliances") != m.end() && !m["Compliances"].empty()) {
+      if (typeid(vector<boost::any>) == m["Compliances"].type()) {
+        vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Compliances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compliances = make_shared<vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultListCompliances>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList() = default;
+};
+class GetResourceComplianceGroupByRegionResponseBodyComplianceResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList>> complianceResultList{};
+
+  GetResourceComplianceGroupByRegionResponseBodyComplianceResult() {}
+
+  explicit GetResourceComplianceGroupByRegionResponseBodyComplianceResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*complianceResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComplianceResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResultList") != m.end() && !m["ComplianceResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComplianceResultList"].type()) {
+        vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComplianceResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        complianceResultList = make_shared<vector<GetResourceComplianceGroupByRegionResponseBodyComplianceResultComplianceResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionResponseBodyComplianceResult() = default;
+};
+class GetResourceComplianceGroupByRegionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetResourceComplianceGroupByRegionResponseBodyComplianceResult> complianceResult{};
+  shared_ptr<string> requestId{};
+
+  GetResourceComplianceGroupByRegionResponseBody() {}
+
+  explicit GetResourceComplianceGroupByRegionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResult) {
+      res["ComplianceResult"] = complianceResult ? boost::any(complianceResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResult") != m.end() && !m["ComplianceResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceResult"].type()) {
+        GetResourceComplianceGroupByRegionResponseBodyComplianceResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceResult"]));
+        complianceResult = make_shared<GetResourceComplianceGroupByRegionResponseBodyComplianceResult>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionResponseBody() = default;
+};
+class GetResourceComplianceGroupByRegionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetResourceComplianceGroupByRegionResponseBody> body{};
+
+  GetResourceComplianceGroupByRegionResponse() {}
+
+  explicit GetResourceComplianceGroupByRegionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetResourceComplianceGroupByRegionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetResourceComplianceGroupByRegionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByRegionResponse() = default;
+};
+class GetResourceComplianceGroupByResourceTypeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configRuleIds{};
+
+  GetResourceComplianceGroupByResourceTypeRequest() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configRuleIds) {
+      res["ConfigRuleIds"] = boost::any(*configRuleIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigRuleIds") != m.end() && !m["ConfigRuleIds"].empty()) {
+      configRuleIds = make_shared<string>(boost::any_cast<string>(m["ConfigRuleIds"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeRequest() = default;
+};
+class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances : public Darabonba::Model {
+public:
+  shared_ptr<string> complianceType{};
+  shared_ptr<long> count{};
+
+  GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceType) {
+      res["ComplianceType"] = boost::any(*complianceType);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
+      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances() = default;
+};
+class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances>> compliances{};
+  shared_ptr<string> resourceType{};
+
+  GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (compliances) {
+      vector<boost::any> temp1;
+      for(auto item1:*compliances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Compliances"] = boost::any(temp1);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Compliances") != m.end() && !m["Compliances"].empty()) {
+      if (typeid(vector<boost::any>) == m["Compliances"].type()) {
+        vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Compliances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        compliances = make_shared<vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultListCompliances>>(expect1);
+      }
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList() = default;
+};
+class GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList>> complianceResultList{};
+
+  GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*complianceResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ComplianceResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResultList") != m.end() && !m["ComplianceResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ComplianceResultList"].type()) {
+        vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ComplianceResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        complianceResultList = make_shared<vector<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResultComplianceResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult() = default;
+};
+class GetResourceComplianceGroupByResourceTypeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult> complianceResult{};
+  shared_ptr<string> requestId{};
+
+  GetResourceComplianceGroupByResourceTypeResponseBody() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complianceResult) {
+      res["ComplianceResult"] = complianceResult ? boost::any(complianceResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComplianceResult") != m.end() && !m["ComplianceResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ComplianceResult"].type()) {
+        GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ComplianceResult"]));
+        complianceResult = make_shared<GetResourceComplianceGroupByResourceTypeResponseBodyComplianceResult>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeResponseBody() = default;
+};
+class GetResourceComplianceGroupByResourceTypeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetResourceComplianceGroupByResourceTypeResponseBody> body{};
+
+  GetResourceComplianceGroupByResourceTypeResponse() {}
+
+  explicit GetResourceComplianceGroupByResourceTypeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetResourceComplianceGroupByResourceTypeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetResourceComplianceGroupByResourceTypeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourceComplianceGroupByResourceTypeResponse() = default;
 };
 class GetResourceComplianceTimelineRequest : public Darabonba::Model {
 public:
@@ -14906,6 +16364,293 @@ public:
 
   virtual ~ListConfigRuleEvaluationResultsResponse() = default;
 };
+class ListManagedRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyword{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> riskLevel{};
+
+  ListManagedRulesRequest() {}
+
+  explicit ListManagedRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~ListManagedRulesRequest() = default;
+};
+class ListManagedRulesResponseBodyManagedRulesManagedRuleList : public Darabonba::Model {
+public:
+  shared_ptr<string> configRuleName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> helpUrls{};
+  shared_ptr<string> identifier{};
+  shared_ptr<vector<string>> labels{};
+  shared_ptr<long> riskLevel{};
+
+  ListManagedRulesResponseBodyManagedRulesManagedRuleList() {}
+
+  explicit ListManagedRulesResponseBodyManagedRulesManagedRuleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configRuleName) {
+      res["ConfigRuleName"] = boost::any(*configRuleName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (helpUrls) {
+      res["HelpUrls"] = boost::any(*helpUrls);
+    }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigRuleName") != m.end() && !m["ConfigRuleName"].empty()) {
+      configRuleName = make_shared<string>(boost::any_cast<string>(m["ConfigRuleName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("HelpUrls") != m.end() && !m["HelpUrls"].empty()) {
+      helpUrls = make_shared<string>(boost::any_cast<string>(m["HelpUrls"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Labels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+  }
+
+
+  virtual ~ListManagedRulesResponseBodyManagedRulesManagedRuleList() = default;
+};
+class ListManagedRulesResponseBodyManagedRules : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListManagedRulesResponseBodyManagedRulesManagedRuleList>> managedRuleList{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListManagedRulesResponseBodyManagedRules() {}
+
+  explicit ListManagedRulesResponseBodyManagedRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managedRuleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedRuleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedRuleList"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagedRuleList") != m.end() && !m["ManagedRuleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedRuleList"].type()) {
+        vector<ListManagedRulesResponseBodyManagedRulesManagedRuleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedRuleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListManagedRulesResponseBodyManagedRulesManagedRuleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedRuleList = make_shared<vector<ListManagedRulesResponseBodyManagedRulesManagedRuleList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListManagedRulesResponseBodyManagedRules() = default;
+};
+class ListManagedRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListManagedRulesResponseBodyManagedRules>> managedRules{};
+  shared_ptr<string> requestId{};
+
+  ListManagedRulesResponseBody() {}
+
+  explicit ListManagedRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managedRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedRules"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagedRules") != m.end() && !m["ManagedRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedRules"].type()) {
+        vector<ListManagedRulesResponseBodyManagedRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListManagedRulesResponseBodyManagedRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedRules = make_shared<vector<ListManagedRulesResponseBodyManagedRules>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListManagedRulesResponseBody() = default;
+};
+class ListManagedRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListManagedRulesResponseBody> body{};
+
+  ListManagedRulesResponse() {}
+
+  explicit ListManagedRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListManagedRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListManagedRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListManagedRulesResponse() = default;
+};
 class ListResourceEvaluationResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> complianceType{};
@@ -16271,6 +18016,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -16322,6 +18068,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -16384,6 +18133,9 @@ public:
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
     }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
@@ -16410,6 +18162,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -16462,6 +18215,9 @@ public:
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
     }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
@@ -16510,6 +18266,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -17227,6 +18986,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<vector<string>> resourceTypesScope{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -17275,6 +19035,9 @@ public:
     }
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
     }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
@@ -17334,6 +19097,9 @@ public:
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
     }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
+    }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
     }
@@ -17359,6 +19125,7 @@ public:
   shared_ptr<string> resourceGroupIdsScope{};
   shared_ptr<string> resourceTypesScopeShrink{};
   shared_ptr<long> riskLevel{};
+  shared_ptr<string> tagKeyLogicScope{};
   shared_ptr<string> tagKeyScope{};
   shared_ptr<string> tagValueScope{};
 
@@ -17408,6 +19175,9 @@ public:
     if (riskLevel) {
       res["RiskLevel"] = boost::any(*riskLevel);
     }
+    if (tagKeyLogicScope) {
+      res["TagKeyLogicScope"] = boost::any(*tagKeyLogicScope);
+    }
     if (tagKeyScope) {
       res["TagKeyScope"] = boost::any(*tagKeyScope);
     }
@@ -17453,6 +19223,9 @@ public:
     }
     if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
       riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("TagKeyLogicScope") != m.end() && !m["TagKeyLogicScope"].empty()) {
+      tagKeyLogicScope = make_shared<string>(boost::any_cast<string>(m["TagKeyLogicScope"]));
     }
     if (m.find("TagKeyScope") != m.end() && !m["TagKeyScope"].empty()) {
       tagKeyScope = make_shared<string>(boost::any_cast<string>(m["TagKeyScope"]));
@@ -17621,6 +19394,10 @@ public:
   GetAggregateResourceComplianceByConfigRuleResponse getAggregateResourceComplianceByConfigRule(shared_ptr<GetAggregateResourceComplianceByConfigRuleRequest> request);
   GetAggregateResourceComplianceByPackResponse getAggregateResourceComplianceByPackWithOptions(shared_ptr<GetAggregateResourceComplianceByPackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateResourceComplianceByPackResponse getAggregateResourceComplianceByPack(shared_ptr<GetAggregateResourceComplianceByPackRequest> request);
+  GetAggregateResourceComplianceGroupByRegionResponse getAggregateResourceComplianceGroupByRegionWithOptions(shared_ptr<GetAggregateResourceComplianceGroupByRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAggregateResourceComplianceGroupByRegionResponse getAggregateResourceComplianceGroupByRegion(shared_ptr<GetAggregateResourceComplianceGroupByRegionRequest> request);
+  GetAggregateResourceComplianceGroupByResourceTypeResponse getAggregateResourceComplianceGroupByResourceTypeWithOptions(shared_ptr<GetAggregateResourceComplianceGroupByResourceTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAggregateResourceComplianceGroupByResourceTypeResponse getAggregateResourceComplianceGroupByResourceType(shared_ptr<GetAggregateResourceComplianceGroupByResourceTypeRequest> request);
   GetAggregateResourceComplianceTimelineResponse getAggregateResourceComplianceTimelineWithOptions(shared_ptr<GetAggregateResourceComplianceTimelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAggregateResourceComplianceTimelineResponse getAggregateResourceComplianceTimeline(shared_ptr<GetAggregateResourceComplianceTimelineRequest> request);
   GetAggregateResourceConfigurationTimelineResponse getAggregateResourceConfigurationTimelineWithOptions(shared_ptr<GetAggregateResourceConfigurationTimelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17641,16 +19418,22 @@ public:
   GetConfigRuleComplianceByPackResponse getConfigRuleComplianceByPack(shared_ptr<GetConfigRuleComplianceByPackRequest> request);
   GetConfigRuleSummaryByRiskLevelResponse getConfigRuleSummaryByRiskLevelWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConfigRuleSummaryByRiskLevelResponse getConfigRuleSummaryByRiskLevel();
-  GetConfigRulesReportResponse getConfigRulesReportWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetConfigRulesReportResponse getConfigRulesReport();
+  GetConfigRulesReportResponse getConfigRulesReportWithOptions(shared_ptr<GetConfigRulesReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetConfigRulesReportResponse getConfigRulesReport(shared_ptr<GetConfigRulesReportRequest> request);
   GetDiscoveredResourceCountsGroupByRegionResponse getDiscoveredResourceCountsGroupByRegionWithOptions(shared_ptr<GetDiscoveredResourceCountsGroupByRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDiscoveredResourceCountsGroupByRegionResponse getDiscoveredResourceCountsGroupByRegion(shared_ptr<GetDiscoveredResourceCountsGroupByRegionRequest> request);
   GetDiscoveredResourceCountsGroupByResourceTypeResponse getDiscoveredResourceCountsGroupByResourceTypeWithOptions(shared_ptr<GetDiscoveredResourceCountsGroupByResourceTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDiscoveredResourceCountsGroupByResourceTypeResponse getDiscoveredResourceCountsGroupByResourceType(shared_ptr<GetDiscoveredResourceCountsGroupByResourceTypeRequest> request);
+  GetManagedRuleResponse getManagedRuleWithOptions(shared_ptr<GetManagedRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetManagedRuleResponse getManagedRule(shared_ptr<GetManagedRuleRequest> request);
   GetResourceComplianceByConfigRuleResponse getResourceComplianceByConfigRuleWithOptions(shared_ptr<GetResourceComplianceByConfigRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceComplianceByConfigRuleResponse getResourceComplianceByConfigRule(shared_ptr<GetResourceComplianceByConfigRuleRequest> request);
   GetResourceComplianceByPackResponse getResourceComplianceByPackWithOptions(shared_ptr<GetResourceComplianceByPackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceComplianceByPackResponse getResourceComplianceByPack(shared_ptr<GetResourceComplianceByPackRequest> request);
+  GetResourceComplianceGroupByRegionResponse getResourceComplianceGroupByRegionWithOptions(shared_ptr<GetResourceComplianceGroupByRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetResourceComplianceGroupByRegionResponse getResourceComplianceGroupByRegion(shared_ptr<GetResourceComplianceGroupByRegionRequest> request);
+  GetResourceComplianceGroupByResourceTypeResponse getResourceComplianceGroupByResourceTypeWithOptions(shared_ptr<GetResourceComplianceGroupByResourceTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetResourceComplianceGroupByResourceTypeResponse getResourceComplianceGroupByResourceType(shared_ptr<GetResourceComplianceGroupByResourceTypeRequest> request);
   GetResourceComplianceTimelineResponse getResourceComplianceTimelineWithOptions(shared_ptr<GetResourceComplianceTimelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceComplianceTimelineResponse getResourceComplianceTimeline(shared_ptr<GetResourceComplianceTimelineRequest> request);
   GetResourceConfigurationTimelineResponse getResourceConfigurationTimelineWithOptions(shared_ptr<GetResourceConfigurationTimelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17675,6 +19458,8 @@ public:
   ListCompliancePacksResponse listCompliancePacks(shared_ptr<ListCompliancePacksRequest> request);
   ListConfigRuleEvaluationResultsResponse listConfigRuleEvaluationResultsWithOptions(shared_ptr<ListConfigRuleEvaluationResultsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConfigRuleEvaluationResultsResponse listConfigRuleEvaluationResults(shared_ptr<ListConfigRuleEvaluationResultsRequest> request);
+  ListManagedRulesResponse listManagedRulesWithOptions(shared_ptr<ListManagedRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListManagedRulesResponse listManagedRules(shared_ptr<ListManagedRulesRequest> request);
   ListResourceEvaluationResultsResponse listResourceEvaluationResultsWithOptions(shared_ptr<ListResourceEvaluationResultsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListResourceEvaluationResultsResponse listResourceEvaluationResults(shared_ptr<ListResourceEvaluationResultsRequest> request);
   RevertAggregateEvaluationResultsResponse revertAggregateEvaluationResultsWithOptions(shared_ptr<RevertAggregateEvaluationResultsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
