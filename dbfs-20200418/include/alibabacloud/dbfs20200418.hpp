@@ -2759,6 +2759,8 @@ public:
 };
 class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceTypeFamily{};
+  shared_ptr<string> OSName{};
   shared_ptr<string> label{};
   shared_ptr<string> value{};
 
@@ -2772,6 +2774,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceTypeFamily) {
+      res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
+    }
+    if (OSName) {
+      res["OSName"] = boost::any(*OSName);
+    }
     if (label) {
       res["label"] = boost::any(*label);
     }
@@ -2782,6 +2790,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
+      instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
+    }
+    if (m.find("OSName") != m.end() && !m["OSName"].empty()) {
+      OSName = make_shared<string>(boost::any_cast<string>(m["OSName"]));
+    }
     if (m.find("label") != m.end() && !m["label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["label"]));
     }
@@ -2933,8 +2947,10 @@ public:
 };
 class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceTypeFamily{};
   shared_ptr<string> mountPoint{};
   shared_ptr<string> mountedTime{};
+  shared_ptr<string> OSName{};
   shared_ptr<string> label{};
   shared_ptr<string> value{};
 
@@ -2948,11 +2964,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceTypeFamily) {
+      res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
+    }
     if (mountPoint) {
       res["MountPoint"] = boost::any(*mountPoint);
     }
     if (mountedTime) {
       res["MountedTime"] = boost::any(*mountedTime);
+    }
+    if (OSName) {
+      res["OSName"] = boost::any(*OSName);
     }
     if (label) {
       res["label"] = boost::any(*label);
@@ -2964,11 +2986,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
+      instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
+    }
     if (m.find("MountPoint") != m.end() && !m["MountPoint"].empty()) {
       mountPoint = make_shared<string>(boost::any_cast<string>(m["MountPoint"]));
     }
     if (m.find("MountedTime") != m.end() && !m["MountedTime"].empty()) {
       mountedTime = make_shared<string>(boost::any_cast<string>(m["MountedTime"]));
+    }
+    if (m.find("OSName") != m.end() && !m["OSName"].empty()) {
+      OSName = make_shared<string>(boost::any_cast<string>(m["OSName"]));
     }
     if (m.find("label") != m.end() && !m["label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["label"]));
