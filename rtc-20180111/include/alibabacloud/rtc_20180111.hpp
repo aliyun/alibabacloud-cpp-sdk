@@ -706,6 +706,7 @@ public:
   shared_ptr<string> channelId{};
   shared_ptr<string> clientToken{};
   shared_ptr<vector<string>> events{};
+  shared_ptr<bool> needCallbackAuth{};
   shared_ptr<long> ownerId{};
   shared_ptr<vector<string>> users{};
 
@@ -733,6 +734,9 @@ public:
     }
     if (events) {
       res["Events"] = boost::any(*events);
+    }
+    if (needCallbackAuth) {
+      res["NeedCallbackAuth"] = boost::any(*needCallbackAuth);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -765,6 +769,9 @@ public:
         }
       }
       events = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NeedCallbackAuth") != m.end() && !m["NeedCallbackAuth"].empty()) {
+      needCallbackAuth = make_shared<bool>(boost::any_cast<bool>(m["NeedCallbackAuth"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
