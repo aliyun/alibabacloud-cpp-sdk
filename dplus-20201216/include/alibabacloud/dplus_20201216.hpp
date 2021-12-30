@@ -245,6 +245,177 @@ public:
 
   virtual ~AePropRecResponse() = default;
 };
+class AlivisionImgdupRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> imageHeight{};
+  shared_ptr<long> imageWidth{};
+  shared_ptr<long> outputImageNum{};
+  shared_ptr<long> picNum{};
+  shared_ptr<string> picUrl{};
+
+  AlivisionImgdupRequest() {}
+
+  explicit AlivisionImgdupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageHeight) {
+      res["ImageHeight"] = boost::any(*imageHeight);
+    }
+    if (imageWidth) {
+      res["ImageWidth"] = boost::any(*imageWidth);
+    }
+    if (outputImageNum) {
+      res["OutputImageNum"] = boost::any(*outputImageNum);
+    }
+    if (picNum) {
+      res["PicNum"] = boost::any(*picNum);
+    }
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageHeight") != m.end() && !m["ImageHeight"].empty()) {
+      imageHeight = make_shared<long>(boost::any_cast<long>(m["ImageHeight"]));
+    }
+    if (m.find("ImageWidth") != m.end() && !m["ImageWidth"].empty()) {
+      imageWidth = make_shared<long>(boost::any_cast<long>(m["ImageWidth"]));
+    }
+    if (m.find("OutputImageNum") != m.end() && !m["OutputImageNum"].empty()) {
+      outputImageNum = make_shared<long>(boost::any_cast<long>(m["OutputImageNum"]));
+    }
+    if (m.find("PicNum") != m.end() && !m["PicNum"].empty()) {
+      picNum = make_shared<long>(boost::any_cast<long>(m["PicNum"]));
+    }
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+  }
+
+
+  virtual ~AlivisionImgdupRequest() = default;
+};
+class AlivisionImgdupAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+  shared_ptr<long> imageHeight{};
+  shared_ptr<long> imageWidth{};
+  shared_ptr<long> outputImageNum{};
+  shared_ptr<long> picNum{};
+
+  AlivisionImgdupAdvanceRequest() {}
+
+  explicit AlivisionImgdupAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    if (imageHeight) {
+      res["ImageHeight"] = boost::any(*imageHeight);
+    }
+    if (imageWidth) {
+      res["ImageWidth"] = boost::any(*imageWidth);
+    }
+    if (outputImageNum) {
+      res["OutputImageNum"] = boost::any(*outputImageNum);
+    }
+    if (picNum) {
+      res["PicNum"] = boost::any(*picNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+    if (m.find("ImageHeight") != m.end() && !m["ImageHeight"].empty()) {
+      imageHeight = make_shared<long>(boost::any_cast<long>(m["ImageHeight"]));
+    }
+    if (m.find("ImageWidth") != m.end() && !m["ImageWidth"].empty()) {
+      imageWidth = make_shared<long>(boost::any_cast<long>(m["ImageWidth"]));
+    }
+    if (m.find("OutputImageNum") != m.end() && !m["OutputImageNum"].empty()) {
+      outputImageNum = make_shared<long>(boost::any_cast<long>(m["OutputImageNum"]));
+    }
+    if (m.find("PicNum") != m.end() && !m["PicNum"].empty()) {
+      picNum = make_shared<long>(boost::any_cast<long>(m["PicNum"]));
+    }
+  }
+
+
+  virtual ~AlivisionImgdupAdvanceRequest() = default;
+};
+class AlivisionImgdupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  AlivisionImgdupResponse() {}
+
+  explicit AlivisionImgdupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~AlivisionImgdupResponse() = default;
+};
 class CreateImageAmazonTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> gif{};
@@ -467,6 +638,163 @@ public:
 
 
   virtual ~CreateImageAmazonTaskResponse() = default;
+};
+class FaceshifterTRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> age{};
+  shared_ptr<long> gender{};
+  shared_ptr<string> picUrl{};
+  shared_ptr<long> race{};
+
+  FaceshifterTRequest() {}
+
+  explicit FaceshifterTRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    if (race) {
+      res["Race"] = boost::any(*race);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["Gender"]));
+    }
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+    if (m.find("Race") != m.end() && !m["Race"].empty()) {
+      race = make_shared<long>(boost::any_cast<long>(m["Race"]));
+    }
+  }
+
+
+  virtual ~FaceshifterTRequest() = default;
+};
+class FaceshifterTAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+  shared_ptr<long> age{};
+  shared_ptr<long> gender{};
+  shared_ptr<long> race{};
+
+  FaceshifterTAdvanceRequest() {}
+
+  explicit FaceshifterTAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    if (race) {
+      res["Race"] = boost::any(*race);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["Gender"]));
+    }
+    if (m.find("Race") != m.end() && !m["Race"].empty()) {
+      race = make_shared<long>(boost::any_cast<long>(m["Race"]));
+    }
+  }
+
+
+  virtual ~FaceshifterTAdvanceRequest() = default;
+};
+class FaceshifterTResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  FaceshifterTResponse() {}
+
+  explicit FaceshifterTResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~FaceshifterTResponse() = default;
 };
 class GetTaskResultRequest : public Darabonba::Model {
 public:
@@ -845,6 +1173,149 @@ public:
 
   virtual ~GetTaskStatusResponse() = default;
 };
+class KuajingSegRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> picUrl{};
+  shared_ptr<string> returnPicFormat{};
+  shared_ptr<string> returnPicType{};
+
+  KuajingSegRequest() {}
+
+  explicit KuajingSegRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    if (returnPicFormat) {
+      res["ReturnPicFormat"] = boost::any(*returnPicFormat);
+    }
+    if (returnPicType) {
+      res["ReturnPicType"] = boost::any(*returnPicType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+    if (m.find("ReturnPicFormat") != m.end() && !m["ReturnPicFormat"].empty()) {
+      returnPicFormat = make_shared<string>(boost::any_cast<string>(m["ReturnPicFormat"]));
+    }
+    if (m.find("ReturnPicType") != m.end() && !m["ReturnPicType"].empty()) {
+      returnPicType = make_shared<string>(boost::any_cast<string>(m["ReturnPicType"]));
+    }
+  }
+
+
+  virtual ~KuajingSegRequest() = default;
+};
+class KuajingSegAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+  shared_ptr<string> returnPicFormat{};
+  shared_ptr<string> returnPicType{};
+
+  KuajingSegAdvanceRequest() {}
+
+  explicit KuajingSegAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    if (returnPicFormat) {
+      res["ReturnPicFormat"] = boost::any(*returnPicFormat);
+    }
+    if (returnPicType) {
+      res["ReturnPicType"] = boost::any(*returnPicType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+    if (m.find("ReturnPicFormat") != m.end() && !m["ReturnPicFormat"].empty()) {
+      returnPicFormat = make_shared<string>(boost::any_cast<string>(m["ReturnPicFormat"]));
+    }
+    if (m.find("ReturnPicType") != m.end() && !m["ReturnPicType"].empty()) {
+      returnPicType = make_shared<string>(boost::any_cast<string>(m["ReturnPicType"]));
+    }
+  }
+
+
+  virtual ~KuajingSegAdvanceRequest() = default;
+};
+class KuajingSegResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  KuajingSegResponse() {}
+
+  explicit KuajingSegResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~KuajingSegResponse() = default;
+};
 class RemoveWordsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> picUrl{};
@@ -1133,12 +1604,21 @@ public:
   AePropRecResponse aePropRecWithOptions(shared_ptr<AePropRecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AePropRecResponse aePropRec(shared_ptr<AePropRecRequest> request);
   AePropRecResponse aePropRecAdvance(shared_ptr<AePropRecAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AlivisionImgdupResponse alivisionImgdupWithOptions(shared_ptr<AlivisionImgdupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AlivisionImgdupResponse alivisionImgdup(shared_ptr<AlivisionImgdupRequest> request);
+  AlivisionImgdupResponse alivisionImgdupAdvance(shared_ptr<AlivisionImgdupAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageAmazonTaskResponse createImageAmazonTaskWithOptions(shared_ptr<CreateImageAmazonTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageAmazonTaskResponse createImageAmazonTask(shared_ptr<CreateImageAmazonTaskRequest> request);
+  FaceshifterTResponse faceshifterTWithOptions(shared_ptr<FaceshifterTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FaceshifterTResponse faceshifterT(shared_ptr<FaceshifterTRequest> request);
+  FaceshifterTResponse faceshifterTAdvance(shared_ptr<FaceshifterTAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskResultResponse getTaskResultWithOptions(shared_ptr<GetTaskResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskResultResponse getTaskResult(shared_ptr<GetTaskResultRequest> request);
   GetTaskStatusResponse getTaskStatusWithOptions(shared_ptr<GetTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskStatusResponse getTaskStatus(shared_ptr<GetTaskStatusRequest> request);
+  KuajingSegResponse kuajingSegWithOptions(shared_ptr<KuajingSegRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  KuajingSegResponse kuajingSeg(shared_ptr<KuajingSegRequest> request);
+  KuajingSegResponse kuajingSegAdvance(shared_ptr<KuajingSegAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWordsResponse removeWordsWithOptions(shared_ptr<RemoveWordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWordsResponse removeWords(shared_ptr<RemoveWordsRequest> request);
   RemoveWordsResponse removeWordsAdvance(shared_ptr<RemoveWordsAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
