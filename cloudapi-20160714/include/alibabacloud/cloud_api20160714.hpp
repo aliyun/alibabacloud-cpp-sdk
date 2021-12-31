@@ -21583,13 +21583,13 @@ public:
 class DescribePluginsResponseBodyPluginsPluginAttribute : public Darabonba::Model {
 public:
   shared_ptr<string> createdTime{};
-  shared_ptr<long> description{};
+  shared_ptr<string> description{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> pluginData{};
   shared_ptr<string> pluginId{};
   shared_ptr<string> pluginName{};
   shared_ptr<string> pluginType{};
-  shared_ptr<long> regionId{};
+  shared_ptr<string> regionId{};
   shared_ptr<DescribePluginsResponseBodyPluginsPluginAttributeTags> tags{};
 
   DescribePluginsResponseBodyPluginsPluginAttribute() {}
@@ -21637,7 +21637,7 @@ public:
       createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<long>(boost::any_cast<long>(m["Description"]));
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
@@ -21655,7 +21655,7 @@ public:
       pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<long>(boost::any_cast<long>(m["RegionId"]));
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
@@ -24886,11 +24886,14 @@ public:
 };
 class DescribeVpcAccessesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> port{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> vpcAccessId{};
+  shared_ptr<string> vpcId{};
 
   DescribeVpcAccessesRequest() {}
 
@@ -24902,6 +24905,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -24911,16 +24917,25 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
     if (vpcAccessId) {
       res["VpcAccessId"] = boost::any(*vpcAccessId);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -24930,11 +24945,17 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("VpcAccessId") != m.end() && !m["VpcAccessId"].empty()) {
       vpcAccessId = make_shared<string>(boost::any_cast<string>(m["VpcAccessId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
