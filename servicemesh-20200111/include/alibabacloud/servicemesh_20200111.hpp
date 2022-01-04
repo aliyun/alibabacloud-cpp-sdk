@@ -693,7 +693,6 @@ public:
   shared_ptr<string> OPARequestMemory{};
   shared_ptr<bool> opaEnabled{};
   shared_ptr<bool> openAgentPolicy{};
-  shared_ptr<bool> pilotPublicEip{};
   shared_ptr<string> prometheusUrl{};
   shared_ptr<string> proxyLimitCPU{};
   shared_ptr<string> proxyLimitMemory{};
@@ -844,9 +843,6 @@ public:
     }
     if (openAgentPolicy) {
       res["OpenAgentPolicy"] = boost::any(*openAgentPolicy);
-    }
-    if (pilotPublicEip) {
-      res["PilotPublicEip"] = boost::any(*pilotPublicEip);
     }
     if (prometheusUrl) {
       res["PrometheusUrl"] = boost::any(*prometheusUrl);
@@ -1019,9 +1015,6 @@ public:
     }
     if (m.find("OpenAgentPolicy") != m.end() && !m["OpenAgentPolicy"].empty()) {
       openAgentPolicy = make_shared<bool>(boost::any_cast<bool>(m["OpenAgentPolicy"]));
-    }
-    if (m.find("PilotPublicEip") != m.end() && !m["PilotPublicEip"].empty()) {
-      pilotPublicEip = make_shared<bool>(boost::any_cast<bool>(m["PilotPublicEip"]));
     }
     if (m.find("PrometheusUrl") != m.end() && !m["PrometheusUrl"].empty()) {
       prometheusUrl = make_shared<string>(boost::any_cast<string>(m["PrometheusUrl"]));
@@ -8702,6 +8695,151 @@ public:
 
   virtual ~DescribeVSwitchesResponse() = default;
 };
+class DescribeVersionsResponseBodyVersionInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> edition{};
+  shared_ptr<vector<string>> versions{};
+
+  DescribeVersionsResponseBodyVersionInfo() {}
+
+  explicit DescribeVersionsResponseBodyVersionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (edition) {
+      res["Edition"] = boost::any(*edition);
+    }
+    if (versions) {
+      res["Versions"] = boost::any(*versions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
+      edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
+    }
+    if (m.find("Versions") != m.end() && !m["Versions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Versions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Versions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      versions = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeVersionsResponseBodyVersionInfo() = default;
+};
+class DescribeVersionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeVersionsResponseBodyVersionInfo>> versionInfo{};
+
+  DescribeVersionsResponseBody() {}
+
+  explicit DescribeVersionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (versionInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*versionInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VersionInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("VersionInfo") != m.end() && !m["VersionInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["VersionInfo"].type()) {
+        vector<DescribeVersionsResponseBodyVersionInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VersionInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVersionsResponseBodyVersionInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        versionInfo = make_shared<vector<DescribeVersionsResponseBodyVersionInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVersionsResponseBody() = default;
+};
+class DescribeVersionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeVersionsResponseBody> body{};
+
+  DescribeVersionsResponse() {}
+
+  explicit DescribeVersionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVersionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVersionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVersionsResponse() = default;
+};
 class DescribeVpcsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -12109,6 +12247,130 @@ public:
 
   virtual ~RemoveVMFromServiceMeshResponse() = default;
 };
+class RevokeKubeconfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> privateIpAddress{};
+  shared_ptr<string> serviceMeshId{};
+
+  RevokeKubeconfigRequest() {}
+
+  explicit RevokeKubeconfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<bool>(boost::any_cast<bool>(m["PrivateIpAddress"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~RevokeKubeconfigRequest() = default;
+};
+class RevokeKubeconfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> kubeconfig{};
+  shared_ptr<string> requestId{};
+
+  RevokeKubeconfigResponseBody() {}
+
+  explicit RevokeKubeconfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kubeconfig) {
+      res["Kubeconfig"] = boost::any(*kubeconfig);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Kubeconfig") != m.end() && !m["Kubeconfig"].empty()) {
+      kubeconfig = make_shared<string>(boost::any_cast<string>(m["Kubeconfig"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RevokeKubeconfigResponseBody() = default;
+};
+class RevokeKubeconfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RevokeKubeconfigResponseBody> body{};
+
+  RevokeKubeconfigResponse() {}
+
+  explicit RevokeKubeconfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RevokeKubeconfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RevokeKubeconfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RevokeKubeconfigResponse() = default;
+};
 class RunDiagnosisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> serviceMeshId{};
@@ -13909,6 +14171,8 @@ public:
   DescribeVMsInServiceMeshResponse describeVMsInServiceMesh(shared_ptr<DescribeVMsInServiceMeshRequest> request);
   DescribeVSwitchesResponse describeVSwitchesWithOptions(shared_ptr<DescribeVSwitchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVSwitchesResponse describeVSwitches(shared_ptr<DescribeVSwitchesRequest> request);
+  DescribeVersionsResponse describeVersionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVersionsResponse describeVersions();
   DescribeVpcsResponse describeVpcsWithOptions(shared_ptr<DescribeVpcsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVpcsResponse describeVpcs(shared_ptr<DescribeVpcsRequest> request);
   DisableControlPlaneLogAlertResponse disableControlPlaneLogAlertWithOptions(shared_ptr<DisableControlPlaneLogAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -13959,6 +14223,8 @@ public:
   RemoveClusterFromServiceMeshResponse removeClusterFromServiceMesh(shared_ptr<RemoveClusterFromServiceMeshRequest> request);
   RemoveVMFromServiceMeshResponse removeVMFromServiceMeshWithOptions(shared_ptr<RemoveVMFromServiceMeshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveVMFromServiceMeshResponse removeVMFromServiceMesh(shared_ptr<RemoveVMFromServiceMeshRequest> request);
+  RevokeKubeconfigResponse revokeKubeconfigWithOptions(shared_ptr<RevokeKubeconfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeKubeconfigResponse revokeKubeconfig(shared_ptr<RevokeKubeconfigRequest> request);
   RunDiagnosisResponse runDiagnosisWithOptions(shared_ptr<RunDiagnosisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunDiagnosisResponse runDiagnosis(shared_ptr<RunDiagnosisRequest> request);
   SetServiceRegistrySourceResponse setServiceRegistrySourceWithOptions(shared_ptr<SetServiceRegistrySourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
