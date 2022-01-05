@@ -9219,6 +9219,7 @@ public:
   shared_ptr<string> sipServerUrl{};
   shared_ptr<string> userId{};
   shared_ptr<string> userKey{};
+  shared_ptr<string> workMode{};
 
   GetLoginDetailsResponseBodyData() {}
 
@@ -9254,6 +9255,9 @@ public:
     if (userKey) {
       res["UserKey"] = boost::any(*userKey);
     }
+    if (workMode) {
+      res["WorkMode"] = boost::any(*workMode);
+    }
     return res;
   }
 
@@ -9281,6 +9285,9 @@ public:
     }
     if (m.find("UserKey") != m.end() && !m["UserKey"].empty()) {
       userKey = make_shared<string>(boost::any_cast<string>(m["UserKey"]));
+    }
+    if (m.find("WorkMode") != m.end() && !m["WorkMode"].empty()) {
+      workMode = make_shared<string>(boost::any_cast<string>(m["WorkMode"]));
     }
   }
 
@@ -28014,6 +28021,7 @@ public:
   shared_ptr<string> mobile{};
   shared_ptr<vector<ListUsersResponseBodyDataListPersonalOutboundNumberList>> personalOutboundNumberList{};
   shared_ptr<bool> primaryAccount{};
+  shared_ptr<long> ramId{};
   shared_ptr<string> roleId{};
   shared_ptr<string> roleName{};
   shared_ptr<vector<ListUsersResponseBodyDataListSkillLevelList>> skillLevelList{};
@@ -28054,6 +28062,9 @@ public:
     }
     if (primaryAccount) {
       res["PrimaryAccount"] = boost::any(*primaryAccount);
+    }
+    if (ramId) {
+      res["RamId"] = boost::any(*ramId);
     }
     if (roleId) {
       res["RoleId"] = boost::any(*roleId);
@@ -28108,6 +28119,9 @@ public:
     }
     if (m.find("PrimaryAccount") != m.end() && !m["PrimaryAccount"].empty()) {
       primaryAccount = make_shared<bool>(boost::any_cast<bool>(m["PrimaryAccount"]));
+    }
+    if (m.find("RamId") != m.end() && !m["RamId"].empty()) {
+      ramId = make_shared<long>(boost::any_cast<long>(m["RamId"]));
     }
     if (m.find("RoleId") != m.end() && !m["RoleId"].empty()) {
       roleId = make_shared<string>(boost::any_cast<string>(m["RoleId"]));
