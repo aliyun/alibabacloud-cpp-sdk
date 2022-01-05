@@ -4149,7 +4149,6 @@ public:
 class ListAggregateDiscoveredResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
-  shared_ptr<string> complianceType{};
   shared_ptr<string> folderId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -4171,9 +4170,6 @@ public:
     map<string, boost::any> res;
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
-    }
-    if (complianceType) {
-      res["ComplianceType"] = boost::any(*complianceType);
     }
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
@@ -4205,9 +4201,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
-    }
-    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
-      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
@@ -4922,7 +4915,6 @@ public:
 };
 class ListDiscoveredResourcesRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> complianceType{};
   shared_ptr<long> memberId{};
   shared_ptr<bool> multiAccount{};
   shared_ptr<long> pageNumber{};
@@ -4942,9 +4934,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (complianceType) {
-      res["ComplianceType"] = boost::any(*complianceType);
-    }
     if (memberId) {
       res["MemberId"] = boost::any(*memberId);
     }
@@ -4973,9 +4962,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
-      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
-    }
     if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
       memberId = make_shared<long>(boost::any_cast<long>(m["MemberId"]));
     }
