@@ -4149,7 +4149,6 @@ public:
 class ListAggregateDiscoveredResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aggregatorId{};
-  shared_ptr<string> folderId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regions{};
@@ -4170,9 +4169,6 @@ public:
     map<string, boost::any> res;
     if (aggregatorId) {
       res["AggregatorId"] = boost::any(*aggregatorId);
-    }
-    if (folderId) {
-      res["FolderId"] = boost::any(*folderId);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -4201,9 +4197,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AggregatorId") != m.end() && !m["AggregatorId"].empty()) {
       aggregatorId = make_shared<string>(boost::any_cast<string>(m["AggregatorId"]));
-    }
-    if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
-      folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));

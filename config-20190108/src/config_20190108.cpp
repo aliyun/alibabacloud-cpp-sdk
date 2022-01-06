@@ -422,9 +422,6 @@ ListAggregateDiscoveredResourcesResponse Alibabacloud_Config20190108::Client::li
   if (!Darabonba_Util::Client::isUnset<string>(request->aggregatorId)) {
     query->insert(pair<string, string>("AggregatorId", *request->aggregatorId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->folderId)) {
-    query->insert(pair<string, string>("FolderId", *request->folderId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
