@@ -1588,6 +1588,236 @@ public:
 
   virtual ~ReplaceBackgroundResponse() = default;
 };
+class TbPredictCategoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> picUrl{};
+
+  TbPredictCategoryRequest() {}
+
+  explicit TbPredictCategoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+  }
+
+
+  virtual ~TbPredictCategoryRequest() = default;
+};
+class TbPredictCategoryAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+
+  TbPredictCategoryAdvanceRequest() {}
+
+  explicit TbPredictCategoryAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+  }
+
+
+  virtual ~TbPredictCategoryAdvanceRequest() = default;
+};
+class TbPredictCategoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  TbPredictCategoryResponse() {}
+
+  explicit TbPredictCategoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~TbPredictCategoryResponse() = default;
+};
+class TbPropRecRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> picUrl{};
+
+  TbPropRecRequest() {}
+
+  explicit TbPropRecRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+  }
+
+
+  virtual ~TbPropRecRequest() = default;
+};
+class TbPropRecAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+
+  TbPropRecAdvanceRequest() {}
+
+  explicit TbPropRecAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+  }
+
+
+  virtual ~TbPropRecAdvanceRequest() = default;
+};
+class TbPropRecResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  TbPropRecResponse() {}
+
+  explicit TbPropRecResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~TbPropRecResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -1625,6 +1855,12 @@ public:
   ReplaceBackgroundResponse replaceBackgroundWithOptions(shared_ptr<ReplaceBackgroundRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReplaceBackgroundResponse replaceBackground(shared_ptr<ReplaceBackgroundRequest> request);
   ReplaceBackgroundResponse replaceBackgroundAdvance(shared_ptr<ReplaceBackgroundAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TbPredictCategoryResponse tbPredictCategoryWithOptions(shared_ptr<TbPredictCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TbPredictCategoryResponse tbPredictCategory(shared_ptr<TbPredictCategoryRequest> request);
+  TbPredictCategoryResponse tbPredictCategoryAdvance(shared_ptr<TbPredictCategoryAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TbPropRecResponse tbPropRecWithOptions(shared_ptr<TbPropRecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TbPropRecResponse tbPropRec(shared_ptr<TbPropRecRequest> request);
+  TbPropRecResponse tbPropRecAdvance(shared_ptr<TbPropRecAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
