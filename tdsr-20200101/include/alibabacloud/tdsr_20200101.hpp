@@ -2236,12 +2236,16 @@ public:
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> id{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> layoutData{};
   shared_ptr<string> message{};
   shared_ptr<string> name{};
+  shared_ptr<string> originUrl{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceId{};
   shared_ptr<long> status{};
   shared_ptr<bool> success{};
+  shared_ptr<string> type{};
   shared_ptr<string> url{};
 
   DetailSubSceneResponseBody() {}
@@ -2272,11 +2276,20 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (layoutData) {
+      res["LayoutData"] = boost::any(*layoutData);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (originUrl) {
+      res["OriginUrl"] = boost::any(*originUrl);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2289,6 +2302,9 @@ public:
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     if (url) {
       res["Url"] = boost::any(*url);
@@ -2315,11 +2331,20 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("LayoutData") != m.end() && !m["LayoutData"].empty()) {
+      layoutData = make_shared<string>(boost::any_cast<string>(m["LayoutData"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OriginUrl") != m.end() && !m["OriginUrl"].empty()) {
+      originUrl = make_shared<string>(boost::any_cast<string>(m["OriginUrl"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2332,6 +2357,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
