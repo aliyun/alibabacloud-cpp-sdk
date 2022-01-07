@@ -2386,6 +2386,158 @@ public:
 
   virtual ~DisableVpcEndpointConnectionResponse() = default;
 };
+class DisableVpcEndpointZoneConnectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<bool> replacedResource{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> zoneId{};
+
+  DisableVpcEndpointZoneConnectionRequest() {}
+
+  explicit DisableVpcEndpointZoneConnectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (replacedResource) {
+      res["ReplacedResource"] = boost::any(*replacedResource);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ReplacedResource") != m.end() && !m["ReplacedResource"].empty()) {
+      replacedResource = make_shared<bool>(boost::any_cast<bool>(m["ReplacedResource"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DisableVpcEndpointZoneConnectionRequest() = default;
+};
+class DisableVpcEndpointZoneConnectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableVpcEndpointZoneConnectionResponseBody() {}
+
+  explicit DisableVpcEndpointZoneConnectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableVpcEndpointZoneConnectionResponseBody() = default;
+};
+class DisableVpcEndpointZoneConnectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DisableVpcEndpointZoneConnectionResponseBody> body{};
+
+  DisableVpcEndpointZoneConnectionResponse() {}
+
+  explicit DisableVpcEndpointZoneConnectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableVpcEndpointZoneConnectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableVpcEndpointZoneConnectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableVpcEndpointZoneConnectionResponse() = default;
+};
 class EnableVpcEndpointConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -2530,6 +2682,151 @@ public:
 
 
   virtual ~EnableVpcEndpointConnectionResponse() = default;
+};
+class EnableVpcEndpointZoneConnectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> zoneId{};
+
+  EnableVpcEndpointZoneConnectionRequest() {}
+
+  explicit EnableVpcEndpointZoneConnectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~EnableVpcEndpointZoneConnectionRequest() = default;
+};
+class EnableVpcEndpointZoneConnectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableVpcEndpointZoneConnectionResponseBody() {}
+
+  explicit EnableVpcEndpointZoneConnectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableVpcEndpointZoneConnectionResponseBody() = default;
+};
+class EnableVpcEndpointZoneConnectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<EnableVpcEndpointZoneConnectionResponseBody> body{};
+
+  EnableVpcEndpointZoneConnectionResponse() {}
+
+  explicit EnableVpcEndpointZoneConnectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableVpcEndpointZoneConnectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableVpcEndpointZoneConnectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableVpcEndpointZoneConnectionResponse() = default;
 };
 class GetVpcEndpointAttributeRequest : public Darabonba::Model {
 public:
@@ -3026,6 +3323,8 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> replacedResourceId{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> serviceId{};
 
   ListVpcEndpointConnectionsRequest() {}
@@ -3059,6 +3358,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (replacedResourceId) {
+      res["ReplacedResourceId"] = boost::any(*replacedResourceId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -3087,6 +3392,12 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ReplacedResourceId") != m.end() && !m["ReplacedResourceId"].empty()) {
+      replacedResourceId = make_shared<string>(boost::any_cast<string>(m["ReplacedResourceId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
@@ -3098,10 +3409,13 @@ public:
 class ListVpcEndpointConnectionsResponseBodyConnectionsZones : public Darabonba::Model {
 public:
   shared_ptr<string> eniId{};
+  shared_ptr<string> replacedEniId{};
+  shared_ptr<string> replacedResourceId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneDomain{};
   shared_ptr<string> zoneId{};
+  shared_ptr<string> zoneStatus{};
 
   ListVpcEndpointConnectionsResponseBodyConnectionsZones() {}
 
@@ -3116,6 +3430,12 @@ public:
     if (eniId) {
       res["EniId"] = boost::any(*eniId);
     }
+    if (replacedEniId) {
+      res["ReplacedEniId"] = boost::any(*replacedEniId);
+    }
+    if (replacedResourceId) {
+      res["ReplacedResourceId"] = boost::any(*replacedResourceId);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -3128,12 +3448,21 @@ public:
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
+    if (zoneStatus) {
+      res["ZoneStatus"] = boost::any(*zoneStatus);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EniId") != m.end() && !m["EniId"].empty()) {
       eniId = make_shared<string>(boost::any_cast<string>(m["EniId"]));
+    }
+    if (m.find("ReplacedEniId") != m.end() && !m["ReplacedEniId"].empty()) {
+      replacedEniId = make_shared<string>(boost::any_cast<string>(m["ReplacedEniId"]));
+    }
+    if (m.find("ReplacedResourceId") != m.end() && !m["ReplacedResourceId"].empty()) {
+      replacedResourceId = make_shared<string>(boost::any_cast<string>(m["ReplacedResourceId"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -3146,6 +3475,9 @@ public:
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+    if (m.find("ZoneStatus") != m.end() && !m["ZoneStatus"].empty()) {
+      zoneStatus = make_shared<string>(boost::any_cast<string>(m["ZoneStatus"]));
     }
   }
 
@@ -3614,8 +3946,11 @@ public:
 };
 class ListVpcEndpointServiceResourcesResponseBodyResources : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoAllocatedEnabled{};
   shared_ptr<string> ip{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> relatedDeprecatedEndpointCount{};
+  shared_ptr<long> relatedEndpointCount{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> vSwitchId{};
@@ -3632,11 +3967,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoAllocatedEnabled) {
+      res["AutoAllocatedEnabled"] = boost::any(*autoAllocatedEnabled);
+    }
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (relatedDeprecatedEndpointCount) {
+      res["RelatedDeprecatedEndpointCount"] = boost::any(*relatedDeprecatedEndpointCount);
+    }
+    if (relatedEndpointCount) {
+      res["RelatedEndpointCount"] = boost::any(*relatedEndpointCount);
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
@@ -3657,11 +4001,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoAllocatedEnabled") != m.end() && !m["AutoAllocatedEnabled"].empty()) {
+      autoAllocatedEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoAllocatedEnabled"]));
+    }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RelatedDeprecatedEndpointCount") != m.end() && !m["RelatedDeprecatedEndpointCount"].empty()) {
+      relatedDeprecatedEndpointCount = make_shared<long>(boost::any_cast<long>(m["RelatedDeprecatedEndpointCount"]));
+    }
+    if (m.find("RelatedEndpointCount") != m.end() && !m["RelatedEndpointCount"].empty()) {
+      relatedEndpointCount = make_shared<long>(boost::any_cast<long>(m["RelatedEndpointCount"]));
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
@@ -6022,6 +6375,324 @@ public:
 
   virtual ~UpdateVpcEndpointServiceAttributeResponse() = default;
 };
+class UpdateVpcEndpointServiceResourceAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoAllocatedEnabled{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> serviceId{};
+
+  UpdateVpcEndpointServiceResourceAttributeRequest() {}
+
+  explicit UpdateVpcEndpointServiceResourceAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoAllocatedEnabled) {
+      res["AutoAllocatedEnabled"] = boost::any(*autoAllocatedEnabled);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoAllocatedEnabled") != m.end() && !m["AutoAllocatedEnabled"].empty()) {
+      autoAllocatedEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoAllocatedEnabled"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointServiceResourceAttributeRequest() = default;
+};
+class UpdateVpcEndpointServiceResourceAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateVpcEndpointServiceResourceAttributeResponseBody() {}
+
+  explicit UpdateVpcEndpointServiceResourceAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointServiceResourceAttributeResponseBody() = default;
+};
+class UpdateVpcEndpointServiceResourceAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateVpcEndpointServiceResourceAttributeResponseBody> body{};
+
+  UpdateVpcEndpointServiceResourceAttributeResponse() {}
+
+  explicit UpdateVpcEndpointServiceResourceAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVpcEndpointServiceResourceAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVpcEndpointServiceResourceAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointServiceResourceAttributeResponse() = default;
+};
+class UpdateVpcEndpointZoneConnectionResourceAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceAllocateMode{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceReplaceMode{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> zoneId{};
+
+  UpdateVpcEndpointZoneConnectionResourceAttributeRequest() {}
+
+  explicit UpdateVpcEndpointZoneConnectionResourceAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceAllocateMode) {
+      res["ResourceAllocateMode"] = boost::any(*resourceAllocateMode);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceReplaceMode) {
+      res["ResourceReplaceMode"] = boost::any(*resourceReplaceMode);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceAllocateMode") != m.end() && !m["ResourceAllocateMode"].empty()) {
+      resourceAllocateMode = make_shared<string>(boost::any_cast<string>(m["ResourceAllocateMode"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceReplaceMode") != m.end() && !m["ResourceReplaceMode"].empty()) {
+      resourceReplaceMode = make_shared<string>(boost::any_cast<string>(m["ResourceReplaceMode"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointZoneConnectionResourceAttributeRequest() = default;
+};
+class UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody() {}
+
+  explicit UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody() = default;
+};
+class UpdateVpcEndpointZoneConnectionResourceAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody> body{};
+
+  UpdateVpcEndpointZoneConnectionResourceAttributeResponse() {}
+
+  explicit UpdateVpcEndpointZoneConnectionResourceAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateVpcEndpointZoneConnectionResourceAttributeResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -6060,8 +6731,12 @@ public:
   DetachSecurityGroupFromVpcEndpointResponse detachSecurityGroupFromVpcEndpoint(shared_ptr<DetachSecurityGroupFromVpcEndpointRequest> request);
   DisableVpcEndpointConnectionResponse disableVpcEndpointConnectionWithOptions(shared_ptr<DisableVpcEndpointConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableVpcEndpointConnectionResponse disableVpcEndpointConnection(shared_ptr<DisableVpcEndpointConnectionRequest> request);
+  DisableVpcEndpointZoneConnectionResponse disableVpcEndpointZoneConnectionWithOptions(shared_ptr<DisableVpcEndpointZoneConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableVpcEndpointZoneConnectionResponse disableVpcEndpointZoneConnection(shared_ptr<DisableVpcEndpointZoneConnectionRequest> request);
   EnableVpcEndpointConnectionResponse enableVpcEndpointConnectionWithOptions(shared_ptr<EnableVpcEndpointConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableVpcEndpointConnectionResponse enableVpcEndpointConnection(shared_ptr<EnableVpcEndpointConnectionRequest> request);
+  EnableVpcEndpointZoneConnectionResponse enableVpcEndpointZoneConnectionWithOptions(shared_ptr<EnableVpcEndpointZoneConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableVpcEndpointZoneConnectionResponse enableVpcEndpointZoneConnection(shared_ptr<EnableVpcEndpointZoneConnectionRequest> request);
   GetVpcEndpointAttributeResponse getVpcEndpointAttributeWithOptions(shared_ptr<GetVpcEndpointAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVpcEndpointAttributeResponse getVpcEndpointAttribute(shared_ptr<GetVpcEndpointAttributeRequest> request);
   GetVpcEndpointServiceAttributeResponse getVpcEndpointServiceAttributeWithOptions(shared_ptr<GetVpcEndpointServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6094,6 +6769,10 @@ public:
   UpdateVpcEndpointConnectionAttributeResponse updateVpcEndpointConnectionAttribute(shared_ptr<UpdateVpcEndpointConnectionAttributeRequest> request);
   UpdateVpcEndpointServiceAttributeResponse updateVpcEndpointServiceAttributeWithOptions(shared_ptr<UpdateVpcEndpointServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateVpcEndpointServiceAttributeResponse updateVpcEndpointServiceAttribute(shared_ptr<UpdateVpcEndpointServiceAttributeRequest> request);
+  UpdateVpcEndpointServiceResourceAttributeResponse updateVpcEndpointServiceResourceAttributeWithOptions(shared_ptr<UpdateVpcEndpointServiceResourceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVpcEndpointServiceResourceAttributeResponse updateVpcEndpointServiceResourceAttribute(shared_ptr<UpdateVpcEndpointServiceResourceAttributeRequest> request);
+  UpdateVpcEndpointZoneConnectionResourceAttributeResponse updateVpcEndpointZoneConnectionResourceAttributeWithOptions(shared_ptr<UpdateVpcEndpointZoneConnectionResourceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateVpcEndpointZoneConnectionResourceAttributeResponse updateVpcEndpointZoneConnectionResourceAttribute(shared_ptr<UpdateVpcEndpointZoneConnectionResourceAttributeRequest> request);
 
   virtual ~Client() = default;
 };
