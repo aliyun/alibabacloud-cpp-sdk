@@ -914,6 +914,7 @@ public:
   shared_ptr<string> proxyMode{};
   shared_ptr<vector<string>> rdsInstances{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<Runtime> runtime{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> serviceAccountIssuer{};
@@ -1119,6 +1120,9 @@ public:
     }
     if (regionId) {
       res["region_id"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["resource_group_id"] = boost::any(*resourceGroupId);
     }
     if (runtime) {
       res["runtime"] = runtime ? boost::any(runtime->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1436,6 +1440,9 @@ public:
     }
     if (m.find("region_id") != m.end() && !m["region_id"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["region_id"]));
+    }
+    if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       if (typeid(map<string, boost::any>) == m["runtime"].type()) {
@@ -2139,6 +2146,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
   shared_ptr<string> deploymentsetId{};
+  shared_ptr<long> desiredSize{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<string> instanceChargeType{};
@@ -2195,6 +2203,9 @@ public:
     }
     if (deploymentsetId) {
       res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (desiredSize) {
+      res["desired_size"] = boost::any(*desiredSize);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -2313,6 +2324,9 @@ public:
     }
     if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
       deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("desired_size") != m.end() && !m["desired_size"].empty()) {
+      desiredSize = make_shared<long>(boost::any_cast<long>(m["desired_size"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -5861,6 +5875,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
   shared_ptr<string> deploymentsetId{};
+  shared_ptr<long> desiredSize{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceTypes{};
@@ -5918,6 +5933,9 @@ public:
     }
     if (deploymentsetId) {
       res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (desiredSize) {
+      res["desired_size"] = boost::any(*desiredSize);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -6039,6 +6057,9 @@ public:
     }
     if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
       deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("desired_size") != m.end() && !m["desired_size"].empty()) {
+      desiredSize = make_shared<long>(boost::any_cast<long>(m["desired_size"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -6912,6 +6933,7 @@ public:
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
   shared_ptr<string> deploymentsetId{};
+  shared_ptr<long> desiredSize{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceTypes{};
@@ -6969,6 +6991,9 @@ public:
     }
     if (deploymentsetId) {
       res["deploymentset_id"] = boost::any(*deploymentsetId);
+    }
+    if (desiredSize) {
+      res["desired_size"] = boost::any(*desiredSize);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -7090,6 +7115,9 @@ public:
     }
     if (m.find("deploymentset_id") != m.end() && !m["deploymentset_id"].empty()) {
       deploymentsetId = make_shared<string>(boost::any_cast<string>(m["deploymentset_id"]));
+    }
+    if (m.find("desired_size") != m.end() && !m["desired_size"].empty()) {
+      desiredSize = make_shared<long>(boost::any_cast<long>(m["desired_size"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
@@ -14682,6 +14710,7 @@ public:
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> compensateWithOnDemand{};
   shared_ptr<vector<DataDisk>> dataDisks{};
+  shared_ptr<long> desiredSize{};
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<vector<string>> instanceTypes{};
@@ -14732,6 +14761,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["data_disks"] = boost::any(temp1);
+    }
+    if (desiredSize) {
+      res["desired_size"] = boost::any(*desiredSize);
     }
     if (imageId) {
       res["image_id"] = boost::any(*imageId);
@@ -14838,6 +14870,9 @@ public:
         }
         dataDisks = make_shared<vector<DataDisk>>(expect1);
       }
+    }
+    if (m.find("desired_size") != m.end() && !m["desired_size"].empty()) {
+      desiredSize = make_shared<long>(boost::any_cast<long>(m["desired_size"]));
     }
     if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));

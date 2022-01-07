@@ -451,6 +451,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("region_id", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<Runtime>(request->runtime)) {
     body->insert(pair<string, Runtime>("runtime", *request->runtime));
   }
