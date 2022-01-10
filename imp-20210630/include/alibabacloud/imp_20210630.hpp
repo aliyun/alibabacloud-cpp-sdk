@@ -6300,15 +6300,19 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<map<string, string>> extension{};
   shared_ptr<string> hlsUrl{};
+  shared_ptr<string> hlsUrlHttps{};
   shared_ptr<string> liveId{};
   shared_ptr<string> liveUrl{};
+  shared_ptr<string> liveUrlHttps{};
   shared_ptr<string> notice{};
   shared_ptr<long> onlineCount{};
   shared_ptr<string> playbackUrl{};
+  shared_ptr<string> playbackUrlHttps{};
   shared_ptr<vector<GetLiveRoomResponseBodyResultPluginInstanceInfoList>> pluginInstanceInfoList{};
   shared_ptr<string> pushUrl{};
   shared_ptr<long> pv{};
   shared_ptr<string> roomId{};
+  shared_ptr<string> rtmpUrl{};
   shared_ptr<long> startTime{};
   shared_ptr<long> status{};
   shared_ptr<string> title{};
@@ -6354,11 +6358,17 @@ public:
     if (hlsUrl) {
       res["HlsUrl"] = boost::any(*hlsUrl);
     }
+    if (hlsUrlHttps) {
+      res["HlsUrlHttps"] = boost::any(*hlsUrlHttps);
+    }
     if (liveId) {
       res["LiveId"] = boost::any(*liveId);
     }
     if (liveUrl) {
       res["LiveUrl"] = boost::any(*liveUrl);
+    }
+    if (liveUrlHttps) {
+      res["LiveUrlHttps"] = boost::any(*liveUrlHttps);
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
@@ -6368,6 +6378,9 @@ public:
     }
     if (playbackUrl) {
       res["PlaybackUrl"] = boost::any(*playbackUrl);
+    }
+    if (playbackUrlHttps) {
+      res["PlaybackUrlHttps"] = boost::any(*playbackUrlHttps);
     }
     if (pluginInstanceInfoList) {
       vector<boost::any> temp1;
@@ -6384,6 +6397,9 @@ public:
     }
     if (roomId) {
       res["RoomId"] = boost::any(*roomId);
+    }
+    if (rtmpUrl) {
+      res["RtmpUrl"] = boost::any(*rtmpUrl);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -6440,11 +6456,17 @@ public:
     if (m.find("HlsUrl") != m.end() && !m["HlsUrl"].empty()) {
       hlsUrl = make_shared<string>(boost::any_cast<string>(m["HlsUrl"]));
     }
+    if (m.find("HlsUrlHttps") != m.end() && !m["HlsUrlHttps"].empty()) {
+      hlsUrlHttps = make_shared<string>(boost::any_cast<string>(m["HlsUrlHttps"]));
+    }
     if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
       liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
     }
     if (m.find("LiveUrl") != m.end() && !m["LiveUrl"].empty()) {
       liveUrl = make_shared<string>(boost::any_cast<string>(m["LiveUrl"]));
+    }
+    if (m.find("LiveUrlHttps") != m.end() && !m["LiveUrlHttps"].empty()) {
+      liveUrlHttps = make_shared<string>(boost::any_cast<string>(m["LiveUrlHttps"]));
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
@@ -6454,6 +6476,9 @@ public:
     }
     if (m.find("PlaybackUrl") != m.end() && !m["PlaybackUrl"].empty()) {
       playbackUrl = make_shared<string>(boost::any_cast<string>(m["PlaybackUrl"]));
+    }
+    if (m.find("PlaybackUrlHttps") != m.end() && !m["PlaybackUrlHttps"].empty()) {
+      playbackUrlHttps = make_shared<string>(boost::any_cast<string>(m["PlaybackUrlHttps"]));
     }
     if (m.find("PluginInstanceInfoList") != m.end() && !m["PluginInstanceInfoList"].empty()) {
       if (typeid(vector<boost::any>) == m["PluginInstanceInfoList"].type()) {
@@ -6476,6 +6501,9 @@ public:
     }
     if (m.find("RoomId") != m.end() && !m["RoomId"].empty()) {
       roomId = make_shared<string>(boost::any_cast<string>(m["RoomId"]));
+    }
+    if (m.find("RtmpUrl") != m.end() && !m["RtmpUrl"].empty()) {
+      rtmpUrl = make_shared<string>(boost::any_cast<string>(m["RtmpUrl"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
