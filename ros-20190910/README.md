@@ -55,7 +55,7 @@ vcpkg install boost cpprestsdk openssl-windows
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh https://github.com/alibabacloud-sdk-cpp/ros-20190910.git/scripts/install.sh
+sh ros-20190910/scripts/install.sh
 ```
 
 ### Windows
@@ -64,7 +64,7 @@ sh https://github.com/alibabacloud-sdk-cpp/ros-20190910.git/scripts/install.sh
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/ros-20190910.git
+  cd alibabacloud-cpp-sdk/ros-20190910
   ```
 2. Build Visual Studio solution
   * Install [CMake](https://cmake.org/download/) && [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)

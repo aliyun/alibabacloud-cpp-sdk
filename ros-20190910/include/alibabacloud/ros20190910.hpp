@@ -5505,6 +5505,7 @@ public:
   shared_ptr<vector<GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions>> providerVersions{};
   shared_ptr<string> terraformVersion{};
   shared_ptr<string> transform{};
+  shared_ptr<vector<string>> updateAllowedTransforms{};
 
   GetFeatureDetailsResponseBodyTerraformSupportedVersions() {}
 
@@ -5529,6 +5530,9 @@ public:
     if (transform) {
       res["Transform"] = boost::any(*transform);
     }
+    if (updateAllowedTransforms) {
+      res["UpdateAllowedTransforms"] = boost::any(*updateAllowedTransforms);
+    }
     return res;
   }
 
@@ -5551,6 +5555,16 @@ public:
     }
     if (m.find("Transform") != m.end() && !m["Transform"].empty()) {
       transform = make_shared<string>(boost::any_cast<string>(m["Transform"]));
+    }
+    if (m.find("UpdateAllowedTransforms") != m.end() && !m["UpdateAllowedTransforms"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UpdateAllowedTransforms"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UpdateAllowedTransforms"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      updateAllowedTransforms = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -6776,6 +6790,10 @@ public:
   shared_ptr<string> statusReason{};
   shared_ptr<vector<GetStackResponseBodyTags>> tags{};
   shared_ptr<string> templateDescription{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateURL{};
+  shared_ptr<string> templateVersion{};
   shared_ptr<long> timeoutInMinutes{};
   shared_ptr<string> updateTime{};
 
@@ -6868,6 +6886,18 @@ public:
     }
     if (templateDescription) {
       res["TemplateDescription"] = boost::any(*templateDescription);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateScratchId) {
+      res["TemplateScratchId"] = boost::any(*templateScratchId);
+    }
+    if (templateURL) {
+      res["TemplateURL"] = boost::any(*templateURL);
+    }
+    if (templateVersion) {
+      res["TemplateVersion"] = boost::any(*templateVersion);
     }
     if (timeoutInMinutes) {
       res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
@@ -6997,6 +7027,18 @@ public:
     }
     if (m.find("TemplateDescription") != m.end() && !m["TemplateDescription"].empty()) {
       templateDescription = make_shared<string>(boost::any_cast<string>(m["TemplateDescription"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
+      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
+      templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
+      templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
     }
     if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
       timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
