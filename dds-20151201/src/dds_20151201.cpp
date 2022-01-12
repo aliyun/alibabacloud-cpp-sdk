@@ -1985,17 +1985,11 @@ DescribeDBInstancesResponse Alibabacloud_Dds20151201::Client::describeDBInstance
 DescribeDBInstancesOverviewResponse Alibabacloud_Dds20151201::Client::describeDBInstancesOverviewWithOptions(shared_ptr<DescribeDBInstancesOverviewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->architectureType)) {
-    query->insert(pair<string, string>("ArchitectureType", *request->architectureType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->expireTime)) {
-    query->insert(pair<string, string>("ExpireTime", *request->expireTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceClass)) {
     query->insert(pair<string, string>("InstanceClass", *request->instanceClass));
@@ -2018,9 +2012,6 @@ DescribeDBInstancesOverviewResponse Alibabacloud_Dds20151201::Client::describeDB
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -2029,9 +2020,6 @@ DescribeDBInstancesOverviewResponse Alibabacloud_Dds20151201::Client::describeDB
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->searchKey)) {
-    query->insert(pair<string, string>("SearchKey", *request->searchKey));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
