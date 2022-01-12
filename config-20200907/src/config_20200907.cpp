@@ -216,8 +216,17 @@ CreateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::createAgg
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeAccountIdsScope)) {
+    body->insert(pair<string, string>("ExcludeAccountIdsScope", *request->excludeAccountIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeFolderIdsScope)) {
+    body->insert(pair<string, string>("ExcludeFolderIdsScope", *request->excludeFolderIdsScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeResourceIdsScope)) {
     body->insert(pair<string, string>("ExcludeResourceIdsScope", *request->excludeResourceIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderIdsScope)) {
+    body->insert(pair<string, string>("FolderIdsScope", *request->folderIdsScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputParametersShrink)) {
     body->insert(pair<string, string>("InputParameters", *request->inputParametersShrink));
@@ -2228,8 +2237,17 @@ UpdateAggregateConfigRuleResponse Alibabacloud_Config20200907::Client::updateAgg
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeAccountIdsScope)) {
+    body->insert(pair<string, string>("ExcludeAccountIdsScope", *request->excludeAccountIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->excludeFolderIdsScope)) {
+    body->insert(pair<string, string>("ExcludeFolderIdsScope", *request->excludeFolderIdsScope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeResourceIdsScope)) {
     body->insert(pair<string, string>("ExcludeResourceIdsScope", *request->excludeResourceIdsScope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->folderIdsScope)) {
+    body->insert(pair<string, string>("FolderIdsScope", *request->folderIdsScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputParametersShrink)) {
     body->insert(pair<string, string>("InputParameters", *request->inputParametersShrink));

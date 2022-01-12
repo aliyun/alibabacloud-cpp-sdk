@@ -1107,7 +1107,10 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeAccountIdsScope{};
+  shared_ptr<string> excludeFolderIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -1145,8 +1148,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeAccountIdsScope) {
+      res["ExcludeAccountIdsScope"] = boost::any(*excludeAccountIdsScope);
+    }
+    if (excludeFolderIdsScope) {
+      res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (folderIdsScope) {
+      res["FolderIdsScope"] = boost::any(*folderIdsScope);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -1200,8 +1212,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeAccountIdsScope") != m.end() && !m["ExcludeAccountIdsScope"].empty()) {
+      excludeAccountIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeAccountIdsScope"]));
+    }
+    if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
+      excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
+      folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -1260,7 +1281,10 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeAccountIdsScope{};
+  shared_ptr<string> excludeFolderIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> folderIdsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -1298,8 +1322,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeAccountIdsScope) {
+      res["ExcludeAccountIdsScope"] = boost::any(*excludeAccountIdsScope);
+    }
+    if (excludeFolderIdsScope) {
+      res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (folderIdsScope) {
+      res["FolderIdsScope"] = boost::any(*folderIdsScope);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -1353,8 +1386,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeAccountIdsScope") != m.end() && !m["ExcludeAccountIdsScope"].empty()) {
+      excludeAccountIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeAccountIdsScope"]));
+    }
+    if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
+      excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
+      folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
@@ -5919,7 +5961,10 @@ public:
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleCreateBy> createBy{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeAccountIdsScope{};
+  shared_ptr<string> excludeFolderIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<GetAggregateConfigRuleResponseBodyConfigRuleManagedRule> managedRule{};
   shared_ptr<string> maximumExecutionFrequency{};
@@ -5970,8 +6015,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeAccountIdsScope) {
+      res["ExcludeAccountIdsScope"] = boost::any(*excludeAccountIdsScope);
+    }
+    if (excludeFolderIdsScope) {
+      res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (folderIdsScope) {
+      res["FolderIdsScope"] = boost::any(*folderIdsScope);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -6048,8 +6102,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeAccountIdsScope") != m.end() && !m["ExcludeAccountIdsScope"].empty()) {
+      excludeAccountIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeAccountIdsScope"]));
+    }
+    if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
+      excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
+      folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -18009,7 +18072,10 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeAccountIdsScope{};
+  shared_ptr<string> excludeFolderIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> folderIdsScope{};
   shared_ptr<map<string, boost::any>> inputParameters{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -18048,8 +18114,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeAccountIdsScope) {
+      res["ExcludeAccountIdsScope"] = boost::any(*excludeAccountIdsScope);
+    }
+    if (excludeFolderIdsScope) {
+      res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (folderIdsScope) {
+      res["FolderIdsScope"] = boost::any(*folderIdsScope);
     }
     if (inputParameters) {
       res["InputParameters"] = boost::any(*inputParameters);
@@ -18100,8 +18175,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeAccountIdsScope") != m.end() && !m["ExcludeAccountIdsScope"].empty()) {
+      excludeAccountIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeAccountIdsScope"]));
+    }
+    if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
+      excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
+      folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
@@ -18155,7 +18239,10 @@ public:
   shared_ptr<string> configRuleName{};
   shared_ptr<string> configRuleTriggerTypes{};
   shared_ptr<string> description{};
+  shared_ptr<string> excludeAccountIdsScope{};
+  shared_ptr<string> excludeFolderIdsScope{};
   shared_ptr<string> excludeResourceIdsScope{};
+  shared_ptr<string> folderIdsScope{};
   shared_ptr<string> inputParametersShrink{};
   shared_ptr<string> maximumExecutionFrequency{};
   shared_ptr<string> regionIdsScope{};
@@ -18194,8 +18281,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (excludeAccountIdsScope) {
+      res["ExcludeAccountIdsScope"] = boost::any(*excludeAccountIdsScope);
+    }
+    if (excludeFolderIdsScope) {
+      res["ExcludeFolderIdsScope"] = boost::any(*excludeFolderIdsScope);
+    }
     if (excludeResourceIdsScope) {
       res["ExcludeResourceIdsScope"] = boost::any(*excludeResourceIdsScope);
+    }
+    if (folderIdsScope) {
+      res["FolderIdsScope"] = boost::any(*folderIdsScope);
     }
     if (inputParametersShrink) {
       res["InputParameters"] = boost::any(*inputParametersShrink);
@@ -18246,8 +18342,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("ExcludeAccountIdsScope") != m.end() && !m["ExcludeAccountIdsScope"].empty()) {
+      excludeAccountIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeAccountIdsScope"]));
+    }
+    if (m.find("ExcludeFolderIdsScope") != m.end() && !m["ExcludeFolderIdsScope"].empty()) {
+      excludeFolderIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeFolderIdsScope"]));
+    }
     if (m.find("ExcludeResourceIdsScope") != m.end() && !m["ExcludeResourceIdsScope"].empty()) {
       excludeResourceIdsScope = make_shared<string>(boost::any_cast<string>(m["ExcludeResourceIdsScope"]));
+    }
+    if (m.find("FolderIdsScope") != m.end() && !m["FolderIdsScope"].empty()) {
+      folderIdsScope = make_shared<string>(boost::any_cast<string>(m["FolderIdsScope"]));
     }
     if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
       inputParametersShrink = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
