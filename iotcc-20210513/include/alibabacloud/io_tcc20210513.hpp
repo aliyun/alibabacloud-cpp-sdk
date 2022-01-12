@@ -4679,7 +4679,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
-  shared_ptr<long> totalCount{};
+  shared_ptr<long> totalIpsCount{};
 
   ListConnectionPoolAllIpsResponseBody() {}
 
@@ -4707,8 +4707,8 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (totalCount) {
-      res["TotalCount"] = boost::any(*totalCount);
+    if (totalIpsCount) {
+      res["TotalIpsCount"] = boost::any(*totalIpsCount);
     }
     return res;
   }
@@ -4736,8 +4736,8 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    if (m.find("TotalIpsCount") != m.end() && !m["TotalIpsCount"].empty()) {
+      totalIpsCount = make_shared<long>(boost::any_cast<long>(m["TotalIpsCount"]));
     }
   }
 
@@ -5886,7 +5886,9 @@ public:
 };
 class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors : public Darabonba::Model {
 public:
+  shared_ptr<string> APN{};
   shared_ptr<long> createTime{};
+  shared_ptr<string> ISP{};
   shared_ptr<string> ioTCloudConnectorDescription{};
   shared_ptr<string> ioTCloudConnectorId{};
   shared_ptr<string> ioTCloudConnectorName{};
@@ -5902,8 +5904,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (APN) {
+      res["APN"] = boost::any(*APN);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (ISP) {
+      res["ISP"] = boost::any(*ISP);
     }
     if (ioTCloudConnectorDescription) {
       res["IoTCloudConnectorDescription"] = boost::any(*ioTCloudConnectorDescription);
@@ -5921,8 +5929,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("APN") != m.end() && !m["APN"].empty()) {
+      APN = make_shared<string>(boost::any_cast<string>(m["APN"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("ISP") != m.end() && !m["ISP"].empty()) {
+      ISP = make_shared<string>(boost::any_cast<string>(m["ISP"]));
     }
     if (m.find("IoTCloudConnectorDescription") != m.end() && !m["IoTCloudConnectorDescription"].empty()) {
       ioTCloudConnectorDescription = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorDescription"]));
@@ -6146,6 +6160,7 @@ class ListIoTCloudConnectorsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> APN{};
   shared_ptr<vector<string>> ISP{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
   shared_ptr<vector<string>> ioTCloudConnectorIds{};
   shared_ptr<vector<string>> ioTCloudConnectorName{};
   shared_ptr<vector<string>> ioTCloudConnectorStatus{};
@@ -6170,6 +6185,9 @@ public:
     }
     if (ISP) {
       res["ISP"] = boost::any(*ISP);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
     }
     if (ioTCloudConnectorIds) {
       res["IoTCloudConnectorIds"] = boost::any(*ioTCloudConnectorIds);
@@ -6218,6 +6236,9 @@ public:
         }
       }
       ISP = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
     }
     if (m.find("IoTCloudConnectorIds") != m.end() && !m["IoTCloudConnectorIds"].empty()) {
       vector<string> toVec1;

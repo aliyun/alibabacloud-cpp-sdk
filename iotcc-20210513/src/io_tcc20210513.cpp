@@ -41,12 +41,24 @@ string Alibabacloud_IoTCC20210513::Client::getEndpoint(shared_ptr<string> produc
 AddCidrToConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::addCidrToConnectionPoolWithOptions(shared_ptr<AddCidrToConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cidrs)) {
+    query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -72,11 +84,21 @@ AddCidrToConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::addCidrToCon
 AddIoTCloudConnectorToGroupResponse Alibabacloud_IoTCC20210513::Client::addIoTCloudConnectorToGroupWithOptions(shared_ptr<AddIoTCloudConnectorToGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -102,13 +124,27 @@ AddIoTCloudConnectorToGroupResponse Alibabacloud_IoTCC20210513::Client::addIoTCl
 AssociateIpWithConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::associateIpWithConnectionPoolWithOptions(shared_ptr<AssociateIpWithConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, vector<string>>("Ips", *request->ips));
-  query->insert(pair<string, string>("IpsFilePath", *request->ipsFilePath));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ips)) {
+    query->insert(pair<string, vector<string>>("Ips", *request->ips));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipsFilePath)) {
+    query->insert(pair<string, string>("IpsFilePath", *request->ipsFilePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -134,12 +170,24 @@ AssociateIpWithConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::associ
 AssociateVSwitchWithIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::associateVSwitchWithIoTCloudConnectorWithOptions(shared_ptr<AssociateVSwitchWithIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("VSwitchList", *request->vSwitchList));
-  query->insert(pair<string, string>("VpcId", *request->vpcId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vSwitchList)) {
+    query->insert(pair<string, vector<string>>("VSwitchList", *request->vSwitchList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -165,16 +213,36 @@ AssociateVSwitchWithIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client
 CreateAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createAuthorizationRuleWithOptions(shared_ptr<CreateAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
-  query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Destination", *request->destination));
-  query->insert(pair<string, string>("DestinationType", *request->destinationType));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceCidrs)) {
+    query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -200,14 +268,30 @@ CreateAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createAuthor
 CreateConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::createConnectionPoolWithOptions(shared_ptr<CreateConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolDescription", *request->connectionPoolDescription));
-  query->insert(pair<string, string>("ConnectionPoolName", *request->connectionPoolName));
-  query->insert(pair<string, long>("Count", *request->count));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cidrs)) {
+    query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolDescription)) {
+    query->insert(pair<string, string>("ConnectionPoolDescription", *request->connectionPoolDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolName)) {
+    query->insert(pair<string, string>("ConnectionPoolName", *request->connectionPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
+    query->insert(pair<string, long>("Count", *request->count));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -233,16 +317,36 @@ CreateConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::createConnectio
 CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createGroupAuthorizationRuleWithOptions(shared_ptr<CreateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
-  query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Destination", *request->destination));
-  query->insert(pair<string, string>("DestinationType", *request->destinationType));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, string>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceCidrs)) {
+    query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -268,15 +372,33 @@ CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createG
 CreateIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorWithOptions(shared_ptr<CreateIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("APN", *request->APN));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("ISP", *request->ISP));
-  query->insert(pair<string, string>("IoTCloudConnectorDescription", *request->ioTCloudConnectorDescription));
-  query->insert(pair<string, string>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, long>("ResourceUid", *request->resourceUid));
-  query->insert(pair<string, bool>("WildcardDomainEnabled", *request->wildcardDomainEnabled));
+  if (!Darabonba_Util::Client::isUnset<string>(request->APN)) {
+    query->insert(pair<string, string>("APN", *request->APN));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ISP)) {
+    query->insert(pair<string, string>("ISP", *request->ISP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorDescription)) {
+    query->insert(pair<string, string>("IoTCloudConnectorDescription", *request->ioTCloudConnectorDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorName)) {
+    query->insert(pair<string, string>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceUid)) {
+    query->insert(pair<string, long>("ResourceUid", *request->resourceUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->wildcardDomainEnabled)) {
+    query->insert(pair<string, bool>("WildcardDomainEnabled", *request->wildcardDomainEnabled));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -302,11 +424,21 @@ CreateIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::createIoTClo
 CreateIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorGroupWithOptions(shared_ptr<CreateIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Description", *request->description));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("Name", *request->name));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -332,12 +464,24 @@ CreateIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::createI
 CreateServiceResponse Alibabacloud_IoTCC20210513::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceDescription", *request->serviceDescription));
-  query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceDescription)) {
+    query->insert(pair<string, string>("ServiceDescription", *request->serviceDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -363,15 +507,33 @@ CreateServiceResponse Alibabacloud_IoTCC20210513::Client::createService(shared_p
 CreateServiceEntryResponse Alibabacloud_IoTCC20210513::Client::createServiceEntryWithOptions(shared_ptr<CreateServiceEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceEntryDescription", *request->serviceEntryDescription));
-  query->insert(pair<string, string>("ServiceEntryName", *request->serviceEntryName));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
-  query->insert(pair<string, string>("Target", *request->target));
-  query->insert(pair<string, string>("TargetType", *request->targetType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryDescription)) {
+    query->insert(pair<string, string>("ServiceEntryDescription", *request->serviceEntryDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryName)) {
+    query->insert(pair<string, string>("ServiceEntryName", *request->serviceEntryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
+    query->insert(pair<string, string>("Target", *request->target));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -397,11 +559,21 @@ CreateServiceEntryResponse Alibabacloud_IoTCC20210513::Client::createServiceEntr
 DeleteAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteAuthorizationRuleWithOptions(shared_ptr<DeleteAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -427,11 +599,21 @@ DeleteAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteAuthor
 DeleteConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::deleteConnectionPoolWithOptions(shared_ptr<DeleteConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -457,11 +639,21 @@ DeleteConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::deleteConnectio
 DeleteGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteGroupAuthorizationRuleWithOptions(shared_ptr<DeleteGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -487,10 +679,18 @@ DeleteGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteG
 DeleteIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnectorWithOptions(shared_ptr<DeleteIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -516,10 +716,18 @@ DeleteIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::deleteIoTClo
 DeleteIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnectorGroupWithOptions(shared_ptr<DeleteIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -545,11 +753,21 @@ DeleteIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::deleteI
 DeleteServiceResponse Alibabacloud_IoTCC20210513::Client::deleteServiceWithOptions(shared_ptr<DeleteServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -575,12 +793,24 @@ DeleteServiceResponse Alibabacloud_IoTCC20210513::Client::deleteService(shared_p
 DeleteServiceEntryResponse Alibabacloud_IoTCC20210513::Client::deleteServiceEntryWithOptions(shared_ptr<DeleteServiceEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceEntryId", *request->serviceEntryId));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryId)) {
+    query->insert(pair<string, string>("ServiceEntryId", *request->serviceEntryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -606,10 +836,18 @@ DeleteServiceEntryResponse Alibabacloud_IoTCC20210513::Client::deleteServiceEntr
 DisableIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::disableIoTCloudConnectorAccessLogWithOptions(shared_ptr<DisableIoTCloudConnectorAccessLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -635,13 +873,27 @@ DisableIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::di
 DissociateIpFromConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::dissociateIpFromConnectionPoolWithOptions(shared_ptr<DissociateIpFromConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, vector<string>>("Ips", *request->ips));
-  query->insert(pair<string, string>("IpsFilePath", *request->ipsFilePath));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ips)) {
+    query->insert(pair<string, vector<string>>("Ips", *request->ips));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipsFilePath)) {
+    query->insert(pair<string, string>("IpsFilePath", *request->ipsFilePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -667,10 +919,18 @@ DissociateIpFromConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::disso
 DissociateVSwitchFromIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::dissociateVSwitchFromIoTCloudConnectorWithOptions(shared_ptr<DissociateVSwitchFromIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -696,12 +956,24 @@ DissociateVSwitchFromIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Clien
 EnableIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::enableIoTCloudConnectorAccessLogWithOptions(shared_ptr<EnableIoTCloudConnectorAccessLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AccessLogSlsLogStore", *request->accessLogSlsLogStore));
-  query->insert(pair<string, string>("AccessLogSlsProject", *request->accessLogSlsProject));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessLogSlsLogStore)) {
+    query->insert(pair<string, string>("AccessLogSlsLogStore", *request->accessLogSlsLogStore));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessLogSlsProject)) {
+    query->insert(pair<string, string>("AccessLogSlsProject", *request->accessLogSlsProject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -727,10 +999,18 @@ EnableIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::ena
 GetConnectionPoolIpOperationResultResponse Alibabacloud_IoTCC20210513::Client::getConnectionPoolIpOperationResultWithOptions(shared_ptr<GetConnectionPoolIpOperationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("QueryRequestId", *request->queryRequestId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queryRequestId)) {
+    query->insert(pair<string, string>("QueryRequestId", *request->queryRequestId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -756,10 +1036,18 @@ GetConnectionPoolIpOperationResultResponse Alibabacloud_IoTCC20210513::Client::g
 GetIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::getIoTCloudConnectorAccessLogWithOptions(shared_ptr<GetIoTCloudConnectorAccessLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -785,12 +1073,24 @@ GetIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::getIoT
 GetStsInfoAndOssPathResponse Alibabacloud_IoTCC20210513::Client::getStsInfoAndOssPathWithOptions(shared_ptr<GetStsInfoAndOssPathRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("FileName", *request->fileName));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -816,8 +1116,12 @@ GetStsInfoAndOssPathResponse Alibabacloud_IoTCC20210513::Client::getStsInfoAndOs
 GrantVirtualBorderRouterResponse Alibabacloud_IoTCC20210513::Client::grantVirtualBorderRouterWithOptions(shared_ptr<GrantVirtualBorderRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("VirtualBorderRouterId", *request->virtualBorderRouterId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->virtualBorderRouterId)) {
+    query->insert(pair<string, string>("VirtualBorderRouterId", *request->virtualBorderRouterId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -843,11 +1147,21 @@ GrantVirtualBorderRouterResponse Alibabacloud_IoTCC20210513::Client::grantVirtua
 ListAPNsResponse Alibabacloud_IoTCC20210513::Client::listAPNsWithOptions(shared_ptr<ListAPNsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("APN", *request->APN));
-  query->insert(pair<string, string>("ISP", *request->ISP));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->APN)) {
+    query->insert(pair<string, string>("APN", *request->APN));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ISP)) {
+    query->insert(pair<string, string>("ISP", *request->ISP));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -873,16 +1187,36 @@ ListAPNsResponse Alibabacloud_IoTCC20210513::Client::listAPNs(shared_ptr<ListAPN
 ListAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listAuthorizationRulesWithOptions(shared_ptr<ListAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("AuthorizationRuleIds", *request->authorizationRuleIds));
-  query->insert(pair<string, vector<string>>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, vector<string>>("AuthorizationRuleStatus", *request->authorizationRuleStatus));
-  query->insert(pair<string, vector<string>>("Destination", *request->destination));
-  query->insert(pair<string, vector<string>>("DestinationType", *request->destinationType));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, vector<string>>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleIds)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleIds", *request->authorizationRuleIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleName)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleStatus)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleStatus", *request->authorizationRuleStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destination)) {
+    query->insert(pair<string, vector<string>>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationType)) {
+    query->insert(pair<string, vector<string>>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policy)) {
+    query->insert(pair<string, vector<string>>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -908,13 +1242,27 @@ ListAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listAuthoriza
 ListConnectionPoolAllIpsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPoolAllIpsWithOptions(shared_ptr<ListConnectionPoolAllIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("Ip", *request->ip));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("Type", *request->type));
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
+    query->insert(pair<string, string>("Ip", *request->ip));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -940,12 +1288,24 @@ ListConnectionPoolAllIpsResponse Alibabacloud_IoTCC20210513::Client::listConnect
 ListConnectionPoolIpsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPoolIpsWithOptions(shared_ptr<ListConnectionPoolIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("Ip", *request->ip));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
+    query->insert(pair<string, string>("Ip", *request->ip));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -971,13 +1331,27 @@ ListConnectionPoolIpsResponse Alibabacloud_IoTCC20210513::Client::listConnection
 ListConnectionPoolsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPoolsWithOptions(shared_ptr<ListConnectionPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("ConnectionPoolIds", *request->connectionPoolIds));
-  query->insert(pair<string, vector<string>>("ConnectionPoolName", *request->connectionPoolName));
-  query->insert(pair<string, vector<string>>("ConnectionPoolStatus", *request->connectionPoolStatus));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->connectionPoolIds)) {
+    query->insert(pair<string, vector<string>>("ConnectionPoolIds", *request->connectionPoolIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->connectionPoolName)) {
+    query->insert(pair<string, vector<string>>("ConnectionPoolName", *request->connectionPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->connectionPoolStatus)) {
+    query->insert(pair<string, vector<string>>("ConnectionPoolStatus", *request->connectionPoolStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1003,16 +1377,36 @@ ListConnectionPoolsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPo
 ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("AuthorizationRuleIds", *request->authorizationRuleIds));
-  query->insert(pair<string, vector<string>>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, vector<string>>("AuthorizationRuleStatus", *request->authorizationRuleStatus));
-  query->insert(pair<string, vector<string>>("Destination", *request->destination));
-  query->insert(pair<string, vector<string>>("DestinationType", *request->destinationType));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, vector<string>>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleIds)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleIds", *request->authorizationRuleIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleName)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->authorizationRuleStatus)) {
+    query->insert(pair<string, vector<string>>("AuthorizationRuleStatus", *request->authorizationRuleStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destination)) {
+    query->insert(pair<string, vector<string>>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationType)) {
+    query->insert(pair<string, vector<string>>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policy)) {
+    query->insert(pair<string, vector<string>>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1038,8 +1432,12 @@ ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGrou
 ListIoTCloudConnectorAvailableZonesResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudConnectorAvailableZonesWithOptions(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1065,12 +1463,24 @@ ListIoTCloudConnectorAvailableZonesResponse Alibabacloud_IoTCC20210513::Client::
 ListIoTCloudConnectorGroupsResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudConnectorGroupsWithOptions(shared_ptr<ListIoTCloudConnectorGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupIds", *request->ioTCloudConnectorGroupIds));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupName", *request->ioTCloudConnectorGroupName));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupStatus", *request->ioTCloudConnectorGroupStatus));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorGroupIds)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupIds", *request->ioTCloudConnectorGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorGroupName)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupName", *request->ioTCloudConnectorGroupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorGroupStatus)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorGroupStatus", *request->ioTCloudConnectorGroupStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1096,16 +1506,39 @@ ListIoTCloudConnectorGroupsResponse Alibabacloud_IoTCC20210513::Client::listIoTC
 ListIoTCloudConnectorsResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudConnectorsWithOptions(shared_ptr<ListIoTCloudConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("APN", *request->APN));
-  query->insert(pair<string, vector<string>>("ISP", *request->ISP));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorIds", *request->ioTCloudConnectorIds));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorStatus", *request->ioTCloudConnectorStatus));
-  query->insert(pair<string, bool>("IsInGroup", *request->isInGroup));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("VpcId", *request->vpcId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->APN)) {
+    query->insert(pair<string, vector<string>>("APN", *request->APN));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ISP)) {
+    query->insert(pair<string, vector<string>>("ISP", *request->ISP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorIds)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorIds", *request->ioTCloudConnectorIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorName)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorStatus)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorStatus", *request->ioTCloudConnectorStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isInGroup)) {
+    query->insert(pair<string, bool>("IsInGroup", *request->isInGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vpcId)) {
+    query->insert(pair<string, vector<string>>("VpcId", *request->vpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1131,8 +1564,12 @@ ListIoTCloudConnectorsResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudC
 ListRegionsResponse Alibabacloud_IoTCC20210513::Client::listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1158,13 +1595,27 @@ ListRegionsResponse Alibabacloud_IoTCC20210513::Client::listRegions(shared_ptr<L
 ListServiceResponse Alibabacloud_IoTCC20210513::Client::listServiceWithOptions(shared_ptr<ListServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("ResourceStatuses", *request->resourceStatuses));
-  query->insert(pair<string, vector<string>>("ServiceIds", *request->serviceIds));
-  query->insert(pair<string, vector<string>>("ServiceNames", *request->serviceNames));
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceStatuses)) {
+    query->insert(pair<string, vector<string>>("ResourceStatuses", *request->resourceStatuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceIds)) {
+    query->insert(pair<string, vector<string>>("ServiceIds", *request->serviceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceNames)) {
+    query->insert(pair<string, vector<string>>("ServiceNames", *request->serviceNames));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1190,16 +1641,36 @@ ListServiceResponse Alibabacloud_IoTCC20210513::Client::listService(shared_ptr<L
 ListServiceEntriesResponse Alibabacloud_IoTCC20210513::Client::listServiceEntriesWithOptions(shared_ptr<ListServiceEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, long>("MaxResults", *request->maxResults));
-  query->insert(pair<string, string>("NextToken", *request->nextToken));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("ServiceEntryIds", *request->serviceEntryIds));
-  query->insert(pair<string, vector<string>>("ServiceEntryName", *request->serviceEntryName));
-  query->insert(pair<string, vector<string>>("ServiceEntryStatus", *request->serviceEntryStatus));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
-  query->insert(pair<string, vector<string>>("Target", *request->target));
-  query->insert(pair<string, vector<string>>("TargetType", *request->targetType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceEntryIds)) {
+    query->insert(pair<string, vector<string>>("ServiceEntryIds", *request->serviceEntryIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceEntryName)) {
+    query->insert(pair<string, vector<string>>("ServiceEntryName", *request->serviceEntryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->serviceEntryStatus)) {
+    query->insert(pair<string, vector<string>>("ServiceEntryStatus", *request->serviceEntryStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->target)) {
+    query->insert(pair<string, vector<string>>("Target", *request->target));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->targetType)) {
+    query->insert(pair<string, vector<string>>("TargetType", *request->targetType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1225,7 +1696,9 @@ ListServiceEntriesResponse Alibabacloud_IoTCC20210513::Client::listServiceEntrie
 OpenIoTCloudConnectorServiceResponse Alibabacloud_IoTCC20210513::Client::openIoTCloudConnectorServiceWithOptions(shared_ptr<OpenIoTCloudConnectorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1251,11 +1724,21 @@ OpenIoTCloudConnectorServiceResponse Alibabacloud_IoTCC20210513::Client::openIoT
 RemoveIoTCloudConnectorFromGroupResponse Alibabacloud_IoTCC20210513::Client::removeIoTCloudConnectorFromGroupWithOptions(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, vector<string>>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, vector<string>>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1281,17 +1764,39 @@ RemoveIoTCloudConnectorFromGroupResponse Alibabacloud_IoTCC20210513::Client::rem
 UpdateAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
-  query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
-  query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Destination", *request->destination));
-  query->insert(pair<string, string>("DestinationType", *request->destinationType));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceCidrs)) {
+    query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1317,15 +1822,33 @@ UpdateAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::upd
 UpdateConnectionPoolAttributeResponse Alibabacloud_IoTCC20210513::Client::updateConnectionPoolAttributeWithOptions(shared_ptr<UpdateConnectionPoolAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("ConnectionPoolDescription", *request->connectionPoolDescription));
-  query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
-  query->insert(pair<string, string>("ConnectionPoolName", *request->connectionPoolName));
-  query->insert(pair<string, long>("Count", *request->count));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->cidrs)) {
+    query->insert(pair<string, vector<string>>("Cidrs", *request->cidrs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolDescription)) {
+    query->insert(pair<string, string>("ConnectionPoolDescription", *request->connectionPoolDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolId)) {
+    query->insert(pair<string, string>("ConnectionPoolId", *request->connectionPoolId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionPoolName)) {
+    query->insert(pair<string, string>("ConnectionPoolName", *request->connectionPoolName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
+    query->insert(pair<string, long>("Count", *request->count));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1351,17 +1874,39 @@ UpdateConnectionPoolAttributeResponse Alibabacloud_IoTCC20210513::Client::update
 UpdateGroupAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateGroupAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
-  query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
-  query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Destination", *request->destination));
-  query->insert(pair<string, string>("DestinationType", *request->destinationType));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, string>("Policy", *request->policy));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceCidrs)) {
+    query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1387,13 +1932,27 @@ UpdateGroupAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client
 UpdateIoTCloudConnectorAttributeResponse Alibabacloud_IoTCC20210513::Client::updateIoTCloudConnectorAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorDescription", *request->ioTCloudConnectorDescription));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, bool>("WildcardDomainEnabled", *request->wildcardDomainEnabled));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorDescription)) {
+    query->insert(pair<string, string>("IoTCloudConnectorDescription", *request->ioTCloudConnectorDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorName)) {
+    query->insert(pair<string, string>("IoTCloudConnectorName", *request->ioTCloudConnectorName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->wildcardDomainEnabled)) {
+    query->insert(pair<string, bool>("WildcardDomainEnabled", *request->wildcardDomainEnabled));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1419,12 +1978,24 @@ UpdateIoTCloudConnectorAttributeResponse Alibabacloud_IoTCC20210513::Client::upd
 UpdateIoTCloudConnectorGroupAttributeResponse Alibabacloud_IoTCC20210513::Client::updateIoTCloudConnectorGroupAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, string>("Description", *request->description));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
-  query->insert(pair<string, string>("Name", *request->name));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1450,13 +2021,27 @@ UpdateIoTCloudConnectorGroupAttributeResponse Alibabacloud_IoTCC20210513::Client
 UpdateServiceAttributeResponse Alibabacloud_IoTCC20210513::Client::updateServiceAttributeWithOptions(shared_ptr<UpdateServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceDescription", *request->serviceDescription));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
-  query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceDescription)) {
+    query->insert(pair<string, string>("ServiceDescription", *request->serviceDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1482,14 +2067,30 @@ UpdateServiceAttributeResponse Alibabacloud_IoTCC20210513::Client::updateService
 UpdateServiceEntryAttributeResponse Alibabacloud_IoTCC20210513::Client::updateServiceEntryAttributeWithOptions(shared_ptr<UpdateServiceEntryAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  query->insert(pair<string, bool>("DryRun", *request->dryRun));
-  query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
-  query->insert(pair<string, string>("RegionId", *request->regionId));
-  query->insert(pair<string, string>("ServiceEntryDescription", *request->serviceEntryDescription));
-  query->insert(pair<string, string>("ServiceEntryId", *request->serviceEntryId));
-  query->insert(pair<string, string>("ServiceEntryName", *request->serviceEntryName));
-  query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryDescription)) {
+    query->insert(pair<string, string>("ServiceEntryDescription", *request->serviceEntryDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryId)) {
+    query->insert(pair<string, string>("ServiceEntryId", *request->serviceEntryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceEntryName)) {
+    query->insert(pair<string, string>("ServiceEntryName", *request->serviceEntryName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
