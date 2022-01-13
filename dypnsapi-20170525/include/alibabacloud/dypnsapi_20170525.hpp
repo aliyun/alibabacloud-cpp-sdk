@@ -1665,9 +1665,7 @@ public:
   shared_ptr<long> authenticationType{};
   shared_ptr<string> month{};
   shared_ptr<long> ownerId{};
-  shared_ptr<string> prodCode{};
   shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
 
   QueryGateVerifyBillingPublicRequest() {}
 
@@ -1688,14 +1686,8 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
-    if (prodCode) {
-      res["ProdCode"] = boost::any(*prodCode);
-    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
@@ -1710,14 +1702,8 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
-    if (m.find("ProdCode") != m.end() && !m["ProdCode"].empty()) {
-      prodCode = make_shared<string>(boost::any_cast<string>(m["ProdCode"]));
-    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -1957,9 +1943,7 @@ public:
   shared_ptr<string> endDate{};
   shared_ptr<string> osType{};
   shared_ptr<long> ownerId{};
-  shared_ptr<string> prodCode{};
   shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sceneCode{};
   shared_ptr<string> startDate{};
 
@@ -1985,14 +1969,8 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
-    if (prodCode) {
-      res["ProdCode"] = boost::any(*prodCode);
-    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     if (sceneCode) {
       res["SceneCode"] = boost::any(*sceneCode);
@@ -2016,14 +1994,8 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
-    if (m.find("ProdCode") != m.end() && !m["ProdCode"].empty()) {
-      prodCode = make_shared<string>(boost::any_cast<string>(m["ProdCode"]));
-    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
     if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
       sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
