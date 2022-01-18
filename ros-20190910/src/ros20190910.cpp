@@ -1748,8 +1748,15 @@ ListChangeSetsResponse Alibabacloud_ROS20190910::Client::listChangeSets(shared_p
   return listChangeSetsWithOptions(request, runtime);
 }
 
-ListResourceTypesResponse Alibabacloud_ROS20190910::Client::listResourceTypesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+ListResourceTypesResponse Alibabacloud_ROS20190910::Client::listResourceTypesWithOptions(shared_ptr<ListResourceTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityType)) {
+    query->insert(pair<string, string>("EntityType", *request->entityType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListResourceTypes"))},
     {"version", boost::any(string("2019-09-10"))},
@@ -1764,9 +1771,9 @@ ListResourceTypesResponse Alibabacloud_ROS20190910::Client::listResourceTypesWit
   return ListResourceTypesResponse(callApi(params, req, runtime));
 }
 
-ListResourceTypesResponse Alibabacloud_ROS20190910::Client::listResourceTypes() {
+ListResourceTypesResponse Alibabacloud_ROS20190910::Client::listResourceTypes(shared_ptr<ListResourceTypesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listResourceTypesWithOptions(runtime);
+  return listResourceTypesWithOptions(request, runtime);
 }
 
 ListStackEventsResponse Alibabacloud_ROS20190910::Client::listStackEventsWithOptions(shared_ptr<ListStackEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

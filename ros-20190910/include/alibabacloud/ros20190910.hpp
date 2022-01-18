@@ -5749,6 +5749,7 @@ public:
 class GetResourceTypeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> attributes{};
+  shared_ptr<string> entityType{};
   shared_ptr<map<string, boost::any>> properties{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceType{};
@@ -5767,6 +5768,9 @@ public:
     map<string, boost::any> res;
     if (attributes) {
       res["Attributes"] = boost::any(*attributes);
+    }
+    if (entityType) {
+      res["EntityType"] = boost::any(*entityType);
     }
     if (properties) {
       res["Properties"] = boost::any(*properties);
@@ -5794,6 +5798,9 @@ public:
          toMap1[item.first] = item.second;
       }
       attributes = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
+      entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
     }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Properties"]);
@@ -11034,6 +11041,35 @@ public:
 
 
   virtual ~ListChangeSetsResponse() = default;
+};
+class ListResourceTypesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> entityType{};
+
+  ListResourceTypesRequest() {}
+
+  explicit ListResourceTypesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityType) {
+      res["EntityType"] = boost::any(*entityType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityType") != m.end() && !m["EntityType"].empty()) {
+      entityType = make_shared<string>(boost::any_cast<string>(m["EntityType"]));
+    }
+  }
+
+
+  virtual ~ListResourceTypesRequest() = default;
 };
 class ListResourceTypesResponseBody : public Darabonba::Model {
 public:
@@ -19606,8 +19642,8 @@ public:
   GetTemplateSummaryResponse getTemplateSummary(shared_ptr<GetTemplateSummaryRequest> request);
   ListChangeSetsResponse listChangeSetsWithOptions(shared_ptr<ListChangeSetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListChangeSetsResponse listChangeSets(shared_ptr<ListChangeSetsRequest> request);
-  ListResourceTypesResponse listResourceTypesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListResourceTypesResponse listResourceTypes();
+  ListResourceTypesResponse listResourceTypesWithOptions(shared_ptr<ListResourceTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListResourceTypesResponse listResourceTypes(shared_ptr<ListResourceTypesRequest> request);
   ListStackEventsResponse listStackEventsWithOptions(shared_ptr<ListStackEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListStackEventsResponse listStackEvents(shared_ptr<ListStackEventsRequest> request);
   ListStackGroupOperationResultsResponse listStackGroupOperationResultsWithOptions(shared_ptr<ListStackGroupOperationResultsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
