@@ -15,6 +15,424 @@
 using namespace std;
 
 namespace Alibabacloud_Elasticsearch20170613 {
+class LogstashEndpointList : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<long> port{};
+  shared_ptr<string> zoneId{};
+
+  LogstashEndpointList() {}
+
+  explicit LogstashEndpointList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (port) {
+      res["port"] = boost::any(*port);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~LogstashEndpointList() = default;
+};
+class LogstashNetworkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vsArea{};
+  shared_ptr<string> vswitchId{};
+
+  LogstashNetworkConfig() {}
+
+  explicit LogstashNetworkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (vsArea) {
+      res["vsArea"] = boost::any(*vsArea);
+    }
+    if (vswitchId) {
+      res["vswitchId"] = boost::any(*vswitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("vsArea") != m.end() && !m["vsArea"].empty()) {
+      vsArea = make_shared<string>(boost::any_cast<string>(m["vsArea"]));
+    }
+    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
+    }
+  }
+
+
+  virtual ~LogstashNetworkConfig() = default;
+};
+class LogstashNodeSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> disk{};
+  shared_ptr<string> diskType{};
+  shared_ptr<string> spec{};
+
+  LogstashNodeSpec() {}
+
+  explicit LogstashNodeSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disk) {
+      res["disk"] = boost::any(*disk);
+    }
+    if (diskType) {
+      res["diskType"] = boost::any(*diskType);
+    }
+    if (spec) {
+      res["spec"] = boost::any(*spec);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("disk") != m.end() && !m["disk"].empty()) {
+      disk = make_shared<long>(boost::any_cast<long>(m["disk"]));
+    }
+    if (m.find("diskType") != m.end() && !m["diskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["diskType"]));
+    }
+    if (m.find("spec") != m.end() && !m["spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["spec"]));
+    }
+  }
+
+
+  virtual ~LogstashNodeSpec() = default;
+};
+class LogstashTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  LogstashTags() {}
+
+  explicit LogstashTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["tagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["tagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagKey") != m.end() && !m["tagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["tagKey"]));
+    }
+    if (m.find("tagValue") != m.end() && !m["tagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["tagValue"]));
+    }
+  }
+
+
+  virtual ~LogstashTags() = default;
+};
+class LogstashZoneInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+  shared_ptr<string> zoneId{};
+
+  LogstashZoneInfos() {}
+
+  explicit LogstashZoneInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~LogstashZoneInfos() = default;
+};
+class Logstash : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> config{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<bool> dataNode{};
+  shared_ptr<string> description{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<LogstashEndpointList>> endpointList{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<LogstashNetworkConfig> networkConfig{};
+  shared_ptr<long> nodeAmount{};
+  shared_ptr<LogstashNodeSpec> nodeSpec{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<LogstashTags>> tags{};
+  shared_ptr<string> updatedAt{};
+  shared_ptr<string> version{};
+  shared_ptr<long> zoneCount{};
+  shared_ptr<vector<LogstashZoneInfos>> zoneInfos{};
+
+  Logstash() {}
+
+  explicit Logstash(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["config"] = boost::any(*config);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (dataNode) {
+      res["dataNode"] = boost::any(*dataNode);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (endpointList) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["endpointList"] = boost::any(temp1);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (networkConfig) {
+      res["networkConfig"] = networkConfig ? boost::any(networkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeAmount) {
+      res["nodeAmount"] = boost::any(*nodeAmount);
+    }
+    if (nodeSpec) {
+      res["nodeSpec"] = nodeSpec ? boost::any(nodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (paymentType) {
+      res["paymentType"] = boost::any(*paymentType);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
+    if (updatedAt) {
+      res["updatedAt"] = boost::any(*updatedAt);
+    }
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
+    if (zoneCount) {
+      res["zoneCount"] = boost::any(*zoneCount);
+    }
+    if (zoneInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*zoneInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["zoneInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["config"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      config = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("dataNode") != m.end() && !m["dataNode"].empty()) {
+      dataNode = make_shared<bool>(boost::any_cast<bool>(m["dataNode"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("endpointList") != m.end() && !m["endpointList"].empty()) {
+      if (typeid(vector<boost::any>) == m["endpointList"].type()) {
+        vector<LogstashEndpointList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["endpointList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LogstashEndpointList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointList = make_shared<vector<LogstashEndpointList>>(expect1);
+      }
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("networkConfig") != m.end() && !m["networkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["networkConfig"].type()) {
+        LogstashNetworkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["networkConfig"]));
+        networkConfig = make_shared<LogstashNetworkConfig>(model1);
+      }
+    }
+    if (m.find("nodeAmount") != m.end() && !m["nodeAmount"].empty()) {
+      nodeAmount = make_shared<long>(boost::any_cast<long>(m["nodeAmount"]));
+    }
+    if (m.find("nodeSpec") != m.end() && !m["nodeSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["nodeSpec"].type()) {
+        LogstashNodeSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nodeSpec"]));
+        nodeSpec = make_shared<LogstashNodeSpec>(model1);
+      }
+    }
+    if (m.find("paymentType") != m.end() && !m["paymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["paymentType"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<LogstashTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LogstashTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<LogstashTags>>(expect1);
+      }
+    }
+    if (m.find("updatedAt") != m.end() && !m["updatedAt"].empty()) {
+      updatedAt = make_shared<string>(boost::any_cast<string>(m["updatedAt"]));
+    }
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("zoneCount") != m.end() && !m["zoneCount"].empty()) {
+      zoneCount = make_shared<long>(boost::any_cast<long>(m["zoneCount"]));
+    }
+    if (m.find("zoneInfos") != m.end() && !m["zoneInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["zoneInfos"].type()) {
+        vector<LogstashZoneInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["zoneInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            LogstashZoneInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        zoneInfos = make_shared<vector<LogstashZoneInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~Logstash() = default;
+};
 class ActivateZonesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -2620,8 +3038,158 @@ public:
 
   virtual ~CreateIndexTemplateResponse() = default;
 };
+class CreateLogstashRequestNetworkConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vsArea{};
+  shared_ptr<string> vswitchId{};
+
+  CreateLogstashRequestNetworkConfig() {}
+
+  explicit CreateLogstashRequestNetworkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (vsArea) {
+      res["vsArea"] = boost::any(*vsArea);
+    }
+    if (vswitchId) {
+      res["vswitchId"] = boost::any(*vswitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("vsArea") != m.end() && !m["vsArea"].empty()) {
+      vsArea = make_shared<string>(boost::any_cast<string>(m["vsArea"]));
+    }
+    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
+    }
+  }
+
+
+  virtual ~CreateLogstashRequestNetworkConfig() = default;
+};
+class CreateLogstashRequestNodeSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> disk{};
+  shared_ptr<string> diskType{};
+  shared_ptr<string> spec{};
+
+  CreateLogstashRequestNodeSpec() {}
+
+  explicit CreateLogstashRequestNodeSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disk) {
+      res["disk"] = boost::any(*disk);
+    }
+    if (diskType) {
+      res["diskType"] = boost::any(*diskType);
+    }
+    if (spec) {
+      res["spec"] = boost::any(*spec);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("disk") != m.end() && !m["disk"].empty()) {
+      disk = make_shared<long>(boost::any_cast<long>(m["disk"]));
+    }
+    if (m.find("diskType") != m.end() && !m["diskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["diskType"]));
+    }
+    if (m.find("spec") != m.end() && !m["spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["spec"]));
+    }
+  }
+
+
+  virtual ~CreateLogstashRequestNodeSpec() = default;
+};
+class CreateLogstashRequestPaymentInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> autoRenewDuration{};
+  shared_ptr<long> duration{};
+  shared_ptr<bool> isAutoRenew{};
+  shared_ptr<string> pricingCycle{};
+
+  CreateLogstashRequestPaymentInfo() {}
+
+  explicit CreateLogstashRequestPaymentInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoRenewDuration) {
+      res["autoRenewDuration"] = boost::any(*autoRenewDuration);
+    }
+    if (duration) {
+      res["duration"] = boost::any(*duration);
+    }
+    if (isAutoRenew) {
+      res["isAutoRenew"] = boost::any(*isAutoRenew);
+    }
+    if (pricingCycle) {
+      res["pricingCycle"] = boost::any(*pricingCycle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRenewDuration") != m.end() && !m["autoRenewDuration"].empty()) {
+      autoRenewDuration = make_shared<long>(boost::any_cast<long>(m["autoRenewDuration"]));
+    }
+    if (m.find("duration") != m.end() && !m["duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["duration"]));
+    }
+    if (m.find("isAutoRenew") != m.end() && !m["isAutoRenew"].empty()) {
+      isAutoRenew = make_shared<bool>(boost::any_cast<bool>(m["isAutoRenew"]));
+    }
+    if (m.find("pricingCycle") != m.end() && !m["pricingCycle"].empty()) {
+      pricingCycle = make_shared<string>(boost::any_cast<string>(m["pricingCycle"]));
+    }
+  }
+
+
+  virtual ~CreateLogstashRequestPaymentInfo() = default;
+};
 class CreateLogstashRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
+  shared_ptr<CreateLogstashRequestNetworkConfig> networkConfig{};
+  shared_ptr<long> nodeAmount{};
+  shared_ptr<CreateLogstashRequestNodeSpec> nodeSpec{};
+  shared_ptr<CreateLogstashRequestPaymentInfo> paymentInfo{};
+  shared_ptr<string> paymentType{};
+  shared_ptr<string> version{};
   shared_ptr<string> clientToken{};
 
   CreateLogstashRequest() {}
@@ -2634,6 +3202,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (networkConfig) {
+      res["networkConfig"] = networkConfig ? boost::any(networkConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nodeAmount) {
+      res["nodeAmount"] = boost::any(*nodeAmount);
+    }
+    if (nodeSpec) {
+      res["nodeSpec"] = nodeSpec ? boost::any(nodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (paymentInfo) {
+      res["paymentInfo"] = paymentInfo ? boost::any(paymentInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (paymentType) {
+      res["paymentType"] = boost::any(*paymentType);
+    }
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -2641,6 +3230,39 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("networkConfig") != m.end() && !m["networkConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["networkConfig"].type()) {
+        CreateLogstashRequestNetworkConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["networkConfig"]));
+        networkConfig = make_shared<CreateLogstashRequestNetworkConfig>(model1);
+      }
+    }
+    if (m.find("nodeAmount") != m.end() && !m["nodeAmount"].empty()) {
+      nodeAmount = make_shared<long>(boost::any_cast<long>(m["nodeAmount"]));
+    }
+    if (m.find("nodeSpec") != m.end() && !m["nodeSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["nodeSpec"].type()) {
+        CreateLogstashRequestNodeSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nodeSpec"]));
+        nodeSpec = make_shared<CreateLogstashRequestNodeSpec>(model1);
+      }
+    }
+    if (m.find("paymentInfo") != m.end() && !m["paymentInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["paymentInfo"].type()) {
+        CreateLogstashRequestPaymentInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["paymentInfo"]));
+        paymentInfo = make_shared<CreateLogstashRequestPaymentInfo>(model1);
+      }
+    }
+    if (m.find("paymentType") != m.end() && !m["paymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["paymentType"]));
+    }
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -2649,39 +3271,10 @@ public:
 
   virtual ~CreateLogstashRequest() = default;
 };
-class CreateLogstashResponseBodyResult : public Darabonba::Model {
-public:
-  shared_ptr<string> instanceId{};
-
-  CreateLogstashResponseBodyResult() {}
-
-  explicit CreateLogstashResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (instanceId) {
-      res["instanceId"] = boost::any(*instanceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
-    }
-  }
-
-
-  virtual ~CreateLogstashResponseBodyResult() = default;
-};
 class CreateLogstashResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
-  shared_ptr<CreateLogstashResponseBodyResult> result{};
+  shared_ptr<Logstash> result{};
 
   CreateLogstashResponseBody() {}
 
@@ -2708,9 +3301,9 @@ public:
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(map<string, boost::any>) == m["Result"].type()) {
-        CreateLogstashResponseBodyResult model1;
+        Logstash model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
-        result = make_shared<CreateLogstashResponseBodyResult>(model1);
+        result = make_shared<Logstash>(model1);
       }
     }
   }
@@ -16032,42 +16625,6 @@ public:
 
   virtual ~ListComponentIndicesResponseBodyHeaders() = default;
 };
-class ListComponentIndicesResponseBodyResultContentMeta : public Darabonba::Model {
-public:
-  shared_ptr<string> description{};
-  shared_ptr<bool> managed{};
-
-  ListComponentIndicesResponseBodyResultContentMeta() {}
-
-  explicit ListComponentIndicesResponseBodyResultContentMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (description) {
-      res["description"] = boost::any(*description);
-    }
-    if (managed) {
-      res["managed"] = boost::any(*managed);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("description") != m.end() && !m["description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["description"]));
-    }
-    if (m.find("managed") != m.end() && !m["managed"].empty()) {
-      managed = make_shared<bool>(boost::any_cast<bool>(m["managed"]));
-    }
-  }
-
-
-  virtual ~ListComponentIndicesResponseBodyResultContentMeta() = default;
-};
 class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndexLifecycle : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -16205,7 +16762,7 @@ public:
 };
 class ListComponentIndicesResponseBodyResultContent : public Darabonba::Model {
 public:
-  shared_ptr<ListComponentIndicesResponseBodyResultContentMeta> meta{};
+  shared_ptr<map<string, boost::any>> meta{};
   shared_ptr<ListComponentIndicesResponseBodyResultContentTemplate> template_{};
   shared_ptr<long> version{};
 
@@ -16220,7 +16777,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (meta) {
-      res["_meta"] = meta ? boost::any(meta->toMap()) : boost::any(map<string,boost::any>({}));
+      res["_meta"] = boost::any(*meta);
     }
     if (template_) {
       res["template"] = template_ ? boost::any(template_->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16233,11 +16790,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("_meta") != m.end() && !m["_meta"].empty()) {
-      if (typeid(map<string, boost::any>) == m["_meta"].type()) {
-        ListComponentIndicesResponseBodyResultContentMeta model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["_meta"]));
-        meta = make_shared<ListComponentIndicesResponseBodyResultContentMeta>(model1);
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["_meta"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
       }
+      meta = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("template") != m.end() && !m["template"].empty()) {
       if (typeid(map<string, boost::any>) == m["template"].type()) {
@@ -21601,268 +22159,11 @@ public:
 
   virtual ~ListLogstashResponseBodyHeaders() = default;
 };
-class ListLogstashResponseBodyResultTags : public Darabonba::Model {
-public:
-  shared_ptr<string> tagKey{};
-  shared_ptr<string> tagValue{};
-
-  ListLogstashResponseBodyResultTags() {}
-
-  explicit ListLogstashResponseBodyResultTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tagKey) {
-      res["TagKey"] = boost::any(*tagKey);
-    }
-    if (tagValue) {
-      res["TagValue"] = boost::any(*tagValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
-      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
-    }
-    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
-      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
-    }
-  }
-
-
-  virtual ~ListLogstashResponseBodyResultTags() = default;
-};
-class ListLogstashResponseBodyResultNetworkConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> type{};
-  shared_ptr<string> vpcId{};
-  shared_ptr<string> vsArea{};
-  shared_ptr<string> vswitchId{};
-
-  ListLogstashResponseBodyResultNetworkConfig() {}
-
-  explicit ListLogstashResponseBodyResultNetworkConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (type) {
-      res["type"] = boost::any(*type);
-    }
-    if (vpcId) {
-      res["vpcId"] = boost::any(*vpcId);
-    }
-    if (vsArea) {
-      res["vsArea"] = boost::any(*vsArea);
-    }
-    if (vswitchId) {
-      res["vswitchId"] = boost::any(*vswitchId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["type"]));
-    }
-    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
-      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
-    }
-    if (m.find("vsArea") != m.end() && !m["vsArea"].empty()) {
-      vsArea = make_shared<string>(boost::any_cast<string>(m["vsArea"]));
-    }
-    if (m.find("vswitchId") != m.end() && !m["vswitchId"].empty()) {
-      vswitchId = make_shared<string>(boost::any_cast<string>(m["vswitchId"]));
-    }
-  }
-
-
-  virtual ~ListLogstashResponseBodyResultNetworkConfig() = default;
-};
-class ListLogstashResponseBodyResultNodeSpec : public Darabonba::Model {
-public:
-  shared_ptr<long> disk{};
-  shared_ptr<bool> diskEncryption{};
-  shared_ptr<string> diskType{};
-  shared_ptr<string> spec{};
-
-  ListLogstashResponseBodyResultNodeSpec() {}
-
-  explicit ListLogstashResponseBodyResultNodeSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (disk) {
-      res["disk"] = boost::any(*disk);
-    }
-    if (diskEncryption) {
-      res["diskEncryption"] = boost::any(*diskEncryption);
-    }
-    if (diskType) {
-      res["diskType"] = boost::any(*diskType);
-    }
-    if (spec) {
-      res["spec"] = boost::any(*spec);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("disk") != m.end() && !m["disk"].empty()) {
-      disk = make_shared<long>(boost::any_cast<long>(m["disk"]));
-    }
-    if (m.find("diskEncryption") != m.end() && !m["diskEncryption"].empty()) {
-      diskEncryption = make_shared<bool>(boost::any_cast<bool>(m["diskEncryption"]));
-    }
-    if (m.find("diskType") != m.end() && !m["diskType"].empty()) {
-      diskType = make_shared<string>(boost::any_cast<string>(m["diskType"]));
-    }
-    if (m.find("spec") != m.end() && !m["spec"].empty()) {
-      spec = make_shared<string>(boost::any_cast<string>(m["spec"]));
-    }
-  }
-
-
-  virtual ~ListLogstashResponseBodyResultNodeSpec() = default;
-};
-class ListLogstashResponseBodyResult : public Darabonba::Model {
-public:
-  shared_ptr<vector<ListLogstashResponseBodyResultTags>> tags{};
-  shared_ptr<string> createdAt{};
-  shared_ptr<string> description{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<ListLogstashResponseBodyResultNetworkConfig> networkConfig{};
-  shared_ptr<long> nodeAmount{};
-  shared_ptr<ListLogstashResponseBodyResultNodeSpec> nodeSpec{};
-  shared_ptr<string> paymentType{};
-  shared_ptr<string> status{};
-  shared_ptr<string> updatedAt{};
-  shared_ptr<string> version{};
-
-  ListLogstashResponseBodyResult() {}
-
-  explicit ListLogstashResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tags) {
-      vector<boost::any> temp1;
-      for(auto item1:*tags){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tags"] = boost::any(temp1);
-    }
-    if (createdAt) {
-      res["createdAt"] = boost::any(*createdAt);
-    }
-    if (description) {
-      res["description"] = boost::any(*description);
-    }
-    if (instanceId) {
-      res["instanceId"] = boost::any(*instanceId);
-    }
-    if (networkConfig) {
-      res["networkConfig"] = networkConfig ? boost::any(networkConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (nodeAmount) {
-      res["nodeAmount"] = boost::any(*nodeAmount);
-    }
-    if (nodeSpec) {
-      res["nodeSpec"] = nodeSpec ? boost::any(nodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (paymentType) {
-      res["paymentType"] = boost::any(*paymentType);
-    }
-    if (status) {
-      res["status"] = boost::any(*status);
-    }
-    if (updatedAt) {
-      res["updatedAt"] = boost::any(*updatedAt);
-    }
-    if (version) {
-      res["version"] = boost::any(*version);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tags"].type()) {
-        vector<ListLogstashResponseBodyResultTags> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListLogstashResponseBodyResultTags model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tags = make_shared<vector<ListLogstashResponseBodyResultTags>>(expect1);
-      }
-    }
-    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
-      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
-    }
-    if (m.find("description") != m.end() && !m["description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["description"]));
-    }
-    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
-    }
-    if (m.find("networkConfig") != m.end() && !m["networkConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["networkConfig"].type()) {
-        ListLogstashResponseBodyResultNetworkConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["networkConfig"]));
-        networkConfig = make_shared<ListLogstashResponseBodyResultNetworkConfig>(model1);
-      }
-    }
-    if (m.find("nodeAmount") != m.end() && !m["nodeAmount"].empty()) {
-      nodeAmount = make_shared<long>(boost::any_cast<long>(m["nodeAmount"]));
-    }
-    if (m.find("nodeSpec") != m.end() && !m["nodeSpec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["nodeSpec"].type()) {
-        ListLogstashResponseBodyResultNodeSpec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nodeSpec"]));
-        nodeSpec = make_shared<ListLogstashResponseBodyResultNodeSpec>(model1);
-      }
-    }
-    if (m.find("paymentType") != m.end() && !m["paymentType"].empty()) {
-      paymentType = make_shared<string>(boost::any_cast<string>(m["paymentType"]));
-    }
-    if (m.find("status") != m.end() && !m["status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["status"]));
-    }
-    if (m.find("updatedAt") != m.end() && !m["updatedAt"].empty()) {
-      updatedAt = make_shared<string>(boost::any_cast<string>(m["updatedAt"]));
-    }
-    if (m.find("version") != m.end() && !m["version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["version"]));
-    }
-  }
-
-
-  virtual ~ListLogstashResponseBodyResult() = default;
-};
 class ListLogstashResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ListLogstashResponseBodyHeaders> headers{};
   shared_ptr<string> requestId{};
-  shared_ptr<vector<ListLogstashResponseBodyResult>> result{};
+  shared_ptr<vector<Logstash>> result{};
 
   ListLogstashResponseBody() {}
 
@@ -21903,15 +22204,15 @@ public:
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       if (typeid(vector<boost::any>) == m["Result"].type()) {
-        vector<ListLogstashResponseBodyResult> expect1;
+        vector<Logstash> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            ListLogstashResponseBodyResult model2;
+            Logstash model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        result = make_shared<vector<ListLogstashResponseBodyResult>>(expect1);
+        result = make_shared<vector<Logstash>>(expect1);
       }
     }
   }
@@ -25433,12 +25734,12 @@ public:
 };
 class ModifyWhiteIpsRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> clientToken{};
   shared_ptr<string> modifyMode{};
   shared_ptr<string> networkType{};
   shared_ptr<string> nodeType{};
   shared_ptr<ModifyWhiteIpsRequestWhiteIpGroup> whiteIpGroup{};
   shared_ptr<vector<string>> whiteIpList{};
+  shared_ptr<string> clientToken{};
 
   ModifyWhiteIpsRequest() {}
 
@@ -25450,9 +25751,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (clientToken) {
-      res["clientToken"] = boost::any(*clientToken);
-    }
     if (modifyMode) {
       res["modifyMode"] = boost::any(*modifyMode);
     }
@@ -25468,13 +25766,13 @@ public:
     if (whiteIpList) {
       res["whiteIpList"] = boost::any(*whiteIpList);
     }
+    if (clientToken) {
+      res["clientToken"] = boost::any(*clientToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
-      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
-    }
     if (m.find("modifyMode") != m.end() && !m["modifyMode"].empty()) {
       modifyMode = make_shared<string>(boost::any_cast<string>(m["modifyMode"]));
     }
@@ -25500,6 +25798,9 @@ public:
         }
       }
       whiteIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
   }
 
@@ -25596,6 +25897,7 @@ public:
 };
 class MoveResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> clientToken{};
 
   MoveResourceGroupRequest() {}
@@ -25608,6 +25910,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -25615,6 +25920,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -29149,6 +29457,106 @@ public:
 
 
   virtual ~StopPipelinesResponse() = default;
+};
+class TagResourcesRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  TagResourcesRequestTags() {}
+
+  explicit TagResourcesRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~TagResourcesRequestTags() = default;
+};
+class TagResourcesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> resourceIds{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<TagResourcesRequestTags>> tags{};
+
+  TagResourcesRequest() {}
+
+  explicit TagResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceIds) {
+      res["ResourceIds"] = boost::any(*resourceIds);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<TagResourcesRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TagResourcesRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<TagResourcesRequestTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TagResourcesRequest() = default;
 };
 class TagResourcesResponseBody : public Darabonba::Model {
 public:
@@ -34192,8 +34600,54 @@ public:
 
   virtual ~UpdateKibanaWhiteIpsResponse() = default;
 };
+class UpdateLogstashRequestNodeSpec : public Darabonba::Model {
+public:
+  shared_ptr<long> disk{};
+  shared_ptr<string> diskType{};
+  shared_ptr<string> spec{};
+
+  UpdateLogstashRequestNodeSpec() {}
+
+  explicit UpdateLogstashRequestNodeSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disk) {
+      res["disk"] = boost::any(*disk);
+    }
+    if (diskType) {
+      res["diskType"] = boost::any(*diskType);
+    }
+    if (spec) {
+      res["spec"] = boost::any(*spec);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("disk") != m.end() && !m["disk"].empty()) {
+      disk = make_shared<long>(boost::any_cast<long>(m["disk"]));
+    }
+    if (m.find("diskType") != m.end() && !m["diskType"].empty()) {
+      diskType = make_shared<string>(boost::any_cast<string>(m["diskType"]));
+    }
+    if (m.find("spec") != m.end() && !m["spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["spec"]));
+    }
+  }
+
+
+  virtual ~UpdateLogstashRequestNodeSpec() = default;
+};
 class UpdateLogstashRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
+  shared_ptr<long> nodeAmount{};
+  shared_ptr<UpdateLogstashRequestNodeSpec> nodeSpec{};
   shared_ptr<string> clientToken{};
 
   UpdateLogstashRequest() {}
@@ -34206,6 +34660,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (nodeAmount) {
+      res["nodeAmount"] = boost::any(*nodeAmount);
+    }
+    if (nodeSpec) {
+      res["nodeSpec"] = nodeSpec ? boost::any(nodeSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -34213,6 +34676,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("nodeAmount") != m.end() && !m["nodeAmount"].empty()) {
+      nodeAmount = make_shared<long>(boost::any_cast<long>(m["nodeAmount"]));
+    }
+    if (m.find("nodeSpec") != m.end() && !m["nodeSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["nodeSpec"].type()) {
+        UpdateLogstashRequestNodeSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nodeSpec"]));
+        nodeSpec = make_shared<UpdateLogstashRequestNodeSpec>(model1);
+      }
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -34223,7 +34699,7 @@ public:
 };
 class UpdateLogstashResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<Logstash> requestId{};
   shared_ptr<bool> result{};
 
   UpdateLogstashResponseBody() {}
@@ -34237,7 +34713,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+      res["RequestId"] = requestId ? boost::any(requestId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (result) {
       res["Result"] = boost::any(*result);
@@ -34247,7 +34723,11 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+      if (typeid(map<string, boost::any>) == m["RequestId"].type()) {
+        Logstash model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestId"]));
+        requestId = make_shared<Logstash>(model1);
+      }
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
@@ -34309,8 +34789,46 @@ public:
 
   virtual ~UpdateLogstashResponse() = default;
 };
+class UpdateLogstashChargeTypeRequestPaymentInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> duration{};
+  shared_ptr<string> pricingCycle{};
+
+  UpdateLogstashChargeTypeRequestPaymentInfo() {}
+
+  explicit UpdateLogstashChargeTypeRequestPaymentInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["duration"] = boost::any(*duration);
+    }
+    if (pricingCycle) {
+      res["pricingCycle"] = boost::any(*pricingCycle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("duration") != m.end() && !m["duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["duration"]));
+    }
+    if (m.find("pricingCycle") != m.end() && !m["pricingCycle"].empty()) {
+      pricingCycle = make_shared<string>(boost::any_cast<string>(m["pricingCycle"]));
+    }
+  }
+
+
+  virtual ~UpdateLogstashChargeTypeRequestPaymentInfo() = default;
+};
 class UpdateLogstashChargeTypeRequest : public Darabonba::Model {
 public:
+  shared_ptr<UpdateLogstashChargeTypeRequestPaymentInfo> paymentInfo{};
+  shared_ptr<string> paymentType{};
   shared_ptr<string> clientToken{};
 
   UpdateLogstashChargeTypeRequest() {}
@@ -34323,6 +34841,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (paymentInfo) {
+      res["paymentInfo"] = paymentInfo ? boost::any(paymentInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (paymentType) {
+      res["paymentType"] = boost::any(*paymentType);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -34330,6 +34854,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("paymentInfo") != m.end() && !m["paymentInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["paymentInfo"].type()) {
+        UpdateLogstashChargeTypeRequestPaymentInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["paymentInfo"]));
+        paymentInfo = make_shared<UpdateLogstashChargeTypeRequestPaymentInfo>(model1);
+      }
+    }
+    if (m.find("paymentType") != m.end() && !m["paymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["paymentType"]));
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -34340,7 +34874,7 @@ public:
 };
 class UpdateLogstashChargeTypeResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<Logstash> requestId{};
   shared_ptr<bool> result{};
 
   UpdateLogstashChargeTypeResponseBody() {}
@@ -34354,7 +34888,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+      res["RequestId"] = requestId ? boost::any(requestId->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (result) {
       res["Result"] = boost::any(*result);
@@ -34364,7 +34898,11 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+      if (typeid(map<string, boost::any>) == m["RequestId"].type()) {
+        Logstash model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestId"]));
+        requestId = make_shared<Logstash>(model1);
+      }
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
@@ -34428,6 +34966,7 @@ public:
 };
 class UpdateLogstashDescriptionRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> clientToken{};
 
   UpdateLogstashDescriptionRequest() {}
@@ -34440,6 +34979,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -34447,6 +34989,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -34578,6 +35123,7 @@ public:
 };
 class UpdateLogstashSettingsRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> body{};
   shared_ptr<string> clientToken{};
 
   UpdateLogstashSettingsRequest() {}
@@ -34590,6 +35136,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -34597,6 +35146,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -34608,6 +35165,7 @@ public:
 class UpdateLogstashSettingsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<Logstash> result{};
 
   UpdateLogstashSettingsResponseBody() {}
 
@@ -34622,12 +35180,22 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        Logstash model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<Logstash>(model1);
+      }
     }
   }
 
@@ -37854,8 +38422,8 @@ public:
                                                  shared_ptr<StopPipelinesRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TagResourcesResponse tagResources();
-  TagResourcesResponse tagResourcesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
+  TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TransferNodeResponse transferNode(shared_ptr<string> InstanceId, shared_ptr<TransferNodeRequest> request);
   TransferNodeResponse transferNodeWithOptions(shared_ptr<string> InstanceId,
                                                shared_ptr<TransferNodeRequest> request,
