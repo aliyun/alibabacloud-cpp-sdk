@@ -2857,6 +2857,7 @@ class DescribeDomainRuleGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<long> ruleGroupId{};
+  shared_ptr<long> wafAiStatus{};
 
   DescribeDomainRuleGroupResponseBody() {}
 
@@ -2874,6 +2875,9 @@ public:
     if (ruleGroupId) {
       res["RuleGroupId"] = boost::any(*ruleGroupId);
     }
+    if (wafAiStatus) {
+      res["WafAiStatus"] = boost::any(*wafAiStatus);
+    }
     return res;
   }
 
@@ -2883,6 +2887,9 @@ public:
     }
     if (m.find("RuleGroupId") != m.end() && !m["RuleGroupId"].empty()) {
       ruleGroupId = make_shared<long>(boost::any_cast<long>(m["RuleGroupId"]));
+    }
+    if (m.find("WafAiStatus") != m.end() && !m["WafAiStatus"].empty()) {
+      wafAiStatus = make_shared<long>(boost::any_cast<long>(m["WafAiStatus"]));
     }
   }
 
@@ -5535,7 +5542,6 @@ public:
 };
 class MoveResourceGroupRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
@@ -5550,9 +5556,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -5566,9 +5569,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
@@ -5670,6 +5670,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> ruleGroupId{};
+  shared_ptr<long> wafAiStatus{};
   shared_ptr<long> wafVersion{};
 
   SetDomainRuleGroupRequest() {}
@@ -5694,6 +5695,9 @@ public:
     if (ruleGroupId) {
       res["RuleGroupId"] = boost::any(*ruleGroupId);
     }
+    if (wafAiStatus) {
+      res["WafAiStatus"] = boost::any(*wafAiStatus);
+    }
     if (wafVersion) {
       res["WafVersion"] = boost::any(*wafVersion);
     }
@@ -5712,6 +5716,9 @@ public:
     }
     if (m.find("RuleGroupId") != m.end() && !m["RuleGroupId"].empty()) {
       ruleGroupId = make_shared<long>(boost::any_cast<long>(m["RuleGroupId"]));
+    }
+    if (m.find("WafAiStatus") != m.end() && !m["WafAiStatus"].empty()) {
+      wafAiStatus = make_shared<long>(boost::any_cast<long>(m["WafAiStatus"]));
     }
     if (m.find("WafVersion") != m.end() && !m["WafVersion"].empty()) {
       wafVersion = make_shared<long>(boost::any_cast<long>(m["WafVersion"]));
