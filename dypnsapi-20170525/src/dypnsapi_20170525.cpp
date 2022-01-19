@@ -388,6 +388,107 @@ GetSmsAuthTokensResponse Alibabacloud_Dypnsapi20170525::Client::getSmsAuthTokens
   return getSmsAuthTokensWithOptions(request, runtime);
 }
 
+JyCreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::jyCreateVerifySchemeWithOptions(shared_ptr<JyCreateVerifySchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bundleId)) {
+    query->insert(pair<string, string>("BundleId", *request->bundleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cmApiCode)) {
+    query->insert(pair<string, long>("CmApiCode", *request->cmApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ctApiCode)) {
+    query->insert(pair<string, long>("CtApiCode", *request->ctApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cuApiCode)) {
+    query->insert(pair<string, long>("CuApiCode", *request->cuApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
+    query->insert(pair<string, string>("OsType", *request->osType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packName)) {
+    query->insert(pair<string, string>("PackName", *request->packName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packSign)) {
+    query->insert(pair<string, string>("PackSign", *request->packSign));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemeName)) {
+    query->insert(pair<string, string>("SchemeName", *request->schemeName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("JyCreateVerifyScheme"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return JyCreateVerifySchemeResponse(callApi(params, req, runtime));
+}
+
+JyCreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::jyCreateVerifyScheme(shared_ptr<JyCreateVerifySchemeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return jyCreateVerifySchemeWithOptions(request, runtime);
+}
+
+JyGetMobileResponse Alibabacloud_Dypnsapi20170525::Client::jyGetMobileWithOptions(shared_ptr<JyGetMobileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("AccessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("JyGetMobile"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return JyGetMobileResponse(callApi(params, req, runtime));
+}
+
+JyGetMobileResponse Alibabacloud_Dypnsapi20170525::Client::jyGetMobile(shared_ptr<JyGetMobileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return jyGetMobileWithOptions(request, runtime);
+}
+
 QueryGateVerifyBillingPublicResponse Alibabacloud_Dypnsapi20170525::Client::queryGateVerifyBillingPublicWithOptions(shared_ptr<QueryGateVerifyBillingPublicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
