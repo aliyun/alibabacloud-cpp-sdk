@@ -1754,6 +1754,7 @@ public:
   shared_ptr<string> fsName{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> KMSKeyId{};
+  shared_ptr<string> lastFailed{};
   shared_ptr<string> lastMountTime{};
   shared_ptr<string> lastUmountTime{};
   shared_ptr<string> payType{};
@@ -1822,6 +1823,9 @@ public:
     }
     if (KMSKeyId) {
       res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    if (lastFailed) {
+      res["LastFailed"] = boost::any(*lastFailed);
     }
     if (lastMountTime) {
       res["LastMountTime"] = boost::any(*lastMountTime);
@@ -1922,6 +1926,9 @@ public:
     }
     if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
       KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+    if (m.find("LastFailed") != m.end() && !m["LastFailed"].empty()) {
+      lastFailed = make_shared<string>(boost::any_cast<string>(m["LastFailed"]));
     }
     if (m.find("LastMountTime") != m.end() && !m["LastMountTime"].empty()) {
       lastMountTime = make_shared<string>(boost::any_cast<string>(m["LastMountTime"]));
@@ -2394,6 +2401,7 @@ public:
   shared_ptr<string> fsName{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> KMSKeyId{};
+  shared_ptr<string> lastFailed{};
   shared_ptr<string> lastMountTime{};
   shared_ptr<string> lastUmountTime{};
   shared_ptr<string> payType{};
@@ -2459,6 +2467,9 @@ public:
     }
     if (KMSKeyId) {
       res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    if (lastFailed) {
+      res["LastFailed"] = boost::any(*lastFailed);
     }
     if (lastMountTime) {
       res["LastMountTime"] = boost::any(*lastMountTime);
@@ -2556,6 +2567,9 @@ public:
     }
     if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
       KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+    if (m.find("LastFailed") != m.end() && !m["LastFailed"].empty()) {
+      lastFailed = make_shared<string>(boost::any_cast<string>(m["LastFailed"]));
     }
     if (m.find("LastMountTime") != m.end() && !m["LastMountTime"].empty()) {
       lastMountTime = make_shared<string>(boost::any_cast<string>(m["LastMountTime"]));
