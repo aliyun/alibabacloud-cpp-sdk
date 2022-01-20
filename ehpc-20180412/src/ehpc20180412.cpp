@@ -766,9 +766,15 @@ DescribeContainerAppResponse Alibabacloud_EHPC20180412::Client::describeContaine
 DescribeGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::describeGWSClusterPolicyWithOptions(shared_ptr<DescribeGWSClusterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, bool>("AsyncMode", *request->asyncMode));
-  query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  query->insert(pair<string, string>("TaskId", *request->taskId));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->asyncMode)) {
+    query->insert(pair<string, bool>("AsyncMode", *request->asyncMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1016,31 +1022,6 @@ DescribePriceResponse Alibabacloud_EHPC20180412::Client::describePrice(shared_pt
   return describePriceWithOptions(request, runtime);
 }
 
-EcdDeleteDesktopsResponse Alibabacloud_EHPC20180412::Client::ecdDeleteDesktopsWithOptions(shared_ptr<EcdDeleteDesktopsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("EcdDeleteDesktops"))},
-    {"version", boost::any(string("2018-04-12"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return EcdDeleteDesktopsResponse(callApi(params, req, runtime));
-}
-
-EcdDeleteDesktopsResponse Alibabacloud_EHPC20180412::Client::ecdDeleteDesktops(shared_ptr<EcdDeleteDesktopsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return ecdDeleteDesktopsWithOptions(request, runtime);
-}
-
 EditJobTemplateResponse Alibabacloud_EHPC20180412::Client::editJobTemplateWithOptions(shared_ptr<EditJobTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -1216,31 +1197,6 @@ GetGWSConnectTicketResponse Alibabacloud_EHPC20180412::Client::getGWSConnectTick
   return getGWSConnectTicketWithOptions(request, runtime);
 }
 
-GetHealthMonitorLogsResponse Alibabacloud_EHPC20180412::Client::getHealthMonitorLogsWithOptions(shared_ptr<GetHealthMonitorLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetHealthMonitorLogs"))},
-    {"version", boost::any(string("2018-04-12"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetHealthMonitorLogsResponse(callApi(params, req, runtime));
-}
-
-GetHealthMonitorLogsResponse Alibabacloud_EHPC20180412::Client::getHealthMonitorLogs(shared_ptr<GetHealthMonitorLogsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getHealthMonitorLogsWithOptions(request, runtime);
-}
-
 GetHybridClusterConfigResponse Alibabacloud_EHPC20180412::Client::getHybridClusterConfigWithOptions(shared_ptr<GetHybridClusterConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -1339,31 +1295,6 @@ GetVisualServiceStatusResponse Alibabacloud_EHPC20180412::Client::getVisualServi
 GetVisualServiceStatusResponse Alibabacloud_EHPC20180412::Client::getVisualServiceStatus(shared_ptr<GetVisualServiceStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getVisualServiceStatusWithOptions(request, runtime);
-}
-
-GetWorkbenchTokenResponse Alibabacloud_EHPC20180412::Client::getWorkbenchTokenWithOptions(shared_ptr<GetWorkbenchTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetWorkbenchToken"))},
-    {"version", boost::any(string("2018-04-12"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetWorkbenchTokenResponse(callApi(params, req, runtime));
-}
-
-GetWorkbenchTokenResponse Alibabacloud_EHPC20180412::Client::getWorkbenchToken(shared_ptr<GetWorkbenchTokenRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getWorkbenchTokenWithOptions(request, runtime);
 }
 
 InitializeEHPCResponse Alibabacloud_EHPC20180412::Client::initializeEHPCWithOptions(shared_ptr<InitializeEHPCRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2507,13 +2438,27 @@ SetAutoScaleConfigResponse Alibabacloud_EHPC20180412::Client::setAutoScaleConfig
 SetGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::setGWSClusterPolicyWithOptions(shared_ptr<SetGWSClusterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, bool>("AsyncMode", *request->asyncMode));
-  query->insert(pair<string, string>("Clipboard", *request->clipboard));
-  query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  query->insert(pair<string, string>("LocalDrive", *request->localDrive));
-  query->insert(pair<string, string>("UdpPort", *request->udpPort));
-  query->insert(pair<string, string>("UsbRedirect", *request->usbRedirect));
-  query->insert(pair<string, string>("Watermark", *request->watermark));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->asyncMode)) {
+    query->insert(pair<string, bool>("AsyncMode", *request->asyncMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clipboard)) {
+    query->insert(pair<string, string>("Clipboard", *request->clipboard));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->localDrive)) {
+    query->insert(pair<string, string>("LocalDrive", *request->localDrive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->udpPort)) {
+    query->insert(pair<string, string>("UdpPort", *request->udpPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usbRedirect)) {
+    query->insert(pair<string, string>("UsbRedirect", *request->usbRedirect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermark)) {
+    query->insert(pair<string, string>("Watermark", *request->watermark));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
