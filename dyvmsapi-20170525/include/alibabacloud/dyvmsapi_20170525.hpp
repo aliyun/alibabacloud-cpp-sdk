@@ -6731,6 +6731,222 @@ public:
 
   virtual ~QueryVirtualNumberRelationResponse() = default;
 };
+class QueryVoiceFileAuditInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> businessType{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> voiceCodes{};
+
+  QueryVoiceFileAuditInfoRequest() {}
+
+  explicit QueryVoiceFileAuditInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (voiceCodes) {
+      res["VoiceCodes"] = boost::any(*voiceCodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<long>(boost::any_cast<long>(m["BusinessType"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VoiceCodes") != m.end() && !m["VoiceCodes"].empty()) {
+      voiceCodes = make_shared<string>(boost::any_cast<string>(m["VoiceCodes"]));
+    }
+  }
+
+
+  virtual ~QueryVoiceFileAuditInfoRequest() = default;
+};
+class QueryVoiceFileAuditInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> auditState{};
+  shared_ptr<string> rejectInfo{};
+  shared_ptr<string> voiceCode{};
+
+  QueryVoiceFileAuditInfoResponseBodyData() {}
+
+  explicit QueryVoiceFileAuditInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditState) {
+      res["AuditState"] = boost::any(*auditState);
+    }
+    if (rejectInfo) {
+      res["RejectInfo"] = boost::any(*rejectInfo);
+    }
+    if (voiceCode) {
+      res["VoiceCode"] = boost::any(*voiceCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditState") != m.end() && !m["AuditState"].empty()) {
+      auditState = make_shared<string>(boost::any_cast<string>(m["AuditState"]));
+    }
+    if (m.find("RejectInfo") != m.end() && !m["RejectInfo"].empty()) {
+      rejectInfo = make_shared<string>(boost::any_cast<string>(m["RejectInfo"]));
+    }
+    if (m.find("VoiceCode") != m.end() && !m["VoiceCode"].empty()) {
+      voiceCode = make_shared<string>(boost::any_cast<string>(m["VoiceCode"]));
+    }
+  }
+
+
+  virtual ~QueryVoiceFileAuditInfoResponseBodyData() = default;
+};
+class QueryVoiceFileAuditInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<QueryVoiceFileAuditInfoResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  QueryVoiceFileAuditInfoResponseBody() {}
+
+  explicit QueryVoiceFileAuditInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryVoiceFileAuditInfoResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryVoiceFileAuditInfoResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryVoiceFileAuditInfoResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~QueryVoiceFileAuditInfoResponseBody() = default;
+};
+class QueryVoiceFileAuditInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryVoiceFileAuditInfoResponseBody> body{};
+
+  QueryVoiceFileAuditInfoResponse() {}
+
+  explicit QueryVoiceFileAuditInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryVoiceFileAuditInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryVoiceFileAuditInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryVoiceFileAuditInfoResponse() = default;
+};
 class RefreshMqttTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -9074,6 +9290,8 @@ public:
   QueryVirtualNumberResponse queryVirtualNumber(shared_ptr<QueryVirtualNumberRequest> request);
   QueryVirtualNumberRelationResponse queryVirtualNumberRelationWithOptions(shared_ptr<QueryVirtualNumberRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryVirtualNumberRelationResponse queryVirtualNumberRelation(shared_ptr<QueryVirtualNumberRelationRequest> request);
+  QueryVoiceFileAuditInfoResponse queryVoiceFileAuditInfoWithOptions(shared_ptr<QueryVoiceFileAuditInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryVoiceFileAuditInfoResponse queryVoiceFileAuditInfo(shared_ptr<QueryVoiceFileAuditInfoRequest> request);
   RefreshMqttTokenResponse refreshMqttTokenWithOptions(shared_ptr<RefreshMqttTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshMqttTokenResponse refreshMqttToken(shared_ptr<RefreshMqttTokenRequest> request);
   SendVerificationResponse sendVerificationWithOptions(shared_ptr<SendVerificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
