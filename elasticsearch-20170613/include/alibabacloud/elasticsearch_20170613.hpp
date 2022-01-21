@@ -20463,6 +20463,8 @@ public:
 class ListIndexTemplatesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> indexTemplate{};
+  shared_ptr<long> page{};
+  shared_ptr<long> size{};
 
   ListIndexTemplatesRequest() {}
 
@@ -20477,12 +20479,24 @@ public:
     if (indexTemplate) {
       res["indexTemplate"] = boost::any(*indexTemplate);
     }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("indexTemplate") != m.end() && !m["indexTemplate"].empty()) {
       indexTemplate = make_shared<string>(boost::any_cast<string>(m["indexTemplate"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
     }
   }
 
@@ -28800,8 +28814,52 @@ public:
 
   virtual ~RunPipelinesResponse() = default;
 };
+class ShrinkNodeRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<long> port{};
+  shared_ptr<string> zoneId{};
+
+  ShrinkNodeRequestBody() {}
+
+  explicit ShrinkNodeRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (port) {
+      res["port"] = boost::any(*port);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ShrinkNodeRequestBody() = default;
+};
 class ShrinkNodeRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ShrinkNodeRequestBody>> body{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> ignoreStatus{};
   shared_ptr<string> nodeType{};
@@ -28816,6 +28874,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -28829,6 +28894,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<ShrinkNodeRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ShrinkNodeRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<ShrinkNodeRequestBody>>(expect1);
+      }
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -29639,8 +29717,52 @@ public:
 
   virtual ~TagResourcesResponse() = default;
 };
+class TransferNodeRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<long> port{};
+  shared_ptr<string> zoneId{};
+
+  TransferNodeRequestBody() {}
+
+  explicit TransferNodeRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (port) {
+      res["port"] = boost::any(*port);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~TransferNodeRequestBody() = default;
+};
 class TransferNodeRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<TransferNodeRequestBody>> body{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> nodeType{};
 
@@ -29654,6 +29776,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
@@ -29664,6 +29793,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<TransferNodeRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TransferNodeRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<TransferNodeRequestBody>>(expect1);
+      }
+    }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
@@ -37325,8 +37467,52 @@ public:
 
   virtual ~ValidateConnectionResponse() = default;
 };
+class ValidateShrinkNodesRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<long> port{};
+  shared_ptr<string> zoneId{};
+
+  ValidateShrinkNodesRequestBody() {}
+
+  explicit ValidateShrinkNodesRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (port) {
+      res["port"] = boost::any(*port);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ValidateShrinkNodesRequestBody() = default;
+};
 class ValidateShrinkNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ValidateShrinkNodesRequestBody>> body{};
   shared_ptr<bool> ignoreStatus{};
   shared_ptr<string> nodeType{};
 
@@ -37340,6 +37526,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (ignoreStatus) {
       res["ignoreStatus"] = boost::any(*ignoreStatus);
     }
@@ -37350,6 +37543,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<ValidateShrinkNodesRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ValidateShrinkNodesRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<ValidateShrinkNodesRequestBody>>(expect1);
+      }
+    }
     if (m.find("ignoreStatus") != m.end() && !m["ignoreStatus"].empty()) {
       ignoreStatus = make_shared<bool>(boost::any_cast<bool>(m["ignoreStatus"]));
     }
@@ -37573,8 +37779,52 @@ public:
 
   virtual ~ValidateSlrPermissionResponse() = default;
 };
+class ValidateTransferableNodesRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<long> port{};
+  shared_ptr<string> zoneId{};
+
+  ValidateTransferableNodesRequestBody() {}
+
+  explicit ValidateTransferableNodesRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (port) {
+      res["port"] = boost::any(*port);
+    }
+    if (zoneId) {
+      res["zoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("zoneId") != m.end() && !m["zoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["zoneId"]));
+    }
+  }
+
+
+  virtual ~ValidateTransferableNodesRequestBody() = default;
+};
 class ValidateTransferableNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ValidateTransferableNodesRequestBody>> body{};
   shared_ptr<string> nodeType{};
 
   ValidateTransferableNodesRequest() {}
@@ -37587,6 +37837,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (nodeType) {
       res["nodeType"] = boost::any(*nodeType);
     }
@@ -37594,6 +37851,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<ValidateTransferableNodesRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ValidateTransferableNodesRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<ValidateTransferableNodesRequestBody>>(expect1);
+      }
+    }
     if (m.find("nodeType") != m.end() && !m["nodeType"].empty()) {
       nodeType = make_shared<string>(boost::any_cast<string>(m["nodeType"]));
     }
