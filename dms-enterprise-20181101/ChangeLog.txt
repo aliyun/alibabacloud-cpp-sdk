@@ -1,3 +1,7 @@
+2022-01-21 Version: 1.28.0
+- Supported RestartDataCorrectSQLJob,PauseDataCorrectSQLJob API.
+- Supported ListDataCorrectPreCheckSQL to return tableNames information.
+
 2021-07-06 Version: 1.20.0
 - Support ListDataCorrectPreCheckDB,ListDataCorrectPreCheckSQL Order API.
 
