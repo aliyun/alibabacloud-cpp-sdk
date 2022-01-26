@@ -1033,6 +1033,37 @@ GetConnectionPoolIpOperationResultResponse Alibabacloud_IoTCC20210513::Client::g
   return getConnectionPoolIpOperationResultWithOptions(request, runtime);
 }
 
+GetDiagnoseResultForSingleCardResponse Alibabacloud_IoTCC20210513::Client::getDiagnoseResultForSingleCardWithOptions(shared_ptr<GetDiagnoseResultForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnoseTaskId)) {
+    query->insert(pair<string, string>("DiagnoseTaskId", *request->diagnoseTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDiagnoseResultForSingleCard"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDiagnoseResultForSingleCardResponse(callApi(params, req, runtime));
+}
+
+GetDiagnoseResultForSingleCardResponse Alibabacloud_IoTCC20210513::Client::getDiagnoseResultForSingleCard(shared_ptr<GetDiagnoseResultForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDiagnoseResultForSingleCardWithOptions(request, runtime);
+}
+
 GetIoTCloudConnectorAccessLogResponse Alibabacloud_IoTCC20210513::Client::getIoTCloudConnectorAccessLogWithOptions(shared_ptr<GetIoTCloudConnectorAccessLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1372,6 +1403,49 @@ ListConnectionPoolsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPo
 ListConnectionPoolsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPools(shared_ptr<ListConnectionPoolsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listConnectionPoolsWithOptions(request, runtime);
+}
+
+ListDiagnoseInfoForSingleCardResponse Alibabacloud_IoTCC20210513::Client::listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDiagnoseInfoForSingleCard"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDiagnoseInfoForSingleCardResponse(callApi(params, req, runtime));
+}
+
+ListDiagnoseInfoForSingleCardResponse Alibabacloud_IoTCC20210513::Client::listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDiagnoseInfoForSingleCardWithOptions(request, runtime);
 }
 
 ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1759,6 +1833,58 @@ RemoveIoTCloudConnectorFromGroupResponse Alibabacloud_IoTCC20210513::Client::rem
 RemoveIoTCloudConnectorFromGroupResponse Alibabacloud_IoTCC20210513::Client::removeIoTCloudConnectorFromGroup(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeIoTCloudConnectorFromGroupWithOptions(request, runtime);
+}
+
+SubmitDiagnoseTaskForSingleCardResponse Alibabacloud_IoTCC20210513::Client::submitDiagnoseTaskForSingleCardWithOptions(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
+    query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
+    query->insert(pair<string, string>("DestinationType", *request->destinationType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceUid)) {
+    query->insert(pair<string, long>("ResourceUid", *request->resourceUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitDiagnoseTaskForSingleCard"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitDiagnoseTaskForSingleCardResponse(callApi(params, req, runtime));
+}
+
+SubmitDiagnoseTaskForSingleCardResponse Alibabacloud_IoTCC20210513::Client::submitDiagnoseTaskForSingleCard(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitDiagnoseTaskForSingleCardWithOptions(request, runtime);
 }
 
 UpdateAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -3489,6 +3489,300 @@ public:
 
   virtual ~GetConnectionPoolIpOperationResultResponse() = default;
 };
+class GetDiagnoseResultForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseTaskId{};
+  shared_ptr<string> regionId{};
+
+  GetDiagnoseResultForSingleCardRequest() {}
+
+  explicit GetDiagnoseResultForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseTaskId) {
+      res["DiagnoseTaskId"] = boost::any(*diagnoseTaskId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseTaskId") != m.end() && !m["DiagnoseTaskId"].empty()) {
+      diagnoseTaskId = make_shared<string>(boost::any_cast<string>(m["DiagnoseTaskId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardRequest() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem : public Darabonba::Model {
+public:
+  shared_ptr<string> part{};
+  shared_ptr<string> status{};
+
+  GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (part) {
+      res["Part"] = boost::any(*part);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Part") != m.end() && !m["Part"].empty()) {
+      part = make_shared<string>(boost::any_cast<string>(m["Part"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBodyErrorResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorDes{};
+  shared_ptr<string> errorLevel{};
+  shared_ptr<string> errorPart{};
+  shared_ptr<string> errorSuggestion{};
+
+  GetDiagnoseResultForSingleCardResponseBodyErrorResult() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBodyErrorResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorDes) {
+      res["ErrorDes"] = boost::any(*errorDes);
+    }
+    if (errorLevel) {
+      res["ErrorLevel"] = boost::any(*errorLevel);
+    }
+    if (errorPart) {
+      res["ErrorPart"] = boost::any(*errorPart);
+    }
+    if (errorSuggestion) {
+      res["ErrorSuggestion"] = boost::any(*errorSuggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorDes") != m.end() && !m["ErrorDes"].empty()) {
+      errorDes = make_shared<string>(boost::any_cast<string>(m["ErrorDes"]));
+    }
+    if (m.find("ErrorLevel") != m.end() && !m["ErrorLevel"].empty()) {
+      errorLevel = make_shared<string>(boost::any_cast<string>(m["ErrorLevel"]));
+    }
+    if (m.find("ErrorPart") != m.end() && !m["ErrorPart"].empty()) {
+      errorPart = make_shared<string>(boost::any_cast<string>(m["ErrorPart"]));
+    }
+    if (m.find("ErrorSuggestion") != m.end() && !m["ErrorSuggestion"].empty()) {
+      errorSuggestion = make_shared<string>(boost::any_cast<string>(m["ErrorSuggestion"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBodyErrorResult() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cardIp{};
+  shared_ptr<string> destination{};
+  shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem>> diagnoseItem{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>> errorResult{};
+  shared_ptr<string> iccid{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  GetDiagnoseResultForSingleCardResponseBody() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cardIp) {
+      res["CardIp"] = boost::any(*cardIp);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (diagnoseItem) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnoseItem){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiagnoseItem"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (errorResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*errorResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ErrorResult"] = boost::any(temp1);
+    }
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CardIp") != m.end() && !m["CardIp"].empty()) {
+      cardIp = make_shared<string>(boost::any_cast<string>(m["CardIp"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DiagnoseItem") != m.end() && !m["DiagnoseItem"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiagnoseItem"].type()) {
+        vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiagnoseItem"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnoseItem = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ErrorResult") != m.end() && !m["ErrorResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["ErrorResult"].type()) {
+        vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ErrorResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDiagnoseResultForSingleCardResponseBodyErrorResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        errorResult = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>>(expect1);
+      }
+    }
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBody() = default;
+};
+class GetDiagnoseResultForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetDiagnoseResultForSingleCardResponseBody> body{};
+
+  GetDiagnoseResultForSingleCardResponse() {}
+
+  explicit GetDiagnoseResultForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDiagnoseResultForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDiagnoseResultForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponse() = default;
+};
 class GetIoTCloudConnectorAccessLogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -5311,6 +5605,257 @@ public:
 
 
   virtual ~ListConnectionPoolsResponse() = default;
+};
+class ListDiagnoseInfoForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+
+  ListDiagnoseInfoForSingleCardRequest() {}
+
+  explicit ListDiagnoseInfoForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardRequest() = default;
+};
+class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cardIp{};
+  shared_ptr<string> destination{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> iccid{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> status{};
+
+  ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cardIp) {
+      res["CardIp"] = boost::any(*cardIp);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CardIp") != m.end() && !m["CardIp"].empty()) {
+      cardIp = make_shared<string>(boost::any_cast<string>(m["CardIp"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo() = default;
+};
+class ListDiagnoseInfoForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo>> diagnoseInfo{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<long> nextToken{};
+  shared_ptr<string> requestId{};
+
+  ListDiagnoseInfoForSingleCardResponseBody() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnoseInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiagnoseInfo"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseInfo") != m.end() && !m["DiagnoseInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiagnoseInfo"].type()) {
+        vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiagnoseInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnoseInfo = make_shared<vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<long>(boost::any_cast<long>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponseBody() = default;
+};
+class ListDiagnoseInfoForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDiagnoseInfoForSingleCardResponseBody> body{};
+
+  ListDiagnoseInfoForSingleCardResponse() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDiagnoseInfoForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDiagnoseInfoForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponse() = default;
 };
 class ListGroupAuthorizationRulesRequest : public Darabonba::Model {
 public:
@@ -7576,6 +8121,179 @@ public:
 
   virtual ~RemoveIoTCloudConnectorFromGroupResponse() = default;
 };
+class SubmitDiagnoseTaskForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceUid{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+
+  SubmitDiagnoseTaskForSingleCardRequest() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceUid) {
+      res["ResourceUid"] = boost::any(*resourceUid);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceUid") != m.end() && !m["ResourceUid"].empty()) {
+      resourceUid = make_shared<long>(boost::any_cast<long>(m["ResourceUid"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardRequest() = default;
+};
+class SubmitDiagnoseTaskForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseTaskId{};
+  shared_ptr<string> requestId{};
+
+  SubmitDiagnoseTaskForSingleCardResponseBody() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseTaskId) {
+      res["DiagnoseTaskId"] = boost::any(*diagnoseTaskId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseTaskId") != m.end() && !m["DiagnoseTaskId"].empty()) {
+      diagnoseTaskId = make_shared<string>(boost::any_cast<string>(m["DiagnoseTaskId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardResponseBody() = default;
+};
+class SubmitDiagnoseTaskForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SubmitDiagnoseTaskForSingleCardResponseBody> body{};
+
+  SubmitDiagnoseTaskForSingleCardResponse() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitDiagnoseTaskForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitDiagnoseTaskForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardResponse() = default;
+};
 class UpdateAuthorizationRuleAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleDescription{};
@@ -8808,6 +9526,8 @@ public:
   EnableIoTCloudConnectorAccessLogResponse enableIoTCloudConnectorAccessLog(shared_ptr<EnableIoTCloudConnectorAccessLogRequest> request);
   GetConnectionPoolIpOperationResultResponse getConnectionPoolIpOperationResultWithOptions(shared_ptr<GetConnectionPoolIpOperationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConnectionPoolIpOperationResultResponse getConnectionPoolIpOperationResult(shared_ptr<GetConnectionPoolIpOperationResultRequest> request);
+  GetDiagnoseResultForSingleCardResponse getDiagnoseResultForSingleCardWithOptions(shared_ptr<GetDiagnoseResultForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDiagnoseResultForSingleCardResponse getDiagnoseResultForSingleCard(shared_ptr<GetDiagnoseResultForSingleCardRequest> request);
   GetIoTCloudConnectorAccessLogResponse getIoTCloudConnectorAccessLogWithOptions(shared_ptr<GetIoTCloudConnectorAccessLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIoTCloudConnectorAccessLogResponse getIoTCloudConnectorAccessLog(shared_ptr<GetIoTCloudConnectorAccessLogRequest> request);
   GetStsInfoAndOssPathResponse getStsInfoAndOssPathWithOptions(shared_ptr<GetStsInfoAndOssPathRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8824,6 +9544,8 @@ public:
   ListConnectionPoolIpsResponse listConnectionPoolIps(shared_ptr<ListConnectionPoolIpsRequest> request);
   ListConnectionPoolsResponse listConnectionPoolsWithOptions(shared_ptr<ListConnectionPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectionPoolsResponse listConnectionPools(shared_ptr<ListConnectionPoolsRequest> request);
+  ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request);
   ListGroupAuthorizationRulesResponse listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupAuthorizationRulesResponse listGroupAuthorizationRules(shared_ptr<ListGroupAuthorizationRulesRequest> request);
   ListIoTCloudConnectorAvailableZonesResponse listIoTCloudConnectorAvailableZonesWithOptions(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8842,6 +9564,8 @@ public:
   OpenIoTCloudConnectorServiceResponse openIoTCloudConnectorService(shared_ptr<OpenIoTCloudConnectorServiceRequest> request);
   RemoveIoTCloudConnectorFromGroupResponse removeIoTCloudConnectorFromGroupWithOptions(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveIoTCloudConnectorFromGroupResponse removeIoTCloudConnectorFromGroup(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request);
+  SubmitDiagnoseTaskForSingleCardResponse submitDiagnoseTaskForSingleCardWithOptions(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitDiagnoseTaskForSingleCardResponse submitDiagnoseTaskForSingleCard(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request);
   UpdateAuthorizationRuleAttributeResponse updateAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAuthorizationRuleAttributeResponse updateAuthorizationRuleAttribute(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request);
   UpdateConnectionPoolAttributeResponse updateConnectionPoolAttributeWithOptions(shared_ptr<UpdateConnectionPoolAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
