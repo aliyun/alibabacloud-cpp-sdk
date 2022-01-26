@@ -3563,7 +3563,7 @@ public:
 };
 class GetDiagnoseResultForSingleCardResponseBodyErrorResult : public Darabonba::Model {
 public:
-  shared_ptr<string> errorDes{};
+  shared_ptr<string> errorDesc{};
   shared_ptr<string> errorLevel{};
   shared_ptr<string> errorPart{};
   shared_ptr<string> errorSuggestion{};
@@ -3578,8 +3578,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (errorDes) {
-      res["ErrorDes"] = boost::any(*errorDes);
+    if (errorDesc) {
+      res["ErrorDesc"] = boost::any(*errorDesc);
     }
     if (errorLevel) {
       res["ErrorLevel"] = boost::any(*errorLevel);
@@ -3594,8 +3594,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorDes") != m.end() && !m["ErrorDes"].empty()) {
-      errorDes = make_shared<string>(boost::any_cast<string>(m["ErrorDes"]));
+    if (m.find("ErrorDesc") != m.end() && !m["ErrorDesc"].empty()) {
+      errorDesc = make_shared<string>(boost::any_cast<string>(m["ErrorDesc"]));
     }
     if (m.find("ErrorLevel") != m.end() && !m["ErrorLevel"].empty()) {
       errorLevel = make_shared<string>(boost::any_cast<string>(m["ErrorLevel"]));
