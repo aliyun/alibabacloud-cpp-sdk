@@ -5675,10 +5675,12 @@ public:
   shared_ptr<long> beginTime{};
   shared_ptr<string> cardIp{};
   shared_ptr<string> destination{};
+  shared_ptr<long> diagnoseTime{};
   shared_ptr<long> endTime{};
   shared_ptr<string> iccid{};
   shared_ptr<string> ioTCloudConnectorId{};
   shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
 
   ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo() {}
 
@@ -5699,6 +5701,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (diagnoseTime) {
+      res["DiagnoseTime"] = boost::any(*diagnoseTime);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -5710,6 +5715,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     return res;
   }
@@ -5724,6 +5732,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DiagnoseTime") != m.end() && !m["DiagnoseTime"].empty()) {
+      diagnoseTime = make_shared<long>(boost::any_cast<long>(m["DiagnoseTime"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
@@ -5736,6 +5747,9 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
   }
 
 
@@ -5745,8 +5759,9 @@ class ListDiagnoseInfoForSingleCardResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo>> diagnoseInfo{};
   shared_ptr<long> maxResults{};
-  shared_ptr<long> nextToken{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   ListDiagnoseInfoForSingleCardResponseBody() {}
 
@@ -5774,6 +5789,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -5795,10 +5813,13 @@ public:
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
-      nextToken = make_shared<long>(boost::any_cast<long>(m["NextToken"]));
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
