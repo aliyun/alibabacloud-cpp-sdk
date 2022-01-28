@@ -391,6 +391,9 @@ CreateDBInstanceResponse Alibabacloud_Dds20151201::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hiddenZoneId)) {
+    query->insert(pair<string, string>("HiddenZoneId", *request->hiddenZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
     query->insert(pair<string, string>("NetworkType", *request->networkType));
   }
@@ -423,6 +426,9 @@ CreateDBInstanceResponse Alibabacloud_Dds20151201::Client::createDBInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->restoreTime)) {
     query->insert(pair<string, string>("RestoreTime", *request->restoreTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secondaryZoneId)) {
+    query->insert(pair<string, string>("SecondaryZoneId", *request->secondaryZoneId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
@@ -2012,6 +2018,9 @@ DescribeDBInstancesOverviewResponse Alibabacloud_Dds20151201::Client::describeDB
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -3471,6 +3480,9 @@ ModifyAuditLogFilterResponse Alibabacloud_Dds20151201::Client::modifyAuditLogFil
 ModifyAuditPolicyResponse Alibabacloud_Dds20151201::Client::modifyAuditPolicyWithOptions(shared_ptr<ModifyAuditPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->auditLogSwitchSource)) {
+    query->insert(pair<string, string>("AuditLogSwitchSource", *request->auditLogSwitchSource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->auditStatus)) {
     query->insert(pair<string, string>("AuditStatus", *request->auditStatus));
   }
@@ -3491,6 +3503,9 @@ ModifyAuditPolicyResponse Alibabacloud_Dds20151201::Client::modifyAuditPolicyWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->storagePeriod)) {
     query->insert(pair<string, long>("StoragePeriod", *request->storagePeriod));

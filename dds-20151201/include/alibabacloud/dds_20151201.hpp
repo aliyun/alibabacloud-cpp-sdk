@@ -867,6 +867,7 @@ public:
   shared_ptr<string> databaseNames{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> hiddenZoneId{};
   shared_ptr<string> networkType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -878,6 +879,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> restoreTime{};
+  shared_ptr<string> secondaryZoneId{};
   shared_ptr<string> securityIPList{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> srcDBInstanceId{};
@@ -938,6 +940,9 @@ public:
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
     }
+    if (hiddenZoneId) {
+      res["HiddenZoneId"] = boost::any(*hiddenZoneId);
+    }
     if (networkType) {
       res["NetworkType"] = boost::any(*networkType);
     }
@@ -970,6 +975,9 @@ public:
     }
     if (restoreTime) {
       res["RestoreTime"] = boost::any(*restoreTime);
+    }
+    if (secondaryZoneId) {
+      res["SecondaryZoneId"] = boost::any(*secondaryZoneId);
     }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
@@ -1038,6 +1046,9 @@ public:
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
     }
+    if (m.find("HiddenZoneId") != m.end() && !m["HiddenZoneId"].empty()) {
+      hiddenZoneId = make_shared<string>(boost::any_cast<string>(m["HiddenZoneId"]));
+    }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
@@ -1070,6 +1081,9 @@ public:
     }
     if (m.find("RestoreTime") != m.end() && !m["RestoreTime"].empty()) {
       restoreTime = make_shared<string>(boost::any_cast<string>(m["RestoreTime"]));
+    }
+    if (m.find("SecondaryZoneId") != m.end() && !m["SecondaryZoneId"].empty()) {
+      secondaryZoneId = make_shared<string>(boost::any_cast<string>(m["SecondaryZoneId"]));
     }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
@@ -9535,6 +9549,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -9579,6 +9594,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -9631,6 +9649,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -11665,9 +11686,17 @@ public:
 };
 class DescribeMongoDBLogConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableAudit{};
   shared_ptr<long> isEtlMetaExist{};
   shared_ptr<long> isUserProjectLogstoreExist{};
+  shared_ptr<long> preserveStorageForStandard{};
+  shared_ptr<long> preserveStorageForTrail{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<long> ttlForStandard{};
+  shared_ptr<long> ttlForTrail{};
+  shared_ptr<long> usedStorageForStandard{};
+  shared_ptr<long> usedStorageForTrail{};
   shared_ptr<string> userProjectName{};
 
   DescribeMongoDBLogConfigResponseBody() {}
@@ -11680,14 +11709,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableAudit) {
+      res["EnableAudit"] = boost::any(*enableAudit);
+    }
     if (isEtlMetaExist) {
       res["IsEtlMetaExist"] = boost::any(*isEtlMetaExist);
     }
     if (isUserProjectLogstoreExist) {
       res["IsUserProjectLogstoreExist"] = boost::any(*isUserProjectLogstoreExist);
     }
+    if (preserveStorageForStandard) {
+      res["PreserveStorageForStandard"] = boost::any(*preserveStorageForStandard);
+    }
+    if (preserveStorageForTrail) {
+      res["PreserveStorageForTrail"] = boost::any(*preserveStorageForTrail);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (ttlForStandard) {
+      res["TtlForStandard"] = boost::any(*ttlForStandard);
+    }
+    if (ttlForTrail) {
+      res["TtlForTrail"] = boost::any(*ttlForTrail);
+    }
+    if (usedStorageForStandard) {
+      res["UsedStorageForStandard"] = boost::any(*usedStorageForStandard);
+    }
+    if (usedStorageForTrail) {
+      res["UsedStorageForTrail"] = boost::any(*usedStorageForTrail);
     }
     if (userProjectName) {
       res["UserProjectName"] = boost::any(*userProjectName);
@@ -11696,14 +11749,38 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableAudit") != m.end() && !m["EnableAudit"].empty()) {
+      enableAudit = make_shared<bool>(boost::any_cast<bool>(m["EnableAudit"]));
+    }
     if (m.find("IsEtlMetaExist") != m.end() && !m["IsEtlMetaExist"].empty()) {
       isEtlMetaExist = make_shared<long>(boost::any_cast<long>(m["IsEtlMetaExist"]));
     }
     if (m.find("IsUserProjectLogstoreExist") != m.end() && !m["IsUserProjectLogstoreExist"].empty()) {
       isUserProjectLogstoreExist = make_shared<long>(boost::any_cast<long>(m["IsUserProjectLogstoreExist"]));
     }
+    if (m.find("PreserveStorageForStandard") != m.end() && !m["PreserveStorageForStandard"].empty()) {
+      preserveStorageForStandard = make_shared<long>(boost::any_cast<long>(m["PreserveStorageForStandard"]));
+    }
+    if (m.find("PreserveStorageForTrail") != m.end() && !m["PreserveStorageForTrail"].empty()) {
+      preserveStorageForTrail = make_shared<long>(boost::any_cast<long>(m["PreserveStorageForTrail"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("TtlForStandard") != m.end() && !m["TtlForStandard"].empty()) {
+      ttlForStandard = make_shared<long>(boost::any_cast<long>(m["TtlForStandard"]));
+    }
+    if (m.find("TtlForTrail") != m.end() && !m["TtlForTrail"].empty()) {
+      ttlForTrail = make_shared<long>(boost::any_cast<long>(m["TtlForTrail"]));
+    }
+    if (m.find("UsedStorageForStandard") != m.end() && !m["UsedStorageForStandard"].empty()) {
+      usedStorageForStandard = make_shared<long>(boost::any_cast<long>(m["UsedStorageForStandard"]));
+    }
+    if (m.find("UsedStorageForTrail") != m.end() && !m["UsedStorageForTrail"].empty()) {
+      usedStorageForTrail = make_shared<long>(boost::any_cast<long>(m["UsedStorageForTrail"]));
     }
     if (m.find("UserProjectName") != m.end() && !m["UserProjectName"].empty()) {
       userProjectName = make_shared<string>(boost::any_cast<string>(m["UserProjectName"]));
@@ -18319,6 +18396,7 @@ public:
 };
 class ModifyAuditPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> auditLogSwitchSource{};
   shared_ptr<string> auditStatus{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> ownerAccount{};
@@ -18326,6 +18404,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<string> serviceType{};
   shared_ptr<long> storagePeriod{};
 
   ModifyAuditPolicyRequest() {}
@@ -18338,6 +18417,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (auditLogSwitchSource) {
+      res["AuditLogSwitchSource"] = boost::any(*auditLogSwitchSource);
+    }
     if (auditStatus) {
       res["AuditStatus"] = boost::any(*auditStatus);
     }
@@ -18359,6 +18441,9 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
     if (storagePeriod) {
       res["StoragePeriod"] = boost::any(*storagePeriod);
     }
@@ -18366,6 +18451,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditLogSwitchSource") != m.end() && !m["AuditLogSwitchSource"].empty()) {
+      auditLogSwitchSource = make_shared<string>(boost::any_cast<string>(m["AuditLogSwitchSource"]));
+    }
     if (m.find("AuditStatus") != m.end() && !m["AuditStatus"].empty()) {
       auditStatus = make_shared<string>(boost::any_cast<string>(m["AuditStatus"]));
     }
@@ -18386,6 +18474,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
     }
     if (m.find("StoragePeriod") != m.end() && !m["StoragePeriod"].empty()) {
       storagePeriod = make_shared<long>(boost::any_cast<long>(m["StoragePeriod"]));
