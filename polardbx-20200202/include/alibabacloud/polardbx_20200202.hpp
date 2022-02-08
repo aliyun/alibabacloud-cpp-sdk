@@ -1159,8 +1159,12 @@ public:
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
   shared_ptr<string> primaryDBInstanceName{};
+  shared_ptr<string> primaryZone{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> secondaryZone{};
+  shared_ptr<string> tertiaryZone{};
+  shared_ptr<string> topologyType{};
   shared_ptr<long> usedTime{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -1206,11 +1210,23 @@ public:
     if (primaryDBInstanceName) {
       res["PrimaryDBInstanceName"] = boost::any(*primaryDBInstanceName);
     }
+    if (primaryZone) {
+      res["PrimaryZone"] = boost::any(*primaryZone);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (secondaryZone) {
+      res["SecondaryZone"] = boost::any(*secondaryZone);
+    }
+    if (tertiaryZone) {
+      res["TertiaryZone"] = boost::any(*tertiaryZone);
+    }
+    if (topologyType) {
+      res["TopologyType"] = boost::any(*topologyType);
     }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
@@ -1258,11 +1274,23 @@ public:
     if (m.find("PrimaryDBInstanceName") != m.end() && !m["PrimaryDBInstanceName"].empty()) {
       primaryDBInstanceName = make_shared<string>(boost::any_cast<string>(m["PrimaryDBInstanceName"]));
     }
+    if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
+      primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecondaryZone") != m.end() && !m["SecondaryZone"].empty()) {
+      secondaryZone = make_shared<string>(boost::any_cast<string>(m["SecondaryZone"]));
+    }
+    if (m.find("TertiaryZone") != m.end() && !m["TertiaryZone"].empty()) {
+      tertiaryZone = make_shared<string>(boost::any_cast<string>(m["TertiaryZone"]));
+    }
+    if (m.find("TopologyType") != m.end() && !m["TopologyType"].empty()) {
+      topologyType = make_shared<string>(boost::any_cast<string>(m["TopologyType"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<long>(boost::any_cast<long>(m["UsedTime"]));
@@ -5093,6 +5121,42 @@ public:
 
   virtual ~DescribeDBInstanceTopologyRequest() = default;
 };
+class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList : public Darabonba::Model {
+public:
+  shared_ptr<string> azone{};
+  shared_ptr<string> role{};
+
+  DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList() {}
+
+  explicit DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (azone) {
+      res["Azone"] = boost::any(*azone);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Azone") != m.end() && !m["Azone"].empty()) {
+      azone = make_shared<string>(boost::any_cast<string>(m["Azone"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+  }
+
+
+  virtual ~DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList() = default;
+};
 class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp : public Darabonba::Model {
 public:
   shared_ptr<string> connectionString{};
@@ -5138,6 +5202,9 @@ public:
 };
 class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems : public Darabonba::Model {
 public:
+  shared_ptr<bool> activated{};
+  shared_ptr<string> azone{};
+  shared_ptr<vector<DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList>> azoneRoleList{};
   shared_ptr<string> characterType{};
   shared_ptr<vector<DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp>> connectionIp{};
   shared_ptr<long> DBInstanceConnType{};
@@ -5156,6 +5223,8 @@ public:
   shared_ptr<string> maintainStartTime{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIops{};
+  shared_ptr<string> region{};
+  shared_ptr<string> role{};
 
   DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems() {}
 
@@ -5167,6 +5236,19 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activated) {
+      res["Activated"] = boost::any(*activated);
+    }
+    if (azone) {
+      res["Azone"] = boost::any(*azone);
+    }
+    if (azoneRoleList) {
+      vector<boost::any> temp1;
+      for(auto item1:*azoneRoleList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AzoneRoleList"] = boost::any(temp1);
+    }
     if (characterType) {
       res["CharacterType"] = boost::any(*characterType);
     }
@@ -5225,10 +5307,35 @@ public:
     if (maxIops) {
       res["MaxIops"] = boost::any(*maxIops);
     }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Activated") != m.end() && !m["Activated"].empty()) {
+      activated = make_shared<bool>(boost::any_cast<bool>(m["Activated"]));
+    }
+    if (m.find("Azone") != m.end() && !m["Azone"].empty()) {
+      azone = make_shared<string>(boost::any_cast<string>(m["Azone"]));
+    }
+    if (m.find("AzoneRoleList") != m.end() && !m["AzoneRoleList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AzoneRoleList"].type()) {
+        vector<DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AzoneRoleList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        azoneRoleList = make_shared<vector<DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList>>(expect1);
+      }
+    }
     if (m.find("CharacterType") != m.end() && !m["CharacterType"].empty()) {
       characterType = make_shared<string>(boost::any_cast<string>(m["CharacterType"]));
     }
@@ -5292,6 +5399,12 @@ public:
     }
     if (m.find("MaxIops") != m.end() && !m["MaxIops"].empty()) {
       maxIops = make_shared<long>(boost::any_cast<long>(m["MaxIops"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
     }
   }
 
@@ -10545,6 +10658,7 @@ public:
   shared_ptr<string> configValue{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyDBInstanceConfigRequest() {}
 
@@ -10568,6 +10682,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -10583,6 +10700,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 

@@ -402,11 +402,23 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->primaryDBInstanceName)) {
     query->insert(pair<string, string>("PrimaryDBInstanceName", *request->primaryDBInstanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryZone)) {
+    query->insert(pair<string, string>("PrimaryZone", *request->primaryZone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secondaryZone)) {
+    query->insert(pair<string, string>("SecondaryZone", *request->secondaryZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tertiaryZone)) {
+    query->insert(pair<string, string>("TertiaryZone", *request->tertiaryZone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topologyType)) {
+    query->insert(pair<string, string>("TopologyType", *request->topologyType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->usedTime)) {
     query->insert(pair<string, long>("UsedTime", *request->usedTime));
@@ -1725,6 +1737,9 @@ ModifyDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::modifyDBIn
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
