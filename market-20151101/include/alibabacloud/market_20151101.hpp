@@ -629,7 +629,9 @@ public:
 class CreateRateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<string> customerLabels{};
   shared_ptr<string> orderId{};
+  shared_ptr<string> packageVersion{};
   shared_ptr<string> requestId{};
   shared_ptr<string> score{};
 
@@ -646,8 +648,14 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (customerLabels) {
+      res["CustomerLabels"] = boost::any(*customerLabels);
+    }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (packageVersion) {
+      res["PackageVersion"] = boost::any(*packageVersion);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -662,8 +670,14 @@ public:
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
+    if (m.find("CustomerLabels") != m.end() && !m["CustomerLabels"].empty()) {
+      customerLabels = make_shared<string>(boost::any_cast<string>(m["CustomerLabels"]));
+    }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("PackageVersion") != m.end() && !m["PackageVersion"].empty()) {
+      packageVersion = make_shared<string>(boost::any_cast<string>(m["PackageVersion"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -6477,6 +6491,7 @@ public:
   shared_ptr<string> additionalExplaintion{};
   shared_ptr<long> aliUid{};
   shared_ptr<string> content{};
+  shared_ptr<string> customerLabels{};
   shared_ptr<string> explaintion{};
   shared_ptr<long> gmtAdditional{};
   shared_ptr<long> gmtAdditionalExplaintion{};
@@ -6485,6 +6500,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> orderId{};
+  shared_ptr<string> packageVersion{};
   shared_ptr<string> productId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> score{};
@@ -6512,6 +6528,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (customerLabels) {
+      res["CustomerLabels"] = boost::any(*customerLabels);
+    }
     if (explaintion) {
       res["Explaintion"] = boost::any(*explaintion);
     }
@@ -6535,6 +6554,9 @@ public:
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (packageVersion) {
+      res["PackageVersion"] = boost::any(*packageVersion);
     }
     if (productId) {
       res["ProductId"] = boost::any(*productId);
@@ -6564,6 +6586,9 @@ public:
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
+    if (m.find("CustomerLabels") != m.end() && !m["CustomerLabels"].empty()) {
+      customerLabels = make_shared<string>(boost::any_cast<string>(m["CustomerLabels"]));
+    }
     if (m.find("Explaintion") != m.end() && !m["Explaintion"].empty()) {
       explaintion = make_shared<string>(boost::any_cast<string>(m["Explaintion"]));
     }
@@ -6587,6 +6612,9 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("PackageVersion") != m.end() && !m["PackageVersion"].empty()) {
+      packageVersion = make_shared<string>(boost::any_cast<string>(m["PackageVersion"]));
     }
     if (m.find("ProductId") != m.end() && !m["ProductId"].empty()) {
       productId = make_shared<string>(boost::any_cast<string>(m["ProductId"]));

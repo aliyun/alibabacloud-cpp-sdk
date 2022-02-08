@@ -208,8 +208,14 @@ CreateRateResponse Alibabacloud_Market20151101::Client::createRateWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerLabels)) {
+    query->insert(pair<string, string>("CustomerLabels", *request->customerLabels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageVersion)) {
+    query->insert(pair<string, string>("PackageVersion", *request->packageVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
     query->insert(pair<string, string>("RequestId", *request->requestId));
