@@ -96,6 +96,8 @@ public:
 };
 class GatewayOption : public Darabonba::Model {
 public:
+  shared_ptr<bool> disableHttp2Alpn{};
+  shared_ptr<bool> enableHardwareAcceleration{};
   shared_ptr<GatewayOptionLogConfigDetails> logConfigDetails{};
   shared_ptr<GatewayOptionTraceDetails> traceDetails{};
 
@@ -109,6 +111,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (disableHttp2Alpn) {
+      res["DisableHttp2Alpn"] = boost::any(*disableHttp2Alpn);
+    }
+    if (enableHardwareAcceleration) {
+      res["EnableHardwareAcceleration"] = boost::any(*enableHardwareAcceleration);
+    }
     if (logConfigDetails) {
       res["LogConfigDetails"] = logConfigDetails ? boost::any(logConfigDetails->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -119,6 +127,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableHttp2Alpn") != m.end() && !m["DisableHttp2Alpn"].empty()) {
+      disableHttp2Alpn = make_shared<bool>(boost::any_cast<bool>(m["DisableHttp2Alpn"]));
+    }
+    if (m.find("EnableHardwareAcceleration") != m.end() && !m["EnableHardwareAcceleration"].empty()) {
+      enableHardwareAcceleration = make_shared<bool>(boost::any_cast<bool>(m["EnableHardwareAcceleration"]));
+    }
     if (m.find("LogConfigDetails") != m.end() && !m["LogConfigDetails"].empty()) {
       if (typeid(map<string, boost::any>) == m["LogConfigDetails"].type()) {
         GatewayOptionLogConfigDetails model1;
