@@ -2775,6 +2775,8 @@ class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo : public Darabonba:
 public:
   shared_ptr<string> instanceTypeFamily{};
   shared_ptr<string> OSName{};
+  shared_ptr<string> status{};
+  shared_ptr<string> zoneId{};
   shared_ptr<string> label{};
   shared_ptr<string> value{};
 
@@ -2794,6 +2796,12 @@ public:
     if (OSName) {
       res["OSName"] = boost::any(*OSName);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     if (label) {
       res["label"] = boost::any(*label);
     }
@@ -2809,6 +2817,12 @@ public:
     }
     if (m.find("OSName") != m.end() && !m["OSName"].empty()) {
       OSName = make_shared<string>(boost::any_cast<string>(m["OSName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
     if (m.find("label") != m.end() && !m["label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["label"]));
