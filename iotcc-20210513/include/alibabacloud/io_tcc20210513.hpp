@@ -5675,10 +5675,13 @@ public:
   shared_ptr<long> beginTime{};
   shared_ptr<string> cardIp{};
   shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
   shared_ptr<long> diagnoseTime{};
   shared_ptr<long> endTime{};
   shared_ptr<string> iccid{};
   shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> taskId{};
 
@@ -5701,6 +5704,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
     if (diagnoseTime) {
       res["DiagnoseTime"] = boost::any(*diagnoseTime);
     }
@@ -5712,6 +5718,12 @@ public:
     }
     if (ioTCloudConnectorId) {
       res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -5732,6 +5744,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
     if (m.find("DiagnoseTime") != m.end() && !m["DiagnoseTime"].empty()) {
       diagnoseTime = make_shared<long>(boost::any_cast<long>(m["DiagnoseTime"]));
     }
@@ -5743,6 +5758,12 @@ public:
     }
     if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
       ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
