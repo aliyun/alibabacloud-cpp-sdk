@@ -235,6 +235,214 @@ public:
 
   virtual ~ApeInnerCommonApiResponse() = default;
 };
+class ApeProvinceStationRefRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> adcode{};
+  shared_ptr<string> appName{};
+  shared_ptr<string> city{};
+  shared_ptr<string> cnty{};
+  shared_ptr<string> country{};
+  shared_ptr<long> offset{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> provinceCode{};
+  shared_ptr<string> provinceName{};
+  shared_ptr<string> stationName{};
+
+  ApeProvinceStationRefRequest() {}
+
+  explicit ApeProvinceStationRefRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adcode) {
+      res["Adcode"] = boost::any(*adcode);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (cnty) {
+      res["Cnty"] = boost::any(*cnty);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (provinceCode) {
+      res["ProvinceCode"] = boost::any(*provinceCode);
+    }
+    if (provinceName) {
+      res["ProvinceName"] = boost::any(*provinceName);
+    }
+    if (stationName) {
+      res["StationName"] = boost::any(*stationName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Adcode") != m.end() && !m["Adcode"].empty()) {
+      adcode = make_shared<long>(boost::any_cast<long>(m["Adcode"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("Cnty") != m.end() && !m["Cnty"].empty()) {
+      cnty = make_shared<string>(boost::any_cast<string>(m["Cnty"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProvinceCode") != m.end() && !m["ProvinceCode"].empty()) {
+      provinceCode = make_shared<long>(boost::any_cast<long>(m["ProvinceCode"]));
+    }
+    if (m.find("ProvinceName") != m.end() && !m["ProvinceName"].empty()) {
+      provinceName = make_shared<string>(boost::any_cast<string>(m["ProvinceName"]));
+    }
+    if (m.find("StationName") != m.end() && !m["StationName"].empty()) {
+      stationName = make_shared<string>(boost::any_cast<string>(m["StationName"]));
+    }
+  }
+
+
+  virtual ~ApeProvinceStationRefRequest() = default;
+};
+class ApeProvinceStationRefResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> rt{};
+  shared_ptr<bool> success{};
+
+  ApeProvinceStationRefResponseBody() {}
+
+  explicit ApeProvinceStationRefResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rt) {
+      res["Rt"] = boost::any(*rt);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Rt") != m.end() && !m["Rt"].empty()) {
+      rt = make_shared<long>(boost::any_cast<long>(m["Rt"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ApeProvinceStationRefResponseBody() = default;
+};
+class ApeProvinceStationRefResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ApeProvinceStationRefResponseBody> body{};
+
+  ApeProvinceStationRefResponse() {}
+
+  explicit ApeProvinceStationRefResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApeProvinceStationRefResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApeProvinceStationRefResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApeProvinceStationRefResponse() = default;
+};
 class HistoricalRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -1144,6 +1352,8 @@ public:
                      shared_ptr<string> endpoint);
   ApeInnerCommonApiResponse apeInnerCommonApiWithOptions(shared_ptr<ApeInnerCommonApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApeInnerCommonApiResponse apeInnerCommonApi(shared_ptr<ApeInnerCommonApiRequest> request);
+  ApeProvinceStationRefResponse apeProvinceStationRefWithOptions(shared_ptr<ApeProvinceStationRefRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApeProvinceStationRefResponse apeProvinceStationRef(shared_ptr<ApeProvinceStationRefRequest> request);
   HistoricalResponse historicalWithOptions(shared_ptr<HistoricalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   HistoricalResponse historical(shared_ptr<HistoricalRequest> request);
   StationDayResponse stationDayWithOptions(shared_ptr<StationDayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
