@@ -2175,6 +2175,9 @@ ListClusterTypesResponse Alibabacloud_Mse20190531::Client::listClusterTypesWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectType)) {
+    query->insert(pair<string, string>("ConnectType", *request->connectType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2903,6 +2906,9 @@ QueryClusterSpecificationResponse Alibabacloud_Mse20190531::Client::queryCluster
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectType)) {
+    query->insert(pair<string, string>("ConnectType", *request->connectType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3290,6 +3296,9 @@ UpdateBlackWhiteListResponse Alibabacloud_Mse20190531::Client::updateBlackWhiteL
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isWhite)) {
+    query->insert(pair<string, bool>("IsWhite", *request->isWhite));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));

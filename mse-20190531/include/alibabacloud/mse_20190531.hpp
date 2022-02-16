@@ -7256,6 +7256,7 @@ class GetBlackWhiteListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<bool> isWhite{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> type{};
 
@@ -7275,6 +7276,9 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -7290,6 +7294,9 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -14396,6 +14403,7 @@ public:
 class ListClusterTypesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> connectType{};
   shared_ptr<string> regionId{};
 
   ListClusterTypesRequest() {}
@@ -14411,6 +14419,9 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (connectType) {
+      res["ConnectType"] = boost::any(*connectType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -14420,6 +14431,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("ConnectType") != m.end() && !m["ConnectType"].empty()) {
+      connectType = make_shared<string>(boost::any_cast<string>(m["ConnectType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -21147,6 +21161,7 @@ public:
 class QueryClusterSpecificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> connectType{};
 
   QueryClusterSpecificationRequest() {}
 
@@ -21161,12 +21176,18 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (connectType) {
+      res["ConnectType"] = boost::any(*connectType);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("ConnectType") != m.end() && !m["ConnectType"].empty()) {
+      connectType = make_shared<string>(boost::any_cast<string>(m["ConnectType"]));
     }
   }
 
@@ -23796,6 +23817,7 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
+  shared_ptr<bool> isWhite{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -23822,6 +23844,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (isWhite) {
+      res["IsWhite"] = boost::any(*isWhite);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -23846,6 +23871,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
+      isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
