@@ -982,6 +982,179 @@ public:
 
   virtual ~CreateConnectionPoolResponse() = default;
 };
+class CreateDNSServiceRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleDescription{};
+  shared_ptr<string> authorizationRuleName{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> destination{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  CreateDNSServiceRuleRequest() {}
+
+  explicit CreateDNSServiceRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleDescription) {
+      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
+      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~CreateDNSServiceRuleRequest() = default;
+};
+class CreateDNSServiceRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> requestId{};
+
+  CreateDNSServiceRuleResponseBody() {}
+
+  explicit CreateDNSServiceRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDNSServiceRuleResponseBody() = default;
+};
+class CreateDNSServiceRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateDNSServiceRuleResponseBody> body{};
+
+  CreateDNSServiceRuleResponse() {}
+
+  explicit CreateDNSServiceRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDNSServiceRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDNSServiceRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDNSServiceRuleResponse() = default;
+};
 class CreateGroupAuthorizationRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleDescription{};
@@ -1175,6 +1348,186 @@ public:
 
 
   virtual ~CreateGroupAuthorizationRuleResponse() = default;
+};
+class CreateGroupDNSServiceRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleDescription{};
+  shared_ptr<string> DNSServiceRuleName{};
+  shared_ptr<string> destination{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  CreateGroupDNSServiceRuleRequest() {}
+
+  explicit CreateGroupDNSServiceRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~CreateGroupDNSServiceRuleRequest() = default;
+};
+class CreateGroupDNSServiceRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> requestId{};
+
+  CreateGroupDNSServiceRuleResponseBody() {}
+
+  explicit CreateGroupDNSServiceRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateGroupDNSServiceRuleResponseBody() = default;
+};
+class CreateGroupDNSServiceRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateGroupDNSServiceRuleResponseBody> body{};
+
+  CreateGroupDNSServiceRuleResponse() {}
+
+  explicit CreateGroupDNSServiceRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGroupDNSServiceRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGroupDNSServiceRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGroupDNSServiceRuleResponse() = default;
 };
 class CreateIoTCloudConnectorRequest : public Darabonba::Model {
 public:
@@ -2095,6 +2448,144 @@ public:
 
   virtual ~DeleteConnectionPoolResponse() = default;
 };
+class DeleteDNSServiceRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+
+  DeleteDNSServiceRuleRequest() {}
+
+  explicit DeleteDNSServiceRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteDNSServiceRuleRequest() = default;
+};
+class DeleteDNSServiceRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDNSServiceRuleResponseBody() {}
+
+  explicit DeleteDNSServiceRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDNSServiceRuleResponseBody() = default;
+};
+class DeleteDNSServiceRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteDNSServiceRuleResponseBody> body{};
+
+  DeleteDNSServiceRuleResponse() {}
+
+  explicit DeleteDNSServiceRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDNSServiceRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDNSServiceRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDNSServiceRuleResponse() = default;
+};
 class DeleteGroupAuthorizationRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleId{};
@@ -2232,6 +2723,144 @@ public:
 
 
   virtual ~DeleteGroupAuthorizationRuleResponse() = default;
+};
+class DeleteGroupDNSServiceRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+
+  DeleteGroupDNSServiceRuleRequest() {}
+
+  explicit DeleteGroupDNSServiceRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupDNSServiceRuleRequest() = default;
+};
+class DeleteGroupDNSServiceRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteGroupDNSServiceRuleResponseBody() {}
+
+  explicit DeleteGroupDNSServiceRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupDNSServiceRuleResponseBody() = default;
+};
+class DeleteGroupDNSServiceRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteGroupDNSServiceRuleResponseBody> body{};
+
+  DeleteGroupDNSServiceRuleResponse() {}
+
+  explicit DeleteGroupDNSServiceRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGroupDNSServiceRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGroupDNSServiceRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGroupDNSServiceRuleResponse() = default;
 };
 class DeleteIoTCloudConnectorRequest : public Darabonba::Model {
 public:
@@ -3619,7 +4248,7 @@ public:
   shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem>> diagnoseItem{};
   shared_ptr<long> endTime{};
   shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>> errorResult{};
-  shared_ptr<string> iccid{};
+  shared_ptr<string> iccId{};
   shared_ptr<string> ioTCloudConnectorId{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -3660,8 +4289,8 @@ public:
       }
       res["ErrorResult"] = boost::any(temp1);
     }
-    if (iccid) {
-      res["Iccid"] = boost::any(*iccid);
+    if (iccId) {
+      res["IccId"] = boost::any(*iccId);
     }
     if (ioTCloudConnectorId) {
       res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
@@ -3714,8 +4343,8 @@ public:
         errorResult = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>>(expect1);
       }
     }
-    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
-      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    if (m.find("IccId") != m.end() && !m["IccId"].empty()) {
+      iccId = make_shared<string>(boost::any_cast<string>(m["IccId"]));
     }
     if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
       ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
@@ -5606,6 +6235,334 @@ public:
 
   virtual ~ListConnectionPoolsResponse() = default;
 };
+class ListDNSServiceRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> DNSServiceRuleIds{};
+  shared_ptr<vector<string>> DNSServiceRuleName{};
+  shared_ptr<vector<string>> DNSServiceRuleStatus{};
+  shared_ptr<vector<string>> destination{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<vector<string>> source{};
+
+  ListDNSServiceRulesRequest() {}
+
+  explicit ListDNSServiceRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleIds) {
+      res["DNSServiceRuleIds"] = boost::any(*DNSServiceRuleIds);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (DNSServiceRuleStatus) {
+      res["DNSServiceRuleStatus"] = boost::any(*DNSServiceRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleIds") != m.end() && !m["DNSServiceRuleIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DNSServiceRuleStatus") != m.end() && !m["DNSServiceRuleStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Destination"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Destination"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destination = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Source"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Source"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      source = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListDNSServiceRulesRequest() = default;
+};
+class ListDNSServiceRulesResponseBodyDNSServiceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> DNSServiceRuleDescription{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> DNSServiceRuleName{};
+  shared_ptr<string> DNSServiceRuleStatus{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  ListDNSServiceRulesResponseBodyDNSServiceRules() {}
+
+  explicit ListDNSServiceRulesResponseBodyDNSServiceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (DNSServiceRuleStatus) {
+      res["DNSServiceRuleStatus"] = boost::any(*DNSServiceRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
+    }
+    if (m.find("DNSServiceRuleStatus") != m.end() && !m["DNSServiceRuleStatus"].empty()) {
+      DNSServiceRuleStatus = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleStatus"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~ListDNSServiceRulesResponseBodyDNSServiceRules() = default;
+};
+class ListDNSServiceRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDNSServiceRulesResponseBodyDNSServiceRules>> DNSServiceRules{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListDNSServiceRulesResponseBody() {}
+
+  explicit ListDNSServiceRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*DNSServiceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DNSServiceRules"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRules") != m.end() && !m["DNSServiceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DNSServiceRules"].type()) {
+        vector<ListDNSServiceRulesResponseBodyDNSServiceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DNSServiceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDNSServiceRulesResponseBodyDNSServiceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DNSServiceRules = make_shared<vector<ListDNSServiceRulesResponseBodyDNSServiceRules>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListDNSServiceRulesResponseBody() = default;
+};
+class ListDNSServiceRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDNSServiceRulesResponseBody> body{};
+
+  ListDNSServiceRulesResponse() {}
+
+  explicit ListDNSServiceRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDNSServiceRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDNSServiceRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDNSServiceRulesResponse() = default;
+};
 class ListDiagnoseInfoForSingleCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ioTCloudConnectorId{};
@@ -5678,7 +6635,7 @@ public:
   shared_ptr<string> destinationType{};
   shared_ptr<long> diagnoseTime{};
   shared_ptr<long> endTime{};
-  shared_ptr<string> iccid{};
+  shared_ptr<string> iccId{};
   shared_ptr<string> ioTCloudConnectorId{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
@@ -5713,8 +6670,8 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
-    if (iccid) {
-      res["Iccid"] = boost::any(*iccid);
+    if (iccId) {
+      res["IccId"] = boost::any(*iccId);
     }
     if (ioTCloudConnectorId) {
       res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
@@ -5753,8 +6710,8 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
-    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
-      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    if (m.find("IccId") != m.end() && !m["IccId"].empty()) {
+      iccId = make_shared<string>(boost::any_cast<string>(m["IccId"]));
     }
     if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
       ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
@@ -6247,6 +7204,334 @@ public:
 
 
   virtual ~ListGroupAuthorizationRulesResponse() = default;
+};
+class ListGroupDNSServiceRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> DNSServiceRuleIds{};
+  shared_ptr<vector<string>> DNSServiceRuleName{};
+  shared_ptr<vector<string>> DNSServiceRuleStatus{};
+  shared_ptr<vector<string>> destination{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<vector<string>> source{};
+
+  ListGroupDNSServiceRulesRequest() {}
+
+  explicit ListGroupDNSServiceRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleIds) {
+      res["DNSServiceRuleIds"] = boost::any(*DNSServiceRuleIds);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (DNSServiceRuleStatus) {
+      res["DNSServiceRuleStatus"] = boost::any(*DNSServiceRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleIds") != m.end() && !m["DNSServiceRuleIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DNSServiceRuleStatus") != m.end() && !m["DNSServiceRuleStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DNSServiceRuleStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DNSServiceRuleStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DNSServiceRuleStatus = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Destination"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Destination"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destination = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Source"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Source"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      source = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListGroupDNSServiceRulesRequest() = default;
+};
+class ListGroupDNSServiceRulesResponseBodyDNSServiceRules : public Darabonba::Model {
+public:
+  shared_ptr<string> DNSServiceRuleDescription{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> DNSServiceRuleName{};
+  shared_ptr<string> DNSServiceRuleStatus{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  ListGroupDNSServiceRulesResponseBodyDNSServiceRules() {}
+
+  explicit ListGroupDNSServiceRulesResponseBodyDNSServiceRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (DNSServiceRuleStatus) {
+      res["DNSServiceRuleStatus"] = boost::any(*DNSServiceRuleStatus);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
+    }
+    if (m.find("DNSServiceRuleStatus") != m.end() && !m["DNSServiceRuleStatus"].empty()) {
+      DNSServiceRuleStatus = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleStatus"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~ListGroupDNSServiceRulesResponseBodyDNSServiceRules() = default;
+};
+class ListGroupDNSServiceRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListGroupDNSServiceRulesResponseBodyDNSServiceRules>> DNSServiceRules{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListGroupDNSServiceRulesResponseBody() {}
+
+  explicit ListGroupDNSServiceRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DNSServiceRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*DNSServiceRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DNSServiceRules"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DNSServiceRules") != m.end() && !m["DNSServiceRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DNSServiceRules"].type()) {
+        vector<ListGroupDNSServiceRulesResponseBodyDNSServiceRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DNSServiceRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGroupDNSServiceRulesResponseBodyDNSServiceRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        DNSServiceRules = make_shared<vector<ListGroupDNSServiceRulesResponseBodyDNSServiceRules>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListGroupDNSServiceRulesResponseBody() = default;
+};
+class ListGroupDNSServiceRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListGroupDNSServiceRulesResponseBody> body{};
+
+  ListGroupDNSServiceRulesResponse() {}
+
+  explicit ListGroupDNSServiceRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGroupDNSServiceRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGroupDNSServiceRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGroupDNSServiceRulesResponse() = default;
 };
 class ListIoTCloudConnectorAvailableZonesRequest : public Darabonba::Model {
 public:
@@ -7908,6 +9193,282 @@ public:
 
   virtual ~ListServiceEntriesResponse() = default;
 };
+class MoveAuthorizationRuleToDNSServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+
+  MoveAuthorizationRuleToDNSServiceRequest() {}
+
+  explicit MoveAuthorizationRuleToDNSServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~MoveAuthorizationRuleToDNSServiceRequest() = default;
+};
+class MoveAuthorizationRuleToDNSServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  MoveAuthorizationRuleToDNSServiceResponseBody() {}
+
+  explicit MoveAuthorizationRuleToDNSServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~MoveAuthorizationRuleToDNSServiceResponseBody() = default;
+};
+class MoveAuthorizationRuleToDNSServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<MoveAuthorizationRuleToDNSServiceResponseBody> body{};
+
+  MoveAuthorizationRuleToDNSServiceResponse() {}
+
+  explicit MoveAuthorizationRuleToDNSServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MoveAuthorizationRuleToDNSServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MoveAuthorizationRuleToDNSServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MoveAuthorizationRuleToDNSServiceResponse() = default;
+};
+class MoveGroupAuthorizationRuleToDNSServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+
+  MoveGroupAuthorizationRuleToDNSServiceRequest() {}
+
+  explicit MoveGroupAuthorizationRuleToDNSServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~MoveGroupAuthorizationRuleToDNSServiceRequest() = default;
+};
+class MoveGroupAuthorizationRuleToDNSServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  MoveGroupAuthorizationRuleToDNSServiceResponseBody() {}
+
+  explicit MoveGroupAuthorizationRuleToDNSServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~MoveGroupAuthorizationRuleToDNSServiceResponseBody() = default;
+};
+class MoveGroupAuthorizationRuleToDNSServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<MoveGroupAuthorizationRuleToDNSServiceResponseBody> body{};
+
+  MoveGroupAuthorizationRuleToDNSServiceResponse() {}
+
+  explicit MoveGroupAuthorizationRuleToDNSServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MoveGroupAuthorizationRuleToDNSServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MoveGroupAuthorizationRuleToDNSServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MoveGroupAuthorizationRuleToDNSServiceResponse() = default;
+};
 class OpenIoTCloudConnectorServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -8696,6 +10257,179 @@ public:
 
   virtual ~UpdateConnectionPoolAttributeResponse() = default;
 };
+class UpdateDNSServiceRuleAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleDescription{};
+  shared_ptr<string> authorizationRuleName{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> destination{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  UpdateDNSServiceRuleAttributeRequest() {}
+
+  explicit UpdateDNSServiceRuleAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleDescription) {
+      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
+    }
+    if (authorizationRuleName) {
+      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorId) {
+      res["IoTCloudConnectorId"] = boost::any(*ioTCloudConnectorId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
+      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
+    }
+    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
+      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorId") != m.end() && !m["IoTCloudConnectorId"].empty()) {
+      ioTCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~UpdateDNSServiceRuleAttributeRequest() = default;
+};
+class UpdateDNSServiceRuleAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateDNSServiceRuleAttributeResponseBody() {}
+
+  explicit UpdateDNSServiceRuleAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateDNSServiceRuleAttributeResponseBody() = default;
+};
+class UpdateDNSServiceRuleAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateDNSServiceRuleAttributeResponseBody> body{};
+
+  UpdateDNSServiceRuleAttributeResponse() {}
+
+  explicit UpdateDNSServiceRuleAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDNSServiceRuleAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDNSServiceRuleAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDNSServiceRuleAttributeResponse() = default;
+};
 class UpdateGroupAuthorizationRuleAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleDescription{};
@@ -8896,6 +10630,179 @@ public:
 
 
   virtual ~UpdateGroupAuthorizationRuleAttributeResponse() = default;
+};
+class UpdateGroupDNSServiceRuleAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleDescription{};
+  shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> DNSServiceRuleName{};
+  shared_ptr<string> destination{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ioTCloudConnectorGroupId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> source{};
+
+  UpdateGroupDNSServiceRuleAttributeRequest() {}
+
+  explicit UpdateGroupDNSServiceRuleAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
+    }
+    if (DNSServiceRuleId) {
+      res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ioTCloudConnectorGroupId) {
+      res["IoTCloudConnectorGroupId"] = boost::any(*ioTCloudConnectorGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
+    }
+    if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
+      DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IoTCloudConnectorGroupId") != m.end() && !m["IoTCloudConnectorGroupId"].empty()) {
+      ioTCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["IoTCloudConnectorGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupDNSServiceRuleAttributeRequest() = default;
+};
+class UpdateGroupDNSServiceRuleAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGroupDNSServiceRuleAttributeResponseBody() {}
+
+  explicit UpdateGroupDNSServiceRuleAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupDNSServiceRuleAttributeResponseBody() = default;
+};
+class UpdateGroupDNSServiceRuleAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateGroupDNSServiceRuleAttributeResponseBody> body{};
+
+  UpdateGroupDNSServiceRuleAttributeResponse() {}
+
+  explicit UpdateGroupDNSServiceRuleAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGroupDNSServiceRuleAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGroupDNSServiceRuleAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGroupDNSServiceRuleAttributeResponse() = default;
 };
 class UpdateIoTCloudConnectorAttributeRequest : public Darabonba::Model {
 public:
@@ -9534,8 +11441,12 @@ public:
   CreateAuthorizationRuleResponse createAuthorizationRule(shared_ptr<CreateAuthorizationRuleRequest> request);
   CreateConnectionPoolResponse createConnectionPoolWithOptions(shared_ptr<CreateConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateConnectionPoolResponse createConnectionPool(shared_ptr<CreateConnectionPoolRequest> request);
+  CreateDNSServiceRuleResponse createDNSServiceRuleWithOptions(shared_ptr<CreateDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDNSServiceRuleResponse createDNSServiceRule(shared_ptr<CreateDNSServiceRuleRequest> request);
   CreateGroupAuthorizationRuleResponse createGroupAuthorizationRuleWithOptions(shared_ptr<CreateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGroupAuthorizationRuleResponse createGroupAuthorizationRule(shared_ptr<CreateGroupAuthorizationRuleRequest> request);
+  CreateGroupDNSServiceRuleResponse createGroupDNSServiceRuleWithOptions(shared_ptr<CreateGroupDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGroupDNSServiceRuleResponse createGroupDNSServiceRule(shared_ptr<CreateGroupDNSServiceRuleRequest> request);
   CreateIoTCloudConnectorResponse createIoTCloudConnectorWithOptions(shared_ptr<CreateIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIoTCloudConnectorResponse createIoTCloudConnector(shared_ptr<CreateIoTCloudConnectorRequest> request);
   CreateIoTCloudConnectorGroupResponse createIoTCloudConnectorGroupWithOptions(shared_ptr<CreateIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9548,8 +11459,12 @@ public:
   DeleteAuthorizationRuleResponse deleteAuthorizationRule(shared_ptr<DeleteAuthorizationRuleRequest> request);
   DeleteConnectionPoolResponse deleteConnectionPoolWithOptions(shared_ptr<DeleteConnectionPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteConnectionPoolResponse deleteConnectionPool(shared_ptr<DeleteConnectionPoolRequest> request);
+  DeleteDNSServiceRuleResponse deleteDNSServiceRuleWithOptions(shared_ptr<DeleteDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDNSServiceRuleResponse deleteDNSServiceRule(shared_ptr<DeleteDNSServiceRuleRequest> request);
   DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRuleWithOptions(shared_ptr<DeleteGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRule(shared_ptr<DeleteGroupAuthorizationRuleRequest> request);
+  DeleteGroupDNSServiceRuleResponse deleteGroupDNSServiceRuleWithOptions(shared_ptr<DeleteGroupDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGroupDNSServiceRuleResponse deleteGroupDNSServiceRule(shared_ptr<DeleteGroupDNSServiceRuleRequest> request);
   DeleteIoTCloudConnectorResponse deleteIoTCloudConnectorWithOptions(shared_ptr<DeleteIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIoTCloudConnectorResponse deleteIoTCloudConnector(shared_ptr<DeleteIoTCloudConnectorRequest> request);
   DeleteIoTCloudConnectorGroupResponse deleteIoTCloudConnectorGroupWithOptions(shared_ptr<DeleteIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9586,10 +11501,14 @@ public:
   ListConnectionPoolIpsResponse listConnectionPoolIps(shared_ptr<ListConnectionPoolIpsRequest> request);
   ListConnectionPoolsResponse listConnectionPoolsWithOptions(shared_ptr<ListConnectionPoolsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectionPoolsResponse listConnectionPools(shared_ptr<ListConnectionPoolsRequest> request);
+  ListDNSServiceRulesResponse listDNSServiceRulesWithOptions(shared_ptr<ListDNSServiceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDNSServiceRulesResponse listDNSServiceRules(shared_ptr<ListDNSServiceRulesRequest> request);
   ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request);
   ListGroupAuthorizationRulesResponse listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupAuthorizationRulesResponse listGroupAuthorizationRules(shared_ptr<ListGroupAuthorizationRulesRequest> request);
+  ListGroupDNSServiceRulesResponse listGroupDNSServiceRulesWithOptions(shared_ptr<ListGroupDNSServiceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGroupDNSServiceRulesResponse listGroupDNSServiceRules(shared_ptr<ListGroupDNSServiceRulesRequest> request);
   ListIoTCloudConnectorAvailableZonesResponse listIoTCloudConnectorAvailableZonesWithOptions(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIoTCloudConnectorAvailableZonesResponse listIoTCloudConnectorAvailableZones(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request);
   ListIoTCloudConnectorGroupsResponse listIoTCloudConnectorGroupsWithOptions(shared_ptr<ListIoTCloudConnectorGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9602,6 +11521,10 @@ public:
   ListServiceResponse listService(shared_ptr<ListServiceRequest> request);
   ListServiceEntriesResponse listServiceEntriesWithOptions(shared_ptr<ListServiceEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServiceEntriesResponse listServiceEntries(shared_ptr<ListServiceEntriesRequest> request);
+  MoveAuthorizationRuleToDNSServiceResponse moveAuthorizationRuleToDNSServiceWithOptions(shared_ptr<MoveAuthorizationRuleToDNSServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MoveAuthorizationRuleToDNSServiceResponse moveAuthorizationRuleToDNSService(shared_ptr<MoveAuthorizationRuleToDNSServiceRequest> request);
+  MoveGroupAuthorizationRuleToDNSServiceResponse moveGroupAuthorizationRuleToDNSServiceWithOptions(shared_ptr<MoveGroupAuthorizationRuleToDNSServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MoveGroupAuthorizationRuleToDNSServiceResponse moveGroupAuthorizationRuleToDNSService(shared_ptr<MoveGroupAuthorizationRuleToDNSServiceRequest> request);
   OpenIoTCloudConnectorServiceResponse openIoTCloudConnectorServiceWithOptions(shared_ptr<OpenIoTCloudConnectorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenIoTCloudConnectorServiceResponse openIoTCloudConnectorService(shared_ptr<OpenIoTCloudConnectorServiceRequest> request);
   RemoveIoTCloudConnectorFromGroupResponse removeIoTCloudConnectorFromGroupWithOptions(shared_ptr<RemoveIoTCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9612,8 +11535,12 @@ public:
   UpdateAuthorizationRuleAttributeResponse updateAuthorizationRuleAttribute(shared_ptr<UpdateAuthorizationRuleAttributeRequest> request);
   UpdateConnectionPoolAttributeResponse updateConnectionPoolAttributeWithOptions(shared_ptr<UpdateConnectionPoolAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateConnectionPoolAttributeResponse updateConnectionPoolAttribute(shared_ptr<UpdateConnectionPoolAttributeRequest> request);
+  UpdateDNSServiceRuleAttributeResponse updateDNSServiceRuleAttributeWithOptions(shared_ptr<UpdateDNSServiceRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDNSServiceRuleAttributeResponse updateDNSServiceRuleAttribute(shared_ptr<UpdateDNSServiceRuleAttributeRequest> request);
   UpdateGroupAuthorizationRuleAttributeResponse updateGroupAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGroupAuthorizationRuleAttributeResponse updateGroupAuthorizationRuleAttribute(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request);
+  UpdateGroupDNSServiceRuleAttributeResponse updateGroupDNSServiceRuleAttributeWithOptions(shared_ptr<UpdateGroupDNSServiceRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGroupDNSServiceRuleAttributeResponse updateGroupDNSServiceRuleAttribute(shared_ptr<UpdateGroupDNSServiceRuleAttributeRequest> request);
   UpdateIoTCloudConnectorAttributeResponse updateIoTCloudConnectorAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIoTCloudConnectorAttributeResponse updateIoTCloudConnectorAttribute(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request);
   UpdateIoTCloudConnectorGroupAttributeResponse updateIoTCloudConnectorGroupAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

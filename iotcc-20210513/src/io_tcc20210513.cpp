@@ -314,6 +314,58 @@ CreateConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::createConnectio
   return createConnectionPoolWithOptions(request, runtime);
 }
 
+CreateDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::createDNSServiceRuleWithOptions(shared_ptr<CreateDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDNSServiceRule"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDNSServiceRuleResponse(callApi(params, req, runtime));
+}
+
+CreateDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::createDNSServiceRule(shared_ptr<CreateDNSServiceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDNSServiceRuleWithOptions(request, runtime);
+}
+
 CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createGroupAuthorizationRuleWithOptions(shared_ptr<CreateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -367,6 +419,58 @@ CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createG
 CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createGroupAuthorizationRule(shared_ptr<CreateGroupAuthorizationRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createGroupAuthorizationRuleWithOptions(request, runtime);
+}
+
+CreateGroupDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::createGroupDNSServiceRuleWithOptions(shared_ptr<CreateGroupDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleDescription)) {
+    query->insert(pair<string, string>("DNSServiceRuleDescription", *request->DNSServiceRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleName)) {
+    query->insert(pair<string, string>("DNSServiceRuleName", *request->DNSServiceRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateGroupDNSServiceRule"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateGroupDNSServiceRuleResponse(callApi(params, req, runtime));
+}
+
+CreateGroupDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::createGroupDNSServiceRule(shared_ptr<CreateGroupDNSServiceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createGroupDNSServiceRuleWithOptions(request, runtime);
 }
 
 CreateIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorWithOptions(shared_ptr<CreateIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -636,6 +740,46 @@ DeleteConnectionPoolResponse Alibabacloud_IoTCC20210513::Client::deleteConnectio
   return deleteConnectionPoolWithOptions(request, runtime);
 }
 
+DeleteDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::deleteDNSServiceRuleWithOptions(shared_ptr<DeleteDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleId)) {
+    query->insert(pair<string, string>("DNSServiceRuleId", *request->DNSServiceRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDNSServiceRule"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDNSServiceRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::deleteDNSServiceRule(shared_ptr<DeleteDNSServiceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDNSServiceRuleWithOptions(request, runtime);
+}
+
 DeleteGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteGroupAuthorizationRuleWithOptions(shared_ptr<DeleteGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -674,6 +818,46 @@ DeleteGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteG
 DeleteGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::deleteGroupAuthorizationRule(shared_ptr<DeleteGroupAuthorizationRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteGroupAuthorizationRuleWithOptions(request, runtime);
+}
+
+DeleteGroupDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::deleteGroupDNSServiceRuleWithOptions(shared_ptr<DeleteGroupDNSServiceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleId)) {
+    query->insert(pair<string, string>("DNSServiceRuleId", *request->DNSServiceRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGroupDNSServiceRule"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGroupDNSServiceRuleResponse(callApi(params, req, runtime));
+}
+
+DeleteGroupDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::deleteGroupDNSServiceRule(shared_ptr<DeleteGroupDNSServiceRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGroupDNSServiceRuleWithOptions(request, runtime);
 }
 
 DeleteIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnectorWithOptions(shared_ptr<DeleteIoTCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1405,6 +1589,61 @@ ListConnectionPoolsResponse Alibabacloud_IoTCC20210513::Client::listConnectionPo
   return listConnectionPoolsWithOptions(request, runtime);
 }
 
+ListDNSServiceRulesResponse Alibabacloud_IoTCC20210513::Client::listDNSServiceRulesWithOptions(shared_ptr<ListDNSServiceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleIds)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleIds", *request->DNSServiceRuleIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleName)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleName", *request->DNSServiceRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleStatus)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleStatus", *request->DNSServiceRuleStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destination)) {
+    query->insert(pair<string, vector<string>>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->source)) {
+    query->insert(pair<string, vector<string>>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDNSServiceRules"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDNSServiceRulesResponse(callApi(params, req, runtime));
+}
+
+ListDNSServiceRulesResponse Alibabacloud_IoTCC20210513::Client::listDNSServiceRules(shared_ptr<ListDNSServiceRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDNSServiceRulesWithOptions(request, runtime);
+}
+
 ListDiagnoseInfoForSingleCardResponse Alibabacloud_IoTCC20210513::Client::listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1501,6 +1740,61 @@ ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGrou
 ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGroupAuthorizationRules(shared_ptr<ListGroupAuthorizationRulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listGroupAuthorizationRulesWithOptions(request, runtime);
+}
+
+ListGroupDNSServiceRulesResponse Alibabacloud_IoTCC20210513::Client::listGroupDNSServiceRulesWithOptions(shared_ptr<ListGroupDNSServiceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleIds)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleIds", *request->DNSServiceRuleIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleName)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleName", *request->DNSServiceRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->DNSServiceRuleStatus)) {
+    query->insert(pair<string, vector<string>>("DNSServiceRuleStatus", *request->DNSServiceRuleStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destination)) {
+    query->insert(pair<string, vector<string>>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->source)) {
+    query->insert(pair<string, vector<string>>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListGroupDNSServiceRules"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListGroupDNSServiceRulesResponse(callApi(params, req, runtime));
+}
+
+ListGroupDNSServiceRulesResponse Alibabacloud_IoTCC20210513::Client::listGroupDNSServiceRules(shared_ptr<ListGroupDNSServiceRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listGroupDNSServiceRulesWithOptions(request, runtime);
 }
 
 ListIoTCloudConnectorAvailableZonesResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudConnectorAvailableZonesWithOptions(shared_ptr<ListIoTCloudConnectorAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1767,6 +2061,86 @@ ListServiceEntriesResponse Alibabacloud_IoTCC20210513::Client::listServiceEntrie
   return listServiceEntriesWithOptions(request, runtime);
 }
 
+MoveAuthorizationRuleToDNSServiceResponse Alibabacloud_IoTCC20210513::Client::moveAuthorizationRuleToDNSServiceWithOptions(shared_ptr<MoveAuthorizationRuleToDNSServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MoveAuthorizationRuleToDNSService"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MoveAuthorizationRuleToDNSServiceResponse(callApi(params, req, runtime));
+}
+
+MoveAuthorizationRuleToDNSServiceResponse Alibabacloud_IoTCC20210513::Client::moveAuthorizationRuleToDNSService(shared_ptr<MoveAuthorizationRuleToDNSServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return moveAuthorizationRuleToDNSServiceWithOptions(request, runtime);
+}
+
+MoveGroupAuthorizationRuleToDNSServiceResponse Alibabacloud_IoTCC20210513::Client::moveGroupAuthorizationRuleToDNSServiceWithOptions(shared_ptr<MoveGroupAuthorizationRuleToDNSServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleId)) {
+    query->insert(pair<string, string>("AuthorizationRuleId", *request->authorizationRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MoveGroupAuthorizationRuleToDNSService"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MoveGroupAuthorizationRuleToDNSServiceResponse(callApi(params, req, runtime));
+}
+
+MoveGroupAuthorizationRuleToDNSServiceResponse Alibabacloud_IoTCC20210513::Client::moveGroupAuthorizationRuleToDNSService(shared_ptr<MoveGroupAuthorizationRuleToDNSServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return moveGroupAuthorizationRuleToDNSServiceWithOptions(request, runtime);
+}
+
 OpenIoTCloudConnectorServiceResponse Alibabacloud_IoTCC20210513::Client::openIoTCloudConnectorServiceWithOptions(shared_ptr<OpenIoTCloudConnectorServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1997,6 +2371,61 @@ UpdateConnectionPoolAttributeResponse Alibabacloud_IoTCC20210513::Client::update
   return updateConnectionPoolAttributeWithOptions(request, runtime);
 }
 
+UpdateDNSServiceRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateDNSServiceRuleAttributeWithOptions(shared_ptr<UpdateDNSServiceRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
+    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
+    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleId)) {
+    query->insert(pair<string, string>("DNSServiceRuleId", *request->DNSServiceRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDNSServiceRuleAttribute"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDNSServiceRuleAttributeResponse(callApi(params, req, runtime));
+}
+
+UpdateDNSServiceRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateDNSServiceRuleAttribute(shared_ptr<UpdateDNSServiceRuleAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateDNSServiceRuleAttributeWithOptions(request, runtime);
+}
+
 UpdateGroupAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateGroupAuthorizationRuleAttributeWithOptions(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2053,6 +2482,61 @@ UpdateGroupAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client
 UpdateGroupAuthorizationRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateGroupAuthorizationRuleAttribute(shared_ptr<UpdateGroupAuthorizationRuleAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateGroupAuthorizationRuleAttributeWithOptions(request, runtime);
+}
+
+UpdateGroupDNSServiceRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateGroupDNSServiceRuleAttributeWithOptions(shared_ptr<UpdateGroupDNSServiceRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleDescription)) {
+    query->insert(pair<string, string>("DNSServiceRuleDescription", *request->DNSServiceRuleDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleId)) {
+    query->insert(pair<string, string>("DNSServiceRuleId", *request->DNSServiceRuleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleName)) {
+    query->insert(pair<string, string>("DNSServiceRuleName", *request->DNSServiceRuleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorGroupId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorGroupId", *request->ioTCloudConnectorGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGroupDNSServiceRuleAttribute"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGroupDNSServiceRuleAttributeResponse(callApi(params, req, runtime));
+}
+
+UpdateGroupDNSServiceRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateGroupDNSServiceRuleAttribute(shared_ptr<UpdateGroupDNSServiceRuleAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGroupDNSServiceRuleAttributeWithOptions(request, runtime);
 }
 
 UpdateIoTCloudConnectorAttributeResponse Alibabacloud_IoTCC20210513::Client::updateIoTCloudConnectorAttributeWithOptions(shared_ptr<UpdateIoTCloudConnectorAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
