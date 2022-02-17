@@ -909,6 +909,43 @@ GetSceneBuildTaskStatusResponse Alibabacloud_Tdsr20200101::Client::getSceneBuild
   return getSceneBuildTaskStatusWithOptions(request, runtime);
 }
 
+GetScenePreviewDataResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewDataWithOptions(shared_ptr<GetScenePreviewDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
+    query->insert(pair<string, bool>("Enabled", *request->enabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->previewToken)) {
+    query->insert(pair<string, string>("PreviewToken", *request->previewToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showTag)) {
+    query->insert(pair<string, bool>("ShowTag", *request->showTag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetScenePreviewData"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetScenePreviewDataResponse(callApi(params, req, runtime));
+}
+
+GetScenePreviewDataResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewData(shared_ptr<GetScenePreviewDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getScenePreviewDataWithOptions(request, runtime);
+}
+
 GetScenePreviewInfoResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewInfoWithOptions(shared_ptr<GetScenePreviewInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

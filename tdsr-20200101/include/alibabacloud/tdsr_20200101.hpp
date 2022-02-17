@@ -4464,6 +4464,773 @@ public:
 
   virtual ~GetSceneBuildTaskStatusResponse() = default;
 };
+class GetScenePreviewDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> previewToken{};
+  shared_ptr<bool> showTag{};
+
+  GetScenePreviewDataRequest() {}
+
+  explicit GetScenePreviewDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (previewToken) {
+      res["PreviewToken"] = boost::any(*previewToken);
+    }
+    if (showTag) {
+      res["ShowTag"] = boost::any(*showTag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("PreviewToken") != m.end() && !m["PreviewToken"].empty()) {
+      previewToken = make_shared<string>(boost::any_cast<string>(m["PreviewToken"]));
+    }
+    if (m.find("ShowTag") != m.end() && !m["ShowTag"].empty()) {
+      showTag = make_shared<bool>(boost::any_cast<bool>(m["ShowTag"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataRequest() = default;
+};
+class GetScenePreviewDataResponseBodyDataModelPanoListPosition : public Darabonba::Model {
+public:
+  shared_ptr<vector<double>> rotation{};
+  shared_ptr<vector<double>> spot{};
+  shared_ptr<vector<double>> viewpoint{};
+
+  GetScenePreviewDataResponseBodyDataModelPanoListPosition() {}
+
+  explicit GetScenePreviewDataResponseBodyDataModelPanoListPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rotation) {
+      res["Rotation"] = boost::any(*rotation);
+    }
+    if (spot) {
+      res["Spot"] = boost::any(*spot);
+    }
+    if (viewpoint) {
+      res["Viewpoint"] = boost::any(*viewpoint);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Rotation") != m.end() && !m["Rotation"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Rotation"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Rotation"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      rotation = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Spot") != m.end() && !m["Spot"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Spot"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Spot"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      spot = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Viewpoint") != m.end() && !m["Viewpoint"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Viewpoint"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Viewpoint"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      viewpoint = make_shared<vector<double>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataModelPanoListPosition() = default;
+};
+class GetScenePreviewDataResponseBodyDataModelPanoList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> curRoomPicList{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> floorIdx{};
+  shared_ptr<string> id{};
+  shared_ptr<bool> mainImage{};
+  shared_ptr<vector<string>> neighbours{};
+  shared_ptr<GetScenePreviewDataResponseBodyDataModelPanoListPosition> position{};
+  shared_ptr<string> rawName{};
+  shared_ptr<string> resource{};
+  shared_ptr<string> roomIdx{};
+  shared_ptr<string> subSceneId{};
+  shared_ptr<string> token{};
+  shared_ptr<string> virtualId{};
+  shared_ptr<string> virtualName{};
+
+  GetScenePreviewDataResponseBodyDataModelPanoList() {}
+
+  explicit GetScenePreviewDataResponseBodyDataModelPanoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (curRoomPicList) {
+      res["CurRoomPicList"] = boost::any(*curRoomPicList);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (floorIdx) {
+      res["FloorIdx"] = boost::any(*floorIdx);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (mainImage) {
+      res["MainImage"] = boost::any(*mainImage);
+    }
+    if (neighbours) {
+      res["Neighbours"] = boost::any(*neighbours);
+    }
+    if (position) {
+      res["Position"] = position ? boost::any(position->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rawName) {
+      res["RawName"] = boost::any(*rawName);
+    }
+    if (resource) {
+      res["Resource"] = boost::any(*resource);
+    }
+    if (roomIdx) {
+      res["RoomIdx"] = boost::any(*roomIdx);
+    }
+    if (subSceneId) {
+      res["SubSceneId"] = boost::any(*subSceneId);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    if (virtualId) {
+      res["VirtualId"] = boost::any(*virtualId);
+    }
+    if (virtualName) {
+      res["VirtualName"] = boost::any(*virtualName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurRoomPicList") != m.end() && !m["CurRoomPicList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CurRoomPicList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CurRoomPicList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      curRoomPicList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("FloorIdx") != m.end() && !m["FloorIdx"].empty()) {
+      floorIdx = make_shared<string>(boost::any_cast<string>(m["FloorIdx"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("MainImage") != m.end() && !m["MainImage"].empty()) {
+      mainImage = make_shared<bool>(boost::any_cast<bool>(m["MainImage"]));
+    }
+    if (m.find("Neighbours") != m.end() && !m["Neighbours"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Neighbours"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Neighbours"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      neighbours = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Position"].type()) {
+        GetScenePreviewDataResponseBodyDataModelPanoListPosition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Position"]));
+        position = make_shared<GetScenePreviewDataResponseBodyDataModelPanoListPosition>(model1);
+      }
+    }
+    if (m.find("RawName") != m.end() && !m["RawName"].empty()) {
+      rawName = make_shared<string>(boost::any_cast<string>(m["RawName"]));
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("RoomIdx") != m.end() && !m["RoomIdx"].empty()) {
+      roomIdx = make_shared<string>(boost::any_cast<string>(m["RoomIdx"]));
+    }
+    if (m.find("SubSceneId") != m.end() && !m["SubSceneId"].empty()) {
+      subSceneId = make_shared<string>(boost::any_cast<string>(m["SubSceneId"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("VirtualId") != m.end() && !m["VirtualId"].empty()) {
+      virtualId = make_shared<string>(boost::any_cast<string>(m["VirtualId"]));
+    }
+    if (m.find("VirtualName") != m.end() && !m["VirtualName"].empty()) {
+      virtualName = make_shared<string>(boost::any_cast<string>(m["VirtualName"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataModelPanoList() = default;
+};
+class GetScenePreviewDataResponseBodyDataModel : public Darabonba::Model {
+public:
+  shared_ptr<string> modelPath{};
+  shared_ptr<vector<GetScenePreviewDataResponseBodyDataModelPanoList>> panoList{};
+  shared_ptr<string> textureModelPath{};
+  shared_ptr<string> texturePanoPath{};
+
+  GetScenePreviewDataResponseBodyDataModel() {}
+
+  explicit GetScenePreviewDataResponseBodyDataModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (modelPath) {
+      res["ModelPath"] = boost::any(*modelPath);
+    }
+    if (panoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*panoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PanoList"] = boost::any(temp1);
+    }
+    if (textureModelPath) {
+      res["TextureModelPath"] = boost::any(*textureModelPath);
+    }
+    if (texturePanoPath) {
+      res["TexturePanoPath"] = boost::any(*texturePanoPath);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ModelPath") != m.end() && !m["ModelPath"].empty()) {
+      modelPath = make_shared<string>(boost::any_cast<string>(m["ModelPath"]));
+    }
+    if (m.find("PanoList") != m.end() && !m["PanoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PanoList"].type()) {
+        vector<GetScenePreviewDataResponseBodyDataModelPanoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PanoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetScenePreviewDataResponseBodyDataModelPanoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        panoList = make_shared<vector<GetScenePreviewDataResponseBodyDataModelPanoList>>(expect1);
+      }
+    }
+    if (m.find("TextureModelPath") != m.end() && !m["TextureModelPath"].empty()) {
+      textureModelPath = make_shared<string>(boost::any_cast<string>(m["TextureModelPath"]));
+    }
+    if (m.find("TexturePanoPath") != m.end() && !m["TexturePanoPath"].empty()) {
+      texturePanoPath = make_shared<string>(boost::any_cast<string>(m["TexturePanoPath"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataModel() = default;
+};
+class GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> customText{};
+  shared_ptr<string> type{};
+
+  GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig() {}
+
+  explicit GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customText) {
+      res["CustomText"] = boost::any(*customText);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomText") != m.end() && !m["CustomText"].empty()) {
+      customText = make_shared<string>(boost::any_cast<string>(m["CustomText"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig() = default;
+};
+class GetScenePreviewDataResponseBodyDataTagsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> backgroundColor{};
+  shared_ptr<GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig> buttonConfig{};
+  shared_ptr<string> content{};
+  shared_ptr<vector<long>> formImgSize{};
+  shared_ptr<bool> formJumpType{};
+  shared_ptr<string> formSelectImgType{};
+  shared_ptr<vector<string>> images{};
+  shared_ptr<bool> isTagVisibleBy3d{};
+  shared_ptr<string> link{};
+  shared_ptr<string> panoId{};
+  shared_ptr<vector<double>> position{};
+  shared_ptr<vector<double>> positionPanoCube{};
+  shared_ptr<vector<string>> relatedPanoIds{};
+  shared_ptr<long> sceneId{};
+  shared_ptr<string> title{};
+  shared_ptr<string> video{};
+
+  GetScenePreviewDataResponseBodyDataTagsConfig() {}
+
+  explicit GetScenePreviewDataResponseBodyDataTagsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (backgroundColor) {
+      res["BackgroundColor"] = boost::any(*backgroundColor);
+    }
+    if (buttonConfig) {
+      res["ButtonConfig"] = buttonConfig ? boost::any(buttonConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (formImgSize) {
+      res["FormImgSize"] = boost::any(*formImgSize);
+    }
+    if (formJumpType) {
+      res["FormJumpType"] = boost::any(*formJumpType);
+    }
+    if (formSelectImgType) {
+      res["FormSelectImgType"] = boost::any(*formSelectImgType);
+    }
+    if (images) {
+      res["Images"] = boost::any(*images);
+    }
+    if (isTagVisibleBy3d) {
+      res["IsTagVisibleBy3d"] = boost::any(*isTagVisibleBy3d);
+    }
+    if (link) {
+      res["Link"] = boost::any(*link);
+    }
+    if (panoId) {
+      res["PanoId"] = boost::any(*panoId);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    if (positionPanoCube) {
+      res["PositionPanoCube"] = boost::any(*positionPanoCube);
+    }
+    if (relatedPanoIds) {
+      res["RelatedPanoIds"] = boost::any(*relatedPanoIds);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (video) {
+      res["Video"] = boost::any(*video);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackgroundColor") != m.end() && !m["BackgroundColor"].empty()) {
+      backgroundColor = make_shared<string>(boost::any_cast<string>(m["BackgroundColor"]));
+    }
+    if (m.find("ButtonConfig") != m.end() && !m["ButtonConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ButtonConfig"].type()) {
+        GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ButtonConfig"]));
+        buttonConfig = make_shared<GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig>(model1);
+      }
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("FormImgSize") != m.end() && !m["FormImgSize"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["FormImgSize"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FormImgSize"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      formImgSize = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("FormJumpType") != m.end() && !m["FormJumpType"].empty()) {
+      formJumpType = make_shared<bool>(boost::any_cast<bool>(m["FormJumpType"]));
+    }
+    if (m.find("FormSelectImgType") != m.end() && !m["FormSelectImgType"].empty()) {
+      formSelectImgType = make_shared<string>(boost::any_cast<string>(m["FormSelectImgType"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Images"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IsTagVisibleBy3d") != m.end() && !m["IsTagVisibleBy3d"].empty()) {
+      isTagVisibleBy3d = make_shared<bool>(boost::any_cast<bool>(m["IsTagVisibleBy3d"]));
+    }
+    if (m.find("Link") != m.end() && !m["Link"].empty()) {
+      link = make_shared<string>(boost::any_cast<string>(m["Link"]));
+    }
+    if (m.find("PanoId") != m.end() && !m["PanoId"].empty()) {
+      panoId = make_shared<string>(boost::any_cast<string>(m["PanoId"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Position"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Position"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      position = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("PositionPanoCube") != m.end() && !m["PositionPanoCube"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["PositionPanoCube"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PositionPanoCube"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      positionPanoCube = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("RelatedPanoIds") != m.end() && !m["RelatedPanoIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedPanoIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedPanoIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedPanoIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<long>(boost::any_cast<long>(m["SceneId"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Video") != m.end() && !m["Video"].empty()) {
+      video = make_shared<string>(boost::any_cast<string>(m["Video"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataTagsConfig() = default;
+};
+class GetScenePreviewDataResponseBodyDataTags : public Darabonba::Model {
+public:
+  shared_ptr<GetScenePreviewDataResponseBodyDataTagsConfig> config{};
+  shared_ptr<string> id{};
+  shared_ptr<vector<double>> position{};
+  shared_ptr<vector<double>> positionPanoCube{};
+  shared_ptr<string> type{};
+
+  GetScenePreviewDataResponseBodyDataTags() {}
+
+  explicit GetScenePreviewDataResponseBodyDataTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = config ? boost::any(config->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    if (positionPanoCube) {
+      res["PositionPanoCube"] = boost::any(*positionPanoCube);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Config"].type()) {
+        GetScenePreviewDataResponseBodyDataTagsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Config"]));
+        config = make_shared<GetScenePreviewDataResponseBodyDataTagsConfig>(model1);
+      }
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Position"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Position"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      position = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("PositionPanoCube") != m.end() && !m["PositionPanoCube"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["PositionPanoCube"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PositionPanoCube"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      positionPanoCube = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyDataTags() = default;
+};
+class GetScenePreviewDataResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<GetScenePreviewDataResponseBodyDataModel> model{};
+  shared_ptr<vector<GetScenePreviewDataResponseBodyDataTags>> tags{};
+
+  GetScenePreviewDataResponseBodyData() {}
+
+  explicit GetScenePreviewDataResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (model) {
+      res["Model"] = model ? boost::any(model->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Model"].type()) {
+        GetScenePreviewDataResponseBodyDataModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Model"]));
+        model = make_shared<GetScenePreviewDataResponseBodyDataModel>(model1);
+      }
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetScenePreviewDataResponseBodyDataTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetScenePreviewDataResponseBodyDataTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetScenePreviewDataResponseBodyDataTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBodyData() = default;
+};
+class GetScenePreviewDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetScenePreviewDataResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetScenePreviewDataResponseBody() {}
+
+  explicit GetScenePreviewDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetScenePreviewDataResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetScenePreviewDataResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponseBody() = default;
+};
+class GetScenePreviewDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetScenePreviewDataResponseBody> body{};
+
+  GetScenePreviewDataResponse() {}
+
+  explicit GetScenePreviewDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetScenePreviewDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetScenePreviewDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetScenePreviewDataResponse() = default;
+};
 class GetScenePreviewInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domain{};
@@ -9646,6 +10413,8 @@ public:
   GetRectifyImageResponse getRectifyImage(shared_ptr<GetRectifyImageRequest> request);
   GetSceneBuildTaskStatusResponse getSceneBuildTaskStatusWithOptions(shared_ptr<GetSceneBuildTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSceneBuildTaskStatusResponse getSceneBuildTaskStatus(shared_ptr<GetSceneBuildTaskStatusRequest> request);
+  GetScenePreviewDataResponse getScenePreviewDataWithOptions(shared_ptr<GetScenePreviewDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetScenePreviewDataResponse getScenePreviewData(shared_ptr<GetScenePreviewDataRequest> request);
   GetScenePreviewInfoResponse getScenePreviewInfoWithOptions(shared_ptr<GetScenePreviewInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetScenePreviewInfoResponse getScenePreviewInfo(shared_ptr<GetScenePreviewInfoRequest> request);
   GetSingleConnDataResponse getSingleConnDataWithOptions(shared_ptr<GetSingleConnDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
