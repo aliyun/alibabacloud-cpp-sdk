@@ -984,8 +984,8 @@ public:
 };
 class CreateDNSServiceRuleRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> authorizationRuleDescription{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleDescription{};
   shared_ptr<string> DNSServiceRuleName{};
   shared_ptr<string> destination{};
   shared_ptr<bool> dryRun{};
@@ -1004,11 +1004,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (authorizationRuleDescription) {
-      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
-    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
     }
     if (DNSServiceRuleName) {
       res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
@@ -1035,11 +1035,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
-      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
-    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
     }
     if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
       DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
@@ -5124,6 +5124,7 @@ public:
   shared_ptr<vector<string>> authorizationRuleIds{};
   shared_ptr<vector<string>> authorizationRuleName{};
   shared_ptr<vector<string>> authorizationRuleStatus{};
+  shared_ptr<string> authorizationRuleType{};
   shared_ptr<vector<string>> destination{};
   shared_ptr<vector<string>> destinationType{};
   shared_ptr<string> ioTCloudConnectorId{};
@@ -5150,6 +5151,9 @@ public:
     }
     if (authorizationRuleStatus) {
       res["AuthorizationRuleStatus"] = boost::any(*authorizationRuleStatus);
+    }
+    if (authorizationRuleType) {
+      res["AuthorizationRuleType"] = boost::any(*authorizationRuleType);
     }
     if (destination) {
       res["Destination"] = boost::any(*destination);
@@ -5206,6 +5210,9 @@ public:
       }
       authorizationRuleStatus = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("AuthorizationRuleType") != m.end() && !m["AuthorizationRuleType"].empty()) {
+      authorizationRuleType = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleType"]));
+    }
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Destination"].type()) {
@@ -5259,6 +5266,7 @@ public:
   shared_ptr<string> authorizationRuleId{};
   shared_ptr<string> authorizationRuleName{};
   shared_ptr<string> authorizationRuleStatus{};
+  shared_ptr<string> authorizationRuleType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> ioTCloudConnectorId{};
@@ -5286,6 +5294,9 @@ public:
     }
     if (authorizationRuleStatus) {
       res["AuthorizationRuleStatus"] = boost::any(*authorizationRuleStatus);
+    }
+    if (authorizationRuleType) {
+      res["AuthorizationRuleType"] = boost::any(*authorizationRuleType);
     }
     if (destination) {
       res["Destination"] = boost::any(*destination);
@@ -5317,6 +5328,9 @@ public:
     }
     if (m.find("AuthorizationRuleStatus") != m.end() && !m["AuthorizationRuleStatus"].empty()) {
       authorizationRuleStatus = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleStatus"]));
+    }
+    if (m.find("AuthorizationRuleType") != m.end() && !m["AuthorizationRuleType"].empty()) {
+      authorizationRuleType = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleType"]));
     }
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
@@ -10259,10 +10273,10 @@ public:
 };
 class UpdateDNSServiceRuleAttributeRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> authorizationRuleName{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> DNSServiceRuleDescription{};
   shared_ptr<string> DNSServiceRuleId{};
+  shared_ptr<string> DNSServiceRuleName{};
   shared_ptr<string> destination{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ioTCloudConnectorId{};
@@ -10280,9 +10294,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (authorizationRuleName) {
-      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
-    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -10291,6 +10302,9 @@ public:
     }
     if (DNSServiceRuleId) {
       res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
     }
     if (destination) {
       res["Destination"] = boost::any(*destination);
@@ -10314,9 +10328,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
-      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
-    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -10325,6 +10336,9 @@ public:
     }
     if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
       DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
     }
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
