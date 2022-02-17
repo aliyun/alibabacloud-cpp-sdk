@@ -985,8 +985,8 @@ public:
 class CreateDNSServiceRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleDescription{};
-  shared_ptr<string> authorizationRuleName{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleName{};
   shared_ptr<string> destination{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ioTCloudConnectorId{};
@@ -1007,11 +1007,11 @@ public:
     if (authorizationRuleDescription) {
       res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
     }
-    if (authorizationRuleName) {
-      res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
-    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleName) {
+      res["DNSServiceRuleName"] = boost::any(*DNSServiceRuleName);
     }
     if (destination) {
       res["Destination"] = boost::any(*destination);
@@ -1038,11 +1038,11 @@ public:
     if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
       authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
     }
-    if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
-      authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
-    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleName") != m.end() && !m["DNSServiceRuleName"].empty()) {
+      DNSServiceRuleName = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleName"]));
     }
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
@@ -10259,9 +10259,9 @@ public:
 };
 class UpdateDNSServiceRuleAttributeRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> authorizationRuleDescription{};
   shared_ptr<string> authorizationRuleName{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> DNSServiceRuleDescription{};
   shared_ptr<string> DNSServiceRuleId{};
   shared_ptr<string> destination{};
   shared_ptr<bool> dryRun{};
@@ -10280,14 +10280,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (authorizationRuleDescription) {
-      res["AuthorizationRuleDescription"] = boost::any(*authorizationRuleDescription);
-    }
     if (authorizationRuleName) {
       res["AuthorizationRuleName"] = boost::any(*authorizationRuleName);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DNSServiceRuleDescription) {
+      res["DNSServiceRuleDescription"] = boost::any(*DNSServiceRuleDescription);
     }
     if (DNSServiceRuleId) {
       res["DNSServiceRuleId"] = boost::any(*DNSServiceRuleId);
@@ -10314,14 +10314,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuthorizationRuleDescription") != m.end() && !m["AuthorizationRuleDescription"].empty()) {
-      authorizationRuleDescription = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleDescription"]));
-    }
     if (m.find("AuthorizationRuleName") != m.end() && !m["AuthorizationRuleName"].empty()) {
       authorizationRuleName = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleName"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DNSServiceRuleDescription") != m.end() && !m["DNSServiceRuleDescription"].empty()) {
+      DNSServiceRuleDescription = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleDescription"]));
     }
     if (m.find("DNSServiceRuleId") != m.end() && !m["DNSServiceRuleId"].empty()) {
       DNSServiceRuleId = make_shared<string>(boost::any_cast<string>(m["DNSServiceRuleId"]));

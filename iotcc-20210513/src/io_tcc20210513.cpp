@@ -320,11 +320,11 @@ CreateDNSServiceRuleResponse Alibabacloud_IoTCC20210513::Client::createDNSServic
   if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
     query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
-    query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleName)) {
+    query->insert(pair<string, string>("DNSServiceRuleName", *request->DNSServiceRuleName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
     query->insert(pair<string, string>("Destination", *request->destination));
@@ -2374,14 +2374,14 @@ UpdateConnectionPoolAttributeResponse Alibabacloud_IoTCC20210513::Client::update
 UpdateDNSServiceRuleAttributeResponse Alibabacloud_IoTCC20210513::Client::updateDNSServiceRuleAttributeWithOptions(shared_ptr<UpdateDNSServiceRuleAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleDescription)) {
-    query->insert(pair<string, string>("AuthorizationRuleDescription", *request->authorizationRuleDescription));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->authorizationRuleName)) {
     query->insert(pair<string, string>("AuthorizationRuleName", *request->authorizationRuleName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleDescription)) {
+    query->insert(pair<string, string>("DNSServiceRuleDescription", *request->DNSServiceRuleDescription));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->DNSServiceRuleId)) {
     query->insert(pair<string, string>("DNSServiceRuleId", *request->DNSServiceRuleId));
