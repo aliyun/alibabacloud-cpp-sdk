@@ -326,6 +326,9 @@ SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyright
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     body->insert(pair<string, string>("Input", *request->input));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("Url", *request->url));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     body->insert(pair<string, string>("UserData", *request->userData));
   }
@@ -467,6 +470,12 @@ SubmitTraceAbResponse Alibabacloud_Mts20210728::Client::submitTraceAbWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     body->insert(pair<string, string>("Output", *request->output));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->totalTime)) {
+    body->insert(pair<string, long>("TotalTime", *request->totalTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     body->insert(pair<string, string>("Url", *request->url));
   }
@@ -505,6 +514,9 @@ SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtractW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     body->insert(pair<string, string>("Input", *request->input));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("Url", *request->url));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     body->insert(pair<string, string>("UserData", *request->userData));

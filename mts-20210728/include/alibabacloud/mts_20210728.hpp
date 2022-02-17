@@ -1427,6 +1427,7 @@ class SubmitCopyrightExtractRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callBack{};
   shared_ptr<string> input{};
+  shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
   SubmitCopyrightExtractRequest() {}
@@ -1445,6 +1446,9 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
@@ -1457,6 +1461,9 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
@@ -2026,6 +2033,8 @@ public:
   shared_ptr<string> input{};
   shared_ptr<long> level{};
   shared_ptr<string> output{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalTime{};
   shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
@@ -2051,6 +2060,12 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (totalTime) {
+      res["TotalTime"] = boost::any(*totalTime);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -2072,6 +2087,12 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TotalTime") != m.end() && !m["TotalTime"].empty()) {
+      totalTime = make_shared<long>(boost::any_cast<long>(m["TotalTime"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -2230,6 +2251,7 @@ class SubmitTraceExtractRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callBack{};
   shared_ptr<string> input{};
+  shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
   SubmitTraceExtractRequest() {}
@@ -2248,6 +2270,9 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
@@ -2260,6 +2285,9 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
