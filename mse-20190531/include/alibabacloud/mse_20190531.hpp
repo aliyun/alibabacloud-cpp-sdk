@@ -28848,9 +28848,64 @@ public:
 
   virtual ~QueryMonitorRequest() = default;
 };
+class QueryMonitorResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterNamePrefix{};
+  shared_ptr<string> podName{};
+  shared_ptr<vector<map<string, boost::any>>> values{};
+
+  QueryMonitorResponseBodyData() {}
+
+  explicit QueryMonitorResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterNamePrefix) {
+      res["clusterNamePrefix"] = boost::any(*clusterNamePrefix);
+    }
+    if (podName) {
+      res["podName"] = boost::any(*podName);
+    }
+    if (values) {
+      res["values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("clusterNamePrefix") != m.end() && !m["clusterNamePrefix"].empty()) {
+      clusterNamePrefix = make_shared<string>(boost::any_cast<string>(m["clusterNamePrefix"]));
+    }
+    if (m.find("podName") != m.end() && !m["podName"].empty()) {
+      podName = make_shared<string>(boost::any_cast<string>(m["podName"]));
+    }
+    if (m.find("values") != m.end() && !m["values"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["values"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      values = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryMonitorResponseBodyData() = default;
+};
 class QueryMonitorResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> data{};
+  shared_ptr<vector<QueryMonitorResponseBodyData>> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -28867,7 +28922,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -28886,7 +28945,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryMonitorResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMonitorResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryMonitorResponseBodyData>>(expect1);
+      }
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
