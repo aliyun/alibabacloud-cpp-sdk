@@ -1061,8 +1061,8 @@ DeployPolicyInstanceResponse Alibabacloud_CS20151215::Client::deployPolicyInstan
   if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
     body->insert(pair<string, string>("action", *request->action));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    body->insert(pair<string, string>("namespace_", *request->namespace_));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->namespaces)) {
+    body->insert(pair<string, vector<string>>("namespaces", *request->namespaces));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->parameters)) {
     body->insert(pair<string, map<string, boost::any>>("parameters", *request->parameters));
@@ -2895,6 +2895,42 @@ RemoveWorkflowResponse Alibabacloud_CS20151215::Client::removeWorkflowWithOption
     {"bodyType", boost::any(string("none"))}
   }));
   return RemoveWorkflowResponse(callApi(params, req, runtime));
+}
+
+RepairClusterNodePoolResponse Alibabacloud_CS20151215::Client::repairClusterNodePool(shared_ptr<string> clusterId, shared_ptr<string> nodepoolId, shared_ptr<RepairClusterNodePoolRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return repairClusterNodePoolWithOptions(clusterId, nodepoolId, request, headers, runtime);
+}
+
+RepairClusterNodePoolResponse Alibabacloud_CS20151215::Client::repairClusterNodePoolWithOptions(shared_ptr<string> clusterId,
+                                                                                                shared_ptr<string> nodepoolId,
+                                                                                                shared_ptr<RepairClusterNodePoolRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
+  nodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(nodepoolId));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
+    body->insert(pair<string, vector<string>>("nodes", *request->nodes));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RepairClusterNodePool"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(*clusterId) + string("/nodepools/") + string(*nodepoolId) + string("/repair"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RepairClusterNodePoolResponse(callApi(params, req, runtime));
 }
 
 ResumeComponentUpgradeResponse Alibabacloud_CS20151215::Client::resumeComponentUpgrade(shared_ptr<string> clusterid, shared_ptr<string> componentid) {

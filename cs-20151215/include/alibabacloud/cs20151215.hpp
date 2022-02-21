@@ -3937,7 +3937,7 @@ public:
 class DeployPolicyInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> action{};
-  shared_ptr<string> namespace_{};
+  shared_ptr<vector<string>> namespaces{};
   shared_ptr<map<string, boost::any>> parameters{};
 
   DeployPolicyInstanceRequest() {}
@@ -3953,8 +3953,8 @@ public:
     if (action) {
       res["action"] = boost::any(*action);
     }
-    if (namespace_) {
-      res["namespace"] = boost::any(*namespace_);
+    if (namespaces) {
+      res["namespaces"] = boost::any(*namespaces);
     }
     if (parameters) {
       res["parameters"] = boost::any(*parameters);
@@ -3966,8 +3966,15 @@ public:
     if (m.find("action") != m.end() && !m["action"].empty()) {
       action = make_shared<string>(boost::any_cast<string>(m["action"]));
     }
-    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    if (m.find("namespaces") != m.end() && !m["namespaces"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["namespaces"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["namespaces"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      namespaces = make_shared<vector<string>>(toVec1);
     }
     if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameters"]);
@@ -15747,6 +15754,130 @@ public:
 
   virtual ~RemoveWorkflowResponse() = default;
 };
+class RepairClusterNodePoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> nodes{};
+
+  RepairClusterNodePoolRequest() {}
+
+  explicit RepairClusterNodePoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodes) {
+      res["nodes"] = boost::any(*nodes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("nodes") != m.end() && !m["nodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["nodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["nodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RepairClusterNodePoolRequest() = default;
+};
+class RepairClusterNodePoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  RepairClusterNodePoolResponseBody() {}
+
+  explicit RepairClusterNodePoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~RepairClusterNodePoolResponseBody() = default;
+};
+class RepairClusterNodePoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RepairClusterNodePoolResponseBody> body{};
+
+  RepairClusterNodePoolResponse() {}
+
+  explicit RepairClusterNodePoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RepairClusterNodePoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RepairClusterNodePoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RepairClusterNodePoolResponse() = default;
+};
 class ResumeComponentUpgradeResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -18001,6 +18132,12 @@ public:
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWorkflowResponse removeWorkflow(shared_ptr<string> workflowName);
   RemoveWorkflowResponse removeWorkflowWithOptions(shared_ptr<string> workflowName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RepairClusterNodePoolResponse repairClusterNodePool(shared_ptr<string> clusterId, shared_ptr<string> nodepoolId, shared_ptr<RepairClusterNodePoolRequest> request);
+  RepairClusterNodePoolResponse repairClusterNodePoolWithOptions(shared_ptr<string> clusterId,
+                                                                 shared_ptr<string> nodepoolId,
+                                                                 shared_ptr<RepairClusterNodePoolRequest> request,
+                                                                 shared_ptr<map<string, string>> headers,
+                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeComponentUpgradeResponse resumeComponentUpgrade(shared_ptr<string> clusterid, shared_ptr<string> componentid);
   ResumeComponentUpgradeResponse resumeComponentUpgradeWithOptions(shared_ptr<string> clusterid,
                                                                    shared_ptr<string> componentid,
