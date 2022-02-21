@@ -2958,7 +2958,7 @@ public:
   shared_ptr<long> relatedServiceId{};
   shared_ptr<vector<CreateRouteRuleRequestRouteChildRules>> routeChildRules{};
   shared_ptr<string> routeType{};
-  shared_ptr<vector<uint8_t>> ruleName{};
+  shared_ptr<string> ruleName{};
   shared_ptr<long> timeWindow{};
   shared_ptr<string> timeWindowUnit{};
 
@@ -3079,7 +3079,7 @@ public:
       routeType = make_shared<string>(boost::any_cast<string>(m["routeType"]));
     }
     if (m.find("ruleName") != m.end() && !m["ruleName"].empty()) {
-      ruleName = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ruleName"]));
+      ruleName = make_shared<string>(boost::any_cast<string>(m["ruleName"]));
     }
     if (m.find("timeWindow") != m.end() && !m["timeWindow"].empty()) {
       timeWindow = make_shared<long>(boost::any_cast<long>(m["timeWindow"]));

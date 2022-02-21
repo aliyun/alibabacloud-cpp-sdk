@@ -719,8 +719,8 @@ CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->routeType)) {
     body->insert(pair<string, string>("routeType", *request->routeType));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->ruleName)) {
-    body->insert(pair<string, vector<uint8_t>>("ruleName", *request->ruleName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
+    body->insert(pair<string, string>("ruleName", *request->ruleName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeWindow)) {
     body->insert(pair<string, long>("timeWindow", *request->timeWindow));
