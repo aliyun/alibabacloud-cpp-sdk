@@ -6778,6 +6778,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<string> driftDetectionTime{};
+  shared_ptr<string> interface{};
   shared_ptr<GetStackResponseBodyLog> log{};
   shared_ptr<vector<string>> notificationURLs{};
   shared_ptr<vector<map<string, boost::any>>> outputs{};
@@ -6828,6 +6829,9 @@ public:
     }
     if (driftDetectionTime) {
       res["DriftDetectionTime"] = boost::any(*driftDetectionTime);
+    }
+    if (interface) {
+      res["Interface"] = boost::any(*interface);
     }
     if (log) {
       res["Log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6930,6 +6934,9 @@ public:
     }
     if (m.find("DriftDetectionTime") != m.end() && !m["DriftDetectionTime"].empty()) {
       driftDetectionTime = make_shared<string>(boost::any_cast<string>(m["DriftDetectionTime"]));
+    }
+    if (m.find("Interface") != m.end() && !m["Interface"].empty()) {
+      interface = make_shared<string>(boost::any_cast<string>(m["Interface"]));
     }
     if (m.find("Log") != m.end() && !m["Log"].empty()) {
       if (typeid(map<string, boost::any>) == m["Log"].type()) {
@@ -8982,6 +8989,7 @@ public:
   shared_ptr<string> changeSetId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> interface{};
   shared_ptr<string> ownerId{};
   shared_ptr<vector<GetTemplateResponseBodyPermissions>> permissions{};
   shared_ptr<string> regionId{};
@@ -9015,6 +9023,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (interface) {
+      res["Interface"] = boost::any(*interface);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -9074,6 +9085,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Interface") != m.end() && !m["Interface"].empty()) {
+      interface = make_shared<string>(boost::any_cast<string>(m["Interface"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
