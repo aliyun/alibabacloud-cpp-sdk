@@ -4461,6 +4461,9 @@ ModifyDBNodeClassResponse Alibabacloud_Polardb20170801::Client::modifyDBNodeClas
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCategory)) {
+    query->insert(pair<string, string>("SubCategory", *request->subCategory));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4705,6 +4708,58 @@ ModifyPendingMaintenanceActionResponse Alibabacloud_Polardb20170801::Client::mod
 ModifyPendingMaintenanceActionResponse Alibabacloud_Polardb20170801::Client::modifyPendingMaintenanceAction(shared_ptr<ModifyPendingMaintenanceActionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyPendingMaintenanceActionWithOptions(request, runtime);
+}
+
+RefreshProxyLevelResponse Alibabacloud_Polardb20170801::Client::refreshProxyLevelWithOptions(shared_ptr<RefreshProxyLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fromTimeService)) {
+    query->insert(pair<string, bool>("FromTimeService", *request->fromTimeService));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedEndTime)) {
+    query->insert(pair<string, string>("PlannedEndTime", *request->plannedEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedStartTime)) {
+    query->insert(pair<string, string>("PlannedStartTime", *request->plannedStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyTargetClass)) {
+    query->insert(pair<string, string>("ProxyTargetClass", *request->proxyTargetClass));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RefreshProxyLevel"))},
+    {"version", boost::any(string("2017-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RefreshProxyLevelResponse(callApi(params, req, runtime));
+}
+
+RefreshProxyLevelResponse Alibabacloud_Polardb20170801::Client::refreshProxyLevel(shared_ptr<RefreshProxyLevelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return refreshProxyLevelWithOptions(request, runtime);
 }
 
 RemoveDBClusterFromGDNResponse Alibabacloud_Polardb20170801::Client::removeDBClusterFromGDNWithOptions(shared_ptr<RemoveDBClusterFromGDNRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

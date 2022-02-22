@@ -21457,6 +21457,7 @@ public:
   shared_ptr<string> plannedStartTime{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subCategory{};
 
   ModifyDBNodeClassRequest() {}
 
@@ -21498,6 +21499,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (subCategory) {
+      res["SubCategory"] = boost::any(*subCategory);
+    }
     return res;
   }
 
@@ -21531,6 +21535,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SubCategory") != m.end() && !m["SubCategory"].empty()) {
+      subCategory = make_shared<string>(boost::any_cast<string>(m["SubCategory"]));
     }
   }
 
@@ -22412,6 +22419,172 @@ public:
 
 
   virtual ~ModifyPendingMaintenanceActionResponse() = default;
+};
+class RefreshProxyLevelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> fromTimeService{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> plannedEndTime{};
+  shared_ptr<string> plannedStartTime{};
+  shared_ptr<string> proxyTargetClass{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  RefreshProxyLevelRequest() {}
+
+  explicit RefreshProxyLevelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (fromTimeService) {
+      res["FromTimeService"] = boost::any(*fromTimeService);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (plannedEndTime) {
+      res["PlannedEndTime"] = boost::any(*plannedEndTime);
+    }
+    if (plannedStartTime) {
+      res["PlannedStartTime"] = boost::any(*plannedStartTime);
+    }
+    if (proxyTargetClass) {
+      res["ProxyTargetClass"] = boost::any(*proxyTargetClass);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("FromTimeService") != m.end() && !m["FromTimeService"].empty()) {
+      fromTimeService = make_shared<bool>(boost::any_cast<bool>(m["FromTimeService"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PlannedEndTime") != m.end() && !m["PlannedEndTime"].empty()) {
+      plannedEndTime = make_shared<string>(boost::any_cast<string>(m["PlannedEndTime"]));
+    }
+    if (m.find("PlannedStartTime") != m.end() && !m["PlannedStartTime"].empty()) {
+      plannedStartTime = make_shared<string>(boost::any_cast<string>(m["PlannedStartTime"]));
+    }
+    if (m.find("ProxyTargetClass") != m.end() && !m["ProxyTargetClass"].empty()) {
+      proxyTargetClass = make_shared<string>(boost::any_cast<string>(m["ProxyTargetClass"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~RefreshProxyLevelRequest() = default;
+};
+class RefreshProxyLevelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RefreshProxyLevelResponseBody() {}
+
+  explicit RefreshProxyLevelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RefreshProxyLevelResponseBody() = default;
+};
+class RefreshProxyLevelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RefreshProxyLevelResponseBody> body{};
+
+  RefreshProxyLevelResponse() {}
+
+  explicit RefreshProxyLevelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshProxyLevelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshProxyLevelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshProxyLevelResponse() = default;
 };
 class RemoveDBClusterFromGDNRequest : public Darabonba::Model {
 public:
@@ -24555,6 +24728,8 @@ public:
   ModifyMaskingRulesResponse modifyMaskingRules(shared_ptr<ModifyMaskingRulesRequest> request);
   ModifyPendingMaintenanceActionResponse modifyPendingMaintenanceActionWithOptions(shared_ptr<ModifyPendingMaintenanceActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPendingMaintenanceActionResponse modifyPendingMaintenanceAction(shared_ptr<ModifyPendingMaintenanceActionRequest> request);
+  RefreshProxyLevelResponse refreshProxyLevelWithOptions(shared_ptr<RefreshProxyLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshProxyLevelResponse refreshProxyLevel(shared_ptr<RefreshProxyLevelRequest> request);
   RemoveDBClusterFromGDNResponse removeDBClusterFromGDNWithOptions(shared_ptr<RemoveDBClusterFromGDNRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveDBClusterFromGDNResponse removeDBClusterFromGDN(shared_ptr<RemoveDBClusterFromGDNRequest> request);
   ResetAccountResponse resetAccountWithOptions(shared_ptr<ResetAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
