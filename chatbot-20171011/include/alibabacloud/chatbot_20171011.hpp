@@ -1644,6 +1644,7 @@ public:
 };
 class ActivatePerspectiveRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> perspectiveId{};
 
   ActivatePerspectiveRequest() {}
@@ -1656,6 +1657,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (perspectiveId) {
       res["PerspectiveId"] = boost::any(*perspectiveId);
     }
@@ -1663,6 +1667,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("PerspectiveId") != m.end() && !m["PerspectiveId"].empty()) {
       perspectiveId = make_shared<string>(boost::any_cast<string>(m["PerspectiveId"]));
     }
@@ -1754,6 +1761,7 @@ public:
 };
 class AddSynonymRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
   shared_ptr<string> synonym{};
 
@@ -1767,6 +1775,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -1777,6 +1788,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -1914,6 +1928,7 @@ public:
 };
 class AppendEntityMemberRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> applyType{};
   shared_ptr<long> entityId{};
   shared_ptr<AppendEntityMemberRequestMember> member{};
@@ -1928,6 +1943,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (applyType) {
       res["ApplyType"] = boost::any(*applyType);
     }
@@ -1941,6 +1959,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("ApplyType") != m.end() && !m["ApplyType"].empty()) {
       applyType = make_shared<string>(boost::any_cast<string>(m["ApplyType"]));
     }
@@ -1961,6 +1982,7 @@ public:
 };
 class AppendEntityMemberShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> applyType{};
   shared_ptr<long> entityId{};
   shared_ptr<string> memberShrink{};
@@ -1975,6 +1997,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (applyType) {
       res["ApplyType"] = boost::any(*applyType);
     }
@@ -1988,6 +2013,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("ApplyType") != m.end() && !m["ApplyType"].empty()) {
       applyType = make_shared<string>(boost::any_cast<string>(m["ApplyType"]));
     }
@@ -3030,6 +3058,7 @@ public:
 };
 class CreateBotRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> avatar{};
   shared_ptr<string> introduction{};
   shared_ptr<string> languageCode{};
@@ -3046,6 +3075,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (avatar) {
       res["Avatar"] = boost::any(*avatar);
     }
@@ -3065,6 +3097,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Avatar") != m.end() && !m["Avatar"].empty()) {
       avatar = make_shared<string>(boost::any_cast<string>(m["Avatar"]));
     }
@@ -3175,6 +3210,7 @@ public:
 };
 class CreateCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> bizCode{};
   shared_ptr<long> knowledgeType{};
   shared_ptr<string> name{};
@@ -3190,6 +3226,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (bizCode) {
       res["BizCode"] = boost::any(*bizCode);
     }
@@ -3206,6 +3245,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
       bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
     }
@@ -3320,6 +3362,7 @@ public:
 };
 class CreateCoreWordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
 
   CreateCoreWordRequest() {}
@@ -3332,6 +3375,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -3339,6 +3385,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -3437,6 +3486,7 @@ public:
 };
 class CreateDialogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> description{};
   shared_ptr<string> dialogName{};
   shared_ptr<string> instanceId{};
@@ -3451,6 +3501,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -3464,6 +3517,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -3611,6 +3667,7 @@ public:
 };
 class CreateEntityRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
@@ -3627,6 +3684,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -3650,6 +3710,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -3682,6 +3745,7 @@ public:
 };
 class CreateEntityShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
@@ -3698,6 +3762,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -3717,6 +3784,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -3827,6 +3897,7 @@ public:
 };
 class CreateIntentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<IntentCreateDTO> intentDefinition{};
 
@@ -3840,6 +3911,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -3850,6 +3924,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -3867,6 +3944,7 @@ public:
 };
 class CreateIntentShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> intentDefinitionShrink{};
 
@@ -3880,6 +3958,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -3890,6 +3971,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -4226,6 +4310,7 @@ public:
 };
 class CreateKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<CreateKnowledgeRequestKnowledge> knowledge{};
 
   CreateKnowledgeRequest() {}
@@ -4238,6 +4323,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledge) {
       res["Knowledge"] = knowledge ? boost::any(knowledge->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4245,6 +4333,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Knowledge") != m.end() && !m["Knowledge"].empty()) {
       if (typeid(map<string, boost::any>) == m["Knowledge"].type()) {
         CreateKnowledgeRequestKnowledge model1;
@@ -4259,6 +4350,7 @@ public:
 };
 class CreateKnowledgeShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> knowledgeShrink{};
 
   CreateKnowledgeShrinkRequest() {}
@@ -4271,6 +4363,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeShrink) {
       res["Knowledge"] = boost::any(*knowledgeShrink);
     }
@@ -4278,6 +4373,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Knowledge") != m.end() && !m["Knowledge"].empty()) {
       knowledgeShrink = make_shared<string>(boost::any_cast<string>(m["Knowledge"]));
     }
@@ -4376,6 +4474,7 @@ public:
 };
 class CreatePerspectiveRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> name{};
 
   CreatePerspectiveRequest() {}
@@ -4388,6 +4487,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -4395,6 +4497,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -4493,6 +4598,7 @@ public:
 };
 class DeleteBotRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
 
   DeleteBotRequest() {}
@@ -4505,6 +4611,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -4512,6 +4621,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -4603,6 +4715,7 @@ public:
 };
 class DeleteCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
 
   DeleteCategoryRequest() {}
@@ -4615,6 +4728,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
@@ -4622,6 +4738,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
     }
@@ -4720,6 +4839,7 @@ public:
 };
 class DeleteCoreWordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
 
   DeleteCoreWordRequest() {}
@@ -4732,6 +4852,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -4739,6 +4862,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -4837,6 +4963,7 @@ public:
 };
 class DeleteDialogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   DeleteDialogRequest() {}
@@ -4849,6 +4976,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -4856,6 +4986,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -4947,6 +5080,7 @@ public:
 };
 class DeleteEntityRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
 
   DeleteEntityRequest() {}
@@ -4959,6 +5093,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -4966,6 +5103,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -5064,6 +5204,7 @@ public:
 };
 class DeleteIntentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> intentId{};
 
   DeleteIntentRequest() {}
@@ -5076,6 +5217,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (intentId) {
       res["IntentId"] = boost::any(*intentId);
     }
@@ -5083,6 +5227,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
       intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
     }
@@ -5181,6 +5328,7 @@ public:
 };
 class DeleteKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> knowledgeId{};
 
   DeleteKnowledgeRequest() {}
@@ -5193,6 +5341,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeId) {
       res["KnowledgeId"] = boost::any(*knowledgeId);
     }
@@ -5200,6 +5351,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("KnowledgeId") != m.end() && !m["KnowledgeId"].empty()) {
       knowledgeId = make_shared<long>(boost::any_cast<long>(m["KnowledgeId"]));
     }
@@ -5291,6 +5445,7 @@ public:
 };
 class DescribeBotRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
 
   DescribeBotRequest() {}
@@ -5303,6 +5458,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -5310,6 +5468,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -5521,6 +5682,7 @@ public:
 };
 class DescribeCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
 
   DescribeCategoryRequest() {}
@@ -5533,6 +5695,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
@@ -5540,6 +5705,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
     }
@@ -5652,6 +5820,7 @@ public:
 };
 class DescribeCoreWordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
 
   DescribeCoreWordRequest() {}
@@ -5664,6 +5833,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -5671,6 +5843,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -5804,6 +5979,7 @@ public:
 };
 class DescribeDialogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   DescribeDialogRequest() {}
@@ -5816,6 +5992,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -5823,6 +6002,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -5998,6 +6180,7 @@ public:
 };
 class DescribeDialogFlowRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   DescribeDialogFlowRequest() {}
@@ -6010,6 +6193,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -6017,6 +6203,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -6236,6 +6425,7 @@ public:
 };
 class DescribeEntitiesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
 
   DescribeEntitiesRequest() {}
@@ -6248,6 +6438,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -6255,6 +6448,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -6480,6 +6676,7 @@ public:
 };
 class DescribeIntentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> intentId{};
 
   DescribeIntentRequest() {}
@@ -6492,6 +6689,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (intentId) {
       res["IntentId"] = boost::any(*intentId);
     }
@@ -6499,6 +6699,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("IntentId") != m.end() && !m["IntentId"].empty()) {
       intentId = make_shared<long>(boost::any_cast<long>(m["IntentId"]));
     }
@@ -7015,6 +7218,7 @@ public:
 };
 class DescribeKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> knowledgeId{};
 
   DescribeKnowledgeRequest() {}
@@ -7027,6 +7231,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeId) {
       res["KnowledgeId"] = boost::any(*knowledgeId);
     }
@@ -7034,6 +7241,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("KnowledgeId") != m.end() && !m["KnowledgeId"].empty()) {
       knowledgeId = make_shared<long>(boost::any_cast<long>(m["KnowledgeId"]));
     }
@@ -7471,6 +7681,7 @@ public:
 };
 class DescribePerspectiveRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> perspectiveId{};
 
   DescribePerspectiveRequest() {}
@@ -7483,6 +7694,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (perspectiveId) {
       res["PerspectiveId"] = boost::any(*perspectiveId);
     }
@@ -7490,6 +7704,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("PerspectiveId") != m.end() && !m["PerspectiveId"].empty()) {
       perspectiveId = make_shared<string>(boost::any_cast<string>(m["PerspectiveId"]));
     }
@@ -7644,6 +7861,7 @@ public:
 };
 class DisableDialogFlowRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   DisableDialogFlowRequest() {}
@@ -7656,6 +7874,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -7663,6 +7884,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -7754,6 +7978,7 @@ public:
 };
 class DisableKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> knowledgeId{};
 
   DisableKnowledgeRequest() {}
@@ -7766,6 +7991,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeId) {
       res["KnowledgeId"] = boost::any(*knowledgeId);
     }
@@ -7773,6 +8001,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("KnowledgeId") != m.end() && !m["KnowledgeId"].empty()) {
       knowledgeId = make_shared<long>(boost::any_cast<long>(m["KnowledgeId"]));
     }
@@ -7864,6 +8095,7 @@ public:
 };
 class FeedbackRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> feedback{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> messageId{};
@@ -7879,6 +8111,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (feedback) {
       res["Feedback"] = boost::any(*feedback);
     }
@@ -7895,6 +8130,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Feedback") != m.end() && !m["Feedback"].empty()) {
       feedback = make_shared<string>(boost::any_cast<string>(m["Feedback"]));
     }
@@ -8023,6 +8261,7 @@ public:
 };
 class GetAsyncResultRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> taskId{};
 
   GetAsyncResultRequest() {}
@@ -8035,6 +8274,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -8042,6 +8284,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
@@ -8161,6 +8406,7 @@ public:
 };
 class GetBotChatDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> robotInstanceId{};
   shared_ptr<string> startTime{};
@@ -8175,6 +8421,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -8188,6 +8437,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -8311,6 +8563,7 @@ public:
 };
 class GetBotDsStatDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> robotInstanceId{};
   shared_ptr<string> startTime{};
@@ -8325,6 +8578,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -8338,6 +8594,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -8461,6 +8720,7 @@ public:
 };
 class GetBotKnowledgeStatDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> robotInstanceId{};
   shared_ptr<string> startTime{};
@@ -8475,6 +8735,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -8488,6 +8751,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -8611,6 +8877,7 @@ public:
 };
 class GetBotSessionDataRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> robotInstanceId{};
   shared_ptr<string> startTime{};
@@ -8625,6 +8892,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -8638,6 +8908,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -8761,6 +9034,7 @@ public:
 };
 class GetConversationListRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endDate{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> pageNumber{};
@@ -8779,6 +9053,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
@@ -8804,6 +9081,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
@@ -8953,6 +9233,7 @@ public:
 };
 class ListBotChatHistorysRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -8968,6 +9249,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -8984,6 +9268,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9110,6 +9397,7 @@ public:
 };
 class ListBotColdDsDatasRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9125,6 +9413,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9141,6 +9432,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9267,6 +9561,7 @@ public:
 };
 class ListBotColdKnowledgesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9282,6 +9577,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9298,6 +9596,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9424,6 +9725,7 @@ public:
 };
 class ListBotDsDetailsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9439,6 +9741,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9455,6 +9760,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9581,6 +9889,7 @@ public:
 };
 class ListBotHotDsDatasRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9596,6 +9905,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9612,6 +9924,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9738,6 +10053,7 @@ public:
 };
 class ListBotHotKnowledgesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<long> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9753,6 +10069,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9769,6 +10088,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -9895,6 +10217,7 @@ public:
 };
 class ListBotKnowledgeDetailsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> limit{};
   shared_ptr<string> robotInstanceId{};
@@ -9910,6 +10233,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -9926,6 +10252,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -10052,6 +10381,7 @@ public:
 };
 class ListBotReceptionDetailDatasRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> endTime{};
   shared_ptr<string> robotInstanceId{};
   shared_ptr<string> startTime{};
@@ -10066,6 +10396,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -10079,6 +10412,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -10202,6 +10538,7 @@ public:
 };
 class ListConversationLogsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> sessionId{};
 
   ListConversationLogsRequest() {}
@@ -10214,6 +10551,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -10221,6 +10561,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
@@ -10338,6 +10681,7 @@ public:
 };
 class MoveKnowledgeCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
   shared_ptr<long> knowledgeId{};
 
@@ -10351,6 +10695,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
@@ -10361,6 +10708,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
     }
@@ -10455,6 +10805,7 @@ public:
 };
 class PublishDialogFlowRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   PublishDialogFlowRequest() {}
@@ -10467,6 +10818,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -10474,6 +10828,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -10565,6 +10922,7 @@ public:
 };
 class PublishKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<bool> async{};
   shared_ptr<long> knowledgeId{};
 
@@ -10578,6 +10936,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (async) {
       res["Async"] = boost::any(*async);
     }
@@ -10588,6 +10949,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Async") != m.end() && !m["Async"].empty()) {
       async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
     }
@@ -10682,6 +11046,7 @@ public:
 };
 class QueryBotsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -10695,6 +11060,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -10705,6 +11073,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -10912,6 +11283,7 @@ public:
 };
 class QueryCategoriesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> knowledgeType{};
   shared_ptr<long> parentCategoryId{};
   shared_ptr<bool> showChildrens{};
@@ -10926,6 +11298,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeType) {
       res["KnowledgeType"] = boost::any(*knowledgeType);
     }
@@ -10939,6 +11314,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("KnowledgeType") != m.end() && !m["KnowledgeType"].empty()) {
       knowledgeType = make_shared<long>(boost::any_cast<long>(m["KnowledgeType"]));
     }
@@ -11057,6 +11435,7 @@ public:
 };
 class QueryCoreWordsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -11072,6 +11451,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -11088,6 +11470,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -11294,6 +11679,7 @@ public:
 };
 class QueryDialogsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> dialogName{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
@@ -11309,6 +11695,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogName) {
       res["DialogName"] = boost::any(*dialogName);
     }
@@ -11325,6 +11714,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogName") != m.end() && !m["DialogName"].empty()) {
       dialogName = make_shared<string>(boost::any_cast<string>(m["DialogName"]));
     }
@@ -11573,6 +11965,7 @@ public:
 };
 class QueryEntitiesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> entityName{};
   shared_ptr<long> pageNumber{};
@@ -11588,6 +11981,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -11604,6 +12000,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -11902,6 +12301,7 @@ public:
 };
 class QueryIntentsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> intentName{};
   shared_ptr<long> pageNumber{};
@@ -11917,6 +12317,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -11933,6 +12336,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -12508,6 +12914,7 @@ public:
 };
 class QueryKnowledgesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
   shared_ptr<string> coreWordName{};
   shared_ptr<string> knowledgeTitle{};
@@ -12524,6 +12931,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
@@ -12543,6 +12953,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
     }
@@ -12799,6 +13212,35 @@ public:
 
   virtual ~QueryKnowledgesResponse() = default;
 };
+class QueryPerspectivesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  QueryPerspectivesRequest() {}
+
+  explicit QueryPerspectivesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~QueryPerspectivesRequest() = default;
+};
 class QueryPerspectivesResponseBodyPerspectives : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -12988,6 +13430,7 @@ public:
 };
 class QuerySystemEntitiesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> entityName{};
 
   QuerySystemEntitiesRequest() {}
@@ -13000,6 +13443,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityName) {
       res["EntityName"] = boost::any(*entityName);
     }
@@ -13007,6 +13453,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityName") != m.end() && !m["EntityName"].empty()) {
       entityName = make_shared<string>(boost::any_cast<string>(m["EntityName"]));
     }
@@ -13205,6 +13654,7 @@ public:
 };
 class RemoveEntityMemberRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
   shared_ptr<RemoveEntityMemberRequestMember> member{};
   shared_ptr<string> removeType{};
@@ -13219,6 +13669,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -13232,6 +13685,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -13252,6 +13708,7 @@ public:
 };
 class RemoveEntityMemberShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
   shared_ptr<string> memberShrink{};
   shared_ptr<string> removeType{};
@@ -13266,6 +13723,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -13279,6 +13739,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -13383,6 +13846,7 @@ public:
 };
 class RemoveSynonymRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordName{};
   shared_ptr<string> synonym{};
 
@@ -13396,6 +13860,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordName) {
       res["CoreWordName"] = boost::any(*coreWordName);
     }
@@ -13406,6 +13873,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordName") != m.end() && !m["CoreWordName"].empty()) {
       coreWordName = make_shared<string>(boost::any_cast<string>(m["CoreWordName"]));
     }
@@ -13500,6 +13970,7 @@ public:
 };
 class TestDialogFlowRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
 
   TestDialogFlowRequest() {}
@@ -13512,6 +13983,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -13519,6 +13993,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -13610,6 +14087,7 @@ public:
 };
 class UpdateCategoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> categoryId{};
   shared_ptr<string> name{};
 
@@ -13623,6 +14101,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (categoryId) {
       res["CategoryId"] = boost::any(*categoryId);
     }
@@ -13633,6 +14114,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CategoryId") != m.end() && !m["CategoryId"].empty()) {
       categoryId = make_shared<long>(boost::any_cast<long>(m["CategoryId"]));
     }
@@ -13734,6 +14218,7 @@ public:
 };
 class UpdateCoreWordRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> coreWordCode{};
   shared_ptr<string> coreWordName{};
 
@@ -13747,6 +14232,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (coreWordCode) {
       res["CoreWordCode"] = boost::any(*coreWordCode);
     }
@@ -13757,6 +14245,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("CoreWordCode") != m.end() && !m["CoreWordCode"].empty()) {
       coreWordCode = make_shared<string>(boost::any_cast<string>(m["CoreWordCode"]));
     }
@@ -13858,6 +14349,7 @@ public:
 };
 class UpdateDialogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> description{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> dialogName{};
@@ -13872,6 +14364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -13885,6 +14380,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -14027,6 +14525,7 @@ public:
 };
 class UpdateDialogFlowRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<UpdateDialogFlowRequestModuleDefinition> moduleDefinition{};
 
@@ -14040,6 +14539,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -14050,6 +14552,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -14067,6 +14572,7 @@ public:
 };
 class UpdateDialogFlowShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
   shared_ptr<string> moduleDefinitionShrink{};
 
@@ -14080,6 +14586,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
@@ -14090,6 +14599,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
     }
@@ -14227,6 +14739,7 @@ public:
 };
 class UpdateEntityRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
@@ -14243,6 +14756,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -14266,6 +14782,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -14298,6 +14817,7 @@ public:
 };
 class UpdateEntityShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<long> entityId{};
   shared_ptr<string> entityName{};
   shared_ptr<string> entityType{};
@@ -14314,6 +14834,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -14333,6 +14856,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
     }
@@ -14443,6 +14969,7 @@ public:
 };
 class UpdateIntentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<IntentCreateDTO> intentDefinition{};
   shared_ptr<long> intentId{};
 
@@ -14456,6 +14983,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (intentDefinition) {
       res["IntentDefinition"] = intentDefinition ? boost::any(intentDefinition->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14466,6 +14996,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
       if (typeid(map<string, boost::any>) == m["IntentDefinition"].type()) {
         IntentCreateDTO model1;
@@ -14483,6 +15016,7 @@ public:
 };
 class UpdateIntentShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> intentDefinitionShrink{};
   shared_ptr<long> intentId{};
 
@@ -14496,6 +15030,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (intentDefinitionShrink) {
       res["IntentDefinition"] = boost::any(*intentDefinitionShrink);
     }
@@ -14506,6 +15043,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("IntentDefinition") != m.end() && !m["IntentDefinition"].empty()) {
       intentDefinitionShrink = make_shared<string>(boost::any_cast<string>(m["IntentDefinition"]));
     }
@@ -14891,6 +15431,7 @@ public:
 };
 class UpdateKnowledgeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<UpdateKnowledgeRequestKnowledge> knowledge{};
 
   UpdateKnowledgeRequest() {}
@@ -14903,6 +15444,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledge) {
       res["Knowledge"] = knowledge ? boost::any(knowledge->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14910,6 +15454,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Knowledge") != m.end() && !m["Knowledge"].empty()) {
       if (typeid(map<string, boost::any>) == m["Knowledge"].type()) {
         UpdateKnowledgeRequestKnowledge model1;
@@ -14924,6 +15471,7 @@ public:
 };
 class UpdateKnowledgeShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> knowledgeShrink{};
 
   UpdateKnowledgeShrinkRequest() {}
@@ -14936,6 +15484,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (knowledgeShrink) {
       res["Knowledge"] = boost::any(*knowledgeShrink);
     }
@@ -14943,6 +15494,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Knowledge") != m.end() && !m["Knowledge"].empty()) {
       knowledgeShrink = make_shared<string>(boost::any_cast<string>(m["Knowledge"]));
     }
@@ -15041,6 +15595,7 @@ public:
 };
 class UpdatePerspectiveRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> name{};
   shared_ptr<string> perspectiveId{};
 
@@ -15054,6 +15609,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -15064,6 +15622,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -15280,8 +15841,8 @@ public:
   QueryIntentsResponse queryIntents(shared_ptr<QueryIntentsRequest> request);
   QueryKnowledgesResponse queryKnowledgesWithOptions(shared_ptr<QueryKnowledgesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryKnowledgesResponse queryKnowledges(shared_ptr<QueryKnowledgesRequest> request);
-  QueryPerspectivesResponse queryPerspectivesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryPerspectivesResponse queryPerspectives();
+  QueryPerspectivesResponse queryPerspectivesWithOptions(shared_ptr<QueryPerspectivesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryPerspectivesResponse queryPerspectives(shared_ptr<QueryPerspectivesRequest> request);
   QuerySystemEntitiesResponse querySystemEntitiesWithOptions(shared_ptr<QuerySystemEntitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySystemEntitiesResponse querySystemEntities(shared_ptr<QuerySystemEntitiesRequest> request);
   RemoveEntityMemberResponse removeEntityMemberWithOptions(shared_ptr<RemoveEntityMemberRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
