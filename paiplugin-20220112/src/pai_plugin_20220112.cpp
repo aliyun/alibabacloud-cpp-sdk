@@ -742,40 +742,40 @@ ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessages(shared
 
 ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessagesWithOptions(shared_ptr<ListMessagesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datetime)) {
-    body->insert(pair<string, string>("Datetime", *request->datetime));
+    query->insert(pair<string, string>("Datetime", *request->datetime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
-    body->insert(pair<string, string>("GroupId", *request->groupId));
+    query->insert(pair<string, string>("GroupId", *request->groupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->messageId)) {
-    body->insert(pair<string, string>("MessageId", *request->messageId));
+    query->insert(pair<string, string>("MessageId", *request->messageId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    body->insert(pair<string, long>("PageNumber", *request->pageNumber));
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    body->insert(pair<string, long>("PageSize", *request->pageSize));
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
-    body->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    body->insert(pair<string, string>("RequestId", *request->requestId));
+    query->insert(pair<string, string>("RequestId", *request->requestId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scheduleId)) {
-    body->insert(pair<string, string>("ScheduleId", *request->scheduleId));
+    query->insert(pair<string, string>("ScheduleId", *request->scheduleId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->signature)) {
-    body->insert(pair<string, string>("Signature", *request->signature));
+    query->insert(pair<string, string>("Signature", *request->signature));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
-    body->insert(pair<string, string>("TemplateCode", *request->templateCode));
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListMessages"))},
