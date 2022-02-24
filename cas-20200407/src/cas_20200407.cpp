@@ -92,7 +92,9 @@ string Alibabacloud_Cas20200407::Client::getEndpoint(shared_ptr<string> productI
 CancelCertificateForPackageRequestResponse Alibabacloud_Cas20200407::Client::cancelCertificateForPackageRequestWithOptions(shared_ptr<CancelCertificateForPackageRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -118,7 +120,9 @@ CancelCertificateForPackageRequestResponse Alibabacloud_Cas20200407::Client::can
 CancelOrderRequestResponse Alibabacloud_Cas20200407::Client::cancelOrderRequestWithOptions(shared_ptr<CancelOrderRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -144,14 +148,30 @@ CancelOrderRequestResponse Alibabacloud_Cas20200407::Client::cancelOrderRequest(
 CreateCertificateForPackageRequestResponse Alibabacloud_Cas20200407::Client::createCertificateForPackageRequestWithOptions(shared_ptr<CreateCertificateForPackageRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("CompanyName", *request->companyName));
-  query->insert(pair<string, string>("Csr", *request->csr));
-  query->insert(pair<string, string>("Domain", *request->domain));
-  query->insert(pair<string, string>("Email", *request->email));
-  query->insert(pair<string, string>("Phone", *request->phone));
-  query->insert(pair<string, string>("ProductCode", *request->productCode));
-  query->insert(pair<string, string>("Username", *request->username));
-  query->insert(pair<string, string>("ValidateType", *request->validateType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->companyName)) {
+    query->insert(pair<string, string>("CompanyName", *request->companyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
+    query->insert(pair<string, string>("Csr", *request->csr));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
+    query->insert(pair<string, string>("Phone", *request->phone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    query->insert(pair<string, string>("Username", *request->username));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validateType)) {
+    query->insert(pair<string, string>("ValidateType", *request->validateType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -177,12 +197,24 @@ CreateCertificateForPackageRequestResponse Alibabacloud_Cas20200407::Client::cre
 CreateCertificateRequestResponse Alibabacloud_Cas20200407::Client::createCertificateRequestWithOptions(shared_ptr<CreateCertificateRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("Domain", *request->domain));
-  query->insert(pair<string, string>("Email", *request->email));
-  query->insert(pair<string, string>("Phone", *request->phone));
-  query->insert(pair<string, string>("ProductCode", *request->productCode));
-  query->insert(pair<string, string>("Username", *request->username));
-  query->insert(pair<string, string>("ValidateType", *request->validateType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
+    query->insert(pair<string, string>("Phone", *request->phone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    query->insert(pair<string, string>("Username", *request->username));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validateType)) {
+    query->insert(pair<string, string>("ValidateType", *request->validateType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -208,12 +240,24 @@ CreateCertificateRequestResponse Alibabacloud_Cas20200407::Client::createCertifi
 CreateCertificateWithCsrRequestResponse Alibabacloud_Cas20200407::Client::createCertificateWithCsrRequestWithOptions(shared_ptr<CreateCertificateWithCsrRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("Csr", *request->csr));
-  query->insert(pair<string, string>("Email", *request->email));
-  query->insert(pair<string, string>("Phone", *request->phone));
-  query->insert(pair<string, string>("ProductCode", *request->productCode));
-  query->insert(pair<string, string>("Username", *request->username));
-  query->insert(pair<string, string>("ValidateType", *request->validateType));
+  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
+    query->insert(pair<string, string>("Csr", *request->csr));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
+    query->insert(pair<string, string>("Phone", *request->phone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    query->insert(pair<string, string>("Username", *request->username));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validateType)) {
+    query->insert(pair<string, string>("ValidateType", *request->validateType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -239,7 +283,9 @@ CreateCertificateWithCsrRequestResponse Alibabacloud_Cas20200407::Client::create
 DeleteCertificateRequestResponse Alibabacloud_Cas20200407::Client::deleteCertificateRequestWithOptions(shared_ptr<DeleteCertificateRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -265,7 +311,9 @@ DeleteCertificateRequestResponse Alibabacloud_Cas20200407::Client::deleteCertifi
 DescribeCertificateStateResponse Alibabacloud_Cas20200407::Client::describeCertificateStateWithOptions(shared_ptr<DescribeCertificateStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -291,7 +339,9 @@ DescribeCertificateStateResponse Alibabacloud_Cas20200407::Client::describeCerti
 DescribePackageStateResponse Alibabacloud_Cas20200407::Client::describePackageStateWithOptions(shared_ptr<DescribePackageStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("ProductCode", *request->productCode));
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -314,11 +364,55 @@ DescribePackageStateResponse Alibabacloud_Cas20200407::Client::describePackageSt
   return describePackageStateWithOptions(request, runtime);
 }
 
+ListUserCertificateOrderResponse Alibabacloud_Cas20200407::Client::listUserCertificateOrderWithOptions(shared_ptr<ListUserCertificateOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
+    query->insert(pair<string, string>("OrderType", *request->orderType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->showSize)) {
+    query->insert(pair<string, long>("ShowSize", *request->showSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListUserCertificateOrder"))},
+    {"version", boost::any(string("2020-04-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListUserCertificateOrderResponse(callApi(params, req, runtime));
+}
+
+ListUserCertificateOrderResponse Alibabacloud_Cas20200407::Client::listUserCertificateOrder(shared_ptr<ListUserCertificateOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listUserCertificateOrderWithOptions(request, runtime);
+}
+
 RenewCertificateOrderForPackageRequestResponse Alibabacloud_Cas20200407::Client::renewCertificateOrderForPackageRequestWithOptions(shared_ptr<RenewCertificateOrderForPackageRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("Csr", *request->csr));
-  query->insert(pair<string, long>("OrderId", *request->orderId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
+    query->insert(pair<string, string>("Csr", *request->csr));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

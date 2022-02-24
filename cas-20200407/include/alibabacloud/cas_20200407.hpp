@@ -1131,6 +1131,172 @@ public:
 
   virtual ~DescribePackageStateResponse() = default;
 };
+class ListUserCertificateOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> orderType{};
+  shared_ptr<long> showSize{};
+  shared_ptr<string> status{};
+
+  ListUserCertificateOrderRequest() {}
+
+  explicit ListUserCertificateOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
+    if (showSize) {
+      res["ShowSize"] = boost::any(*showSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
+      showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListUserCertificateOrderRequest() = default;
+};
+class ListUserCertificateOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certificateOrderList{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> showSize{};
+  shared_ptr<long> totalCount{};
+
+  ListUserCertificateOrderResponseBody() {}
+
+  explicit ListUserCertificateOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificateOrderList) {
+      res["CertificateOrderList"] = boost::any(*certificateOrderList);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (showSize) {
+      res["ShowSize"] = boost::any(*showSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateOrderList") != m.end() && !m["CertificateOrderList"].empty()) {
+      certificateOrderList = make_shared<string>(boost::any_cast<string>(m["CertificateOrderList"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
+      showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListUserCertificateOrderResponseBody() = default;
+};
+class ListUserCertificateOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListUserCertificateOrderResponseBody> body{};
+
+  ListUserCertificateOrderResponse() {}
+
+  explicit ListUserCertificateOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListUserCertificateOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListUserCertificateOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListUserCertificateOrderResponse() = default;
+};
 class RenewCertificateOrderForPackageRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<string> csr{};
@@ -1281,6 +1447,8 @@ public:
   DescribeCertificateStateResponse describeCertificateState(shared_ptr<DescribeCertificateStateRequest> request);
   DescribePackageStateResponse describePackageStateWithOptions(shared_ptr<DescribePackageStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePackageStateResponse describePackageState(shared_ptr<DescribePackageStateRequest> request);
+  ListUserCertificateOrderResponse listUserCertificateOrderWithOptions(shared_ptr<ListUserCertificateOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListUserCertificateOrderResponse listUserCertificateOrder(shared_ptr<ListUserCertificateOrderRequest> request);
   RenewCertificateOrderForPackageRequestResponse renewCertificateOrderForPackageRequestWithOptions(shared_ptr<RenewCertificateOrderForPackageRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenewCertificateOrderForPackageRequestResponse renewCertificateOrderForPackageRequest(shared_ptr<RenewCertificateOrderForPackageRequestRequest> request);
 
