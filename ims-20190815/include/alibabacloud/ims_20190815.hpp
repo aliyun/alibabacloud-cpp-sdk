@@ -54,12 +54,14 @@ class AddClientIdToOIDCProviderResponseBodyOIDCProvider : public Darabonba::Mode
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   AddClientIdToOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -76,6 +78,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -95,6 +100,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -104,6 +112,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -122,6 +133,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -260,12 +274,14 @@ class AddFingerprintToOIDCProviderResponseBodyOIDCProvider : public Darabonba::M
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   AddFingerprintToOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -282,6 +298,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -301,6 +320,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -310,6 +332,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -328,6 +353,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -2045,12 +2073,14 @@ class CreateOIDCProviderResponseBodyOIDCProvider : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   CreateOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -2067,6 +2097,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -2086,6 +2119,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -2095,6 +2131,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -2113,6 +2152,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -5887,12 +5929,14 @@ class GetOIDCProviderResponseBodyOIDCProvider : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   GetOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -5909,6 +5953,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -5928,6 +5975,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -5937,6 +5987,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -5955,6 +6008,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -6544,13 +6600,13 @@ public:
 
   virtual ~GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference() = default;
 };
-class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
+class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> verificationTypes{};
+  shared_ptr<bool> allowUserToManagePersonalDingTalk{};
 
-  GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
+  GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() {}
 
-  explicit GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -6558,34 +6614,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (verificationTypes) {
-      res["VerificationTypes"] = boost::any(*verificationTypes);
+    if (allowUserToManagePersonalDingTalk) {
+      res["AllowUserToManagePersonalDingTalk"] = boost::any(*allowUserToManagePersonalDingTalk);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      verificationTypes = make_shared<vector<string>>(toVec1);
+    if (m.find("AllowUserToManagePersonalDingTalk") != m.end() && !m["AllowUserToManagePersonalDingTalk"].empty()) {
+      allowUserToManagePersonalDingTalk = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManagePersonalDingTalk"]));
     }
   }
 
 
-  virtual ~GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() = default;
+  virtual ~GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() = default;
 };
 class GetSecurityPreferenceResponseBodySecurityPreference : public Darabonba::Model {
 public:
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
-  shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
+  shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
 
   GetSecurityPreferenceResponseBodySecurityPreference() {}
 
@@ -6606,8 +6655,8 @@ public:
     if (MFAPreference) {
       res["MFAPreference"] = MFAPreference ? boost::any(MFAPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (verificationPreference) {
-      res["VerificationPreference"] = verificationPreference ? boost::any(verificationPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    if (personalInfoPreference) {
+      res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -6634,11 +6683,11 @@ public:
         MFAPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference>(model1);
       }
     }
-    if (m.find("VerificationPreference") != m.end() && !m["VerificationPreference"].empty()) {
-      if (typeid(map<string, boost::any>) == m["VerificationPreference"].type()) {
-        GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VerificationPreference"]));
-        verificationPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference>(model1);
+    if (m.find("PersonalInfoPreference") != m.end() && !m["PersonalInfoPreference"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PersonalInfoPreference"].type()) {
+        GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PersonalInfoPreference"]));
+        personalInfoPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference>(model1);
       }
     }
   }
@@ -8592,12 +8641,14 @@ class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider : public Darabonba:
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider() {}
 
@@ -8614,6 +8665,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -8633,6 +8687,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -8642,6 +8699,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -8660,6 +8720,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -10312,12 +10375,14 @@ class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider : public Darabonba:
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -10334,6 +10399,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -10353,6 +10421,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -10362,6 +10433,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -10380,6 +10454,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -10518,12 +10595,14 @@ class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider : public Darabon
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -10540,6 +10619,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -10559,6 +10641,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -10568,6 +10653,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -10586,6 +10674,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -11213,11 +11304,11 @@ public:
   shared_ptr<bool> allowUserToChangePassword{};
   shared_ptr<bool> allowUserToManageAccessKeys{};
   shared_ptr<bool> allowUserToManageMFADevices{};
+  shared_ptr<bool> allowUserToManagePersonalDingTalk{};
   shared_ptr<bool> enableSaveMFATicket{};
   shared_ptr<bool> enforceMFAForLogin{};
   shared_ptr<string> loginNetworkMasks{};
   shared_ptr<long> loginSessionDuration{};
-  shared_ptr<vector<string>> verificationTypes{};
 
   SetSecurityPreferenceRequest() {}
 
@@ -11238,6 +11329,9 @@ public:
     if (allowUserToManageMFADevices) {
       res["AllowUserToManageMFADevices"] = boost::any(*allowUserToManageMFADevices);
     }
+    if (allowUserToManagePersonalDingTalk) {
+      res["AllowUserToManagePersonalDingTalk"] = boost::any(*allowUserToManagePersonalDingTalk);
+    }
     if (enableSaveMFATicket) {
       res["EnableSaveMFATicket"] = boost::any(*enableSaveMFATicket);
     }
@@ -11249,9 +11343,6 @@ public:
     }
     if (loginSessionDuration) {
       res["LoginSessionDuration"] = boost::any(*loginSessionDuration);
-    }
-    if (verificationTypes) {
-      res["VerificationTypes"] = boost::any(*verificationTypes);
     }
     return res;
   }
@@ -11266,6 +11357,9 @@ public:
     if (m.find("AllowUserToManageMFADevices") != m.end() && !m["AllowUserToManageMFADevices"].empty()) {
       allowUserToManageMFADevices = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageMFADevices"]));
     }
+    if (m.find("AllowUserToManagePersonalDingTalk") != m.end() && !m["AllowUserToManagePersonalDingTalk"].empty()) {
+      allowUserToManagePersonalDingTalk = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManagePersonalDingTalk"]));
+    }
     if (m.find("EnableSaveMFATicket") != m.end() && !m["EnableSaveMFATicket"].empty()) {
       enableSaveMFATicket = make_shared<bool>(boost::any_cast<bool>(m["EnableSaveMFATicket"]));
     }
@@ -11277,99 +11371,11 @@ public:
     }
     if (m.find("LoginSessionDuration") != m.end() && !m["LoginSessionDuration"].empty()) {
       loginSessionDuration = make_shared<long>(boost::any_cast<long>(m["LoginSessionDuration"]));
-    }
-    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      verificationTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
 
   virtual ~SetSecurityPreferenceRequest() = default;
-};
-class SetSecurityPreferenceShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> allowUserToChangePassword{};
-  shared_ptr<bool> allowUserToManageAccessKeys{};
-  shared_ptr<bool> allowUserToManageMFADevices{};
-  shared_ptr<bool> enableSaveMFATicket{};
-  shared_ptr<bool> enforceMFAForLogin{};
-  shared_ptr<string> loginNetworkMasks{};
-  shared_ptr<long> loginSessionDuration{};
-  shared_ptr<string> verificationTypesShrink{};
-
-  SetSecurityPreferenceShrinkRequest() {}
-
-  explicit SetSecurityPreferenceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (allowUserToChangePassword) {
-      res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
-    }
-    if (allowUserToManageAccessKeys) {
-      res["AllowUserToManageAccessKeys"] = boost::any(*allowUserToManageAccessKeys);
-    }
-    if (allowUserToManageMFADevices) {
-      res["AllowUserToManageMFADevices"] = boost::any(*allowUserToManageMFADevices);
-    }
-    if (enableSaveMFATicket) {
-      res["EnableSaveMFATicket"] = boost::any(*enableSaveMFATicket);
-    }
-    if (enforceMFAForLogin) {
-      res["EnforceMFAForLogin"] = boost::any(*enforceMFAForLogin);
-    }
-    if (loginNetworkMasks) {
-      res["LoginNetworkMasks"] = boost::any(*loginNetworkMasks);
-    }
-    if (loginSessionDuration) {
-      res["LoginSessionDuration"] = boost::any(*loginSessionDuration);
-    }
-    if (verificationTypesShrink) {
-      res["VerificationTypes"] = boost::any(*verificationTypesShrink);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
-      allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
-    }
-    if (m.find("AllowUserToManageAccessKeys") != m.end() && !m["AllowUserToManageAccessKeys"].empty()) {
-      allowUserToManageAccessKeys = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageAccessKeys"]));
-    }
-    if (m.find("AllowUserToManageMFADevices") != m.end() && !m["AllowUserToManageMFADevices"].empty()) {
-      allowUserToManageMFADevices = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageMFADevices"]));
-    }
-    if (m.find("EnableSaveMFATicket") != m.end() && !m["EnableSaveMFATicket"].empty()) {
-      enableSaveMFATicket = make_shared<bool>(boost::any_cast<bool>(m["EnableSaveMFATicket"]));
-    }
-    if (m.find("EnforceMFAForLogin") != m.end() && !m["EnforceMFAForLogin"].empty()) {
-      enforceMFAForLogin = make_shared<bool>(boost::any_cast<bool>(m["EnforceMFAForLogin"]));
-    }
-    if (m.find("LoginNetworkMasks") != m.end() && !m["LoginNetworkMasks"].empty()) {
-      loginNetworkMasks = make_shared<string>(boost::any_cast<string>(m["LoginNetworkMasks"]));
-    }
-    if (m.find("LoginSessionDuration") != m.end() && !m["LoginSessionDuration"].empty()) {
-      loginSessionDuration = make_shared<long>(boost::any_cast<long>(m["LoginSessionDuration"]));
-    }
-    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      verificationTypesShrink = make_shared<string>(boost::any_cast<string>(m["VerificationTypes"]));
-    }
-  }
-
-
-  virtual ~SetSecurityPreferenceShrinkRequest() = default;
 };
 class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference : public Darabonba::Model {
 public:
@@ -11486,13 +11492,13 @@ public:
 
   virtual ~SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference() = default;
 };
-class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
+class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> verificationTypes{};
+  shared_ptr<bool> allowUserToManagePersonalDingTalk{};
 
-  SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
+  SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() {}
 
-  explicit SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -11500,34 +11506,27 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (verificationTypes) {
-      res["VerificationTypes"] = boost::any(*verificationTypes);
+    if (allowUserToManagePersonalDingTalk) {
+      res["AllowUserToManagePersonalDingTalk"] = boost::any(*allowUserToManagePersonalDingTalk);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      verificationTypes = make_shared<vector<string>>(toVec1);
+    if (m.find("AllowUserToManagePersonalDingTalk") != m.end() && !m["AllowUserToManagePersonalDingTalk"].empty()) {
+      allowUserToManagePersonalDingTalk = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManagePersonalDingTalk"]));
     }
   }
 
 
-  virtual ~SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() = default;
+  virtual ~SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() = default;
 };
 class SetSecurityPreferenceResponseBodySecurityPreference : public Darabonba::Model {
 public:
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
-  shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
+  shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
 
   SetSecurityPreferenceResponseBodySecurityPreference() {}
 
@@ -11548,8 +11547,8 @@ public:
     if (MFAPreference) {
       res["MFAPreference"] = MFAPreference ? boost::any(MFAPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (verificationPreference) {
-      res["VerificationPreference"] = verificationPreference ? boost::any(verificationPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    if (personalInfoPreference) {
+      res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -11576,11 +11575,11 @@ public:
         MFAPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference>(model1);
       }
     }
-    if (m.find("VerificationPreference") != m.end() && !m["VerificationPreference"].empty()) {
-      if (typeid(map<string, boost::any>) == m["VerificationPreference"].type()) {
-        SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VerificationPreference"]));
-        verificationPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference>(model1);
+    if (m.find("PersonalInfoPreference") != m.end() && !m["PersonalInfoPreference"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PersonalInfoPreference"].type()) {
+        SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PersonalInfoPreference"]));
+        personalInfoPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference>(model1);
       }
     }
   }
@@ -13030,12 +13029,14 @@ class UpdateOIDCProviderResponseBodyOIDCProvider : public Darabonba::Model {
 public:
   shared_ptr<string> arn{};
   shared_ptr<string> clientIds{};
+  shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
+  shared_ptr<string> updateDate{};
 
   UpdateOIDCProviderResponseBodyOIDCProvider() {}
 
@@ -13052,6 +13053,9 @@ public:
     }
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (createDate) {
+      res["CreateDate"] = boost::any(*createDate);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -13071,6 +13075,9 @@ public:
     if (OIDCProviderName) {
       res["OIDCProviderName"] = boost::any(*OIDCProviderName);
     }
+    if (updateDate) {
+      res["UpdateDate"] = boost::any(*updateDate);
+    }
     return res;
   }
 
@@ -13080,6 +13087,9 @@ public:
     }
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
+      createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -13098,6 +13108,9 @@ public:
     }
     if (m.find("OIDCProviderName") != m.end() && !m["OIDCProviderName"].empty()) {
       OIDCProviderName = make_shared<string>(boost::any_cast<string>(m["OIDCProviderName"]));
+    }
+    if (m.find("UpdateDate") != m.end() && !m["UpdateDate"].empty()) {
+      updateDate = make_shared<string>(boost::any_cast<string>(m["UpdateDate"]));
     }
   }
 
@@ -13764,7 +13777,7 @@ public:
   SetDefaultDomainResponse setDefaultDomain(shared_ptr<SetDefaultDomainRequest> request);
   SetPasswordPolicyResponse setPasswordPolicyWithOptions(shared_ptr<SetPasswordPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetPasswordPolicyResponse setPasswordPolicy(shared_ptr<SetPasswordPolicyRequest> request);
-  SetSecurityPreferenceResponse setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSecurityPreferenceResponse setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetSecurityPreferenceResponse setSecurityPreference(shared_ptr<SetSecurityPreferenceRequest> request);
   SetUserSsoSettingsResponse setUserSsoSettingsWithOptions(shared_ptr<SetUserSsoSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetUserSsoSettingsResponse setUserSsoSettings(shared_ptr<SetUserSsoSettingsRequest> request);
