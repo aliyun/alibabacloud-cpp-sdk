@@ -6261,6 +6261,7 @@ public:
 class GetServiceProvisionsResponseBodyServiceProvisions : public Darabonba::Model {
 public:
   shared_ptr<bool> autoEnableService{};
+  shared_ptr<vector<string>> dependentServiceNames{};
   shared_ptr<string> enableURL{};
   shared_ptr<GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision> roleProvision{};
   shared_ptr<string> serviceName{};
@@ -6279,6 +6280,9 @@ public:
     map<string, boost::any> res;
     if (autoEnableService) {
       res["AutoEnableService"] = boost::any(*autoEnableService);
+    }
+    if (dependentServiceNames) {
+      res["DependentServiceNames"] = boost::any(*dependentServiceNames);
     }
     if (enableURL) {
       res["EnableURL"] = boost::any(*enableURL);
@@ -6301,6 +6305,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoEnableService") != m.end() && !m["AutoEnableService"].empty()) {
       autoEnableService = make_shared<bool>(boost::any_cast<bool>(m["AutoEnableService"]));
+    }
+    if (m.find("DependentServiceNames") != m.end() && !m["DependentServiceNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DependentServiceNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DependentServiceNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dependentServiceNames = make_shared<vector<string>>(toVec1);
     }
     if (m.find("EnableURL") != m.end() && !m["EnableURL"].empty()) {
       enableURL = make_shared<string>(boost::any_cast<string>(m["EnableURL"]));
@@ -6790,6 +6804,8 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<GetStackResponseBodyResourceProgress> resourceProgress{};
   shared_ptr<string> rootStackId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<string> serviceName{};
   shared_ptr<string> stackDriftStatus{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
@@ -6869,6 +6885,12 @@ public:
     }
     if (rootStackId) {
       res["RootStackId"] = boost::any(*rootStackId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
     }
     if (stackDriftStatus) {
       res["StackDriftStatus"] = boost::any(*stackDriftStatus);
@@ -7007,6 +7029,12 @@ public:
     }
     if (m.find("RootStackId") != m.end() && !m["RootStackId"].empty()) {
       rootStackId = make_shared<string>(boost::any_cast<string>(m["RootStackId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
     if (m.find("StackDriftStatus") != m.end() && !m["StackDriftStatus"].empty()) {
       stackDriftStatus = make_shared<string>(boost::any_cast<string>(m["StackDriftStatus"]));
@@ -13576,6 +13604,8 @@ public:
   shared_ptr<string> parentStackId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<string> serviceName{};
   shared_ptr<string> stackDriftStatus{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
@@ -13613,6 +13643,12 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
     }
     if (stackDriftStatus) {
       res["StackDriftStatus"] = boost::any(*stackDriftStatus);
@@ -13666,6 +13702,12 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
     if (m.find("StackDriftStatus") != m.end() && !m["StackDriftStatus"].empty()) {
       stackDriftStatus = make_shared<string>(boost::any_cast<string>(m["StackDriftStatus"]));
