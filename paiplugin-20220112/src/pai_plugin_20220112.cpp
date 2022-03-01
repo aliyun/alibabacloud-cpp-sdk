@@ -56,8 +56,8 @@ CreateGroupResponse Alibabacloud_PaiPlugin20220112::Client::createGroupWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     body->insert(pair<string, string>("Filter", *request->filter));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->inferenceJob)) {
-    body->insert(pair<string, string>("InferenceJob", *request->inferenceJob));
+  if (!Darabonba_Util::Client::isUnset<string>(request->inferenceJobId)) {
+    body->insert(pair<string, string>("InferenceJobId", *request->inferenceJobId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
@@ -170,8 +170,14 @@ CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createScheduleWit
   if (!Darabonba_Util::Client::isUnset<long>(request->repeatTimes)) {
     body->insert(pair<string, long>("RepeatTimes", *request->repeatTimes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
+    body->insert(pair<string, string>("SignName", *request->signName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
     body->insert(pair<string, string>("SignatureId", *request->signatureId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
+    body->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
@@ -458,6 +464,31 @@ DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTraining
   return DeleteTrainingJobResponse(callApi(params, req, runtime));
 }
 
+GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithm(shared_ptr<string> Id) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getAlgorithmWithOptions(Id, headers, runtime);
+}
+
+GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithmWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAlgorithm"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/algorithms/") + string(*Id))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAlgorithmResponse(callApi(params, req, runtime));
+}
+
 GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroup(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -606,6 +637,45 @@ GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJobWit
     {"bodyType", boost::any(string("json"))}
   }));
   return GetTrainingJobResponse(callApi(params, req, runtime));
+}
+
+ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithms(shared_ptr<ListAlgorithmsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAlgorithmsWithOptions(request, headers, runtime);
+}
+
+ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithmsWithOptions(shared_ptr<ListAlgorithmsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAlgorithms"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/algorithms"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAlgorithmsResponse(callApi(params, req, runtime));
 }
 
 ListGroupsResponse Alibabacloud_PaiPlugin20220112::Client::listGroups(shared_ptr<ListGroupsRequest> request) {

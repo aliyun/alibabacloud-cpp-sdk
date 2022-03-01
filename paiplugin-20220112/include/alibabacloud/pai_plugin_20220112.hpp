@@ -19,7 +19,7 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<string> column{};
   shared_ptr<string> filter{};
-  shared_ptr<string> inferenceJob{};
+  shared_ptr<string> inferenceJobId{};
   shared_ptr<string> name{};
   shared_ptr<string> project{};
   shared_ptr<string> remark{};
@@ -47,8 +47,8 @@ public:
     if (filter) {
       res["Filter"] = boost::any(*filter);
     }
-    if (inferenceJob) {
-      res["InferenceJob"] = boost::any(*inferenceJob);
+    if (inferenceJobId) {
+      res["InferenceJobId"] = boost::any(*inferenceJobId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -84,8 +84,8 @@ public:
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
     }
-    if (m.find("InferenceJob") != m.end() && !m["InferenceJob"].empty()) {
-      inferenceJob = make_shared<string>(boost::any_cast<string>(m["InferenceJob"]));
+    if (m.find("InferenceJobId") != m.end() && !m["InferenceJobId"].empty()) {
+      inferenceJobId = make_shared<string>(boost::any_cast<string>(m["InferenceJobId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -121,7 +121,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> filter{};
   shared_ptr<string> id{};
-  shared_ptr<string> inferenceJob{};
+  shared_ptr<string> inferenceJobId{};
   shared_ptr<string> name{};
   shared_ptr<string> project{};
   shared_ptr<string> remark{};
@@ -160,8 +160,8 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (inferenceJob) {
-      res["InferenceJob"] = boost::any(*inferenceJob);
+    if (inferenceJobId) {
+      res["InferenceJobId"] = boost::any(*inferenceJobId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -212,8 +212,8 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
-    if (m.find("InferenceJob") != m.end() && !m["InferenceJob"].empty()) {
-      inferenceJob = make_shared<string>(boost::any_cast<string>(m["InferenceJob"]));
+    if (m.find("InferenceJobId") != m.end() && !m["InferenceJobId"].empty()) {
+      inferenceJobId = make_shared<string>(boost::any_cast<string>(m["InferenceJobId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -252,6 +252,7 @@ public:
   shared_ptr<CreateGroupResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateGroupResponseBody() {}
 
@@ -272,6 +273,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -288,6 +292,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -507,6 +514,7 @@ public:
   shared_ptr<CreateInferenceJobResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateInferenceJobResponseBody() {}
 
@@ -527,6 +535,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -543,6 +554,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -610,7 +624,9 @@ public:
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
+  shared_ptr<string> signName{};
   shared_ptr<string> signatureId{};
+  shared_ptr<string> templateCode{};
   shared_ptr<string> templateId{};
 
   CreateScheduleRequest() {}
@@ -644,8 +660,14 @@ public:
     if (repeatTimes) {
       res["RepeatTimes"] = boost::any(*repeatTimes);
     }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -675,8 +697,14 @@ public:
     if (m.find("RepeatTimes") != m.end() && !m["RepeatTimes"].empty()) {
       repeatTimes = make_shared<long>(boost::any_cast<long>(m["RepeatTimes"]));
     }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -697,8 +725,10 @@ public:
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
+  shared_ptr<string> signName{};
   shared_ptr<string> signatureId{};
   shared_ptr<long> status{};
+  shared_ptr<string> templateCode{};
   shared_ptr<string> templateId{};
   shared_ptr<string> updatedTime{};
 
@@ -739,11 +769,17 @@ public:
     if (repeatTimes) {
       res["RepeatTimes"] = boost::any(*repeatTimes);
     }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -782,11 +818,17 @@ public:
     if (m.find("RepeatTimes") != m.end() && !m["RepeatTimes"].empty()) {
       repeatTimes = make_shared<long>(boost::any_cast<long>(m["RepeatTimes"]));
     }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -804,6 +846,7 @@ public:
   shared_ptr<CreateScheduleResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateScheduleResponseBody() {}
 
@@ -824,6 +867,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -840,6 +886,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -996,6 +1045,7 @@ public:
   shared_ptr<CreateSignatureResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateSignatureResponseBody() {}
 
@@ -1016,6 +1066,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1032,6 +1085,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1251,6 +1307,7 @@ public:
   shared_ptr<CreateTemplateResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateTemplateResponseBody() {}
 
@@ -1271,6 +1328,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1287,6 +1347,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1485,6 +1548,7 @@ public:
   shared_ptr<CreateTrainingJobResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   CreateTrainingJobResponseBody() {}
 
@@ -1505,6 +1569,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1521,6 +1588,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1584,6 +1654,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteGroupResponseBody() {}
 
@@ -1604,6 +1675,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1616,6 +1690,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1679,6 +1756,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteInferenceJobResponseBody() {}
 
@@ -1699,6 +1777,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1711,6 +1792,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1774,6 +1858,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteScheduleResponseBody() {}
 
@@ -1794,6 +1879,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1806,6 +1894,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1869,6 +1960,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteSignatureResponseBody() {}
 
@@ -1889,6 +1981,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1901,6 +1996,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -1964,6 +2062,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteTemplateResponseBody() {}
 
@@ -1984,6 +2083,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -1996,6 +2098,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2059,6 +2164,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   DeleteTrainingJobResponseBody() {}
 
@@ -2079,6 +2185,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -2091,6 +2200,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2149,6 +2261,169 @@ public:
 
   virtual ~DeleteTrainingJobResponse() = default;
 };
+class GetAlgorithmResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> id{};
+  shared_ptr<string> inferUserConfigMap{};
+  shared_ptr<string> name{};
+  shared_ptr<string> trainUserConfigMap{};
+
+  GetAlgorithmResponseBodyData() {}
+
+  explicit GetAlgorithmResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (inferUserConfigMap) {
+      res["InferUserConfigMap"] = boost::any(*inferUserConfigMap);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (trainUserConfigMap) {
+      res["TrainUserConfigMap"] = boost::any(*trainUserConfigMap);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("InferUserConfigMap") != m.end() && !m["InferUserConfigMap"].empty()) {
+      inferUserConfigMap = make_shared<string>(boost::any_cast<string>(m["InferUserConfigMap"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("TrainUserConfigMap") != m.end() && !m["TrainUserConfigMap"].empty()) {
+      trainUserConfigMap = make_shared<string>(boost::any_cast<string>(m["TrainUserConfigMap"]));
+    }
+  }
+
+
+  virtual ~GetAlgorithmResponseBodyData() = default;
+};
+class GetAlgorithmResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAlgorithmResponseBodyData> data{};
+  shared_ptr<long> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+
+  GetAlgorithmResponseBody() {}
+
+  explicit GetAlgorithmResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAlgorithmResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAlgorithmResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<long>(boost::any_cast<long>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAlgorithmResponseBody() = default;
+};
+class GetAlgorithmResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetAlgorithmResponseBody> body{};
+
+  GetAlgorithmResponse() {}
+
+  explicit GetAlgorithmResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAlgorithmResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAlgorithmResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAlgorithmResponse() = default;
+};
 class GetGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> algorithm{};
@@ -2157,7 +2432,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> filter{};
   shared_ptr<string> id{};
-  shared_ptr<string> inferenceJob{};
+  shared_ptr<string> inferenceJobId{};
   shared_ptr<string> name{};
   shared_ptr<string> project{};
   shared_ptr<string> remark{};
@@ -2196,8 +2471,8 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (inferenceJob) {
-      res["InferenceJob"] = boost::any(*inferenceJob);
+    if (inferenceJobId) {
+      res["InferenceJobId"] = boost::any(*inferenceJobId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2248,8 +2523,8 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
-    if (m.find("InferenceJob") != m.end() && !m["InferenceJob"].empty()) {
-      inferenceJob = make_shared<string>(boost::any_cast<string>(m["InferenceJob"]));
+    if (m.find("InferenceJobId") != m.end() && !m["InferenceJobId"].empty()) {
+      inferenceJobId = make_shared<string>(boost::any_cast<string>(m["InferenceJobId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -2288,6 +2563,7 @@ public:
   shared_ptr<GetGroupResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetGroupResponseBody() {}
 
@@ -2308,6 +2584,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -2324,6 +2603,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2486,6 +2768,7 @@ public:
   shared_ptr<GetInferenceJobResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetInferenceJobResponseBody() {}
 
@@ -2506,6 +2789,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -2522,6 +2808,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2592,8 +2881,10 @@ public:
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
+  shared_ptr<string> signName{};
   shared_ptr<string> signatureId{};
   shared_ptr<long> status{};
+  shared_ptr<string> templateCode{};
   shared_ptr<string> templateId{};
   shared_ptr<string> updatedTime{};
 
@@ -2637,11 +2928,17 @@ public:
     if (repeatTimes) {
       res["RepeatTimes"] = boost::any(*repeatTimes);
     }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -2683,11 +2980,17 @@ public:
     if (m.find("RepeatTimes") != m.end() && !m["RepeatTimes"].empty()) {
       repeatTimes = make_shared<long>(boost::any_cast<long>(m["RepeatTimes"]));
     }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -2705,6 +3008,7 @@ public:
   shared_ptr<GetScheduleResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetScheduleResponseBody() {}
 
@@ -2725,6 +3029,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -2741,6 +3048,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -2875,6 +3185,7 @@ public:
   shared_ptr<GetSignatureResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetSignatureResponseBody() {}
 
@@ -2895,6 +3206,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -2911,6 +3225,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -3073,6 +3390,7 @@ public:
   shared_ptr<GetTemplateResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetTemplateResponseBody() {}
 
@@ -3093,6 +3411,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -3109,6 +3430,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -3257,6 +3581,7 @@ public:
   shared_ptr<GetTrainingJobResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   GetTrainingJobResponseBody() {}
 
@@ -3277,6 +3602,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -3293,6 +3621,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -3350,6 +3681,262 @@ public:
 
 
   virtual ~GetTrainingJobResponse() = default;
+};
+class ListAlgorithmsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListAlgorithmsRequest() {}
+
+  explicit ListAlgorithmsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~ListAlgorithmsRequest() = default;
+};
+class ListAlgorithmsResponseBodyDataAlgorithms : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+
+  ListAlgorithmsResponseBodyDataAlgorithms() {}
+
+  explicit ListAlgorithmsResponseBodyDataAlgorithms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ListAlgorithmsResponseBodyDataAlgorithms() = default;
+};
+class ListAlgorithmsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAlgorithmsResponseBodyDataAlgorithms>> algorithms{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListAlgorithmsResponseBodyData() {}
+
+  explicit ListAlgorithmsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithms) {
+      vector<boost::any> temp1;
+      for(auto item1:*algorithms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Algorithms"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithms") != m.end() && !m["Algorithms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Algorithms"].type()) {
+        vector<ListAlgorithmsResponseBodyDataAlgorithms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Algorithms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAlgorithmsResponseBodyDataAlgorithms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        algorithms = make_shared<vector<ListAlgorithmsResponseBodyDataAlgorithms>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAlgorithmsResponseBodyData() = default;
+};
+class ListAlgorithmsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListAlgorithmsResponseBodyData> data{};
+  shared_ptr<long> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+
+  ListAlgorithmsResponseBody() {}
+
+  explicit ListAlgorithmsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ListAlgorithmsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ListAlgorithmsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<long>(boost::any_cast<long>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListAlgorithmsResponseBody() = default;
+};
+class ListAlgorithmsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListAlgorithmsResponseBody> body{};
+
+  ListAlgorithmsResponse() {}
+
+  explicit ListAlgorithmsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAlgorithmsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAlgorithmsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAlgorithmsResponse() = default;
 };
 class ListGroupsRequest : public Darabonba::Model {
 public:
@@ -3423,7 +4010,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> filter{};
   shared_ptr<string> id{};
-  shared_ptr<string> inferenceJob{};
+  shared_ptr<string> inferenceJobId{};
   shared_ptr<string> name{};
   shared_ptr<string> project{};
   shared_ptr<string> remark{};
@@ -3462,8 +4049,8 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (inferenceJob) {
-      res["InferenceJob"] = boost::any(*inferenceJob);
+    if (inferenceJobId) {
+      res["InferenceJobId"] = boost::any(*inferenceJobId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -3514,8 +4101,8 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
-    if (m.find("InferenceJob") != m.end() && !m["InferenceJob"].empty()) {
-      inferenceJob = make_shared<string>(boost::any_cast<string>(m["InferenceJob"]));
+    if (m.find("InferenceJobId") != m.end() && !m["InferenceJobId"].empty()) {
+      inferenceJobId = make_shared<string>(boost::any_cast<string>(m["InferenceJobId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3618,6 +4205,7 @@ public:
   shared_ptr<ListGroupsResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListGroupsResponseBody() {}
 
@@ -3638,6 +4226,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -3654,6 +4245,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -3937,6 +4531,7 @@ public:
   shared_ptr<ListInferenceJobsResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListInferenceJobsResponseBody() {}
 
@@ -3957,6 +4552,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -3973,6 +4571,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -4214,6 +4815,7 @@ public:
   shared_ptr<ListMessageMetricsResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListMessageMetricsResponseBody() {}
 
@@ -4234,6 +4836,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -4250,6 +4855,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -4561,6 +5169,7 @@ public:
   shared_ptr<ListMessagesResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListMessagesResponseBody() {}
 
@@ -4581,6 +5190,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -4597,6 +5209,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -4716,8 +5331,10 @@ public:
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
+  shared_ptr<string> signName{};
   shared_ptr<string> signatureId{};
   shared_ptr<long> status{};
+  shared_ptr<string> templateCode{};
   shared_ptr<string> templateId{};
   shared_ptr<string> updatedTime{};
 
@@ -4758,11 +5375,17 @@ public:
     if (repeatTimes) {
       res["RepeatTimes"] = boost::any(*repeatTimes);
     }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -4801,11 +5424,17 @@ public:
     if (m.find("RepeatTimes") != m.end() && !m["RepeatTimes"].empty()) {
       repeatTimes = make_shared<long>(boost::any_cast<long>(m["RepeatTimes"]));
     }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -4887,6 +5516,7 @@ public:
   shared_ptr<ListSchedulesResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListSchedulesResponseBody() {}
 
@@ -4907,6 +5537,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -4923,6 +5556,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -5157,6 +5793,7 @@ public:
   shared_ptr<ListSignaturesResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListSignaturesResponseBody() {}
 
@@ -5177,6 +5814,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -5193,6 +5833,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -5483,6 +6126,7 @@ public:
   shared_ptr<ListTemplatesResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListTemplatesResponseBody() {}
 
@@ -5503,6 +6147,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -5519,6 +6166,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -5788,6 +6438,7 @@ public:
   shared_ptr<ListTrainingJobsResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   ListTrainingJobsResponseBody() {}
 
@@ -5808,6 +6459,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -5824,6 +6478,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -6093,6 +6750,7 @@ public:
   shared_ptr<SendMessageResponseBodyData> data{};
   shared_ptr<long> errorCode{};
   shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
 
   SendMessageResponseBody() {}
 
@@ -6113,6 +6771,9 @@ public:
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
@@ -6129,6 +6790,9 @@ public:
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -6221,6 +6885,8 @@ public:
   DeleteTemplateResponse deleteTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTrainingJobResponse deleteTrainingJob(shared_ptr<string> Id);
   DeleteTrainingJobResponse deleteTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAlgorithmResponse getAlgorithm(shared_ptr<string> Id);
+  GetAlgorithmResponse getAlgorithmWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGroupResponse getGroup(shared_ptr<string> Id);
   GetGroupResponse getGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInferenceJobResponse getInferenceJob(shared_ptr<string> Id);
@@ -6233,6 +6899,8 @@ public:
   GetTemplateResponse getTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrainingJobResponse getTrainingJob(shared_ptr<string> Id);
   GetTrainingJobResponse getTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAlgorithmsResponse listAlgorithms(shared_ptr<ListAlgorithmsRequest> request);
+  ListAlgorithmsResponse listAlgorithmsWithOptions(shared_ptr<ListAlgorithmsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
   ListGroupsResponse listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInferenceJobsResponse listInferenceJobs(shared_ptr<ListInferenceJobsRequest> request);
