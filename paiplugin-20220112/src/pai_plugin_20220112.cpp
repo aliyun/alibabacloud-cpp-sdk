@@ -777,14 +777,32 @@ ListMessageMetricsResponse Alibabacloud_PaiPlugin20220112::Client::listMessageMe
   if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
     query->insert(pair<string, string>("EndDate", *request->endDate));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleId)) {
+    query->insert(pair<string, string>("ScheduleId", *request->scheduleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signature)) {
+    query->insert(pair<string, string>("Signature", *request->signature));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
+    query->insert(pair<string, string>("SignatureId", *request->signatureId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -840,8 +858,17 @@ ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessagesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->signature)) {
     query->insert(pair<string, string>("Signature", *request->signature));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
+    query->insert(pair<string, string>("SignatureId", *request->signatureId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("Status", *request->status));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

@@ -4635,9 +4635,15 @@ public:
 class ListMessageMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endDate{};
+  shared_ptr<string> groupId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> scheduleId{};
+  shared_ptr<string> signature{};
+  shared_ptr<string> signatureId{};
   shared_ptr<string> startDate{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateId{};
 
   ListMessageMetricsRequest() {}
 
@@ -4652,14 +4658,32 @@ public:
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (scheduleId) {
+      res["ScheduleId"] = boost::any(*scheduleId);
+    }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
+    if (signatureId) {
+      res["SignatureId"] = boost::any(*signatureId);
+    }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
     }
     return res;
   }
@@ -4668,14 +4692,32 @@ public:
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("ScheduleId") != m.end() && !m["ScheduleId"].empty()) {
+      scheduleId = make_shared<string>(boost::any_cast<string>(m["ScheduleId"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
+    }
+    if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
+      signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
+    }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
   }
 
@@ -4927,7 +4969,10 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> scheduleId{};
   shared_ptr<string> signature{};
+  shared_ptr<string> signatureId{};
+  shared_ptr<long> status{};
   shared_ptr<string> templateCode{};
+  shared_ptr<string> templateId{};
 
   ListMessagesRequest() {}
 
@@ -4966,8 +5011,17 @@ public:
     if (signature) {
       res["Signature"] = boost::any(*signature);
     }
+    if (signatureId) {
+      res["SignatureId"] = boost::any(*signatureId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
     }
     return res;
   }
@@ -5000,8 +5054,17 @@ public:
     if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
       signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
     }
+    if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
+      signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
   }
 
