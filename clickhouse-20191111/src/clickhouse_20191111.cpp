@@ -164,6 +164,9 @@ CheckClickhouseToRDSResponse Alibabacloud_Clickhouse20191111::Client::checkClick
   if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcId)) {
     query->insert(pair<string, string>("RdsVpcId", *request->rdsVpcId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcUrl)) {
+    query->insert(pair<string, string>("RdsVpcUrl", *request->rdsVpcUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -190,6 +193,46 @@ CheckClickhouseToRDSResponse Alibabacloud_Clickhouse20191111::Client::checkClick
 CheckClickhouseToRDSResponse Alibabacloud_Clickhouse20191111::Client::checkClickhouseToRDS(shared_ptr<CheckClickhouseToRDSRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return checkClickhouseToRDSWithOptions(request, runtime);
+}
+
+CheckHealthResponse Alibabacloud_Clickhouse20191111::Client::checkHealthWithOptions(shared_ptr<CheckHealthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbClusterId)) {
+    query->insert(pair<string, string>("DbClusterId", *request->dbClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckHealth"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckHealthResponse(callApi(params, req, runtime));
+}
+
+CheckHealthResponse Alibabacloud_Clickhouse20191111::Client::checkHealth(shared_ptr<CheckHealthRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkHealthWithOptions(request, runtime);
 }
 
 CheckMonitorAlertResponse Alibabacloud_Clickhouse20191111::Client::checkMonitorAlertWithOptions(shared_ptr<CheckMonitorAlertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -592,6 +635,9 @@ CreateDBInstanceResponse Alibabacloud_Clickhouse20191111::Client::createDBInstan
   if (!Darabonba_Util::Client::isUnset<string>(request->encryptionType)) {
     query->insert(pair<string, string>("EncryptionType", *request->encryptionType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->openMonitor)) {
+    query->insert(pair<string, bool>("OpenMonitor", *request->openMonitor));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -817,6 +863,9 @@ CreateRDSToClickhouseDbResponse Alibabacloud_Clickhouse20191111::Client::createR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcId)) {
     query->insert(pair<string, string>("RdsVpcId", *request->rdsVpcId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcUrl)) {
+    query->insert(pair<string, string>("RdsVpcUrl", *request->rdsVpcUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -2249,6 +2298,9 @@ DescribeRDSTablesResponse Alibabacloud_Clickhouse20191111::Client::describeRDSTa
   if (!Darabonba_Util::Client::isUnset<string>(request->rdsUserName)) {
     query->insert(pair<string, string>("RdsUserName", *request->rdsUserName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcUrl)) {
+    query->insert(pair<string, string>("RdsVpcUrl", *request->rdsVpcUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -2350,6 +2402,9 @@ DescribeRDSschemasResponse Alibabacloud_Clickhouse20191111::Client::describeRDSs
   if (!Darabonba_Util::Client::isUnset<string>(request->rdsUserName)) {
     query->insert(pair<string, string>("RdsUserName", *request->rdsUserName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcUrl)) {
+    query->insert(pair<string, string>("RdsVpcUrl", *request->rdsVpcUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -2376,6 +2431,101 @@ DescribeRDSschemasResponse Alibabacloud_Clickhouse20191111::Client::describeRDSs
 DescribeRDSschemasResponse Alibabacloud_Clickhouse20191111::Client::describeRDSschemas(shared_ptr<DescribeRDSschemasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeRDSschemasWithOptions(request, runtime);
+}
+
+DescribeRdsVSwitchsResponse Alibabacloud_Clickhouse20191111::Client::describeRdsVSwitchsWithOptions(shared_ptr<DescribeRdsVSwitchsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
+    query->insert(pair<string, string>("ZoneId", *request->zoneId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRdsVSwitchs"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRdsVSwitchsResponse(callApi(params, req, runtime));
+}
+
+DescribeRdsVSwitchsResponse Alibabacloud_Clickhouse20191111::Client::describeRdsVSwitchs(shared_ptr<DescribeRdsVSwitchsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRdsVSwitchsWithOptions(request, runtime);
+}
+
+DescribeRdsVpcsResponse Alibabacloud_Clickhouse20191111::Client::describeRdsVpcsWithOptions(shared_ptr<DescribeRdsVpcsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
+    query->insert(pair<string, string>("ZoneId", *request->zoneId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRdsVpcs"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRdsVpcsResponse(callApi(params, req, runtime));
+}
+
+DescribeRdsVpcsResponse Alibabacloud_Clickhouse20191111::Client::describeRdsVpcs(shared_ptr<DescribeRdsVpcsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRdsVpcsWithOptions(request, runtime);
 }
 
 DescribeRegionsResponse Alibabacloud_Clickhouse20191111::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2943,6 +3093,55 @@ ModifyBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::modifyBackup
 ModifyBackupPolicyResponse Alibabacloud_Clickhouse20191111::Client::modifyBackupPolicy(shared_ptr<ModifyBackupPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyBackupPolicyWithOptions(request, runtime);
+}
+
+ModifyClickHouseClusterServerGRPCResponse Alibabacloud_Clickhouse20191111::Client::modifyClickHouseClusterServerGRPCWithOptions(shared_ptr<ModifyClickHouseClusterServerGRPCRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    query->insert(pair<string, string>("Config", *request->config));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbClusterId)) {
+    query->insert(pair<string, string>("DbClusterId", *request->dbClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyClickHouseClusterServerGRPC"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyClickHouseClusterServerGRPCResponse(callApi(params, req, runtime));
+}
+
+ModifyClickHouseClusterServerGRPCResponse Alibabacloud_Clickhouse20191111::Client::modifyClickHouseClusterServerGRPC(shared_ptr<ModifyClickHouseClusterServerGRPCRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyClickHouseClusterServerGRPCWithOptions(request, runtime);
 }
 
 ModifyDBClusterResponse Alibabacloud_Clickhouse20191111::Client::modifyDBClusterWithOptions(shared_ptr<ModifyDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3598,6 +3797,9 @@ SearchRDSTablesResponse Alibabacloud_Clickhouse20191111::Client::searchRDSTables
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rdsUserName)) {
     query->insert(pair<string, string>("RdsUserName", *request->rdsUserName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rdsVpcUrl)) {
+    query->insert(pair<string, string>("RdsVpcUrl", *request->rdsVpcUrl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
