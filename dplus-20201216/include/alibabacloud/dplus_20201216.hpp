@@ -639,6 +639,191 @@ public:
 
   virtual ~CreateImageAmazonTaskResponse() = default;
 };
+class CreateRemoveWorkTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> itemIdentity{};
+  shared_ptr<string> picUrl{};
+
+  CreateRemoveWorkTaskRequest() {}
+
+  explicit CreateRemoveWorkTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (itemIdentity) {
+      res["ItemIdentity"] = boost::any(*itemIdentity);
+    }
+    if (picUrl) {
+      res["PicUrl"] = boost::any(*picUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ItemIdentity") != m.end() && !m["ItemIdentity"].empty()) {
+      itemIdentity = make_shared<string>(boost::any_cast<string>(m["ItemIdentity"]));
+    }
+    if (m.find("PicUrl") != m.end() && !m["PicUrl"].empty()) {
+      picUrl = make_shared<string>(boost::any_cast<string>(m["PicUrl"]));
+    }
+  }
+
+
+  virtual ~CreateRemoveWorkTaskRequest() = default;
+};
+class CreateRemoveWorkTaskAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> picUrlObject{};
+  shared_ptr<string> itemIdentity{};
+
+  CreateRemoveWorkTaskAdvanceRequest() {}
+
+  explicit CreateRemoveWorkTaskAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!picUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("picUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (picUrlObject) {
+      res["PicUrlObject"] = boost::any(*picUrlObject);
+    }
+    if (itemIdentity) {
+      res["ItemIdentity"] = boost::any(*itemIdentity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PicUrlObject") != m.end() && !m["PicUrlObject"].empty()) {
+      picUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PicUrlObject"]));
+    }
+    if (m.find("ItemIdentity") != m.end() && !m["ItemIdentity"].empty()) {
+      itemIdentity = make_shared<string>(boost::any_cast<string>(m["ItemIdentity"]));
+    }
+  }
+
+
+  virtual ~CreateRemoveWorkTaskAdvanceRequest() = default;
+};
+class CreateRemoveWorkTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> successResponse{};
+
+  CreateRemoveWorkTaskResponseBody() {}
+
+  explicit CreateRemoveWorkTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successResponse) {
+      res["SuccessResponse"] = boost::any(*successResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessResponse") != m.end() && !m["SuccessResponse"].empty()) {
+      successResponse = make_shared<bool>(boost::any_cast<bool>(m["SuccessResponse"]));
+    }
+  }
+
+
+  virtual ~CreateRemoveWorkTaskResponseBody() = default;
+};
+class CreateRemoveWorkTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateRemoveWorkTaskResponseBody> body{};
+
+  CreateRemoveWorkTaskResponse() {}
+
+  explicit CreateRemoveWorkTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateRemoveWorkTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateRemoveWorkTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateRemoveWorkTaskResponse() = default;
+};
 class FaceshifterTRequest : public Darabonba::Model {
 public:
   shared_ptr<long> age{};
@@ -1839,6 +2024,9 @@ public:
   AlivisionImgdupResponse alivisionImgdupAdvance(shared_ptr<AlivisionImgdupAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageAmazonTaskResponse createImageAmazonTaskWithOptions(shared_ptr<CreateImageAmazonTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageAmazonTaskResponse createImageAmazonTask(shared_ptr<CreateImageAmazonTaskRequest> request);
+  CreateRemoveWorkTaskResponse createRemoveWorkTaskWithOptions(shared_ptr<CreateRemoveWorkTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateRemoveWorkTaskResponse createRemoveWorkTask(shared_ptr<CreateRemoveWorkTaskRequest> request);
+  CreateRemoveWorkTaskResponse createRemoveWorkTaskAdvance(shared_ptr<CreateRemoveWorkTaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FaceshifterTResponse faceshifterTWithOptions(shared_ptr<FaceshifterTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FaceshifterTResponse faceshifterT(shared_ptr<FaceshifterTRequest> request);
   FaceshifterTResponse faceshifterTAdvance(shared_ptr<FaceshifterTAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
