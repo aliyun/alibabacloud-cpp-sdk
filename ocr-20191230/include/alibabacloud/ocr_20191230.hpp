@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_OCR20191230_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -1081,39 +1082,6 @@ public:
 
 
   virtual ~RecognizeBankCardRequest() = default;
-};
-class RecognizeBankCardAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-
-  RecognizeBankCardAdvanceRequest() {}
-
-  explicit RecognizeBankCardAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
-  }
-
-
-  virtual ~RecognizeBankCardAdvanceRequest() = default;
 };
 class RecognizeBankCardResponseBodyData : public Darabonba::Model {
 public:
@@ -6432,6 +6400,287 @@ public:
 
   virtual ~RecognizeStampResponse() = default;
 };
+class RecognizeStructuredTaxiInvoicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+
+  RecognizeStructuredTaxiInvoicesRequest() {}
+
+  explicit RecognizeStructuredTaxiInvoicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~RecognizeStructuredTaxiInvoicesRequest() = default;
+};
+class RecognizeStructuredTaxiInvoicesAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  RecognizeStructuredTaxiInvoicesAdvanceRequest() {}
+
+  explicit RecognizeStructuredTaxiInvoicesAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageURLObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURLObject"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    }
+  }
+
+
+  virtual ~RecognizeStructuredTaxiInvoicesAdvanceRequest() = default;
+};
+class RecognizeStructuredTaxiInvoicesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> addresses{};
+  shared_ptr<vector<string>> cellPhoneNumbers{};
+  shared_ptr<vector<string>> companies{};
+  shared_ptr<vector<string>> departments{};
+  shared_ptr<vector<string>> emails{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> officePhoneNumbers{};
+  shared_ptr<vector<string>> titles{};
+
+  RecognizeStructuredTaxiInvoicesResponseBodyData() {}
+
+  explicit RecognizeStructuredTaxiInvoicesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addresses) {
+      res["Addresses"] = boost::any(*addresses);
+    }
+    if (cellPhoneNumbers) {
+      res["CellPhoneNumbers"] = boost::any(*cellPhoneNumbers);
+    }
+    if (companies) {
+      res["Companies"] = boost::any(*companies);
+    }
+    if (departments) {
+      res["Departments"] = boost::any(*departments);
+    }
+    if (emails) {
+      res["Emails"] = boost::any(*emails);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (officePhoneNumbers) {
+      res["OfficePhoneNumbers"] = boost::any(*officePhoneNumbers);
+    }
+    if (titles) {
+      res["Titles"] = boost::any(*titles);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Addresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CellPhoneNumbers") != m.end() && !m["CellPhoneNumbers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CellPhoneNumbers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CellPhoneNumbers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cellPhoneNumbers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Companies") != m.end() && !m["Companies"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Companies"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Companies"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      companies = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Departments") != m.end() && !m["Departments"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Departments"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Departments"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      departments = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Emails") != m.end() && !m["Emails"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Emails"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Emails"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      emails = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OfficePhoneNumbers") != m.end() && !m["OfficePhoneNumbers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OfficePhoneNumbers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OfficePhoneNumbers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      officePhoneNumbers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Titles") != m.end() && !m["Titles"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Titles"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Titles"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      titles = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RecognizeStructuredTaxiInvoicesResponseBodyData() = default;
+};
+class RecognizeStructuredTaxiInvoicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeStructuredTaxiInvoicesResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  RecognizeStructuredTaxiInvoicesResponseBody() {}
+
+  explicit RecognizeStructuredTaxiInvoicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RecognizeStructuredTaxiInvoicesResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RecognizeStructuredTaxiInvoicesResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeStructuredTaxiInvoicesResponseBody() = default;
+};
+class RecognizeStructuredTaxiInvoicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeStructuredTaxiInvoicesResponseBody> body{};
+
+  RecognizeStructuredTaxiInvoicesResponse() {}
+
+  explicit RecognizeStructuredTaxiInvoicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeStructuredTaxiInvoicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeStructuredTaxiInvoicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeStructuredTaxiInvoicesResponse() = default;
+};
 class RecognizeTableRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> assureDirection{};
@@ -9418,6 +9667,934 @@ public:
 
   virtual ~RecognizeVerificationcodeResponse() = default;
 };
+class RecognizeVideoCastCrewListRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  RecognizeVideoCastCrewListRequestParams() {}
+
+  explicit RecognizeVideoCastCrewListRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListRequestParams() = default;
+};
+class RecognizeVideoCastCrewListRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeVideoCastCrewListRequestParams>> params{};
+  shared_ptr<string> registerUrl{};
+  shared_ptr<string> videoUrl{};
+
+  RecognizeVideoCastCrewListRequest() {}
+
+  explicit RecognizeVideoCastCrewListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (params) {
+      vector<boost::any> temp1;
+      for(auto item1:*params){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Params"] = boost::any(temp1);
+    }
+    if (registerUrl) {
+      res["RegisterUrl"] = boost::any(*registerUrl);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<RecognizeVideoCastCrewListRequestParams> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Params"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListRequestParams model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        params = make_shared<vector<RecognizeVideoCastCrewListRequestParams>>(expect1);
+      }
+    }
+    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
+      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListRequest() = default;
+};
+class RecognizeVideoCastCrewListAdvanceRequestParams : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+
+  RecognizeVideoCastCrewListAdvanceRequestParams() {}
+
+  explicit RecognizeVideoCastCrewListAdvanceRequestParams(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListAdvanceRequestParams() = default;
+};
+class RecognizeVideoCastCrewListAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
+  shared_ptr<vector<RecognizeVideoCastCrewListAdvanceRequestParams>> params{};
+  shared_ptr<string> registerUrl{};
+
+  RecognizeVideoCastCrewListAdvanceRequest() {}
+
+  explicit RecognizeVideoCastCrewListAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!videoUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoUrlObject) {
+      res["VideoUrlObject"] = boost::any(*videoUrlObject);
+    }
+    if (params) {
+      vector<boost::any> temp1;
+      for(auto item1:*params){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Params"] = boost::any(temp1);
+    }
+    if (registerUrl) {
+      res["RegisterUrl"] = boost::any(*registerUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<RecognizeVideoCastCrewListAdvanceRequestParams> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Params"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListAdvanceRequestParams model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        params = make_shared<vector<RecognizeVideoCastCrewListAdvanceRequestParams>>(expect1);
+      }
+    }
+    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
+      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListAdvanceRequest() = default;
+};
+class RecognizeVideoCastCrewListShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> paramsShrink{};
+  shared_ptr<string> registerUrl{};
+  shared_ptr<string> videoUrl{};
+
+  RecognizeVideoCastCrewListShrinkRequest() {}
+
+  explicit RecognizeVideoCastCrewListShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramsShrink) {
+      res["Params"] = boost::any(*paramsShrink);
+    }
+    if (registerUrl) {
+      res["RegisterUrl"] = boost::any(*registerUrl);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      paramsShrink = make_shared<string>(boost::any_cast<string>(m["Params"]));
+    }
+    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
+      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListShrinkRequest() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataCastResults : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> detailInfoes{};
+  shared_ptr<double> endTime{};
+  shared_ptr<double> startTime{};
+
+  RecognizeVideoCastCrewListResponseBodyDataCastResults() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataCastResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailInfoes) {
+      res["DetailInfoes"] = boost::any(*detailInfoes);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["DetailInfoes"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      detailInfoes = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<double>(boost::any_cast<double>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataCastResults() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> boxes{};
+  shared_ptr<vector<vector<double>>> charProbs{};
+  shared_ptr<long> frameIndex{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition>> position{};
+  shared_ptr<double> score{};
+  shared_ptr<string> text{};
+  shared_ptr<double> textProb{};
+  shared_ptr<double> timeStamp{};
+  shared_ptr<long> trackId{};
+
+  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boxes) {
+      res["Boxes"] = boost::any(*boxes);
+    }
+    if (charProbs) {
+      res["CharProbs"] = boost::any(*charProbs);
+    }
+    if (frameIndex) {
+      res["FrameIndex"] = boost::any(*frameIndex);
+    }
+    if (position) {
+      vector<boost::any> temp1;
+      for(auto item1:*position){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Position"] = boost::any(temp1);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (textProb) {
+      res["TextProb"] = boost::any(*textProb);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    if (trackId) {
+      res["TrackId"] = boost::any(*trackId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Boxes") != m.end() && !m["Boxes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Boxes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Boxes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      boxes = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("CharProbs") != m.end() && !m["CharProbs"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["CharProbs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CharProbs"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      charProbs = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("FrameIndex") != m.end() && !m["FrameIndex"].empty()) {
+      frameIndex = make_shared<long>(boost::any_cast<long>(m["FrameIndex"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      if (typeid(vector<boost::any>) == m["Position"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Position"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition>>(expect1);
+      }
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("TextProb") != m.end() && !m["TextProb"].empty()) {
+      textProb = make_shared<double>(boost::any_cast<double>(m["TextProb"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<double>(boost::any_cast<double>(m["TimeStamp"]));
+    }
+    if (m.find("TrackId") != m.end() && !m["TrackId"].empty()) {
+      trackId = make_shared<long>(boost::any_cast<long>(m["TrackId"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataOcrResults : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes>> detailInfoes{};
+  shared_ptr<double> endTime{};
+  shared_ptr<double> startTime{};
+
+  RecognizeVideoCastCrewListResponseBodyDataOcrResults() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailInfoes) {
+      vector<boost::any> temp1;
+      for(auto item1:*detailInfoes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DetailInfoes"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DetailInfoes"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfoes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        detailInfoes = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<double>(boost::any_cast<double>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResults() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> subtitlesAllResults{};
+  shared_ptr<string> subtitlesAllResultsUrl{};
+  shared_ptr<map<string, string>> subtitlesChineseResults{};
+  shared_ptr<string> subtitlesChineseResultsUrl{};
+  shared_ptr<map<string, boost::any>> subtitlesEnglishResults{};
+  shared_ptr<string> subtitlesEnglishResultsUrl{};
+
+  RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subtitlesAllResults) {
+      res["SubtitlesAllResults"] = boost::any(*subtitlesAllResults);
+    }
+    if (subtitlesAllResultsUrl) {
+      res["SubtitlesAllResultsUrl"] = boost::any(*subtitlesAllResultsUrl);
+    }
+    if (subtitlesChineseResults) {
+      res["SubtitlesChineseResults"] = boost::any(*subtitlesChineseResults);
+    }
+    if (subtitlesChineseResultsUrl) {
+      res["SubtitlesChineseResultsUrl"] = boost::any(*subtitlesChineseResultsUrl);
+    }
+    if (subtitlesEnglishResults) {
+      res["SubtitlesEnglishResults"] = boost::any(*subtitlesEnglishResults);
+    }
+    if (subtitlesEnglishResultsUrl) {
+      res["SubtitlesEnglishResultsUrl"] = boost::any(*subtitlesEnglishResultsUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SubtitlesAllResults") != m.end() && !m["SubtitlesAllResults"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["SubtitlesAllResults"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      subtitlesAllResults = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("SubtitlesAllResultsUrl") != m.end() && !m["SubtitlesAllResultsUrl"].empty()) {
+      subtitlesAllResultsUrl = make_shared<string>(boost::any_cast<string>(m["SubtitlesAllResultsUrl"]));
+    }
+    if (m.find("SubtitlesChineseResults") != m.end() && !m["SubtitlesChineseResults"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["SubtitlesChineseResults"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      subtitlesChineseResults = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("SubtitlesChineseResultsUrl") != m.end() && !m["SubtitlesChineseResultsUrl"].empty()) {
+      subtitlesChineseResultsUrl = make_shared<string>(boost::any_cast<string>(m["SubtitlesChineseResultsUrl"]));
+    }
+    if (m.find("SubtitlesEnglishResults") != m.end() && !m["SubtitlesEnglishResults"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["SubtitlesEnglishResults"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      subtitlesEnglishResults = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("SubtitlesEnglishResultsUrl") != m.end() && !m["SubtitlesEnglishResultsUrl"].empty()) {
+      subtitlesEnglishResultsUrl = make_shared<string>(boost::any_cast<string>(m["SubtitlesEnglishResultsUrl"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> boxes{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition>> position{};
+  shared_ptr<double> score{};
+  shared_ptr<string> text{};
+  shared_ptr<long> textType{};
+
+  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boxes) {
+      res["Boxes"] = boost::any(*boxes);
+    }
+    if (position) {
+      vector<boost::any> temp1;
+      for(auto item1:*position){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Position"] = boost::any(temp1);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (textType) {
+      res["TextType"] = boost::any(*textType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Boxes") != m.end() && !m["Boxes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Boxes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Boxes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      boxes = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      if (typeid(vector<boost::any>) == m["Position"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Position"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition>>(expect1);
+      }
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("TextType") != m.end() && !m["TextType"].empty()) {
+      textType = make_shared<long>(boost::any_cast<long>(m["TextType"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes>> detailInfoes{};
+  shared_ptr<double> endTime{};
+  shared_ptr<double> startTime{};
+
+  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailInfoes) {
+      vector<boost::any> temp1;
+      for(auto item1:*detailInfoes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DetailInfoes"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DetailInfoes"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfoes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        detailInfoes = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<double>(boost::any_cast<double>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults() = default;
+};
+class RecognizeVideoCastCrewListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataCastResults>> castResults{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResults>> ocrResults{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults>> subtitlesResults{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults>> videoOcrResults{};
+
+  RecognizeVideoCastCrewListResponseBodyData() {}
+
+  explicit RecognizeVideoCastCrewListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (castResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*castResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CastResults"] = boost::any(temp1);
+    }
+    if (ocrResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*ocrResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OcrResults"] = boost::any(temp1);
+    }
+    if (subtitlesResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*subtitlesResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubtitlesResults"] = boost::any(temp1);
+    }
+    if (videoOcrResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoOcrResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VideoOcrResults"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CastResults") != m.end() && !m["CastResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["CastResults"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataCastResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CastResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataCastResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        castResults = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataCastResults>>(expect1);
+      }
+    }
+    if (m.find("OcrResults") != m.end() && !m["OcrResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["OcrResults"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OcrResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataOcrResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ocrResults = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResults>>(expect1);
+      }
+    }
+    if (m.find("SubtitlesResults") != m.end() && !m["SubtitlesResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubtitlesResults"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubtitlesResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subtitlesResults = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults>>(expect1);
+      }
+    }
+    if (m.find("VideoOcrResults") != m.end() && !m["VideoOcrResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["VideoOcrResults"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VideoOcrResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoOcrResults = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBodyData() = default;
+};
+class RecognizeVideoCastCrewListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeVideoCastCrewListResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  RecognizeVideoCastCrewListResponseBody() {}
+
+  explicit RecognizeVideoCastCrewListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RecognizeVideoCastCrewListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RecognizeVideoCastCrewListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponseBody() = default;
+};
+class RecognizeVideoCastCrewListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeVideoCastCrewListResponseBody> body{};
+
+  RecognizeVideoCastCrewListResponse() {}
+
+  explicit RecognizeVideoCastCrewListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeVideoCastCrewListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeVideoCastCrewListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeVideoCastCrewListResponse() = default;
+};
 class RecognizeVideoCharacterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> videoURL{};
@@ -9998,7 +11175,6 @@ public:
   RecognizeAccountPageResponse recognizeAccountPageAdvance(shared_ptr<RecognizeAccountPageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBankCardResponse recognizeBankCardWithOptions(shared_ptr<RecognizeBankCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBankCardResponse recognizeBankCard(shared_ptr<RecognizeBankCardRequest> request);
-  RecognizeBankCardResponse recognizeBankCardAdvance(shared_ptr<RecognizeBankCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBusinessCardResponse recognizeBusinessCardWithOptions(shared_ptr<RecognizeBusinessCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBusinessCardResponse recognizeBusinessCard(shared_ptr<RecognizeBusinessCardRequest> request);
   RecognizeBusinessCardResponse recognizeBusinessCardAdvance(shared_ptr<RecognizeBusinessCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10040,6 +11216,9 @@ public:
   RecognizeStampResponse recognizeStampWithOptions(shared_ptr<RecognizeStampRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeStampResponse recognizeStamp(shared_ptr<RecognizeStampRequest> request);
   RecognizeStampResponse recognizeStampAdvance(shared_ptr<RecognizeStampAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeStructuredTaxiInvoicesResponse recognizeStructuredTaxiInvoicesWithOptions(shared_ptr<RecognizeStructuredTaxiInvoicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeStructuredTaxiInvoicesResponse recognizeStructuredTaxiInvoices(shared_ptr<RecognizeStructuredTaxiInvoicesRequest> request);
+  RecognizeStructuredTaxiInvoicesResponse recognizeStructuredTaxiInvoicesAdvance(shared_ptr<RecognizeStructuredTaxiInvoicesAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeTableResponse recognizeTableWithOptions(shared_ptr<RecognizeTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeTableResponse recognizeTable(shared_ptr<RecognizeTableRequest> request);
   RecognizeTableResponse recognizeTableAdvance(shared_ptr<RecognizeTableAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10064,6 +11243,9 @@ public:
   RecognizeVerificationcodeResponse recognizeVerificationcodeWithOptions(shared_ptr<RecognizeVerificationcodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeVerificationcodeResponse recognizeVerificationcode(shared_ptr<RecognizeVerificationcodeRequest> request);
   RecognizeVerificationcodeResponse recognizeVerificationcodeAdvance(shared_ptr<RecognizeVerificationcodeAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeVideoCastCrewListResponse recognizeVideoCastCrewListWithOptions(shared_ptr<RecognizeVideoCastCrewListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeVideoCastCrewListResponse recognizeVideoCastCrewList(shared_ptr<RecognizeVideoCastCrewListRequest> request);
+  RecognizeVideoCastCrewListResponse recognizeVideoCastCrewListAdvance(shared_ptr<RecognizeVideoCastCrewListAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeVideoCharacterResponse recognizeVideoCharacterWithOptions(shared_ptr<RecognizeVideoCharacterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeVideoCharacterResponse recognizeVideoCharacter(shared_ptr<RecognizeVideoCharacterRequest> request);
   TrimDocumentResponse trimDocumentWithOptions(shared_ptr<TrimDocumentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
