@@ -2317,10 +2317,13 @@ public:
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acceleratorType{};
+  shared_ptr<string> accessibility{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> paymentType{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> status{};
   shared_ptr<string> workspaceId{};
@@ -2335,6 +2338,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceleratorType) {
+      res["AcceleratorType"] = boost::any(*acceleratorType);
+    }
+    if (accessibility) {
+      res["Accessibility"] = boost::any(*accessibility);
+    }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
     }
@@ -2346,6 +2355,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
@@ -2360,6 +2372,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorType") != m.end() && !m["AcceleratorType"].empty()) {
+      acceleratorType = make_shared<string>(boost::any_cast<string>(m["AcceleratorType"]));
+    }
+    if (m.find("Accessibility") != m.end() && !m["Accessibility"].empty()) {
+      accessibility = make_shared<string>(boost::any_cast<string>(m["Accessibility"]));
+    }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
     }
@@ -2371,6 +2389,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));

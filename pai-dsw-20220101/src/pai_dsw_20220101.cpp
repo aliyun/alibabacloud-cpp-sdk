@@ -475,6 +475,12 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstances(shared
 ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorType)) {
+    query->insert(pair<string, string>("AcceleratorType", *request->acceleratorType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessibility)) {
+    query->insert(pair<string, string>("Accessibility", *request->accessibility));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
   }
@@ -486,6 +492,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    query->insert(pair<string, string>("PaymentType", *request->paymentType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
