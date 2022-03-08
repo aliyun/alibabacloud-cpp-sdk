@@ -218,6 +218,7 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> signature{};
   shared_ptr<string> signatureId{};
   shared_ptr<long> type{};
 
@@ -240,6 +241,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
@@ -258,6 +262,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
     }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));

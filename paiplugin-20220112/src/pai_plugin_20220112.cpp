@@ -89,6 +89,9 @@ CreateTemplateResponse Alibabacloud_PaiPlugin20220112::Client::createTemplateWit
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signature)) {
+    body->insert(pair<string, string>("Signature", *request->signature));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
     body->insert(pair<string, string>("SignatureId", *request->signatureId));
   }
