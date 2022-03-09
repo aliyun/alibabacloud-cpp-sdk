@@ -9888,7 +9888,7 @@ public:
 };
 class RecognizeVideoCastCrewListResponseBodyDataCastResults : public Darabonba::Model {
 public:
-  shared_ptr<map<string, string>> detailInfoes{};
+  shared_ptr<map<string, string>> detailInfo{};
   shared_ptr<double> endTime{};
   shared_ptr<double> startTime{};
 
@@ -9902,8 +9902,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (detailInfoes) {
-      res["DetailInfoes"] = boost::any(*detailInfoes);
+    if (detailInfo) {
+      res["DetailInfo"] = boost::any(*detailInfo);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -9915,13 +9915,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["DetailInfoes"]);
+    if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["DetailInfo"]);
       map<string, string> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      detailInfoes = make_shared<map<string, string>>(toMap1);
+      detailInfo = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<double>(boost::any_cast<double>(m["EndTime"]));
@@ -9934,14 +9934,14 @@ public:
 
   virtual ~RecognizeVideoCastCrewListResponseBodyDataCastResults() = default;
 };
-class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition : public Darabonba::Model {
+class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition : public Darabonba::Model {
 public:
   shared_ptr<long> x{};
   shared_ptr<long> y{};
 
-  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition() {}
+  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition() {}
 
-  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -9968,23 +9968,23 @@ public:
   }
 
 
-  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition() = default;
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition() = default;
 };
-class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes : public Darabonba::Model {
+class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> boxes{};
   shared_ptr<vector<vector<double>>> charProbs{};
   shared_ptr<long> frameIndex{};
-  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition>> position{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition>> position{};
   shared_ptr<double> score{};
   shared_ptr<string> text{};
   shared_ptr<double> textProb{};
   shared_ptr<double> timeStamp{};
   shared_ptr<long> trackId{};
 
-  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes() {}
+  RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo() {}
 
-  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10059,15 +10059,15 @@ public:
     }
     if (m.find("Position") != m.end() && !m["Position"].empty()) {
       if (typeid(vector<boost::any>) == m["Position"].type()) {
-        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition> expect1;
+        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["Position"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition model2;
+            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition>>(expect1);
+        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition>>(expect1);
       }
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
@@ -10088,11 +10088,11 @@ public:
   }
 
 
-  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes() = default;
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo() = default;
 };
 class RecognizeVideoCastCrewListResponseBodyDataOcrResults : public Darabonba::Model {
 public:
-  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes>> detailInfoes{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo>> detailInfo{};
   shared_ptr<double> endTime{};
   shared_ptr<double> startTime{};
 
@@ -10106,12 +10106,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (detailInfoes) {
+    if (detailInfo) {
       vector<boost::any> temp1;
-      for(auto item1:*detailInfoes){
+      for(auto item1:*detailInfo){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["DetailInfoes"] = boost::any(temp1);
+      res["DetailInfo"] = boost::any(temp1);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -10123,17 +10123,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
-      if (typeid(vector<boost::any>) == m["DetailInfoes"].type()) {
-        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfoes"])){
+    if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["DetailInfo"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfo"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes model2;
+            RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        detailInfoes = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes>>(expect1);
+        detailInfo = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo>>(expect1);
       }
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
@@ -10226,14 +10226,14 @@ public:
 
   virtual ~RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults() = default;
 };
-class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition : public Darabonba::Model {
+class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition : public Darabonba::Model {
 public:
   shared_ptr<long> x{};
   shared_ptr<long> y{};
 
-  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition() {}
+  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition() {}
 
-  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10260,19 +10260,19 @@ public:
   }
 
 
-  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition() = default;
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition() = default;
 };
-class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes : public Darabonba::Model {
+class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> boxes{};
-  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition>> position{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition>> position{};
   shared_ptr<double> score{};
   shared_ptr<string> text{};
   shared_ptr<long> textType{};
 
-  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes() {}
+  RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo() {}
 
-  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10315,15 +10315,15 @@ public:
     }
     if (m.find("Position") != m.end() && !m["Position"].empty()) {
       if (typeid(vector<boost::any>) == m["Position"].type()) {
-        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition> expect1;
+        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["Position"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition model2;
+            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition>>(expect1);
+        position = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition>>(expect1);
       }
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
@@ -10338,11 +10338,11 @@ public:
   }
 
 
-  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes() = default;
+  virtual ~RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo() = default;
 };
 class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults : public Darabonba::Model {
 public:
-  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes>> detailInfoes{};
+  shared_ptr<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo>> detailInfo{};
   shared_ptr<double> endTime{};
   shared_ptr<double> startTime{};
 
@@ -10356,12 +10356,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (detailInfoes) {
+    if (detailInfo) {
       vector<boost::any> temp1;
-      for(auto item1:*detailInfoes){
+      for(auto item1:*detailInfo){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["DetailInfoes"] = boost::any(temp1);
+      res["DetailInfo"] = boost::any(temp1);
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
@@ -10373,17 +10373,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DetailInfoes") != m.end() && !m["DetailInfoes"].empty()) {
-      if (typeid(vector<boost::any>) == m["DetailInfoes"].type()) {
-        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfoes"])){
+    if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["DetailInfo"].type()) {
+        vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DetailInfo"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes model2;
+            RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        detailInfoes = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes>>(expect1);
+        detailInfo = make_shared<vector<RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo>>(expect1);
       }
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
