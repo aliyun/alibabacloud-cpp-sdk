@@ -1439,6 +1439,340 @@ public:
 
   virtual ~CreateDataCronClearOrderResponse() = default;
 };
+class CreateDataExportOrderRequestParamDbItemList : public Darabonba::Model {
+public:
+  shared_ptr<long> dbId{};
+  shared_ptr<bool> logic{};
+
+  CreateDataExportOrderRequestParamDbItemList() {}
+
+  explicit CreateDataExportOrderRequestParamDbItemList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (logic) {
+      res["Logic"] = boost::any(*logic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
+      logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderRequestParamDbItemList() = default;
+};
+class CreateDataExportOrderRequestParam : public Darabonba::Model {
+public:
+  shared_ptr<string> classify{};
+  shared_ptr<vector<CreateDataExportOrderRequestParamDbItemList>> dbItemList{};
+  shared_ptr<string> execSQL{};
+
+  CreateDataExportOrderRequestParam() {}
+
+  explicit CreateDataExportOrderRequestParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (classify) {
+      res["Classify"] = boost::any(*classify);
+    }
+    if (dbItemList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dbItemList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DbItemList"] = boost::any(temp1);
+    }
+    if (execSQL) {
+      res["ExecSQL"] = boost::any(*execSQL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Classify") != m.end() && !m["Classify"].empty()) {
+      classify = make_shared<string>(boost::any_cast<string>(m["Classify"]));
+    }
+    if (m.find("DbItemList") != m.end() && !m["DbItemList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DbItemList"].type()) {
+        vector<CreateDataExportOrderRequestParamDbItemList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DbItemList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDataExportOrderRequestParamDbItemList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dbItemList = make_shared<vector<CreateDataExportOrderRequestParamDbItemList>>(expect1);
+      }
+    }
+    if (m.find("ExecSQL") != m.end() && !m["ExecSQL"].empty()) {
+      execSQL = make_shared<string>(boost::any_cast<string>(m["ExecSQL"]));
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderRequestParam() = default;
+};
+class CreateDataExportOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> attachmentKey{};
+  shared_ptr<string> comment{};
+  shared_ptr<CreateDataExportOrderRequestParam> param{};
+  shared_ptr<vector<long>> relatedUserList{};
+  shared_ptr<long> tid{};
+
+  CreateDataExportOrderRequest() {}
+
+  explicit CreateDataExportOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachmentKey) {
+      res["AttachmentKey"] = boost::any(*attachmentKey);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (param) {
+      res["Param"] = param ? boost::any(param->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (relatedUserList) {
+      res["RelatedUserList"] = boost::any(*relatedUserList);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentKey") != m.end() && !m["AttachmentKey"].empty()) {
+      attachmentKey = make_shared<string>(boost::any_cast<string>(m["AttachmentKey"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Param"].type()) {
+        CreateDataExportOrderRequestParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Param"]));
+        param = make_shared<CreateDataExportOrderRequestParam>(model1);
+      }
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      relatedUserList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderRequest() = default;
+};
+class CreateDataExportOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> attachmentKey{};
+  shared_ptr<string> comment{};
+  shared_ptr<string> paramShrink{};
+  shared_ptr<string> relatedUserListShrink{};
+  shared_ptr<long> tid{};
+
+  CreateDataExportOrderShrinkRequest() {}
+
+  explicit CreateDataExportOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachmentKey) {
+      res["AttachmentKey"] = boost::any(*attachmentKey);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (paramShrink) {
+      res["Param"] = boost::any(*paramShrink);
+    }
+    if (relatedUserListShrink) {
+      res["RelatedUserList"] = boost::any(*relatedUserListShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentKey") != m.end() && !m["AttachmentKey"].empty()) {
+      attachmentKey = make_shared<string>(boost::any_cast<string>(m["AttachmentKey"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      paramShrink = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderShrinkRequest() = default;
+};
+class CreateDataExportOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> createOrderResult{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDataExportOrderResponseBody() {}
+
+  explicit CreateDataExportOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createOrderResult) {
+      res["CreateOrderResult"] = boost::any(*createOrderResult);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateOrderResult") != m.end() && !m["CreateOrderResult"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CreateOrderResult"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CreateOrderResult"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      createOrderResult = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderResponseBody() = default;
+};
+class CreateDataExportOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateDataExportOrderResponseBody> body{};
+
+  CreateDataExportOrderResponse() {}
+
+  explicit CreateDataExportOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataExportOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataExportOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataExportOrderResponse() = default;
+};
 class CreateDataImportOrderRequestParamDbItemList : public Darabonba::Model {
 public:
   shared_ptr<long> dbId{};
@@ -13870,722 +14204,6 @@ public:
 
   virtual ~GetSQLReviewOptimizeDetailResponse() = default;
 };
-class GetSparkJobDetailRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> jobId{};
-  shared_ptr<long> tid{};
-
-  GetSparkJobDetailRequest() {}
-
-  explicit GetSparkJobDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobDetailRequest() = default;
-};
-class GetSparkJobDetailResponseBodyJobDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> arguments{};
-  shared_ptr<string> beginTime{};
-  shared_ptr<string> configuration{};
-  shared_ptr<string> endTime{};
-  shared_ptr<string> jobId{};
-  shared_ptr<string> mainClass{};
-  shared_ptr<string> mainFile{};
-  shared_ptr<string> name{};
-  shared_ptr<string> status{};
-  shared_ptr<string> submitTime{};
-
-  GetSparkJobDetailResponseBodyJobDetail() {}
-
-  explicit GetSparkJobDetailResponseBodyJobDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (arguments) {
-      res["Arguments"] = boost::any(*arguments);
-    }
-    if (beginTime) {
-      res["BeginTime"] = boost::any(*beginTime);
-    }
-    if (configuration) {
-      res["Configuration"] = boost::any(*configuration);
-    }
-    if (endTime) {
-      res["EndTime"] = boost::any(*endTime);
-    }
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (mainClass) {
-      res["MainClass"] = boost::any(*mainClass);
-    }
-    if (mainFile) {
-      res["MainFile"] = boost::any(*mainFile);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (submitTime) {
-      res["SubmitTime"] = boost::any(*submitTime);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Arguments") != m.end() && !m["Arguments"].empty()) {
-      arguments = make_shared<string>(boost::any_cast<string>(m["Arguments"]));
-    }
-    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
-      beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
-    }
-    if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
-      configuration = make_shared<string>(boost::any_cast<string>(m["Configuration"]));
-    }
-    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
-    }
-    if (m.find("MainClass") != m.end() && !m["MainClass"].empty()) {
-      mainClass = make_shared<string>(boost::any_cast<string>(m["MainClass"]));
-    }
-    if (m.find("MainFile") != m.end() && !m["MainFile"].empty()) {
-      mainFile = make_shared<string>(boost::any_cast<string>(m["MainFile"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
-      submitTime = make_shared<string>(boost::any_cast<string>(m["SubmitTime"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobDetailResponseBodyJobDetail() = default;
-};
-class GetSparkJobDetailResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<GetSparkJobDetailResponseBodyJobDetail> jobDetail{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  GetSparkJobDetailResponseBody() {}
-
-  explicit GetSparkJobDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (jobDetail) {
-      res["JobDetail"] = jobDetail ? boost::any(jobDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("JobDetail") != m.end() && !m["JobDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["JobDetail"].type()) {
-        GetSparkJobDetailResponseBodyJobDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JobDetail"]));
-        jobDetail = make_shared<GetSparkJobDetailResponseBodyJobDetail>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobDetailResponseBody() = default;
-};
-class GetSparkJobDetailResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<GetSparkJobDetailResponseBody> body{};
-
-  GetSparkJobDetailResponse() {}
-
-  explicit GetSparkJobDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetSparkJobDetailResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetSparkJobDetailResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetSparkJobDetailResponse() = default;
-};
-class GetSparkJobDriverLogRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> jobId{};
-  shared_ptr<long> tid{};
-
-  GetSparkJobDriverLogRequest() {}
-
-  explicit GetSparkJobDriverLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobDriverLogRequest() = default;
-};
-class GetSparkJobDriverLogResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> driverLog{};
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  GetSparkJobDriverLogResponseBody() {}
-
-  explicit GetSparkJobDriverLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (driverLog) {
-      res["DriverLog"] = boost::any(*driverLog);
-    }
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DriverLog") != m.end() && !m["DriverLog"].empty()) {
-      driverLog = make_shared<string>(boost::any_cast<string>(m["DriverLog"]));
-    }
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobDriverLogResponseBody() = default;
-};
-class GetSparkJobDriverLogResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<GetSparkJobDriverLogResponseBody> body{};
-
-  GetSparkJobDriverLogResponse() {}
-
-  explicit GetSparkJobDriverLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetSparkJobDriverLogResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetSparkJobDriverLogResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetSparkJobDriverLogResponse() = default;
-};
-class GetSparkJobExecutorLogsRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> jobId{};
-  shared_ptr<long> tid{};
-
-  GetSparkJobExecutorLogsRequest() {}
-
-  explicit GetSparkJobExecutorLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobExecutorLogsRequest() = default;
-};
-class GetSparkJobExecutorLogsResponseBodyExecutorLogs : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> executorLogs{};
-
-  GetSparkJobExecutorLogsResponseBodyExecutorLogs() {}
-
-  explicit GetSparkJobExecutorLogsResponseBodyExecutorLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (executorLogs) {
-      res["executorLogs"] = boost::any(*executorLogs);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("executorLogs") != m.end() && !m["executorLogs"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["executorLogs"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["executorLogs"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      executorLogs = make_shared<vector<string>>(toVec1);
-    }
-  }
-
-
-  virtual ~GetSparkJobExecutorLogsResponseBodyExecutorLogs() = default;
-};
-class GetSparkJobExecutorLogsResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<GetSparkJobExecutorLogsResponseBodyExecutorLogs> executorLogs{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  GetSparkJobExecutorLogsResponseBody() {}
-
-  explicit GetSparkJobExecutorLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (executorLogs) {
-      res["ExecutorLogs"] = executorLogs ? boost::any(executorLogs->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("ExecutorLogs") != m.end() && !m["ExecutorLogs"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ExecutorLogs"].type()) {
-        GetSparkJobExecutorLogsResponseBodyExecutorLogs model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExecutorLogs"]));
-        executorLogs = make_shared<GetSparkJobExecutorLogsResponseBodyExecutorLogs>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobExecutorLogsResponseBody() = default;
-};
-class GetSparkJobExecutorLogsResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<GetSparkJobExecutorLogsResponseBody> body{};
-
-  GetSparkJobExecutorLogsResponse() {}
-
-  explicit GetSparkJobExecutorLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetSparkJobExecutorLogsResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetSparkJobExecutorLogsResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetSparkJobExecutorLogsResponse() = default;
-};
-class GetSparkJobLogRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> jobId{};
-  shared_ptr<long> tid{};
-
-  GetSparkJobLogRequest() {}
-
-  explicit GetSparkJobLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobLogRequest() = default;
-};
-class GetSparkJobLogResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> log{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  GetSparkJobLogResponseBody() {}
-
-  explicit GetSparkJobLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (log) {
-      res["Log"] = boost::any(*log);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("Log") != m.end() && !m["Log"].empty()) {
-      log = make_shared<string>(boost::any_cast<string>(m["Log"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~GetSparkJobLogResponseBody() = default;
-};
-class GetSparkJobLogResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<GetSparkJobLogResponseBody> body{};
-
-  GetSparkJobLogResponse() {}
-
-  explicit GetSparkJobLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetSparkJobLogResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetSparkJobLogResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetSparkJobLogResponse() = default;
-};
 class GetStructSyncExecSqlDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -17695,144 +17313,6 @@ public:
 
 
   virtual ~InspectProxyAccessSecretResponse() = default;
-};
-class KillSparkJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> jobId{};
-  shared_ptr<long> tid{};
-
-  KillSparkJobRequest() {}
-
-  explicit KillSparkJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~KillSparkJobRequest() = default;
-};
-class KillSparkJobResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  KillSparkJobResponseBody() {}
-
-  explicit KillSparkJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~KillSparkJobResponseBody() = default;
-};
-class KillSparkJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<KillSparkJobResponseBody> body{};
-
-  KillSparkJobResponse() {}
-
-  explicit KillSparkJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        KillSparkJobResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<KillSparkJobResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~KillSparkJobResponse() = default;
 };
 class ListColumnsRequest : public Darabonba::Model {
 public:
@@ -25600,6 +25080,215 @@ public:
 
   virtual ~ListSensitiveColumnsDetailResponse() = default;
 };
+class ListStandardGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> tid{};
+
+  ListStandardGroupsRequest() {}
+
+  explicit ListStandardGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListStandardGroupsRequest() = default;
+};
+class ListStandardGroupsResponseBodyStandardGroupList : public Darabonba::Model {
+public:
+  shared_ptr<string> dbType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> groupMode{};
+  shared_ptr<string> groupName{};
+  shared_ptr<long> lastMenderId{};
+
+  ListStandardGroupsResponseBodyStandardGroupList() {}
+
+  explicit ListStandardGroupsResponseBodyStandardGroupList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbType) {
+      res["DbType"] = boost::any(*dbType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (groupMode) {
+      res["GroupMode"] = boost::any(*groupMode);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (lastMenderId) {
+      res["LastMenderId"] = boost::any(*lastMenderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
+      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupMode") != m.end() && !m["GroupMode"].empty()) {
+      groupMode = make_shared<string>(boost::any_cast<string>(m["GroupMode"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("LastMenderId") != m.end() && !m["LastMenderId"].empty()) {
+      lastMenderId = make_shared<long>(boost::any_cast<long>(m["LastMenderId"]));
+    }
+  }
+
+
+  virtual ~ListStandardGroupsResponseBodyStandardGroupList() = default;
+};
+class ListStandardGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListStandardGroupsResponseBodyStandardGroupList>> standardGroupList{};
+  shared_ptr<bool> success{};
+
+  ListStandardGroupsResponseBody() {}
+
+  explicit ListStandardGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (standardGroupList) {
+      vector<boost::any> temp1;
+      for(auto item1:*standardGroupList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StandardGroupList"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StandardGroupList") != m.end() && !m["StandardGroupList"].empty()) {
+      if (typeid(vector<boost::any>) == m["StandardGroupList"].type()) {
+        vector<ListStandardGroupsResponseBodyStandardGroupList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StandardGroupList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListStandardGroupsResponseBodyStandardGroupList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        standardGroupList = make_shared<vector<ListStandardGroupsResponseBodyStandardGroupList>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ListStandardGroupsResponseBody() = default;
+};
+class ListStandardGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListStandardGroupsResponseBody> body{};
+
+  ListStandardGroupsResponse() {}
+
+  explicit ListStandardGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListStandardGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListStandardGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListStandardGroupsResponse() = default;
+};
 class ListTablesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> databaseId{};
@@ -30322,351 +30011,6 @@ public:
 
   virtual ~SubmitOrderApprovalResponse() = default;
 };
-class SubmitSparkJobRequestOssInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> accessKeyId{};
-  shared_ptr<string> accessKeySecret{};
-  shared_ptr<string> endpoint{};
-
-  SubmitSparkJobRequestOssInfo() {}
-
-  explicit SubmitSparkJobRequestOssInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (accessKeyId) {
-      res["AccessKeyId"] = boost::any(*accessKeyId);
-    }
-    if (accessKeySecret) {
-      res["AccessKeySecret"] = boost::any(*accessKeySecret);
-    }
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
-      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
-    }
-    if (m.find("AccessKeySecret") != m.end() && !m["AccessKeySecret"].empty()) {
-      accessKeySecret = make_shared<string>(boost::any_cast<string>(m["AccessKeySecret"]));
-    }
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
-  }
-
-
-  virtual ~SubmitSparkJobRequestOssInfo() = default;
-};
-class SubmitSparkJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> appCode{};
-  shared_ptr<vector<string>> arguments{};
-  shared_ptr<map<string, boost::any>> configuration{};
-  shared_ptr<vector<string>> files{};
-  shared_ptr<string> mainClass{};
-  shared_ptr<string> mainFile{};
-  shared_ptr<string> name{};
-  shared_ptr<SubmitSparkJobRequestOssInfo> ossInfo{};
-  shared_ptr<long> tid{};
-
-  SubmitSparkJobRequest() {}
-
-  explicit SubmitSparkJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (appCode) {
-      res["AppCode"] = boost::any(*appCode);
-    }
-    if (arguments) {
-      res["Arguments"] = boost::any(*arguments);
-    }
-    if (configuration) {
-      res["Configuration"] = boost::any(*configuration);
-    }
-    if (files) {
-      res["Files"] = boost::any(*files);
-    }
-    if (mainClass) {
-      res["MainClass"] = boost::any(*mainClass);
-    }
-    if (mainFile) {
-      res["MainFile"] = boost::any(*mainFile);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (ossInfo) {
-      res["OssInfo"] = ossInfo ? boost::any(ossInfo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
-      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
-    }
-    if (m.find("Arguments") != m.end() && !m["Arguments"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Arguments"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Arguments"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      arguments = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Configuration"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      configuration = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("Files") != m.end() && !m["Files"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Files"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Files"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      files = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("MainClass") != m.end() && !m["MainClass"].empty()) {
-      mainClass = make_shared<string>(boost::any_cast<string>(m["MainClass"]));
-    }
-    if (m.find("MainFile") != m.end() && !m["MainFile"].empty()) {
-      mainFile = make_shared<string>(boost::any_cast<string>(m["MainFile"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("OssInfo") != m.end() && !m["OssInfo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["OssInfo"].type()) {
-        SubmitSparkJobRequestOssInfo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OssInfo"]));
-        ossInfo = make_shared<SubmitSparkJobRequestOssInfo>(model1);
-      }
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~SubmitSparkJobRequest() = default;
-};
-class SubmitSparkJobShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> appCode{};
-  shared_ptr<string> argumentsShrink{};
-  shared_ptr<string> configurationShrink{};
-  shared_ptr<string> filesShrink{};
-  shared_ptr<string> mainClass{};
-  shared_ptr<string> mainFile{};
-  shared_ptr<string> name{};
-  shared_ptr<string> ossInfoShrink{};
-  shared_ptr<long> tid{};
-
-  SubmitSparkJobShrinkRequest() {}
-
-  explicit SubmitSparkJobShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (appCode) {
-      res["AppCode"] = boost::any(*appCode);
-    }
-    if (argumentsShrink) {
-      res["Arguments"] = boost::any(*argumentsShrink);
-    }
-    if (configurationShrink) {
-      res["Configuration"] = boost::any(*configurationShrink);
-    }
-    if (filesShrink) {
-      res["Files"] = boost::any(*filesShrink);
-    }
-    if (mainClass) {
-      res["MainClass"] = boost::any(*mainClass);
-    }
-    if (mainFile) {
-      res["MainFile"] = boost::any(*mainFile);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (ossInfoShrink) {
-      res["OssInfo"] = boost::any(*ossInfoShrink);
-    }
-    if (tid) {
-      res["Tid"] = boost::any(*tid);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
-      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
-    }
-    if (m.find("Arguments") != m.end() && !m["Arguments"].empty()) {
-      argumentsShrink = make_shared<string>(boost::any_cast<string>(m["Arguments"]));
-    }
-    if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
-      configurationShrink = make_shared<string>(boost::any_cast<string>(m["Configuration"]));
-    }
-    if (m.find("Files") != m.end() && !m["Files"].empty()) {
-      filesShrink = make_shared<string>(boost::any_cast<string>(m["Files"]));
-    }
-    if (m.find("MainClass") != m.end() && !m["MainClass"].empty()) {
-      mainClass = make_shared<string>(boost::any_cast<string>(m["MainClass"]));
-    }
-    if (m.find("MainFile") != m.end() && !m["MainFile"].empty()) {
-      mainFile = make_shared<string>(boost::any_cast<string>(m["MainFile"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("OssInfo") != m.end() && !m["OssInfo"].empty()) {
-      ossInfoShrink = make_shared<string>(boost::any_cast<string>(m["OssInfo"]));
-    }
-    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
-      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
-    }
-  }
-
-
-  virtual ~SubmitSparkJobShrinkRequest() = default;
-};
-class SubmitSparkJobResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
-  shared_ptr<long> jobId{};
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> success{};
-
-  SubmitSparkJobResponseBody() {}
-
-  explicit SubmitSparkJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
-    }
-    if (jobId) {
-      res["JobId"] = boost::any(*jobId);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (success) {
-      res["Success"] = boost::any(*success);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
-    }
-    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
-      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
-    }
-  }
-
-
-  virtual ~SubmitSparkJobResponseBody() = default;
-};
-class SubmitSparkJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<SubmitSparkJobResponseBody> body{};
-
-  SubmitSparkJobResponse() {}
-
-  explicit SubmitSparkJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SubmitSparkJobResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SubmitSparkJobResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SubmitSparkJobResponse() = default;
-};
 class SubmitStructSyncOrderApprovalRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -31575,6 +30919,8 @@ public:
   CreateDataCorrectOrderResponse createDataCorrectOrder(shared_ptr<CreateDataCorrectOrderRequest> request);
   CreateDataCronClearOrderResponse createDataCronClearOrderWithOptions(shared_ptr<CreateDataCronClearOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataCronClearOrderResponse createDataCronClearOrder(shared_ptr<CreateDataCronClearOrderRequest> request);
+  CreateDataExportOrderResponse createDataExportOrderWithOptions(shared_ptr<CreateDataExportOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataExportOrderResponse createDataExportOrder(shared_ptr<CreateDataExportOrderRequest> request);
   CreateDataImportOrderResponse createDataImportOrderWithOptions(shared_ptr<CreateDataImportOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataImportOrderResponse createDataImportOrder(shared_ptr<CreateDataImportOrderRequest> request);
   CreateFreeLockCorrectOrderResponse createFreeLockCorrectOrderWithOptions(shared_ptr<CreateFreeLockCorrectOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31669,14 +31015,6 @@ public:
   GetSQLReviewCheckResultStatusResponse getSQLReviewCheckResultStatus(shared_ptr<GetSQLReviewCheckResultStatusRequest> request);
   GetSQLReviewOptimizeDetailResponse getSQLReviewOptimizeDetailWithOptions(shared_ptr<GetSQLReviewOptimizeDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSQLReviewOptimizeDetailResponse getSQLReviewOptimizeDetail(shared_ptr<GetSQLReviewOptimizeDetailRequest> request);
-  GetSparkJobDetailResponse getSparkJobDetailWithOptions(shared_ptr<GetSparkJobDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSparkJobDetailResponse getSparkJobDetail(shared_ptr<GetSparkJobDetailRequest> request);
-  GetSparkJobDriverLogResponse getSparkJobDriverLogWithOptions(shared_ptr<GetSparkJobDriverLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSparkJobDriverLogResponse getSparkJobDriverLog(shared_ptr<GetSparkJobDriverLogRequest> request);
-  GetSparkJobExecutorLogsResponse getSparkJobExecutorLogsWithOptions(shared_ptr<GetSparkJobExecutorLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSparkJobExecutorLogsResponse getSparkJobExecutorLogs(shared_ptr<GetSparkJobExecutorLogsRequest> request);
-  GetSparkJobLogResponse getSparkJobLogWithOptions(shared_ptr<GetSparkJobLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSparkJobLogResponse getSparkJobLog(shared_ptr<GetSparkJobLogRequest> request);
   GetStructSyncExecSqlDetailResponse getStructSyncExecSqlDetailWithOptions(shared_ptr<GetStructSyncExecSqlDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetStructSyncExecSqlDetailResponse getStructSyncExecSqlDetail(shared_ptr<GetStructSyncExecSqlDetailRequest> request);
   GetStructSyncJobAnalyzeResultResponse getStructSyncJobAnalyzeResultWithOptions(shared_ptr<GetStructSyncJobAnalyzeResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31699,8 +31037,6 @@ public:
   GrantUserPermissionResponse grantUserPermission(shared_ptr<GrantUserPermissionRequest> request);
   InspectProxyAccessSecretResponse inspectProxyAccessSecretWithOptions(shared_ptr<InspectProxyAccessSecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InspectProxyAccessSecretResponse inspectProxyAccessSecret(shared_ptr<InspectProxyAccessSecretRequest> request);
-  KillSparkJobResponse killSparkJobWithOptions(shared_ptr<KillSparkJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  KillSparkJobResponse killSparkJob(shared_ptr<KillSparkJobRequest> request);
   ListColumnsResponse listColumnsWithOptions(shared_ptr<ListColumnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListColumnsResponse listColumns(shared_ptr<ListColumnsRequest> request);
   ListDBTaskSQLJobResponse listDBTaskSQLJobWithOptions(shared_ptr<ListDBTaskSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31747,6 +31083,8 @@ public:
   ListSensitiveColumnsResponse listSensitiveColumns(shared_ptr<ListSensitiveColumnsRequest> request);
   ListSensitiveColumnsDetailResponse listSensitiveColumnsDetailWithOptions(shared_ptr<ListSensitiveColumnsDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSensitiveColumnsDetailResponse listSensitiveColumnsDetail(shared_ptr<ListSensitiveColumnsDetailRequest> request);
+  ListStandardGroupsResponse listStandardGroupsWithOptions(shared_ptr<ListStandardGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListStandardGroupsResponse listStandardGroups(shared_ptr<ListStandardGroupsRequest> request);
   ListTablesResponse listTablesWithOptions(shared_ptr<ListTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTablesResponse listTables(shared_ptr<ListTablesRequest> request);
   ListUserPermissionsResponse listUserPermissionsWithOptions(shared_ptr<ListUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -31781,8 +31119,6 @@ public:
   SetOwnersResponse setOwners(shared_ptr<SetOwnersRequest> request);
   SubmitOrderApprovalResponse submitOrderApprovalWithOptions(shared_ptr<SubmitOrderApprovalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitOrderApprovalResponse submitOrderApproval(shared_ptr<SubmitOrderApprovalRequest> request);
-  SubmitSparkJobResponse submitSparkJobWithOptions(shared_ptr<SubmitSparkJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitSparkJobResponse submitSparkJob(shared_ptr<SubmitSparkJobRequest> request);
   SubmitStructSyncOrderApprovalResponse submitStructSyncOrderApprovalWithOptions(shared_ptr<SubmitStructSyncOrderApprovalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitStructSyncOrderApprovalResponse submitStructSyncOrderApproval(shared_ptr<SubmitStructSyncOrderApprovalRequest> request);
   SyncDatabaseMetaResponse syncDatabaseMetaWithOptions(shared_ptr<SyncDatabaseMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
