@@ -95,70 +95,6 @@ ActivateLicenseResponse Alibabacloud_Market20151101::Client::activateLicense(sha
   return activateLicenseWithOptions(request, runtime);
 }
 
-BindImagePackageResponse Alibabacloud_Market20151101::Client::bindImagePackageWithOptions(shared_ptr<BindImagePackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceId)) {
-    query->insert(pair<string, string>("EcsInstanceId", *request->ecsInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imagePackageInstanceId)) {
-    query->insert(pair<string, string>("ImagePackageInstanceId", *request->imagePackageInstanceId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("BindImagePackage"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return BindImagePackageResponse(callApi(params, req, runtime));
-}
-
-BindImagePackageResponse Alibabacloud_Market20151101::Client::bindImagePackage(shared_ptr<BindImagePackageRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return bindImagePackageWithOptions(request, runtime);
-}
-
-CreateCommodityResponse Alibabacloud_Market20151101::Client::createCommodityWithOptions(shared_ptr<CreateCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
-    query->insert(pair<string, string>("ApplicationId", *request->applicationId));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    body->insert(pair<string, string>("Content", *request->content));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateCommodity"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateCommodityResponse(callApi(params, req, runtime));
-}
-
-CreateCommodityResponse Alibabacloud_Market20151101::Client::createCommodity(shared_ptr<CreateCommodityRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createCommodityWithOptions(request, runtime);
-}
-
 CreateOrderResponse Alibabacloud_Market20151101::Client::createOrderWithOptions(shared_ptr<CreateOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -200,127 +136,6 @@ CreateOrderResponse Alibabacloud_Market20151101::Client::createOrderWithOptions(
 CreateOrderResponse Alibabacloud_Market20151101::Client::createOrder(shared_ptr<CreateOrderRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createOrderWithOptions(request, runtime);
-}
-
-CreateRateResponse Alibabacloud_Market20151101::Client::createRateWithOptions(shared_ptr<CreateRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    query->insert(pair<string, string>("Content", *request->content));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customerLabels)) {
-    query->insert(pair<string, string>("CustomerLabels", *request->customerLabels));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
-    query->insert(pair<string, string>("OrderId", *request->orderId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->packageVersion)) {
-    query->insert(pair<string, string>("PackageVersion", *request->packageVersion));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestId)) {
-    query->insert(pair<string, string>("RequestId", *request->requestId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->score)) {
-    query->insert(pair<string, string>("Score", *request->score));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateRate"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateRateResponse(callApi(params, req, runtime));
-}
-
-CreateRateResponse Alibabacloud_Market20151101::Client::createRate(shared_ptr<CreateRateRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createRateWithOptions(request, runtime);
-}
-
-DeleteCommodityResponse Alibabacloud_Market20151101::Client::deleteCommodityWithOptions(shared_ptr<DeleteCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->commodityId)) {
-    query->insert(pair<string, string>("CommodityId", *request->commodityId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteCommodity"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeleteCommodityResponse(callApi(params, req, runtime));
-}
-
-DeleteCommodityResponse Alibabacloud_Market20151101::Client::deleteCommodity(shared_ptr<DeleteCommodityRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteCommodityWithOptions(request, runtime);
-}
-
-DescribeCommoditiesResponse Alibabacloud_Market20151101::Client::describeCommoditiesWithOptions(shared_ptr<DescribeCommoditiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeCommodities"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeCommoditiesResponse(callApi(params, req, runtime));
-}
-
-DescribeCommoditiesResponse Alibabacloud_Market20151101::Client::describeCommodities(shared_ptr<DescribeCommoditiesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeCommoditiesWithOptions(request, runtime);
-}
-
-DescribeCommodityResponse Alibabacloud_Market20151101::Client::describeCommodityWithOptions(shared_ptr<DescribeCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeCommodity"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeCommodityResponse(callApi(params, req, runtime));
-}
-
-DescribeCommodityResponse Alibabacloud_Market20151101::Client::describeCommodity(shared_ptr<DescribeCommodityRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeCommodityWithOptions(request, runtime);
 }
 
 DescribeCurrentNodeInfoResponse Alibabacloud_Market20151101::Client::describeCurrentNodeInfoWithOptions(shared_ptr<DescribeCurrentNodeInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -726,34 +541,6 @@ DescribeProjectOperateLogsResponse Alibabacloud_Market20151101::Client::describe
   return describeProjectOperateLogsWithOptions(request, runtime);
 }
 
-DescribeRateResponse Alibabacloud_Market20151101::Client::describeRateWithOptions(shared_ptr<DescribeRateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
-    query->insert(pair<string, string>("OrderId", *request->orderId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeRate"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeRateResponse(callApi(params, req, runtime));
-}
-
-DescribeRateResponse Alibabacloud_Market20151101::Client::describeRate(shared_ptr<DescribeRateRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRateWithOptions(request, runtime);
-}
-
 FinishCurrentProjectNodeResponse Alibabacloud_Market20151101::Client::finishCurrentProjectNodeWithOptions(shared_ptr<FinishCurrentProjectNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -789,37 +576,6 @@ FinishCurrentProjectNodeResponse Alibabacloud_Market20151101::Client::finishCurr
 FinishCurrentProjectNodeResponse Alibabacloud_Market20151101::Client::finishCurrentProjectNode(shared_ptr<FinishCurrentProjectNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return finishCurrentProjectNodeWithOptions(request, runtime);
-}
-
-NotifyContractEventResponse Alibabacloud_Market20151101::Client::notifyContractEventWithOptions(shared_ptr<NotifyContractEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->eventMessage)) {
-    query->insert(pair<string, string>("EventMessage", *request->eventMessage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
-    query->insert(pair<string, string>("EventType", *request->eventType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("NotifyContractEvent"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return NotifyContractEventResponse(callApi(params, req, runtime));
-}
-
-NotifyContractEventResponse Alibabacloud_Market20151101::Client::notifyContractEvent(shared_ptr<NotifyContractEventRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return notifyContractEventWithOptions(request, runtime);
 }
 
 PauseProjectResponse Alibabacloud_Market20151101::Client::pauseProjectWithOptions(shared_ptr<PauseProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -882,55 +638,6 @@ PushMeteringDataResponse Alibabacloud_Market20151101::Client::pushMeteringDataWi
 PushMeteringDataResponse Alibabacloud_Market20151101::Client::pushMeteringData(shared_ptr<PushMeteringDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return pushMeteringDataWithOptions(request, runtime);
-}
-
-QueryMarketCategoriesResponse Alibabacloud_Market20151101::Client::queryMarketCategoriesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("QueryMarketCategories"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return QueryMarketCategoriesResponse(callApi(params, req, runtime));
-}
-
-QueryMarketCategoriesResponse Alibabacloud_Market20151101::Client::queryMarketCategories() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryMarketCategoriesWithOptions(runtime);
-}
-
-QueryMarketImagesResponse Alibabacloud_Market20151101::Client::queryMarketImagesWithOptions(shared_ptr<QueryMarketImagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->param)) {
-    query->insert(pair<string, string>("Param", *request->param));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("QueryMarketImages"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return QueryMarketImagesResponse(callApi(params, req, runtime));
-}
-
-QueryMarketImagesResponse Alibabacloud_Market20151101::Client::queryMarketImages(shared_ptr<QueryMarketImagesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryMarketImagesWithOptions(request, runtime);
 }
 
 ResumeProjectResponse Alibabacloud_Market20151101::Client::resumeProjectWithOptions(shared_ptr<ResumeProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -999,70 +706,5 @@ RollbackCurrentProjectNodeResponse Alibabacloud_Market20151101::Client::rollback
 RollbackCurrentProjectNodeResponse Alibabacloud_Market20151101::Client::rollbackCurrentProjectNode(shared_ptr<RollbackCurrentProjectNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return rollbackCurrentProjectNodeWithOptions(request, runtime);
-}
-
-UpdateCommodityResponse Alibabacloud_Market20151101::Client::updateCommodityWithOptions(shared_ptr<UpdateCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->commodityId)) {
-    query->insert(pair<string, string>("CommodityId", *request->commodityId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
-    query->insert(pair<string, string>("Content", *request->content));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateCommodity"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UpdateCommodityResponse(callApi(params, req, runtime));
-}
-
-UpdateCommodityResponse Alibabacloud_Market20151101::Client::updateCommodity(shared_ptr<UpdateCommodityRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateCommodityWithOptions(request, runtime);
-}
-
-UploadCommodityFileResponse Alibabacloud_Market20151101::Client::uploadCommodityFileWithOptions(shared_ptr<UploadCommodityFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->fileContentType)) {
-    query->insert(pair<string, string>("FileContentType", *request->fileContentType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fileResource)) {
-    query->insert(pair<string, string>("FileResource", *request->fileResource));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->fileResourceType)) {
-    query->insert(pair<string, string>("FileResourceType", *request->fileResourceType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UploadCommodityFile"))},
-    {"version", boost::any(string("2015-11-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UploadCommodityFileResponse(callApi(params, req, runtime));
-}
-
-UploadCommodityFileResponse Alibabacloud_Market20151101::Client::uploadCommodityFile(shared_ptr<UploadCommodityFileRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return uploadCommodityFileWithOptions(request, runtime);
 }
 
