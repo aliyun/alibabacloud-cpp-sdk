@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_quickbi_public_20220101Targets.cmake")
+check_required_components("alibabacloud_quickbi_public_20220101")
