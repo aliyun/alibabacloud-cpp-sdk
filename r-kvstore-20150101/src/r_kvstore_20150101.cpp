@@ -918,6 +918,9 @@ DeleteShardingNodeResponse Alibabacloud_R-kvstore20150101::Client::deleteShardin
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shardCount)) {
+    query->insert(pair<string, string>("ShardCount", *request->shardCount));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -986,11 +989,23 @@ DescribeAccountsResponse Alibabacloud_R-kvstore20150101::Client::describeAccount
   return describeAccountsWithOptions(request, runtime);
 }
 
-DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::describeActiveOperationTaskWithOptions(shared_ptr<DescribeActiveOperationTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DescribeActiveOperationTasksResponse Alibabacloud_R-kvstore20150101::Client::describeActiveOperationTasksWithOptions(shared_ptr<DescribeActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->isHistory)) {
-    query->insert(pair<string, long>("IsHistory", *request->isHistory));
+  if (!Darabonba_Util::Client::isUnset<long>(request->allowCancel)) {
+    query->insert(pair<string, long>("AllowCancel", *request->allowCancel));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->allowChange)) {
+    query->insert(pair<string, long>("AllowChange", *request->allowChange));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->changeLevel)) {
+    query->insert(pair<string, string>("ChangeLevel", *request->changeLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbType)) {
+    query->insert(pair<string, string>("DbType", *request->dbType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
+    query->insert(pair<string, string>("InsName", *request->insName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -1004,8 +1019,8 @@ DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::desc
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
-    query->insert(pair<string, string>("Region", *request->region));
+  if (!Darabonba_Util::Client::isUnset<string>(request->productId)) {
+    query->insert(pair<string, string>("ProductId", *request->productId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -1016,6 +1031,9 @@ DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("Status", *request->status));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
     query->insert(pair<string, string>("TaskType", *request->taskType));
   }
@@ -1023,7 +1041,7 @@ DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::desc
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeActiveOperationTask"))},
+    {"action", boost::any(string("DescribeActiveOperationTasks"))},
     {"version", boost::any(string("2015-01-01"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -1033,12 +1051,12 @@ DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::desc
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return DescribeActiveOperationTaskResponse(callApi(params, req, runtime));
+  return DescribeActiveOperationTasksResponse(callApi(params, req, runtime));
 }
 
-DescribeActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::describeActiveOperationTask(shared_ptr<DescribeActiveOperationTaskRequest> request) {
+DescribeActiveOperationTasksResponse Alibabacloud_R-kvstore20150101::Client::describeActiveOperationTasks(shared_ptr<DescribeActiveOperationTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeActiveOperationTaskWithOptions(request, runtime);
+  return describeActiveOperationTasksWithOptions(request, runtime);
 }
 
 DescribeAuditLogConfigResponse Alibabacloud_R-kvstore20150101::Client::describeAuditLogConfigWithOptions(shared_ptr<DescribeAuditLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1504,6 +1522,12 @@ DescribeClusterMemberInfoResponse Alibabacloud_R-kvstore20150101::Client::descri
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -3517,11 +3541,14 @@ ModifyAccountPasswordResponse Alibabacloud_R-kvstore20150101::Client::modifyAcco
   return modifyAccountPasswordWithOptions(request, runtime);
 }
 
-ModifyActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::modifyActiveOperationTaskWithOptions(shared_ptr<ModifyActiveOperationTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ModifyActiveOperationTasksResponse Alibabacloud_R-kvstore20150101::Client::modifyActiveOperationTasksWithOptions(shared_ptr<ModifyActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->ids)) {
     query->insert(pair<string, string>("Ids", *request->ids));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->immediateStart)) {
+    query->insert(pair<string, long>("ImmediateStart", *request->immediateStart));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -3545,7 +3572,7 @@ ModifyActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::modify
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ModifyActiveOperationTask"))},
+    {"action", boost::any(string("ModifyActiveOperationTasks"))},
     {"version", boost::any(string("2015-01-01"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -3555,12 +3582,12 @@ ModifyActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::modify
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ModifyActiveOperationTaskResponse(callApi(params, req, runtime));
+  return ModifyActiveOperationTasksResponse(callApi(params, req, runtime));
 }
 
-ModifyActiveOperationTaskResponse Alibabacloud_R-kvstore20150101::Client::modifyActiveOperationTask(shared_ptr<ModifyActiveOperationTaskRequest> request) {
+ModifyActiveOperationTasksResponse Alibabacloud_R-kvstore20150101::Client::modifyActiveOperationTasks(shared_ptr<ModifyActiveOperationTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifyActiveOperationTaskWithOptions(request, runtime);
+  return modifyActiveOperationTasksWithOptions(request, runtime);
 }
 
 ModifyAuditLogConfigResponse Alibabacloud_R-kvstore20150101::Client::modifyAuditLogConfigWithOptions(shared_ptr<ModifyAuditLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4747,6 +4774,9 @@ RenewInstanceResponse Alibabacloud_R-kvstore20150101::Client::renewInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->capacity)) {
     query->insert(pair<string, string>("Capacity", *request->capacity));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->couponNo)) {
     query->insert(pair<string, string>("CouponNo", *request->couponNo));
   }
@@ -5212,8 +5242,14 @@ TransformInstanceChargeTypeResponse Alibabacloud_R-kvstore20150101::Client::tran
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
     query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessInfo)) {
+    query->insert(pair<string, string>("BusinessInfo", *request->businessInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->couponNo)) {
+    query->insert(pair<string, string>("CouponNo", *request->couponNo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
