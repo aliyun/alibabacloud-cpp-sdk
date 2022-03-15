@@ -200,9 +200,6 @@ ChatResponse Alibabacloud_Chatbot20171011::Client::chatWithOptions(shared_ptr<Ch
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->perspective)) {
     query->insert(pair<string, vector<string>>("Perspective", *request->perspective));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->recommend)) {
-    query->insert(pair<string, bool>("Recommend", *request->recommend));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->senderId)) {
     query->insert(pair<string, string>("SenderId", *request->senderId));
   }

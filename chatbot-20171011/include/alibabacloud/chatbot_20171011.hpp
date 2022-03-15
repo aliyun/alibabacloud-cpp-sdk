@@ -2333,7 +2333,6 @@ public:
   shared_ptr<string> intentName{};
   shared_ptr<string> knowledgeId{};
   shared_ptr<vector<string>> perspective{};
-  shared_ptr<bool> recommend{};
   shared_ptr<string> senderId{};
   shared_ptr<string> senderNick{};
   shared_ptr<string> sessionId{};
@@ -2362,9 +2361,6 @@ public:
     }
     if (perspective) {
       res["Perspective"] = boost::any(*perspective);
-    }
-    if (recommend) {
-      res["Recommend"] = boost::any(*recommend);
     }
     if (senderId) {
       res["SenderId"] = boost::any(*senderId);
@@ -2406,9 +2402,6 @@ public:
         }
       }
       perspective = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("Recommend") != m.end() && !m["Recommend"].empty()) {
-      recommend = make_shared<bool>(boost::any_cast<bool>(m["Recommend"]));
     }
     if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
       senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
@@ -2578,11 +2571,8 @@ public:
 class ChatResponseBodyMessagesRecommends : public Darabonba::Model {
 public:
   shared_ptr<string> answerSource{};
-  shared_ptr<string> category{};
-  shared_ptr<string> content{};
   shared_ptr<string> knowledgeId{};
   shared_ptr<double> score{};
-  shared_ptr<string> summary{};
   shared_ptr<string> title{};
 
   ChatResponseBodyMessagesRecommends() {}
@@ -2598,20 +2588,11 @@ public:
     if (answerSource) {
       res["AnswerSource"] = boost::any(*answerSource);
     }
-    if (category) {
-      res["Category"] = boost::any(*category);
-    }
-    if (content) {
-      res["Content"] = boost::any(*content);
-    }
     if (knowledgeId) {
       res["KnowledgeId"] = boost::any(*knowledgeId);
     }
     if (score) {
       res["Score"] = boost::any(*score);
-    }
-    if (summary) {
-      res["Summary"] = boost::any(*summary);
     }
     if (title) {
       res["Title"] = boost::any(*title);
@@ -2623,20 +2604,11 @@ public:
     if (m.find("AnswerSource") != m.end() && !m["AnswerSource"].empty()) {
       answerSource = make_shared<string>(boost::any_cast<string>(m["AnswerSource"]));
     }
-    if (m.find("Category") != m.end() && !m["Category"].empty()) {
-      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
-    }
-    if (m.find("Content") != m.end() && !m["Content"].empty()) {
-      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
-    }
     if (m.find("KnowledgeId") != m.end() && !m["KnowledgeId"].empty()) {
       knowledgeId = make_shared<string>(boost::any_cast<string>(m["KnowledgeId"]));
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<double>(boost::any_cast<double>(m["Score"]));
-    }
-    if (m.find("Summary") != m.end() && !m["Summary"].empty()) {
-      summary = make_shared<string>(boost::any_cast<string>(m["Summary"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -2700,6 +2672,7 @@ class ChatResponseBodyMessagesText : public Darabonba::Model {
 public:
   shared_ptr<string> answerSource{};
   shared_ptr<string> articleTitle{};
+  shared_ptr<map<string, boost::any>> commands{};
   shared_ptr<string> content{};
   shared_ptr<string> contentType{};
   shared_ptr<string> dialogName{};
@@ -2729,6 +2702,9 @@ public:
     }
     if (articleTitle) {
       res["ArticleTitle"] = boost::any(*articleTitle);
+    }
+    if (commands) {
+      res["Commands"] = boost::any(*commands);
     }
     if (content) {
       res["Content"] = boost::any(*content);
@@ -2782,6 +2758,14 @@ public:
     }
     if (m.find("ArticleTitle") != m.end() && !m["ArticleTitle"].empty()) {
       articleTitle = make_shared<string>(boost::any_cast<string>(m["ArticleTitle"]));
+    }
+    if (m.find("Commands") != m.end() && !m["Commands"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Commands"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commands = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
@@ -2854,7 +2838,9 @@ public:
   shared_ptr<ChatResponseBodyMessagesKnowledge> knowledge{};
   shared_ptr<vector<ChatResponseBodyMessagesRecommends>> recommends{};
   shared_ptr<ChatResponseBodyMessagesText> text{};
+  shared_ptr<string> title{};
   shared_ptr<string> type{};
+  shared_ptr<string> voiceTitle{};
 
   ChatResponseBodyMessages() {}
 
@@ -2885,8 +2871,14 @@ public:
     if (text) {
       res["Text"] = text ? boost::any(text->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
+    }
+    if (voiceTitle) {
+      res["VoiceTitle"] = boost::any(*voiceTitle);
     }
     return res;
   }
@@ -2925,8 +2917,14 @@ public:
         text = make_shared<ChatResponseBodyMessagesText>(model1);
       }
     }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("VoiceTitle") != m.end() && !m["VoiceTitle"].empty()) {
+      voiceTitle = make_shared<string>(boost::any_cast<string>(m["VoiceTitle"]));
     }
   }
 
