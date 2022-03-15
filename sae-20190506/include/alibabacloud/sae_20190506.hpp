@@ -1194,12 +1194,16 @@ public:
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
+  shared_ptr<string> kafkaEndpoint{};
+  shared_ptr<string> kafkaInstanceId{};
+  shared_ptr<string> kafkaLogfileConfig{};
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nasId{};
+  shared_ptr<bool> openCollectToKafka{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -1287,6 +1291,15 @@ public:
     if (jdk) {
       res["Jdk"] = boost::any(*jdk);
     }
+    if (kafkaEndpoint) {
+      res["KafkaEndpoint"] = boost::any(*kafkaEndpoint);
+    }
+    if (kafkaInstanceId) {
+      res["KafkaInstanceId"] = boost::any(*kafkaInstanceId);
+    }
+    if (kafkaLogfileConfig) {
+      res["KafkaLogfileConfig"] = boost::any(*kafkaLogfileConfig);
+    }
     if (liveness) {
       res["Liveness"] = boost::any(*liveness);
     }
@@ -1304,6 +1317,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (openCollectToKafka) {
+      res["OpenCollectToKafka"] = boost::any(*openCollectToKafka);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -1429,6 +1445,15 @@ public:
     if (m.find("Jdk") != m.end() && !m["Jdk"].empty()) {
       jdk = make_shared<string>(boost::any_cast<string>(m["Jdk"]));
     }
+    if (m.find("KafkaEndpoint") != m.end() && !m["KafkaEndpoint"].empty()) {
+      kafkaEndpoint = make_shared<string>(boost::any_cast<string>(m["KafkaEndpoint"]));
+    }
+    if (m.find("KafkaInstanceId") != m.end() && !m["KafkaInstanceId"].empty()) {
+      kafkaInstanceId = make_shared<string>(boost::any_cast<string>(m["KafkaInstanceId"]));
+    }
+    if (m.find("KafkaLogfileConfig") != m.end() && !m["KafkaLogfileConfig"].empty()) {
+      kafkaLogfileConfig = make_shared<string>(boost::any_cast<string>(m["KafkaLogfileConfig"]));
+    }
     if (m.find("Liveness") != m.end() && !m["Liveness"].empty()) {
       liveness = make_shared<string>(boost::any_cast<string>(m["Liveness"]));
     }
@@ -1446,6 +1471,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("OpenCollectToKafka") != m.end() && !m["OpenCollectToKafka"].empty()) {
+      openCollectToKafka = make_shared<bool>(boost::any_cast<bool>(m["OpenCollectToKafka"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -4040,12 +4068,16 @@ public:
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
+  shared_ptr<string> kafkaEndpoint{};
+  shared_ptr<string> kafkaInstanceId{};
+  shared_ptr<string> kafkaLogfileConfig{};
   shared_ptr<string> liveness{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
   shared_ptr<string> nasId{};
+  shared_ptr<bool> openCollectToKafka{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -4132,6 +4164,15 @@ public:
     if (jdk) {
       res["Jdk"] = boost::any(*jdk);
     }
+    if (kafkaEndpoint) {
+      res["KafkaEndpoint"] = boost::any(*kafkaEndpoint);
+    }
+    if (kafkaInstanceId) {
+      res["KafkaInstanceId"] = boost::any(*kafkaInstanceId);
+    }
+    if (kafkaLogfileConfig) {
+      res["KafkaLogfileConfig"] = boost::any(*kafkaLogfileConfig);
+    }
     if (liveness) {
       res["Liveness"] = boost::any(*liveness);
     }
@@ -4149,6 +4190,9 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
+    }
+    if (openCollectToKafka) {
+      res["OpenCollectToKafka"] = boost::any(*openCollectToKafka);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -4265,6 +4309,15 @@ public:
     if (m.find("Jdk") != m.end() && !m["Jdk"].empty()) {
       jdk = make_shared<string>(boost::any_cast<string>(m["Jdk"]));
     }
+    if (m.find("KafkaEndpoint") != m.end() && !m["KafkaEndpoint"].empty()) {
+      kafkaEndpoint = make_shared<string>(boost::any_cast<string>(m["KafkaEndpoint"]));
+    }
+    if (m.find("KafkaInstanceId") != m.end() && !m["KafkaInstanceId"].empty()) {
+      kafkaInstanceId = make_shared<string>(boost::any_cast<string>(m["KafkaInstanceId"]));
+    }
+    if (m.find("KafkaLogfileConfig") != m.end() && !m["KafkaLogfileConfig"].empty()) {
+      kafkaLogfileConfig = make_shared<string>(boost::any_cast<string>(m["KafkaLogfileConfig"]));
+    }
     if (m.find("Liveness") != m.end() && !m["Liveness"].empty()) {
       liveness = make_shared<string>(boost::any_cast<string>(m["Liveness"]));
     }
@@ -4282,6 +4335,9 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
+    }
+    if (m.find("OpenCollectToKafka") != m.end() && !m["OpenCollectToKafka"].empty()) {
+      openCollectToKafka = make_shared<bool>(boost::any_cast<bool>(m["OpenCollectToKafka"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -5206,6 +5262,7 @@ public:
   shared_ptr<string> jarStartArgs{};
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
+  shared_ptr<string> kafkaConfigs{};
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<long> minReadyInstanceRatio{};
@@ -5311,6 +5368,9 @@ public:
     }
     if (jdk) {
       res["Jdk"] = boost::any(*jdk);
+    }
+    if (kafkaConfigs) {
+      res["KafkaConfigs"] = boost::any(*kafkaConfigs);
     }
     if (liveness) {
       res["Liveness"] = boost::any(*liveness);
@@ -5496,6 +5556,9 @@ public:
     }
     if (m.find("Jdk") != m.end() && !m["Jdk"].empty()) {
       jdk = make_shared<string>(boost::any_cast<string>(m["Jdk"]));
+    }
+    if (m.find("KafkaConfigs") != m.end() && !m["KafkaConfigs"].empty()) {
+      kafkaConfigs = make_shared<string>(boost::any_cast<string>(m["KafkaConfigs"]));
     }
     if (m.find("Liveness") != m.end() && !m["Liveness"].empty()) {
       liveness = make_shared<string>(boost::any_cast<string>(m["Liveness"]));
@@ -6349,6 +6412,7 @@ class DescribeApplicationInstancesResponseBodyDataInstances : public Darabonba::
 public:
   shared_ptr<long> createTimeStamp{};
   shared_ptr<string> eip{};
+  shared_ptr<long> finishTimeStamp{};
   shared_ptr<string> groupId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceContainerIp{};
@@ -6374,6 +6438,9 @@ public:
     }
     if (eip) {
       res["Eip"] = boost::any(*eip);
+    }
+    if (finishTimeStamp) {
+      res["FinishTimeStamp"] = boost::any(*finishTimeStamp);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -6411,6 +6478,9 @@ public:
     }
     if (m.find("Eip") != m.end() && !m["Eip"].empty()) {
       eip = make_shared<string>(boost::any_cast<string>(m["Eip"]));
+    }
+    if (m.find("FinishTimeStamp") != m.end() && !m["FinishTimeStamp"].empty()) {
+      finishTimeStamp = make_shared<long>(boost::any_cast<long>(m["FinishTimeStamp"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
@@ -8868,6 +8938,7 @@ public:
 };
 class DescribeChangeOrderResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> approvalId{};
   shared_ptr<bool> auto_{};
@@ -8896,6 +8967,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
@@ -8955,6 +9029,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
@@ -10498,6 +10575,7 @@ public:
 };
 class DescribeGreyTagRouteResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
   shared_ptr<vector<DescribeGreyTagRouteResponseBodyDataDubboRules>> dubboRules{};
@@ -10516,6 +10594,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -10549,6 +10630,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
@@ -13942,10 +14026,8 @@ public:
 };
 class ListAppServicesPageResponseBodyDataResult : public Darabonba::Model {
 public:
-  shared_ptr<string> clusterName{};
   shared_ptr<string> edasAppId{};
   shared_ptr<string> edasAppName{};
-  shared_ptr<string> gmtModifyTime{};
   shared_ptr<string> group{};
   shared_ptr<long> instanceNum{};
   shared_ptr<string> serviceName{};
@@ -13961,17 +14043,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (clusterName) {
-      res["ClusterName"] = boost::any(*clusterName);
-    }
     if (edasAppId) {
       res["EdasAppId"] = boost::any(*edasAppId);
     }
     if (edasAppName) {
       res["EdasAppName"] = boost::any(*edasAppName);
-    }
-    if (gmtModifyTime) {
-      res["GmtModifyTime"] = boost::any(*gmtModifyTime);
     }
     if (group) {
       res["Group"] = boost::any(*group);
@@ -13989,17 +14065,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
-      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
-    }
     if (m.find("EdasAppId") != m.end() && !m["EdasAppId"].empty()) {
       edasAppId = make_shared<string>(boost::any_cast<string>(m["EdasAppId"]));
     }
     if (m.find("EdasAppName") != m.end() && !m["EdasAppName"].empty()) {
       edasAppName = make_shared<string>(boost::any_cast<string>(m["EdasAppName"]));
-    }
-    if (m.find("GmtModifyTime") != m.end() && !m["GmtModifyTime"].empty()) {
-      gmtModifyTime = make_shared<string>(boost::any_cast<string>(m["GmtModifyTime"]));
     }
     if (m.find("Group") != m.end() && !m["Group"].empty()) {
       group = make_shared<string>(boost::any_cast<string>(m["Group"]));

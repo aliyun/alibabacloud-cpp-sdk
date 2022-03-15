@@ -293,6 +293,15 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->jdk)) {
     query->insert(pair<string, string>("Jdk", *request->jdk));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaEndpoint)) {
+    query->insert(pair<string, string>("KafkaEndpoint", *request->kafkaEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaInstanceId)) {
+    query->insert(pair<string, string>("KafkaInstanceId", *request->kafkaInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaLogfileConfig)) {
+    query->insert(pair<string, string>("KafkaLogfileConfig", *request->kafkaLogfileConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->liveness)) {
     query->insert(pair<string, string>("Liveness", *request->liveness));
   }
@@ -310,6 +319,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nasId)) {
     query->insert(pair<string, string>("NasId", *request->nasId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->openCollectToKafka)) {
+    query->insert(pair<string, bool>("OpenCollectToKafka", *request->openCollectToKafka));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->packageType)) {
     query->insert(pair<string, string>("PackageType", *request->packageType));
@@ -866,6 +878,15 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->jdk)) {
     query->insert(pair<string, string>("Jdk", *request->jdk));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaEndpoint)) {
+    query->insert(pair<string, string>("KafkaEndpoint", *request->kafkaEndpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaInstanceId)) {
+    query->insert(pair<string, string>("KafkaInstanceId", *request->kafkaInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kafkaLogfileConfig)) {
+    query->insert(pair<string, string>("KafkaLogfileConfig", *request->kafkaLogfileConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->liveness)) {
     query->insert(pair<string, string>("Liveness", *request->liveness));
   }
@@ -883,6 +904,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nasId)) {
     query->insert(pair<string, string>("NasId", *request->nasId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->openCollectToKafka)) {
+    query->insert(pair<string, bool>("OpenCollectToKafka", *request->openCollectToKafka));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->packageUrl)) {
     query->insert(pair<string, string>("PackageUrl", *request->packageUrl));
