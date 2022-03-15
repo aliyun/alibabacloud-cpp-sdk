@@ -15372,7 +15372,7 @@ class ModifyPolicyInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> action{};
   shared_ptr<string> instanceName{};
-  shared_ptr<string> namespace_{};
+  shared_ptr<vector<string>> namespaces{};
   shared_ptr<map<string, boost::any>> parameters{};
 
   ModifyPolicyInstanceRequest() {}
@@ -15391,8 +15391,8 @@ public:
     if (instanceName) {
       res["instance_name"] = boost::any(*instanceName);
     }
-    if (namespace_) {
-      res["namespace"] = boost::any(*namespace_);
+    if (namespaces) {
+      res["namespaces"] = boost::any(*namespaces);
     }
     if (parameters) {
       res["parameters"] = boost::any(*parameters);
@@ -15407,8 +15407,15 @@ public:
     if (m.find("instance_name") != m.end() && !m["instance_name"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["instance_name"]));
     }
-    if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    if (m.find("namespaces") != m.end() && !m["namespaces"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["namespaces"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["namespaces"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      namespaces = make_shared<vector<string>>(toVec1);
     }
     if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameters"]);

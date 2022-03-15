@@ -2772,8 +2772,8 @@ ModifyPolicyInstanceResponse Alibabacloud_CS20151215::Client::modifyPolicyInstan
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("instance_name", *request->instanceName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    body->insert(pair<string, string>("namespace_", *request->namespace_));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->namespaces)) {
+    body->insert(pair<string, vector<string>>("namespaces", *request->namespaces));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->parameters)) {
     body->insert(pair<string, map<string, boost::any>>("parameters", *request->parameters));
