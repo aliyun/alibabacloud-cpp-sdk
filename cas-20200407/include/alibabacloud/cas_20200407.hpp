@@ -9,6 +9,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -1188,9 +1189,164 @@ public:
 
   virtual ~ListUserCertificateOrderRequest() = default;
 };
+class ListUserCertificateOrderResponseBodyCertificateOrderList : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<long> aliyunOrderId{};
+  shared_ptr<long> buyDate{};
+  shared_ptr<long> certEndTime{};
+  shared_ptr<long> certStartTime{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> domain{};
+  shared_ptr<long> domainCount{};
+  shared_ptr<string> domainType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<long> orderId{};
+  shared_ptr<string> partnerOrderId{};
+  shared_ptr<string> productCode{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> rootBrand{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> trusteeStatus{};
+  shared_ptr<long> wildDomainCount{};
+
+  ListUserCertificateOrderResponseBodyCertificateOrderList() {}
+
+  explicit ListUserCertificateOrderResponseBodyCertificateOrderList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (aliyunOrderId) {
+      res["AliyunOrderId"] = boost::any(*aliyunOrderId);
+    }
+    if (buyDate) {
+      res["BuyDate"] = boost::any(*buyDate);
+    }
+    if (certEndTime) {
+      res["CertEndTime"] = boost::any(*certEndTime);
+    }
+    if (certStartTime) {
+      res["CertStartTime"] = boost::any(*certStartTime);
+    }
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (domainCount) {
+      res["DomainCount"] = boost::any(*domainCount);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (partnerOrderId) {
+      res["PartnerOrderId"] = boost::any(*partnerOrderId);
+    }
+    if (productCode) {
+      res["ProductCode"] = boost::any(*productCode);
+    }
+    if (productName) {
+      res["ProductName"] = boost::any(*productName);
+    }
+    if (rootBrand) {
+      res["RootBrand"] = boost::any(*rootBrand);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (trusteeStatus) {
+      res["TrusteeStatus"] = boost::any(*trusteeStatus);
+    }
+    if (wildDomainCount) {
+      res["WildDomainCount"] = boost::any(*wildDomainCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("AliyunOrderId") != m.end() && !m["AliyunOrderId"].empty()) {
+      aliyunOrderId = make_shared<long>(boost::any_cast<long>(m["AliyunOrderId"]));
+    }
+    if (m.find("BuyDate") != m.end() && !m["BuyDate"].empty()) {
+      buyDate = make_shared<long>(boost::any_cast<long>(m["BuyDate"]));
+    }
+    if (m.find("CertEndTime") != m.end() && !m["CertEndTime"].empty()) {
+      certEndTime = make_shared<long>(boost::any_cast<long>(m["CertEndTime"]));
+    }
+    if (m.find("CertStartTime") != m.end() && !m["CertStartTime"].empty()) {
+      certStartTime = make_shared<long>(boost::any_cast<long>(m["CertStartTime"]));
+    }
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("DomainCount") != m.end() && !m["DomainCount"].empty()) {
+      domainCount = make_shared<long>(boost::any_cast<long>(m["DomainCount"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("PartnerOrderId") != m.end() && !m["PartnerOrderId"].empty()) {
+      partnerOrderId = make_shared<string>(boost::any_cast<string>(m["PartnerOrderId"]));
+    }
+    if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
+      productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
+    }
+    if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
+    }
+    if (m.find("RootBrand") != m.end() && !m["RootBrand"].empty()) {
+      rootBrand = make_shared<string>(boost::any_cast<string>(m["RootBrand"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TrusteeStatus") != m.end() && !m["TrusteeStatus"].empty()) {
+      trusteeStatus = make_shared<string>(boost::any_cast<string>(m["TrusteeStatus"]));
+    }
+    if (m.find("WildDomainCount") != m.end() && !m["WildDomainCount"].empty()) {
+      wildDomainCount = make_shared<long>(boost::any_cast<long>(m["WildDomainCount"]));
+    }
+  }
+
+
+  virtual ~ListUserCertificateOrderResponseBodyCertificateOrderList() = default;
+};
 class ListUserCertificateOrderResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> certificateOrderList{};
+  shared_ptr<vector<ListUserCertificateOrderResponseBodyCertificateOrderList>> certificateOrderList{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> requestId{};
   shared_ptr<long> showSize{};
@@ -1207,7 +1363,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (certificateOrderList) {
-      res["CertificateOrderList"] = boost::any(*certificateOrderList);
+      vector<boost::any> temp1;
+      for(auto item1:*certificateOrderList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CertificateOrderList"] = boost::any(temp1);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -1226,7 +1386,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CertificateOrderList") != m.end() && !m["CertificateOrderList"].empty()) {
-      certificateOrderList = make_shared<string>(boost::any_cast<string>(m["CertificateOrderList"]));
+      if (typeid(vector<boost::any>) == m["CertificateOrderList"].type()) {
+        vector<ListUserCertificateOrderResponseBodyCertificateOrderList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CertificateOrderList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListUserCertificateOrderResponseBodyCertificateOrderList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certificateOrderList = make_shared<vector<ListUserCertificateOrderResponseBodyCertificateOrderList>>(expect1);
+      }
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
