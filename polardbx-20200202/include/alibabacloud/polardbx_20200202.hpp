@@ -1850,7 +1850,6 @@ class DeleteDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> resourceGroupId{};
 
   DeleteDBInstanceRequest() {}
 
@@ -1868,9 +1867,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (resourceGroupId) {
-      res["ResourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -1880,9 +1876,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -10658,7 +10651,6 @@ public:
   shared_ptr<string> configValue{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> resourceGroupId{};
 
   ModifyDBInstanceConfigRequest() {}
 
@@ -10682,9 +10674,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (resourceGroupId) {
-      res["ResourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -10700,9 +10689,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -12983,6 +12969,7 @@ class UpgradeDBInstanceKernelVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> switchMode{};
 
   UpgradeDBInstanceKernelVersionRequest() {}
 
@@ -13000,6 +12987,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (switchMode) {
+      res["SwitchMode"] = boost::any(*switchMode);
+    }
     return res;
   }
 
@@ -13009,6 +12999,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SwitchMode") != m.end() && !m["SwitchMode"].empty()) {
+      switchMode = make_shared<string>(boost::any_cast<string>(m["SwitchMode"]));
     }
   }
 

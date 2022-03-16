@@ -577,9 +577,6 @@ DeleteDBInstanceResponse Alibabacloud_Polardbx20200202::Client::deleteDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1738,9 +1735,6 @@ ModifyDBInstanceConfigResponse Alibabacloud_Polardbx20200202::Client::modifyDBIn
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2291,6 +2285,9 @@ UpgradeDBInstanceKernelVersionResponse Alibabacloud_Polardbx20200202::Client::up
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->switchMode)) {
+    query->insert(pair<string, string>("SwitchMode", *request->switchMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
