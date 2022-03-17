@@ -6626,6 +6626,7 @@ public:
 };
 class ListFileRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> fileId{};
   shared_ptr<string> keyword{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -6641,6 +6642,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
     }
@@ -6657,6 +6661,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
+    }
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
     }

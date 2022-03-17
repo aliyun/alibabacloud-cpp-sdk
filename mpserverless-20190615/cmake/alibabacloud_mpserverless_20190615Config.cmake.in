@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_mpserverless_20190615Targets.cmake")
+check_required_components("alibabacloud_mpserverless_20190615")

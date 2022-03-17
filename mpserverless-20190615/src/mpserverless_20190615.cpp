@@ -211,7 +211,9 @@ BindWebHostingCustomDomainResponse Alibabacloud_MPServerless20190615::Client::bi
 CheckMpServerlessRoleExistsResponse Alibabacloud_MPServerless20190615::Client::checkMpServerlessRoleExistsWithOptions(shared_ptr<CheckMpServerlessRoleExistsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("RoleName", *request->roleName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
+    query->insert(pair<string, string>("RoleName", *request->roleName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1370,6 +1372,9 @@ ListExtensionsResponse Alibabacloud_MPServerless20190615::Client::listExtensions
 ListFileResponse Alibabacloud_MPServerless20190615::Client::listFileWithOptions(shared_ptr<ListFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
+    body->insert(pair<string, string>("FileId", *request->fileId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     body->insert(pair<string, string>("Keyword", *request->keyword));
   }
