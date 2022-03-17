@@ -327,6 +327,9 @@ RecognizeBusinessLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognize
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowOp)) {
+    query->insert(pair<string, string>("WorkflowOp", *request->workflowOp));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)},
@@ -386,6 +389,9 @@ RecognizeCarNumberResponse Alibabacloud_Ocr-api20210707::Client::recognizeCarNum
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowOp)) {
+    query->insert(pair<string, string>("WorkflowOp", *request->workflowOp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -502,6 +508,36 @@ RecognizeCommonPrintedInvoiceResponse Alibabacloud_Ocr-api20210707::Client::reco
 RecognizeCommonPrintedInvoiceResponse Alibabacloud_Ocr-api20210707::Client::recognizeCommonPrintedInvoice(shared_ptr<RecognizeCommonPrintedInvoiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return recognizeCommonPrintedInvoiceWithOptions(request, runtime);
+}
+
+RecognizeCosmeticProduceLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognizeCosmeticProduceLicenseWithOptions(shared_ptr<RecognizeCosmeticProduceLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeCosmeticProduceLicense"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeCosmeticProduceLicenseResponse(callApi(params, req, runtime));
+}
+
+RecognizeCosmeticProduceLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognizeCosmeticProduceLicense(shared_ptr<RecognizeCosmeticProduceLicenseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeCosmeticProduceLicenseWithOptions(request, runtime);
 }
 
 RecognizeCtwoMedicalDeviceManageLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognizeCtwoMedicalDeviceManageLicenseWithOptions(shared_ptr<RecognizeCtwoMedicalDeviceManageLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1134,6 +1170,36 @@ RecognizeHandwritingResponse Alibabacloud_Ocr-api20210707::Client::recognizeHand
   return recognizeHandwritingWithOptions(request, runtime);
 }
 
+RecognizeHotelConsumeResponse Alibabacloud_Ocr-api20210707::Client::recognizeHotelConsumeWithOptions(shared_ptr<RecognizeHotelConsumeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeHotelConsume"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeHotelConsumeResponse(callApi(params, req, runtime));
+}
+
+RecognizeHotelConsumeResponse Alibabacloud_Ocr-api20210707::Client::recognizeHotelConsume(shared_ptr<RecognizeHotelConsumeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeHotelConsumeWithOptions(request, runtime);
+}
+
 RecognizeHouseholdResponse Alibabacloud_Ocr-api20210707::Client::recognizeHouseholdWithOptions(shared_ptr<RecognizeHouseholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1172,6 +1238,9 @@ RecognizeIdcardResponse Alibabacloud_Ocr-api20210707::Client::recognizeIdcardWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowOp)) {
+    query->insert(pair<string, string>("WorkflowOp", *request->workflowOp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -1484,6 +1553,36 @@ RecognizeMultiLanguageResponse Alibabacloud_Ocr-api20210707::Client::recognizeMu
   return recognizeMultiLanguageWithOptions(request, runtime);
 }
 
+RecognizeNonTaxInvoiceResponse Alibabacloud_Ocr-api20210707::Client::recognizeNonTaxInvoiceWithOptions(shared_ptr<RecognizeNonTaxInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeNonTaxInvoice"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeNonTaxInvoiceResponse(callApi(params, req, runtime));
+}
+
+RecognizeNonTaxInvoiceResponse Alibabacloud_Ocr-api20210707::Client::recognizeNonTaxInvoice(shared_ptr<RecognizeNonTaxInvoiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeNonTaxInvoiceWithOptions(request, runtime);
+}
+
 RecognizePassportResponse Alibabacloud_Ocr-api20210707::Client::recognizePassportWithOptions(shared_ptr<RecognizePassportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1512,6 +1611,66 @@ RecognizePassportResponse Alibabacloud_Ocr-api20210707::Client::recognizePasspor
 RecognizePassportResponse Alibabacloud_Ocr-api20210707::Client::recognizePassport(shared_ptr<RecognizePassportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return recognizePassportWithOptions(request, runtime);
+}
+
+RecognizePaymentRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizePaymentRecordWithOptions(shared_ptr<RecognizePaymentRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizePaymentRecord"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizePaymentRecordResponse(callApi(params, req, runtime));
+}
+
+RecognizePaymentRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizePaymentRecord(shared_ptr<RecognizePaymentRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizePaymentRecordWithOptions(request, runtime);
+}
+
+RecognizePurchaseRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizePurchaseRecordWithOptions(shared_ptr<RecognizePurchaseRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizePurchaseRecord"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizePurchaseRecordResponse(callApi(params, req, runtime));
+}
+
+RecognizePurchaseRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizePurchaseRecord(shared_ptr<RecognizePurchaseRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizePurchaseRecordWithOptions(request, runtime);
 }
 
 RecognizeQuotaInvoiceResponse Alibabacloud_Ocr-api20210707::Client::recognizeQuotaInvoiceWithOptions(shared_ptr<RecognizeQuotaInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1966,6 +2125,9 @@ RecognizeVehicleLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognizeV
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowOp)) {
+    query->insert(pair<string, string>("WorkflowOp", *request->workflowOp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},

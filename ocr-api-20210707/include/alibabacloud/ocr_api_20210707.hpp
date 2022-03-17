@@ -1219,6 +1219,7 @@ public:
 class RecognizeBusinessLicenseRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
+  shared_ptr<string> workflowOp{};
   shared_ptr<Darabonba::Stream> body{};
 
   RecognizeBusinessLicenseRequest() {}
@@ -1234,6 +1235,9 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (workflowOp) {
+      res["WorkflowOp"] = boost::any(*workflowOp);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -1243,6 +1247,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkflowOp") != m.end() && !m["WorkflowOp"].empty()) {
+      workflowOp = make_shared<string>(boost::any_cast<string>(m["WorkflowOp"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
@@ -1495,6 +1502,7 @@ public:
 class RecognizeCarNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
+  shared_ptr<string> workflowOp{};
   shared_ptr<Darabonba::Stream> body{};
 
   RecognizeCarNumberRequest() {}
@@ -1510,6 +1518,9 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (workflowOp) {
+      res["WorkflowOp"] = boost::any(*workflowOp);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -1519,6 +1530,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkflowOp") != m.end() && !m["WorkflowOp"].empty()) {
+      workflowOp = make_shared<string>(boost::any_cast<string>(m["WorkflowOp"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
@@ -2050,6 +2064,144 @@ public:
 
 
   virtual ~RecognizeCommonPrintedInvoiceResponse() = default;
+};
+class RecognizeCosmeticProduceLicenseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizeCosmeticProduceLicenseRequest() {}
+
+  explicit RecognizeCosmeticProduceLicenseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizeCosmeticProduceLicenseRequest() = default;
+};
+class RecognizeCosmeticProduceLicenseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizeCosmeticProduceLicenseResponseBody() {}
+
+  explicit RecognizeCosmeticProduceLicenseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeCosmeticProduceLicenseResponseBody() = default;
+};
+class RecognizeCosmeticProduceLicenseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeCosmeticProduceLicenseResponseBody> body{};
+
+  RecognizeCosmeticProduceLicenseResponse() {}
+
+  explicit RecognizeCosmeticProduceLicenseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeCosmeticProduceLicenseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeCosmeticProduceLicenseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeCosmeticProduceLicenseResponse() = default;
 };
 class RecognizeCtwoMedicalDeviceManageLicenseRequest : public Darabonba::Model {
 public:
@@ -4806,6 +4958,144 @@ public:
 
   virtual ~RecognizeHandwritingResponse() = default;
 };
+class RecognizeHotelConsumeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizeHotelConsumeRequest() {}
+
+  explicit RecognizeHotelConsumeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizeHotelConsumeRequest() = default;
+};
+class RecognizeHotelConsumeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizeHotelConsumeResponseBody() {}
+
+  explicit RecognizeHotelConsumeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeHotelConsumeResponseBody() = default;
+};
+class RecognizeHotelConsumeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeHotelConsumeResponseBody> body{};
+
+  RecognizeHotelConsumeResponse() {}
+
+  explicit RecognizeHotelConsumeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeHotelConsumeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeHotelConsumeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeHotelConsumeResponse() = default;
+};
 class RecognizeHouseholdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
@@ -4948,6 +5238,7 @@ class RecognizeIdcardRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> outputFigure{};
   shared_ptr<string> url{};
+  shared_ptr<string> workflowOp{};
   shared_ptr<Darabonba::Stream> body{};
 
   RecognizeIdcardRequest() {}
@@ -4966,6 +5257,9 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (workflowOp) {
+      res["WorkflowOp"] = boost::any(*workflowOp);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -4978,6 +5272,9 @@ public:
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkflowOp") != m.end() && !m["WorkflowOp"].empty()) {
+      workflowOp = make_shared<string>(boost::any_cast<string>(m["WorkflowOp"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
@@ -6369,6 +6666,144 @@ public:
 
   virtual ~RecognizeMultiLanguageResponse() = default;
 };
+class RecognizeNonTaxInvoiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizeNonTaxInvoiceRequest() {}
+
+  explicit RecognizeNonTaxInvoiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizeNonTaxInvoiceRequest() = default;
+};
+class RecognizeNonTaxInvoiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizeNonTaxInvoiceResponseBody() {}
+
+  explicit RecognizeNonTaxInvoiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeNonTaxInvoiceResponseBody() = default;
+};
+class RecognizeNonTaxInvoiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeNonTaxInvoiceResponseBody> body{};
+
+  RecognizeNonTaxInvoiceResponse() {}
+
+  explicit RecognizeNonTaxInvoiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeNonTaxInvoiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeNonTaxInvoiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeNonTaxInvoiceResponse() = default;
+};
 class RecognizePassportRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
@@ -6506,6 +6941,282 @@ public:
 
 
   virtual ~RecognizePassportResponse() = default;
+};
+class RecognizePaymentRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizePaymentRecordRequest() {}
+
+  explicit RecognizePaymentRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizePaymentRecordRequest() = default;
+};
+class RecognizePaymentRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizePaymentRecordResponseBody() {}
+
+  explicit RecognizePaymentRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizePaymentRecordResponseBody() = default;
+};
+class RecognizePaymentRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizePaymentRecordResponseBody> body{};
+
+  RecognizePaymentRecordResponse() {}
+
+  explicit RecognizePaymentRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizePaymentRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizePaymentRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizePaymentRecordResponse() = default;
+};
+class RecognizePurchaseRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizePurchaseRecordRequest() {}
+
+  explicit RecognizePurchaseRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizePurchaseRecordRequest() = default;
+};
+class RecognizePurchaseRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizePurchaseRecordResponseBody() {}
+
+  explicit RecognizePurchaseRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizePurchaseRecordResponseBody() = default;
+};
+class RecognizePurchaseRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizePurchaseRecordResponseBody> body{};
+
+  RecognizePurchaseRecordResponse() {}
+
+  explicit RecognizePurchaseRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizePurchaseRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizePurchaseRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizePurchaseRecordResponse() = default;
 };
 class RecognizeQuotaInvoiceRequest : public Darabonba::Model {
 public:
@@ -8505,6 +9216,7 @@ public:
 class RecognizeVehicleLicenseRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
+  shared_ptr<string> workflowOp{};
   shared_ptr<Darabonba::Stream> body{};
 
   RecognizeVehicleLicenseRequest() {}
@@ -8520,6 +9232,9 @@ public:
     if (url) {
       res["Url"] = boost::any(*url);
     }
+    if (workflowOp) {
+      res["WorkflowOp"] = boost::any(*workflowOp);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -8529,6 +9244,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("WorkflowOp") != m.end() && !m["WorkflowOp"].empty()) {
+      workflowOp = make_shared<string>(boost::any_cast<string>(m["WorkflowOp"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
@@ -8954,6 +9672,8 @@ public:
   RecognizeChinesePassportResponse recognizeChinesePassport(shared_ptr<RecognizeChinesePassportRequest> request);
   RecognizeCommonPrintedInvoiceResponse recognizeCommonPrintedInvoiceWithOptions(shared_ptr<RecognizeCommonPrintedInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeCommonPrintedInvoiceResponse recognizeCommonPrintedInvoice(shared_ptr<RecognizeCommonPrintedInvoiceRequest> request);
+  RecognizeCosmeticProduceLicenseResponse recognizeCosmeticProduceLicenseWithOptions(shared_ptr<RecognizeCosmeticProduceLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeCosmeticProduceLicenseResponse recognizeCosmeticProduceLicense(shared_ptr<RecognizeCosmeticProduceLicenseRequest> request);
   RecognizeCtwoMedicalDeviceManageLicenseResponse recognizeCtwoMedicalDeviceManageLicenseWithOptions(shared_ptr<RecognizeCtwoMedicalDeviceManageLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeCtwoMedicalDeviceManageLicenseResponse recognizeCtwoMedicalDeviceManageLicense(shared_ptr<RecognizeCtwoMedicalDeviceManageLicenseRequest> request);
   RecognizeDeleteExcelRecordResponse recognizeDeleteExcelRecordWithOptions(shared_ptr<RecognizeDeleteExcelRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8992,6 +9712,8 @@ public:
   RecognizeGeneralResponse recognizeGeneral(shared_ptr<RecognizeGeneralRequest> request);
   RecognizeHandwritingResponse recognizeHandwritingWithOptions(shared_ptr<RecognizeHandwritingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeHandwritingResponse recognizeHandwriting(shared_ptr<RecognizeHandwritingRequest> request);
+  RecognizeHotelConsumeResponse recognizeHotelConsumeWithOptions(shared_ptr<RecognizeHotelConsumeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeHotelConsumeResponse recognizeHotelConsume(shared_ptr<RecognizeHotelConsumeRequest> request);
   RecognizeHouseholdResponse recognizeHouseholdWithOptions(shared_ptr<RecognizeHouseholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeHouseholdResponse recognizeHousehold(shared_ptr<RecognizeHouseholdRequest> request);
   RecognizeIdcardResponse recognizeIdcardWithOptions(shared_ptr<RecognizeIdcardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9012,8 +9734,14 @@ public:
   RecognizeMixedInvoicesResponse recognizeMixedInvoices(shared_ptr<RecognizeMixedInvoicesRequest> request);
   RecognizeMultiLanguageResponse recognizeMultiLanguageWithOptions(shared_ptr<RecognizeMultiLanguageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeMultiLanguageResponse recognizeMultiLanguage(shared_ptr<RecognizeMultiLanguageRequest> request);
+  RecognizeNonTaxInvoiceResponse recognizeNonTaxInvoiceWithOptions(shared_ptr<RecognizeNonTaxInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeNonTaxInvoiceResponse recognizeNonTaxInvoice(shared_ptr<RecognizeNonTaxInvoiceRequest> request);
   RecognizePassportResponse recognizePassportWithOptions(shared_ptr<RecognizePassportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizePassportResponse recognizePassport(shared_ptr<RecognizePassportRequest> request);
+  RecognizePaymentRecordResponse recognizePaymentRecordWithOptions(shared_ptr<RecognizePaymentRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizePaymentRecordResponse recognizePaymentRecord(shared_ptr<RecognizePaymentRecordRequest> request);
+  RecognizePurchaseRecordResponse recognizePurchaseRecordWithOptions(shared_ptr<RecognizePurchaseRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizePurchaseRecordResponse recognizePurchaseRecord(shared_ptr<RecognizePurchaseRecordRequest> request);
   RecognizeQuotaInvoiceResponse recognizeQuotaInvoiceWithOptions(shared_ptr<RecognizeQuotaInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeQuotaInvoiceResponse recognizeQuotaInvoice(shared_ptr<RecognizeQuotaInvoiceRequest> request);
   RecognizeRideHailingItineraryResponse recognizeRideHailingItineraryWithOptions(shared_ptr<RecognizeRideHailingItineraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
