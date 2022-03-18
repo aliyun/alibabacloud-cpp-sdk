@@ -5330,7 +5330,6 @@ public:
   shared_ptr<long> ID{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterLog{};
-  shared_ptr<string> logLevel{};
   shared_ptr<string> created{};
   shared_ptr<string> updated{};
 
@@ -5353,9 +5352,6 @@ public:
     if (clusterLog) {
       res["cluster_log"] = boost::any(*clusterLog);
     }
-    if (logLevel) {
-      res["log_level"] = boost::any(*logLevel);
-    }
     if (created) {
       res["created"] = boost::any(*created);
     }
@@ -5374,9 +5370,6 @@ public:
     }
     if (m.find("cluster_log") != m.end() && !m["cluster_log"].empty()) {
       clusterLog = make_shared<string>(boost::any_cast<string>(m["cluster_log"]));
-    }
-    if (m.find("log_level") != m.end() && !m["log_level"].empty()) {
-      logLevel = make_shared<string>(boost::any_cast<string>(m["log_level"]));
     }
     if (m.find("created") != m.end() && !m["created"].empty()) {
       created = make_shared<string>(boost::any_cast<string>(m["created"]));
@@ -8781,6 +8774,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> profile{};
+  shared_ptr<string> regionId{};
 
   DescribeClustersV1Request() {}
 
@@ -8810,6 +8804,9 @@ public:
     if (profile) {
       res["profile"] = boost::any(*profile);
     }
+    if (regionId) {
+      res["region_id"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -8831,6 +8828,9 @@ public:
     }
     if (m.find("profile") != m.end() && !m["profile"].empty()) {
       profile = make_shared<string>(boost::any_cast<string>(m["profile"]));
+    }
+    if (m.find("region_id") != m.end() && !m["region_id"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["region_id"]));
     }
   }
 
