@@ -515,10 +515,13 @@ public:
 class CreateAppGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmJson{};
+  shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<long> maxJobs{};
+  shared_ptr<string> monitorConfigJson{};
+  shared_ptr<string> monitorContactsJson{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespaceName{};
   shared_ptr<string> namespaceSource{};
@@ -537,6 +540,9 @@ public:
     if (alarmJson) {
       res["AlarmJson"] = boost::any(*alarmJson);
     }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
@@ -548,6 +554,12 @@ public:
     }
     if (maxJobs) {
       res["MaxJobs"] = boost::any(*maxJobs);
+    }
+    if (monitorConfigJson) {
+      res["MonitorConfigJson"] = boost::any(*monitorConfigJson);
+    }
+    if (monitorContactsJson) {
+      res["MonitorContactsJson"] = boost::any(*monitorContactsJson);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -568,6 +580,9 @@ public:
     if (m.find("AlarmJson") != m.end() && !m["AlarmJson"].empty()) {
       alarmJson = make_shared<string>(boost::any_cast<string>(m["AlarmJson"]));
     }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
@@ -579,6 +594,12 @@ public:
     }
     if (m.find("MaxJobs") != m.end() && !m["MaxJobs"].empty()) {
       maxJobs = make_shared<long>(boost::any_cast<long>(m["MaxJobs"]));
+    }
+    if (m.find("MonitorConfigJson") != m.end() && !m["MonitorConfigJson"].empty()) {
+      monitorConfigJson = make_shared<string>(boost::any_cast<string>(m["MonitorConfigJson"]));
+    }
+    if (m.find("MonitorContactsJson") != m.end() && !m["MonitorContactsJson"].empty()) {
+      monitorContactsJson = make_shared<string>(boost::any_cast<string>(m["MonitorContactsJson"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -600,6 +621,7 @@ public:
 class CreateAppGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> appGroupId{};
+  shared_ptr<string> appKey{};
 
   CreateAppGroupResponseBodyData() {}
 
@@ -614,12 +636,18 @@ public:
     if (appGroupId) {
       res["AppGroupId"] = boost::any(*appGroupId);
     }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppGroupId") != m.end() && !m["AppGroupId"].empty()) {
       appGroupId = make_shared<long>(boost::any_cast<long>(m["AppGroupId"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
     }
   }
 
@@ -1190,6 +1218,198 @@ public:
 
 
   virtual ~CreateJobResponse() = default;
+};
+class CreateNamespaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> uid{};
+
+  CreateNamespaceRequest() {}
+
+  explicit CreateNamespaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (uid) {
+      res["Uid"] = boost::any(*uid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
+      uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceRequest() = default;
+};
+class CreateNamespaceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> namespaceUid{};
+
+  CreateNamespaceResponseBodyData() {}
+
+  explicit CreateNamespaceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespaceUid) {
+      res["NamespaceUid"] = boost::any(*namespaceUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NamespaceUid") != m.end() && !m["NamespaceUid"].empty()) {
+      namespaceUid = make_shared<string>(boost::any_cast<string>(m["NamespaceUid"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceResponseBodyData() = default;
+};
+class CreateNamespaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<CreateNamespaceResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateNamespaceResponseBody() {}
+
+  explicit CreateNamespaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateNamespaceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateNamespaceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateNamespaceResponseBody() = default;
+};
+class CreateNamespaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateNamespaceResponseBody> body{};
+
+  CreateNamespaceResponse() {}
+
+  explicit CreateNamespaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateNamespaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateNamespaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateNamespaceResponse() = default;
 };
 class DeleteJobRequest : public Darabonba::Model {
 public:
@@ -2935,6 +3155,7 @@ class GetJobInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
   shared_ptr<long> jobId{};
+  shared_ptr<string> jobName{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespaceSource{};
   shared_ptr<string> regionId{};
@@ -2955,6 +3176,9 @@ public:
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
     }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -2973,6 +3197,9 @@ public:
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -3278,6 +3505,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> executeMode{};
   shared_ptr<string> jarUrl{};
+  shared_ptr<long> jobId{};
   shared_ptr<GetJobInfoResponseBodyDataJobConfigInfoJobMonitorInfo> jobMonitorInfo{};
   shared_ptr<GetJobInfoResponseBodyDataJobConfigInfoMapTaskXAttrs> mapTaskXAttrs{};
   shared_ptr<long> maxAttempt{};
@@ -3314,6 +3542,9 @@ public:
     }
     if (jarUrl) {
       res["JarUrl"] = boost::any(*jarUrl);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
     if (jobMonitorInfo) {
       res["JobMonitorInfo"] = jobMonitorInfo ? boost::any(jobMonitorInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3360,6 +3591,9 @@ public:
     }
     if (m.find("JarUrl") != m.end() && !m["JarUrl"].empty()) {
       jarUrl = make_shared<string>(boost::any_cast<string>(m["JarUrl"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<long>(boost::any_cast<long>(m["JobId"]));
     }
     if (m.find("JobMonitorInfo") != m.end() && !m["JobMonitorInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["JobMonitorInfo"].type()) {
@@ -6929,6 +7163,8 @@ public:
   CreateAppGroupResponse createAppGroup(shared_ptr<CreateAppGroupRequest> request);
   CreateJobResponse createJobWithOptions(shared_ptr<CreateJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateJobResponse createJob(shared_ptr<CreateJobRequest> request);
+  CreateNamespaceResponse createNamespaceWithOptions(shared_ptr<CreateNamespaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNamespaceResponse createNamespace(shared_ptr<CreateNamespaceRequest> request);
   DeleteJobResponse deleteJobWithOptions(shared_ptr<DeleteJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteJobResponse deleteJob(shared_ptr<DeleteJobRequest> request);
   DeleteWorkflowResponse deleteWorkflowWithOptions(shared_ptr<DeleteWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
