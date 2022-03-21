@@ -41,11 +41,21 @@ string Alibabacloud_Dytnsapi20200217::Client::getEndpoint(shared_ptr<string> pro
 DescribeEmptyNumberDetectResponse Alibabacloud_Dytnsapi20200217::Client::describeEmptyNumberDetectWithOptions(shared_ptr<DescribeEmptyNumberDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("EncryptType", *request->encryptType));
-  query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  query->insert(pair<string, string>("Phone", *request->phone));
-  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->encryptType)) {
+    query->insert(pair<string, string>("EncryptType", *request->encryptType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
+    query->insert(pair<string, string>("Phone", *request->phone));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -71,14 +81,30 @@ DescribeEmptyNumberDetectResponse Alibabacloud_Dytnsapi20200217::Client::describ
 DescribePhoneNumberAnalysisResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberAnalysisWithOptions(shared_ptr<DescribePhoneNumberAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, string>("AuthCode", *request->authCode));
-  query->insert(pair<string, string>("InputNumber", *request->inputNumber));
-  query->insert(pair<string, string>("Mask", *request->mask));
-  query->insert(pair<string, long>("NumberType", *request->numberType));
-  query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  query->insert(pair<string, long>("Rate", *request->rate));
-  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
+    query->insert(pair<string, string>("InputNumber", *request->inputNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->numberType)) {
+    query->insert(pair<string, long>("NumberType", *request->numberType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->rate)) {
+    query->insert(pair<string, long>("Rate", *request->rate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -104,10 +130,18 @@ DescribePhoneNumberAnalysisResponse Alibabacloud_Dytnsapi20200217::Client::descr
 DescribePhoneNumberAttributeResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberAttributeWithOptions(shared_ptr<DescribePhoneNumberAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
-  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -130,14 +164,70 @@ DescribePhoneNumberAttributeResponse Alibabacloud_Dytnsapi20200217::Client::desc
   return describePhoneNumberAttributeWithOptions(request, runtime);
 }
 
+DescribePhoneNumberOnlineTimeResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOnlineTimeWithOptions(shared_ptr<DescribePhoneNumberOnlineTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->carrier)) {
+    query->insert(pair<string, string>("Carrier", *request->carrier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
+    query->insert(pair<string, string>("InputNumber", *request->inputNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mask)) {
+    query->insert(pair<string, string>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePhoneNumberOnlineTime"))},
+    {"version", boost::any(string("2020-02-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePhoneNumberOnlineTimeResponse(callApi(params, req, runtime));
+}
+
+DescribePhoneNumberOnlineTimeResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberOnlineTime(shared_ptr<DescribePhoneNumberOnlineTimeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePhoneNumberOnlineTimeWithOptions(request, runtime);
+}
+
 DescribePhoneNumberResaleResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberResaleWithOptions(shared_ptr<DescribePhoneNumberResaleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
-  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  query->insert(pair<string, string>("Since", *request->since));
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->since)) {
+    query->insert(pair<string, string>("Since", *request->since));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -163,10 +253,18 @@ DescribePhoneNumberResaleResponse Alibabacloud_Dytnsapi20200217::Client::describ
 DescribePhoneNumberStatusResponse Alibabacloud_Dytnsapi20200217::Client::describePhoneNumberStatusWithOptions(shared_ptr<DescribePhoneNumberStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
-  query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
