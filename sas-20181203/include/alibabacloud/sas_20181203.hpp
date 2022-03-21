@@ -11566,6 +11566,7 @@ public:
 class DescribeFieldStatisticsResponseBodyGroupedFields : public Darabonba::Model {
 public:
   shared_ptr<long> aliYunInstanceCount{};
+  shared_ptr<long> awsInstanceCount{};
   shared_ptr<long> exposedInstanceCount{};
   shared_ptr<long> generalAssetCount{};
   shared_ptr<long> groupCount{};
@@ -11597,6 +11598,9 @@ public:
     map<string, boost::any> res;
     if (aliYunInstanceCount) {
       res["AliYunInstanceCount"] = boost::any(*aliYunInstanceCount);
+    }
+    if (awsInstanceCount) {
+      res["AwsInstanceCount"] = boost::any(*awsInstanceCount);
     }
     if (exposedInstanceCount) {
       res["ExposedInstanceCount"] = boost::any(*exposedInstanceCount);
@@ -11658,6 +11662,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliYunInstanceCount") != m.end() && !m["AliYunInstanceCount"].empty()) {
       aliYunInstanceCount = make_shared<long>(boost::any_cast<long>(m["AliYunInstanceCount"]));
+    }
+    if (m.find("AwsInstanceCount") != m.end() && !m["AwsInstanceCount"].empty()) {
+      awsInstanceCount = make_shared<long>(boost::any_cast<long>(m["AwsInstanceCount"]));
     }
     if (m.find("ExposedInstanceCount") != m.end() && !m["ExposedInstanceCount"].empty()) {
       exposedInstanceCount = make_shared<long>(boost::any_cast<long>(m["ExposedInstanceCount"]));
@@ -15465,7 +15472,7 @@ public:
   shared_ptr<string> fullVersion{};
   shared_ptr<string> layer{};
   shared_ptr<string> matchDetail{};
-  shared_ptr<string> matchList{};
+  shared_ptr<vector<string>> matchList{};
   shared_ptr<string> name{};
   shared_ptr<string> path{};
   shared_ptr<string> updateCmd{};
@@ -15519,7 +15526,14 @@ public:
       matchDetail = make_shared<string>(boost::any_cast<string>(m["MatchDetail"]));
     }
     if (m.find("MatchList") != m.end() && !m["MatchList"].empty()) {
-      matchList = make_shared<string>(boost::any_cast<string>(m["MatchList"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MatchList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MatchList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      matchList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -16701,550 +16715,6 @@ public:
 
 
   virtual ~DescribeInstanceStatisticsResponse() = default;
-};
-class DescribeIpInfoRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> field{};
-  shared_ptr<string> ip{};
-
-  DescribeIpInfoRequest() {}
-
-  explicit DescribeIpInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (field) {
-      res["Field"] = boost::any(*field);
-    }
-    if (ip) {
-      res["Ip"] = boost::any(*ip);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Field") != m.end() && !m["Field"].empty()) {
-      field = make_shared<string>(boost::any_cast<string>(m["Field"]));
-    }
-    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
-      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-  }
-
-
-  virtual ~DescribeIpInfoRequest() = default;
-};
-class DescribeIpInfoResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<string> c2DayTrace{};
-  shared_ptr<string> city{};
-  shared_ptr<string> country{};
-  shared_ptr<string> dayCnt30dTor{};
-  shared_ptr<string> dayCnt30dWebAttack{};
-  shared_ptr<string> dayCnt7dTor{};
-  shared_ptr<string> dayCnt7dWebAttack{};
-  shared_ptr<string> geo{};
-  shared_ptr<string> gmtFirstC2{};
-  shared_ptr<string> gmtFirstMiningPool{};
-  shared_ptr<string> gmtLastC2{};
-  shared_ptr<string> gmtLastMaliciousLogin{};
-  shared_ptr<string> gmtLastMaliciousSource{};
-  shared_ptr<string> gmtLastMiningPool{};
-  shared_ptr<string> gmtLastNat{};
-  shared_ptr<string> gmtLastProxy{};
-  shared_ptr<string> gmtLastTor{};
-  shared_ptr<string> gmtLastWebAttack{};
-  shared_ptr<string> idcName{};
-  shared_ptr<string> ip{};
-  shared_ptr<string> isC2{};
-  shared_ptr<string> isC21d{};
-  shared_ptr<string> isC27d{};
-  shared_ptr<string> isIdc{};
-  shared_ptr<string> isMaliciousLogin{};
-  shared_ptr<string> isMaliciousLogin1d{};
-  shared_ptr<string> isMaliciousLogin7d{};
-  shared_ptr<string> isMaliciousSource{};
-  shared_ptr<string> isMaliciousSource1d{};
-  shared_ptr<string> isMaliciousSource30d{};
-  shared_ptr<string> isMaliciousSource7d{};
-  shared_ptr<string> isMiningPool{};
-  shared_ptr<string> isMiningPool1d{};
-  shared_ptr<string> isMiningPool7d{};
-  shared_ptr<string> isNat{};
-  shared_ptr<string> isNat1d{};
-  shared_ptr<string> isNat7d{};
-  shared_ptr<string> isProxy{};
-  shared_ptr<string> isProxy1d{};
-  shared_ptr<string> isProxy7d{};
-  shared_ptr<string> isTor{};
-  shared_ptr<string> isTor1d{};
-  shared_ptr<string> isTor7d{};
-  shared_ptr<string> isWebAttack{};
-  shared_ptr<string> isWebAttack1d{};
-  shared_ptr<string> isWebAttack30d{};
-  shared_ptr<string> isWebAttack7d{};
-  shared_ptr<string> isp{};
-  shared_ptr<string> maliciousLoginDayTrace{};
-  shared_ptr<string> maliciousScore{};
-  shared_ptr<string> maliciousSourceDayTrace{};
-  shared_ptr<string> miningPoolDayTrace{};
-  shared_ptr<string> natDayTrace{};
-  shared_ptr<string> province{};
-  shared_ptr<string> proxyDayTrace{};
-  shared_ptr<string> rdns{};
-  shared_ptr<string> tags{};
-  shared_ptr<string> torDayTrace{};
-  shared_ptr<string> totalDayCntTor{};
-  shared_ptr<string> totalDayCntWebAttack{};
-  shared_ptr<string> webAttackDayTrace{};
-
-  DescribeIpInfoResponseBody() {}
-
-  explicit DescribeIpInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (c2DayTrace) {
-      res["c2_day_trace"] = boost::any(*c2DayTrace);
-    }
-    if (city) {
-      res["city"] = boost::any(*city);
-    }
-    if (country) {
-      res["country"] = boost::any(*country);
-    }
-    if (dayCnt30dTor) {
-      res["day_cnt_30d_tor"] = boost::any(*dayCnt30dTor);
-    }
-    if (dayCnt30dWebAttack) {
-      res["day_cnt_30d_web_attack"] = boost::any(*dayCnt30dWebAttack);
-    }
-    if (dayCnt7dTor) {
-      res["day_cnt_7d_tor"] = boost::any(*dayCnt7dTor);
-    }
-    if (dayCnt7dWebAttack) {
-      res["day_cnt_7d_web_attack"] = boost::any(*dayCnt7dWebAttack);
-    }
-    if (geo) {
-      res["geo"] = boost::any(*geo);
-    }
-    if (gmtFirstC2) {
-      res["gmt_first_c2"] = boost::any(*gmtFirstC2);
-    }
-    if (gmtFirstMiningPool) {
-      res["gmt_first_mining_pool"] = boost::any(*gmtFirstMiningPool);
-    }
-    if (gmtLastC2) {
-      res["gmt_last_c2"] = boost::any(*gmtLastC2);
-    }
-    if (gmtLastMaliciousLogin) {
-      res["gmt_last_malicious_login"] = boost::any(*gmtLastMaliciousLogin);
-    }
-    if (gmtLastMaliciousSource) {
-      res["gmt_last_malicious_source"] = boost::any(*gmtLastMaliciousSource);
-    }
-    if (gmtLastMiningPool) {
-      res["gmt_last_mining_pool"] = boost::any(*gmtLastMiningPool);
-    }
-    if (gmtLastNat) {
-      res["gmt_last_nat"] = boost::any(*gmtLastNat);
-    }
-    if (gmtLastProxy) {
-      res["gmt_last_proxy"] = boost::any(*gmtLastProxy);
-    }
-    if (gmtLastTor) {
-      res["gmt_last_tor"] = boost::any(*gmtLastTor);
-    }
-    if (gmtLastWebAttack) {
-      res["gmt_last_web_attack"] = boost::any(*gmtLastWebAttack);
-    }
-    if (idcName) {
-      res["idc_name"] = boost::any(*idcName);
-    }
-    if (ip) {
-      res["ip"] = boost::any(*ip);
-    }
-    if (isC2) {
-      res["is_c2"] = boost::any(*isC2);
-    }
-    if (isC21d) {
-      res["is_c2_1d"] = boost::any(*isC21d);
-    }
-    if (isC27d) {
-      res["is_c2_7d"] = boost::any(*isC27d);
-    }
-    if (isIdc) {
-      res["is_idc"] = boost::any(*isIdc);
-    }
-    if (isMaliciousLogin) {
-      res["is_malicious_login"] = boost::any(*isMaliciousLogin);
-    }
-    if (isMaliciousLogin1d) {
-      res["is_malicious_login_1d"] = boost::any(*isMaliciousLogin1d);
-    }
-    if (isMaliciousLogin7d) {
-      res["is_malicious_login_7d"] = boost::any(*isMaliciousLogin7d);
-    }
-    if (isMaliciousSource) {
-      res["is_malicious_source"] = boost::any(*isMaliciousSource);
-    }
-    if (isMaliciousSource1d) {
-      res["is_malicious_source_1d"] = boost::any(*isMaliciousSource1d);
-    }
-    if (isMaliciousSource30d) {
-      res["is_malicious_source_30d"] = boost::any(*isMaliciousSource30d);
-    }
-    if (isMaliciousSource7d) {
-      res["is_malicious_source_7d"] = boost::any(*isMaliciousSource7d);
-    }
-    if (isMiningPool) {
-      res["is_mining_pool"] = boost::any(*isMiningPool);
-    }
-    if (isMiningPool1d) {
-      res["is_mining_pool_1d"] = boost::any(*isMiningPool1d);
-    }
-    if (isMiningPool7d) {
-      res["is_mining_pool_7d"] = boost::any(*isMiningPool7d);
-    }
-    if (isNat) {
-      res["is_nat"] = boost::any(*isNat);
-    }
-    if (isNat1d) {
-      res["is_nat_1d"] = boost::any(*isNat1d);
-    }
-    if (isNat7d) {
-      res["is_nat_7d"] = boost::any(*isNat7d);
-    }
-    if (isProxy) {
-      res["is_proxy"] = boost::any(*isProxy);
-    }
-    if (isProxy1d) {
-      res["is_proxy_1d"] = boost::any(*isProxy1d);
-    }
-    if (isProxy7d) {
-      res["is_proxy_7d"] = boost::any(*isProxy7d);
-    }
-    if (isTor) {
-      res["is_tor"] = boost::any(*isTor);
-    }
-    if (isTor1d) {
-      res["is_tor_1d"] = boost::any(*isTor1d);
-    }
-    if (isTor7d) {
-      res["is_tor_7d"] = boost::any(*isTor7d);
-    }
-    if (isWebAttack) {
-      res["is_web_attack"] = boost::any(*isWebAttack);
-    }
-    if (isWebAttack1d) {
-      res["is_web_attack_1d"] = boost::any(*isWebAttack1d);
-    }
-    if (isWebAttack30d) {
-      res["is_web_attack_30d"] = boost::any(*isWebAttack30d);
-    }
-    if (isWebAttack7d) {
-      res["is_web_attack_7d"] = boost::any(*isWebAttack7d);
-    }
-    if (isp) {
-      res["isp"] = boost::any(*isp);
-    }
-    if (maliciousLoginDayTrace) {
-      res["malicious_login_day_trace"] = boost::any(*maliciousLoginDayTrace);
-    }
-    if (maliciousScore) {
-      res["malicious_score"] = boost::any(*maliciousScore);
-    }
-    if (maliciousSourceDayTrace) {
-      res["malicious_source_day_trace"] = boost::any(*maliciousSourceDayTrace);
-    }
-    if (miningPoolDayTrace) {
-      res["mining_pool_day_trace"] = boost::any(*miningPoolDayTrace);
-    }
-    if (natDayTrace) {
-      res["nat_day_trace"] = boost::any(*natDayTrace);
-    }
-    if (province) {
-      res["province"] = boost::any(*province);
-    }
-    if (proxyDayTrace) {
-      res["proxy_day_trace"] = boost::any(*proxyDayTrace);
-    }
-    if (rdns) {
-      res["rdns"] = boost::any(*rdns);
-    }
-    if (tags) {
-      res["tags"] = boost::any(*tags);
-    }
-    if (torDayTrace) {
-      res["tor_day_trace"] = boost::any(*torDayTrace);
-    }
-    if (totalDayCntTor) {
-      res["total_day_cnt_tor"] = boost::any(*totalDayCntTor);
-    }
-    if (totalDayCntWebAttack) {
-      res["total_day_cnt_web_attack"] = boost::any(*totalDayCntWebAttack);
-    }
-    if (webAttackDayTrace) {
-      res["web_attack_day_trace"] = boost::any(*webAttackDayTrace);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("c2_day_trace") != m.end() && !m["c2_day_trace"].empty()) {
-      c2DayTrace = make_shared<string>(boost::any_cast<string>(m["c2_day_trace"]));
-    }
-    if (m.find("city") != m.end() && !m["city"].empty()) {
-      city = make_shared<string>(boost::any_cast<string>(m["city"]));
-    }
-    if (m.find("country") != m.end() && !m["country"].empty()) {
-      country = make_shared<string>(boost::any_cast<string>(m["country"]));
-    }
-    if (m.find("day_cnt_30d_tor") != m.end() && !m["day_cnt_30d_tor"].empty()) {
-      dayCnt30dTor = make_shared<string>(boost::any_cast<string>(m["day_cnt_30d_tor"]));
-    }
-    if (m.find("day_cnt_30d_web_attack") != m.end() && !m["day_cnt_30d_web_attack"].empty()) {
-      dayCnt30dWebAttack = make_shared<string>(boost::any_cast<string>(m["day_cnt_30d_web_attack"]));
-    }
-    if (m.find("day_cnt_7d_tor") != m.end() && !m["day_cnt_7d_tor"].empty()) {
-      dayCnt7dTor = make_shared<string>(boost::any_cast<string>(m["day_cnt_7d_tor"]));
-    }
-    if (m.find("day_cnt_7d_web_attack") != m.end() && !m["day_cnt_7d_web_attack"].empty()) {
-      dayCnt7dWebAttack = make_shared<string>(boost::any_cast<string>(m["day_cnt_7d_web_attack"]));
-    }
-    if (m.find("geo") != m.end() && !m["geo"].empty()) {
-      geo = make_shared<string>(boost::any_cast<string>(m["geo"]));
-    }
-    if (m.find("gmt_first_c2") != m.end() && !m["gmt_first_c2"].empty()) {
-      gmtFirstC2 = make_shared<string>(boost::any_cast<string>(m["gmt_first_c2"]));
-    }
-    if (m.find("gmt_first_mining_pool") != m.end() && !m["gmt_first_mining_pool"].empty()) {
-      gmtFirstMiningPool = make_shared<string>(boost::any_cast<string>(m["gmt_first_mining_pool"]));
-    }
-    if (m.find("gmt_last_c2") != m.end() && !m["gmt_last_c2"].empty()) {
-      gmtLastC2 = make_shared<string>(boost::any_cast<string>(m["gmt_last_c2"]));
-    }
-    if (m.find("gmt_last_malicious_login") != m.end() && !m["gmt_last_malicious_login"].empty()) {
-      gmtLastMaliciousLogin = make_shared<string>(boost::any_cast<string>(m["gmt_last_malicious_login"]));
-    }
-    if (m.find("gmt_last_malicious_source") != m.end() && !m["gmt_last_malicious_source"].empty()) {
-      gmtLastMaliciousSource = make_shared<string>(boost::any_cast<string>(m["gmt_last_malicious_source"]));
-    }
-    if (m.find("gmt_last_mining_pool") != m.end() && !m["gmt_last_mining_pool"].empty()) {
-      gmtLastMiningPool = make_shared<string>(boost::any_cast<string>(m["gmt_last_mining_pool"]));
-    }
-    if (m.find("gmt_last_nat") != m.end() && !m["gmt_last_nat"].empty()) {
-      gmtLastNat = make_shared<string>(boost::any_cast<string>(m["gmt_last_nat"]));
-    }
-    if (m.find("gmt_last_proxy") != m.end() && !m["gmt_last_proxy"].empty()) {
-      gmtLastProxy = make_shared<string>(boost::any_cast<string>(m["gmt_last_proxy"]));
-    }
-    if (m.find("gmt_last_tor") != m.end() && !m["gmt_last_tor"].empty()) {
-      gmtLastTor = make_shared<string>(boost::any_cast<string>(m["gmt_last_tor"]));
-    }
-    if (m.find("gmt_last_web_attack") != m.end() && !m["gmt_last_web_attack"].empty()) {
-      gmtLastWebAttack = make_shared<string>(boost::any_cast<string>(m["gmt_last_web_attack"]));
-    }
-    if (m.find("idc_name") != m.end() && !m["idc_name"].empty()) {
-      idcName = make_shared<string>(boost::any_cast<string>(m["idc_name"]));
-    }
-    if (m.find("ip") != m.end() && !m["ip"].empty()) {
-      ip = make_shared<string>(boost::any_cast<string>(m["ip"]));
-    }
-    if (m.find("is_c2") != m.end() && !m["is_c2"].empty()) {
-      isC2 = make_shared<string>(boost::any_cast<string>(m["is_c2"]));
-    }
-    if (m.find("is_c2_1d") != m.end() && !m["is_c2_1d"].empty()) {
-      isC21d = make_shared<string>(boost::any_cast<string>(m["is_c2_1d"]));
-    }
-    if (m.find("is_c2_7d") != m.end() && !m["is_c2_7d"].empty()) {
-      isC27d = make_shared<string>(boost::any_cast<string>(m["is_c2_7d"]));
-    }
-    if (m.find("is_idc") != m.end() && !m["is_idc"].empty()) {
-      isIdc = make_shared<string>(boost::any_cast<string>(m["is_idc"]));
-    }
-    if (m.find("is_malicious_login") != m.end() && !m["is_malicious_login"].empty()) {
-      isMaliciousLogin = make_shared<string>(boost::any_cast<string>(m["is_malicious_login"]));
-    }
-    if (m.find("is_malicious_login_1d") != m.end() && !m["is_malicious_login_1d"].empty()) {
-      isMaliciousLogin1d = make_shared<string>(boost::any_cast<string>(m["is_malicious_login_1d"]));
-    }
-    if (m.find("is_malicious_login_7d") != m.end() && !m["is_malicious_login_7d"].empty()) {
-      isMaliciousLogin7d = make_shared<string>(boost::any_cast<string>(m["is_malicious_login_7d"]));
-    }
-    if (m.find("is_malicious_source") != m.end() && !m["is_malicious_source"].empty()) {
-      isMaliciousSource = make_shared<string>(boost::any_cast<string>(m["is_malicious_source"]));
-    }
-    if (m.find("is_malicious_source_1d") != m.end() && !m["is_malicious_source_1d"].empty()) {
-      isMaliciousSource1d = make_shared<string>(boost::any_cast<string>(m["is_malicious_source_1d"]));
-    }
-    if (m.find("is_malicious_source_30d") != m.end() && !m["is_malicious_source_30d"].empty()) {
-      isMaliciousSource30d = make_shared<string>(boost::any_cast<string>(m["is_malicious_source_30d"]));
-    }
-    if (m.find("is_malicious_source_7d") != m.end() && !m["is_malicious_source_7d"].empty()) {
-      isMaliciousSource7d = make_shared<string>(boost::any_cast<string>(m["is_malicious_source_7d"]));
-    }
-    if (m.find("is_mining_pool") != m.end() && !m["is_mining_pool"].empty()) {
-      isMiningPool = make_shared<string>(boost::any_cast<string>(m["is_mining_pool"]));
-    }
-    if (m.find("is_mining_pool_1d") != m.end() && !m["is_mining_pool_1d"].empty()) {
-      isMiningPool1d = make_shared<string>(boost::any_cast<string>(m["is_mining_pool_1d"]));
-    }
-    if (m.find("is_mining_pool_7d") != m.end() && !m["is_mining_pool_7d"].empty()) {
-      isMiningPool7d = make_shared<string>(boost::any_cast<string>(m["is_mining_pool_7d"]));
-    }
-    if (m.find("is_nat") != m.end() && !m["is_nat"].empty()) {
-      isNat = make_shared<string>(boost::any_cast<string>(m["is_nat"]));
-    }
-    if (m.find("is_nat_1d") != m.end() && !m["is_nat_1d"].empty()) {
-      isNat1d = make_shared<string>(boost::any_cast<string>(m["is_nat_1d"]));
-    }
-    if (m.find("is_nat_7d") != m.end() && !m["is_nat_7d"].empty()) {
-      isNat7d = make_shared<string>(boost::any_cast<string>(m["is_nat_7d"]));
-    }
-    if (m.find("is_proxy") != m.end() && !m["is_proxy"].empty()) {
-      isProxy = make_shared<string>(boost::any_cast<string>(m["is_proxy"]));
-    }
-    if (m.find("is_proxy_1d") != m.end() && !m["is_proxy_1d"].empty()) {
-      isProxy1d = make_shared<string>(boost::any_cast<string>(m["is_proxy_1d"]));
-    }
-    if (m.find("is_proxy_7d") != m.end() && !m["is_proxy_7d"].empty()) {
-      isProxy7d = make_shared<string>(boost::any_cast<string>(m["is_proxy_7d"]));
-    }
-    if (m.find("is_tor") != m.end() && !m["is_tor"].empty()) {
-      isTor = make_shared<string>(boost::any_cast<string>(m["is_tor"]));
-    }
-    if (m.find("is_tor_1d") != m.end() && !m["is_tor_1d"].empty()) {
-      isTor1d = make_shared<string>(boost::any_cast<string>(m["is_tor_1d"]));
-    }
-    if (m.find("is_tor_7d") != m.end() && !m["is_tor_7d"].empty()) {
-      isTor7d = make_shared<string>(boost::any_cast<string>(m["is_tor_7d"]));
-    }
-    if (m.find("is_web_attack") != m.end() && !m["is_web_attack"].empty()) {
-      isWebAttack = make_shared<string>(boost::any_cast<string>(m["is_web_attack"]));
-    }
-    if (m.find("is_web_attack_1d") != m.end() && !m["is_web_attack_1d"].empty()) {
-      isWebAttack1d = make_shared<string>(boost::any_cast<string>(m["is_web_attack_1d"]));
-    }
-    if (m.find("is_web_attack_30d") != m.end() && !m["is_web_attack_30d"].empty()) {
-      isWebAttack30d = make_shared<string>(boost::any_cast<string>(m["is_web_attack_30d"]));
-    }
-    if (m.find("is_web_attack_7d") != m.end() && !m["is_web_attack_7d"].empty()) {
-      isWebAttack7d = make_shared<string>(boost::any_cast<string>(m["is_web_attack_7d"]));
-    }
-    if (m.find("isp") != m.end() && !m["isp"].empty()) {
-      isp = make_shared<string>(boost::any_cast<string>(m["isp"]));
-    }
-    if (m.find("malicious_login_day_trace") != m.end() && !m["malicious_login_day_trace"].empty()) {
-      maliciousLoginDayTrace = make_shared<string>(boost::any_cast<string>(m["malicious_login_day_trace"]));
-    }
-    if (m.find("malicious_score") != m.end() && !m["malicious_score"].empty()) {
-      maliciousScore = make_shared<string>(boost::any_cast<string>(m["malicious_score"]));
-    }
-    if (m.find("malicious_source_day_trace") != m.end() && !m["malicious_source_day_trace"].empty()) {
-      maliciousSourceDayTrace = make_shared<string>(boost::any_cast<string>(m["malicious_source_day_trace"]));
-    }
-    if (m.find("mining_pool_day_trace") != m.end() && !m["mining_pool_day_trace"].empty()) {
-      miningPoolDayTrace = make_shared<string>(boost::any_cast<string>(m["mining_pool_day_trace"]));
-    }
-    if (m.find("nat_day_trace") != m.end() && !m["nat_day_trace"].empty()) {
-      natDayTrace = make_shared<string>(boost::any_cast<string>(m["nat_day_trace"]));
-    }
-    if (m.find("province") != m.end() && !m["province"].empty()) {
-      province = make_shared<string>(boost::any_cast<string>(m["province"]));
-    }
-    if (m.find("proxy_day_trace") != m.end() && !m["proxy_day_trace"].empty()) {
-      proxyDayTrace = make_shared<string>(boost::any_cast<string>(m["proxy_day_trace"]));
-    }
-    if (m.find("rdns") != m.end() && !m["rdns"].empty()) {
-      rdns = make_shared<string>(boost::any_cast<string>(m["rdns"]));
-    }
-    if (m.find("tags") != m.end() && !m["tags"].empty()) {
-      tags = make_shared<string>(boost::any_cast<string>(m["tags"]));
-    }
-    if (m.find("tor_day_trace") != m.end() && !m["tor_day_trace"].empty()) {
-      torDayTrace = make_shared<string>(boost::any_cast<string>(m["tor_day_trace"]));
-    }
-    if (m.find("total_day_cnt_tor") != m.end() && !m["total_day_cnt_tor"].empty()) {
-      totalDayCntTor = make_shared<string>(boost::any_cast<string>(m["total_day_cnt_tor"]));
-    }
-    if (m.find("total_day_cnt_web_attack") != m.end() && !m["total_day_cnt_web_attack"].empty()) {
-      totalDayCntWebAttack = make_shared<string>(boost::any_cast<string>(m["total_day_cnt_web_attack"]));
-    }
-    if (m.find("web_attack_day_trace") != m.end() && !m["web_attack_day_trace"].empty()) {
-      webAttackDayTrace = make_shared<string>(boost::any_cast<string>(m["web_attack_day_trace"]));
-    }
-  }
-
-
-  virtual ~DescribeIpInfoResponseBody() = default;
-};
-class DescribeIpInfoResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<DescribeIpInfoResponseBody> body{};
-
-  DescribeIpInfoResponse() {}
-
-  explicit DescribeIpInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeIpInfoResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeIpInfoResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeIpInfoResponse() = default;
 };
 class DescribeLogstoreStorageRequest : public Darabonba::Model {
 public:
@@ -29528,130 +28998,6 @@ public:
 
   virtual ~DescribeVersionConfigResponse() = default;
 };
-class DescribeVolDingdingMessageRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> lang{};
-  shared_ptr<string> sourceIp{};
-
-  DescribeVolDingdingMessageRequest() {}
-
-  explicit DescribeVolDingdingMessageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (lang) {
-      res["Lang"] = boost::any(*lang);
-    }
-    if (sourceIp) {
-      res["SourceIp"] = boost::any(*sourceIp);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
-      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
-    }
-    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
-      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
-    }
-  }
-
-
-  virtual ~DescribeVolDingdingMessageRequest() = default;
-};
-class DescribeVolDingdingMessageResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> dingdingUrl{};
-  shared_ptr<string> requestId{};
-
-  DescribeVolDingdingMessageResponseBody() {}
-
-  explicit DescribeVolDingdingMessageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (dingdingUrl) {
-      res["DingdingUrl"] = boost::any(*dingdingUrl);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DingdingUrl") != m.end() && !m["DingdingUrl"].empty()) {
-      dingdingUrl = make_shared<string>(boost::any_cast<string>(m["DingdingUrl"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~DescribeVolDingdingMessageResponseBody() = default;
-};
-class DescribeVolDingdingMessageResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<DescribeVolDingdingMessageResponseBody> body{};
-
-  DescribeVolDingdingMessageResponse() {}
-
-  explicit DescribeVolDingdingMessageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeVolDingdingMessageResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeVolDingdingMessageResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeVolDingdingMessageResponse() = default;
-};
 class DescribeVpcHoneyPotCriteriaResponseBodyCriteriaList : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -40262,8 +39608,6 @@ public:
   DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRules(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request);
   DescribeInstanceStatisticsResponse describeInstanceStatisticsWithOptions(shared_ptr<DescribeInstanceStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceStatisticsResponse describeInstanceStatistics(shared_ptr<DescribeInstanceStatisticsRequest> request);
-  DescribeIpInfoResponse describeIpInfoWithOptions(shared_ptr<DescribeIpInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeIpInfoResponse describeIpInfo(shared_ptr<DescribeIpInfoRequest> request);
   DescribeLogstoreStorageResponse describeLogstoreStorageWithOptions(shared_ptr<DescribeLogstoreStorageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLogstoreStorageResponse describeLogstoreStorage(shared_ptr<DescribeLogstoreStorageRequest> request);
   DescribeModuleConfigResponse describeModuleConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40352,8 +39696,6 @@ public:
   DescribeUserLayoutAuthorizationResponse describeUserLayoutAuthorization(shared_ptr<DescribeUserLayoutAuthorizationRequest> request);
   DescribeVersionConfigResponse describeVersionConfigWithOptions(shared_ptr<DescribeVersionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVersionConfigResponse describeVersionConfig(shared_ptr<DescribeVersionConfigRequest> request);
-  DescribeVolDingdingMessageResponse describeVolDingdingMessageWithOptions(shared_ptr<DescribeVolDingdingMessageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeVolDingdingMessageResponse describeVolDingdingMessage(shared_ptr<DescribeVolDingdingMessageRequest> request);
   DescribeVpcHoneyPotCriteriaResponse describeVpcHoneyPotCriteriaWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVpcHoneyPotCriteriaResponse describeVpcHoneyPotCriteria();
   DescribeVpcHoneyPotListResponse describeVpcHoneyPotListWithOptions(shared_ptr<DescribeVpcHoneyPotListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
