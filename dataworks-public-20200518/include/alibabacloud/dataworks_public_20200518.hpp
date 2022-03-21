@@ -41804,6 +41804,7 @@ public:
 };
 class ListMetaDBRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<string> dataSourceType{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -41819,6 +41820,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (dataSourceType) {
       res["DataSourceType"] = boost::any(*dataSourceType);
     }
@@ -41835,6 +41839,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
       dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
     }
@@ -56376,6 +56383,7 @@ public:
   shared_ptr<string> expectValue{};
   shared_ptr<long> id{};
   shared_ptr<string> methodName{};
+  shared_ptr<bool> openSwitch{};
   shared_ptr<string> operator_{};
   shared_ptr<long> predictType{};
   shared_ptr<string> projectName{};
@@ -56421,6 +56429,9 @@ public:
     }
     if (methodName) {
       res["MethodName"] = boost::any(*methodName);
+    }
+    if (openSwitch) {
+      res["OpenSwitch"] = boost::any(*openSwitch);
     }
     if (operator_) {
       res["Operator"] = boost::any(*operator_);
@@ -56482,6 +56493,9 @@ public:
     }
     if (m.find("MethodName") != m.end() && !m["MethodName"].empty()) {
       methodName = make_shared<string>(boost::any_cast<string>(m["MethodName"]));
+    }
+    if (m.find("OpenSwitch") != m.end() && !m["OpenSwitch"].empty()) {
+      openSwitch = make_shared<bool>(boost::any_cast<bool>(m["OpenSwitch"]));
     }
     if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));

@@ -8200,6 +8200,9 @@ UpdateQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::updateQ
   if (!Darabonba_Util::Client::isUnset<string>(request->methodName)) {
     body->insert(pair<string, string>("MethodName", *request->methodName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->openSwitch)) {
+    body->insert(pair<string, bool>("OpenSwitch", *request->openSwitch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
     body->insert(pair<string, string>("Operator_", *request->operator_));
   }
