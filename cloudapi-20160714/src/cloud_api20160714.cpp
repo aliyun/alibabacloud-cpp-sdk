@@ -534,6 +534,9 @@ CreateBackendResponse Alibabacloud_CloudAPI20160714::Client::createBackendWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->backendType)) {
     query->insert(pair<string, string>("BackendType", *request->backendType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createEventBridgeServiceLinkedRole)) {
+    query->insert(pair<string, bool>("CreateEventBridgeServiceLinkedRole", *request->createEventBridgeServiceLinkedRole));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }

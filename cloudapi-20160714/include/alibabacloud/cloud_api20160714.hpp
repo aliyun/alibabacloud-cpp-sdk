@@ -1844,6 +1844,7 @@ class CreateBackendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backendName{};
   shared_ptr<string> backendType{};
+  shared_ptr<bool> createEventBridgeServiceLinkedRole{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
 
@@ -1863,6 +1864,9 @@ public:
     if (backendType) {
       res["BackendType"] = boost::any(*backendType);
     }
+    if (createEventBridgeServiceLinkedRole) {
+      res["CreateEventBridgeServiceLinkedRole"] = boost::any(*createEventBridgeServiceLinkedRole);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -1878,6 +1882,9 @@ public:
     }
     if (m.find("BackendType") != m.end() && !m["BackendType"].empty()) {
       backendType = make_shared<string>(boost::any_cast<string>(m["BackendType"]));
+    }
+    if (m.find("CreateEventBridgeServiceLinkedRole") != m.end() && !m["CreateEventBridgeServiceLinkedRole"].empty()) {
+      createEventBridgeServiceLinkedRole = make_shared<bool>(boost::any_cast<bool>(m["CreateEventBridgeServiceLinkedRole"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -7280,6 +7287,56 @@ public:
 
   virtual ~DescribeApiResponseBodyResultDescriptions() = default;
 };
+class DescribeApiResponseBodyServiceConfigEventBridgeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBridgeRegionId{};
+  shared_ptr<string> eventBus{};
+  shared_ptr<string> eventSource{};
+  shared_ptr<string> roleArn{};
+
+  DescribeApiResponseBodyServiceConfigEventBridgeConfig() {}
+
+  explicit DescribeApiResponseBodyServiceConfigEventBridgeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBridgeRegionId) {
+      res["EventBridgeRegionId"] = boost::any(*eventBridgeRegionId);
+    }
+    if (eventBus) {
+      res["EventBus"] = boost::any(*eventBus);
+    }
+    if (eventSource) {
+      res["EventSource"] = boost::any(*eventSource);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBridgeRegionId") != m.end() && !m["EventBridgeRegionId"].empty()) {
+      eventBridgeRegionId = make_shared<string>(boost::any_cast<string>(m["EventBridgeRegionId"]));
+    }
+    if (m.find("EventBus") != m.end() && !m["EventBus"].empty()) {
+      eventBus = make_shared<string>(boost::any_cast<string>(m["EventBus"]));
+    }
+    if (m.find("EventSource") != m.end() && !m["EventSource"].empty()) {
+      eventSource = make_shared<string>(boost::any_cast<string>(m["EventSource"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+  }
+
+
+  virtual ~DescribeApiResponseBodyServiceConfigEventBridgeConfig() = default;
+};
 class DescribeApiResponseBodyServiceConfigFunctionComputeConfig : public Darabonba::Model {
 public:
   shared_ptr<string> contentTypeCatagory{};
@@ -7577,6 +7634,7 @@ public:
   shared_ptr<string> aoneAppName{};
   shared_ptr<string> contentTypeCatagory{};
   shared_ptr<string> contentTypeValue{};
+  shared_ptr<DescribeApiResponseBodyServiceConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeApiResponseBodyServiceConfigFunctionComputeConfig> functionComputeConfig{};
   shared_ptr<string> mock{};
   shared_ptr<DescribeApiResponseBodyServiceConfigMockHeaders> mockHeaders{};
@@ -7609,6 +7667,9 @@ public:
     }
     if (contentTypeValue) {
       res["ContentTypeValue"] = boost::any(*contentTypeValue);
+    }
+    if (eventBridgeConfig) {
+      res["EventBridgeConfig"] = eventBridgeConfig ? boost::any(eventBridgeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionComputeConfig) {
       res["FunctionComputeConfig"] = functionComputeConfig ? boost::any(functionComputeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7661,6 +7722,13 @@ public:
     }
     if (m.find("ContentTypeValue") != m.end() && !m["ContentTypeValue"].empty()) {
       contentTypeValue = make_shared<string>(boost::any_cast<string>(m["ContentTypeValue"]));
+    }
+    if (m.find("EventBridgeConfig") != m.end() && !m["EventBridgeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventBridgeConfig"].type()) {
+        DescribeApiResponseBodyServiceConfigEventBridgeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventBridgeConfig"]));
+        eventBridgeConfig = make_shared<DescribeApiResponseBodyServiceConfigEventBridgeConfig>(model1);
+      }
     }
     if (m.find("FunctionComputeConfig") != m.end() && !m["FunctionComputeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FunctionComputeConfig"].type()) {
@@ -11469,6 +11537,56 @@ public:
 
   virtual ~DescribeApiHistoryResponseBodyResultDescriptions() = default;
 };
+class DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBridgeRegionId{};
+  shared_ptr<string> eventBus{};
+  shared_ptr<string> eventSource{};
+  shared_ptr<string> roleArn{};
+
+  DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig() {}
+
+  explicit DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBridgeRegionId) {
+      res["EventBridgeRegionId"] = boost::any(*eventBridgeRegionId);
+    }
+    if (eventBus) {
+      res["EventBus"] = boost::any(*eventBus);
+    }
+    if (eventSource) {
+      res["EventSource"] = boost::any(*eventSource);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBridgeRegionId") != m.end() && !m["EventBridgeRegionId"].empty()) {
+      eventBridgeRegionId = make_shared<string>(boost::any_cast<string>(m["EventBridgeRegionId"]));
+    }
+    if (m.find("EventBus") != m.end() && !m["EventBus"].empty()) {
+      eventBus = make_shared<string>(boost::any_cast<string>(m["EventBus"]));
+    }
+    if (m.find("EventSource") != m.end() && !m["EventSource"].empty()) {
+      eventSource = make_shared<string>(boost::any_cast<string>(m["EventSource"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+  }
+
+
+  virtual ~DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig() = default;
+};
 class DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig : public Darabonba::Model {
 public:
   shared_ptr<string> contentTypeCatagory{};
@@ -11765,6 +11883,7 @@ class DescribeApiHistoryResponseBodyServiceConfig : public Darabonba::Model {
 public:
   shared_ptr<string> contentTypeCatagory{};
   shared_ptr<string> contentTypeValue{};
+  shared_ptr<DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig> functionComputeConfig{};
   shared_ptr<string> mock{};
   shared_ptr<DescribeApiHistoryResponseBodyServiceConfigMockHeaders> mockHeaders{};
@@ -11795,6 +11914,9 @@ public:
     }
     if (contentTypeValue) {
       res["ContentTypeValue"] = boost::any(*contentTypeValue);
+    }
+    if (eventBridgeConfig) {
+      res["EventBridgeConfig"] = eventBridgeConfig ? boost::any(eventBridgeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (functionComputeConfig) {
       res["FunctionComputeConfig"] = functionComputeConfig ? boost::any(functionComputeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11847,6 +11969,13 @@ public:
     }
     if (m.find("ContentTypeValue") != m.end() && !m["ContentTypeValue"].empty()) {
       contentTypeValue = make_shared<string>(boost::any_cast<string>(m["ContentTypeValue"]));
+    }
+    if (m.find("EventBridgeConfig") != m.end() && !m["EventBridgeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventBridgeConfig"].type()) {
+        DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventBridgeConfig"]));
+        eventBridgeConfig = make_shared<DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig>(model1);
+      }
     }
     if (m.find("FunctionComputeConfig") != m.end() && !m["FunctionComputeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FunctionComputeConfig"].type()) {
@@ -18013,6 +18142,56 @@ public:
 
   virtual ~DescribeBackendInfoRequest() = default;
 };
+class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> eventBridgeRegionId{};
+  shared_ptr<string> eventBus{};
+  shared_ptr<string> eventSource{};
+  shared_ptr<string> roleArn{};
+
+  DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig() {}
+
+  explicit DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventBridgeRegionId) {
+      res["EventBridgeRegionId"] = boost::any(*eventBridgeRegionId);
+    }
+    if (eventBus) {
+      res["EventBus"] = boost::any(*eventBus);
+    }
+    if (eventSource) {
+      res["EventSource"] = boost::any(*eventSource);
+    }
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBridgeRegionId") != m.end() && !m["EventBridgeRegionId"].empty()) {
+      eventBridgeRegionId = make_shared<string>(boost::any_cast<string>(m["EventBridgeRegionId"]));
+    }
+    if (m.find("EventBus") != m.end() && !m["EventBus"].empty()) {
+      eventBus = make_shared<string>(boost::any_cast<string>(m["EventBus"]));
+    }
+    if (m.find("EventSource") != m.end() && !m["EventSource"].empty()) {
+      eventSource = make_shared<string>(boost::any_cast<string>(m["EventSource"]));
+    }
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig() = default;
+};
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig : public Darabonba::Model {
 public:
   shared_ptr<string> fcBaseUrl{};
@@ -18193,6 +18372,7 @@ public:
 };
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig : public Darabonba::Model {
 public:
+  shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig> functionComputeConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig> ossConfig{};
   shared_ptr<string> serviceAddress{};
@@ -18209,6 +18389,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (eventBridgeConfig) {
+      res["EventBridgeConfig"] = eventBridgeConfig ? boost::any(eventBridgeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (functionComputeConfig) {
       res["FunctionComputeConfig"] = functionComputeConfig ? boost::any(functionComputeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -18228,6 +18411,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventBridgeConfig") != m.end() && !m["EventBridgeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EventBridgeConfig"].type()) {
+        DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EventBridgeConfig"]));
+        eventBridgeConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig>(model1);
+      }
+    }
     if (m.find("FunctionComputeConfig") != m.end() && !m["FunctionComputeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FunctionComputeConfig"].type()) {
         DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig model1;
