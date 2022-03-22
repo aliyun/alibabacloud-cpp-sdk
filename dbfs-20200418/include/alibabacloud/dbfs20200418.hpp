@@ -3259,6 +3259,7 @@ public:
   shared_ptr<string> snapshotType{};
   shared_ptr<string> sourceFsId{};
   shared_ptr<long> sourceFsSize{};
+  shared_ptr<long> sourceFsStripeWidth{};
   shared_ptr<string> status{};
 
   ListSnapshotResponseBodySnapshots() {}
@@ -3307,6 +3308,9 @@ public:
     if (sourceFsSize) {
       res["SourceFsSize"] = boost::any(*sourceFsSize);
     }
+    if (sourceFsStripeWidth) {
+      res["SourceFsStripeWidth"] = boost::any(*sourceFsStripeWidth);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -3349,6 +3353,9 @@ public:
     }
     if (m.find("SourceFsSize") != m.end() && !m["SourceFsSize"].empty()) {
       sourceFsSize = make_shared<long>(boost::any_cast<long>(m["SourceFsSize"]));
+    }
+    if (m.find("SourceFsStripeWidth") != m.end() && !m["SourceFsStripeWidth"].empty()) {
+      sourceFsStripeWidth = make_shared<long>(boost::any_cast<long>(m["SourceFsStripeWidth"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
