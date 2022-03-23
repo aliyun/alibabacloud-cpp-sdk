@@ -976,6 +976,9 @@ ListFlowJobsResponse Alibabacloud_Ddi20200617::Client::listFlowJobsWithOptions(s
   if (!Darabonba_Util::Client::isUnset<bool>(request->adhoc)) {
     query->insert(pair<string, bool>("Adhoc", *request->adhoc));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exactName)) {
+    query->insert(pair<string, string>("ExactName", *request->exactName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }

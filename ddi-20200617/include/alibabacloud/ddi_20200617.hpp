@@ -6571,6 +6571,7 @@ public:
 class ListFlowJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> adhoc{};
+  shared_ptr<string> exactName{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
@@ -6591,6 +6592,9 @@ public:
     map<string, boost::any> res;
     if (adhoc) {
       res["Adhoc"] = boost::any(*adhoc);
+    }
+    if (exactName) {
+      res["ExactName"] = boost::any(*exactName);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -6619,6 +6623,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Adhoc") != m.end() && !m["Adhoc"].empty()) {
       adhoc = make_shared<bool>(boost::any_cast<bool>(m["Adhoc"]));
+    }
+    if (m.find("ExactName") != m.end() && !m["ExactName"].empty()) {
+      exactName = make_shared<string>(boost::any_cast<string>(m["ExactName"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
