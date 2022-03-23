@@ -583,7 +583,7 @@ public:
 };
 class DeletePtsScenesRequest : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> sceneIds{};
+  shared_ptr<vector<string>> sceneIds{};
 
   DeletePtsScenesRequest() {}
 
@@ -603,12 +603,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("SceneIds") != m.end() && !m["SceneIds"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["SceneIds"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SceneIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SceneIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      sceneIds = make_shared<map<string, boost::any>>(toMap1);
+      sceneIds = make_shared<vector<string>>(toVec1);
     }
   }
 
