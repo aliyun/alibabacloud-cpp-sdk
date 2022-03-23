@@ -2881,7 +2881,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
-  shared_ptr<string> shardCount{};
+  shared_ptr<long> shardCount{};
 
   DeleteShardingNodeRequest() {}
 
@@ -2943,7 +2943,7 @@ public:
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("ShardCount") != m.end() && !m["ShardCount"].empty()) {
-      shardCount = make_shared<string>(boost::any_cast<string>(m["ShardCount"]));
+      shardCount = make_shared<long>(boost::any_cast<long>(m["ShardCount"]));
     }
   }
 
