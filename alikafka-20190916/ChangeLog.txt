@@ -1,3 +1,6 @@
+2022-03-23 Version: 1.0.2
+- Add GetAllInstanceId.
+
 2021-05-08 Version: 1.0.1
 - Generated cpp 2019-09-16 for alikafka.
 
