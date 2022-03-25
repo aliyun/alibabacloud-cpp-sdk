@@ -8367,6 +8367,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<vector<string>> userSet{};
   shared_ptr<string> workspaceId{};
 
   UpdateV3InstanceByUserResponseBody() {}
@@ -8396,6 +8397,9 @@ public:
     }
     if (success) {
       res["Success"] = boost::any(*success);
+    }
+    if (userSet) {
+      res["UserSet"] = boost::any(*userSet);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -8428,6 +8432,16 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("UserSet") != m.end() && !m["UserSet"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UserSet"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UserSet"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userSet = make_shared<vector<string>>(toVec1);
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
