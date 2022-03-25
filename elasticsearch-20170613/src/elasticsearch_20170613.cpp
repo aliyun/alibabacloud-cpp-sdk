@@ -267,7 +267,7 @@ CapacityPlanResponse Alibabacloud_Elasticsearch20170613::Client::capacityPlanWit
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/openapi/assist/actions/capacity-plan"))},
     {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
+    {"authType", boost::any(string("Anonymous"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
@@ -3281,6 +3281,64 @@ ListInstanceResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceWit
     {"bodyType", boost::any(string("json"))}
   }));
   return ListInstanceResponse(callApi(params, req, runtime));
+}
+
+ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceHistoryEvents(shared_ptr<ListInstanceHistoryEventsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listInstanceHistoryEventsWithOptions(request, headers, runtime);
+}
+
+ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceHistoryEventsWithOptions(shared_ptr<ListInstanceHistoryEventsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventCreateEndTime)) {
+    query->insert(pair<string, string>("eventCreateEndTime", *request->eventCreateEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventCreateStartTime)) {
+    query->insert(pair<string, string>("eventCreateStartTime", *request->eventCreateStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventExecuteEndTime)) {
+    query->insert(pair<string, string>("eventExecuteEndTime", *request->eventExecuteEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventExecuteStartTime)) {
+    query->insert(pair<string, string>("eventExecuteStartTime", *request->eventExecuteStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventFinashEndTime)) {
+    query->insert(pair<string, string>("eventFinashEndTime", *request->eventFinashEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventFinashStartTime)) {
+    query->insert(pair<string, string>("eventFinashStartTime", *request->eventFinashStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventLevel)) {
+    query->insert(pair<string, string>("eventLevel", *request->eventLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
+    query->insert(pair<string, string>("eventType", *request->eventType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("instanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeIP)) {
+    query->insert(pair<string, string>("nodeIP", *request->nodeIP));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toArray<vector<ListInstanceHistoryEventsRequestBody>>(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListInstanceHistoryEvents"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/events"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListInstanceHistoryEventsResponse(callApi(params, req, runtime));
 }
 
 ListInstanceIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceIndices(shared_ptr<string> InstanceId, shared_ptr<ListInstanceIndicesRequest> request) {
