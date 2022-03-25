@@ -11890,7 +11890,14 @@ public:
   shared_ptr<string> clusterType{};
   shared_ptr<long> createTime{};
   shared_ptr<string> custerState{};
+  shared_ptr<long> hcCount{};
   shared_ptr<string> hostIp{};
+  shared_ptr<string> image{};
+  shared_ptr<string> imageDigest{};
+  shared_ptr<string> imageRepoName{};
+  shared_ptr<string> imageRepoNamespace{};
+  shared_ptr<string> imageRepoTag{};
+  shared_ptr<string> imageUuid{};
   shared_ptr<long> instanceCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> namespace_{};
@@ -11933,8 +11940,29 @@ public:
     if (custerState) {
       res["CusterState"] = boost::any(*custerState);
     }
+    if (hcCount) {
+      res["HcCount"] = boost::any(*hcCount);
+    }
     if (hostIp) {
       res["HostIp"] = boost::any(*hostIp);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
+    }
+    if (imageDigest) {
+      res["ImageDigest"] = boost::any(*imageDigest);
+    }
+    if (imageRepoName) {
+      res["ImageRepoName"] = boost::any(*imageRepoName);
+    }
+    if (imageRepoNamespace) {
+      res["ImageRepoNamespace"] = boost::any(*imageRepoNamespace);
+    }
+    if (imageRepoTag) {
+      res["ImageRepoTag"] = boost::any(*imageRepoTag);
+    }
+    if (imageUuid) {
+      res["ImageUuid"] = boost::any(*imageUuid);
     }
     if (instanceCount) {
       res["InstanceCount"] = boost::any(*instanceCount);
@@ -11991,8 +12019,29 @@ public:
     if (m.find("CusterState") != m.end() && !m["CusterState"].empty()) {
       custerState = make_shared<string>(boost::any_cast<string>(m["CusterState"]));
     }
+    if (m.find("HcCount") != m.end() && !m["HcCount"].empty()) {
+      hcCount = make_shared<long>(boost::any_cast<long>(m["HcCount"]));
+    }
     if (m.find("HostIp") != m.end() && !m["HostIp"].empty()) {
       hostIp = make_shared<string>(boost::any_cast<string>(m["HostIp"]));
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
+    }
+    if (m.find("ImageDigest") != m.end() && !m["ImageDigest"].empty()) {
+      imageDigest = make_shared<string>(boost::any_cast<string>(m["ImageDigest"]));
+    }
+    if (m.find("ImageRepoName") != m.end() && !m["ImageRepoName"].empty()) {
+      imageRepoName = make_shared<string>(boost::any_cast<string>(m["ImageRepoName"]));
+    }
+    if (m.find("ImageRepoNamespace") != m.end() && !m["ImageRepoNamespace"].empty()) {
+      imageRepoNamespace = make_shared<string>(boost::any_cast<string>(m["ImageRepoNamespace"]));
+    }
+    if (m.find("ImageRepoTag") != m.end() && !m["ImageRepoTag"].empty()) {
+      imageRepoTag = make_shared<string>(boost::any_cast<string>(m["ImageRepoTag"]));
+    }
+    if (m.find("ImageUuid") != m.end() && !m["ImageUuid"].empty()) {
+      imageUuid = make_shared<string>(boost::any_cast<string>(m["ImageUuid"]));
     }
     if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
       instanceCount = make_shared<long>(boost::any_cast<long>(m["InstanceCount"]));
