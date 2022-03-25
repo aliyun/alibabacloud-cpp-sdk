@@ -879,6 +879,39 @@ SaveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::saveOpenJMeterScen
   return saveOpenJMeterSceneWithOptions(request, runtime);
 }
 
+SavePtsSceneResponse Alibabacloud_PTS20201020::Client::savePtsSceneWithOptions(shared_ptr<SavePtsSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SavePtsSceneShrinkRequest> request = make_shared<SavePtsSceneShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SavePtsSceneRequestScene>(tmpReq->scene)) {
+    request->sceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scene->toMap()), make_shared<string>("Scene"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneShrink)) {
+    query->insert(pair<string, string>("Scene", *request->sceneShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SavePtsScene"))},
+    {"version", boost::any(string("2020-10-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SavePtsSceneResponse(callApi(params, req, runtime));
+}
+
+SavePtsSceneResponse Alibabacloud_PTS20201020::Client::savePtsScene(shared_ptr<SavePtsSceneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return savePtsSceneWithOptions(request, runtime);
+}
+
 StartDebugPtsSceneResponse Alibabacloud_PTS20201020::Client::startDebugPtsSceneWithOptions(shared_ptr<StartDebugPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

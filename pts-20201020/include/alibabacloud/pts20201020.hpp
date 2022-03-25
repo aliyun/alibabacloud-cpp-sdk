@@ -8623,6 +8623,1236 @@ public:
 
   virtual ~SaveOpenJMeterSceneResponse() = default;
 };
+class SavePtsSceneRequestSceneAdvanceSettingDomainBindingList : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<vector<string>> ips{};
+
+  SavePtsSceneRequestSceneAdvanceSettingDomainBindingList() {}
+
+  explicit SavePtsSceneRequestSceneAdvanceSettingDomainBindingList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Ips"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ips"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ips = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneAdvanceSettingDomainBindingList() = default;
+};
+class SavePtsSceneRequestSceneAdvanceSetting : public Darabonba::Model {
+public:
+  shared_ptr<long> connectionTimeoutInSecond{};
+  shared_ptr<vector<SavePtsSceneRequestSceneAdvanceSettingDomainBindingList>> domainBindingList{};
+  shared_ptr<long> logRate{};
+  shared_ptr<string> successCode{};
+
+  SavePtsSceneRequestSceneAdvanceSetting() {}
+
+  explicit SavePtsSceneRequestSceneAdvanceSetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectionTimeoutInSecond) {
+      res["ConnectionTimeoutInSecond"] = boost::any(*connectionTimeoutInSecond);
+    }
+    if (domainBindingList) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainBindingList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainBindingList"] = boost::any(temp1);
+    }
+    if (logRate) {
+      res["LogRate"] = boost::any(*logRate);
+    }
+    if (successCode) {
+      res["SuccessCode"] = boost::any(*successCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionTimeoutInSecond") != m.end() && !m["ConnectionTimeoutInSecond"].empty()) {
+      connectionTimeoutInSecond = make_shared<long>(boost::any_cast<long>(m["ConnectionTimeoutInSecond"]));
+    }
+    if (m.find("DomainBindingList") != m.end() && !m["DomainBindingList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainBindingList"].type()) {
+        vector<SavePtsSceneRequestSceneAdvanceSettingDomainBindingList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainBindingList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneAdvanceSettingDomainBindingList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainBindingList = make_shared<vector<SavePtsSceneRequestSceneAdvanceSettingDomainBindingList>>(expect1);
+      }
+    }
+    if (m.find("LogRate") != m.end() && !m["LogRate"].empty()) {
+      logRate = make_shared<long>(boost::any_cast<long>(m["LogRate"]));
+    }
+    if (m.find("SuccessCode") != m.end() && !m["SuccessCode"].empty()) {
+      successCode = make_shared<string>(boost::any_cast<string>(m["SuccessCode"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneAdvanceSetting() = default;
+};
+class SavePtsSceneRequestSceneFileParameterList : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileOssAddress{};
+
+  SavePtsSceneRequestSceneFileParameterList() {}
+
+  explicit SavePtsSceneRequestSceneFileParameterList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileOssAddress) {
+      res["FileOssAddress"] = boost::any(*fileOssAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileOssAddress") != m.end() && !m["FileOssAddress"].empty()) {
+      fileOssAddress = make_shared<string>(boost::any_cast<string>(m["FileOssAddress"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneFileParameterList() = default;
+};
+class SavePtsSceneRequestSceneGlobalParameterList : public Darabonba::Model {
+public:
+  shared_ptr<string> paramName{};
+  shared_ptr<string> paramValue{};
+
+  SavePtsSceneRequestSceneGlobalParameterList() {}
+
+  explicit SavePtsSceneRequestSceneGlobalParameterList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paramName) {
+      res["ParamName"] = boost::any(*paramName);
+    }
+    if (paramValue) {
+      res["ParamValue"] = boost::any(*paramValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParamName") != m.end() && !m["ParamName"].empty()) {
+      paramName = make_shared<string>(boost::any_cast<string>(m["ParamName"]));
+    }
+    if (m.find("ParamValue") != m.end() && !m["ParamValue"].empty()) {
+      paramValue = make_shared<string>(boost::any_cast<string>(m["ParamValue"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneGlobalParameterList() = default;
+};
+class SavePtsSceneRequestSceneLoadConfigApiLoadConfigList : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<long> rpsBegin{};
+  shared_ptr<long> rpsLimit{};
+
+  SavePtsSceneRequestSceneLoadConfigApiLoadConfigList() {}
+
+  explicit SavePtsSceneRequestSceneLoadConfigApiLoadConfigList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (rpsBegin) {
+      res["RpsBegin"] = boost::any(*rpsBegin);
+    }
+    if (rpsLimit) {
+      res["RpsLimit"] = boost::any(*rpsLimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("RpsBegin") != m.end() && !m["RpsBegin"].empty()) {
+      rpsBegin = make_shared<long>(boost::any_cast<long>(m["RpsBegin"]));
+    }
+    if (m.find("RpsLimit") != m.end() && !m["RpsLimit"].empty()) {
+      rpsLimit = make_shared<long>(boost::any_cast<long>(m["RpsLimit"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneLoadConfigApiLoadConfigList() = default;
+};
+class SavePtsSceneRequestSceneLoadConfigConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<long> allConcurrencyBegin{};
+  shared_ptr<long> allConcurrencyLimit{};
+  shared_ptr<long> allRpsBegin{};
+  shared_ptr<long> allRpsLimit{};
+
+  SavePtsSceneRequestSceneLoadConfigConfiguration() {}
+
+  explicit SavePtsSceneRequestSceneLoadConfigConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allConcurrencyBegin) {
+      res["AllConcurrencyBegin"] = boost::any(*allConcurrencyBegin);
+    }
+    if (allConcurrencyLimit) {
+      res["AllConcurrencyLimit"] = boost::any(*allConcurrencyLimit);
+    }
+    if (allRpsBegin) {
+      res["AllRpsBegin"] = boost::any(*allRpsBegin);
+    }
+    if (allRpsLimit) {
+      res["AllRpsLimit"] = boost::any(*allRpsLimit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllConcurrencyBegin") != m.end() && !m["AllConcurrencyBegin"].empty()) {
+      allConcurrencyBegin = make_shared<long>(boost::any_cast<long>(m["AllConcurrencyBegin"]));
+    }
+    if (m.find("AllConcurrencyLimit") != m.end() && !m["AllConcurrencyLimit"].empty()) {
+      allConcurrencyLimit = make_shared<long>(boost::any_cast<long>(m["AllConcurrencyLimit"]));
+    }
+    if (m.find("AllRpsBegin") != m.end() && !m["AllRpsBegin"].empty()) {
+      allRpsBegin = make_shared<long>(boost::any_cast<long>(m["AllRpsBegin"]));
+    }
+    if (m.find("AllRpsLimit") != m.end() && !m["AllRpsLimit"].empty()) {
+      allRpsLimit = make_shared<long>(boost::any_cast<long>(m["AllRpsLimit"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneLoadConfigConfiguration() = default;
+};
+class SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList : public Darabonba::Model {
+public:
+  shared_ptr<long> concurrencyBegin{};
+  shared_ptr<long> concurrencyLimit{};
+  shared_ptr<string> relationId{};
+
+  SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList() {}
+
+  explicit SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (concurrencyBegin) {
+      res["ConcurrencyBegin"] = boost::any(*concurrencyBegin);
+    }
+    if (concurrencyLimit) {
+      res["ConcurrencyLimit"] = boost::any(*concurrencyLimit);
+    }
+    if (relationId) {
+      res["RelationId"] = boost::any(*relationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConcurrencyBegin") != m.end() && !m["ConcurrencyBegin"].empty()) {
+      concurrencyBegin = make_shared<long>(boost::any_cast<long>(m["ConcurrencyBegin"]));
+    }
+    if (m.find("ConcurrencyLimit") != m.end() && !m["ConcurrencyLimit"].empty()) {
+      concurrencyLimit = make_shared<long>(boost::any_cast<long>(m["ConcurrencyLimit"]));
+    }
+    if (m.find("RelationId") != m.end() && !m["RelationId"].empty()) {
+      relationId = make_shared<string>(boost::any_cast<string>(m["RelationId"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList() = default;
+};
+class SavePtsSceneRequestSceneLoadConfigVpcLoadConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
+
+  SavePtsSceneRequestSceneLoadConfigVpcLoadConfig() {}
+
+  explicit SavePtsSceneRequestSceneLoadConfigVpcLoadConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneLoadConfigVpcLoadConfig() = default;
+};
+class SavePtsSceneRequestSceneLoadConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> agentCount{};
+  shared_ptr<vector<SavePtsSceneRequestSceneLoadConfigApiLoadConfigList>> apiLoadConfigList{};
+  shared_ptr<bool> autoStep{};
+  shared_ptr<SavePtsSceneRequestSceneLoadConfigConfiguration> configuration{};
+  shared_ptr<long> increment{};
+  shared_ptr<long> keepTime{};
+  shared_ptr<long> maxRunningTime{};
+  shared_ptr<vector<SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList>> relationLoadConfigList{};
+  shared_ptr<string> testMode{};
+  shared_ptr<SavePtsSceneRequestSceneLoadConfigVpcLoadConfig> vpcLoadConfig{};
+
+  SavePtsSceneRequestSceneLoadConfig() {}
+
+  explicit SavePtsSceneRequestSceneLoadConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentCount) {
+      res["AgentCount"] = boost::any(*agentCount);
+    }
+    if (apiLoadConfigList) {
+      vector<boost::any> temp1;
+      for(auto item1:*apiLoadConfigList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApiLoadConfigList"] = boost::any(temp1);
+    }
+    if (autoStep) {
+      res["AutoStep"] = boost::any(*autoStep);
+    }
+    if (configuration) {
+      res["Configuration"] = configuration ? boost::any(configuration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (increment) {
+      res["Increment"] = boost::any(*increment);
+    }
+    if (keepTime) {
+      res["KeepTime"] = boost::any(*keepTime);
+    }
+    if (maxRunningTime) {
+      res["MaxRunningTime"] = boost::any(*maxRunningTime);
+    }
+    if (relationLoadConfigList) {
+      vector<boost::any> temp1;
+      for(auto item1:*relationLoadConfigList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RelationLoadConfigList"] = boost::any(temp1);
+    }
+    if (testMode) {
+      res["TestMode"] = boost::any(*testMode);
+    }
+    if (vpcLoadConfig) {
+      res["VpcLoadConfig"] = vpcLoadConfig ? boost::any(vpcLoadConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentCount") != m.end() && !m["AgentCount"].empty()) {
+      agentCount = make_shared<long>(boost::any_cast<long>(m["AgentCount"]));
+    }
+    if (m.find("ApiLoadConfigList") != m.end() && !m["ApiLoadConfigList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApiLoadConfigList"].type()) {
+        vector<SavePtsSceneRequestSceneLoadConfigApiLoadConfigList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApiLoadConfigList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneLoadConfigApiLoadConfigList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apiLoadConfigList = make_shared<vector<SavePtsSceneRequestSceneLoadConfigApiLoadConfigList>>(expect1);
+      }
+    }
+    if (m.find("AutoStep") != m.end() && !m["AutoStep"].empty()) {
+      autoStep = make_shared<bool>(boost::any_cast<bool>(m["AutoStep"]));
+    }
+    if (m.find("Configuration") != m.end() && !m["Configuration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Configuration"].type()) {
+        SavePtsSceneRequestSceneLoadConfigConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Configuration"]));
+        configuration = make_shared<SavePtsSceneRequestSceneLoadConfigConfiguration>(model1);
+      }
+    }
+    if (m.find("Increment") != m.end() && !m["Increment"].empty()) {
+      increment = make_shared<long>(boost::any_cast<long>(m["Increment"]));
+    }
+    if (m.find("KeepTime") != m.end() && !m["KeepTime"].empty()) {
+      keepTime = make_shared<long>(boost::any_cast<long>(m["KeepTime"]));
+    }
+    if (m.find("MaxRunningTime") != m.end() && !m["MaxRunningTime"].empty()) {
+      maxRunningTime = make_shared<long>(boost::any_cast<long>(m["MaxRunningTime"]));
+    }
+    if (m.find("RelationLoadConfigList") != m.end() && !m["RelationLoadConfigList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RelationLoadConfigList"].type()) {
+        vector<SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RelationLoadConfigList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        relationLoadConfigList = make_shared<vector<SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList>>(expect1);
+      }
+    }
+    if (m.find("TestMode") != m.end() && !m["TestMode"].empty()) {
+      testMode = make_shared<string>(boost::any_cast<string>(m["TestMode"]));
+    }
+    if (m.find("VpcLoadConfig") != m.end() && !m["VpcLoadConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VpcLoadConfig"].type()) {
+        SavePtsSceneRequestSceneLoadConfigVpcLoadConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VpcLoadConfig"]));
+        vpcLoadConfig = make_shared<SavePtsSceneRequestSceneLoadConfigVpcLoadConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneLoadConfig() = default;
+};
+class SavePtsSceneRequestSceneRelationListApiListBody : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyValue{};
+  shared_ptr<string> contentType{};
+
+  SavePtsSceneRequestSceneRelationListApiListBody() {}
+
+  explicit SavePtsSceneRequestSceneRelationListApiListBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyValue) {
+      res["BodyValue"] = boost::any(*bodyValue);
+    }
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyValue") != m.end() && !m["BodyValue"].empty()) {
+      bodyValue = make_shared<string>(boost::any_cast<string>(m["BodyValue"]));
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListApiListBody() = default;
+};
+class SavePtsSceneRequestSceneRelationListApiListCheckPointList : public Darabonba::Model {
+public:
+  shared_ptr<string> checkPoint{};
+  shared_ptr<string> checkType{};
+  shared_ptr<string> expectValue{};
+  shared_ptr<string> operator_{};
+
+  SavePtsSceneRequestSceneRelationListApiListCheckPointList() {}
+
+  explicit SavePtsSceneRequestSceneRelationListApiListCheckPointList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkPoint) {
+      res["CheckPoint"] = boost::any(*checkPoint);
+    }
+    if (checkType) {
+      res["CheckType"] = boost::any(*checkType);
+    }
+    if (expectValue) {
+      res["ExpectValue"] = boost::any(*expectValue);
+    }
+    if (operator_) {
+      res["Operator"] = boost::any(*operator_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckPoint") != m.end() && !m["CheckPoint"].empty()) {
+      checkPoint = make_shared<string>(boost::any_cast<string>(m["CheckPoint"]));
+    }
+    if (m.find("CheckType") != m.end() && !m["CheckType"].empty()) {
+      checkType = make_shared<string>(boost::any_cast<string>(m["CheckType"]));
+    }
+    if (m.find("ExpectValue") != m.end() && !m["ExpectValue"].empty()) {
+      expectValue = make_shared<string>(boost::any_cast<string>(m["ExpectValue"]));
+    }
+    if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListApiListCheckPointList() = default;
+};
+class SavePtsSceneRequestSceneRelationListApiListExportList : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<string> exportName{};
+  shared_ptr<string> exportType{};
+  shared_ptr<string> exportValue{};
+
+  SavePtsSceneRequestSceneRelationListApiListExportList() {}
+
+  explicit SavePtsSceneRequestSceneRelationListApiListExportList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (exportName) {
+      res["ExportName"] = boost::any(*exportName);
+    }
+    if (exportType) {
+      res["ExportType"] = boost::any(*exportType);
+    }
+    if (exportValue) {
+      res["ExportValue"] = boost::any(*exportValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("ExportName") != m.end() && !m["ExportName"].empty()) {
+      exportName = make_shared<string>(boost::any_cast<string>(m["ExportName"]));
+    }
+    if (m.find("ExportType") != m.end() && !m["ExportType"].empty()) {
+      exportType = make_shared<string>(boost::any_cast<string>(m["ExportType"]));
+    }
+    if (m.find("ExportValue") != m.end() && !m["ExportValue"].empty()) {
+      exportValue = make_shared<string>(boost::any_cast<string>(m["ExportValue"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListApiListExportList() = default;
+};
+class SavePtsSceneRequestSceneRelationListApiListHeaderList : public Darabonba::Model {
+public:
+  shared_ptr<string> headerName{};
+  shared_ptr<string> headerValue{};
+
+  SavePtsSceneRequestSceneRelationListApiListHeaderList() {}
+
+  explicit SavePtsSceneRequestSceneRelationListApiListHeaderList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headerName) {
+      res["HeaderName"] = boost::any(*headerName);
+    }
+    if (headerValue) {
+      res["HeaderValue"] = boost::any(*headerValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HeaderName") != m.end() && !m["HeaderName"].empty()) {
+      headerName = make_shared<string>(boost::any_cast<string>(m["HeaderName"]));
+    }
+    if (m.find("HeaderValue") != m.end() && !m["HeaderValue"].empty()) {
+      headerValue = make_shared<string>(boost::any_cast<string>(m["HeaderValue"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListApiListHeaderList() = default;
+};
+class SavePtsSceneRequestSceneRelationListApiList : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<string> apiName{};
+  shared_ptr<SavePtsSceneRequestSceneRelationListApiListBody> body{};
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationListApiListCheckPointList>> checkPointList{};
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationListApiListExportList>> exportList{};
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationListApiListHeaderList>> headerList{};
+  shared_ptr<string> method{};
+  shared_ptr<long> redirectCountLimit{};
+  shared_ptr<long> timeoutInSecond{};
+  shared_ptr<string> url{};
+
+  SavePtsSceneRequestSceneRelationListApiList() {}
+
+  explicit SavePtsSceneRequestSceneRelationListApiList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (apiName) {
+      res["ApiName"] = boost::any(*apiName);
+    }
+    if (body) {
+      res["Body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (checkPointList) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkPointList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CheckPointList"] = boost::any(temp1);
+    }
+    if (exportList) {
+      vector<boost::any> temp1;
+      for(auto item1:*exportList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ExportList"] = boost::any(temp1);
+    }
+    if (headerList) {
+      vector<boost::any> temp1;
+      for(auto item1:*headerList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HeaderList"] = boost::any(temp1);
+    }
+    if (method) {
+      res["Method"] = boost::any(*method);
+    }
+    if (redirectCountLimit) {
+      res["RedirectCountLimit"] = boost::any(*redirectCountLimit);
+    }
+    if (timeoutInSecond) {
+      res["TimeoutInSecond"] = boost::any(*timeoutInSecond);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("ApiName") != m.end() && !m["ApiName"].empty()) {
+      apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
+    }
+    if (m.find("Body") != m.end() && !m["Body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Body"].type()) {
+        SavePtsSceneRequestSceneRelationListApiListBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Body"]));
+        body = make_shared<SavePtsSceneRequestSceneRelationListApiListBody>(model1);
+      }
+    }
+    if (m.find("CheckPointList") != m.end() && !m["CheckPointList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CheckPointList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationListApiListCheckPointList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CheckPointList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationListApiListCheckPointList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkPointList = make_shared<vector<SavePtsSceneRequestSceneRelationListApiListCheckPointList>>(expect1);
+      }
+    }
+    if (m.find("ExportList") != m.end() && !m["ExportList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ExportList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationListApiListExportList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ExportList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationListApiListExportList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        exportList = make_shared<vector<SavePtsSceneRequestSceneRelationListApiListExportList>>(expect1);
+      }
+    }
+    if (m.find("HeaderList") != m.end() && !m["HeaderList"].empty()) {
+      if (typeid(vector<boost::any>) == m["HeaderList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationListApiListHeaderList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HeaderList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationListApiListHeaderList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headerList = make_shared<vector<SavePtsSceneRequestSceneRelationListApiListHeaderList>>(expect1);
+      }
+    }
+    if (m.find("Method") != m.end() && !m["Method"].empty()) {
+      method = make_shared<string>(boost::any_cast<string>(m["Method"]));
+    }
+    if (m.find("RedirectCountLimit") != m.end() && !m["RedirectCountLimit"].empty()) {
+      redirectCountLimit = make_shared<long>(boost::any_cast<long>(m["RedirectCountLimit"]));
+    }
+    if (m.find("TimeoutInSecond") != m.end() && !m["TimeoutInSecond"].empty()) {
+      timeoutInSecond = make_shared<long>(boost::any_cast<long>(m["TimeoutInSecond"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListApiList() = default;
+};
+class SavePtsSceneRequestSceneRelationListFileParameterExplainList : public Darabonba::Model {
+public:
+  shared_ptr<bool> baseFile{};
+  shared_ptr<bool> cycleOnce{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileParamName{};
+
+  SavePtsSceneRequestSceneRelationListFileParameterExplainList() {}
+
+  explicit SavePtsSceneRequestSceneRelationListFileParameterExplainList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseFile) {
+      res["BaseFile"] = boost::any(*baseFile);
+    }
+    if (cycleOnce) {
+      res["CycleOnce"] = boost::any(*cycleOnce);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileParamName) {
+      res["FileParamName"] = boost::any(*fileParamName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseFile") != m.end() && !m["BaseFile"].empty()) {
+      baseFile = make_shared<bool>(boost::any_cast<bool>(m["BaseFile"]));
+    }
+    if (m.find("CycleOnce") != m.end() && !m["CycleOnce"].empty()) {
+      cycleOnce = make_shared<bool>(boost::any_cast<bool>(m["CycleOnce"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileParamName") != m.end() && !m["FileParamName"].empty()) {
+      fileParamName = make_shared<string>(boost::any_cast<string>(m["FileParamName"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationListFileParameterExplainList() = default;
+};
+class SavePtsSceneRequestSceneRelationList : public Darabonba::Model {
+public:
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationListApiList>> apiList{};
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationListFileParameterExplainList>> fileParameterExplainList{};
+  shared_ptr<string> relationId{};
+  shared_ptr<string> relationName{};
+
+  SavePtsSceneRequestSceneRelationList() {}
+
+  explicit SavePtsSceneRequestSceneRelationList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiList) {
+      vector<boost::any> temp1;
+      for(auto item1:*apiList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApiList"] = boost::any(temp1);
+    }
+    if (fileParameterExplainList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fileParameterExplainList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FileParameterExplainList"] = boost::any(temp1);
+    }
+    if (relationId) {
+      res["RelationId"] = boost::any(*relationId);
+    }
+    if (relationName) {
+      res["RelationName"] = boost::any(*relationName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiList") != m.end() && !m["ApiList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApiList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationListApiList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApiList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationListApiList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apiList = make_shared<vector<SavePtsSceneRequestSceneRelationListApiList>>(expect1);
+      }
+    }
+    if (m.find("FileParameterExplainList") != m.end() && !m["FileParameterExplainList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FileParameterExplainList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationListFileParameterExplainList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FileParameterExplainList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationListFileParameterExplainList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fileParameterExplainList = make_shared<vector<SavePtsSceneRequestSceneRelationListFileParameterExplainList>>(expect1);
+      }
+    }
+    if (m.find("RelationId") != m.end() && !m["RelationId"].empty()) {
+      relationId = make_shared<string>(boost::any_cast<string>(m["RelationId"]));
+    }
+    if (m.find("RelationName") != m.end() && !m["RelationName"].empty()) {
+      relationName = make_shared<string>(boost::any_cast<string>(m["RelationName"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestSceneRelationList() = default;
+};
+class SavePtsSceneRequestScene : public Darabonba::Model {
+public:
+  shared_ptr<SavePtsSceneRequestSceneAdvanceSetting> advanceSetting{};
+  shared_ptr<vector<SavePtsSceneRequestSceneFileParameterList>> fileParameterList{};
+  shared_ptr<vector<SavePtsSceneRequestSceneGlobalParameterList>> globalParameterList{};
+  shared_ptr<SavePtsSceneRequestSceneLoadConfig> loadConfig{};
+  shared_ptr<vector<SavePtsSceneRequestSceneRelationList>> relationList{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+
+  SavePtsSceneRequestScene() {}
+
+  explicit SavePtsSceneRequestScene(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advanceSetting) {
+      res["AdvanceSetting"] = advanceSetting ? boost::any(advanceSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fileParameterList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fileParameterList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FileParameterList"] = boost::any(temp1);
+    }
+    if (globalParameterList) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalParameterList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalParameterList"] = boost::any(temp1);
+    }
+    if (loadConfig) {
+      res["LoadConfig"] = loadConfig ? boost::any(loadConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (relationList) {
+      vector<boost::any> temp1;
+      for(auto item1:*relationList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RelationList"] = boost::any(temp1);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvanceSetting") != m.end() && !m["AdvanceSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdvanceSetting"].type()) {
+        SavePtsSceneRequestSceneAdvanceSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdvanceSetting"]));
+        advanceSetting = make_shared<SavePtsSceneRequestSceneAdvanceSetting>(model1);
+      }
+    }
+    if (m.find("FileParameterList") != m.end() && !m["FileParameterList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FileParameterList"].type()) {
+        vector<SavePtsSceneRequestSceneFileParameterList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FileParameterList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneFileParameterList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fileParameterList = make_shared<vector<SavePtsSceneRequestSceneFileParameterList>>(expect1);
+      }
+    }
+    if (m.find("GlobalParameterList") != m.end() && !m["GlobalParameterList"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalParameterList"].type()) {
+        vector<SavePtsSceneRequestSceneGlobalParameterList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalParameterList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneGlobalParameterList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalParameterList = make_shared<vector<SavePtsSceneRequestSceneGlobalParameterList>>(expect1);
+      }
+    }
+    if (m.find("LoadConfig") != m.end() && !m["LoadConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LoadConfig"].type()) {
+        SavePtsSceneRequestSceneLoadConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LoadConfig"]));
+        loadConfig = make_shared<SavePtsSceneRequestSceneLoadConfig>(model1);
+      }
+    }
+    if (m.find("RelationList") != m.end() && !m["RelationList"].empty()) {
+      if (typeid(vector<boost::any>) == m["RelationList"].type()) {
+        vector<SavePtsSceneRequestSceneRelationList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RelationList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SavePtsSceneRequestSceneRelationList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        relationList = make_shared<vector<SavePtsSceneRequestSceneRelationList>>(expect1);
+      }
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequestScene() = default;
+};
+class SavePtsSceneRequest : public Darabonba::Model {
+public:
+  shared_ptr<SavePtsSceneRequestScene> scene{};
+
+  SavePtsSceneRequest() {}
+
+  explicit SavePtsSceneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scene) {
+      res["Scene"] = scene ? boost::any(scene->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Scene"].type()) {
+        SavePtsSceneRequestScene model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Scene"]));
+        scene = make_shared<SavePtsSceneRequestScene>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SavePtsSceneRequest() = default;
+};
+class SavePtsSceneShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneShrink{};
+
+  SavePtsSceneShrinkRequest() {}
+
+  explicit SavePtsSceneShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneShrink) {
+      res["Scene"] = boost::any(*sceneShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      sceneShrink = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneShrinkRequest() = default;
+};
+class SavePtsSceneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sceneId{};
+  shared_ptr<bool> success{};
+
+  SavePtsSceneResponseBody() {}
+
+  explicit SavePtsSceneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SavePtsSceneResponseBody() = default;
+};
+class SavePtsSceneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SavePtsSceneResponseBody> body{};
+
+  SavePtsSceneResponse() {}
+
+  explicit SavePtsSceneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SavePtsSceneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SavePtsSceneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SavePtsSceneResponse() = default;
+};
 class StartDebugPtsSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> sceneId{};
@@ -10027,6 +11257,8 @@ public:
   SaveEnvResponse saveEnv(shared_ptr<SaveEnvRequest> request);
   SaveOpenJMeterSceneResponse saveOpenJMeterSceneWithOptions(shared_ptr<SaveOpenJMeterSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SaveOpenJMeterSceneResponse saveOpenJMeterScene(shared_ptr<SaveOpenJMeterSceneRequest> request);
+  SavePtsSceneResponse savePtsSceneWithOptions(shared_ptr<SavePtsSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SavePtsSceneResponse savePtsScene(shared_ptr<SavePtsSceneRequest> request);
   StartDebugPtsSceneResponse startDebugPtsSceneWithOptions(shared_ptr<StartDebugPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartDebugPtsSceneResponse startDebugPtsScene(shared_ptr<StartDebugPtsSceneRequest> request);
   StartDebuggingJMeterSceneResponse startDebuggingJMeterSceneWithOptions(shared_ptr<StartDebuggingJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
