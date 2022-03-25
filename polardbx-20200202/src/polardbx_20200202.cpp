@@ -338,6 +338,9 @@ CreateDBResponse Alibabacloud_Polardbx20200202::Client::createDBWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
     query->insert(pair<string, string>("DbName", *request->dbName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
+    query->insert(pair<string, string>("Mode", *request->mode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

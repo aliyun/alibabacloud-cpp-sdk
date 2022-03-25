@@ -975,6 +975,7 @@ public:
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> dbDescription{};
   shared_ptr<string> dbName{};
+  shared_ptr<string> mode{};
   shared_ptr<string> regionId{};
   shared_ptr<string> securityAccountName{};
   shared_ptr<string> securityAccountPassword{};
@@ -1007,6 +1008,9 @@ public:
     if (dbName) {
       res["DbName"] = boost::any(*dbName);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -1037,6 +1041,9 @@ public:
     }
     if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
       dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
