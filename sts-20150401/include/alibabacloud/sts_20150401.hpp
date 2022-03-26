@@ -65,8 +65,8 @@ public:
 };
 class AssumeRoleResponseBodyAssumedRoleUser : public Darabonba::Model {
 public:
-  shared_ptr<string> assumedRoleId{};
   shared_ptr<string> arn{};
+  shared_ptr<string> assumedRoleId{};
 
   AssumeRoleResponseBodyAssumedRoleUser() {}
 
@@ -78,21 +78,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (assumedRoleId) {
-      res["AssumedRoleId"] = boost::any(*assumedRoleId);
-    }
     if (arn) {
       res["Arn"] = boost::any(*arn);
+    }
+    if (assumedRoleId) {
+      res["AssumedRoleId"] = boost::any(*assumedRoleId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
-      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
-    }
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
+      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
     }
   }
 
@@ -101,10 +101,10 @@ public:
 };
 class AssumeRoleResponseBodyCredentials : public Darabonba::Model {
 public:
-  shared_ptr<string> securityToken{};
-  shared_ptr<string> expiration{};
-  shared_ptr<string> accessKeySecret{};
   shared_ptr<string> accessKeyId{};
+  shared_ptr<string> accessKeySecret{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> securityToken{};
 
   AssumeRoleResponseBodyCredentials() {}
 
@@ -116,33 +116,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
-    if (expiration) {
-      res["Expiration"] = boost::any(*expiration);
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
     }
     if (accessKeySecret) {
       res["AccessKeySecret"] = boost::any(*accessKeySecret);
     }
-    if (accessKeyId) {
-      res["AccessKeyId"] = boost::any(*accessKeyId);
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
-    }
-    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
-      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
     }
     if (m.find("AccessKeySecret") != m.end() && !m["AccessKeySecret"].empty()) {
       accessKeySecret = make_shared<string>(boost::any_cast<string>(m["AccessKeySecret"]));
     }
-    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
-      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -151,9 +151,9 @@ public:
 };
 class AssumeRoleResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<AssumeRoleResponseBodyAssumedRoleUser> assumedRoleUser{};
   shared_ptr<AssumeRoleResponseBodyCredentials> credentials{};
+  shared_ptr<string> requestId{};
 
   AssumeRoleResponseBody() {}
 
@@ -165,22 +165,19 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (assumedRoleUser) {
       res["AssumedRoleUser"] = assumedRoleUser ? boost::any(assumedRoleUser->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (credentials) {
       res["Credentials"] = credentials ? boost::any(credentials->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("AssumedRoleUser") != m.end() && !m["AssumedRoleUser"].empty()) {
       if (typeid(map<string, boost::any>) == m["AssumedRoleUser"].type()) {
         AssumeRoleResponseBodyAssumedRoleUser model1;
@@ -194,6 +191,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Credentials"]));
         credentials = make_shared<AssumeRoleResponseBodyCredentials>(model1);
       }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -254,11 +254,11 @@ public:
 };
 class AssumeRoleWithOIDCRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> durationSeconds{};
   shared_ptr<string> OIDCProviderArn{};
-  shared_ptr<string> roleArn{};
   shared_ptr<string> OIDCToken{};
   shared_ptr<string> policy{};
-  shared_ptr<long> durationSeconds{};
+  shared_ptr<string> roleArn{};
   shared_ptr<string> roleSessionName{};
 
   AssumeRoleWithOIDCRequest() {}
@@ -271,11 +271,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (durationSeconds) {
+      res["DurationSeconds"] = boost::any(*durationSeconds);
+    }
     if (OIDCProviderArn) {
       res["OIDCProviderArn"] = boost::any(*OIDCProviderArn);
-    }
-    if (roleArn) {
-      res["RoleArn"] = boost::any(*roleArn);
     }
     if (OIDCToken) {
       res["OIDCToken"] = boost::any(*OIDCToken);
@@ -283,8 +283,8 @@ public:
     if (policy) {
       res["Policy"] = boost::any(*policy);
     }
-    if (durationSeconds) {
-      res["DurationSeconds"] = boost::any(*durationSeconds);
+    if (roleArn) {
+      res["RoleArn"] = boost::any(*roleArn);
     }
     if (roleSessionName) {
       res["RoleSessionName"] = boost::any(*roleSessionName);
@@ -293,11 +293,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DurationSeconds") != m.end() && !m["DurationSeconds"].empty()) {
+      durationSeconds = make_shared<long>(boost::any_cast<long>(m["DurationSeconds"]));
+    }
     if (m.find("OIDCProviderArn") != m.end() && !m["OIDCProviderArn"].empty()) {
       OIDCProviderArn = make_shared<string>(boost::any_cast<string>(m["OIDCProviderArn"]));
-    }
-    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
     }
     if (m.find("OIDCToken") != m.end() && !m["OIDCToken"].empty()) {
       OIDCToken = make_shared<string>(boost::any_cast<string>(m["OIDCToken"]));
@@ -305,8 +305,8 @@ public:
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
     }
-    if (m.find("DurationSeconds") != m.end() && !m["DurationSeconds"].empty()) {
-      durationSeconds = make_shared<long>(boost::any_cast<long>(m["DurationSeconds"]));
+    if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
+      roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
     }
     if (m.find("RoleSessionName") != m.end() && !m["RoleSessionName"].empty()) {
       roleSessionName = make_shared<string>(boost::any_cast<string>(m["RoleSessionName"]));
@@ -316,53 +316,10 @@ public:
 
   virtual ~AssumeRoleWithOIDCRequest() = default;
 };
-class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> subject{};
-  shared_ptr<string> issuer{};
-  shared_ptr<string> clientIds{};
-
-  AssumeRoleWithOIDCResponseBodyOIDCTokenInfo() {}
-
-  explicit AssumeRoleWithOIDCResponseBodyOIDCTokenInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (subject) {
-      res["Subject"] = boost::any(*subject);
-    }
-    if (issuer) {
-      res["Issuer"] = boost::any(*issuer);
-    }
-    if (clientIds) {
-      res["ClientIds"] = boost::any(*clientIds);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
-      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
-    }
-    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
-      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
-    }
-    if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
-      clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
-    }
-  }
-
-
-  virtual ~AssumeRoleWithOIDCResponseBodyOIDCTokenInfo() = default;
-};
 class AssumeRoleWithOIDCResponseBodyAssumedRoleUser : public Darabonba::Model {
 public:
-  shared_ptr<string> assumedRoleId{};
   shared_ptr<string> arn{};
+  shared_ptr<string> assumedRoleId{};
 
   AssumeRoleWithOIDCResponseBodyAssumedRoleUser() {}
 
@@ -374,21 +331,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (assumedRoleId) {
-      res["AssumedRoleId"] = boost::any(*assumedRoleId);
-    }
     if (arn) {
       res["Arn"] = boost::any(*arn);
+    }
+    if (assumedRoleId) {
+      res["AssumedRoleId"] = boost::any(*assumedRoleId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
-      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
-    }
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
+      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
     }
   }
 
@@ -397,10 +354,10 @@ public:
 };
 class AssumeRoleWithOIDCResponseBodyCredentials : public Darabonba::Model {
 public:
-  shared_ptr<string> securityToken{};
-  shared_ptr<string> expiration{};
-  shared_ptr<string> accessKeySecret{};
   shared_ptr<string> accessKeyId{};
+  shared_ptr<string> accessKeySecret{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> securityToken{};
 
   AssumeRoleWithOIDCResponseBodyCredentials() {}
 
@@ -412,45 +369,88 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
-    if (expiration) {
-      res["Expiration"] = boost::any(*expiration);
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
     }
     if (accessKeySecret) {
       res["AccessKeySecret"] = boost::any(*accessKeySecret);
     }
-    if (accessKeyId) {
-      res["AccessKeyId"] = boost::any(*accessKeyId);
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
-    }
-    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
-      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
     }
     if (m.find("AccessKeySecret") != m.end() && !m["AccessKeySecret"].empty()) {
       accessKeySecret = make_shared<string>(boost::any_cast<string>(m["AccessKeySecret"]));
     }
-    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
-      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
 
   virtual ~AssumeRoleWithOIDCResponseBodyCredentials() = default;
 };
+class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> clientIds{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> subject{};
+
+  AssumeRoleWithOIDCResponseBodyOIDCTokenInfo() {}
+
+  explicit AssumeRoleWithOIDCResponseBodyOIDCTokenInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientIds) {
+      res["ClientIds"] = boost::any(*clientIds);
+    }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
+      clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+  }
+
+
+  virtual ~AssumeRoleWithOIDCResponseBodyOIDCTokenInfo() = default;
+};
 class AssumeRoleWithOIDCResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
-  shared_ptr<AssumeRoleWithOIDCResponseBodyOIDCTokenInfo> OIDCTokenInfo{};
   shared_ptr<AssumeRoleWithOIDCResponseBodyAssumedRoleUser> assumedRoleUser{};
   shared_ptr<AssumeRoleWithOIDCResponseBodyCredentials> credentials{};
+  shared_ptr<AssumeRoleWithOIDCResponseBodyOIDCTokenInfo> OIDCTokenInfo{};
+  shared_ptr<string> requestId{};
 
   AssumeRoleWithOIDCResponseBody() {}
 
@@ -462,32 +462,22 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (OIDCTokenInfo) {
-      res["OIDCTokenInfo"] = OIDCTokenInfo ? boost::any(OIDCTokenInfo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (assumedRoleUser) {
       res["AssumedRoleUser"] = assumedRoleUser ? boost::any(assumedRoleUser->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (credentials) {
       res["Credentials"] = credentials ? boost::any(credentials->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (OIDCTokenInfo) {
+      res["OIDCTokenInfo"] = OIDCTokenInfo ? boost::any(OIDCTokenInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("OIDCTokenInfo") != m.end() && !m["OIDCTokenInfo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["OIDCTokenInfo"].type()) {
-        AssumeRoleWithOIDCResponseBodyOIDCTokenInfo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OIDCTokenInfo"]));
-        OIDCTokenInfo = make_shared<AssumeRoleWithOIDCResponseBodyOIDCTokenInfo>(model1);
-      }
-    }
     if (m.find("AssumedRoleUser") != m.end() && !m["AssumedRoleUser"].empty()) {
       if (typeid(map<string, boost::any>) == m["AssumedRoleUser"].type()) {
         AssumeRoleWithOIDCResponseBodyAssumedRoleUser model1;
@@ -501,6 +491,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Credentials"]));
         credentials = make_shared<AssumeRoleWithOIDCResponseBodyCredentials>(model1);
       }
+    }
+    if (m.find("OIDCTokenInfo") != m.end() && !m["OIDCTokenInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OIDCTokenInfo"].type()) {
+        AssumeRoleWithOIDCResponseBodyOIDCTokenInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OIDCTokenInfo"]));
+        OIDCTokenInfo = make_shared<AssumeRoleWithOIDCResponseBodyOIDCTokenInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
@@ -561,11 +561,11 @@ public:
 };
 class AssumeRoleWithSAMLRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> SAMLProviderArn{};
+  shared_ptr<long> durationSeconds{};
+  shared_ptr<string> policy{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> SAMLAssertion{};
-  shared_ptr<string> policy{};
-  shared_ptr<long> durationSeconds{};
+  shared_ptr<string> SAMLProviderArn{};
 
   AssumeRoleWithSAMLRequest() {}
 
@@ -577,8 +577,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (SAMLProviderArn) {
-      res["SAMLProviderArn"] = boost::any(*SAMLProviderArn);
+    if (durationSeconds) {
+      res["DurationSeconds"] = boost::any(*durationSeconds);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
     }
     if (roleArn) {
       res["RoleArn"] = boost::any(*roleArn);
@@ -586,18 +589,18 @@ public:
     if (SAMLAssertion) {
       res["SAMLAssertion"] = boost::any(*SAMLAssertion);
     }
-    if (policy) {
-      res["Policy"] = boost::any(*policy);
-    }
-    if (durationSeconds) {
-      res["DurationSeconds"] = boost::any(*durationSeconds);
+    if (SAMLProviderArn) {
+      res["SAMLProviderArn"] = boost::any(*SAMLProviderArn);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SAMLProviderArn") != m.end() && !m["SAMLProviderArn"].empty()) {
-      SAMLProviderArn = make_shared<string>(boost::any_cast<string>(m["SAMLProviderArn"]));
+    if (m.find("DurationSeconds") != m.end() && !m["DurationSeconds"].empty()) {
+      durationSeconds = make_shared<long>(boost::any_cast<long>(m["DurationSeconds"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
     }
     if (m.find("RoleArn") != m.end() && !m["RoleArn"].empty()) {
       roleArn = make_shared<string>(boost::any_cast<string>(m["RoleArn"]));
@@ -605,71 +608,18 @@ public:
     if (m.find("SAMLAssertion") != m.end() && !m["SAMLAssertion"].empty()) {
       SAMLAssertion = make_shared<string>(boost::any_cast<string>(m["SAMLAssertion"]));
     }
-    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
-      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
-    }
-    if (m.find("DurationSeconds") != m.end() && !m["DurationSeconds"].empty()) {
-      durationSeconds = make_shared<long>(boost::any_cast<long>(m["DurationSeconds"]));
+    if (m.find("SAMLProviderArn") != m.end() && !m["SAMLProviderArn"].empty()) {
+      SAMLProviderArn = make_shared<string>(boost::any_cast<string>(m["SAMLProviderArn"]));
     }
   }
 
 
   virtual ~AssumeRoleWithSAMLRequest() = default;
 };
-class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo : public Darabonba::Model {
-public:
-  shared_ptr<string> subjectType{};
-  shared_ptr<string> subject{};
-  shared_ptr<string> issuer{};
-  shared_ptr<string> recipient{};
-
-  AssumeRoleWithSAMLResponseBodySAMLAssertionInfo() {}
-
-  explicit AssumeRoleWithSAMLResponseBodySAMLAssertionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (subjectType) {
-      res["SubjectType"] = boost::any(*subjectType);
-    }
-    if (subject) {
-      res["Subject"] = boost::any(*subject);
-    }
-    if (issuer) {
-      res["Issuer"] = boost::any(*issuer);
-    }
-    if (recipient) {
-      res["Recipient"] = boost::any(*recipient);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("SubjectType") != m.end() && !m["SubjectType"].empty()) {
-      subjectType = make_shared<string>(boost::any_cast<string>(m["SubjectType"]));
-    }
-    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
-      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
-    }
-    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
-      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
-    }
-    if (m.find("Recipient") != m.end() && !m["Recipient"].empty()) {
-      recipient = make_shared<string>(boost::any_cast<string>(m["Recipient"]));
-    }
-  }
-
-
-  virtual ~AssumeRoleWithSAMLResponseBodySAMLAssertionInfo() = default;
-};
 class AssumeRoleWithSAMLResponseBodyAssumedRoleUser : public Darabonba::Model {
 public:
-  shared_ptr<string> assumedRoleId{};
   shared_ptr<string> arn{};
+  shared_ptr<string> assumedRoleId{};
 
   AssumeRoleWithSAMLResponseBodyAssumedRoleUser() {}
 
@@ -681,21 +631,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (assumedRoleId) {
-      res["AssumedRoleId"] = boost::any(*assumedRoleId);
-    }
     if (arn) {
       res["Arn"] = boost::any(*arn);
+    }
+    if (assumedRoleId) {
+      res["AssumedRoleId"] = boost::any(*assumedRoleId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
-      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
-    }
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+    if (m.find("AssumedRoleId") != m.end() && !m["AssumedRoleId"].empty()) {
+      assumedRoleId = make_shared<string>(boost::any_cast<string>(m["AssumedRoleId"]));
     }
   }
 
@@ -704,10 +654,10 @@ public:
 };
 class AssumeRoleWithSAMLResponseBodyCredentials : public Darabonba::Model {
 public:
-  shared_ptr<string> securityToken{};
-  shared_ptr<string> expiration{};
-  shared_ptr<string> accessKeySecret{};
   shared_ptr<string> accessKeyId{};
+  shared_ptr<string> accessKeySecret{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> securityToken{};
 
   AssumeRoleWithSAMLResponseBodyCredentials() {}
 
@@ -719,45 +669,95 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
-    if (expiration) {
-      res["Expiration"] = boost::any(*expiration);
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
     }
     if (accessKeySecret) {
       res["AccessKeySecret"] = boost::any(*accessKeySecret);
     }
-    if (accessKeyId) {
-      res["AccessKeyId"] = boost::any(*accessKeyId);
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
-    }
-    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
-      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
     }
     if (m.find("AccessKeySecret") != m.end() && !m["AccessKeySecret"].empty()) {
       accessKeySecret = make_shared<string>(boost::any_cast<string>(m["AccessKeySecret"]));
     }
-    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
-      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
 
   virtual ~AssumeRoleWithSAMLResponseBodyCredentials() = default;
 };
+class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> issuer{};
+  shared_ptr<string> recipient{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> subjectType{};
+
+  AssumeRoleWithSAMLResponseBodySAMLAssertionInfo() {}
+
+  explicit AssumeRoleWithSAMLResponseBodySAMLAssertionInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (recipient) {
+      res["Recipient"] = boost::any(*recipient);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (subjectType) {
+      res["SubjectType"] = boost::any(*subjectType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Recipient") != m.end() && !m["Recipient"].empty()) {
+      recipient = make_shared<string>(boost::any_cast<string>(m["Recipient"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("SubjectType") != m.end() && !m["SubjectType"].empty()) {
+      subjectType = make_shared<string>(boost::any_cast<string>(m["SubjectType"]));
+    }
+  }
+
+
+  virtual ~AssumeRoleWithSAMLResponseBodySAMLAssertionInfo() = default;
+};
 class AssumeRoleWithSAMLResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
-  shared_ptr<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo> SAMLAssertionInfo{};
   shared_ptr<AssumeRoleWithSAMLResponseBodyAssumedRoleUser> assumedRoleUser{};
   shared_ptr<AssumeRoleWithSAMLResponseBodyCredentials> credentials{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo> SAMLAssertionInfo{};
 
   AssumeRoleWithSAMLResponseBody() {}
 
@@ -769,32 +769,22 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (SAMLAssertionInfo) {
-      res["SAMLAssertionInfo"] = SAMLAssertionInfo ? boost::any(SAMLAssertionInfo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (assumedRoleUser) {
       res["AssumedRoleUser"] = assumedRoleUser ? boost::any(assumedRoleUser->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (credentials) {
       res["Credentials"] = credentials ? boost::any(credentials->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (SAMLAssertionInfo) {
+      res["SAMLAssertionInfo"] = SAMLAssertionInfo ? boost::any(SAMLAssertionInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("SAMLAssertionInfo") != m.end() && !m["SAMLAssertionInfo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["SAMLAssertionInfo"].type()) {
-        AssumeRoleWithSAMLResponseBodySAMLAssertionInfo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SAMLAssertionInfo"]));
-        SAMLAssertionInfo = make_shared<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo>(model1);
-      }
-    }
     if (m.find("AssumedRoleUser") != m.end() && !m["AssumedRoleUser"].empty()) {
       if (typeid(map<string, boost::any>) == m["AssumedRoleUser"].type()) {
         AssumeRoleWithSAMLResponseBodyAssumedRoleUser model1;
@@ -807,6 +797,16 @@ public:
         AssumeRoleWithSAMLResponseBodyCredentials model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Credentials"]));
         credentials = make_shared<AssumeRoleWithSAMLResponseBodyCredentials>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SAMLAssertionInfo") != m.end() && !m["SAMLAssertionInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SAMLAssertionInfo"].type()) {
+        AssumeRoleWithSAMLResponseBodySAMLAssertionInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SAMLAssertionInfo"]));
+        SAMLAssertionInfo = make_shared<AssumeRoleWithSAMLResponseBodySAMLAssertionInfo>(model1);
       }
     }
   }
@@ -868,13 +868,13 @@ public:
 };
 class GetCallerIdentityResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> identityType{};
   shared_ptr<string> accountId{};
-  shared_ptr<string> requestId{};
-  shared_ptr<string> principalId{};
-  shared_ptr<string> userId{};
   shared_ptr<string> arn{};
+  shared_ptr<string> identityType{};
+  shared_ptr<string> principalId{};
+  shared_ptr<string> requestId{};
   shared_ptr<string> roleId{};
+  shared_ptr<string> userId{};
 
   GetCallerIdentityResponseBody() {}
 
@@ -886,51 +886,51 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (identityType) {
-      res["IdentityType"] = boost::any(*identityType);
-    }
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (principalId) {
-      res["PrincipalId"] = boost::any(*principalId);
-    }
-    if (userId) {
-      res["UserId"] = boost::any(*userId);
     }
     if (arn) {
       res["Arn"] = boost::any(*arn);
     }
+    if (identityType) {
+      res["IdentityType"] = boost::any(*identityType);
+    }
+    if (principalId) {
+      res["PrincipalId"] = boost::any(*principalId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
     if (roleId) {
       res["RoleId"] = boost::any(*roleId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
-      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
-    }
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("PrincipalId") != m.end() && !m["PrincipalId"].empty()) {
-      principalId = make_shared<string>(boost::any_cast<string>(m["PrincipalId"]));
-    }
-    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
-      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
     if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
     }
+    if (m.find("IdentityType") != m.end() && !m["IdentityType"].empty()) {
+      identityType = make_shared<string>(boost::any_cast<string>(m["IdentityType"]));
+    }
+    if (m.find("PrincipalId") != m.end() && !m["PrincipalId"].empty()) {
+      principalId = make_shared<string>(boost::any_cast<string>(m["PrincipalId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
     if (m.find("RoleId") != m.end() && !m["RoleId"].empty()) {
       roleId = make_shared<string>(boost::any_cast<string>(m["RoleId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
   }
 

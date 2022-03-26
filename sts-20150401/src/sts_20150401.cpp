@@ -3,6 +3,7 @@
 #include <alibabacloud/sts_20150401.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -76,10 +77,34 @@ string Alibabacloud_Sts20150401::Client::getEndpoint(shared_ptr<string> productI
 
 AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOptions(shared_ptr<AssumeRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->durationSeconds)) {
+    query->insert(pair<string, long>("DurationSeconds", *request->durationSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleArn)) {
+    query->insert(pair<string, string>("RoleArn", *request->roleArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleSessionName)) {
+    query->insert(pair<string, string>("RoleSessionName", *request->roleSessionName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return AssumeRoleResponse(doRPCRequest(make_shared<string>("AssumeRole"), make_shared<string>("2015-04-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AssumeRole"))},
+    {"version", boost::any(string("2015-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AssumeRoleResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRole(shared_ptr<AssumeRoleRequest> request) {
@@ -89,10 +114,40 @@ AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRole(shared_ptr<Assum
 
 AssumeRoleWithOIDCResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOIDCWithOptions(shared_ptr<AssumeRoleWithOIDCRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->durationSeconds)) {
+    query->insert(pair<string, long>("DurationSeconds", *request->durationSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->OIDCProviderArn)) {
+    query->insert(pair<string, string>("OIDCProviderArn", *request->OIDCProviderArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->OIDCToken)) {
+    query->insert(pair<string, string>("OIDCToken", *request->OIDCToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleArn)) {
+    query->insert(pair<string, string>("RoleArn", *request->roleArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleSessionName)) {
+    query->insert(pair<string, string>("RoleSessionName", *request->roleSessionName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return AssumeRoleWithOIDCResponse(doRPCRequest(make_shared<string>("AssumeRoleWithOIDC"), make_shared<string>("2015-04-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AssumeRoleWithOIDC"))},
+    {"version", boost::any(string("2015-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AssumeRoleWithOIDCResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleWithOIDCResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOIDC(shared_ptr<AssumeRoleWithOIDCRequest> request) {
@@ -102,10 +157,37 @@ AssumeRoleWithOIDCResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOIDC(
 
 AssumeRoleWithSAMLResponse Alibabacloud_Sts20150401::Client::assumeRoleWithSAMLWithOptions(shared_ptr<AssumeRoleWithSAMLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->durationSeconds)) {
+    query->insert(pair<string, long>("DurationSeconds", *request->durationSeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
+    query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleArn)) {
+    query->insert(pair<string, string>("RoleArn", *request->roleArn));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SAMLAssertion)) {
+    query->insert(pair<string, string>("SAMLAssertion", *request->SAMLAssertion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->SAMLProviderArn)) {
+    query->insert(pair<string, string>("SAMLProviderArn", *request->SAMLProviderArn));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return AssumeRoleWithSAMLResponse(doRPCRequest(make_shared<string>("AssumeRoleWithSAML"), make_shared<string>("2015-04-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AssumeRoleWithSAML"))},
+    {"version", boost::any(string("2015-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AssumeRoleWithSAMLResponse(callApi(params, req, runtime));
 }
 
 AssumeRoleWithSAMLResponse Alibabacloud_Sts20150401::Client::assumeRoleWithSAML(shared_ptr<AssumeRoleWithSAMLRequest> request) {
@@ -115,7 +197,18 @@ AssumeRoleWithSAMLResponse Alibabacloud_Sts20150401::Client::assumeRoleWithSAML(
 
 GetCallerIdentityResponse Alibabacloud_Sts20150401::Client::getCallerIdentityWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  return GetCallerIdentityResponse(doRPCRequest(make_shared<string>("GetCallerIdentity"), make_shared<string>("2015-04-01"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCallerIdentity"))},
+    {"version", boost::any(string("2015-04-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCallerIdentityResponse(callApi(params, req, runtime));
 }
 
 GetCallerIdentityResponse Alibabacloud_Sts20150401::Client::getCallerIdentity() {
