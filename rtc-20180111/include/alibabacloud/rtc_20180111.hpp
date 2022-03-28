@@ -5225,6 +5225,12 @@ public:
 };
 class StartMPUTaskRequestClockWidgets : public Darabonba::Model {
 public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> borderColor{};
+  shared_ptr<long> borderWidth{};
+  shared_ptr<bool> box{};
+  shared_ptr<long> boxBorderWidth{};
+  shared_ptr<long> boxColor{};
   shared_ptr<long> fontColor{};
   shared_ptr<long> fontSize{};
   shared_ptr<long> fontType{};
@@ -5242,6 +5248,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (borderColor) {
+      res["BorderColor"] = boost::any(*borderColor);
+    }
+    if (borderWidth) {
+      res["BorderWidth"] = boost::any(*borderWidth);
+    }
+    if (box) {
+      res["Box"] = boost::any(*box);
+    }
+    if (boxBorderWidth) {
+      res["BoxBorderWidth"] = boost::any(*boxBorderWidth);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boost::any(*boxColor);
+    }
     if (fontColor) {
       res["FontColor"] = boost::any(*fontColor);
     }
@@ -5264,6 +5288,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
+      borderColor = make_shared<long>(boost::any_cast<long>(m["BorderColor"]));
+    }
+    if (m.find("BorderWidth") != m.end() && !m["BorderWidth"].empty()) {
+      borderWidth = make_shared<long>(boost::any_cast<long>(m["BorderWidth"]));
+    }
+    if (m.find("Box") != m.end() && !m["Box"].empty()) {
+      box = make_shared<bool>(boost::any_cast<bool>(m["Box"]));
+    }
+    if (m.find("BoxBorderWidth") != m.end() && !m["BoxBorderWidth"].empty()) {
+      boxBorderWidth = make_shared<long>(boost::any_cast<long>(m["BoxBorderWidth"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      boxColor = make_shared<long>(boost::any_cast<long>(m["BoxColor"]));
+    }
     if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
       fontColor = make_shared<long>(boost::any_cast<long>(m["FontColor"]));
     }
@@ -5389,6 +5431,12 @@ public:
 };
 class StartMPUTaskRequestUserPanesTexts : public Darabonba::Model {
 public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> borderColor{};
+  shared_ptr<long> borderWidth{};
+  shared_ptr<bool> box{};
+  shared_ptr<long> boxBorderWidth{};
+  shared_ptr<long> boxColor{};
   shared_ptr<long> fontColor{};
   shared_ptr<long> fontSize{};
   shared_ptr<long> fontType{};
@@ -5407,6 +5455,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (borderColor) {
+      res["BorderColor"] = boost::any(*borderColor);
+    }
+    if (borderWidth) {
+      res["BorderWidth"] = boost::any(*borderWidth);
+    }
+    if (box) {
+      res["Box"] = boost::any(*box);
+    }
+    if (boxBorderWidth) {
+      res["BoxBorderWidth"] = boost::any(*boxBorderWidth);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boost::any(*boxColor);
+    }
     if (fontColor) {
       res["FontColor"] = boost::any(*fontColor);
     }
@@ -5432,6 +5498,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
+      borderColor = make_shared<long>(boost::any_cast<long>(m["BorderColor"]));
+    }
+    if (m.find("BorderWidth") != m.end() && !m["BorderWidth"].empty()) {
+      borderWidth = make_shared<long>(boost::any_cast<long>(m["BorderWidth"]));
+    }
+    if (m.find("Box") != m.end() && !m["Box"].empty()) {
+      box = make_shared<bool>(boost::any_cast<bool>(m["Box"]));
+    }
+    if (m.find("BoxBorderWidth") != m.end() && !m["BoxBorderWidth"].empty()) {
+      boxBorderWidth = make_shared<long>(boost::any_cast<long>(m["BoxBorderWidth"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      boxColor = make_shared<long>(boost::any_cast<long>(m["BoxColor"]));
+    }
     if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
       fontColor = make_shared<long>(boost::any_cast<long>(m["FontColor"]));
     }
@@ -7098,6 +7182,12 @@ public:
 };
 class UpdateMPUTaskRequestClockWidgets : public Darabonba::Model {
 public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> borderColor{};
+  shared_ptr<long> borderWidth{};
+  shared_ptr<bool> box{};
+  shared_ptr<long> boxBorderWidth{};
+  shared_ptr<long> boxColor{};
   shared_ptr<long> fontColor{};
   shared_ptr<long> fontSize{};
   shared_ptr<long> fontType{};
@@ -7115,6 +7205,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (borderColor) {
+      res["BorderColor"] = boost::any(*borderColor);
+    }
+    if (borderWidth) {
+      res["BorderWidth"] = boost::any(*borderWidth);
+    }
+    if (box) {
+      res["Box"] = boost::any(*box);
+    }
+    if (boxBorderWidth) {
+      res["BoxBorderWidth"] = boost::any(*boxBorderWidth);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boost::any(*boxColor);
+    }
     if (fontColor) {
       res["FontColor"] = boost::any(*fontColor);
     }
@@ -7137,6 +7245,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
+      borderColor = make_shared<long>(boost::any_cast<long>(m["BorderColor"]));
+    }
+    if (m.find("BorderWidth") != m.end() && !m["BorderWidth"].empty()) {
+      borderWidth = make_shared<long>(boost::any_cast<long>(m["BorderWidth"]));
+    }
+    if (m.find("Box") != m.end() && !m["Box"].empty()) {
+      box = make_shared<bool>(boost::any_cast<bool>(m["Box"]));
+    }
+    if (m.find("BoxBorderWidth") != m.end() && !m["BoxBorderWidth"].empty()) {
+      boxBorderWidth = make_shared<long>(boost::any_cast<long>(m["BoxBorderWidth"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      boxColor = make_shared<long>(boost::any_cast<long>(m["BoxColor"]));
+    }
     if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
       fontColor = make_shared<long>(boost::any_cast<long>(m["FontColor"]));
     }
@@ -7233,6 +7359,12 @@ public:
 };
 class UpdateMPUTaskRequestUserPanesTexts : public Darabonba::Model {
 public:
+  shared_ptr<double> alpha{};
+  shared_ptr<long> borderColor{};
+  shared_ptr<long> borderWidth{};
+  shared_ptr<bool> box{};
+  shared_ptr<long> boxBorderWidth{};
+  shared_ptr<long> boxColor{};
   shared_ptr<long> fontColor{};
   shared_ptr<long> fontSize{};
   shared_ptr<long> fontType{};
@@ -7251,6 +7383,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alpha) {
+      res["Alpha"] = boost::any(*alpha);
+    }
+    if (borderColor) {
+      res["BorderColor"] = boost::any(*borderColor);
+    }
+    if (borderWidth) {
+      res["BorderWidth"] = boost::any(*borderWidth);
+    }
+    if (box) {
+      res["Box"] = boost::any(*box);
+    }
+    if (boxBorderWidth) {
+      res["BoxBorderWidth"] = boost::any(*boxBorderWidth);
+    }
+    if (boxColor) {
+      res["BoxColor"] = boost::any(*boxColor);
+    }
     if (fontColor) {
       res["FontColor"] = boost::any(*fontColor);
     }
@@ -7276,6 +7426,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alpha") != m.end() && !m["Alpha"].empty()) {
+      alpha = make_shared<double>(boost::any_cast<double>(m["Alpha"]));
+    }
+    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
+      borderColor = make_shared<long>(boost::any_cast<long>(m["BorderColor"]));
+    }
+    if (m.find("BorderWidth") != m.end() && !m["BorderWidth"].empty()) {
+      borderWidth = make_shared<long>(boost::any_cast<long>(m["BorderWidth"]));
+    }
+    if (m.find("Box") != m.end() && !m["Box"].empty()) {
+      box = make_shared<bool>(boost::any_cast<bool>(m["Box"]));
+    }
+    if (m.find("BoxBorderWidth") != m.end() && !m["BoxBorderWidth"].empty()) {
+      boxBorderWidth = make_shared<long>(boost::any_cast<long>(m["BoxBorderWidth"]));
+    }
+    if (m.find("BoxColor") != m.end() && !m["BoxColor"].empty()) {
+      boxColor = make_shared<long>(boost::any_cast<long>(m["BoxColor"]));
+    }
     if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
       fontColor = make_shared<long>(boost::any_cast<long>(m["FontColor"]));
     }
