@@ -1654,6 +1654,42 @@ public:
 
   virtual ~CreateFunctionInstanceRequestCreateParameters() = default;
 };
+class CreateFunctionInstanceRequestUsageParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  CreateFunctionInstanceRequestUsageParameters() {}
+
+  explicit CreateFunctionInstanceRequestUsageParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateFunctionInstanceRequestUsageParameters() = default;
+};
 class CreateFunctionInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateFunctionInstanceRequestCreateParameters>> createParameters{};
@@ -1662,6 +1698,7 @@ public:
   shared_ptr<string> functionType{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> modelType{};
+  shared_ptr<vector<CreateFunctionInstanceRequestUsageParameters>> usageParameters{};
 
   CreateFunctionInstanceRequest() {}
 
@@ -1695,6 +1732,13 @@ public:
     if (modelType) {
       res["modelType"] = boost::any(*modelType);
     }
+    if (usageParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["usageParameters"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1726,6 +1770,19 @@ public:
     }
     if (m.find("modelType") != m.end() && !m["modelType"].empty()) {
       modelType = make_shared<string>(boost::any_cast<string>(m["modelType"]));
+    }
+    if (m.find("usageParameters") != m.end() && !m["usageParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["usageParameters"].type()) {
+        vector<CreateFunctionInstanceRequestUsageParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["usageParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFunctionInstanceRequestUsageParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageParameters = make_shared<vector<CreateFunctionInstanceRequestUsageParameters>>(expect1);
+      }
     }
   }
 
@@ -3281,6 +3338,122 @@ public:
 
 
   virtual ~DeleteFunctionInstanceResponse() = default;
+};
+class DeleteFunctionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<long> latency{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  DeleteFunctionTaskResponseBody() {}
+
+  explicit DeleteFunctionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpCode) {
+      res["HttpCode"] = boost::any(*httpCode);
+    }
+    if (latency) {
+      res["Latency"] = boost::any(*latency);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["HttpCode"]));
+    }
+    if (m.find("Latency") != m.end() && !m["Latency"].empty()) {
+      latency = make_shared<long>(boost::any_cast<long>(m["Latency"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DeleteFunctionTaskResponseBody() = default;
+};
+class DeleteFunctionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteFunctionTaskResponseBody> body{};
+
+  DeleteFunctionTaskResponse() {}
+
+  explicit DeleteFunctionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteFunctionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteFunctionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteFunctionTaskResponse() = default;
 };
 class DeleteModelResponseBody : public Darabonba::Model {
 public:
@@ -8218,6 +8391,42 @@ public:
 
   virtual ~GetFunctionInstanceResponseBodyResultTask() = default;
 };
+class GetFunctionInstanceResponseBodyResultUsageParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetFunctionInstanceResponseBodyResultUsageParameters() {}
+
+  explicit GetFunctionInstanceResponseBodyResultUsageParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetFunctionInstanceResponseBodyResultUsageParameters() = default;
+};
 class GetFunctionInstanceResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<GetFunctionInstanceResponseBodyResultBelongs> belongs{};
@@ -8233,6 +8442,7 @@ public:
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<GetFunctionInstanceResponseBodyResultTask> task{};
+  shared_ptr<vector<GetFunctionInstanceResponseBodyResultUsageParameters>> usageParameters{};
   shared_ptr<long> versionId{};
 
   GetFunctionInstanceResponseBodyResult() {}
@@ -8287,6 +8497,13 @@ public:
     }
     if (task) {
       res["Task"] = task ? boost::any(task->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usageParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsageParameters"] = boost::any(temp1);
     }
     if (versionId) {
       res["VersionId"] = boost::any(*versionId);
@@ -8350,6 +8567,19 @@ public:
         GetFunctionInstanceResponseBodyResultTask model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Task"]));
         task = make_shared<GetFunctionInstanceResponseBodyResultTask>(model1);
+      }
+    }
+    if (m.find("UsageParameters") != m.end() && !m["UsageParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsageParameters"].type()) {
+        vector<GetFunctionInstanceResponseBodyResultUsageParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsageParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFunctionInstanceResponseBodyResultUsageParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageParameters = make_shared<vector<GetFunctionInstanceResponseBodyResultUsageParameters>>(expect1);
       }
     }
     if (m.find("VersionId") != m.end() && !m["VersionId"].empty()) {
@@ -8486,6 +8716,211 @@ public:
 
 
   virtual ~GetFunctionInstanceResponse() = default;
+};
+class GetFunctionTaskResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> extendInfo{};
+  shared_ptr<string> functionName{};
+  shared_ptr<string> generation{};
+  shared_ptr<long> progress{};
+  shared_ptr<string> runId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+
+  GetFunctionTaskResponseBodyResult() {}
+
+  explicit GetFunctionTaskResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (extendInfo) {
+      res["ExtendInfo"] = boost::any(*extendInfo);
+    }
+    if (functionName) {
+      res["FunctionName"] = boost::any(*functionName);
+    }
+    if (generation) {
+      res["Generation"] = boost::any(*generation);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (runId) {
+      res["RunId"] = boost::any(*runId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ExtendInfo") != m.end() && !m["ExtendInfo"].empty()) {
+      extendInfo = make_shared<string>(boost::any_cast<string>(m["ExtendInfo"]));
+    }
+    if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
+    }
+    if (m.find("Generation") != m.end() && !m["Generation"].empty()) {
+      generation = make_shared<string>(boost::any_cast<string>(m["Generation"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("RunId") != m.end() && !m["RunId"].empty()) {
+      runId = make_shared<string>(boost::any_cast<string>(m["RunId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetFunctionTaskResponseBodyResult() = default;
+};
+class GetFunctionTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<long> latency{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GetFunctionTaskResponseBodyResult> result{};
+  shared_ptr<string> status{};
+
+  GetFunctionTaskResponseBody() {}
+
+  explicit GetFunctionTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpCode) {
+      res["HttpCode"] = boost::any(*httpCode);
+    }
+    if (latency) {
+      res["Latency"] = boost::any(*latency);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["HttpCode"]));
+    }
+    if (m.find("Latency") != m.end() && !m["Latency"].empty()) {
+      latency = make_shared<long>(boost::any_cast<long>(m["Latency"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        GetFunctionTaskResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<GetFunctionTaskResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetFunctionTaskResponseBody() = default;
+};
+class GetFunctionTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetFunctionTaskResponseBody> body{};
+
+  GetFunctionTaskResponse() {}
+
+  explicit GetFunctionTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetFunctionTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetFunctionTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetFunctionTaskResponse() = default;
 };
 class GetFunctionVersionResponseBodyResultVersionConfigCreateParameters : public Darabonba::Model {
 public:
@@ -12639,6 +13074,42 @@ public:
 
   virtual ~ListFunctionInstancesResponseBodyResultCreateParameters() = default;
 };
+class ListFunctionInstancesResponseBodyResultUsageParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  ListFunctionInstancesResponseBodyResultUsageParameters() {}
+
+  explicit ListFunctionInstancesResponseBodyResultUsageParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListFunctionInstancesResponseBodyResultUsageParameters() = default;
+};
 class ListFunctionInstancesResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<ListFunctionInstancesResponseBodyResultBelongs> belongs{};
@@ -12653,6 +13124,7 @@ public:
   shared_ptr<string> modelType{};
   shared_ptr<string> source{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListFunctionInstancesResponseBodyResultUsageParameters>> usageParameters{};
   shared_ptr<long> versionId{};
 
   ListFunctionInstancesResponseBodyResult() {}
@@ -12704,6 +13176,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (usageParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsageParameters"] = boost::any(temp1);
     }
     if (versionId) {
       res["VersionId"] = boost::any(*versionId);
@@ -12761,6 +13240,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UsageParameters") != m.end() && !m["UsageParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsageParameters"].type()) {
+        vector<ListFunctionInstancesResponseBodyResultUsageParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsageParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListFunctionInstancesResponseBodyResultUsageParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageParameters = make_shared<vector<ListFunctionInstancesResponseBodyResultUsageParameters>>(expect1);
+      }
     }
     if (m.find("VersionId") != m.end() && !m["VersionId"].empty()) {
       versionId = make_shared<long>(boost::any_cast<long>(m["VersionId"]));
@@ -12976,6 +13468,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> extendInfo{};
   shared_ptr<string> functionName{};
+  shared_ptr<string> generation{};
   shared_ptr<long> progress{};
   shared_ptr<string> runId{};
   shared_ptr<long> startTime{};
@@ -12999,6 +13492,9 @@ public:
     }
     if (functionName) {
       res["FunctionName"] = boost::any(*functionName);
+    }
+    if (generation) {
+      res["Generation"] = boost::any(*generation);
     }
     if (progress) {
       res["Progress"] = boost::any(*progress);
@@ -13024,6 +13520,9 @@ public:
     }
     if (m.find("FunctionName") != m.end() && !m["FunctionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["FunctionName"]));
+    }
+    if (m.find("Generation") != m.end() && !m["Generation"].empty()) {
+      generation = make_shared<string>(boost::any_cast<string>(m["Generation"]));
     }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
@@ -14117,6 +14616,35 @@ public:
 
 
   virtual ~ListModelsResponse() = default;
+};
+class ListProceedingsRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> filterFinished{};
+
+  ListProceedingsRequest() {}
+
+  explicit ListProceedingsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterFinished) {
+      res["filterFinished"] = boost::any(*filterFinished);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("filterFinished") != m.end() && !m["filterFinished"].empty()) {
+      filterFinished = make_shared<bool>(boost::any_cast<bool>(m["filterFinished"]));
+    }
+  }
+
+
+  virtual ~ListProceedingsRequest() = default;
 };
 class ListProceedingsResponseBody : public Darabonba::Model {
 public:
@@ -21782,11 +22310,48 @@ public:
 
   virtual ~UpdateFunctionInstanceRequestCreateParameters() = default;
 };
+class UpdateFunctionInstanceRequestUsageParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  UpdateFunctionInstanceRequestUsageParameters() {}
+
+  explicit UpdateFunctionInstanceRequestUsageParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~UpdateFunctionInstanceRequestUsageParameters() = default;
+};
 class UpdateFunctionInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateFunctionInstanceRequestCreateParameters>> createParameters{};
   shared_ptr<string> cron{};
   shared_ptr<string> description{};
+  shared_ptr<vector<UpdateFunctionInstanceRequestUsageParameters>> usageParameters{};
 
   UpdateFunctionInstanceRequest() {}
 
@@ -21811,6 +22376,13 @@ public:
     if (description) {
       res["description"] = boost::any(*description);
     }
+    if (usageParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["usageParameters"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -21833,6 +22405,19 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("usageParameters") != m.end() && !m["usageParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["usageParameters"].type()) {
+        vector<UpdateFunctionInstanceRequestUsageParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["usageParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateFunctionInstanceRequestUsageParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageParameters = make_shared<vector<UpdateFunctionInstanceRequestUsageParameters>>(expect1);
+      }
     }
   }
 
@@ -22551,6 +23136,16 @@ public:
                                                                    shared_ptr<string> instanceName,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteFunctionTaskResponse deleteFunctionTask(shared_ptr<string> appGroupIdentity,
+                                                shared_ptr<string> functionName,
+                                                shared_ptr<string> instanceName,
+                                                shared_ptr<string> generation);
+  DeleteFunctionTaskResponse deleteFunctionTaskWithOptions(shared_ptr<string> appGroupIdentity,
+                                                           shared_ptr<string> functionName,
+                                                           shared_ptr<string> instanceName,
+                                                           shared_ptr<string> generation,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteModelResponse deleteModel(shared_ptr<string> appGroupIdentity, shared_ptr<string> modelName);
   DeleteModelResponse deleteModelWithOptions(shared_ptr<string> appGroupIdentity,
                                              shared_ptr<string> modelName,
@@ -22691,6 +23286,16 @@ public:
                                                              shared_ptr<GetFunctionInstanceRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetFunctionTaskResponse getFunctionTask(shared_ptr<string> appGroupIdentity,
+                                          shared_ptr<string> functionName,
+                                          shared_ptr<string> instanceName,
+                                          shared_ptr<string> generation);
+  GetFunctionTaskResponse getFunctionTaskWithOptions(shared_ptr<string> appGroupIdentity,
+                                                     shared_ptr<string> functionName,
+                                                     shared_ptr<string> instanceName,
+                                                     shared_ptr<string> generation,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetFunctionVersionResponse getFunctionVersion(shared_ptr<string> functionName, shared_ptr<string> versionId);
   GetFunctionVersionResponse getFunctionVersionWithOptions(shared_ptr<string> functionName,
                                                            shared_ptr<string> versionId,
@@ -22847,8 +23452,11 @@ public:
                                            shared_ptr<ListModelsRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListProceedingsResponse listProceedings(shared_ptr<string> appGroupIdentity);
-  ListProceedingsResponse listProceedingsWithOptions(shared_ptr<string> appGroupIdentity, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListProceedingsResponse listProceedings(shared_ptr<string> appGroupIdentity, shared_ptr<ListProceedingsRequest> request);
+  ListProceedingsResponse listProceedingsWithOptions(shared_ptr<string> appGroupIdentity,
+                                                     shared_ptr<ListProceedingsRequest> request,
+                                                     shared_ptr<map<string, string>> headers,
+                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListQueryProcessorAnalyzerResultsResponse listQueryProcessorAnalyzerResults(shared_ptr<string> appGroupIdentity,
                                                                               shared_ptr<string> appId,
                                                                               shared_ptr<string> name,
