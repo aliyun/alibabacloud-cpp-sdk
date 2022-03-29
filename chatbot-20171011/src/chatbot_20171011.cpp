@@ -148,6 +148,9 @@ AppendEntityMemberResponse Alibabacloud_Chatbot20171011::Client::appendEntityMem
 AssociateResponse Alibabacloud_Chatbot20171011::Client::associateWithOptions(shared_ptr<AssociateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -188,6 +191,9 @@ AssociateResponse Alibabacloud_Chatbot20171011::Client::associate(shared_ptr<Ass
 ChatResponse Alibabacloud_Chatbot20171011::Client::chatWithOptions(shared_ptr<ChatRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -2019,6 +2025,9 @@ QueryIntentsResponse Alibabacloud_Chatbot20171011::Client::queryIntentsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->dialogId)) {
     query->insert(pair<string, long>("DialogId", *request->dialogId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->intentName)) {
     query->insert(pair<string, string>("IntentName", *request->intentName));

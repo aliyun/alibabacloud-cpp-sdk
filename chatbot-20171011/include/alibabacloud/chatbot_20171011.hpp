@@ -2120,6 +2120,7 @@ public:
 };
 class AssociateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
   shared_ptr<vector<string>> perspective{};
   shared_ptr<long> recommendNum{};
@@ -2136,6 +2137,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -2155,6 +2159,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -2329,6 +2336,7 @@ public:
 };
 class ChatRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> intentName{};
   shared_ptr<string> knowledgeId{};
@@ -2350,6 +2358,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -2384,6 +2395,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -12301,6 +12315,7 @@ class QueryIntentsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
   shared_ptr<long> dialogId{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> intentName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -12321,6 +12336,9 @@ public:
     if (dialogId) {
       res["DialogId"] = boost::any(*dialogId);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (intentName) {
       res["IntentName"] = boost::any(*intentName);
     }
@@ -12339,6 +12357,9 @@ public:
     }
     if (m.find("DialogId") != m.end() && !m["DialogId"].empty()) {
       dialogId = make_shared<long>(boost::any_cast<long>(m["DialogId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
     if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
       intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
