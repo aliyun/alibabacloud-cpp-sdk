@@ -1532,7 +1532,7 @@ RecognizeMultiLanguageResponse Alibabacloud_Ocr-api20210707::Client::recognizeMu
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)},
-    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
+    {"stream", !tmpReq->body ? boost::any() : boost::any(*tmpReq->body)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RecognizeMultiLanguage"))},
