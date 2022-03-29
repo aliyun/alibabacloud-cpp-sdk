@@ -823,6 +823,40 @@ DescribeFlowJobResponse Alibabacloud_Ddi20200617::Client::describeFlowJob(shared
   return describeFlowJobWithOptions(request, runtime);
 }
 
+DescribeFlowNodeInstanceResponse Alibabacloud_Ddi20200617::Client::describeFlowNodeInstanceWithOptions(shared_ptr<DescribeFlowNodeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeFlowNodeInstance"))},
+    {"version", boost::any(string("2020-06-17"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeFlowNodeInstanceResponse(callApi(params, req, runtime));
+}
+
+DescribeFlowNodeInstanceResponse Alibabacloud_Ddi20200617::Client::describeFlowNodeInstance(shared_ptr<DescribeFlowNodeInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeFlowNodeInstanceWithOptions(request, runtime);
+}
+
 DescribeFlowProjectResponse Alibabacloud_Ddi20200617::Client::describeFlowProjectWithOptions(shared_ptr<DescribeFlowProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

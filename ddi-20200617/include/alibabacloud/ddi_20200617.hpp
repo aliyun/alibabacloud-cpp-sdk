@@ -5334,6 +5334,382 @@ public:
 
   virtual ~DescribeFlowJobResponse() = default;
 };
+class DescribeFlowNodeInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+
+  DescribeFlowNodeInstanceRequest() {}
+
+  explicit DescribeFlowNodeInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeFlowNodeInstanceRequest() = default;
+};
+class DescribeFlowNodeInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> adhoc{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<long> duration{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> envConf{};
+  shared_ptr<string> externalChildIds{};
+  shared_ptr<string> externalId{};
+  shared_ptr<string> externalInfo{};
+  shared_ptr<string> externalStatus{};
+  shared_ptr<string> externalSubId{};
+  shared_ptr<string> failAct{};
+  shared_ptr<string> flowId{};
+  shared_ptr<string> flowInstanceId{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<long> gmtModified{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> id{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> jobName{};
+  shared_ptr<string> jobParams{};
+  shared_ptr<string> jobType{};
+  shared_ptr<string> maxRetry{};
+  shared_ptr<string> mode{};
+  shared_ptr<string> monitorConf{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<string> paramConf{};
+  shared_ptr<bool> pending{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> retries{};
+  shared_ptr<string> retryInterval{};
+  shared_ptr<string> retryPolicy{};
+  shared_ptr<string> runConf{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  DescribeFlowNodeInstanceResponseBody() {}
+
+  explicit DescribeFlowNodeInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adhoc) {
+      res["Adhoc"] = boost::any(*adhoc);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (envConf) {
+      res["EnvConf"] = boost::any(*envConf);
+    }
+    if (externalChildIds) {
+      res["ExternalChildIds"] = boost::any(*externalChildIds);
+    }
+    if (externalId) {
+      res["ExternalId"] = boost::any(*externalId);
+    }
+    if (externalInfo) {
+      res["ExternalInfo"] = boost::any(*externalInfo);
+    }
+    if (externalStatus) {
+      res["ExternalStatus"] = boost::any(*externalStatus);
+    }
+    if (externalSubId) {
+      res["ExternalSubId"] = boost::any(*externalSubId);
+    }
+    if (failAct) {
+      res["FailAct"] = boost::any(*failAct);
+    }
+    if (flowId) {
+      res["FlowId"] = boost::any(*flowId);
+    }
+    if (flowInstanceId) {
+      res["FlowInstanceId"] = boost::any(*flowInstanceId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
+    if (jobParams) {
+      res["JobParams"] = boost::any(*jobParams);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
+    if (maxRetry) {
+      res["MaxRetry"] = boost::any(*maxRetry);
+    }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (monitorConf) {
+      res["MonitorConf"] = boost::any(*monitorConf);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (paramConf) {
+      res["ParamConf"] = boost::any(*paramConf);
+    }
+    if (pending) {
+      res["Pending"] = boost::any(*pending);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (retries) {
+      res["Retries"] = boost::any(*retries);
+    }
+    if (retryInterval) {
+      res["RetryInterval"] = boost::any(*retryInterval);
+    }
+    if (retryPolicy) {
+      res["RetryPolicy"] = boost::any(*retryPolicy);
+    }
+    if (runConf) {
+      res["RunConf"] = boost::any(*runConf);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Adhoc") != m.end() && !m["Adhoc"].empty()) {
+      adhoc = make_shared<bool>(boost::any_cast<bool>(m["Adhoc"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EnvConf") != m.end() && !m["EnvConf"].empty()) {
+      envConf = make_shared<string>(boost::any_cast<string>(m["EnvConf"]));
+    }
+    if (m.find("ExternalChildIds") != m.end() && !m["ExternalChildIds"].empty()) {
+      externalChildIds = make_shared<string>(boost::any_cast<string>(m["ExternalChildIds"]));
+    }
+    if (m.find("ExternalId") != m.end() && !m["ExternalId"].empty()) {
+      externalId = make_shared<string>(boost::any_cast<string>(m["ExternalId"]));
+    }
+    if (m.find("ExternalInfo") != m.end() && !m["ExternalInfo"].empty()) {
+      externalInfo = make_shared<string>(boost::any_cast<string>(m["ExternalInfo"]));
+    }
+    if (m.find("ExternalStatus") != m.end() && !m["ExternalStatus"].empty()) {
+      externalStatus = make_shared<string>(boost::any_cast<string>(m["ExternalStatus"]));
+    }
+    if (m.find("ExternalSubId") != m.end() && !m["ExternalSubId"].empty()) {
+      externalSubId = make_shared<string>(boost::any_cast<string>(m["ExternalSubId"]));
+    }
+    if (m.find("FailAct") != m.end() && !m["FailAct"].empty()) {
+      failAct = make_shared<string>(boost::any_cast<string>(m["FailAct"]));
+    }
+    if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
+      flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
+    }
+    if (m.find("FlowInstanceId") != m.end() && !m["FlowInstanceId"].empty()) {
+      flowInstanceId = make_shared<string>(boost::any_cast<string>(m["FlowInstanceId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
+    if (m.find("JobParams") != m.end() && !m["JobParams"].empty()) {
+      jobParams = make_shared<string>(boost::any_cast<string>(m["JobParams"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("MaxRetry") != m.end() && !m["MaxRetry"].empty()) {
+      maxRetry = make_shared<string>(boost::any_cast<string>(m["MaxRetry"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("MonitorConf") != m.end() && !m["MonitorConf"].empty()) {
+      monitorConf = make_shared<string>(boost::any_cast<string>(m["MonitorConf"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("ParamConf") != m.end() && !m["ParamConf"].empty()) {
+      paramConf = make_shared<string>(boost::any_cast<string>(m["ParamConf"]));
+    }
+    if (m.find("Pending") != m.end() && !m["Pending"].empty()) {
+      pending = make_shared<bool>(boost::any_cast<bool>(m["Pending"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Retries") != m.end() && !m["Retries"].empty()) {
+      retries = make_shared<long>(boost::any_cast<long>(m["Retries"]));
+    }
+    if (m.find("RetryInterval") != m.end() && !m["RetryInterval"].empty()) {
+      retryInterval = make_shared<string>(boost::any_cast<string>(m["RetryInterval"]));
+    }
+    if (m.find("RetryPolicy") != m.end() && !m["RetryPolicy"].empty()) {
+      retryPolicy = make_shared<string>(boost::any_cast<string>(m["RetryPolicy"]));
+    }
+    if (m.find("RunConf") != m.end() && !m["RunConf"].empty()) {
+      runConf = make_shared<string>(boost::any_cast<string>(m["RunConf"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeFlowNodeInstanceResponseBody() = default;
+};
+class DescribeFlowNodeInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeFlowNodeInstanceResponseBody> body{};
+
+  DescribeFlowNodeInstanceResponse() {}
+
+  explicit DescribeFlowNodeInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeFlowNodeInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeFlowNodeInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeFlowNodeInstanceResponse() = default;
+};
 class DescribeFlowProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> projectId{};
@@ -9401,6 +9777,8 @@ public:
   DescribeFlowCategoryTreeResponse describeFlowCategoryTree(shared_ptr<DescribeFlowCategoryTreeRequest> request);
   DescribeFlowJobResponse describeFlowJobWithOptions(shared_ptr<DescribeFlowJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFlowJobResponse describeFlowJob(shared_ptr<DescribeFlowJobRequest> request);
+  DescribeFlowNodeInstanceResponse describeFlowNodeInstanceWithOptions(shared_ptr<DescribeFlowNodeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeFlowNodeInstanceResponse describeFlowNodeInstance(shared_ptr<DescribeFlowNodeInstanceRequest> request);
   DescribeFlowProjectResponse describeFlowProjectWithOptions(shared_ptr<DescribeFlowProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeFlowProjectResponse describeFlowProject(shared_ptr<DescribeFlowProjectRequest> request);
   KillFlowJobResponse killFlowJobWithOptions(shared_ptr<KillFlowJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
