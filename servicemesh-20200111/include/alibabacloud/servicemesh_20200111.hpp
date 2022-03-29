@@ -10225,6 +10225,35 @@ public:
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationMultiBuffer() = default;
 };
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection : public Darabonba::Model {
+public:
+  shared_ptr<bool> OPAScopeInjected{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (OPAScopeInjected) {
+      res["OPAScopeInjected"] = boost::any(*OPAScopeInjected);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OPAScopeInjected") != m.end() && !m["OPAScopeInjected"].empty()) {
+      OPAScopeInjected = make_shared<bool>(boost::any_cast<bool>(m["OPAScopeInjected"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection() = default;
+};
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit : public Darabonba::Model {
 public:
   shared_ptr<bool> enableGlobalRateLimit{};
@@ -10333,6 +10362,7 @@ public:
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationIstioCRHistory> istioCRHistory{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecycle> lifecycle{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationMultiBuffer> multiBuffer{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection> OPAScopeInjection{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit> rateLimit{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationSidecarProxyInitResourceLimit> sidecarProxyInitResourceLimit{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationSidecarProxyInitResourceRequest> sidecarProxyInitResourceRequest{};
@@ -10362,6 +10392,9 @@ public:
     }
     if (multiBuffer) {
       res["MultiBuffer"] = multiBuffer ? boost::any(multiBuffer->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (OPAScopeInjection) {
+      res["OPAScopeInjection"] = OPAScopeInjection ? boost::any(OPAScopeInjection->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (rateLimit) {
       res["RateLimit"] = rateLimit ? boost::any(rateLimit->toMap()) : boost::any(map<string,boost::any>({}));
@@ -10416,6 +10449,13 @@ public:
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationMultiBuffer model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MultiBuffer"]));
         multiBuffer = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationMultiBuffer>(model1);
+      }
+    }
+    if (m.find("OPAScopeInjection") != m.end() && !m["OPAScopeInjection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OPAScopeInjection"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OPAScopeInjection"]));
+        OPAScopeInjection = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection>(model1);
       }
     }
     if (m.find("RateLimit") != m.end() && !m["RateLimit"].empty()) {
