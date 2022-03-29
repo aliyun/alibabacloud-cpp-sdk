@@ -387,6 +387,1497 @@ public:
 
   virtual ~CreateASMGatewayResponse() = default;
 };
+class CreateGatewaySecretRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cert{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> key{};
+  shared_ptr<string> secretName{};
+  shared_ptr<string> serviceMeshId{};
+
+  CreateGatewaySecretRequest() {}
+
+  explicit CreateGatewaySecretRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cert) {
+      res["Cert"] = boost::any(*cert);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (secretName) {
+      res["SecretName"] = boost::any(*secretName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cert") != m.end() && !m["Cert"].empty()) {
+      cert = make_shared<string>(boost::any_cast<string>(m["Cert"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
+      secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~CreateGatewaySecretRequest() = default;
+};
+class SecretCreateRecordValue : public Darabonba::Model {
+public:
+  shared_ptr<string> state{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> message{};
+
+  SecretCreateRecordValue() {}
+
+  explicit SecretCreateRecordValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~SecretCreateRecordValue() = default;
+};
+class CreateGatewaySecretResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, SecretCreateRecordValue>> secretCreateRecord{};
+
+  CreateGatewaySecretResponseBody() {}
+
+  explicit CreateGatewaySecretResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (secretCreateRecord) {
+      map<string, boost::any> temp1;
+      for(auto item1:*secretCreateRecord){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["SecretCreateRecord"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecretCreateRecord") != m.end() && !m["SecretCreateRecord"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecretCreateRecord"].type()) {
+        map<string, SecretCreateRecordValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["SecretCreateRecord"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            SecretCreateRecordValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        secretCreateRecord = make_shared<map<string, SecretCreateRecordValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGatewaySecretResponseBody() = default;
+};
+class CreateGatewaySecretResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateGatewaySecretResponseBody> body{};
+
+  CreateGatewaySecretResponse() {}
+
+  explicit CreateGatewaySecretResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGatewaySecretResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGatewaySecretResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGatewaySecretResponse() = default;
+};
+class CreateIstioGatewayDomainsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credential{};
+  shared_ptr<bool> forceHttps{};
+  shared_ptr<string> hosts{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> number{};
+  shared_ptr<string> portName{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> serviceMeshId{};
+
+  CreateIstioGatewayDomainsRequest() {}
+
+  explicit CreateIstioGatewayDomainsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credential) {
+      res["Credential"] = boost::any(*credential);
+    }
+    if (forceHttps) {
+      res["ForceHttps"] = boost::any(*forceHttps);
+    }
+    if (hosts) {
+      res["Hosts"] = boost::any(*hosts);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    if (portName) {
+      res["PortName"] = boost::any(*portName);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Credential") != m.end() && !m["Credential"].empty()) {
+      credential = make_shared<string>(boost::any_cast<string>(m["Credential"]));
+    }
+    if (m.find("ForceHttps") != m.end() && !m["ForceHttps"].empty()) {
+      forceHttps = make_shared<bool>(boost::any_cast<bool>(m["ForceHttps"]));
+    }
+    if (m.find("Hosts") != m.end() && !m["Hosts"].empty()) {
+      hosts = make_shared<string>(boost::any_cast<string>(m["Hosts"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<long>(boost::any_cast<long>(m["Number"]));
+    }
+    if (m.find("PortName") != m.end() && !m["PortName"].empty()) {
+      portName = make_shared<string>(boost::any_cast<string>(m["PortName"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayDomainsRequest() = default;
+};
+class CreateIstioGatewayDomainsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateIstioGatewayDomainsResponseBody() {}
+
+  explicit CreateIstioGatewayDomainsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayDomainsResponseBody() = default;
+};
+class CreateIstioGatewayDomainsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateIstioGatewayDomainsResponseBody> body{};
+
+  CreateIstioGatewayDomainsResponse() {}
+
+  explicit CreateIstioGatewayDomainsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIstioGatewayDomainsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIstioGatewayDomainsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayDomainsResponse() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort : public Darabonba::Model {
+public:
+  shared_ptr<long> httpStatus{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage> percentage{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpStatus) {
+      res["HttpStatus"] = boost::any(*httpStatus);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpStatus") != m.end() && !m["HttpStatus"].empty()) {
+      httpStatus = make_shared<long>(boost::any_cast<long>(m["HttpStatus"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay : public Darabonba::Model {
+public:
+  shared_ptr<string> fixedDelay{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage> percentage{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fixedDelay) {
+      res["FixedDelay"] = boost::any(*fixedDelay);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FixedDelay") != m.end() && !m["FixedDelay"].empty()) {
+      fixedDelay = make_shared<string>(boost::any_cast<string>(m["FixedDelay"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault : public Darabonba::Model {
+public:
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort> abort{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay> delay{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abort) {
+      res["Abort"] = abort ? boost::any(abort->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (delay) {
+      res["Delay"] = delay ? boost::any(delay->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Abort") != m.end() && !m["Abort"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Abort"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Abort"]));
+        abort = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort>(model1);
+      }
+    }
+    if (m.find("Delay") != m.end() && !m["Delay"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delay"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delay"]));
+        delay = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<long> redirectCode{};
+  shared_ptr<string> uri{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (redirectCode) {
+      res["RedirectCode"] = boost::any(*redirectCode);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("RedirectCode") != m.end() && !m["RedirectCode"].empty()) {
+      redirectCode = make_shared<long>(boost::any_cast<long>(m["RedirectCode"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> subset{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities : public Darabonba::Model {
+public:
+  shared_ptr<bool> value{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<bool>(boost::any_cast<bool>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries : public Darabonba::Model {
+public:
+  shared_ptr<long> attempts{};
+  shared_ptr<string> perTryTimeout{};
+  shared_ptr<string> retryOn{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities> retryRemoteLocalities{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attempts) {
+      res["Attempts"] = boost::any(*attempts);
+    }
+    if (perTryTimeout) {
+      res["PerTryTimeout"] = boost::any(*perTryTimeout);
+    }
+    if (retryOn) {
+      res["RetryOn"] = boost::any(*retryOn);
+    }
+    if (retryRemoteLocalities) {
+      res["RetryRemoteLocalities"] = retryRemoteLocalities ? boost::any(retryRemoteLocalities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attempts") != m.end() && !m["Attempts"].empty()) {
+      attempts = make_shared<long>(boost::any_cast<long>(m["Attempts"]));
+    }
+    if (m.find("PerTryTimeout") != m.end() && !m["PerTryTimeout"].empty()) {
+      perTryTimeout = make_shared<string>(boost::any_cast<string>(m["PerTryTimeout"]));
+    }
+    if (m.find("RetryOn") != m.end() && !m["RetryOn"].empty()) {
+      retryOn = make_shared<string>(boost::any_cast<string>(m["RetryOn"]));
+    }
+    if (m.find("RetryRemoteLocalities") != m.end() && !m["RetryRemoteLocalities"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryRemoteLocalities"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryRemoteLocalities"]));
+        retryRemoteLocalities = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<string> uri{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions : public Darabonba::Model {
+public:
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate> delegate{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault> fault{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect> HTTPRedirect{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror> mirror{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage> mirrorPercentage{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries> retries{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite> rewrite{};
+  shared_ptr<string> timeout{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delegate) {
+      res["Delegate"] = delegate ? boost::any(delegate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fault) {
+      res["Fault"] = fault ? boost::any(fault->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (HTTPRedirect) {
+      res["HTTPRedirect"] = HTTPRedirect ? boost::any(HTTPRedirect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirror) {
+      res["Mirror"] = mirror ? boost::any(mirror->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirrorPercentage) {
+      res["MirrorPercentage"] = mirrorPercentage ? boost::any(mirrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (retries) {
+      res["Retries"] = retries ? boost::any(retries->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["Rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delegate") != m.end() && !m["Delegate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delegate"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delegate"]));
+        delegate = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate>(model1);
+      }
+    }
+    if (m.find("Fault") != m.end() && !m["Fault"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Fault"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Fault"]));
+        fault = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault>(model1);
+      }
+    }
+    if (m.find("HTTPRedirect") != m.end() && !m["HTTPRedirect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPRedirect"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPRedirect"]));
+        HTTPRedirect = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect>(model1);
+      }
+    }
+    if (m.find("Mirror") != m.end() && !m["Mirror"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mirror"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mirror"]));
+        mirror = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror>(model1);
+      }
+    }
+    if (m.find("MirrorPercentage") != m.end() && !m["MirrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MirrorPercentage"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MirrorPercentage"]));
+        mirrorPercentage = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage>(model1);
+      }
+    }
+    if (m.find("Retries") != m.end() && !m["Retries"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Retries"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Retries"]));
+        retries = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries>(model1);
+      }
+    }
+    if (m.find("Rewrite") != m.end() && !m["Rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rewrite"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rewrite"]));
+        rewrite = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<string>(boost::any_cast<string>(m["Timeout"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+  shared_ptr<string> name{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> SNIHosts{};
+  shared_ptr<long> TLSPort{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (SNIHosts) {
+      res["SNIHosts"] = boost::any(*SNIHosts);
+    }
+    if (TLSPort) {
+      res["TLSPort"] = boost::any(*TLSPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SNIHosts") != m.end() && !m["SNIHosts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SNIHosts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SNIHosts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      SNIHosts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TLSPort") != m.end() && !m["TLSPort"].empty()) {
+      TLSPort = make_shared<long>(boost::any_cast<long>(m["TLSPort"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders>> headers{};
+  shared_ptr<vector<long>> ports{};
+  shared_ptr<vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes>> TLSMatchAttributes{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI> URI{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
+    }
+    if (TLSMatchAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*TLSMatchAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TLSMatchAttributes"] = boost::any(temp1);
+    }
+    if (URI) {
+      res["URI"] = URI ? boost::any(URI->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ports"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ports = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TLSMatchAttributes") != m.end() && !m["TLSMatchAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["TLSMatchAttributes"].type()) {
+        vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TLSMatchAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        TLSMatchAttributes = make_shared<vector<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes>>(expect1);
+      }
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      if (typeid(map<string, boost::any>) == m["URI"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["URI"]));
+        URI = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> subset{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations : public Darabonba::Model {
+public:
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination> destination{};
+  shared_ptr<long> weight{};
+
+  CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destination) {
+      res["Destination"] = destination ? boost::any(destination->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Destination"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Destination"]));
+        destination = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination>(model1);
+      }
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations() = default;
+};
+class CreateIstioGatewayRoutesRequestGatewayRoute : public Darabonba::Model {
+public:
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions> HTTPAdvancedOptions{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest> matchRequest{};
+  shared_ptr<vector<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>> routeDestinations{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> routeType{};
+
+  CreateIstioGatewayRoutesRequestGatewayRoute() {}
+
+  explicit CreateIstioGatewayRoutesRequestGatewayRoute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (HTTPAdvancedOptions) {
+      res["HTTPAdvancedOptions"] = HTTPAdvancedOptions ? boost::any(HTTPAdvancedOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (matchRequest) {
+      res["MatchRequest"] = matchRequest ? boost::any(matchRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (routeDestinations) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeDestinations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteDestinations"] = boost::any(temp1);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HTTPAdvancedOptions") != m.end() && !m["HTTPAdvancedOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPAdvancedOptions"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPAdvancedOptions"]));
+        HTTPAdvancedOptions = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions>(model1);
+      }
+    }
+    if (m.find("MatchRequest") != m.end() && !m["MatchRequest"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MatchRequest"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MatchRequest"]));
+        matchRequest = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest>(model1);
+      }
+    }
+    if (m.find("RouteDestinations") != m.end() && !m["RouteDestinations"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteDestinations"].type()) {
+        vector<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteDestinations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeDestinations = make_shared<vector<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>>(expect1);
+      }
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequestGatewayRoute() = default;
+};
+class CreateIstioGatewayRoutesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<CreateIstioGatewayRoutesRequestGatewayRoute> gatewayRoute{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<long> status{};
+
+  CreateIstioGatewayRoutesRequest() {}
+
+  explicit CreateIstioGatewayRoutesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gatewayRoute) {
+      res["GatewayRoute"] = gatewayRoute ? boost::any(gatewayRoute->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GatewayRoute") != m.end() && !m["GatewayRoute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GatewayRoute"].type()) {
+        CreateIstioGatewayRoutesRequestGatewayRoute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GatewayRoute"]));
+        gatewayRoute = make_shared<CreateIstioGatewayRoutesRequestGatewayRoute>(model1);
+      }
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesRequest() = default;
+};
+class CreateIstioGatewayRoutesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> gatewayRouteShrink{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<long> status{};
+
+  CreateIstioGatewayRoutesShrinkRequest() {}
+
+  explicit CreateIstioGatewayRoutesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gatewayRouteShrink) {
+      res["GatewayRoute"] = boost::any(*gatewayRouteShrink);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GatewayRoute") != m.end() && !m["GatewayRoute"].empty()) {
+      gatewayRouteShrink = make_shared<string>(boost::any_cast<string>(m["GatewayRoute"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesShrinkRequest() = default;
+};
+class CreateIstioGatewayRoutesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateIstioGatewayRoutesResponseBody() {}
+
+  explicit CreateIstioGatewayRoutesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesResponseBody() = default;
+};
+class CreateIstioGatewayRoutesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateIstioGatewayRoutesResponseBody> body{};
+
+  CreateIstioGatewayRoutesResponse() {}
+
+  explicit CreateIstioGatewayRoutesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateIstioGatewayRoutesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateIstioGatewayRoutesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateIstioGatewayRoutesResponse() = default;
+};
 class CreateServiceMeshRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> accessLogEnabled{};
@@ -958,6 +2449,449 @@ public:
 
 
   virtual ~CreateServiceMeshResponse() = default;
+};
+class DeleteGatewayRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DeleteGatewayRouteRequest() {}
+
+  explicit DeleteGatewayRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DeleteGatewayRouteRequest() = default;
+};
+class DeleteGatewayRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteGatewayRouteResponseBody() {}
+
+  explicit DeleteGatewayRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGatewayRouteResponseBody() = default;
+};
+class DeleteGatewayRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteGatewayRouteResponseBody> body{};
+
+  DeleteGatewayRouteResponse() {}
+
+  explicit DeleteGatewayRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGatewayRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGatewayRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGatewayRouteResponse() = default;
+};
+class DeleteGatewaySecretRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> secretName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DeleteGatewaySecretRequest() {}
+
+  explicit DeleteGatewaySecretRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (secretName) {
+      res["SecretName"] = boost::any(*secretName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
+      secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DeleteGatewaySecretRequest() = default;
+};
+class SecretDeleteRecordValue : public Darabonba::Model {
+public:
+  shared_ptr<string> state{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> message{};
+
+  SecretDeleteRecordValue() {}
+
+  explicit SecretDeleteRecordValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+  }
+
+
+  virtual ~SecretDeleteRecordValue() = default;
+};
+class DeleteGatewaySecretResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, SecretDeleteRecordValue>> secretDeleteRecord{};
+
+  DeleteGatewaySecretResponseBody() {}
+
+  explicit DeleteGatewaySecretResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (secretDeleteRecord) {
+      map<string, boost::any> temp1;
+      for(auto item1:*secretDeleteRecord){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["SecretDeleteRecord"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecretDeleteRecord") != m.end() && !m["SecretDeleteRecord"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecretDeleteRecord"].type()) {
+        map<string, SecretDeleteRecordValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["SecretDeleteRecord"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            SecretDeleteRecordValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        secretDeleteRecord = make_shared<map<string, SecretDeleteRecordValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGatewaySecretResponseBody() = default;
+};
+class DeleteGatewaySecretResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteGatewaySecretResponseBody> body{};
+
+  DeleteGatewaySecretResponse() {}
+
+  explicit DeleteGatewaySecretResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGatewaySecretResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGatewaySecretResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGatewaySecretResponse() = default;
+};
+class DeleteIstioGatewayDomainsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hosts{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> portName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DeleteIstioGatewayDomainsRequest() {}
+
+  explicit DeleteIstioGatewayDomainsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hosts) {
+      res["Hosts"] = boost::any(*hosts);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (portName) {
+      res["PortName"] = boost::any(*portName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Hosts") != m.end() && !m["Hosts"].empty()) {
+      hosts = make_shared<string>(boost::any_cast<string>(m["Hosts"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("PortName") != m.end() && !m["PortName"].empty()) {
+      portName = make_shared<string>(boost::any_cast<string>(m["PortName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DeleteIstioGatewayDomainsRequest() = default;
+};
+class DeleteIstioGatewayDomainsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteIstioGatewayDomainsResponseBody() {}
+
+  explicit DeleteIstioGatewayDomainsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteIstioGatewayDomainsResponseBody() = default;
+};
+class DeleteIstioGatewayDomainsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteIstioGatewayDomainsResponseBody> body{};
+
+  DeleteIstioGatewayDomainsResponse() {}
+
+  explicit DeleteIstioGatewayDomainsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteIstioGatewayDomainsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteIstioGatewayDomainsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteIstioGatewayDomainsResponse() = default;
 };
 class DeleteServiceMeshRequest : public Darabonba::Model {
 public:
@@ -2480,6 +4414,215 @@ public:
 
   virtual ~DescribeCrTemplatesResponse() = default;
 };
+class DescribeGatewaySecretDetailsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DescribeGatewaySecretDetailsRequest() {}
+
+  explicit DescribeGatewaySecretDetailsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeGatewaySecretDetailsRequest() = default;
+};
+class DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> expiredTime{};
+  shared_ptr<string> gatewayName{};
+  shared_ptr<string> issueTime{};
+  shared_ptr<string> message{};
+  shared_ptr<string> SNI{};
+  shared_ptr<string> secretName{};
+  shared_ptr<string> state{};
+
+  DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails() {}
+
+  explicit DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredTime) {
+      res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (gatewayName) {
+      res["GatewayName"] = boost::any(*gatewayName);
+    }
+    if (issueTime) {
+      res["IssueTime"] = boost::any(*issueTime);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (SNI) {
+      res["SNI"] = boost::any(*SNI);
+    }
+    if (secretName) {
+      res["SecretName"] = boost::any(*secretName);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
+      expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("GatewayName") != m.end() && !m["GatewayName"].empty()) {
+      gatewayName = make_shared<string>(boost::any_cast<string>(m["GatewayName"]));
+    }
+    if (m.find("IssueTime") != m.end() && !m["IssueTime"].empty()) {
+      issueTime = make_shared<string>(boost::any_cast<string>(m["IssueTime"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("SNI") != m.end() && !m["SNI"].empty()) {
+      SNI = make_shared<string>(boost::any_cast<string>(m["SNI"]));
+    }
+    if (m.find("SecretName") != m.end() && !m["SecretName"].empty()) {
+      secretName = make_shared<string>(boost::any_cast<string>(m["SecretName"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails() = default;
+};
+class DescribeGatewaySecretDetailsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails>> gatewaySecretDetails{};
+  shared_ptr<string> requestId{};
+
+  DescribeGatewaySecretDetailsResponseBody() {}
+
+  explicit DescribeGatewaySecretDetailsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewaySecretDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*gatewaySecretDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GatewaySecretDetails"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewaySecretDetails") != m.end() && !m["GatewaySecretDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["GatewaySecretDetails"].type()) {
+        vector<DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GatewaySecretDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        gatewaySecretDetails = make_shared<vector<DescribeGatewaySecretDetailsResponseBodyGatewaySecretDetails>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeGatewaySecretDetailsResponseBody() = default;
+};
+class DescribeGatewaySecretDetailsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeGatewaySecretDetailsResponseBody> body{};
+
+  DescribeGatewaySecretDetailsResponse() {}
+
+  explicit DescribeGatewaySecretDetailsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGatewaySecretDetailsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGatewaySecretDetailsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGatewaySecretDetailsResponse() = default;
+};
 class DescribeGuestClusterAccessLogDashboardsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> k8sClusterId{};
@@ -3344,6 +5487,1997 @@ public:
 
   virtual ~DescribeIngressGatewaysResponse() = default;
 };
+class DescribeIstioGatewayDomainsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DescribeIstioGatewayDomainsRequest() {}
+
+  explicit DescribeIstioGatewayDomainsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayDomainsRequest() = default;
+};
+class DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialName{};
+  shared_ptr<string> detail{};
+  shared_ptr<vector<string>> domains{};
+  shared_ptr<string> portName{};
+  shared_ptr<string> protocol{};
+
+  DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails() {}
+
+  explicit DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialName) {
+      res["CredentialName"] = boost::any(*credentialName);
+    }
+    if (detail) {
+      res["Detail"] = boost::any(*detail);
+    }
+    if (domains) {
+      res["Domains"] = boost::any(*domains);
+    }
+    if (portName) {
+      res["PortName"] = boost::any(*portName);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialName") != m.end() && !m["CredentialName"].empty()) {
+      credentialName = make_shared<string>(boost::any_cast<string>(m["CredentialName"]));
+    }
+    if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
+      detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("Domains") != m.end() && !m["Domains"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Domains"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Domains"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      domains = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PortName") != m.end() && !m["PortName"].empty()) {
+      portName = make_shared<string>(boost::any_cast<string>(m["PortName"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails() = default;
+};
+class DescribeIstioGatewayDomainsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails>> gatewaySecretDetails{};
+  shared_ptr<string> requestId{};
+
+  DescribeIstioGatewayDomainsResponseBody() {}
+
+  explicit DescribeIstioGatewayDomainsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewaySecretDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*gatewaySecretDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GatewaySecretDetails"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewaySecretDetails") != m.end() && !m["GatewaySecretDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["GatewaySecretDetails"].type()) {
+        vector<DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GatewaySecretDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        gatewaySecretDetails = make_shared<vector<DescribeIstioGatewayDomainsResponseBodyGatewaySecretDetails>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayDomainsResponseBody() = default;
+};
+class DescribeIstioGatewayDomainsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeIstioGatewayDomainsResponseBody> body{};
+
+  DescribeIstioGatewayDomainsResponse() {}
+
+  explicit DescribeIstioGatewayDomainsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeIstioGatewayDomainsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeIstioGatewayDomainsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayDomainsResponse() = default;
+};
+class DescribeIstioGatewayRouteDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DescribeIstioGatewayRouteDetailRequest() {}
+
+  explicit DescribeIstioGatewayRouteDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailRequest() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort : public Darabonba::Model {
+public:
+  shared_ptr<long> httpStatus{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage> percentage{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpStatus) {
+      res["HttpStatus"] = boost::any(*httpStatus);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpStatus") != m.end() && !m["HttpStatus"].empty()) {
+      httpStatus = make_shared<long>(boost::any_cast<long>(m["HttpStatus"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbortPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay : public Darabonba::Model {
+public:
+  shared_ptr<string> exponentialDelay{};
+  shared_ptr<string> fixedDelay{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage> percentage{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exponentialDelay) {
+      res["ExponentialDelay"] = boost::any(*exponentialDelay);
+    }
+    if (fixedDelay) {
+      res["FixedDelay"] = boost::any(*fixedDelay);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExponentialDelay") != m.end() && !m["ExponentialDelay"].empty()) {
+      exponentialDelay = make_shared<string>(boost::any_cast<string>(m["ExponentialDelay"]));
+    }
+    if (m.find("FixedDelay") != m.end() && !m["FixedDelay"].empty()) {
+      fixedDelay = make_shared<string>(boost::any_cast<string>(m["FixedDelay"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelayPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault : public Darabonba::Model {
+public:
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort> abort{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay> delay{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abort) {
+      res["Abort"] = abort ? boost::any(abort->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (delay) {
+      res["Delay"] = delay ? boost::any(delay->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Abort") != m.end() && !m["Abort"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Abort"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Abort"]));
+        abort = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultAbort>(model1);
+      }
+    }
+    if (m.find("Delay") != m.end() && !m["Delay"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delay"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delay"]));
+        delay = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFaultDelay>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<long> redirectCode{};
+  shared_ptr<string> uri{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (redirectCode) {
+      res["RedirectCode"] = boost::any(*redirectCode);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("RedirectCode") != m.end() && !m["RedirectCode"].empty()) {
+      redirectCode = make_shared<long>(boost::any_cast<long>(m["RedirectCode"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> subset{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities : public Darabonba::Model {
+public:
+  shared_ptr<bool> value{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<bool>(boost::any_cast<bool>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries : public Darabonba::Model {
+public:
+  shared_ptr<long> attempts{};
+  shared_ptr<string> perTryTimeout{};
+  shared_ptr<string> retryOn{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities> retryRemoteLocalities{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attempts) {
+      res["Attempts"] = boost::any(*attempts);
+    }
+    if (perTryTimeout) {
+      res["PerTryTimeout"] = boost::any(*perTryTimeout);
+    }
+    if (retryOn) {
+      res["RetryOn"] = boost::any(*retryOn);
+    }
+    if (retryRemoteLocalities) {
+      res["RetryRemoteLocalities"] = retryRemoteLocalities ? boost::any(retryRemoteLocalities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attempts") != m.end() && !m["Attempts"].empty()) {
+      attempts = make_shared<long>(boost::any_cast<long>(m["Attempts"]));
+    }
+    if (m.find("PerTryTimeout") != m.end() && !m["PerTryTimeout"].empty()) {
+      perTryTimeout = make_shared<string>(boost::any_cast<string>(m["PerTryTimeout"]));
+    }
+    if (m.find("RetryOn") != m.end() && !m["RetryOn"].empty()) {
+      retryOn = make_shared<string>(boost::any_cast<string>(m["RetryOn"]));
+    }
+    if (m.find("RetryRemoteLocalities") != m.end() && !m["RetryRemoteLocalities"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryRemoteLocalities"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryRemoteLocalities"]));
+        retryRemoteLocalities = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetriesRetryRemoteLocalities>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<string> uri{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions : public Darabonba::Model {
+public:
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate> delegate{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault> fault{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect> HTTPRedirect{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror> mirror{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage> mirrorPercentage{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries> retries{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite> rewrite{};
+  shared_ptr<string> timeout{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delegate) {
+      res["Delegate"] = delegate ? boost::any(delegate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fault) {
+      res["Fault"] = fault ? boost::any(fault->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (HTTPRedirect) {
+      res["HTTPRedirect"] = HTTPRedirect ? boost::any(HTTPRedirect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirror) {
+      res["Mirror"] = mirror ? boost::any(mirror->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirrorPercentage) {
+      res["MirrorPercentage"] = mirrorPercentage ? boost::any(mirrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (retries) {
+      res["Retries"] = retries ? boost::any(retries->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["Rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delegate") != m.end() && !m["Delegate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delegate"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delegate"]));
+        delegate = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsDelegate>(model1);
+      }
+    }
+    if (m.find("Fault") != m.end() && !m["Fault"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Fault"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Fault"]));
+        fault = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsFault>(model1);
+      }
+    }
+    if (m.find("HTTPRedirect") != m.end() && !m["HTTPRedirect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPRedirect"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPRedirect"]));
+        HTTPRedirect = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsHTTPRedirect>(model1);
+      }
+    }
+    if (m.find("Mirror") != m.end() && !m["Mirror"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mirror"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mirror"]));
+        mirror = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirror>(model1);
+      }
+    }
+    if (m.find("MirrorPercentage") != m.end() && !m["MirrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MirrorPercentage"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MirrorPercentage"]));
+        mirrorPercentage = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsMirrorPercentage>(model1);
+      }
+    }
+    if (m.find("Retries") != m.end() && !m["Retries"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Retries"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Retries"]));
+        retries = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRetries>(model1);
+      }
+    }
+    if (m.find("Rewrite") != m.end() && !m["Rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rewrite"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rewrite"]));
+        rewrite = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptionsRewrite>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<string>(boost::any_cast<string>(m["Timeout"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+  shared_ptr<string> name{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> SNIHosts{};
+  shared_ptr<long> TLSPort{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (SNIHosts) {
+      res["SNIHosts"] = boost::any(*SNIHosts);
+    }
+    if (TLSPort) {
+      res["TLSPort"] = boost::any(*TLSPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SNIHosts") != m.end() && !m["SNIHosts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SNIHosts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SNIHosts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      SNIHosts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TLSPort") != m.end() && !m["TLSPort"].empty()) {
+      TLSPort = make_shared<long>(boost::any_cast<long>(m["TLSPort"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders>> headers{};
+  shared_ptr<vector<long>> ports{};
+  shared_ptr<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes>> TLSMatchAttributes{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI> URI{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
+    }
+    if (TLSMatchAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*TLSMatchAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TLSMatchAttributes"] = boost::any(temp1);
+    }
+    if (URI) {
+      res["URI"] = URI ? boost::any(URI->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ports"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ports = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TLSMatchAttributes") != m.end() && !m["TLSMatchAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["TLSMatchAttributes"].type()) {
+        vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TLSMatchAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        TLSMatchAttributes = make_shared<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestTLSMatchAttributes>>(expect1);
+      }
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      if (typeid(map<string, boost::any>) == m["URI"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["URI"]));
+        URI = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequestURI>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort : public Darabonba::Model {
+public:
+  shared_ptr<long> number{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (number) {
+      res["Number"] = boost::any(*number);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<long>(boost::any_cast<long>(m["Number"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort> port{};
+  shared_ptr<string> subset{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (port) {
+      res["Port"] = port ? boost::any(port->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Port"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Port"]));
+        port = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestinationPort>(model1);
+      }
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> add{};
+  shared_ptr<vector<string>> remove{};
+  shared_ptr<map<string, string>> set{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (add) {
+      res["Add"] = boost::any(*add);
+    }
+    if (remove) {
+      res["Remove"] = boost::any(*remove);
+    }
+    if (set) {
+      res["Set"] = boost::any(*set);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Add") != m.end() && !m["Add"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Add"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      add = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Remove") != m.end() && !m["Remove"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Remove"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Remove"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      remove = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Set") != m.end() && !m["Set"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Set"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      set = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> add{};
+  shared_ptr<vector<string>> remove{};
+  shared_ptr<map<string, boost::any>> set{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (add) {
+      res["Add"] = boost::any(*add);
+    }
+    if (remove) {
+      res["Remove"] = boost::any(*remove);
+    }
+    if (set) {
+      res["Set"] = boost::any(*set);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Add") != m.end() && !m["Add"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Add"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      add = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Remove") != m.end() && !m["Remove"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Remove"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Remove"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      remove = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Set") != m.end() && !m["Set"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Set"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      set = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest> request{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse> response{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (request) {
+      res["Request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (response) {
+      res["Response"] = response ? boost::any(response->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Request") != m.end() && !m["Request"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Request"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Request"]));
+        request = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersRequest>(model1);
+      }
+    }
+    if (m.find("Response") != m.end() && !m["Response"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Response"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Response"]));
+        response = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeadersResponse>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations : public Darabonba::Model {
+public:
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination> destination{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders> headers{};
+  shared_ptr<long> weight{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destination) {
+      res["Destination"] = destination ? boost::any(destination->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (headers) {
+      res["Headers"] = headers ? boost::any(headers->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Destination"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Destination"]));
+        destination = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsDestination>(model1);
+      }
+    }
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Headers"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Headers"]));
+        headers = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinationsHeaders>(model1);
+      }
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBodyRouteDetail : public Darabonba::Model {
+public:
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions> HTTPAdvancedOptions{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest> matchRequest{};
+  shared_ptr<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations>> routeDestinations{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> routeType{};
+
+  DescribeIstioGatewayRouteDetailResponseBodyRouteDetail() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBodyRouteDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (HTTPAdvancedOptions) {
+      res["HTTPAdvancedOptions"] = HTTPAdvancedOptions ? boost::any(HTTPAdvancedOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (matchRequest) {
+      res["MatchRequest"] = matchRequest ? boost::any(matchRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (routeDestinations) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeDestinations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteDestinations"] = boost::any(temp1);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HTTPAdvancedOptions") != m.end() && !m["HTTPAdvancedOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPAdvancedOptions"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPAdvancedOptions"]));
+        HTTPAdvancedOptions = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailHTTPAdvancedOptions>(model1);
+      }
+    }
+    if (m.find("MatchRequest") != m.end() && !m["MatchRequest"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MatchRequest"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MatchRequest"]));
+        matchRequest = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailMatchRequest>(model1);
+      }
+    }
+    if (m.find("RouteDestinations") != m.end() && !m["RouteDestinations"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteDestinations"].type()) {
+        vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteDestinations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeDestinations = make_shared<vector<DescribeIstioGatewayRouteDetailResponseBodyRouteDetailRouteDestinations>>(expect1);
+      }
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBodyRouteDetail() = default;
+};
+class DescribeIstioGatewayRouteDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetail> routeDetail{};
+  shared_ptr<long> status{};
+
+  DescribeIstioGatewayRouteDetailResponseBody() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (routeDetail) {
+      res["RouteDetail"] = routeDetail ? boost::any(routeDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RouteDetail") != m.end() && !m["RouteDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteDetail"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBodyRouteDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteDetail"]));
+        routeDetail = make_shared<DescribeIstioGatewayRouteDetailResponseBodyRouteDetail>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponseBody() = default;
+};
+class DescribeIstioGatewayRouteDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeIstioGatewayRouteDetailResponseBody> body{};
+
+  DescribeIstioGatewayRouteDetailResponse() {}
+
+  explicit DescribeIstioGatewayRouteDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeIstioGatewayRouteDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeIstioGatewayRouteDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRouteDetailResponse() = default;
+};
+class DescribeIstioGatewayRoutesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> serviceMeshId{};
+
+  DescribeIstioGatewayRoutesRequest() {}
+
+  explicit DescribeIstioGatewayRoutesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRoutesRequest() = default;
+};
+class DescribeIstioGatewayRoutesResponseBodyManagementRoutes : public Darabonba::Model {
+public:
+  shared_ptr<string> ASMGatewayName{};
+  shared_ptr<string> description{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> routePath{};
+  shared_ptr<long> status{};
+
+  DescribeIstioGatewayRoutesResponseBodyManagementRoutes() {}
+
+  explicit DescribeIstioGatewayRoutesResponseBodyManagementRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ASMGatewayName) {
+      res["ASMGatewayName"] = boost::any(*ASMGatewayName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routePath) {
+      res["RoutePath"] = boost::any(*routePath);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ASMGatewayName") != m.end() && !m["ASMGatewayName"].empty()) {
+      ASMGatewayName = make_shared<string>(boost::any_cast<string>(m["ASMGatewayName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RoutePath") != m.end() && !m["RoutePath"].empty()) {
+      routePath = make_shared<string>(boost::any_cast<string>(m["RoutePath"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRoutesResponseBodyManagementRoutes() = default;
+};
+class DescribeIstioGatewayRoutesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeIstioGatewayRoutesResponseBodyManagementRoutes>> managementRoutes{};
+  shared_ptr<string> requestId{};
+
+  DescribeIstioGatewayRoutesResponseBody() {}
+
+  explicit DescribeIstioGatewayRoutesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managementRoutes) {
+      vector<boost::any> temp1;
+      for(auto item1:*managementRoutes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagementRoutes"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagementRoutes") != m.end() && !m["ManagementRoutes"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagementRoutes"].type()) {
+        vector<DescribeIstioGatewayRoutesResponseBodyManagementRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagementRoutes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIstioGatewayRoutesResponseBodyManagementRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managementRoutes = make_shared<vector<DescribeIstioGatewayRoutesResponseBodyManagementRoutes>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRoutesResponseBody() = default;
+};
+class DescribeIstioGatewayRoutesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeIstioGatewayRoutesResponseBody> body{};
+
+  DescribeIstioGatewayRoutesResponse() {}
+
+  explicit DescribeIstioGatewayRoutesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeIstioGatewayRoutesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeIstioGatewayRoutesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIstioGatewayRoutesResponse() = default;
+};
+class DescribeManagedServicesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> marker{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+
+  DescribeManagedServicesRequest() {}
+
+  explicit DescribeManagedServicesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (marker) {
+      res["Marker"] = boost::any(*marker);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Marker") != m.end() && !m["Marker"].empty()) {
+      marker = make_shared<string>(boost::any_cast<string>(m["Marker"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesRequest() = default;
+};
+class DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances : public Darabonba::Model {
+public:
+  shared_ptr<long> readyReplicas{};
+  shared_ptr<long> replicas{};
+  shared_ptr<string> version{};
+
+  DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances() {}
+
+  explicit DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (readyReplicas) {
+      res["ReadyReplicas"] = boost::any(*readyReplicas);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReadyReplicas") != m.end() && !m["ReadyReplicas"].empty()) {
+      readyReplicas = make_shared<long>(boost::any_cast<long>(m["ReadyReplicas"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances() = default;
+};
+class DescribeManagedServicesResponseBodyManagedServiceInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<vector<DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances>> deploymentInstances{};
+  shared_ptr<string> message{};
+  shared_ptr<map<string, string>> selector{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> sidecarInjectStatus{};
+
+  DescribeManagedServicesResponseBodyManagedServiceInfo() {}
+
+  explicit DescribeManagedServicesResponseBodyManagedServiceInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deploymentInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*deploymentInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeploymentInstances"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (selector) {
+      res["Selector"] = boost::any(*selector);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (sidecarInjectStatus) {
+      res["SidecarInjectStatus"] = boost::any(*sidecarInjectStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeploymentInstances") != m.end() && !m["DeploymentInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeploymentInstances"].type()) {
+        vector<DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeploymentInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deploymentInstances = make_shared<vector<DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Selector") != m.end() && !m["Selector"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Selector"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      selector = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("SidecarInjectStatus") != m.end() && !m["SidecarInjectStatus"].empty()) {
+      sidecarInjectStatus = make_shared<string>(boost::any_cast<string>(m["SidecarInjectStatus"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesResponseBodyManagedServiceInfo() = default;
+};
+class DescribeManagedServicesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeManagedServicesResponseBodyManagedServiceInfo>> managedServiceInfo{};
+  shared_ptr<string> mark{};
+  shared_ptr<string> requestId{};
+
+  DescribeManagedServicesResponseBody() {}
+
+  explicit DescribeManagedServicesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managedServiceInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*managedServiceInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ManagedServiceInfo"] = boost::any(temp1);
+    }
+    if (mark) {
+      res["Mark"] = boost::any(*mark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagedServiceInfo") != m.end() && !m["ManagedServiceInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["ManagedServiceInfo"].type()) {
+        vector<DescribeManagedServicesResponseBodyManagedServiceInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ManagedServiceInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeManagedServicesResponseBodyManagedServiceInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        managedServiceInfo = make_shared<vector<DescribeManagedServicesResponseBodyManagedServiceInfo>>(expect1);
+      }
+    }
+    if (m.find("Mark") != m.end() && !m["Mark"].empty()) {
+      mark = make_shared<string>(boost::any_cast<string>(m["Mark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesResponseBody() = default;
+};
+class DescribeManagedServicesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeManagedServicesResponseBody> body{};
+
+  DescribeManagedServicesResponse() {}
+
+  explicit DescribeManagedServicesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeManagedServicesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeManagedServicesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesResponse() = default;
+};
 class DescribeNamespaceScopeSidecarConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> namespace_{};
@@ -4086,6 +8220,404 @@ public:
 
   virtual ~DescribeReusableSlbResponse() = default;
 };
+class DescribeServiceAccessDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceName{};
+
+  DescribeServiceAccessDetailRequest() {}
+
+  explicit DescribeServiceAccessDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceAccessDetailRequest() = default;
+};
+class DescribeServiceAccessDetailResponseBodyAccessDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterIP{};
+  shared_ptr<string> name{};
+  shared_ptr<string> ports{};
+  shared_ptr<string> type{};
+
+  DescribeServiceAccessDetailResponseBodyAccessDetail() {}
+
+  explicit DescribeServiceAccessDetailResponseBodyAccessDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterIP) {
+      res["ClusterIP"] = boost::any(*clusterIP);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterIP") != m.end() && !m["ClusterIP"].empty()) {
+      clusterIP = make_shared<string>(boost::any_cast<string>(m["ClusterIP"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      ports = make_shared<string>(boost::any_cast<string>(m["Ports"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceAccessDetailResponseBodyAccessDetail() = default;
+};
+class DescribeServiceAccessDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeServiceAccessDetailResponseBodyAccessDetail> accessDetail{};
+  shared_ptr<string> requestId{};
+
+  DescribeServiceAccessDetailResponseBody() {}
+
+  explicit DescribeServiceAccessDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessDetail) {
+      res["AccessDetail"] = accessDetail ? boost::any(accessDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDetail") != m.end() && !m["AccessDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessDetail"].type()) {
+        DescribeServiceAccessDetailResponseBodyAccessDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessDetail"]));
+        accessDetail = make_shared<DescribeServiceAccessDetailResponseBodyAccessDetail>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceAccessDetailResponseBody() = default;
+};
+class DescribeServiceAccessDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeServiceAccessDetailResponseBody> body{};
+
+  DescribeServiceAccessDetailResponse() {}
+
+  explicit DescribeServiceAccessDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceAccessDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceAccessDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceAccessDetailResponse() = default;
+};
+class DescribeServiceManagedResourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceName{};
+
+  DescribeServiceManagedResourceRequest() {}
+
+  explicit DescribeServiceManagedResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceManagedResourceRequest() = default;
+};
+class DescribeServiceManagedResourceResponseBodyManagedResource : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> destinationRules{};
+  shared_ptr<vector<string>> localRateLimiters{};
+  shared_ptr<vector<string>> virtualServices{};
+
+  DescribeServiceManagedResourceResponseBodyManagedResource() {}
+
+  explicit DescribeServiceManagedResourceResponseBodyManagedResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationRules) {
+      res["DestinationRules"] = boost::any(*destinationRules);
+    }
+    if (localRateLimiters) {
+      res["LocalRateLimiters"] = boost::any(*localRateLimiters);
+    }
+    if (virtualServices) {
+      res["VirtualServices"] = boost::any(*virtualServices);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationRules") != m.end() && !m["DestinationRules"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationRules"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationRules"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationRules = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LocalRateLimiters") != m.end() && !m["LocalRateLimiters"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LocalRateLimiters"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LocalRateLimiters"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      localRateLimiters = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VirtualServices") != m.end() && !m["VirtualServices"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VirtualServices"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VirtualServices"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      virtualServices = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeServiceManagedResourceResponseBodyManagedResource() = default;
+};
+class DescribeServiceManagedResourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeServiceManagedResourceResponseBodyManagedResource> managedResource{};
+  shared_ptr<string> requestId{};
+
+  DescribeServiceManagedResourceResponseBody() {}
+
+  explicit DescribeServiceManagedResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (managedResource) {
+      res["ManagedResource"] = managedResource ? boost::any(managedResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ManagedResource") != m.end() && !m["ManagedResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ManagedResource"].type()) {
+        DescribeServiceManagedResourceResponseBodyManagedResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ManagedResource"]));
+        managedResource = make_shared<DescribeServiceManagedResourceResponseBodyManagedResource>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceManagedResourceResponseBody() = default;
+};
+class DescribeServiceManagedResourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeServiceManagedResourceResponseBody> body{};
+
+  DescribeServiceManagedResourceResponse() {}
+
+  explicit DescribeServiceManagedResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceManagedResourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceManagedResourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceManagedResourceResponse() = default;
+};
 class DescribeServiceMeshAdditionalStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkMode{};
@@ -4124,6 +8656,8 @@ public:
 };
 class DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus : public Darabonba::Model {
 public:
+  shared_ptr<string> payType{};
+  shared_ptr<bool> reused{};
   shared_ptr<string> SLBBackEndServerNumStatus{};
   shared_ptr<string> SLBExistStatus{};
 
@@ -4137,6 +8671,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (reused) {
+      res["Reused"] = boost::any(*reused);
+    }
     if (SLBBackEndServerNumStatus) {
       res["SLBBackEndServerNumStatus"] = boost::any(*SLBBackEndServerNumStatus);
     }
@@ -4147,6 +8687,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("Reused") != m.end() && !m["Reused"].empty()) {
+      reused = make_shared<bool>(boost::any_cast<bool>(m["Reused"]));
+    }
     if (m.find("SLBBackEndServerNumStatus") != m.end() && !m["SLBBackEndServerNumStatus"].empty()) {
       SLBBackEndServerNumStatus = make_shared<string>(boost::any_cast<string>(m["SLBBackEndServerNumStatus"]));
     }
@@ -4160,6 +8706,8 @@ public:
 };
 class DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusPilotLoadBalancerStatus : public Darabonba::Model {
 public:
+  shared_ptr<string> payType{};
+  shared_ptr<bool> reused{};
   shared_ptr<string> SLBBackEndServerNumStatus{};
   shared_ptr<string> SLBExistStatus{};
 
@@ -4173,6 +8721,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (reused) {
+      res["Reused"] = boost::any(*reused);
+    }
     if (SLBBackEndServerNumStatus) {
       res["SLBBackEndServerNumStatus"] = boost::any(*SLBBackEndServerNumStatus);
     }
@@ -4183,6 +8737,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("Reused") != m.end() && !m["Reused"].empty()) {
+      reused = make_shared<bool>(boost::any_cast<bool>(m["Reused"]));
+    }
     if (m.find("SLBBackEndServerNumStatus") != m.end() && !m["SLBBackEndServerNumStatus"].empty()) {
       SLBBackEndServerNumStatus = make_shared<string>(boost::any_cast<string>(m["SLBBackEndServerNumStatus"]));
     }
@@ -7622,6 +12182,192 @@ public:
 
   virtual ~DescribeServiceMeshProxyStatusResponse() = default;
 };
+class DescribeServiceMeshServiceLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceNames{};
+  shared_ptr<string> serviceNamespaces{};
+
+  DescribeServiceMeshServiceLabelRequest() {}
+
+  explicit DescribeServiceMeshServiceLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceNames) {
+      res["ServiceNames"] = boost::any(*serviceNames);
+    }
+    if (serviceNamespaces) {
+      res["ServiceNamespaces"] = boost::any(*serviceNamespaces);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceNames") != m.end() && !m["ServiceNames"].empty()) {
+      serviceNames = make_shared<string>(boost::any_cast<string>(m["ServiceNames"]));
+    }
+    if (m.find("ServiceNamespaces") != m.end() && !m["ServiceNamespaces"].empty()) {
+      serviceNamespaces = make_shared<string>(boost::any_cast<string>(m["ServiceNamespaces"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshServiceLabelRequest() = default;
+};
+class ServiceLabelsValue : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> labels{};
+  shared_ptr<bool> success{};
+
+  ServiceLabelsValue() {}
+
+  explicit ServiceLabelsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ServiceLabelsValue() = default;
+};
+class DescribeServiceMeshServiceLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<map<string, ServiceLabelsValue>> serviceLabels{};
+
+  DescribeServiceMeshServiceLabelResponseBody() {}
+
+  explicit DescribeServiceMeshServiceLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceLabels) {
+      map<string, boost::any> temp1;
+      for(auto item1:*serviceLabels){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["ServiceLabels"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceLabels") != m.end() && !m["ServiceLabels"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServiceLabels"].type()) {
+        map<string, ServiceLabelsValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["ServiceLabels"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            ServiceLabelsValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        serviceLabels = make_shared<map<string, ServiceLabelsValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshServiceLabelResponseBody() = default;
+};
+class DescribeServiceMeshServiceLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeServiceMeshServiceLabelResponseBody> body{};
+
+  DescribeServiceMeshServiceLabelResponse() {}
+
+  explicit DescribeServiceMeshServiceLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeServiceMeshServiceLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeServiceMeshServiceLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshServiceLabelResponse() = default;
+};
 class DescribeServiceMeshUpgradeStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<string> allIstioGatewayFullNames{};
@@ -9452,6 +14198,314 @@ public:
 
   virtual ~DescribeVSwitchesResponse() = default;
 };
+class DescribeVersionManagementRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceName{};
+
+  DescribeVersionManagementRequest() {}
+
+  explicit DescribeVersionManagementRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementRequest() = default;
+};
+class DescribeVersionManagementResponseBodyVersionDetailsPodInstances : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> nodeIp{};
+  shared_ptr<string> podIP{};
+  shared_ptr<string> podName{};
+
+  DescribeVersionManagementResponseBodyVersionDetailsPodInstances() {}
+
+  explicit DescribeVersionManagementResponseBodyVersionDetailsPodInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (nodeIp) {
+      res["NodeIp"] = boost::any(*nodeIp);
+    }
+    if (podIP) {
+      res["PodIP"] = boost::any(*podIP);
+    }
+    if (podName) {
+      res["PodName"] = boost::any(*podName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NodeIp") != m.end() && !m["NodeIp"].empty()) {
+      nodeIp = make_shared<string>(boost::any_cast<string>(m["NodeIp"]));
+    }
+    if (m.find("PodIP") != m.end() && !m["PodIP"].empty()) {
+      podIP = make_shared<string>(boost::any_cast<string>(m["PodIP"]));
+    }
+    if (m.find("PodName") != m.end() && !m["PodName"].empty()) {
+      podName = make_shared<string>(boost::any_cast<string>(m["PodName"]));
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementResponseBodyVersionDetailsPodInstances() = default;
+};
+class DescribeVersionManagementResponseBodyVersionDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> deploymentName{};
+  shared_ptr<vector<string>> images{};
+  shared_ptr<bool> inject{};
+  shared_ptr<vector<DescribeVersionManagementResponseBodyVersionDetailsPodInstances>> podInstances{};
+  shared_ptr<long> readyReplicas{};
+  shared_ptr<long> replicas{};
+  shared_ptr<string> version{};
+
+  DescribeVersionManagementResponseBodyVersionDetails() {}
+
+  explicit DescribeVersionManagementResponseBodyVersionDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deploymentName) {
+      res["DeploymentName"] = boost::any(*deploymentName);
+    }
+    if (images) {
+      res["Images"] = boost::any(*images);
+    }
+    if (inject) {
+      res["Inject"] = boost::any(*inject);
+    }
+    if (podInstances) {
+      vector<boost::any> temp1;
+      for(auto item1:*podInstances){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PodInstances"] = boost::any(temp1);
+    }
+    if (readyReplicas) {
+      res["ReadyReplicas"] = boost::any(*readyReplicas);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeploymentName") != m.end() && !m["DeploymentName"].empty()) {
+      deploymentName = make_shared<string>(boost::any_cast<string>(m["DeploymentName"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Images"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Inject") != m.end() && !m["Inject"].empty()) {
+      inject = make_shared<bool>(boost::any_cast<bool>(m["Inject"]));
+    }
+    if (m.find("PodInstances") != m.end() && !m["PodInstances"].empty()) {
+      if (typeid(vector<boost::any>) == m["PodInstances"].type()) {
+        vector<DescribeVersionManagementResponseBodyVersionDetailsPodInstances> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PodInstances"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVersionManagementResponseBodyVersionDetailsPodInstances model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        podInstances = make_shared<vector<DescribeVersionManagementResponseBodyVersionDetailsPodInstances>>(expect1);
+      }
+    }
+    if (m.find("ReadyReplicas") != m.end() && !m["ReadyReplicas"].empty()) {
+      readyReplicas = make_shared<long>(boost::any_cast<long>(m["ReadyReplicas"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementResponseBodyVersionDetails() = default;
+};
+class DescribeVersionManagementResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeVersionManagementResponseBodyVersionDetails>> versionDetails{};
+
+  DescribeVersionManagementResponseBody() {}
+
+  explicit DescribeVersionManagementResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (versionDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*versionDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VersionDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("VersionDetails") != m.end() && !m["VersionDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["VersionDetails"].type()) {
+        vector<DescribeVersionManagementResponseBodyVersionDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VersionDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVersionManagementResponseBodyVersionDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        versionDetails = make_shared<vector<DescribeVersionManagementResponseBodyVersionDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementResponseBody() = default;
+};
+class DescribeVersionManagementResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeVersionManagementResponseBody> body{};
+
+  DescribeVersionManagementResponse() {}
+
+  explicit DescribeVersionManagementResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVersionManagementResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVersionManagementResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementResponse() = default;
+};
 class DescribeVersionsResponseBodyVersionInfo : public Darabonba::Model {
 public:
   shared_ptr<string> edition{};
@@ -10683,6 +15737,130 @@ public:
 
   virtual ~GetVmMetaResponse() = default;
 };
+class ListDashboardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> k8sClusterId{};
+  shared_ptr<string> serviceMeshId{};
+
+  ListDashboardRequest() {}
+
+  explicit ListDashboardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (k8sClusterId) {
+      res["K8sClusterId"] = boost::any(*k8sClusterId);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("K8sClusterId") != m.end() && !m["K8sClusterId"].empty()) {
+      k8sClusterId = make_shared<string>(boost::any_cast<string>(m["K8sClusterId"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~ListDashboardRequest() = default;
+};
+class ListDashboardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  ListDashboardResponseBody() {}
+
+  explicit ListDashboardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListDashboardResponseBody() = default;
+};
+class ListDashboardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDashboardResponseBody> body{};
+
+  ListDashboardResponse() {}
+
+  explicit ListDashboardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDashboardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDashboardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDashboardResponse() = default;
+};
 class ModifyServiceMeshNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -11551,6 +16729,1440 @@ public:
 
   virtual ~UpdateASMGatewayImportedServicesResponse() = default;
 };
+class UpdateInjectedProxyConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deploymentNames{};
+  shared_ptr<string> guestCluster{};
+  shared_ptr<string> limitCPUs{};
+  shared_ptr<string> limitMemories{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> requestCPUs{};
+  shared_ptr<string> requestMemories{};
+  shared_ptr<string> serviceMeshId{};
+
+  UpdateInjectedProxyConfigRequest() {}
+
+  explicit UpdateInjectedProxyConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deploymentNames) {
+      res["DeploymentNames"] = boost::any(*deploymentNames);
+    }
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (limitCPUs) {
+      res["LimitCPUs"] = boost::any(*limitCPUs);
+    }
+    if (limitMemories) {
+      res["LimitMemories"] = boost::any(*limitMemories);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (requestCPUs) {
+      res["RequestCPUs"] = boost::any(*requestCPUs);
+    }
+    if (requestMemories) {
+      res["RequestMemories"] = boost::any(*requestMemories);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeploymentNames") != m.end() && !m["DeploymentNames"].empty()) {
+      deploymentNames = make_shared<string>(boost::any_cast<string>(m["DeploymentNames"]));
+    }
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("LimitCPUs") != m.end() && !m["LimitCPUs"].empty()) {
+      limitCPUs = make_shared<string>(boost::any_cast<string>(m["LimitCPUs"]));
+    }
+    if (m.find("LimitMemories") != m.end() && !m["LimitMemories"].empty()) {
+      limitMemories = make_shared<string>(boost::any_cast<string>(m["LimitMemories"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RequestCPUs") != m.end() && !m["RequestCPUs"].empty()) {
+      requestCPUs = make_shared<string>(boost::any_cast<string>(m["RequestCPUs"]));
+    }
+    if (m.find("RequestMemories") != m.end() && !m["RequestMemories"].empty()) {
+      requestMemories = make_shared<string>(boost::any_cast<string>(m["RequestMemories"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~UpdateInjectedProxyConfigRequest() = default;
+};
+class UpdateInjectedProxyConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateInjectedProxyConfigResponseBody() {}
+
+  explicit UpdateInjectedProxyConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateInjectedProxyConfigResponseBody() = default;
+};
+class UpdateInjectedProxyConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateInjectedProxyConfigResponseBody> body{};
+
+  UpdateInjectedProxyConfigResponse() {}
+
+  explicit UpdateInjectedProxyConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateInjectedProxyConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateInjectedProxyConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateInjectedProxyConfigResponse() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort : public Darabonba::Model {
+public:
+  shared_ptr<long> httpStatus{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage> percentage{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpStatus) {
+      res["HttpStatus"] = boost::any(*httpStatus);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpStatus") != m.end() && !m["HttpStatus"].empty()) {
+      httpStatus = make_shared<long>(boost::any_cast<long>(m["HttpStatus"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbortPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay : public Darabonba::Model {
+public:
+  shared_ptr<string> fixedDelay{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage> percentage{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fixedDelay) {
+      res["FixedDelay"] = boost::any(*fixedDelay);
+    }
+    if (percentage) {
+      res["Percentage"] = percentage ? boost::any(percentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FixedDelay") != m.end() && !m["FixedDelay"].empty()) {
+      fixedDelay = make_shared<string>(boost::any_cast<string>(m["FixedDelay"]));
+    }
+    if (m.find("Percentage") != m.end() && !m["Percentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Percentage"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Percentage"]));
+        percentage = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelayPercentage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort> abort{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay> delay{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abort) {
+      res["Abort"] = abort ? boost::any(abort->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (delay) {
+      res["Delay"] = delay ? boost::any(delay->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Abort") != m.end() && !m["Abort"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Abort"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Abort"]));
+        abort = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultAbort>(model1);
+      }
+    }
+    if (m.find("Delay") != m.end() && !m["Delay"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delay"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delay"]));
+        delay = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFaultDelay>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<long> redirectCode{};
+  shared_ptr<string> uri{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (redirectCode) {
+      res["RedirectCode"] = boost::any(*redirectCode);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("RedirectCode") != m.end() && !m["RedirectCode"].empty()) {
+      redirectCode = make_shared<long>(boost::any_cast<long>(m["RedirectCode"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> subset{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage : public Darabonba::Model {
+public:
+  shared_ptr<double> value{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities : public Darabonba::Model {
+public:
+  shared_ptr<bool> value{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<bool>(boost::any_cast<bool>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries : public Darabonba::Model {
+public:
+  shared_ptr<long> attempts{};
+  shared_ptr<string> perTryTimeout{};
+  shared_ptr<string> retryOn{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities> retryRemoteLocalities{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attempts) {
+      res["Attempts"] = boost::any(*attempts);
+    }
+    if (perTryTimeout) {
+      res["PerTryTimeout"] = boost::any(*perTryTimeout);
+    }
+    if (retryOn) {
+      res["RetryOn"] = boost::any(*retryOn);
+    }
+    if (retryRemoteLocalities) {
+      res["RetryRemoteLocalities"] = retryRemoteLocalities ? boost::any(retryRemoteLocalities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attempts") != m.end() && !m["Attempts"].empty()) {
+      attempts = make_shared<long>(boost::any_cast<long>(m["Attempts"]));
+    }
+    if (m.find("PerTryTimeout") != m.end() && !m["PerTryTimeout"].empty()) {
+      perTryTimeout = make_shared<string>(boost::any_cast<string>(m["PerTryTimeout"]));
+    }
+    if (m.find("RetryOn") != m.end() && !m["RetryOn"].empty()) {
+      retryOn = make_shared<string>(boost::any_cast<string>(m["RetryOn"]));
+    }
+    if (m.find("RetryRemoteLocalities") != m.end() && !m["RetryRemoteLocalities"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryRemoteLocalities"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryRemoteLocalities"]));
+        retryRemoteLocalities = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetriesRetryRemoteLocalities>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite : public Darabonba::Model {
+public:
+  shared_ptr<string> authority{};
+  shared_ptr<string> uri{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authority) {
+      res["Authority"] = boost::any(*authority);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Authority") != m.end() && !m["Authority"].empty()) {
+      authority = make_shared<string>(boost::any_cast<string>(m["Authority"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate> delegate{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault> fault{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect> HTTPRedirect{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror> mirror{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage> mirrorPercentage{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries> retries{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite> rewrite{};
+  shared_ptr<string> timeout{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delegate) {
+      res["Delegate"] = delegate ? boost::any(delegate->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (fault) {
+      res["Fault"] = fault ? boost::any(fault->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (HTTPRedirect) {
+      res["HTTPRedirect"] = HTTPRedirect ? boost::any(HTTPRedirect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirror) {
+      res["Mirror"] = mirror ? boost::any(mirror->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mirrorPercentage) {
+      res["MirrorPercentage"] = mirrorPercentage ? boost::any(mirrorPercentage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (retries) {
+      res["Retries"] = retries ? boost::any(retries->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rewrite) {
+      res["Rewrite"] = rewrite ? boost::any(rewrite->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delegate") != m.end() && !m["Delegate"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Delegate"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Delegate"]));
+        delegate = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate>(model1);
+      }
+    }
+    if (m.find("Fault") != m.end() && !m["Fault"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Fault"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Fault"]));
+        fault = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsFault>(model1);
+      }
+    }
+    if (m.find("HTTPRedirect") != m.end() && !m["HTTPRedirect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPRedirect"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPRedirect"]));
+        HTTPRedirect = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsHTTPRedirect>(model1);
+      }
+    }
+    if (m.find("Mirror") != m.end() && !m["Mirror"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mirror"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mirror"]));
+        mirror = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirror>(model1);
+      }
+    }
+    if (m.find("MirrorPercentage") != m.end() && !m["MirrorPercentage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MirrorPercentage"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MirrorPercentage"]));
+        mirrorPercentage = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsMirrorPercentage>(model1);
+      }
+    }
+    if (m.find("Retries") != m.end() && !m["Retries"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Retries"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Retries"]));
+        retries = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRetries>(model1);
+      }
+    }
+    if (m.find("Rewrite") != m.end() && !m["Rewrite"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rewrite"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rewrite"]));
+        rewrite = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsRewrite>(model1);
+      }
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<string>(boost::any_cast<string>(m["Timeout"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+  shared_ptr<string> name{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> SNIHosts{};
+  shared_ptr<long> TLSPort{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (SNIHosts) {
+      res["SNIHosts"] = boost::any(*SNIHosts);
+    }
+    if (TLSPort) {
+      res["TLSPort"] = boost::any(*TLSPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SNIHosts") != m.end() && !m["SNIHosts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SNIHosts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SNIHosts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      SNIHosts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TLSPort") != m.end() && !m["TLSPort"].empty()) {
+      TLSPort = make_shared<long>(boost::any_cast<long>(m["TLSPort"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI : public Darabonba::Model {
+public:
+  shared_ptr<string> matchingContent{};
+  shared_ptr<string> matchingMode{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (matchingContent) {
+      res["MatchingContent"] = boost::any(*matchingContent);
+    }
+    if (matchingMode) {
+      res["MatchingMode"] = boost::any(*matchingMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MatchingContent") != m.end() && !m["MatchingContent"].empty()) {
+      matchingContent = make_shared<string>(boost::any_cast<string>(m["MatchingContent"]));
+    }
+    if (m.find("MatchingMode") != m.end() && !m["MatchingMode"].empty()) {
+      matchingMode = make_shared<string>(boost::any_cast<string>(m["MatchingMode"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders>> headers{};
+  shared_ptr<vector<long>> ports{};
+  shared_ptr<vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes>> TLSMatchAttributes{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI> URI{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
+    }
+    if (TLSMatchAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*TLSMatchAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TLSMatchAttributes"] = boost::any(temp1);
+    }
+    if (URI) {
+      res["URI"] = URI ? boost::any(URI->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ports"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ports = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TLSMatchAttributes") != m.end() && !m["TLSMatchAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["TLSMatchAttributes"].type()) {
+        vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TLSMatchAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        TLSMatchAttributes = make_shared<vector<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestTLSMatchAttributes>>(expect1);
+      }
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      if (typeid(map<string, boost::any>) == m["URI"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["URI"]));
+        URI = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequestURI>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination : public Darabonba::Model {
+public:
+  shared_ptr<string> host{};
+  shared_ptr<string> subset{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (host) {
+      res["Host"] = boost::any(*host);
+    }
+    if (subset) {
+      res["Subset"] = boost::any(*subset);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Host") != m.end() && !m["Host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("Subset") != m.end() && !m["Subset"].empty()) {
+      subset = make_shared<string>(boost::any_cast<string>(m["Subset"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination> destination{};
+  shared_ptr<long> weight{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destination) {
+      res["Destination"] = destination ? boost::any(destination->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Destination"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Destination"]));
+        destination = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinationsDestination>(model1);
+      }
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations() = default;
+};
+class UpdateIstioGatewayRoutesRequestGatewayRoute : public Darabonba::Model {
+public:
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions> HTTPAdvancedOptions{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest> matchRequest{};
+  shared_ptr<vector<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>> routeDestinations{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> routeType{};
+
+  UpdateIstioGatewayRoutesRequestGatewayRoute() {}
+
+  explicit UpdateIstioGatewayRoutesRequestGatewayRoute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (HTTPAdvancedOptions) {
+      res["HTTPAdvancedOptions"] = HTTPAdvancedOptions ? boost::any(HTTPAdvancedOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (matchRequest) {
+      res["MatchRequest"] = matchRequest ? boost::any(matchRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (routeDestinations) {
+      vector<boost::any> temp1;
+      for(auto item1:*routeDestinations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RouteDestinations"] = boost::any(temp1);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HTTPAdvancedOptions") != m.end() && !m["HTTPAdvancedOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["HTTPAdvancedOptions"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPAdvancedOptions"]));
+        HTTPAdvancedOptions = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions>(model1);
+      }
+    }
+    if (m.find("MatchRequest") != m.end() && !m["MatchRequest"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MatchRequest"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MatchRequest"]));
+        matchRequest = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest>(model1);
+      }
+    }
+    if (m.find("RouteDestinations") != m.end() && !m["RouteDestinations"].empty()) {
+      if (typeid(vector<boost::any>) == m["RouteDestinations"].type()) {
+        vector<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RouteDestinations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        routeDestinations = make_shared<vector<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>>(expect1);
+      }
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequestGatewayRoute() = default;
+};
+class UpdateIstioGatewayRoutesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRoute> gatewayRoute{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<long> status{};
+
+  UpdateIstioGatewayRoutesRequest() {}
+
+  explicit UpdateIstioGatewayRoutesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gatewayRoute) {
+      res["GatewayRoute"] = gatewayRoute ? boost::any(gatewayRoute->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GatewayRoute") != m.end() && !m["GatewayRoute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["GatewayRoute"].type()) {
+        UpdateIstioGatewayRoutesRequestGatewayRoute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["GatewayRoute"]));
+        gatewayRoute = make_shared<UpdateIstioGatewayRoutesRequestGatewayRoute>(model1);
+      }
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesRequest() = default;
+};
+class UpdateIstioGatewayRoutesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> gatewayRouteShrink{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<long> status{};
+
+  UpdateIstioGatewayRoutesShrinkRequest() {}
+
+  explicit UpdateIstioGatewayRoutesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gatewayRouteShrink) {
+      res["GatewayRoute"] = boost::any(*gatewayRouteShrink);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GatewayRoute") != m.end() && !m["GatewayRoute"].empty()) {
+      gatewayRouteShrink = make_shared<string>(boost::any_cast<string>(m["GatewayRoute"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesShrinkRequest() = default;
+};
+class UpdateIstioGatewayRoutesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateIstioGatewayRoutesResponseBody() {}
+
+  explicit UpdateIstioGatewayRoutesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesResponseBody() = default;
+};
+class UpdateIstioGatewayRoutesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateIstioGatewayRoutesResponseBody> body{};
+
+  UpdateIstioGatewayRoutesResponse() {}
+
+  explicit UpdateIstioGatewayRoutesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateIstioGatewayRoutesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateIstioGatewayRoutesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioGatewayRoutesResponse() = default;
+};
+class UpdateIstioRouteAdditionalStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> istioGatewayName{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> routeName{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<long> status{};
+
+  UpdateIstioRouteAdditionalStatusRequest() {}
+
+  explicit UpdateIstioRouteAdditionalStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (istioGatewayName) {
+      res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
+      istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioRouteAdditionalStatusRequest() = default;
+};
+class UpdateIstioRouteAdditionalStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateIstioRouteAdditionalStatusResponseBody() {}
+
+  explicit UpdateIstioRouteAdditionalStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateIstioRouteAdditionalStatusResponseBody() = default;
+};
+class UpdateIstioRouteAdditionalStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateIstioRouteAdditionalStatusResponseBody> body{};
+
+  UpdateIstioRouteAdditionalStatusResponse() {}
+
+  explicit UpdateIstioRouteAdditionalStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateIstioRouteAdditionalStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateIstioRouteAdditionalStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateIstioRouteAdditionalStatusResponse() = default;
+};
 class UpdateMeshFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> accessLogEnabled{};
@@ -11594,11 +18206,16 @@ public:
   shared_ptr<bool> multiBufferEnabled{};
   shared_ptr<string> multiBufferPollDelay{};
   shared_ptr<bool> mysqlFilterEnabled{};
+  shared_ptr<string> OPAInjectorCPULimit{};
+  shared_ptr<string> OPAInjectorCPURequirement{};
+  shared_ptr<string> OPAInjectorMemoryLimit{};
+  shared_ptr<string> OPAInjectorMemoryRequirement{};
   shared_ptr<string> OPALimitCPU{};
   shared_ptr<string> OPALimitMemory{};
   shared_ptr<string> OPALogLevel{};
   shared_ptr<string> OPARequestCPU{};
   shared_ptr<string> OPARequestMemory{};
+  shared_ptr<bool> OPAScopeInjected{};
   shared_ptr<bool> opaEnabled{};
   shared_ptr<bool> openAgentPolicy{};
   shared_ptr<string> outboundTrafficPolicy{};
@@ -11758,6 +18375,18 @@ public:
     if (mysqlFilterEnabled) {
       res["MysqlFilterEnabled"] = boost::any(*mysqlFilterEnabled);
     }
+    if (OPAInjectorCPULimit) {
+      res["OPAInjectorCPULimit"] = boost::any(*OPAInjectorCPULimit);
+    }
+    if (OPAInjectorCPURequirement) {
+      res["OPAInjectorCPURequirement"] = boost::any(*OPAInjectorCPURequirement);
+    }
+    if (OPAInjectorMemoryLimit) {
+      res["OPAInjectorMemoryLimit"] = boost::any(*OPAInjectorMemoryLimit);
+    }
+    if (OPAInjectorMemoryRequirement) {
+      res["OPAInjectorMemoryRequirement"] = boost::any(*OPAInjectorMemoryRequirement);
+    }
     if (OPALimitCPU) {
       res["OPALimitCPU"] = boost::any(*OPALimitCPU);
     }
@@ -11772,6 +18401,9 @@ public:
     }
     if (OPARequestMemory) {
       res["OPARequestMemory"] = boost::any(*OPARequestMemory);
+    }
+    if (OPAScopeInjected) {
+      res["OPAScopeInjected"] = boost::any(*OPAScopeInjected);
     }
     if (opaEnabled) {
       res["OpaEnabled"] = boost::any(*opaEnabled);
@@ -11975,6 +18607,18 @@ public:
     if (m.find("MysqlFilterEnabled") != m.end() && !m["MysqlFilterEnabled"].empty()) {
       mysqlFilterEnabled = make_shared<bool>(boost::any_cast<bool>(m["MysqlFilterEnabled"]));
     }
+    if (m.find("OPAInjectorCPULimit") != m.end() && !m["OPAInjectorCPULimit"].empty()) {
+      OPAInjectorCPULimit = make_shared<string>(boost::any_cast<string>(m["OPAInjectorCPULimit"]));
+    }
+    if (m.find("OPAInjectorCPURequirement") != m.end() && !m["OPAInjectorCPURequirement"].empty()) {
+      OPAInjectorCPURequirement = make_shared<string>(boost::any_cast<string>(m["OPAInjectorCPURequirement"]));
+    }
+    if (m.find("OPAInjectorMemoryLimit") != m.end() && !m["OPAInjectorMemoryLimit"].empty()) {
+      OPAInjectorMemoryLimit = make_shared<string>(boost::any_cast<string>(m["OPAInjectorMemoryLimit"]));
+    }
+    if (m.find("OPAInjectorMemoryRequirement") != m.end() && !m["OPAInjectorMemoryRequirement"].empty()) {
+      OPAInjectorMemoryRequirement = make_shared<string>(boost::any_cast<string>(m["OPAInjectorMemoryRequirement"]));
+    }
     if (m.find("OPALimitCPU") != m.end() && !m["OPALimitCPU"].empty()) {
       OPALimitCPU = make_shared<string>(boost::any_cast<string>(m["OPALimitCPU"]));
     }
@@ -11989,6 +18633,9 @@ public:
     }
     if (m.find("OPARequestMemory") != m.end() && !m["OPARequestMemory"].empty()) {
       OPARequestMemory = make_shared<string>(boost::any_cast<string>(m["OPARequestMemory"]));
+    }
+    if (m.find("OPAScopeInjected") != m.end() && !m["OPAScopeInjected"].empty()) {
+      OPAScopeInjected = make_shared<bool>(boost::any_cast<bool>(m["OPAScopeInjected"]));
     }
     if (m.find("OpaEnabled") != m.end() && !m["OpaEnabled"].empty()) {
       opaEnabled = make_shared<bool>(boost::any_cast<bool>(m["OpaEnabled"]));
@@ -12387,6 +19034,303 @@ public:
 
   virtual ~UpdateNamespaceScopeSidecarConfigResponse() = default;
 };
+class UpdateServiceSidecarInjectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<bool> inject{};
+  shared_ptr<string> limitCPU{};
+  shared_ptr<string> limitMemory{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> requestCPU{};
+  shared_ptr<string> requestMemory{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceName{};
+
+  UpdateServiceSidecarInjectRequest() {}
+
+  explicit UpdateServiceSidecarInjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (inject) {
+      res["Inject"] = boost::any(*inject);
+    }
+    if (limitCPU) {
+      res["LimitCPU"] = boost::any(*limitCPU);
+    }
+    if (limitMemory) {
+      res["LimitMemory"] = boost::any(*limitMemory);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Inject") != m.end() && !m["Inject"].empty()) {
+      inject = make_shared<bool>(boost::any_cast<bool>(m["Inject"]));
+    }
+    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
+      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
+    }
+    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
+      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceSidecarInjectRequest() = default;
+};
+class UpdateServiceSidecarInjectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateServiceSidecarInjectResponseBody() {}
+
+  explicit UpdateServiceSidecarInjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceSidecarInjectResponseBody() = default;
+};
+class UpdateServiceSidecarInjectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateServiceSidecarInjectResponseBody> body{};
+
+  UpdateServiceSidecarInjectResponse() {}
+
+  explicit UpdateServiceSidecarInjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateServiceSidecarInjectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateServiceSidecarInjectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateServiceSidecarInjectResponse() = default;
+};
+class UpdateUnlabeledServiceManagedResourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> guestCluster{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> serviceName{};
+
+  UpdateUnlabeledServiceManagedResourceRequest() {}
+
+  explicit UpdateUnlabeledServiceManagedResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~UpdateUnlabeledServiceManagedResourceRequest() = default;
+};
+class UpdateUnlabeledServiceManagedResourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateUnlabeledServiceManagedResourceResponseBody() {}
+
+  explicit UpdateUnlabeledServiceManagedResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateUnlabeledServiceManagedResourceResponseBody() = default;
+};
+class UpdateUnlabeledServiceManagedResourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateUnlabeledServiceManagedResourceResponseBody> body{};
+
+  UpdateUnlabeledServiceManagedResourceResponse() {}
+
+  explicit UpdateUnlabeledServiceManagedResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateUnlabeledServiceManagedResourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateUnlabeledServiceManagedResourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateUnlabeledServiceManagedResourceResponse() = default;
+};
 class UpgradeMeshEditionPartiallyRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> ASMGatewayContinue{};
@@ -12680,8 +19624,20 @@ public:
   AddVMIntoServiceMeshResponse addVMIntoServiceMesh(shared_ptr<AddVMIntoServiceMeshRequest> request);
   CreateASMGatewayResponse createASMGatewayWithOptions(shared_ptr<CreateASMGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateASMGatewayResponse createASMGateway(shared_ptr<CreateASMGatewayRequest> request);
+  CreateGatewaySecretResponse createGatewaySecretWithOptions(shared_ptr<CreateGatewaySecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGatewaySecretResponse createGatewaySecret(shared_ptr<CreateGatewaySecretRequest> request);
+  CreateIstioGatewayDomainsResponse createIstioGatewayDomainsWithOptions(shared_ptr<CreateIstioGatewayDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIstioGatewayDomainsResponse createIstioGatewayDomains(shared_ptr<CreateIstioGatewayDomainsRequest> request);
+  CreateIstioGatewayRoutesResponse createIstioGatewayRoutesWithOptions(shared_ptr<CreateIstioGatewayRoutesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateIstioGatewayRoutesResponse createIstioGatewayRoutes(shared_ptr<CreateIstioGatewayRoutesRequest> request);
   CreateServiceMeshResponse createServiceMeshWithOptions(shared_ptr<CreateServiceMeshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceMeshResponse createServiceMesh(shared_ptr<CreateServiceMeshRequest> request);
+  DeleteGatewayRouteResponse deleteGatewayRouteWithOptions(shared_ptr<DeleteGatewayRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGatewayRouteResponse deleteGatewayRoute(shared_ptr<DeleteGatewayRouteRequest> request);
+  DeleteGatewaySecretResponse deleteGatewaySecretWithOptions(shared_ptr<DeleteGatewaySecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGatewaySecretResponse deleteGatewaySecret(shared_ptr<DeleteGatewaySecretRequest> request);
+  DeleteIstioGatewayDomainsResponse deleteIstioGatewayDomainsWithOptions(shared_ptr<DeleteIstioGatewayDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteIstioGatewayDomainsResponse deleteIstioGatewayDomains(shared_ptr<DeleteIstioGatewayDomainsRequest> request);
   DeleteServiceMeshResponse deleteServiceMeshWithOptions(shared_ptr<DeleteServiceMeshRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteServiceMeshResponse deleteServiceMesh(shared_ptr<DeleteServiceMeshRequest> request);
   DescribeASMGatewayImportedServicesResponse describeASMGatewayImportedServicesWithOptions(shared_ptr<DescribeASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12700,6 +19656,8 @@ public:
   DescribeClustersInServiceMeshResponse describeClustersInServiceMesh(shared_ptr<DescribeClustersInServiceMeshRequest> request);
   DescribeCrTemplatesResponse describeCrTemplatesWithOptions(shared_ptr<DescribeCrTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCrTemplatesResponse describeCrTemplates(shared_ptr<DescribeCrTemplatesRequest> request);
+  DescribeGatewaySecretDetailsResponse describeGatewaySecretDetailsWithOptions(shared_ptr<DescribeGatewaySecretDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGatewaySecretDetailsResponse describeGatewaySecretDetails(shared_ptr<DescribeGatewaySecretDetailsRequest> request);
   DescribeGuestClusterAccessLogDashboardsResponse describeGuestClusterAccessLogDashboardsWithOptions(shared_ptr<DescribeGuestClusterAccessLogDashboardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGuestClusterAccessLogDashboardsResponse describeGuestClusterAccessLogDashboards(shared_ptr<DescribeGuestClusterAccessLogDashboardsRequest> request);
   DescribeGuestClusterNamespacesResponse describeGuestClusterNamespacesWithOptions(shared_ptr<DescribeGuestClusterNamespacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12710,12 +19668,24 @@ public:
   DescribeImportedServicesDetailResponse describeImportedServicesDetail(shared_ptr<DescribeImportedServicesDetailRequest> request);
   DescribeIngressGatewaysResponse describeIngressGatewaysWithOptions(shared_ptr<DescribeIngressGatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeIngressGatewaysResponse describeIngressGateways(shared_ptr<DescribeIngressGatewaysRequest> request);
+  DescribeIstioGatewayDomainsResponse describeIstioGatewayDomainsWithOptions(shared_ptr<DescribeIstioGatewayDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeIstioGatewayDomainsResponse describeIstioGatewayDomains(shared_ptr<DescribeIstioGatewayDomainsRequest> request);
+  DescribeIstioGatewayRouteDetailResponse describeIstioGatewayRouteDetailWithOptions(shared_ptr<DescribeIstioGatewayRouteDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeIstioGatewayRouteDetailResponse describeIstioGatewayRouteDetail(shared_ptr<DescribeIstioGatewayRouteDetailRequest> request);
+  DescribeIstioGatewayRoutesResponse describeIstioGatewayRoutesWithOptions(shared_ptr<DescribeIstioGatewayRoutesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeIstioGatewayRoutesResponse describeIstioGatewayRoutes(shared_ptr<DescribeIstioGatewayRoutesRequest> request);
+  DescribeManagedServicesResponse describeManagedServicesWithOptions(shared_ptr<DescribeManagedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeManagedServicesResponse describeManagedServices(shared_ptr<DescribeManagedServicesRequest> request);
   DescribeNamespaceScopeSidecarConfigResponse describeNamespaceScopeSidecarConfigWithOptions(shared_ptr<DescribeNamespaceScopeSidecarConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNamespaceScopeSidecarConfigResponse describeNamespaceScopeSidecarConfig(shared_ptr<DescribeNamespaceScopeSidecarConfigRequest> request);
   DescribeNodesInstanceTypeResponse describeNodesInstanceTypeWithOptions(shared_ptr<DescribeNodesInstanceTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNodesInstanceTypeResponse describeNodesInstanceType(shared_ptr<DescribeNodesInstanceTypeRequest> request);
   DescribeReusableSlbResponse describeReusableSlbWithOptions(shared_ptr<DescribeReusableSlbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeReusableSlbResponse describeReusableSlb(shared_ptr<DescribeReusableSlbRequest> request);
+  DescribeServiceAccessDetailResponse describeServiceAccessDetailWithOptions(shared_ptr<DescribeServiceAccessDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceAccessDetailResponse describeServiceAccessDetail(shared_ptr<DescribeServiceAccessDetailRequest> request);
+  DescribeServiceManagedResourceResponse describeServiceManagedResourceWithOptions(shared_ptr<DescribeServiceManagedResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceManagedResourceResponse describeServiceManagedResource(shared_ptr<DescribeServiceManagedResourceRequest> request);
   DescribeServiceMeshAdditionalStatusResponse describeServiceMeshAdditionalStatusWithOptions(shared_ptr<DescribeServiceMeshAdditionalStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceMeshAdditionalStatusResponse describeServiceMeshAdditionalStatus(shared_ptr<DescribeServiceMeshAdditionalStatusRequest> request);
   DescribeServiceMeshClustersResponse describeServiceMeshClustersWithOptions(shared_ptr<DescribeServiceMeshClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12728,6 +19698,8 @@ public:
   DescribeServiceMeshLogsResponse describeServiceMeshLogs(shared_ptr<DescribeServiceMeshLogsRequest> request);
   DescribeServiceMeshProxyStatusResponse describeServiceMeshProxyStatusWithOptions(shared_ptr<DescribeServiceMeshProxyStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceMeshProxyStatusResponse describeServiceMeshProxyStatus(shared_ptr<DescribeServiceMeshProxyStatusRequest> request);
+  DescribeServiceMeshServiceLabelResponse describeServiceMeshServiceLabelWithOptions(shared_ptr<DescribeServiceMeshServiceLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeServiceMeshServiceLabelResponse describeServiceMeshServiceLabel(shared_ptr<DescribeServiceMeshServiceLabelRequest> request);
   DescribeServiceMeshUpgradeStatusResponse describeServiceMeshUpgradeStatusWithOptions(shared_ptr<DescribeServiceMeshUpgradeStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceMeshUpgradeStatusResponse describeServiceMeshUpgradeStatus(shared_ptr<DescribeServiceMeshUpgradeStatusRequest> request);
   DescribeServiceMeshVMsResponse describeServiceMeshVMsWithOptions(shared_ptr<DescribeServiceMeshVMsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12742,6 +19714,8 @@ public:
   DescribeVMsInServiceMeshResponse describeVMsInServiceMesh(shared_ptr<DescribeVMsInServiceMeshRequest> request);
   DescribeVSwitchesResponse describeVSwitchesWithOptions(shared_ptr<DescribeVSwitchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVSwitchesResponse describeVSwitches(shared_ptr<DescribeVSwitchesRequest> request);
+  DescribeVersionManagementResponse describeVersionManagementWithOptions(shared_ptr<DescribeVersionManagementRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVersionManagementResponse describeVersionManagement(shared_ptr<DescribeVersionManagementRequest> request);
   DescribeVersionsResponse describeVersionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVersionsResponse describeVersions();
   DescribeVpcsResponse describeVpcsWithOptions(shared_ptr<DescribeVpcsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12756,6 +19730,8 @@ public:
   GetVmAppMeshInfoResponse getVmAppMeshInfo(shared_ptr<GetVmAppMeshInfoRequest> request);
   GetVmMetaResponse getVmMetaWithOptions(shared_ptr<GetVmMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVmMetaResponse getVmMeta(shared_ptr<GetVmMetaRequest> request);
+  ListDashboardResponse listDashboardWithOptions(shared_ptr<ListDashboardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDashboardResponse listDashboard(shared_ptr<ListDashboardRequest> request);
   ModifyServiceMeshNameResponse modifyServiceMeshNameWithOptions(shared_ptr<ModifyServiceMeshNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyServiceMeshNameResponse modifyServiceMeshName(shared_ptr<ModifyServiceMeshNameRequest> request);
   ReActivateAuditResponse reActivateAuditWithOptions(shared_ptr<ReActivateAuditRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12770,10 +19746,20 @@ public:
   UpdateASMGatewayResponse updateASMGateway(shared_ptr<UpdateASMGatewayRequest> request);
   UpdateASMGatewayImportedServicesResponse updateASMGatewayImportedServicesWithOptions(shared_ptr<UpdateASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateASMGatewayImportedServicesResponse updateASMGatewayImportedServices(shared_ptr<UpdateASMGatewayImportedServicesRequest> request);
+  UpdateInjectedProxyConfigResponse updateInjectedProxyConfigWithOptions(shared_ptr<UpdateInjectedProxyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateInjectedProxyConfigResponse updateInjectedProxyConfig(shared_ptr<UpdateInjectedProxyConfigRequest> request);
+  UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutesWithOptions(shared_ptr<UpdateIstioGatewayRoutesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutes(shared_ptr<UpdateIstioGatewayRoutesRequest> request);
+  UpdateIstioRouteAdditionalStatusResponse updateIstioRouteAdditionalStatusWithOptions(shared_ptr<UpdateIstioRouteAdditionalStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateIstioRouteAdditionalStatusResponse updateIstioRouteAdditionalStatus(shared_ptr<UpdateIstioRouteAdditionalStatusRequest> request);
   UpdateMeshFeatureResponse updateMeshFeatureWithOptions(shared_ptr<UpdateMeshFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMeshFeatureResponse updateMeshFeature(shared_ptr<UpdateMeshFeatureRequest> request);
   UpdateNamespaceScopeSidecarConfigResponse updateNamespaceScopeSidecarConfigWithOptions(shared_ptr<UpdateNamespaceScopeSidecarConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNamespaceScopeSidecarConfigResponse updateNamespaceScopeSidecarConfig(shared_ptr<UpdateNamespaceScopeSidecarConfigRequest> request);
+  UpdateServiceSidecarInjectResponse updateServiceSidecarInjectWithOptions(shared_ptr<UpdateServiceSidecarInjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateServiceSidecarInjectResponse updateServiceSidecarInject(shared_ptr<UpdateServiceSidecarInjectRequest> request);
+  UpdateUnlabeledServiceManagedResourceResponse updateUnlabeledServiceManagedResourceWithOptions(shared_ptr<UpdateUnlabeledServiceManagedResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateUnlabeledServiceManagedResourceResponse updateUnlabeledServiceManagedResource(shared_ptr<UpdateUnlabeledServiceManagedResourceRequest> request);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartiallyWithOptions(shared_ptr<UpgradeMeshEditionPartiallyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartially(shared_ptr<UpgradeMeshEditionPartiallyRequest> request);
   UpgradeMeshVersionResponse upgradeMeshVersionWithOptions(shared_ptr<UpgradeMeshVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
