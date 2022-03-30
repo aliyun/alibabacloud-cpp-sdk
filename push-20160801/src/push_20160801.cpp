@@ -549,6 +549,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<long>(request->androidRenderStyle)) {
     query->insert(pair<string, long>("AndroidRenderStyle", *request->androidRenderStyle));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidVivoPushMode)) {
+    query->insert(pair<string, long>("AndroidVivoPushMode", *request->androidVivoPushMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidXiaoMiActivity)) {
     query->insert(pair<string, string>("AndroidXiaoMiActivity", *request->androidXiaoMiActivity));
   }
@@ -618,6 +621,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     query->insert(pair<string, string>("Title", *request->title));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->trim)) {
+    query->insert(pair<string, bool>("Trim", *request->trim));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSApnsEnv)) {
     query->insert(pair<string, string>("iOSApnsEnv", *request->iOSApnsEnv));
   }
@@ -629,6 +635,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSExtParameters)) {
     query->insert(pair<string, string>("iOSExtParameters", *request->iOSExtParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iOSInterruptionLevel)) {
+    query->insert(pair<string, string>("iOSInterruptionLevel", *request->iOSInterruptionLevel));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSMusic)) {
     query->insert(pair<string, string>("iOSMusic", *request->iOSMusic));
@@ -644,6 +653,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iOSNotificationThreadId)) {
     query->insert(pair<string, string>("iOSNotificationThreadId", *request->iOSNotificationThreadId));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->iOSRelevanceScore)) {
+    query->insert(pair<string, double>("iOSRelevanceScore", *request->iOSRelevanceScore));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->iOSRemind)) {
     query->insert(pair<string, bool>("iOSRemind", *request->iOSRemind));

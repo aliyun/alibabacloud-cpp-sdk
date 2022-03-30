@@ -1712,6 +1712,7 @@ public:
   shared_ptr<string> androidPopupTitle{};
   shared_ptr<bool> androidRemind{};
   shared_ptr<string> androidRenderStyle{};
+  shared_ptr<long> androidVivoPushMode{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
   shared_ptr<string> androidXiaoMiNotifyTitle{};
@@ -1729,15 +1730,18 @@ public:
   shared_ptr<string> target{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> title{};
+  shared_ptr<bool> trim{};
   shared_ptr<string> iOSApnsEnv{};
   shared_ptr<long> iOSBadge{};
   shared_ptr<bool> iOSBadgeAutoIncrement{};
   shared_ptr<string> iOSExtParameters{};
+  shared_ptr<string> iOSInterruptionLevel{};
   shared_ptr<string> iOSMusic{};
   shared_ptr<bool> iOSMutableContent{};
   shared_ptr<string> iOSNotificationCategory{};
   shared_ptr<string> iOSNotificationCollapseId{};
   shared_ptr<string> iOSNotificationThreadId{};
+  shared_ptr<double> iOSRelevanceScore{};
   shared_ptr<bool> iOSRemind{};
   shared_ptr<string> iOSRemindBody{};
   shared_ptr<bool> iOSSilentNotification{};
@@ -1828,6 +1832,9 @@ public:
     if (androidRenderStyle) {
       res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
     }
+    if (androidVivoPushMode) {
+      res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
+    }
     if (androidXiaoMiActivity) {
       res["AndroidXiaoMiActivity"] = boost::any(*androidXiaoMiActivity);
     }
@@ -1879,6 +1886,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (trim) {
+      res["Trim"] = boost::any(*trim);
+    }
     if (iOSApnsEnv) {
       res["iOSApnsEnv"] = boost::any(*iOSApnsEnv);
     }
@@ -1890,6 +1900,9 @@ public:
     }
     if (iOSExtParameters) {
       res["iOSExtParameters"] = boost::any(*iOSExtParameters);
+    }
+    if (iOSInterruptionLevel) {
+      res["iOSInterruptionLevel"] = boost::any(*iOSInterruptionLevel);
     }
     if (iOSMusic) {
       res["iOSMusic"] = boost::any(*iOSMusic);
@@ -1905,6 +1918,9 @@ public:
     }
     if (iOSNotificationThreadId) {
       res["iOSNotificationThreadId"] = boost::any(*iOSNotificationThreadId);
+    }
+    if (iOSRelevanceScore) {
+      res["iOSRelevanceScore"] = boost::any(*iOSRelevanceScore);
     }
     if (iOSRemind) {
       res["iOSRemind"] = boost::any(*iOSRemind);
@@ -1997,6 +2013,9 @@ public:
     if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
       androidRenderStyle = make_shared<string>(boost::any_cast<string>(m["AndroidRenderStyle"]));
     }
+    if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
+      androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
+    }
     if (m.find("AndroidXiaoMiActivity") != m.end() && !m["AndroidXiaoMiActivity"].empty()) {
       androidXiaoMiActivity = make_shared<string>(boost::any_cast<string>(m["AndroidXiaoMiActivity"]));
     }
@@ -2048,6 +2067,9 @@ public:
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
+    if (m.find("Trim") != m.end() && !m["Trim"].empty()) {
+      trim = make_shared<bool>(boost::any_cast<bool>(m["Trim"]));
+    }
     if (m.find("iOSApnsEnv") != m.end() && !m["iOSApnsEnv"].empty()) {
       iOSApnsEnv = make_shared<string>(boost::any_cast<string>(m["iOSApnsEnv"]));
     }
@@ -2059,6 +2081,9 @@ public:
     }
     if (m.find("iOSExtParameters") != m.end() && !m["iOSExtParameters"].empty()) {
       iOSExtParameters = make_shared<string>(boost::any_cast<string>(m["iOSExtParameters"]));
+    }
+    if (m.find("iOSInterruptionLevel") != m.end() && !m["iOSInterruptionLevel"].empty()) {
+      iOSInterruptionLevel = make_shared<string>(boost::any_cast<string>(m["iOSInterruptionLevel"]));
     }
     if (m.find("iOSMusic") != m.end() && !m["iOSMusic"].empty()) {
       iOSMusic = make_shared<string>(boost::any_cast<string>(m["iOSMusic"]));
@@ -2074,6 +2099,9 @@ public:
     }
     if (m.find("iOSNotificationThreadId") != m.end() && !m["iOSNotificationThreadId"].empty()) {
       iOSNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationThreadId"]));
+    }
+    if (m.find("iOSRelevanceScore") != m.end() && !m["iOSRelevanceScore"].empty()) {
+      iOSRelevanceScore = make_shared<double>(boost::any_cast<double>(m["iOSRelevanceScore"]));
     }
     if (m.find("iOSRemind") != m.end() && !m["iOSRemind"].empty()) {
       iOSRemind = make_shared<bool>(boost::any_cast<bool>(m["iOSRemind"]));
@@ -2297,6 +2325,7 @@ public:
   shared_ptr<string> androidPopupTitle{};
   shared_ptr<bool> androidRemind{};
   shared_ptr<long> androidRenderStyle{};
+  shared_ptr<long> androidVivoPushMode{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
   shared_ptr<string> androidXiaoMiNotifyTitle{};
@@ -2320,15 +2349,18 @@ public:
   shared_ptr<string> target{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> title{};
+  shared_ptr<bool> trim{};
   shared_ptr<string> iOSApnsEnv{};
   shared_ptr<long> iOSBadge{};
   shared_ptr<bool> iOSBadgeAutoIncrement{};
   shared_ptr<string> iOSExtParameters{};
+  shared_ptr<string> iOSInterruptionLevel{};
   shared_ptr<string> iOSMusic{};
   shared_ptr<bool> iOSMutableContent{};
   shared_ptr<string> iOSNotificationCategory{};
   shared_ptr<string> iOSNotificationCollapseId{};
   shared_ptr<string> iOSNotificationThreadId{};
+  shared_ptr<double> iOSRelevanceScore{};
   shared_ptr<bool> iOSRemind{};
   shared_ptr<string> iOSRemindBody{};
   shared_ptr<bool> iOSSilentNotification{};
@@ -2419,6 +2451,9 @@ public:
     if (androidRenderStyle) {
       res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
     }
+    if (androidVivoPushMode) {
+      res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
+    }
     if (androidXiaoMiActivity) {
       res["AndroidXiaoMiActivity"] = boost::any(*androidXiaoMiActivity);
     }
@@ -2488,6 +2523,9 @@ public:
     if (title) {
       res["Title"] = boost::any(*title);
     }
+    if (trim) {
+      res["Trim"] = boost::any(*trim);
+    }
     if (iOSApnsEnv) {
       res["iOSApnsEnv"] = boost::any(*iOSApnsEnv);
     }
@@ -2499,6 +2537,9 @@ public:
     }
     if (iOSExtParameters) {
       res["iOSExtParameters"] = boost::any(*iOSExtParameters);
+    }
+    if (iOSInterruptionLevel) {
+      res["iOSInterruptionLevel"] = boost::any(*iOSInterruptionLevel);
     }
     if (iOSMusic) {
       res["iOSMusic"] = boost::any(*iOSMusic);
@@ -2514,6 +2555,9 @@ public:
     }
     if (iOSNotificationThreadId) {
       res["iOSNotificationThreadId"] = boost::any(*iOSNotificationThreadId);
+    }
+    if (iOSRelevanceScore) {
+      res["iOSRelevanceScore"] = boost::any(*iOSRelevanceScore);
     }
     if (iOSRemind) {
       res["iOSRemind"] = boost::any(*iOSRemind);
@@ -2606,6 +2650,9 @@ public:
     if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
       androidRenderStyle = make_shared<long>(boost::any_cast<long>(m["AndroidRenderStyle"]));
     }
+    if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
+      androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
+    }
     if (m.find("AndroidXiaoMiActivity") != m.end() && !m["AndroidXiaoMiActivity"].empty()) {
       androidXiaoMiActivity = make_shared<string>(boost::any_cast<string>(m["AndroidXiaoMiActivity"]));
     }
@@ -2675,6 +2722,9 @@ public:
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
     }
+    if (m.find("Trim") != m.end() && !m["Trim"].empty()) {
+      trim = make_shared<bool>(boost::any_cast<bool>(m["Trim"]));
+    }
     if (m.find("iOSApnsEnv") != m.end() && !m["iOSApnsEnv"].empty()) {
       iOSApnsEnv = make_shared<string>(boost::any_cast<string>(m["iOSApnsEnv"]));
     }
@@ -2686,6 +2736,9 @@ public:
     }
     if (m.find("iOSExtParameters") != m.end() && !m["iOSExtParameters"].empty()) {
       iOSExtParameters = make_shared<string>(boost::any_cast<string>(m["iOSExtParameters"]));
+    }
+    if (m.find("iOSInterruptionLevel") != m.end() && !m["iOSInterruptionLevel"].empty()) {
+      iOSInterruptionLevel = make_shared<string>(boost::any_cast<string>(m["iOSInterruptionLevel"]));
     }
     if (m.find("iOSMusic") != m.end() && !m["iOSMusic"].empty()) {
       iOSMusic = make_shared<string>(boost::any_cast<string>(m["iOSMusic"]));
@@ -2701,6 +2754,9 @@ public:
     }
     if (m.find("iOSNotificationThreadId") != m.end() && !m["iOSNotificationThreadId"].empty()) {
       iOSNotificationThreadId = make_shared<string>(boost::any_cast<string>(m["iOSNotificationThreadId"]));
+    }
+    if (m.find("iOSRelevanceScore") != m.end() && !m["iOSRelevanceScore"].empty()) {
+      iOSRelevanceScore = make_shared<double>(boost::any_cast<double>(m["iOSRelevanceScore"]));
     }
     if (m.find("iOSRemind") != m.end() && !m["iOSRemind"].empty()) {
       iOSRemind = make_shared<bool>(boost::any_cast<bool>(m["iOSRemind"]));
