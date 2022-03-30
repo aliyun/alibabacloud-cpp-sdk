@@ -18,7 +18,6 @@ class ListResourceRelationshipsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> scene{};
   shared_ptr<string> sourceRegionId{};
   shared_ptr<vector<string>> sourceResourceId{};
   shared_ptr<string> sourceResourceType{};
@@ -39,9 +38,6 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
-    }
-    if (scene) {
-      res["Scene"] = boost::any(*scene);
     }
     if (sourceRegionId) {
       res["SourceRegionId"] = boost::any(*sourceRegionId);
@@ -64,9 +60,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
-      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
     }
     if (m.find("SourceRegionId") != m.end() && !m["SourceRegionId"].empty()) {
       sourceRegionId = make_shared<string>(boost::any_cast<string>(m["SourceRegionId"]));

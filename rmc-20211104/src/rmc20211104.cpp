@@ -47,9 +47,6 @@ ListResourceRelationshipsResponse Alibabacloud_RMC20211104::Client::listResource
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
-    query->insert(pair<string, string>("Scene", *request->scene));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceRegionId)) {
     query->insert(pair<string, string>("SourceRegionId", *request->sourceRegionId));
   }
