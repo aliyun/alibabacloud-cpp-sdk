@@ -509,6 +509,9 @@ SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemu(shared_ptr
 SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemuWithOptions(shared_ptr<SubmitTracemuRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyUri)) {
+    body->insert(pair<string, string>("KeyUri", *request->keyUri));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
     body->insert(pair<string, string>("MediaId", *request->mediaId));
   }

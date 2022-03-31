@@ -2169,6 +2169,7 @@ public:
 };
 class SubmitTracemuRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> keyUri{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> output{};
   shared_ptr<string> trace{};
@@ -2183,6 +2184,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (keyUri) {
+      res["KeyUri"] = boost::any(*keyUri);
+    }
     if (mediaId) {
       res["MediaId"] = boost::any(*mediaId);
     }
@@ -2196,6 +2200,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyUri") != m.end() && !m["KeyUri"].empty()) {
+      keyUri = make_shared<string>(boost::any_cast<string>(m["KeyUri"]));
+    }
     if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
       mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
     }
