@@ -2755,6 +2755,9 @@ PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionCon
     query->insert(pair<string, string>("qualifier", *request->qualifier));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->alwaysAllocateCPU)) {
+    body->insert(pair<string, bool>("alwaysAllocateCPU", *request->alwaysAllocateCPU));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ScheduledActions>>(request->scheduledActions)) {
     body->insert(pair<string, vector<ScheduledActions>>("scheduledActions", *request->scheduledActions));
   }

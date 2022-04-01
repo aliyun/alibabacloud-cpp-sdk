@@ -86,6 +86,97 @@ public:
 
   virtual ~AsyncConfigMeta() = default;
 };
+class AvailableAZ : public Darabonba::Model {
+public:
+  shared_ptr<string> availableAZs{};
+
+  AvailableAZ() {}
+
+  explicit AvailableAZ(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (availableAZs) {
+      res["availableAZs"] = boost::any(*availableAZs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("availableAZs") != m.end() && !m["availableAZs"].empty()) {
+      availableAZs = make_shared<string>(boost::any_cast<string>(m["availableAZs"]));
+    }
+  }
+
+
+  virtual ~AvailableAZ() = default;
+};
+class CDNEventsTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> eventName{};
+  shared_ptr<string> eventVersion{};
+  shared_ptr<map<string, vector<string>>> filter{};
+  shared_ptr<string> notes{};
+
+  CDNEventsTriggerConfig() {}
+
+  explicit CDNEventsTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventName) {
+      res["eventName"] = boost::any(*eventName);
+    }
+    if (eventVersion) {
+      res["eventVersion"] = boost::any(*eventVersion);
+    }
+    if (filter) {
+      res["filter"] = boost::any(*filter);
+    }
+    if (notes) {
+      res["notes"] = boost::any(*notes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("eventName") != m.end() && !m["eventName"].empty()) {
+      eventName = make_shared<string>(boost::any_cast<string>(m["eventName"]));
+    }
+    if (m.find("eventVersion") != m.end() && !m["eventVersion"].empty()) {
+      eventVersion = make_shared<string>(boost::any_cast<string>(m["eventVersion"]));
+    }
+    if (m.find("filter") != m.end() && !m["filter"].empty()) {
+      map<string, vector<string>> map1 = boost::any_cast<map<string, vector<string>>>(m["filter"]);
+      map<string, vector<string>> toMap1;
+      for (auto item:map1) {
+        vector<string> toVec2;
+        if (typeid(vector<boost::any>) == item.second.type()) {
+          vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item.second);
+          for (auto item:vec2) {
+             toVec2.push_back(boost::any_cast<string>(item));
+          }
+        }
+         toMap1[item.first] = toVec2;
+      }
+      filter = make_shared<map<string, vector<string>>>(toMap1);
+    }
+    if (m.find("notes") != m.end() && !m["notes"].empty()) {
+      notes = make_shared<string>(boost::any_cast<string>(m["notes"]));
+    }
+  }
+
+
+  virtual ~CDNEventsTriggerConfig() = default;
+};
 class CertConfig : public Darabonba::Model {
 public:
   shared_ptr<string> certName{};
@@ -513,6 +604,121 @@ public:
 
   virtual ~DestinationConfig() = default;
 };
+class Error : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+
+  Error() {}
+
+  explicit Error(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+  }
+
+
+  virtual ~Error() = default;
+};
+class ErrorInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> stackTrace{};
+
+  ErrorInfo() {}
+
+  explicit ErrorInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (stackTrace) {
+      res["stackTrace"] = boost::any(*stackTrace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("stackTrace") != m.end() && !m["stackTrace"].empty()) {
+      stackTrace = make_shared<string>(boost::any_cast<string>(m["stackTrace"]));
+    }
+  }
+
+
+  virtual ~ErrorInfo() = default;
+};
+class HTTPTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> authType{};
+  shared_ptr<vector<string>> methods{};
+
+  HTTPTriggerConfig() {}
+
+  explicit HTTPTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authType) {
+      res["authType"] = boost::any(*authType);
+    }
+    if (methods) {
+      res["methods"] = boost::any(*methods);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("authType") != m.end() && !m["authType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("methods") != m.end() && !m["methods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["methods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["methods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      methods = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~HTTPTriggerConfig() = default;
+};
 class LifecycleHook : public Darabonba::Model {
 public:
   shared_ptr<string> handler{};
@@ -621,6 +827,78 @@ public:
 
 
   virtual ~JaegerConfig() = default;
+};
+class JobConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> maxRetryTime{};
+  shared_ptr<long> triggerInterval{};
+
+  JobConfig() {}
+
+  explicit JobConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxRetryTime) {
+      res["maxRetryTime"] = boost::any(*maxRetryTime);
+    }
+    if (triggerInterval) {
+      res["triggerInterval"] = boost::any(*triggerInterval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maxRetryTime") != m.end() && !m["maxRetryTime"].empty()) {
+      maxRetryTime = make_shared<long>(boost::any_cast<long>(m["maxRetryTime"]));
+    }
+    if (m.find("triggerInterval") != m.end() && !m["triggerInterval"].empty()) {
+      triggerInterval = make_shared<long>(boost::any_cast<long>(m["triggerInterval"]));
+    }
+  }
+
+
+  virtual ~JobConfig() = default;
+};
+class JobLogConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> logstore{};
+  shared_ptr<string> project{};
+
+  JobLogConfig() {}
+
+  explicit JobLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logstore) {
+      res["logstore"] = boost::any(*logstore);
+    }
+    if (project) {
+      res["project"] = boost::any(*project);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("logstore") != m.end() && !m["logstore"].empty()) {
+      logstore = make_shared<string>(boost::any_cast<string>(m["logstore"]));
+    }
+    if (m.find("project") != m.end() && !m["project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+  }
+
+
+  virtual ~JobLogConfig() = default;
 };
 class LayerCode : public Darabonba::Model {
 public:
@@ -818,6 +1096,152 @@ public:
 
   virtual ~LogConfig() = default;
 };
+class SourceConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> logstore{};
+
+  SourceConfig() {}
+
+  explicit SourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logstore) {
+      res["logstore"] = boost::any(*logstore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("logstore") != m.end() && !m["logstore"].empty()) {
+      logstore = make_shared<string>(boost::any_cast<string>(m["logstore"]));
+    }
+  }
+
+
+  virtual ~SourceConfig() = default;
+};
+class LogTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enable{};
+  shared_ptr<map<string, string>> functionParameter{};
+  shared_ptr<JobConfig> jobConfig{};
+  shared_ptr<JobLogConfig> logConfig{};
+  shared_ptr<SourceConfig> sourceConfig{};
+
+  LogTriggerConfig() {}
+
+  explicit LogTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (functionParameter) {
+      res["functionParameter"] = boost::any(*functionParameter);
+    }
+    if (jobConfig) {
+      res["jobConfig"] = jobConfig ? boost::any(jobConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logConfig) {
+      res["logConfig"] = logConfig ? boost::any(logConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceConfig) {
+      res["sourceConfig"] = sourceConfig ? boost::any(sourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("functionParameter") != m.end() && !m["functionParameter"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["functionParameter"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      functionParameter = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("jobConfig") != m.end() && !m["jobConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["jobConfig"].type()) {
+        JobConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["jobConfig"]));
+        jobConfig = make_shared<JobConfig>(model1);
+      }
+    }
+    if (m.find("logConfig") != m.end() && !m["logConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["logConfig"].type()) {
+        JobLogConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["logConfig"]));
+        logConfig = make_shared<JobLogConfig>(model1);
+      }
+    }
+    if (m.find("sourceConfig") != m.end() && !m["sourceConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceConfig"].type()) {
+        SourceConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceConfig"]));
+        sourceConfig = make_shared<SourceConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LogTriggerConfig() = default;
+};
+class MnsTopicTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> filterTag{};
+  shared_ptr<string> notifyContentFormat{};
+  shared_ptr<string> notifyStrategy{};
+
+  MnsTopicTriggerConfig() {}
+
+  explicit MnsTopicTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterTag) {
+      res["filterTag"] = boost::any(*filterTag);
+    }
+    if (notifyContentFormat) {
+      res["notifyContentFormat"] = boost::any(*notifyContentFormat);
+    }
+    if (notifyStrategy) {
+      res["notifyStrategy"] = boost::any(*notifyStrategy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("filterTag") != m.end() && !m["filterTag"].empty()) {
+      filterTag = make_shared<string>(boost::any_cast<string>(m["filterTag"]));
+    }
+    if (m.find("notifyContentFormat") != m.end() && !m["notifyContentFormat"].empty()) {
+      notifyContentFormat = make_shared<string>(boost::any_cast<string>(m["notifyContentFormat"]));
+    }
+    if (m.find("notifyStrategy") != m.end() && !m["notifyStrategy"].empty()) {
+      notifyStrategy = make_shared<string>(boost::any_cast<string>(m["notifyStrategy"]));
+    }
+  }
+
+
+  virtual ~MnsTopicTriggerConfig() = default;
+};
 class NASConfigMountPoints : public Darabonba::Model {
 public:
   shared_ptr<string> mountDir{};
@@ -856,9 +1280,9 @@ public:
 };
 class NASConfig : public Darabonba::Model {
 public:
-  shared_ptr<string> groupId{};
+  shared_ptr<long> groupId{};
   shared_ptr<vector<NASConfigMountPoints>> mountPoints{};
-  shared_ptr<string> userId{};
+  shared_ptr<long> userId{};
 
   NASConfig() {}
 
@@ -888,7 +1312,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("groupId") != m.end() && !m["groupId"].empty()) {
-      groupId = make_shared<string>(boost::any_cast<string>(m["groupId"]));
+      groupId = make_shared<long>(boost::any_cast<long>(m["groupId"]));
     }
     if (m.find("mountPoints") != m.end() && !m["mountPoints"].empty()) {
       if (typeid(vector<boost::any>) == m["mountPoints"].type()) {
@@ -904,12 +1328,128 @@ public:
       }
     }
     if (m.find("userId") != m.end() && !m["userId"].empty()) {
-      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+      userId = make_shared<long>(boost::any_cast<long>(m["userId"]));
     }
   }
 
 
   virtual ~NASConfig() = default;
+};
+class OSSTriggerKey : public Darabonba::Model {
+public:
+  shared_ptr<string> prefix{};
+  shared_ptr<string> suffix{};
+
+  OSSTriggerKey() {}
+
+  explicit OSSTriggerKey(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (prefix) {
+      res["prefix"] = boost::any(*prefix);
+    }
+    if (suffix) {
+      res["suffix"] = boost::any(*suffix);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("suffix") != m.end() && !m["suffix"].empty()) {
+      suffix = make_shared<string>(boost::any_cast<string>(m["suffix"]));
+    }
+  }
+
+
+  virtual ~OSSTriggerKey() = default;
+};
+class OSSTriggerFilter : public Darabonba::Model {
+public:
+  shared_ptr<OSSTriggerKey> key{};
+
+  OSSTriggerFilter() {}
+
+  explicit OSSTriggerFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = key ? boost::any(key->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      if (typeid(map<string, boost::any>) == m["key"].type()) {
+        OSSTriggerKey model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["key"]));
+        key = make_shared<OSSTriggerKey>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OSSTriggerFilter() = default;
+};
+class OSSTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> events{};
+  shared_ptr<OSSTriggerFilter> filter{};
+
+  OSSTriggerConfig() {}
+
+  explicit OSSTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (events) {
+      res["events"] = boost::any(*events);
+    }
+    if (filter) {
+      res["filter"] = filter ? boost::any(filter->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("events") != m.end() && !m["events"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["events"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["events"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      events = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("filter") != m.end() && !m["filter"].empty()) {
+      if (typeid(map<string, boost::any>) == m["filter"].type()) {
+        OSSTriggerFilter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["filter"]));
+        filter = make_shared<OSSTriggerFilter>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OSSTriggerConfig() = default;
 };
 class OnDemandConfig : public Darabonba::Model {
 public:
@@ -1110,6 +1650,135 @@ public:
 
 
   virtual ~PathConfig() = default;
+};
+class PreFreeze : public Darabonba::Model {
+public:
+  shared_ptr<string> handler{};
+  shared_ptr<long> timeout{};
+
+  PreFreeze() {}
+
+  explicit PreFreeze(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (handler) {
+      res["handler"] = boost::any(*handler);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("handler") != m.end() && !m["handler"].empty()) {
+      handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~PreFreeze() = default;
+};
+class PreStop : public Darabonba::Model {
+public:
+  shared_ptr<string> handler{};
+  shared_ptr<long> timeout{};
+
+  PreStop() {}
+
+  explicit PreStop(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (handler) {
+      res["handler"] = boost::any(*handler);
+    }
+    if (timeout) {
+      res["timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("handler") != m.end() && !m["handler"].empty()) {
+      handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
+    }
+    if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
+    }
+  }
+
+
+  virtual ~PreStop() = default;
+};
+class RdsTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> concurrency{};
+  shared_ptr<string> eventFormat{};
+  shared_ptr<long> retry{};
+  shared_ptr<vector<string>> subscriptionObjects{};
+
+  RdsTriggerConfig() {}
+
+  explicit RdsTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (concurrency) {
+      res["concurrency"] = boost::any(*concurrency);
+    }
+    if (eventFormat) {
+      res["eventFormat"] = boost::any(*eventFormat);
+    }
+    if (retry) {
+      res["retry"] = boost::any(*retry);
+    }
+    if (subscriptionObjects) {
+      res["subscriptionObjects"] = boost::any(*subscriptionObjects);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("concurrency") != m.end() && !m["concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["concurrency"]));
+    }
+    if (m.find("eventFormat") != m.end() && !m["eventFormat"].empty()) {
+      eventFormat = make_shared<string>(boost::any_cast<string>(m["eventFormat"]));
+    }
+    if (m.find("retry") != m.end() && !m["retry"].empty()) {
+      retry = make_shared<long>(boost::any_cast<long>(m["retry"]));
+    }
+    if (m.find("subscriptionObjects") != m.end() && !m["subscriptionObjects"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["subscriptionObjects"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["subscriptionObjects"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      subscriptionObjects = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RdsTriggerConfig() = default;
 };
 class Resource : public Darabonba::Model {
 public:
@@ -1506,6 +2175,49 @@ public:
 
 
   virtual ~TargetTrackingPolicies() = default;
+};
+class TimeTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> cronExpression{};
+  shared_ptr<bool> enable{};
+  shared_ptr<string> payload{};
+
+  TimeTriggerConfig() {}
+
+  explicit TimeTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cronExpression) {
+      res["cronExpression"] = boost::any(*cronExpression);
+    }
+    if (enable) {
+      res["enable"] = boost::any(*enable);
+    }
+    if (payload) {
+      res["payload"] = boost::any(*payload);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cronExpression") != m.end() && !m["cronExpression"].empty()) {
+      cronExpression = make_shared<string>(boost::any_cast<string>(m["cronExpression"]));
+    }
+    if (m.find("enable") != m.end() && !m["enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
+    }
+    if (m.find("payload") != m.end() && !m["payload"].empty()) {
+      payload = make_shared<string>(boost::any_cast<string>(m["payload"]));
+    }
+  }
+
+
+  virtual ~TimeTriggerConfig() = default;
 };
 class TracingConfig : public Darabonba::Model {
 public:
@@ -6334,6 +7046,7 @@ public:
 };
 class GetProvisionConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> alwaysAllocateCPU{};
   shared_ptr<long> current{};
   shared_ptr<string> currentError{};
   shared_ptr<string> resource{};
@@ -6351,6 +7064,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alwaysAllocateCPU) {
+      res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
     if (current) {
       res["current"] = boost::any(*current);
     }
@@ -6381,6 +7097,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
+      alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
     }
@@ -9624,6 +10343,7 @@ public:
 };
 class ListProvisionConfigsResponseBodyProvisionConfigs : public Darabonba::Model {
 public:
+  shared_ptr<bool> alwaysAllocateCPU{};
   shared_ptr<long> current{};
   shared_ptr<string> currentError{};
   shared_ptr<string> resource{};
@@ -9641,6 +10361,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alwaysAllocateCPU) {
+      res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
     if (current) {
       res["current"] = boost::any(*current);
     }
@@ -9671,6 +10394,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
+      alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
     }
@@ -12386,6 +13112,7 @@ public:
 };
 class PutProvisionConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> alwaysAllocateCPU{};
   shared_ptr<vector<ScheduledActions>> scheduledActions{};
   shared_ptr<long> target{};
   shared_ptr<vector<TargetTrackingPolicies>> targetTrackingPolicies{};
@@ -12401,6 +13128,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alwaysAllocateCPU) {
+      res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
     if (scheduledActions) {
       vector<boost::any> temp1;
       for(auto item1:*scheduledActions){
@@ -12425,6 +13155,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
+      alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
     if (m.find("scheduledActions") != m.end() && !m["scheduledActions"].empty()) {
       if (typeid(vector<boost::any>) == m["scheduledActions"].type()) {
         vector<ScheduledActions> expect1;
@@ -12464,6 +13197,7 @@ public:
 };
 class PutProvisionConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> alwaysAllocateCPU{};
   shared_ptr<long> current{};
   shared_ptr<string> resource{};
   shared_ptr<vector<ScheduledActions>> scheduledActions{};
@@ -12480,6 +13214,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alwaysAllocateCPU) {
+      res["alwaysAllocateCPU"] = boost::any(*alwaysAllocateCPU);
+    }
     if (current) {
       res["current"] = boost::any(*current);
     }
@@ -12507,6 +13244,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("alwaysAllocateCPU") != m.end() && !m["alwaysAllocateCPU"].empty()) {
+      alwaysAllocateCPU = make_shared<bool>(boost::any_cast<bool>(m["alwaysAllocateCPU"]));
+    }
     if (m.find("current") != m.end() && !m["current"].empty()) {
       current = make_shared<long>(boost::any_cast<long>(m["current"]));
     }
