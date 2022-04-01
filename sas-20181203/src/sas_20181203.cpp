@@ -1490,34 +1490,6 @@ DescribeCriteriaResponse Alibabacloud_Sas20181203::Client::describeCriteria(shar
   return describeCriteriaWithOptions(request, runtime);
 }
 
-DescribeDialogMessagesResponse Alibabacloud_Sas20181203::Client::describeDialogMessagesWithOptions(shared_ptr<DescribeDialogMessagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
-    query->insert(pair<string, string>("SourceIp", *request->sourceIp));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeDialogMessages"))},
-    {"version", boost::any(string("2018-12-03"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeDialogMessagesResponse(callApi(params, req, runtime));
-}
-
-DescribeDialogMessagesResponse Alibabacloud_Sas20181203::Client::describeDialogMessages(shared_ptr<DescribeDialogMessagesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeDialogMessagesWithOptions(request, runtime);
-}
-
 DescribeDingTalkResponse Alibabacloud_Sas20181203::Client::describeDingTalkWithOptions(shared_ptr<DescribeDingTalkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2693,6 +2665,43 @@ DescribeInstanceStatisticsResponse Alibabacloud_Sas20181203::Client::describeIns
 DescribeInstanceStatisticsResponse Alibabacloud_Sas20181203::Client::describeInstanceStatistics(shared_ptr<DescribeInstanceStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeInstanceStatisticsWithOptions(request, runtime);
+}
+
+DescribeLoginBaseConfigsResponse Alibabacloud_Sas20181203::Client::describeLoginBaseConfigsWithOptions(shared_ptr<DescribeLoginBaseConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
+    query->insert(pair<string, string>("Target", *request->target));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeLoginBaseConfigs"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeLoginBaseConfigsResponse(callApi(params, req, runtime));
+}
+
+DescribeLoginBaseConfigsResponse Alibabacloud_Sas20181203::Client::describeLoginBaseConfigs(shared_ptr<DescribeLoginBaseConfigsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeLoginBaseConfigsWithOptions(request, runtime);
 }
 
 DescribeLogstoreStorageResponse Alibabacloud_Sas20181203::Client::describeLogstoreStorageWithOptions(shared_ptr<DescribeLogstoreStorageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
