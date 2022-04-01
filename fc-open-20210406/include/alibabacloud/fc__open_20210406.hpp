@@ -43,6 +43,49 @@ public:
 
   virtual ~AccelerationInfo() = default;
 };
+class AsyncConfigMeta : public Darabonba::Model {
+public:
+  shared_ptr<string> functionName{};
+  shared_ptr<string> qualifier{};
+  shared_ptr<string> serviceName{};
+
+  AsyncConfigMeta() {}
+
+  explicit AsyncConfigMeta(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (functionName) {
+      res["functionName"] = boost::any(*functionName);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    if (serviceName) {
+      res["serviceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
+      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
+    }
+  }
+
+
+  virtual ~AsyncConfigMeta() = default;
+};
 class CertConfig : public Darabonba::Model {
 public:
   shared_ptr<string> certName{};
@@ -88,8 +131,6 @@ public:
 };
 class Code : public Darabonba::Model {
 public:
-  shared_ptr<string> codeCheckSum{};
-  shared_ptr<string> err{};
   shared_ptr<string> ossBucketName{};
   shared_ptr<string> ossObjectName{};
   shared_ptr<string> zipFile{};
@@ -104,12 +145,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (codeCheckSum) {
-      res["codeCheckSum"] = boost::any(*codeCheckSum);
-    }
-    if (err) {
-      res["err"] = boost::any(*err);
-    }
     if (ossBucketName) {
       res["ossBucketName"] = boost::any(*ossBucketName);
     }
@@ -123,12 +158,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("codeCheckSum") != m.end() && !m["codeCheckSum"].empty()) {
-      codeCheckSum = make_shared<string>(boost::any_cast<string>(m["codeCheckSum"]));
-    }
-    if (m.find("err") != m.end() && !m["err"].empty()) {
-      err = make_shared<string>(boost::any_cast<string>(m["err"]));
-    }
     if (m.find("ossBucketName") != m.end() && !m["ossBucketName"].empty()) {
       ossBucketName = make_shared<string>(boost::any_cast<string>(m["ossBucketName"]));
     }
@@ -1223,12 +1252,64 @@ public:
 
   virtual ~ScheduledActions() = default;
 };
+class StatefulAsyncInvocationEvent : public Darabonba::Model {
+public:
+  shared_ptr<string> eventDetail{};
+  shared_ptr<long> eventId{};
+  shared_ptr<string> status{};
+  shared_ptr<long> timestamp{};
+
+  StatefulAsyncInvocationEvent() {}
+
+  explicit StatefulAsyncInvocationEvent(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventDetail) {
+      res["eventDetail"] = boost::any(*eventDetail);
+    }
+    if (eventId) {
+      res["eventId"] = boost::any(*eventId);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (timestamp) {
+      res["timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("eventDetail") != m.end() && !m["eventDetail"].empty()) {
+      eventDetail = make_shared<string>(boost::any_cast<string>(m["eventDetail"]));
+    }
+    if (m.find("eventId") != m.end() && !m["eventId"].empty()) {
+      eventId = make_shared<long>(boost::any_cast<long>(m["eventId"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("timestamp") != m.end() && !m["timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["timestamp"]));
+    }
+  }
+
+
+  virtual ~StatefulAsyncInvocationEvent() = default;
+};
 class StatefulAsyncInvocation : public Darabonba::Model {
 public:
   shared_ptr<long> alreadyRetriedTimes{};
   shared_ptr<string> destinationStatus{};
   shared_ptr<long> endTime{};
+  shared_ptr<vector<StatefulAsyncInvocationEvent>> events{};
   shared_ptr<string> functionName{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> invocationErrorMessage{};
   shared_ptr<string> invocationId{};
   shared_ptr<string> invocationPayload{};
@@ -1257,8 +1338,18 @@ public:
     if (endTime) {
       res["endTime"] = boost::any(*endTime);
     }
+    if (events) {
+      vector<boost::any> temp1;
+      for(auto item1:*events){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["events"] = boost::any(temp1);
+    }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
     }
     if (invocationErrorMessage) {
       res["invocationErrorMessage"] = boost::any(*invocationErrorMessage);
@@ -1297,8 +1388,24 @@ public:
     if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
     }
+    if (m.find("events") != m.end() && !m["events"].empty()) {
+      if (typeid(vector<boost::any>) == m["events"].type()) {
+        vector<StatefulAsyncInvocationEvent> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["events"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            StatefulAsyncInvocationEvent model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        events = make_shared<vector<StatefulAsyncInvocationEvent>>(expect1);
+      }
+    }
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
     }
     if (m.find("invocationErrorMessage") != m.end() && !m["invocationErrorMessage"].empty()) {
       invocationErrorMessage = make_shared<string>(boost::any_cast<string>(m["invocationErrorMessage"]));
@@ -1513,10 +1620,7 @@ class CreateAliasHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateAliasHeaders() {}
@@ -1535,17 +1639,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -1565,17 +1660,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -1765,10 +1851,7 @@ class CreateCustomDomainHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateCustomDomainHeaders() {}
@@ -1787,17 +1870,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -1817,17 +1891,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -2039,8 +2104,6 @@ public:
   shared_ptr<string> xFcAccountId{};
   shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateFunctionHeaders() {}
@@ -2065,12 +2128,6 @@ public:
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
     }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
-    }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
     }
@@ -2094,12 +2151,6 @@ public:
     }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -2549,10 +2600,7 @@ class CreateLayerVersionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateLayerVersionHeaders() {}
@@ -2571,17 +2619,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -2601,17 +2640,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -2834,10 +2864,7 @@ class CreateServiceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateServiceHeaders() {}
@@ -2856,17 +2883,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -2886,17 +2904,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3171,10 +3180,7 @@ class CreateTriggerHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateTriggerHeaders() {}
@@ -3193,17 +3199,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -3223,17 +3220,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3469,10 +3457,7 @@ class CreateVpcBindingHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   CreateVpcBindingHeaders() {}
@@ -3491,17 +3476,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -3521,17 +3497,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3613,10 +3580,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteAliasHeaders() {}
@@ -3638,17 +3602,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -3671,17 +3626,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3733,10 +3679,7 @@ class DeleteCustomDomainHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteCustomDomainHeaders() {}
@@ -3755,17 +3698,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -3785,17 +3719,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3848,10 +3773,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteFunctionHeaders() {}
@@ -3873,17 +3795,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -3906,17 +3819,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -3968,10 +3872,7 @@ class DeleteFunctionAsyncInvokeConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteFunctionAsyncInvokeConfigHeaders() {}
@@ -3990,17 +3891,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4020,17 +3912,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4112,10 +3995,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteFunctionOnDemandConfigHeaders() {}
@@ -4137,17 +4017,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4170,17 +4041,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4261,10 +4123,7 @@ class DeleteLayerVersionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteLayerVersionHeaders() {}
@@ -4283,17 +4142,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4313,17 +4163,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4376,10 +4217,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteServiceHeaders() {}
@@ -4401,17 +4239,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4434,17 +4263,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4496,10 +4316,7 @@ class DeleteServiceVersionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteServiceVersionHeaders() {}
@@ -4518,17 +4335,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4548,17 +4356,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4611,10 +4410,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteTriggerHeaders() {}
@@ -4636,17 +4432,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4669,17 +4456,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4731,10 +4509,7 @@ class DeleteVpcBindingHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeleteVpcBindingHeaders() {}
@@ -4753,17 +4528,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4783,17 +4549,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4845,10 +4602,7 @@ class DeregisterEventSourceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   DeregisterEventSourceHeaders() {}
@@ -4867,17 +4621,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -4897,17 +4642,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -4988,10 +4724,7 @@ class GetAccountSettingsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetAccountSettingsHeaders() {}
@@ -5010,17 +4743,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -5040,17 +4764,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -5152,10 +4867,7 @@ class GetAliasHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetAliasHeaders() {}
@@ -5174,17 +4886,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -5204,17 +4907,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -5349,10 +5043,7 @@ class GetCustomDomainHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetCustomDomainHeaders() {}
@@ -5371,17 +5062,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -5401,17 +5083,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -5563,10 +5236,7 @@ class GetFunctionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetFunctionHeaders() {}
@@ -5585,17 +5255,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -5615,17 +5276,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -5924,10 +5576,7 @@ class GetFunctionAsyncInvokeConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetFunctionAsyncInvokeConfigHeaders() {}
@@ -5946,17 +5595,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -5976,17 +5616,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -6170,10 +5801,7 @@ class GetFunctionCodeHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetFunctionCodeHeaders() {}
@@ -6192,17 +5820,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -6222,17 +5841,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -6363,10 +5973,7 @@ class GetFunctionOnDemandConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetFunctionOnDemandConfigHeaders() {}
@@ -6385,17 +5992,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -6415,17 +6013,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -6556,10 +6145,7 @@ class GetLayerVersionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetLayerVersionHeaders() {}
@@ -6578,17 +6164,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -6608,17 +6185,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -6680,245 +6248,11 @@ public:
 
   virtual ~GetLayerVersionResponse() = default;
 };
-class GetLayerVersionByArnHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
-  shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
-  shared_ptr<string> xFcTraceId{};
-
-  GetLayerVersionByArnHeaders() {}
-
-  explicit GetLayerVersionByArnHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (xFcAccountId) {
-      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
-    }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
-    if (xFcDate) {
-      res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
-    }
-    if (xFcTraceId) {
-      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
-      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
-    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
-      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
-    }
-    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
-      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
-    }
-  }
-
-
-  virtual ~GetLayerVersionByArnHeaders() = default;
-};
-class GetLayerVersionByArnResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> acl{};
-  shared_ptr<string> arn{};
-  shared_ptr<OutputCodeLocation> code{};
-  shared_ptr<string> codeChecksum{};
-  shared_ptr<long> codesize{};
-  shared_ptr<vector<string>> compatibleRuntime{};
-  shared_ptr<string> createTime{};
-  shared_ptr<string> description{};
-  shared_ptr<string> layerName{};
-  shared_ptr<long> version{};
-
-  GetLayerVersionByArnResponseBody() {}
-
-  explicit GetLayerVersionByArnResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (acl) {
-      res["acl"] = boost::any(*acl);
-    }
-    if (arn) {
-      res["arn"] = boost::any(*arn);
-    }
-    if (code) {
-      res["code"] = code ? boost::any(code->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (codeChecksum) {
-      res["codeChecksum"] = boost::any(*codeChecksum);
-    }
-    if (codesize) {
-      res["codesize"] = boost::any(*codesize);
-    }
-    if (compatibleRuntime) {
-      res["compatibleRuntime"] = boost::any(*compatibleRuntime);
-    }
-    if (createTime) {
-      res["createTime"] = boost::any(*createTime);
-    }
-    if (description) {
-      res["description"] = boost::any(*description);
-    }
-    if (layerName) {
-      res["layerName"] = boost::any(*layerName);
-    }
-    if (version) {
-      res["version"] = boost::any(*version);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("acl") != m.end() && !m["acl"].empty()) {
-      acl = make_shared<long>(boost::any_cast<long>(m["acl"]));
-    }
-    if (m.find("arn") != m.end() && !m["arn"].empty()) {
-      arn = make_shared<string>(boost::any_cast<string>(m["arn"]));
-    }
-    if (m.find("code") != m.end() && !m["code"].empty()) {
-      if (typeid(map<string, boost::any>) == m["code"].type()) {
-        OutputCodeLocation model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["code"]));
-        code = make_shared<OutputCodeLocation>(model1);
-      }
-    }
-    if (m.find("codeChecksum") != m.end() && !m["codeChecksum"].empty()) {
-      codeChecksum = make_shared<string>(boost::any_cast<string>(m["codeChecksum"]));
-    }
-    if (m.find("codesize") != m.end() && !m["codesize"].empty()) {
-      codesize = make_shared<long>(boost::any_cast<long>(m["codesize"]));
-    }
-    if (m.find("compatibleRuntime") != m.end() && !m["compatibleRuntime"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["compatibleRuntime"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["compatibleRuntime"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      compatibleRuntime = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
-      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
-    }
-    if (m.find("description") != m.end() && !m["description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["description"]));
-    }
-    if (m.find("layerName") != m.end() && !m["layerName"].empty()) {
-      layerName = make_shared<string>(boost::any_cast<string>(m["layerName"]));
-    }
-    if (m.find("version") != m.end() && !m["version"].empty()) {
-      version = make_shared<long>(boost::any_cast<long>(m["version"]));
-    }
-  }
-
-
-  virtual ~GetLayerVersionByArnResponseBody() = default;
-};
-class GetLayerVersionByArnResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<GetLayerVersionByArnResponseBody> body{};
-
-  GetLayerVersionByArnResponse() {}
-
-  explicit GetLayerVersionByArnResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetLayerVersionByArnResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetLayerVersionByArnResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetLayerVersionByArnResponse() = default;
-};
 class GetProvisionConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetProvisionConfigHeaders() {}
@@ -6937,17 +6271,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -6967,17 +6292,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -7164,10 +6480,7 @@ class GetResourceTagsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetResourceTagsHeaders() {}
@@ -7186,17 +6499,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -7216,17 +6520,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -7362,10 +6657,7 @@ class GetServiceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetServiceHeaders() {}
@@ -7384,17 +6676,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -7414,17 +6697,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -7791,10 +7065,7 @@ class GetTriggerHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   GetTriggerHeaders() {}
@@ -7813,17 +7084,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -7843,17 +7105,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -8018,7 +7271,6 @@ class InvokeFunctionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
   shared_ptr<string> xFcInvocationType{};
   shared_ptr<string> xFcLogType{};
@@ -8040,9 +7292,6 @@ public:
     }
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
-    }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
     }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
@@ -8073,9 +7322,6 @@ public:
     }
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
     }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
@@ -8185,10 +7431,7 @@ class ListAliasesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListAliasesHeaders() {}
@@ -8207,17 +7450,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -8237,17 +7471,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -8482,10 +7707,7 @@ class ListCustomDomainsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListCustomDomainsHeaders() {}
@@ -8504,17 +7726,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -8534,17 +7747,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -8796,10 +8000,7 @@ class ListEventSourcesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListEventSourcesHeaders() {}
@@ -8818,17 +8019,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -8848,17 +8040,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -9335,10 +8518,7 @@ class ListFunctionsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListFunctionsHeaders() {}
@@ -9357,17 +8537,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -9387,17 +8558,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -9748,229 +8910,11 @@ public:
 
   virtual ~ListFunctionsResponse() = default;
 };
-class ListInstancesHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<string> xFcAccountId{};
-
-  ListInstancesHeaders() {}
-
-  explicit ListInstancesHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (xFcAccountId) {
-      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
-      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-  }
-
-
-  virtual ~ListInstancesHeaders() = default;
-};
-class ListInstancesRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> limit{};
-  shared_ptr<string> nextToken{};
-  shared_ptr<string> qualifier{};
-
-  ListInstancesRequest() {}
-
-  explicit ListInstancesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (limit) {
-      res["limit"] = boost::any(*limit);
-    }
-    if (nextToken) {
-      res["nextToken"] = boost::any(*nextToken);
-    }
-    if (qualifier) {
-      res["qualifier"] = boost::any(*qualifier);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("limit") != m.end() && !m["limit"].empty()) {
-      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
-    }
-    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
-      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
-    }
-    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
-      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
-    }
-  }
-
-
-  virtual ~ListInstancesRequest() = default;
-};
-class ListInstancesResponseBodyInstances : public Darabonba::Model {
-public:
-  shared_ptr<string> instanceId{};
-  shared_ptr<string> versionId{};
-
-  ListInstancesResponseBodyInstances() {}
-
-  explicit ListInstancesResponseBodyInstances(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (instanceId) {
-      res["instanceId"] = boost::any(*instanceId);
-    }
-    if (versionId) {
-      res["versionId"] = boost::any(*versionId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
-    }
-    if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
-      versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
-    }
-  }
-
-
-  virtual ~ListInstancesResponseBodyInstances() = default;
-};
-class ListInstancesResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<ListInstancesResponseBodyInstances>> instances{};
-
-  ListInstancesResponseBody() {}
-
-  explicit ListInstancesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (instances) {
-      vector<boost::any> temp1;
-      for(auto item1:*instances){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["instances"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("instances") != m.end() && !m["instances"].empty()) {
-      if (typeid(vector<boost::any>) == m["instances"].type()) {
-        vector<ListInstancesResponseBodyInstances> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["instances"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListInstancesResponseBodyInstances model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        instances = make_shared<vector<ListInstancesResponseBodyInstances>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListInstancesResponseBody() = default;
-};
-class ListInstancesResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<ListInstancesResponseBody> body{};
-
-  ListInstancesResponse() {}
-
-  explicit ListInstancesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListInstancesResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListInstancesResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListInstancesResponse() = default;
-};
 class ListLayerVersionsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListLayerVersionsHeaders() {}
@@ -9989,17 +8933,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -10019,17 +8954,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -10181,10 +9107,7 @@ class ListLayersHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListLayersHeaders() {}
@@ -10203,17 +9126,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -10233,17 +9147,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -10409,10 +9314,7 @@ class ListOnDemandConfigsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListOnDemandConfigsHeaders() {}
@@ -10431,17 +9333,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -10461,17 +9354,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -10637,10 +9521,7 @@ class ListProvisionConfigsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListProvisionConfigsHeaders() {}
@@ -10659,17 +9540,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -10689,17 +9561,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -10957,10 +9820,7 @@ class ListReservedCapacitiesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListReservedCapacitiesHeaders() {}
@@ -10979,17 +9839,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -11009,17 +9860,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -11171,10 +10013,7 @@ class ListServiceVersionsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListServiceVersionsHeaders() {}
@@ -11193,17 +10032,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -11223,17 +10053,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -11456,10 +10277,7 @@ class ListServicesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListServicesHeaders() {}
@@ -11478,17 +10296,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -11508,17 +10317,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -11795,6 +10595,199 @@ public:
 
   virtual ~ListServicesResponse() = default;
 };
+class ListStatefulAsyncInvocationFunctionsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
+
+  ListStatefulAsyncInvocationFunctionsHeaders() {}
+
+  explicit ListStatefulAsyncInvocationFunctionsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xFcAccountId) {
+      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
+    }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
+      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
+    }
+  }
+
+
+  virtual ~ListStatefulAsyncInvocationFunctionsHeaders() = default;
+};
+class ListStatefulAsyncInvocationFunctionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> limit{};
+  shared_ptr<string> nextToken{};
+
+  ListStatefulAsyncInvocationFunctionsRequest() {}
+
+  explicit ListStatefulAsyncInvocationFunctionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limit) {
+      res["limit"] = boost::any(*limit);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("limit") != m.end() && !m["limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["limit"]));
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+  }
+
+
+  virtual ~ListStatefulAsyncInvocationFunctionsRequest() = default;
+};
+class ListStatefulAsyncInvocationFunctionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<AsyncConfigMeta>> data{};
+  shared_ptr<string> nextToken{};
+
+  ListStatefulAsyncInvocationFunctionsResponseBody() {}
+
+  explicit ListStatefulAsyncInvocationFunctionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["nextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<AsyncConfigMeta> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AsyncConfigMeta model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<AsyncConfigMeta>>(expect1);
+      }
+    }
+    if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+  }
+
+
+  virtual ~ListStatefulAsyncInvocationFunctionsResponseBody() = default;
+};
+class ListStatefulAsyncInvocationFunctionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListStatefulAsyncInvocationFunctionsResponseBody> body{};
+
+  ListStatefulAsyncInvocationFunctionsResponse() {}
+
+  explicit ListStatefulAsyncInvocationFunctionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListStatefulAsyncInvocationFunctionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListStatefulAsyncInvocationFunctionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListStatefulAsyncInvocationFunctionsResponse() = default;
+};
 class ListStatefulAsyncInvocationsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -12062,10 +11055,7 @@ class ListTaggedResourcesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListTaggedResourcesHeaders() {}
@@ -12084,17 +11074,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -12114,17 +11095,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -12276,10 +11248,7 @@ class ListTriggersHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListTriggersHeaders() {}
@@ -12298,17 +11267,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -12328,17 +11288,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -12603,10 +11554,7 @@ class ListVpcBindingsHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   ListVpcBindingsHeaders() {}
@@ -12625,17 +11573,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -12655,17 +11594,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -12763,243 +11693,12 @@ public:
 
   virtual ~ListVpcBindingsResponse() = default;
 };
-class PermanentDeleteLayerVersionHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
-  shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
-  shared_ptr<string> xFcTraceId{};
-
-  PermanentDeleteLayerVersionHeaders() {}
-
-  explicit PermanentDeleteLayerVersionHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (xFcAccountId) {
-      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
-    }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
-    if (xFcDate) {
-      res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
-    }
-    if (xFcTraceId) {
-      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
-      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
-    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
-      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
-    }
-    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
-      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
-    }
-  }
-
-
-  virtual ~PermanentDeleteLayerVersionHeaders() = default;
-};
-class PermanentDeleteLayerVersionResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  PermanentDeleteLayerVersionResponse() {}
-
-  explicit PermanentDeleteLayerVersionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~PermanentDeleteLayerVersionResponse() = default;
-};
-class PublishLayerAsPublicHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
-  shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
-  shared_ptr<string> xFcTraceId{};
-
-  PublishLayerAsPublicHeaders() {}
-
-  explicit PublishLayerAsPublicHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (xFcAccountId) {
-      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
-    }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
-    if (xFcDate) {
-      res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
-    }
-    if (xFcTraceId) {
-      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
-      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
-    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
-      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
-    }
-    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
-      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
-    }
-  }
-
-
-  virtual ~PublishLayerAsPublicHeaders() = default;
-};
-class PublishLayerAsPublicResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-
-  PublishLayerAsPublicResponse() {}
-
-  explicit PublishLayerAsPublicResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-  }
-
-
-  virtual ~PublishLayerAsPublicResponse() = default;
-};
 class PublishServiceVersionHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   PublishServiceVersionHeaders() {}
@@ -13021,17 +11720,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -13054,17 +11744,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -13209,10 +11890,7 @@ class PutFunctionAsyncInvokeConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   PutFunctionAsyncInvokeConfigHeaders() {}
@@ -13231,17 +11909,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -13261,17 +11930,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -13488,10 +12148,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   PutFunctionOnDemandConfigHeaders() {}
@@ -13513,17 +12170,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -13546,17 +12194,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -13694,10 +12333,7 @@ class PutProvisionConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   PutProvisionConfigHeaders() {}
@@ -13716,17 +12352,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -13746,17 +12373,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -13985,10 +12603,7 @@ class RegisterEventSourceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   RegisterEventSourceHeaders() {}
@@ -14007,17 +12622,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14037,17 +12643,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -14185,10 +12782,7 @@ class StopStatefulAsyncInvocationHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   StopStatefulAsyncInvocationHeaders() {}
@@ -14207,17 +12801,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14237,17 +12822,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -14328,10 +12904,7 @@ class TagResourceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   TagResourceHeaders() {}
@@ -14350,17 +12923,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14380,17 +12944,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -14483,10 +13038,7 @@ class UntagResourceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UntagResourceHeaders() {}
@@ -14505,17 +13057,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14535,17 +13078,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -14578,7 +13112,7 @@ public:
       res["resourceArn"] = boost::any(*resourceArn);
     }
     if (tagKeys) {
-      res["tagKeys	"] = boost::any(*tagKeys);
+      res["tagKeys"] = boost::any(*tagKeys);
     }
     return res;
   }
@@ -14590,10 +13124,10 @@ public:
     if (m.find("resourceArn") != m.end() && !m["resourceArn"].empty()) {
       resourceArn = make_shared<string>(boost::any_cast<string>(m["resourceArn"]));
     }
-    if (m.find("tagKeys	") != m.end() && !m["tagKeys	"].empty()) {
+    if (m.find("tagKeys") != m.end() && !m["tagKeys"].empty()) {
       vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["tagKeys	"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tagKeys	"]);
+      if (typeid(vector<boost::any>) == m["tagKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tagKeys"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<string>(item));
         }
@@ -14648,10 +13182,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UpdateAliasHeaders() {}
@@ -14673,17 +13204,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14706,17 +13228,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -14899,10 +13412,7 @@ class UpdateCustomDomainHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UpdateCustomDomainHeaders() {}
@@ -14921,17 +13431,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -14951,17 +13452,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -15167,8 +13659,6 @@ public:
   shared_ptr<string> xFcAccountId{};
   shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UpdateFunctionHeaders() {}
@@ -15196,12 +13686,6 @@ public:
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
     }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
-    }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
     }
@@ -15228,12 +13712,6 @@ public:
     }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -15670,10 +14148,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UpdateServiceHeaders() {}
@@ -15695,17 +14170,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -15728,17 +14194,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -16007,10 +14464,7 @@ public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> ifMatch{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcCodeChecksum{};
   shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcInvocationType{};
-  shared_ptr<string> xFcLogType{};
   shared_ptr<string> xFcTraceId{};
 
   UpdateTriggerHeaders() {}
@@ -16032,17 +14486,8 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcCodeChecksum) {
-      res["X-Fc-Code-Checksum"] = boost::any(*xFcCodeChecksum);
-    }
     if (xFcDate) {
       res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcInvocationType) {
-      res["X-Fc-Invocation-Type"] = boost::any(*xFcInvocationType);
-    }
-    if (xFcLogType) {
-      res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
     }
     if (xFcTraceId) {
       res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
@@ -16065,17 +14510,8 @@ public:
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
     }
-    if (m.find("X-Fc-Code-Checksum") != m.end() && !m["X-Fc-Code-Checksum"].empty()) {
-      xFcCodeChecksum = make_shared<string>(boost::any_cast<string>(m["X-Fc-Code-Checksum"]));
-    }
     if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
       xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Invocation-Type") != m.end() && !m["X-Fc-Invocation-Type"].empty()) {
-      xFcInvocationType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Invocation-Type"]));
-    }
-    if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
-      xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
     }
     if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
       xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
@@ -16421,8 +14857,6 @@ public:
                                                      shared_ptr<string> version,
                                                      shared_ptr<GetLayerVersionHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetLayerVersionByArnResponse getLayerVersionByArn(shared_ptr<string> arn);
-  GetLayerVersionByArnResponse getLayerVersionByArnWithOptions(shared_ptr<string> arn, shared_ptr<GetLayerVersionByArnHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProvisionConfigResponse getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request);
   GetProvisionConfigResponse getProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                            shared_ptr<string> functionName,
@@ -16482,12 +14916,6 @@ public:
                                                  shared_ptr<ListFunctionsRequest> request,
                                                  shared_ptr<ListFunctionsHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInstancesResponse listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request);
-  ListInstancesResponse listInstancesWithOptions(shared_ptr<string> serviceName,
-                                                 shared_ptr<string> functionName,
-                                                 shared_ptr<ListInstancesRequest> request,
-                                                 shared_ptr<ListInstancesHeaders> headers,
-                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLayerVersionsResponse listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request);
   ListLayerVersionsResponse listLayerVersionsWithOptions(shared_ptr<string> layerName,
                                                          shared_ptr<ListLayerVersionsRequest> request,
@@ -16508,6 +14936,8 @@ public:
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
   ListServicesResponse listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<ListServicesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListStatefulAsyncInvocationFunctionsResponse listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request);
+  ListStatefulAsyncInvocationFunctionsResponse listStatefulAsyncInvocationFunctionsWithOptions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request, shared_ptr<ListStatefulAsyncInvocationFunctionsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListStatefulAsyncInvocationsResponse listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request);
   ListStatefulAsyncInvocationsResponse listStatefulAsyncInvocationsWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
@@ -16524,17 +14954,6 @@ public:
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpcBindingsResponse listVpcBindings(shared_ptr<string> serviceName);
   ListVpcBindingsResponse listVpcBindingsWithOptions(shared_ptr<string> serviceName, shared_ptr<ListVpcBindingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PermanentDeleteLayerVersionResponse permanentDeleteLayerVersion(shared_ptr<string> userID, shared_ptr<string> layerName, shared_ptr<string> version);
-  PermanentDeleteLayerVersionResponse permanentDeleteLayerVersionWithOptions(shared_ptr<string> userID,
-                                                                             shared_ptr<string> layerName,
-                                                                             shared_ptr<string> version,
-                                                                             shared_ptr<PermanentDeleteLayerVersionHeaders> headers,
-                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PublishLayerAsPublicResponse publishLayerAsPublic(shared_ptr<string> layerName, shared_ptr<string> version);
-  PublishLayerAsPublicResponse publishLayerAsPublicWithOptions(shared_ptr<string> layerName,
-                                                               shared_ptr<string> version,
-                                                               shared_ptr<PublishLayerAsPublicHeaders> headers,
-                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishServiceVersionResponse publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request);
   PublishServiceVersionResponse publishServiceVersionWithOptions(shared_ptr<string> serviceName,
                                                                  shared_ptr<PublishServiceVersionRequest> request,
