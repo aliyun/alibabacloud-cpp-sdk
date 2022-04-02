@@ -38,6 +38,51 @@ string Alibabacloud_Devops20210625::Client::getEndpoint(shared_ptr<string> produ
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AddRepositoryMemberResponse Alibabacloud_Devops20210625::Client::addRepositoryMember(shared_ptr<string> repositoryId, shared_ptr<AddRepositoryMemberRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return addRepositoryMemberWithOptions(repositoryId, request, headers, runtime);
+}
+
+AddRepositoryMemberResponse Alibabacloud_Devops20210625::Client::addRepositoryMemberWithOptions(shared_ptr<string> repositoryId,
+                                                                                                shared_ptr<AddRepositoryMemberRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  repositoryId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("AccessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->accessLevel)) {
+    body->insert(pair<string, long>("accessLevel", *request->accessLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunPks)) {
+    body->insert(pair<string, string>("aliyunPks", *request->aliyunPks));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddRepositoryMember"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/repository/") + string(*repositoryId) + string("/members"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddRepositoryMemberResponse(callApi(params, req, runtime));
+}
+
 AddWebhookResponse Alibabacloud_Devops20210625::Client::addWebhook(shared_ptr<string> repositoryId, shared_ptr<AddWebhookRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -318,9 +363,6 @@ CreateRepositoryResponse Alibabacloud_Devops20210625::Client::createRepositoryWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->importRepoType)) {
     body->insert(pair<string, string>("importRepoType", *request->importRepoType));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateRepositoryRequestImportSvnRepoConfig>(request->importSvnRepoConfig)) {
-    body->insert(pair<string, CreateRepositoryRequestImportSvnRepoConfig>("importSvnRepoConfig", *request->importSvnRepoConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->importToken)) {
     body->insert(pair<string, string>("importToken", *request->importToken));

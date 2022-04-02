@@ -15,6 +15,243 @@
 using namespace std;
 
 namespace Alibabacloud_Devops20210625 {
+class AddRepositoryMemberRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<long> accessLevel{};
+  shared_ptr<string> aliyunPks{};
+  shared_ptr<string> organizationId{};
+
+  AddRepositoryMemberRequest() {}
+
+  explicit AddRepositoryMemberRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["AccessToken"] = boost::any(*accessToken);
+    }
+    if (accessLevel) {
+      res["accessLevel"] = boost::any(*accessLevel);
+    }
+    if (aliyunPks) {
+      res["aliyunPks"] = boost::any(*aliyunPks);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
+    }
+    if (m.find("accessLevel") != m.end() && !m["accessLevel"].empty()) {
+      accessLevel = make_shared<long>(boost::any_cast<long>(m["accessLevel"]));
+    }
+    if (m.find("aliyunPks") != m.end() && !m["aliyunPks"].empty()) {
+      aliyunPks = make_shared<string>(boost::any_cast<string>(m["aliyunPks"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+  }
+
+
+  virtual ~AddRepositoryMemberRequest() = default;
+};
+class AddRepositoryMemberResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> accessLevel{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<string> externUserId{};
+  shared_ptr<long> id{};
+  shared_ptr<string> state{};
+
+  AddRepositoryMemberResponseBodyResult() {}
+
+  explicit AddRepositoryMemberResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessLevel) {
+      res["AccessLevel"] = boost::any(*accessLevel);
+    }
+    if (avatarUrl) {
+      res["AvatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["Email"] = boost::any(*email);
+    }
+    if (externUserId) {
+      res["ExternUserId"] = boost::any(*externUserId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessLevel") != m.end() && !m["AccessLevel"].empty()) {
+      accessLevel = make_shared<long>(boost::any_cast<long>(m["AccessLevel"]));
+    }
+    if (m.find("AvatarUrl") != m.end() && !m["AvatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["AvatarUrl"]));
+    }
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
+    if (m.find("ExternUserId") != m.end() && !m["ExternUserId"].empty()) {
+      externUserId = make_shared<string>(boost::any_cast<string>(m["ExternUserId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~AddRepositoryMemberResponseBodyResult() = default;
+};
+class AddRepositoryMemberResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<AddRepositoryMemberResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  AddRepositoryMemberResponseBody() {}
+
+  explicit AddRepositoryMemberResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<AddRepositoryMemberResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddRepositoryMemberResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<AddRepositoryMemberResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddRepositoryMemberResponseBody() = default;
+};
+class AddRepositoryMemberResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<AddRepositoryMemberResponseBody> body{};
+
+  AddRepositoryMemberResponse() {}
+
+  explicit AddRepositoryMemberResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddRepositoryMemberResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddRepositoryMemberResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddRepositoryMemberResponse() = default;
+};
 class AddWebhookRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -109,12 +346,10 @@ public:
 };
 class AddWebhookResponseBodyResult : public Darabonba::Model {
 public:
-  shared_ptr<bool> enableSslVerification{};
-  shared_ptr<bool> buildEvents{};
   shared_ptr<string> createdAt{};
   shared_ptr<string> description{};
+  shared_ptr<bool> enableSslVerification{};
   shared_ptr<long> id{};
-  shared_ptr<bool> issuesEvents{};
   shared_ptr<string> lastTestResult{};
   shared_ptr<bool> mergeRequestsEvents{};
   shared_ptr<bool> noteEvents{};
@@ -134,23 +369,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (enableSslVerification) {
-      res["EnableSslVerification"] = boost::any(*enableSslVerification);
-    }
-    if (buildEvents) {
-      res["buildEvents"] = boost::any(*buildEvents);
-    }
     if (createdAt) {
       res["createdAt"] = boost::any(*createdAt);
     }
     if (description) {
       res["description"] = boost::any(*description);
     }
+    if (enableSslVerification) {
+      res["enableSslVerification"] = boost::any(*enableSslVerification);
+    }
     if (id) {
       res["id"] = boost::any(*id);
-    }
-    if (issuesEvents) {
-      res["issuesEvents"] = boost::any(*issuesEvents);
     }
     if (lastTestResult) {
       res["lastTestResult"] = boost::any(*lastTestResult);
@@ -180,23 +409,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("EnableSslVerification") != m.end() && !m["EnableSslVerification"].empty()) {
-      enableSslVerification = make_shared<bool>(boost::any_cast<bool>(m["EnableSslVerification"]));
-    }
-    if (m.find("buildEvents") != m.end() && !m["buildEvents"].empty()) {
-      buildEvents = make_shared<bool>(boost::any_cast<bool>(m["buildEvents"]));
-    }
     if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
       createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
+    if (m.find("enableSslVerification") != m.end() && !m["enableSslVerification"].empty()) {
+      enableSslVerification = make_shared<bool>(boost::any_cast<bool>(m["enableSslVerification"]));
+    }
     if (m.find("id") != m.end() && !m["id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["id"]));
-    }
-    if (m.find("issuesEvents") != m.end() && !m["issuesEvents"].empty()) {
-      issuesEvents = make_shared<bool>(boost::any_cast<bool>(m["issuesEvents"]));
     }
     if (m.find("lastTestResult") != m.end() && !m["lastTestResult"].empty()) {
       lastTestResult = make_shared<string>(boost::any_cast<string>(m["lastTestResult"]));
@@ -1128,112 +1351,6 @@ public:
 
   virtual ~CreateProjectResponse() = default;
 };
-class CreateRepositoryRequestImportSvnRepoConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> authorMapping{};
-  shared_ptr<string> branchMapping{};
-  shared_ptr<bool> noBranches{};
-  shared_ptr<bool> noTags{};
-  shared_ptr<string> password{};
-  shared_ptr<string> path{};
-  shared_ptr<bool> rootIsTrunk{};
-  shared_ptr<bool> standardLayout{};
-  shared_ptr<string> svnImportUrl{};
-  shared_ptr<string> tagMapping{};
-  shared_ptr<string> trunkMapping{};
-  shared_ptr<string> username{};
-
-  CreateRepositoryRequestImportSvnRepoConfig() {}
-
-  explicit CreateRepositoryRequestImportSvnRepoConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (authorMapping) {
-      res["authorMapping"] = boost::any(*authorMapping);
-    }
-    if (branchMapping) {
-      res["branchMapping"] = boost::any(*branchMapping);
-    }
-    if (noBranches) {
-      res["noBranches"] = boost::any(*noBranches);
-    }
-    if (noTags) {
-      res["noTags"] = boost::any(*noTags);
-    }
-    if (password) {
-      res["password"] = boost::any(*password);
-    }
-    if (path) {
-      res["path"] = boost::any(*path);
-    }
-    if (rootIsTrunk) {
-      res["rootIsTrunk"] = boost::any(*rootIsTrunk);
-    }
-    if (standardLayout) {
-      res["standardLayout"] = boost::any(*standardLayout);
-    }
-    if (svnImportUrl) {
-      res["svnImportUrl"] = boost::any(*svnImportUrl);
-    }
-    if (tagMapping) {
-      res["tagMapping"] = boost::any(*tagMapping);
-    }
-    if (trunkMapping) {
-      res["trunkMapping"] = boost::any(*trunkMapping);
-    }
-    if (username) {
-      res["username"] = boost::any(*username);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("authorMapping") != m.end() && !m["authorMapping"].empty()) {
-      authorMapping = make_shared<string>(boost::any_cast<string>(m["authorMapping"]));
-    }
-    if (m.find("branchMapping") != m.end() && !m["branchMapping"].empty()) {
-      branchMapping = make_shared<string>(boost::any_cast<string>(m["branchMapping"]));
-    }
-    if (m.find("noBranches") != m.end() && !m["noBranches"].empty()) {
-      noBranches = make_shared<bool>(boost::any_cast<bool>(m["noBranches"]));
-    }
-    if (m.find("noTags") != m.end() && !m["noTags"].empty()) {
-      noTags = make_shared<bool>(boost::any_cast<bool>(m["noTags"]));
-    }
-    if (m.find("password") != m.end() && !m["password"].empty()) {
-      password = make_shared<string>(boost::any_cast<string>(m["password"]));
-    }
-    if (m.find("path") != m.end() && !m["path"].empty()) {
-      path = make_shared<string>(boost::any_cast<string>(m["path"]));
-    }
-    if (m.find("rootIsTrunk") != m.end() && !m["rootIsTrunk"].empty()) {
-      rootIsTrunk = make_shared<bool>(boost::any_cast<bool>(m["rootIsTrunk"]));
-    }
-    if (m.find("standardLayout") != m.end() && !m["standardLayout"].empty()) {
-      standardLayout = make_shared<bool>(boost::any_cast<bool>(m["standardLayout"]));
-    }
-    if (m.find("svnImportUrl") != m.end() && !m["svnImportUrl"].empty()) {
-      svnImportUrl = make_shared<string>(boost::any_cast<string>(m["svnImportUrl"]));
-    }
-    if (m.find("tagMapping") != m.end() && !m["tagMapping"].empty()) {
-      tagMapping = make_shared<string>(boost::any_cast<string>(m["tagMapping"]));
-    }
-    if (m.find("trunkMapping") != m.end() && !m["trunkMapping"].empty()) {
-      trunkMapping = make_shared<string>(boost::any_cast<string>(m["trunkMapping"]));
-    }
-    if (m.find("username") != m.end() && !m["username"].empty()) {
-      username = make_shared<string>(boost::any_cast<string>(m["username"]));
-    }
-  }
-
-
-  virtual ~CreateRepositoryRequestImportSvnRepoConfig() = default;
-};
 class CreateRepositoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -1243,7 +1360,6 @@ public:
   shared_ptr<string> importAccount{};
   shared_ptr<bool> importDemoProject{};
   shared_ptr<string> importRepoType{};
-  shared_ptr<CreateRepositoryRequestImportSvnRepoConfig> importSvnRepoConfig{};
   shared_ptr<string> importToken{};
   shared_ptr<string> importTokenEncrypted{};
   shared_ptr<string> importUrl{};
@@ -1289,9 +1405,6 @@ public:
     }
     if (importRepoType) {
       res["importRepoType"] = boost::any(*importRepoType);
-    }
-    if (importSvnRepoConfig) {
-      res["importSvnRepoConfig"] = importSvnRepoConfig ? boost::any(importSvnRepoConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (importToken) {
       res["importToken"] = boost::any(*importToken);
@@ -1359,13 +1472,6 @@ public:
     }
     if (m.find("importRepoType") != m.end() && !m["importRepoType"].empty()) {
       importRepoType = make_shared<string>(boost::any_cast<string>(m["importRepoType"]));
-    }
-    if (m.find("importSvnRepoConfig") != m.end() && !m["importSvnRepoConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["importSvnRepoConfig"].type()) {
-        CreateRepositoryRequestImportSvnRepoConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["importSvnRepoConfig"]));
-        importSvnRepoConfig = make_shared<CreateRepositoryRequestImportSvnRepoConfig>(model1);
-      }
     }
     if (m.find("importToken") != m.end() && !m["importToken"].empty()) {
       importToken = make_shared<string>(boost::any_cast<string>(m["importToken"]));
@@ -20494,6 +20600,11 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddRepositoryMemberResponse addRepositoryMember(shared_ptr<string> repositoryId, shared_ptr<AddRepositoryMemberRequest> request);
+  AddRepositoryMemberResponse addRepositoryMemberWithOptions(shared_ptr<string> repositoryId,
+                                                             shared_ptr<AddRepositoryMemberRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddWebhookResponse addWebhook(shared_ptr<string> repositoryId, shared_ptr<AddWebhookRequest> request);
   AddWebhookResponse addWebhookWithOptions(shared_ptr<string> repositoryId,
                                            shared_ptr<AddWebhookRequest> request,
