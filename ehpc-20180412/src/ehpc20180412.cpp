@@ -763,6 +763,31 @@ DescribeContainerAppResponse Alibabacloud_EHPC20180412::Client::describeContaine
   return describeContainerAppWithOptions(request, runtime);
 }
 
+DescribeDeployProcessResponse Alibabacloud_EHPC20180412::Client::describeDeployProcessWithOptions(shared_ptr<DescribeDeployProcessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDeployProcess"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDeployProcessResponse(callApi(params, req, runtime));
+}
+
+DescribeDeployProcessResponse Alibabacloud_EHPC20180412::Client::describeDeployProcess(shared_ptr<DescribeDeployProcessRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDeployProcessWithOptions(request, runtime);
+}
+
 DescribeGWSClusterPolicyResponse Alibabacloud_EHPC20180412::Client::describeGWSClusterPolicyWithOptions(shared_ptr<DescribeGWSClusterPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1245,6 +1270,56 @@ GetIfEcsTypeSupportHtConfigResponse Alibabacloud_EHPC20180412::Client::getIfEcsT
 GetIfEcsTypeSupportHtConfigResponse Alibabacloud_EHPC20180412::Client::getIfEcsTypeSupportHtConfig(shared_ptr<GetIfEcsTypeSupportHtConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getIfEcsTypeSupportHtConfigWithOptions(request, runtime);
+}
+
+GetPostScriptsResponse Alibabacloud_EHPC20180412::Client::getPostScriptsWithOptions(shared_ptr<GetPostScriptsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPostScripts"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPostScriptsResponse(callApi(params, req, runtime));
+}
+
+GetPostScriptsResponse Alibabacloud_EHPC20180412::Client::getPostScripts(shared_ptr<GetPostScriptsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPostScriptsWithOptions(request, runtime);
+}
+
+GetQueueConfResponse Alibabacloud_EHPC20180412::Client::getQueueConfWithOptions(shared_ptr<GetQueueConfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetQueueConf"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetQueueConfResponse(callApi(params, req, runtime));
+}
+
+GetQueueConfResponse Alibabacloud_EHPC20180412::Client::getQueueConf(shared_ptr<GetQueueConfRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getQueueConfWithOptions(request, runtime);
 }
 
 GetSchedulerInfoResponse Alibabacloud_EHPC20180412::Client::getSchedulerInfoWithOptions(shared_ptr<GetSchedulerInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1816,6 +1891,31 @@ ListJobsResponse Alibabacloud_EHPC20180412::Client::listJobsWithOptions(shared_p
 ListJobsResponse Alibabacloud_EHPC20180412::Client::listJobs(shared_ptr<ListJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listJobsWithOptions(request, runtime);
+}
+
+ListJobsWithFiltersResponse Alibabacloud_EHPC20180412::Client::listJobsWithFiltersWithOptions(shared_ptr<ListJobsWithFiltersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListJobsWithFilters"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListJobsWithFiltersResponse(callApi(params, req, runtime));
+}
+
+ListJobsWithFiltersResponse Alibabacloud_EHPC20180412::Client::listJobsWithFilters(shared_ptr<ListJobsWithFiltersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listJobsWithFiltersWithOptions(request, runtime);
 }
 
 ListNodesResponse Alibabacloud_EHPC20180412::Client::listNodesWithOptions(shared_ptr<ListNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2529,6 +2629,31 @@ SetGWSInstanceUserResponse Alibabacloud_EHPC20180412::Client::setGWSInstanceUser
 SetGWSInstanceUserResponse Alibabacloud_EHPC20180412::Client::setGWSInstanceUser(shared_ptr<SetGWSInstanceUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return setGWSInstanceUserWithOptions(request, runtime);
+}
+
+SetPostScriptsResponse Alibabacloud_EHPC20180412::Client::setPostScriptsWithOptions(shared_ptr<SetPostScriptsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetPostScripts"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetPostScriptsResponse(callApi(params, req, runtime));
+}
+
+SetPostScriptsResponse Alibabacloud_EHPC20180412::Client::setPostScripts(shared_ptr<SetPostScriptsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setPostScriptsWithOptions(request, runtime);
 }
 
 SetQueueResponse Alibabacloud_EHPC20180412::Client::setQueueWithOptions(shared_ptr<SetQueueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
