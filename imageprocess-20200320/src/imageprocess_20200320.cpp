@@ -43,12 +43,119 @@ string Alibabacloud_Imageprocess20200320::Client::getEndpoint(shared_ptr<string>
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AnalyzeChestVesselResponse Alibabacloud_Imageprocess20200320::Client::analyzeChestVesselWithOptions(shared_ptr<AnalyzeChestVesselRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    body->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AnalyzeChestVesselRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<AnalyzeChestVesselRequestURLList>>("URLList", *request->URLList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AnalyzeChestVessel"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AnalyzeChestVesselResponse(callApi(params, req, runtime));
+}
+
+AnalyzeChestVesselResponse Alibabacloud_Imageprocess20200320::Client::analyzeChestVessel(shared_ptr<AnalyzeChestVesselRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return analyzeChestVesselWithOptions(request, runtime);
+}
+
+CalcCACSResponse Alibabacloud_Imageprocess20200320::Client::calcCACSWithOptions(shared_ptr<CalcCACSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    body->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CalcCACSRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<CalcCACSRequestURLList>>("URLList", *request->URLList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CalcCACS"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CalcCACSResponse(callApi(params, req, runtime));
+}
+
+CalcCACSResponse Alibabacloud_Imageprocess20200320::Client::calcCACS(shared_ptr<CalcCACSRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return calcCACSWithOptions(request, runtime);
+}
+
 ClassifyFNFResponse Alibabacloud_Imageprocess20200320::Client::classifyFNFWithOptions(shared_ptr<ClassifyFNFRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tracerId)) {
+    body->insert(pair<string, string>("TracerId", *request->tracerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return ClassifyFNFResponse(doRPCRequest(make_shared<string>("ClassifyFNF"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ClassifyFNF"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ClassifyFNFResponse(callApi(params, req, runtime));
 }
 
 ClassifyFNFResponse Alibabacloud_Imageprocess20200320::Client::classifyFNF(shared_ptr<ClassifyFNFRequest> request) {
@@ -127,90 +234,76 @@ ClassifyFNFResponse Alibabacloud_Imageprocess20200320::Client::classifyFNFAdvanc
   return *classifyFNFResp;
 }
 
-DetectLungNoduleResponse Alibabacloud_Imageprocess20200320::Client::detectLungNoduleWithOptions(shared_ptr<DetectLungNoduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DetectCovid19CadResponse Alibabacloud_Imageprocess20200320::Client::detectCovid19CadWithOptions(shared_ptr<DetectCovid19CadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DetectCovid19CadRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<DetectCovid19CadRequestURLList>>("URLList", *request->URLList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectLungNoduleResponse(doRPCRequest(make_shared<string>("DetectLungNodule"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DetectLungNoduleResponse Alibabacloud_Imageprocess20200320::Client::detectLungNodule(shared_ptr<DetectLungNoduleRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return detectLungNoduleWithOptions(request, runtime);
-}
-
-RunCTRegistrationResponse Alibabacloud_Imageprocess20200320::Client::runCTRegistrationWithOptions(shared_ptr<RunCTRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectCovid19Cad"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  return RunCTRegistrationResponse(doRPCRequest(make_shared<string>("RunCTRegistration"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return DetectCovid19CadResponse(callApi(params, req, runtime));
 }
 
-RunCTRegistrationResponse Alibabacloud_Imageprocess20200320::Client::runCTRegistration(shared_ptr<RunCTRegistrationRequest> request) {
+DetectCovid19CadResponse Alibabacloud_Imageprocess20200320::Client::detectCovid19Cad(shared_ptr<DetectCovid19CadRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return runCTRegistrationWithOptions(request, runtime);
-}
-
-AnalyzeChestVesselResponse Alibabacloud_Imageprocess20200320::Client::analyzeChestVesselWithOptions(shared_ptr<AnalyzeChestVesselRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return AnalyzeChestVesselResponse(doRPCRequest(make_shared<string>("AnalyzeChestVessel"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-AnalyzeChestVesselResponse Alibabacloud_Imageprocess20200320::Client::analyzeChestVessel(shared_ptr<AnalyzeChestVesselRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return analyzeChestVesselWithOptions(request, runtime);
-}
-
-TranslateMedResponse Alibabacloud_Imageprocess20200320::Client::translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return TranslateMedResponse(doRPCRequest(make_shared<string>("TranslateMed"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-TranslateMedResponse Alibabacloud_Imageprocess20200320::Client::translateMed(shared_ptr<TranslateMedRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return translateMedWithOptions(request, runtime);
-}
-
-DetectSpineMRIResponse Alibabacloud_Imageprocess20200320::Client::detectSpineMRIWithOptions(shared_ptr<DetectSpineMRIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DetectSpineMRIResponse(doRPCRequest(make_shared<string>("DetectSpineMRI"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DetectSpineMRIResponse Alibabacloud_Imageprocess20200320::Client::detectSpineMRI(shared_ptr<DetectSpineMRIRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return detectSpineMRIWithOptions(request, runtime);
-}
-
-CalcCACSResponse Alibabacloud_Imageprocess20200320::Client::calcCACSWithOptions(shared_ptr<CalcCACSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CalcCACSResponse(doRPCRequest(make_shared<string>("CalcCACS"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CalcCACSResponse Alibabacloud_Imageprocess20200320::Client::calcCACS(shared_ptr<CalcCACSRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return calcCACSWithOptions(request, runtime);
+  return detectCovid19CadWithOptions(request, runtime);
 }
 
 DetectHipKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detectHipKeypointXRayWithOptions(shared_ptr<DetectHipKeypointXRayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tracerId)) {
+    body->insert(pair<string, string>("TracerId", *request->tracerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectHipKeypointXRayResponse(doRPCRequest(make_shared<string>("DetectHipKeypointXRay"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectHipKeypointXRay"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectHipKeypointXRayResponse(callApi(params, req, runtime));
 }
 
 DetectHipKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detectHipKeypointXRay(shared_ptr<DetectHipKeypointXRayRequest> request) {
@@ -291,10 +384,37 @@ DetectHipKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detectH
 
 DetectKneeKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detectKneeKeypointXRayWithOptions(shared_ptr<DetectKneeKeypointXRayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tracerId)) {
+    body->insert(pair<string, string>("TracerId", *request->tracerId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectKneeKeypointXRayResponse(doRPCRequest(make_shared<string>("DetectKneeKeypointXRay"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectKneeKeypointXRay"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectKneeKeypointXRayResponse(callApi(params, req, runtime));
 }
 
 DetectKneeKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detectKneeKeypointXRay(shared_ptr<DetectKneeKeypointXRayRequest> request) {
@@ -373,25 +493,36 @@ DetectKneeKeypointXRayResponse Alibabacloud_Imageprocess20200320::Client::detect
   return *detectKneeKeypointXRayResp;
 }
 
-RunMedQAResponse Alibabacloud_Imageprocess20200320::Client::runMedQAWithOptions(shared_ptr<RunMedQARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return RunMedQAResponse(doRPCRequest(make_shared<string>("RunMedQA"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-RunMedQAResponse Alibabacloud_Imageprocess20200320::Client::runMedQA(shared_ptr<RunMedQARequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return runMedQAWithOptions(request, runtime);
-}
-
 DetectKneeXRayResponse Alibabacloud_Imageprocess20200320::Client::detectKneeXRayWithOptions(shared_ptr<DetectKneeXRayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("Url", *request->url));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectKneeXRayResponse(doRPCRequest(make_shared<string>("DetectKneeXRay"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectKneeXRay"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectKneeXRayResponse(callApi(params, req, runtime));
 }
 
 DetectKneeXRayResponse Alibabacloud_Imageprocess20200320::Client::detectKneeXRay(shared_ptr<DetectKneeXRayRequest> request) {
@@ -470,25 +601,79 @@ DetectKneeXRayResponse Alibabacloud_Imageprocess20200320::Client::detectKneeXRay
   return *detectKneeXRayResp;
 }
 
-GetAsyncJobResultResponse Alibabacloud_Imageprocess20200320::Client::getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+DetectLungNoduleResponse Alibabacloud_Imageprocess20200320::Client::detectLungNoduleWithOptions(shared_ptr<DetectLungNoduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->threshold)) {
+    body->insert(pair<string, double>("Threshold", *request->threshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DetectLungNoduleRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<DetectLungNoduleRequestURLList>>("URLList", *request->URLList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return GetAsyncJobResultResponse(doRPCRequest(make_shared<string>("GetAsyncJobResult"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectLungNodule"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectLungNoduleResponse(callApi(params, req, runtime));
 }
 
-GetAsyncJobResultResponse Alibabacloud_Imageprocess20200320::Client::getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request) {
+DetectLungNoduleResponse Alibabacloud_Imageprocess20200320::Client::detectLungNodule(shared_ptr<DetectLungNoduleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAsyncJobResultWithOptions(request, runtime);
+  return detectLungNoduleWithOptions(request, runtime);
 }
 
 DetectRibFractureResponse Alibabacloud_Imageprocess20200320::Client::detectRibFractureWithOptions(shared_ptr<DetectRibFractureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    body->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DetectRibFractureRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<DetectRibFractureRequestURLList>>("URLList", *request->URLList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectRibFractureResponse(doRPCRequest(make_shared<string>("DetectRibFracture"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectRibFracture"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectRibFractureResponse(callApi(params, req, runtime));
 }
 
 DetectRibFractureResponse Alibabacloud_Imageprocess20200320::Client::detectRibFracture(shared_ptr<DetectRibFractureRequest> request) {
@@ -496,38 +681,33 @@ DetectRibFractureResponse Alibabacloud_Imageprocess20200320::Client::detectRibFr
   return detectRibFractureWithOptions(request, runtime);
 }
 
-DetectCovid19CadResponse Alibabacloud_Imageprocess20200320::Client::detectCovid19CadWithOptions(shared_ptr<DetectCovid19CadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return DetectCovid19CadResponse(doRPCRequest(make_shared<string>("DetectCovid19Cad"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-DetectCovid19CadResponse Alibabacloud_Imageprocess20200320::Client::detectCovid19Cad(shared_ptr<DetectCovid19CadRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return detectCovid19CadWithOptions(request, runtime);
-}
-
-ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCTWithOptions(shared_ptr<ScreenChestCTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ScreenChestCTResponse(doRPCRequest(make_shared<string>("ScreenChestCT"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCT(shared_ptr<ScreenChestCTRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return screenChestCTWithOptions(request, runtime);
-}
-
 DetectSkinDiseaseResponse Alibabacloud_Imageprocess20200320::Client::detectSkinDiseaseWithOptions(shared_ptr<DetectSkinDiseaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    body->insert(pair<string, string>("Url", *request->url));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return DetectSkinDiseaseResponse(doRPCRequest(make_shared<string>("DetectSkinDisease"), make_shared<string>("2020-03-20"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectSkinDisease"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectSkinDiseaseResponse(callApi(params, req, runtime));
 }
 
 DetectSkinDiseaseResponse Alibabacloud_Imageprocess20200320::Client::detectSkinDisease(shared_ptr<DetectSkinDiseaseRequest> request) {
@@ -604,5 +784,236 @@ DetectSkinDiseaseResponse Alibabacloud_Imageprocess20200320::Client::detectSkinD
   }
   shared_ptr<DetectSkinDiseaseResponse> detectSkinDiseaseResp = make_shared<DetectSkinDiseaseResponse>(detectSkinDiseaseWithOptions(detectSkinDiseaseReq, runtime));
   return *detectSkinDiseaseResp;
+}
+
+DetectSpineMRIResponse Alibabacloud_Imageprocess20200320::Client::detectSpineMRIWithOptions(shared_ptr<DetectSpineMRIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DetectSpineMRIRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<DetectSpineMRIRequestURLList>>("URLList", *request->URLList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetectSpineMRI"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetectSpineMRIResponse(callApi(params, req, runtime));
+}
+
+DetectSpineMRIResponse Alibabacloud_Imageprocess20200320::Client::detectSpineMRI(shared_ptr<DetectSpineMRIRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return detectSpineMRIWithOptions(request, runtime);
+}
+
+GetAsyncJobResultResponse Alibabacloud_Imageprocess20200320::Client::getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    body->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAsyncJobResult"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAsyncJobResultResponse(callApi(params, req, runtime));
+}
+
+GetAsyncJobResultResponse Alibabacloud_Imageprocess20200320::Client::getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAsyncJobResultWithOptions(request, runtime);
+}
+
+RunCTRegistrationResponse Alibabacloud_Imageprocess20200320::Client::runCTRegistrationWithOptions(shared_ptr<RunCTRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    body->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunCTRegistrationRequestFloatingList>>(request->floatingList)) {
+    body->insert(pair<string, vector<RunCTRegistrationRequestFloatingList>>("FloatingList", *request->floatingList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunCTRegistrationRequestReferenceList>>(request->referenceList)) {
+    body->insert(pair<string, vector<RunCTRegistrationRequestReferenceList>>("ReferenceList", *request->referenceList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunCTRegistration"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunCTRegistrationResponse(callApi(params, req, runtime));
+}
+
+RunCTRegistrationResponse Alibabacloud_Imageprocess20200320::Client::runCTRegistration(shared_ptr<RunCTRegistrationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runCTRegistrationWithOptions(request, runtime);
+}
+
+RunMedQAResponse Alibabacloud_Imageprocess20200320::Client::runMedQAWithOptions(shared_ptr<RunMedQARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<RunMedQARequestAnswerImageDataList>>(request->answerImageDataList)) {
+    body->insert(pair<string, vector<RunMedQARequestAnswerImageDataList>>("AnswerImageDataList", *request->answerImageDataList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunMedQARequestAnswerImageURLList>>(request->answerImageURLList)) {
+    body->insert(pair<string, vector<RunMedQARequestAnswerImageURLList>>("AnswerImageURLList", *request->answerImageURLList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RunMedQARequestAnswerTextList>>(request->answerTextList)) {
+    body->insert(pair<string, vector<RunMedQARequestAnswerTextList>>("AnswerTextList", *request->answerTextList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->department)) {
+    body->insert(pair<string, string>("Department", *request->department));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->questionType)) {
+    body->insert(pair<string, string>("QuestionType", *request->questionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunMedQA"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunMedQAResponse(callApi(params, req, runtime));
+}
+
+RunMedQAResponse Alibabacloud_Imageprocess20200320::Client::runMedQA(shared_ptr<RunMedQARequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runMedQAWithOptions(request, runtime);
+}
+
+ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCTWithOptions(shared_ptr<ScreenChestCTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->mask)) {
+    body->insert(pair<string, long>("Mask", *request->mask));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ScreenChestCTRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<ScreenChestCTRequestURLList>>("URLList", *request->URLList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ScreenChestCT"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ScreenChestCTResponse(callApi(params, req, runtime));
+}
+
+ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCT(shared_ptr<ScreenChestCTRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return screenChestCTWithOptions(request, runtime);
+}
+
+TranslateMedResponse Alibabacloud_Imageprocess20200320::Client::translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fromLanguage)) {
+    body->insert(pair<string, string>("FromLanguage", *request->fromLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->toLanguage)) {
+    body->insert(pair<string, string>("ToLanguage", *request->toLanguage));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TranslateMed"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TranslateMedResponse(callApi(params, req, runtime));
+}
+
+TranslateMedResponse Alibabacloud_Imageprocess20200320::Client::translateMed(shared_ptr<TranslateMedRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return translateMedWithOptions(request, runtime);
 }
 
