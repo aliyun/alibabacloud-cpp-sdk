@@ -189,6 +189,12 @@ CreateIstioGatewayDomainsResponse Alibabacloud_Servicemesh20200111::Client::crea
   if (!Darabonba_Util::Client::isUnset<string>(request->istioGatewayName)) {
     body->insert(pair<string, string>("IstioGatewayName", *request->istioGatewayName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
+    body->insert(pair<string, string>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->number)) {
     body->insert(pair<string, long>("Number", *request->number));
   }
@@ -570,6 +576,12 @@ DeleteIstioGatewayDomainsResponse Alibabacloud_Servicemesh20200111::Client::dele
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->istioGatewayName)) {
     body->insert(pair<string, string>("IstioGatewayName", *request->istioGatewayName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
+    body->insert(pair<string, string>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->portName)) {
     body->insert(pair<string, string>("PortName", *request->portName));
@@ -1064,6 +1076,12 @@ DescribeIstioGatewayDomainsResponse Alibabacloud_Servicemesh20200111::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->istioGatewayName)) {
     body->insert(pair<string, string>("IstioGatewayName", *request->istioGatewayName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limit)) {
+    body->insert(pair<string, string>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
@@ -1395,8 +1413,16 @@ DescribeServiceMeshClustersResponse Alibabacloud_Servicemesh20200111::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     query->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    body->insert(pair<string, long>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
+    body->insert(pair<string, long>("Offset", *request->offset));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeServiceMeshClusters"))},
@@ -2429,6 +2455,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->CRAggregationEnabled)) {
     body->insert(pair<string, bool>("CRAggregationEnabled", *request->CRAggregationEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->canaryUpgradeEnabled)) {
+    body->insert(pair<string, bool>("CanaryUpgradeEnabled", *request->canaryUpgradeEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpec)) {
     body->insert(pair<string, string>("ClusterSpec", *request->clusterSpec));

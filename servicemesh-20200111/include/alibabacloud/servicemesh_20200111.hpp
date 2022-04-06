@@ -595,6 +595,8 @@ public:
   shared_ptr<bool> forceHttps{};
   shared_ptr<string> hosts{};
   shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> limit{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> number{};
   shared_ptr<string> portName{};
   shared_ptr<string> protocol{};
@@ -621,6 +623,12 @@ public:
     }
     if (istioGatewayName) {
       res["IstioGatewayName"] = boost::any(*istioGatewayName);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (number) {
       res["Number"] = boost::any(*number);
@@ -649,6 +657,12 @@ public:
     }
     if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
       istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Number") != m.end() && !m["Number"].empty()) {
       number = make_shared<long>(boost::any_cast<long>(m["Number"]));
@@ -1590,6 +1604,7 @@ class CreateIstioGatewayRoutesRequestGatewayRoute : public Darabonba::Model {
 public:
   shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions> HTTPAdvancedOptions{};
   shared_ptr<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest> matchRequest{};
+  shared_ptr<string> namespace_{};
   shared_ptr<vector<CreateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>> routeDestinations{};
   shared_ptr<string> routeName{};
   shared_ptr<string> routeType{};
@@ -1609,6 +1624,9 @@ public:
     }
     if (matchRequest) {
       res["MatchRequest"] = matchRequest ? boost::any(matchRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (routeDestinations) {
       vector<boost::any> temp1;
@@ -1640,6 +1658,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MatchRequest"]));
         matchRequest = make_shared<CreateIstioGatewayRoutesRequestGatewayRouteMatchRequest>(model1);
       }
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("RouteDestinations") != m.end() && !m["RouteDestinations"].empty()) {
       if (typeid(vector<boost::any>) == m["RouteDestinations"].type()) {
@@ -2766,6 +2787,8 @@ class DeleteIstioGatewayDomainsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> hosts{};
   shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> limit{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> portName{};
   shared_ptr<string> serviceMeshId{};
 
@@ -2785,6 +2808,12 @@ public:
     if (istioGatewayName) {
       res["IstioGatewayName"] = boost::any(*istioGatewayName);
     }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (portName) {
       res["PortName"] = boost::any(*portName);
     }
@@ -2800,6 +2829,12 @@ public:
     }
     if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
       istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PortName") != m.end() && !m["PortName"].empty()) {
       portName = make_shared<string>(boost::any_cast<string>(m["PortName"]));
@@ -5490,6 +5525,8 @@ public:
 class DescribeIstioGatewayDomainsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> istioGatewayName{};
+  shared_ptr<string> limit{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> serviceMeshId{};
 
   DescribeIstioGatewayDomainsRequest() {}
@@ -5505,6 +5542,12 @@ public:
     if (istioGatewayName) {
       res["IstioGatewayName"] = boost::any(*istioGatewayName);
     }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
     }
@@ -5514,6 +5557,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IstioGatewayName") != m.end() && !m["IstioGatewayName"].empty()) {
       istioGatewayName = make_shared<string>(boost::any_cast<string>(m["IstioGatewayName"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<string>(boost::any_cast<string>(m["Limit"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
@@ -5528,6 +5577,7 @@ public:
   shared_ptr<string> credentialName{};
   shared_ptr<string> detail{};
   shared_ptr<vector<string>> domains{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> portName{};
   shared_ptr<string> protocol{};
 
@@ -5549,6 +5599,9 @@ public:
     }
     if (domains) {
       res["Domains"] = boost::any(*domains);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (portName) {
       res["PortName"] = boost::any(*portName);
@@ -5575,6 +5628,9 @@ public:
         }
       }
       domains = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PortName") != m.end() && !m["PortName"].empty()) {
       portName = make_shared<string>(boost::any_cast<string>(m["PortName"]));
@@ -6874,6 +6930,7 @@ public:
 class DescribeIstioGatewayRouteDetailResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> priority{};
   shared_ptr<string> requestId{};
   shared_ptr<DescribeIstioGatewayRouteDetailResponseBodyRouteDetail> routeDetail{};
@@ -6891,6 +6948,9 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -6910,6 +6970,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -7024,6 +7087,7 @@ class DescribeIstioGatewayRoutesResponseBodyManagementRoutes : public Darabonba:
 public:
   shared_ptr<string> ASMGatewayName{};
   shared_ptr<string> description{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> priority{};
   shared_ptr<string> routeName{};
   shared_ptr<string> routePath{};
@@ -7044,6 +7108,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -7066,6 +7133,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -9041,6 +9111,8 @@ public:
 };
 class DescribeServiceMeshClustersRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> limit{};
+  shared_ptr<long> offset{};
   shared_ptr<string> serviceMeshId{};
 
   DescribeServiceMeshClustersRequest() {}
@@ -9053,6 +9125,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
     }
@@ -9060,6 +9138,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
     }
@@ -17770,6 +17854,7 @@ class UpdateIstioGatewayRoutesRequestGatewayRoute : public Darabonba::Model {
 public:
   shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptions> HTTPAdvancedOptions{};
   shared_ptr<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest> matchRequest{};
+  shared_ptr<string> namespace_{};
   shared_ptr<vector<UpdateIstioGatewayRoutesRequestGatewayRouteRouteDestinations>> routeDestinations{};
   shared_ptr<string> routeName{};
   shared_ptr<string> routeType{};
@@ -17789,6 +17874,9 @@ public:
     }
     if (matchRequest) {
       res["MatchRequest"] = matchRequest ? boost::any(matchRequest->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (routeDestinations) {
       vector<boost::any> temp1;
@@ -17820,6 +17908,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MatchRequest"]));
         matchRequest = make_shared<UpdateIstioGatewayRoutesRequestGatewayRouteMatchRequest>(model1);
       }
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("RouteDestinations") != m.end() && !m["RouteDestinations"].empty()) {
       if (typeid(vector<boost::any>) == m["RouteDestinations"].type()) {
@@ -18215,6 +18306,7 @@ public:
   shared_ptr<string> auditProject{};
   shared_ptr<bool> autoInjectionPolicyEnabled{};
   shared_ptr<bool> CRAggregationEnabled{};
+  shared_ptr<bool> canaryUpgradeEnabled{};
   shared_ptr<string> clusterSpec{};
   shared_ptr<bool> cniEnabled{};
   shared_ptr<string> cniExcludeNamespaces{};
@@ -18321,6 +18413,9 @@ public:
     }
     if (CRAggregationEnabled) {
       res["CRAggregationEnabled"] = boost::any(*CRAggregationEnabled);
+    }
+    if (canaryUpgradeEnabled) {
+      res["CanaryUpgradeEnabled"] = boost::any(*canaryUpgradeEnabled);
     }
     if (clusterSpec) {
       res["ClusterSpec"] = boost::any(*clusterSpec);
@@ -18553,6 +18648,9 @@ public:
     }
     if (m.find("CRAggregationEnabled") != m.end() && !m["CRAggregationEnabled"].empty()) {
       CRAggregationEnabled = make_shared<bool>(boost::any_cast<bool>(m["CRAggregationEnabled"]));
+    }
+    if (m.find("CanaryUpgradeEnabled") != m.end() && !m["CanaryUpgradeEnabled"].empty()) {
+      canaryUpgradeEnabled = make_shared<bool>(boost::any_cast<bool>(m["CanaryUpgradeEnabled"]));
     }
     if (m.find("ClusterSpec") != m.end() && !m["ClusterSpec"].empty()) {
       clusterSpec = make_shared<string>(boost::any_cast<string>(m["ClusterSpec"]));
