@@ -11443,9 +11443,9 @@ public:
 class GetLhSpaceByNameResponseBodyLakehouseSpace : public Darabonba::Model {
 public:
   shared_ptr<string> creatorId{};
-  shared_ptr<string> dbType{};
   shared_ptr<string> description{};
   shared_ptr<long> devDbId{};
+  shared_ptr<string> dwDbType{};
   shared_ptr<long> id{};
   shared_ptr<bool> isDeleted{};
   shared_ptr<long> mode{};
@@ -11467,14 +11467,14 @@ public:
     if (creatorId) {
       res["CreatorId"] = boost::any(*creatorId);
     }
-    if (dbType) {
-      res["DbType"] = boost::any(*dbType);
-    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
     if (devDbId) {
       res["DevDbId"] = boost::any(*devDbId);
+    }
+    if (dwDbType) {
+      res["DwDbType"] = boost::any(*dwDbType);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -11504,14 +11504,14 @@ public:
     if (m.find("CreatorId") != m.end() && !m["CreatorId"].empty()) {
       creatorId = make_shared<string>(boost::any_cast<string>(m["CreatorId"]));
     }
-    if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
-      dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
-    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DevDbId") != m.end() && !m["DevDbId"].empty()) {
       devDbId = make_shared<long>(boost::any_cast<long>(m["DevDbId"]));
+    }
+    if (m.find("DwDbType") != m.end() && !m["DwDbType"].empty()) {
+      dwDbType = make_shared<string>(boost::any_cast<string>(m["DwDbType"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -23034,6 +23034,8 @@ public:
   shared_ptr<bool> canEdit{};
   shared_ptr<string> creatorId{};
   shared_ptr<string> creatorNickName{};
+  shared_ptr<string> dagName{};
+  shared_ptr<string> dagOwnerId{};
   shared_ptr<string> dagOwnerNickName{};
   shared_ptr<long> dataFlowId{};
   shared_ptr<string> demoId{};
@@ -23064,6 +23066,12 @@ public:
     }
     if (creatorNickName) {
       res["CreatorNickName"] = boost::any(*creatorNickName);
+    }
+    if (dagName) {
+      res["DagName"] = boost::any(*dagName);
+    }
+    if (dagOwnerId) {
+      res["DagOwnerId"] = boost::any(*dagOwnerId);
     }
     if (dagOwnerNickName) {
       res["DagOwnerNickName"] = boost::any(*dagOwnerNickName);
@@ -23110,6 +23118,12 @@ public:
     }
     if (m.find("CreatorNickName") != m.end() && !m["CreatorNickName"].empty()) {
       creatorNickName = make_shared<string>(boost::any_cast<string>(m["CreatorNickName"]));
+    }
+    if (m.find("DagName") != m.end() && !m["DagName"].empty()) {
+      dagName = make_shared<string>(boost::any_cast<string>(m["DagName"]));
+    }
+    if (m.find("DagOwnerId") != m.end() && !m["DagOwnerId"].empty()) {
+      dagOwnerId = make_shared<string>(boost::any_cast<string>(m["DagOwnerId"]));
     }
     if (m.find("DagOwnerNickName") != m.end() && !m["DagOwnerNickName"].empty()) {
       dagOwnerNickName = make_shared<string>(boost::any_cast<string>(m["DagOwnerNickName"]));
@@ -23197,6 +23211,8 @@ public:
   shared_ptr<bool> canEdit{};
   shared_ptr<string> creatorId{};
   shared_ptr<string> creatorNickName{};
+  shared_ptr<string> dagName{};
+  shared_ptr<string> dagOwnerId{};
   shared_ptr<string> dagOwnerNickName{};
   shared_ptr<long> dataFlowId{};
   shared_ptr<string> demoId{};
@@ -23227,6 +23243,12 @@ public:
     }
     if (creatorNickName) {
       res["CreatorNickName"] = boost::any(*creatorNickName);
+    }
+    if (dagName) {
+      res["DagName"] = boost::any(*dagName);
+    }
+    if (dagOwnerId) {
+      res["DagOwnerId"] = boost::any(*dagOwnerId);
     }
     if (dagOwnerNickName) {
       res["DagOwnerNickName"] = boost::any(*dagOwnerNickName);
@@ -23273,6 +23295,12 @@ public:
     }
     if (m.find("CreatorNickName") != m.end() && !m["CreatorNickName"].empty()) {
       creatorNickName = make_shared<string>(boost::any_cast<string>(m["CreatorNickName"]));
+    }
+    if (m.find("DagName") != m.end() && !m["DagName"].empty()) {
+      dagName = make_shared<string>(boost::any_cast<string>(m["DagName"]));
+    }
+    if (m.find("DagOwnerId") != m.end() && !m["DagOwnerId"].empty()) {
+      dagOwnerId = make_shared<string>(boost::any_cast<string>(m["DagOwnerId"]));
     }
     if (m.find("DagOwnerNickName") != m.end() && !m["DagOwnerNickName"].empty()) {
       dagOwnerNickName = make_shared<string>(boost::any_cast<string>(m["DagOwnerNickName"]));
