@@ -331,6 +331,9 @@ CreateNamespaceResponse Alibabacloud_Schedulerx220190430::Client::createNamespac
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->uid)) {
     query->insert(pair<string, string>("Uid", *request->uid));
   }

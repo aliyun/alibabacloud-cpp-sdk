@@ -514,7 +514,6 @@ public:
 };
 class CreateAppGroupRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> alarmJson{};
   shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
   shared_ptr<string> description{};
@@ -526,6 +525,7 @@ public:
   shared_ptr<string> namespaceName{};
   shared_ptr<string> namespaceSource{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> scheduleBusyWorkers{};
 
   CreateAppGroupRequest() {}
 
@@ -537,9 +537,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (alarmJson) {
-      res["AlarmJson"] = boost::any(*alarmJson);
-    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
@@ -573,13 +570,13 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (scheduleBusyWorkers) {
+      res["ScheduleBusyWorkers"] = boost::any(*scheduleBusyWorkers);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AlarmJson") != m.end() && !m["AlarmJson"].empty()) {
-      alarmJson = make_shared<string>(boost::any_cast<string>(m["AlarmJson"]));
-    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
     }
@@ -612,6 +609,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ScheduleBusyWorkers") != m.end() && !m["ScheduleBusyWorkers"].empty()) {
+      scheduleBusyWorkers = make_shared<bool>(boost::any_cast<bool>(m["ScheduleBusyWorkers"]));
     }
   }
 
@@ -1224,6 +1224,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> source{};
   shared_ptr<string> uid{};
 
   CreateNamespaceRequest() {}
@@ -1245,6 +1246,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
     if (uid) {
       res["Uid"] = boost::any(*uid);
     }
@@ -1260,6 +1264,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("Uid") != m.end() && !m["Uid"].empty()) {
       uid = make_shared<string>(boost::any_cast<string>(m["Uid"]));
