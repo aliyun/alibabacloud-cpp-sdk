@@ -385,6 +385,9 @@ CreateAcceleratorResponse Alibabacloud_Ga20191120::Client::createAcceleratorWith
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     query->insert(pair<string, long>("Duration", *request->duration));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateAcceleratorRequestIpSetConfig>(request->ipSetConfig)) {
+    query->insert(pair<string, CreateAcceleratorRequestIpSetConfig>("IpSetConfig", *request->ipSetConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }

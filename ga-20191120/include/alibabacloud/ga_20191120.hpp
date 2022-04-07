@@ -1337,6 +1337,35 @@ public:
 
   virtual ~ConfigEndpointProbeResponse() = default;
 };
+class CreateAcceleratorRequestIpSetConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessMode{};
+
+  CreateAcceleratorRequestIpSetConfig() {}
+
+  explicit CreateAcceleratorRequestIpSetConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = boost::any(*accessMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      accessMode = make_shared<string>(boost::any_cast<string>(m["AccessMode"]));
+    }
+  }
+
+
+  virtual ~CreateAcceleratorRequestIpSetConfig() = default;
+};
 class CreateAcceleratorRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -1345,6 +1374,7 @@ public:
   shared_ptr<string> autoUseCoupon{};
   shared_ptr<string> clientToken{};
   shared_ptr<long> duration{};
+  shared_ptr<CreateAcceleratorRequestIpSetConfig> ipSetConfig{};
   shared_ptr<string> name{};
   shared_ptr<string> pricingCycle{};
   shared_ptr<string> regionId{};
@@ -1377,6 +1407,9 @@ public:
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
+    }
+    if (ipSetConfig) {
+      res["IpSetConfig"] = ipSetConfig ? boost::any(ipSetConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -1411,6 +1444,13 @@ public:
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("IpSetConfig") != m.end() && !m["IpSetConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpSetConfig"].type()) {
+        CreateAcceleratorRequestIpSetConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpSetConfig"]));
+        ipSetConfig = make_shared<CreateAcceleratorRequestIpSetConfig>(model1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3425,6 +3465,7 @@ public:
   shared_ptr<CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<long> order{};
   shared_ptr<string> ruleActionType{};
+  shared_ptr<string> ruleActionValue{};
 
   CreateForwardingRulesRequestForwardingRulesRuleActions() {}
 
@@ -3445,6 +3486,9 @@ public:
     if (ruleActionType) {
       res["RuleActionType"] = boost::any(*ruleActionType);
     }
+    if (ruleActionValue) {
+      res["RuleActionValue"] = boost::any(*ruleActionValue);
+    }
     return res;
   }
 
@@ -3461,6 +3505,9 @@ public:
     }
     if (m.find("RuleActionType") != m.end() && !m["RuleActionType"].empty()) {
       ruleActionType = make_shared<string>(boost::any_cast<string>(m["RuleActionType"]));
+    }
+    if (m.find("RuleActionValue") != m.end() && !m["RuleActionValue"].empty()) {
+      ruleActionValue = make_shared<string>(boost::any_cast<string>(m["RuleActionValue"]));
     }
   }
 
@@ -3544,6 +3591,7 @@ public:
   shared_ptr<CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig> hostConfig{};
   shared_ptr<CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig> pathConfig{};
   shared_ptr<string> ruleConditionType{};
+  shared_ptr<string> ruleConditionValue{};
 
   CreateForwardingRulesRequestForwardingRulesRuleConditions() {}
 
@@ -3563,6 +3611,9 @@ public:
     }
     if (ruleConditionType) {
       res["RuleConditionType"] = boost::any(*ruleConditionType);
+    }
+    if (ruleConditionValue) {
+      res["RuleConditionValue"] = boost::any(*ruleConditionValue);
     }
     return res;
   }
@@ -3585,6 +3636,9 @@ public:
     if (m.find("RuleConditionType") != m.end() && !m["RuleConditionType"].empty()) {
       ruleConditionType = make_shared<string>(boost::any_cast<string>(m["RuleConditionType"]));
     }
+    if (m.find("RuleConditionValue") != m.end() && !m["RuleConditionValue"].empty()) {
+      ruleConditionValue = make_shared<string>(boost::any_cast<string>(m["RuleConditionValue"]));
+    }
   }
 
 
@@ -3596,6 +3650,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<vector<CreateForwardingRulesRequestForwardingRulesRuleActions>> ruleActions{};
   shared_ptr<vector<CreateForwardingRulesRequestForwardingRulesRuleConditions>> ruleConditions{};
+  shared_ptr<string> ruleDirection{};
 
   CreateForwardingRulesRequestForwardingRules() {}
 
@@ -3626,6 +3681,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RuleConditions"] = boost::any(temp1);
+    }
+    if (ruleDirection) {
+      res["RuleDirection"] = boost::any(*ruleDirection);
     }
     return res;
   }
@@ -3662,6 +3720,9 @@ public:
         }
         ruleConditions = make_shared<vector<CreateForwardingRulesRequestForwardingRulesRuleConditions>>(expect1);
       }
+    }
+    if (m.find("RuleDirection") != m.end() && !m["RuleDirection"].empty()) {
+      ruleDirection = make_shared<string>(boost::any_cast<string>(m["RuleDirection"]));
     }
   }
 
@@ -6600,6 +6661,35 @@ public:
 
   virtual ~DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage() = default;
 };
+class DescribeAcceleratorResponseBodyIpSetConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessMode{};
+
+  DescribeAcceleratorResponseBodyIpSetConfig() {}
+
+  explicit DescribeAcceleratorResponseBodyIpSetConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = boost::any(*accessMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      accessMode = make_shared<string>(boost::any_cast<string>(m["AccessMode"]));
+    }
+  }
+
+
+  virtual ~DescribeAcceleratorResponseBodyIpSetConfig() = default;
+};
 class DescribeAcceleratorResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -6612,6 +6702,7 @@ public:
   shared_ptr<string> dnsName{};
   shared_ptr<long> expiredTime{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<DescribeAcceleratorResponseBodyIpSetConfig> ipSetConfig{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
@@ -6658,6 +6749,9 @@ public:
     }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
+    }
+    if (ipSetConfig) {
+      res["IpSetConfig"] = ipSetConfig ? boost::any(ipSetConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -6718,6 +6812,13 @@ public:
     }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
+    }
+    if (m.find("IpSetConfig") != m.end() && !m["IpSetConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpSetConfig"].type()) {
+        DescribeAcceleratorResponseBodyIpSetConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpSetConfig"]));
+        ipSetConfig = make_shared<DescribeAcceleratorResponseBodyIpSetConfig>(model1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -11397,6 +11498,35 @@ public:
 
   virtual ~ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage() = default;
 };
+class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessMode{};
+
+  ListAcceleratorsResponseBodyAcceleratorsIpSetConfig() {}
+
+  explicit ListAcceleratorsResponseBodyAcceleratorsIpSetConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessMode) {
+      res["AccessMode"] = boost::any(*accessMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessMode") != m.end() && !m["AccessMode"].empty()) {
+      accessMode = make_shared<string>(boost::any_cast<string>(m["AccessMode"]));
+    }
+  }
+
+
+  virtual ~ListAcceleratorsResponseBodyAcceleratorsIpSetConfig() = default;
+};
 class ListAcceleratorsResponseBodyAccelerators : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -11410,6 +11540,7 @@ public:
   shared_ptr<string> dnsName{};
   shared_ptr<long> expiredTime{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<ListAcceleratorsResponseBodyAcceleratorsIpSetConfig> ipSetConfig{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> secondDnsName{};
@@ -11459,6 +11590,9 @@ public:
     }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
+    }
+    if (ipSetConfig) {
+      res["IpSetConfig"] = ipSetConfig ? boost::any(ipSetConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -11522,6 +11656,13 @@ public:
     }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
+    }
+    if (m.find("IpSetConfig") != m.end() && !m["IpSetConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpSetConfig"].type()) {
+        ListAcceleratorsResponseBodyAcceleratorsIpSetConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpSetConfig"]));
+        ipSetConfig = make_shared<ListAcceleratorsResponseBodyAcceleratorsIpSetConfig>(model1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -14648,6 +14789,7 @@ public:
   shared_ptr<ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<long> order{};
   shared_ptr<string> ruleActionType{};
+  shared_ptr<string> ruleActionValue{};
 
   ListForwardingRulesResponseBodyForwardingRulesRuleActions() {}
 
@@ -14668,6 +14810,9 @@ public:
     if (ruleActionType) {
       res["RuleActionType"] = boost::any(*ruleActionType);
     }
+    if (ruleActionValue) {
+      res["RuleActionValue"] = boost::any(*ruleActionValue);
+    }
     return res;
   }
 
@@ -14684,6 +14829,9 @@ public:
     }
     if (m.find("RuleActionType") != m.end() && !m["RuleActionType"].empty()) {
       ruleActionType = make_shared<string>(boost::any_cast<string>(m["RuleActionType"]));
+    }
+    if (m.find("RuleActionValue") != m.end() && !m["RuleActionValue"].empty()) {
+      ruleActionValue = make_shared<string>(boost::any_cast<string>(m["RuleActionValue"]));
     }
   }
 
@@ -14767,6 +14915,7 @@ public:
   shared_ptr<ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig> hostConfig{};
   shared_ptr<ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig> pathConfig{};
   shared_ptr<string> ruleConditionType{};
+  shared_ptr<string> ruleConditionValue{};
 
   ListForwardingRulesResponseBodyForwardingRulesRuleConditions() {}
 
@@ -14786,6 +14935,9 @@ public:
     }
     if (ruleConditionType) {
       res["RuleConditionType"] = boost::any(*ruleConditionType);
+    }
+    if (ruleConditionValue) {
+      res["RuleConditionValue"] = boost::any(*ruleConditionValue);
     }
     return res;
   }
@@ -14808,6 +14960,9 @@ public:
     if (m.find("RuleConditionType") != m.end() && !m["RuleConditionType"].empty()) {
       ruleConditionType = make_shared<string>(boost::any_cast<string>(m["RuleConditionType"]));
     }
+    if (m.find("RuleConditionValue") != m.end() && !m["RuleConditionValue"].empty()) {
+      ruleConditionValue = make_shared<string>(boost::any_cast<string>(m["RuleConditionValue"]));
+    }
   }
 
 
@@ -14815,6 +14970,7 @@ public:
 };
 class ListForwardingRulesResponseBodyForwardingRules : public Darabonba::Model {
 public:
+  shared_ptr<string> forwardingRuleDirection{};
   shared_ptr<string> forwardingRuleId{};
   shared_ptr<string> forwardingRuleName{};
   shared_ptr<string> forwardingRuleStatus{};
@@ -14833,6 +14989,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (forwardingRuleDirection) {
+      res["ForwardingRuleDirection"] = boost::any(*forwardingRuleDirection);
+    }
     if (forwardingRuleId) {
       res["ForwardingRuleId"] = boost::any(*forwardingRuleId);
     }
@@ -14866,6 +15025,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ForwardingRuleDirection") != m.end() && !m["ForwardingRuleDirection"].empty()) {
+      forwardingRuleDirection = make_shared<string>(boost::any_cast<string>(m["ForwardingRuleDirection"]));
+    }
     if (m.find("ForwardingRuleId") != m.end() && !m["ForwardingRuleId"].empty()) {
       forwardingRuleId = make_shared<string>(boost::any_cast<string>(m["ForwardingRuleId"]));
     }
@@ -18889,6 +19051,7 @@ public:
   shared_ptr<UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<long> order{};
   shared_ptr<string> ruleActionType{};
+  shared_ptr<string> ruleActionValue{};
 
   UpdateForwardingRulesRequestForwardingRulesRuleActions() {}
 
@@ -18909,6 +19072,9 @@ public:
     if (ruleActionType) {
       res["RuleActionType"] = boost::any(*ruleActionType);
     }
+    if (ruleActionValue) {
+      res["RuleActionValue"] = boost::any(*ruleActionValue);
+    }
     return res;
   }
 
@@ -18925,6 +19091,9 @@ public:
     }
     if (m.find("RuleActionType") != m.end() && !m["RuleActionType"].empty()) {
       ruleActionType = make_shared<string>(boost::any_cast<string>(m["RuleActionType"]));
+    }
+    if (m.find("RuleActionValue") != m.end() && !m["RuleActionValue"].empty()) {
+      ruleActionValue = make_shared<string>(boost::any_cast<string>(m["RuleActionValue"]));
     }
   }
 
@@ -19008,6 +19177,7 @@ public:
   shared_ptr<UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig> hostConfig{};
   shared_ptr<UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig> pathConfig{};
   shared_ptr<string> ruleConditionType{};
+  shared_ptr<string> ruleConditionValue{};
 
   UpdateForwardingRulesRequestForwardingRulesRuleConditions() {}
 
@@ -19027,6 +19197,9 @@ public:
     }
     if (ruleConditionType) {
       res["RuleConditionType"] = boost::any(*ruleConditionType);
+    }
+    if (ruleConditionValue) {
+      res["RuleConditionValue"] = boost::any(*ruleConditionValue);
     }
     return res;
   }
@@ -19049,6 +19222,9 @@ public:
     if (m.find("RuleConditionType") != m.end() && !m["RuleConditionType"].empty()) {
       ruleConditionType = make_shared<string>(boost::any_cast<string>(m["RuleConditionType"]));
     }
+    if (m.find("RuleConditionValue") != m.end() && !m["RuleConditionValue"].empty()) {
+      ruleConditionValue = make_shared<string>(boost::any_cast<string>(m["RuleConditionValue"]));
+    }
   }
 
 
@@ -19061,6 +19237,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<vector<UpdateForwardingRulesRequestForwardingRulesRuleActions>> ruleActions{};
   shared_ptr<vector<UpdateForwardingRulesRequestForwardingRulesRuleConditions>> ruleConditions{};
+  shared_ptr<string> ruleDirection{};
 
   UpdateForwardingRulesRequestForwardingRules() {}
 
@@ -19094,6 +19271,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RuleConditions"] = boost::any(temp1);
+    }
+    if (ruleDirection) {
+      res["RuleDirection"] = boost::any(*ruleDirection);
     }
     return res;
   }
@@ -19133,6 +19313,9 @@ public:
         }
         ruleConditions = make_shared<vector<UpdateForwardingRulesRequestForwardingRulesRuleConditions>>(expect1);
       }
+    }
+    if (m.find("RuleDirection") != m.end() && !m["RuleDirection"].empty()) {
+      ruleDirection = make_shared<string>(boost::any_cast<string>(m["RuleDirection"]));
     }
   }
 
