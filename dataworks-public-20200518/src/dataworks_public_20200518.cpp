@@ -8626,3 +8626,40 @@ UpdateUdfFileResponse Alibabacloud_Dataworks-public20200518::Client::updateUdfFi
   return updateUdfFileWithOptions(request, runtime);
 }
 
+UpdateWorkbenchEventResultResponse Alibabacloud_Dataworks-public20200518::Client::updateWorkbenchEventResultWithOptions(shared_ptr<UpdateWorkbenchEventResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkResult)) {
+    query->insert(pair<string, string>("CheckResult", *request->checkResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkResultTip)) {
+    query->insert(pair<string, string>("CheckResultTip", *request->checkResultTip));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extensionCode)) {
+    query->insert(pair<string, string>("ExtensionCode", *request->extensionCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageId)) {
+    query->insert(pair<string, string>("MessageId", *request->messageId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateWorkbenchEventResult"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateWorkbenchEventResultResponse(callApi(params, req, runtime));
+}
+
+UpdateWorkbenchEventResultResponse Alibabacloud_Dataworks-public20200518::Client::updateWorkbenchEventResult(shared_ptr<UpdateWorkbenchEventResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateWorkbenchEventResultWithOptions(request, runtime);
+}
+

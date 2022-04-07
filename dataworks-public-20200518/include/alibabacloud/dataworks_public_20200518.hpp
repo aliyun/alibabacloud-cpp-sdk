@@ -58274,6 +58274,144 @@ public:
 
   virtual ~UpdateUdfFileResponse() = default;
 };
+class UpdateWorkbenchEventResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> checkResult{};
+  shared_ptr<string> checkResultTip{};
+  shared_ptr<string> extensionCode{};
+  shared_ptr<string> messageId{};
+
+  UpdateWorkbenchEventResultRequest() {}
+
+  explicit UpdateWorkbenchEventResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkResult) {
+      res["CheckResult"] = boost::any(*checkResult);
+    }
+    if (checkResultTip) {
+      res["CheckResultTip"] = boost::any(*checkResultTip);
+    }
+    if (extensionCode) {
+      res["ExtensionCode"] = boost::any(*extensionCode);
+    }
+    if (messageId) {
+      res["MessageId"] = boost::any(*messageId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckResult") != m.end() && !m["CheckResult"].empty()) {
+      checkResult = make_shared<string>(boost::any_cast<string>(m["CheckResult"]));
+    }
+    if (m.find("CheckResultTip") != m.end() && !m["CheckResultTip"].empty()) {
+      checkResultTip = make_shared<string>(boost::any_cast<string>(m["CheckResultTip"]));
+    }
+    if (m.find("ExtensionCode") != m.end() && !m["ExtensionCode"].empty()) {
+      extensionCode = make_shared<string>(boost::any_cast<string>(m["ExtensionCode"]));
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<string>(boost::any_cast<string>(m["MessageId"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkbenchEventResultRequest() = default;
+};
+class UpdateWorkbenchEventResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateWorkbenchEventResultResponseBody() {}
+
+  explicit UpdateWorkbenchEventResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkbenchEventResultResponseBody() = default;
+};
+class UpdateWorkbenchEventResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateWorkbenchEventResultResponseBody> body{};
+
+  UpdateWorkbenchEventResultResponse() {}
+
+  explicit UpdateWorkbenchEventResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateWorkbenchEventResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateWorkbenchEventResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateWorkbenchEventResultResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -58727,6 +58865,8 @@ public:
   UpdateTableThemeResponse updateTableTheme(shared_ptr<UpdateTableThemeRequest> request);
   UpdateUdfFileResponse updateUdfFileWithOptions(shared_ptr<UpdateUdfFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUdfFileResponse updateUdfFile(shared_ptr<UpdateUdfFileRequest> request);
+  UpdateWorkbenchEventResultResponse updateWorkbenchEventResultWithOptions(shared_ptr<UpdateWorkbenchEventResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateWorkbenchEventResultResponse updateWorkbenchEventResult(shared_ptr<UpdateWorkbenchEventResultRequest> request);
 
   virtual ~Client() = default;
 };
