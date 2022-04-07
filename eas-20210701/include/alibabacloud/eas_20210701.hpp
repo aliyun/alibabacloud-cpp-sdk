@@ -23,6 +23,7 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<long> instancePort{};
   shared_ptr<vector<map<string, boost::any>>> lastState{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> readyProcesses{};
   shared_ptr<string> reason{};
   shared_ptr<long> restartCount{};
@@ -57,6 +58,9 @@ public:
     }
     if (lastState) {
       res["LastState"] = boost::any(*lastState);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (readyProcesses) {
       res["ReadyProcesses"] = boost::any(*readyProcesses);
@@ -109,6 +113,9 @@ public:
         }
       }
       lastState = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("ReadyProcesses") != m.end() && !m["ReadyProcesses"].empty()) {
       readyProcesses = make_shared<long>(boost::any_cast<long>(m["ReadyProcesses"]));
@@ -750,7 +757,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> ownerUid{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> resourceID{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
 
   CreateResourceResponseBody() {}
@@ -772,8 +779,8 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (resourceID) {
-      res["ResourceID"] = boost::any(*resourceID);
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
@@ -791,8 +798,8 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("ResourceID") != m.end() && !m["ResourceID"].empty()) {
-      resourceID = make_shared<string>(boost::any_cast<string>(m["ResourceID"]));
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
@@ -2622,6 +2629,137 @@ public:
 
   virtual ~DeleteServiceMirrorResponse() = default;
 };
+class DescribeRegionsResponseBodyRegions : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+
+  DescribeRegionsResponseBodyRegions() {}
+
+  explicit DescribeRegionsResponseBodyRegions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeRegionsResponseBodyRegions() = default;
+};
+class DescribeRegionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeRegionsResponseBodyRegions>> regions{};
+  shared_ptr<string> requestId{};
+
+  DescribeRegionsResponseBody() {}
+
+  explicit DescribeRegionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      vector<boost::any> temp1;
+      for(auto item1:*regions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Regions"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Regions"].type()) {
+        vector<DescribeRegionsResponseBodyRegions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Regions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRegionsResponseBodyRegions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regions = make_shared<vector<DescribeRegionsResponseBodyRegions>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeRegionsResponseBody() = default;
+};
+class DescribeRegionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeRegionsResponseBody> body{};
+
+  DescribeRegionsResponse() {}
+
+  explicit DescribeRegionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRegionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRegionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRegionsResponse() = default;
+};
 class DescribeResourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -3087,6 +3225,7 @@ public:
 };
 class DescribeServiceAutoScalerResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> currentValues{};
   shared_ptr<long> maxReplica{};
   shared_ptr<long> minReplica{};
   shared_ptr<string> requestId{};
@@ -3103,6 +3242,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (currentValues) {
+      res["CurrentValues"] = boost::any(*currentValues);
+    }
     if (maxReplica) {
       res["MaxReplica"] = boost::any(*maxReplica);
     }
@@ -3122,6 +3264,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentValues") != m.end() && !m["CurrentValues"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CurrentValues"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      currentValues = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("MaxReplica") != m.end() && !m["MaxReplica"].empty()) {
       maxReplica = make_shared<long>(boost::any_cast<long>(m["MaxReplica"]));
     }
@@ -3201,6 +3351,7 @@ public:
 };
 class DescribeServiceCronScalerResponseBodyScaleJobs : public Darabonba::Model {
 public:
+  shared_ptr<string> createTime{};
   shared_ptr<string> lastProbeTime{};
   shared_ptr<string> message{};
   shared_ptr<string> name{};
@@ -3218,6 +3369,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (lastProbeTime) {
       res["LastProbeTime"] = boost::any(*lastProbeTime);
     }
@@ -3240,6 +3394,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
     if (m.find("LastProbeTime") != m.end() && !m["LastProbeTime"].empty()) {
       lastProbeTime = make_shared<string>(boost::any_cast<string>(m["LastProbeTime"]));
     }
@@ -6020,6 +6177,8 @@ public:
                                                              shared_ptr<string> ServiceName,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRegionsResponse describeRegions();
+  DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeResourceResponse describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DescribeResourceResponse describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                        shared_ptr<string> ResourceId,

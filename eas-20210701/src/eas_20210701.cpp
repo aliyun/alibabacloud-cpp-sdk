@@ -27,55 +27,13 @@ Alibabacloud_Eas20210701::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-hongkong", "pai-eas.cn-hongkong.aliyuncs.com"},
     {"ap-southeast-1", "pai-eas.ap-southeast-1.aliyuncs.com"},
     {"ap-southeast-5", "pai-eas.ap-southeast-5.aliyuncs.com"},
-    {"us-west-1", "pai-eas.us-west-1.aliyuncs.com"},
     {"us-east-1", "pai-eas.us-east-1.aliyuncs.com"},
+    {"us-west-1", "pai-eas.us-west-1.aliyuncs.com"},
     {"eu-central-1", "pai-eas.eu-central-1.aliyuncs.com"},
     {"ap-south-1", "pai-eas.ap-south-1.aliyuncs.com"},
     {"cn-shanghai-finance-1", "pai-eas.cn-shanghai-finance-1.aliyuncs.com"},
     {"cn-north-2-gov-1", "pai-eas.cn-north-2-gov-1.aliyuncs.com"},
-    {"ap-northeast-1", "eas.aliyuncs.com"},
-    {"ap-northeast-2-pop", "eas.aliyuncs.com"},
-    {"ap-southeast-2", "eas.aliyuncs.com"},
-    {"ap-southeast-3", "eas.aliyuncs.com"},
-    {"cn-beijing-finance-1", "eas.aliyuncs.com"},
-    {"cn-beijing-finance-pop", "eas.aliyuncs.com"},
-    {"cn-beijing-gov-1", "eas.aliyuncs.com"},
-    {"cn-beijing-nu16-b01", "eas.aliyuncs.com"},
-    {"cn-chengdu", "pai-eas.cn-chengdu.aliyuncs.com"},
-    {"cn-edge-1", "eas.aliyuncs.com"},
-    {"cn-fujian", "eas.aliyuncs.com"},
-    {"cn-haidian-cm12-c01", "eas.aliyuncs.com"},
-    {"cn-hangzhou-bj-b01", "eas.aliyuncs.com"},
-    {"cn-hangzhou-finance", "eas.aliyuncs.com"},
-    {"cn-hangzhou-internal-prod-1", "eas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "eas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "eas.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "eas.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "eas.aliyuncs.com"},
-    {"cn-hongkong-finance-pop", "eas.aliyuncs.com"},
-    {"cn-huhehaote", "eas.aliyuncs.com"},
-    {"cn-huhehaote-nebula-1", "eas.aliyuncs.com"},
-    {"cn-qingdao", "eas.aliyuncs.com"},
-    {"cn-qingdao-nebula", "eas.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "eas.aliyuncs.com"},
-    {"cn-shanghai-et2-b01", "eas.aliyuncs.com"},
-    {"cn-shanghai-inner", "eas.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "eas.aliyuncs.com"},
-    {"cn-shenzhen-finance-1", "eas.aliyuncs.com"},
-    {"cn-shenzhen-inner", "eas.aliyuncs.com"},
-    {"cn-shenzhen-st4-d01", "eas.aliyuncs.com"},
-    {"cn-shenzhen-su18-b01", "eas.aliyuncs.com"},
-    {"cn-wuhan", "eas.aliyuncs.com"},
-    {"cn-wulanchabu", "eas.aliyuncs.com"},
-    {"cn-yushanfang", "eas.aliyuncs.com"},
-    {"cn-zhangbei", "eas.aliyuncs.com"},
-    {"cn-zhangbei-na61-b01", "eas.aliyuncs.com"},
-    {"cn-zhangjiakou-na62-a01", "eas.aliyuncs.com"},
-    {"cn-zhengzhou-nebula-1", "eas.aliyuncs.com"},
-    {"eu-west-1", "eas.aliyuncs.com"},
-    {"eu-west-1-oxs", "eas.aliyuncs.com"},
-    {"me-east-1", "eas.aliyuncs.com"},
-    {"rus-west-1-pop", "eas.aliyuncs.com"}
+    {"cn-chengdu", "pai-eas.cn-chengdu.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -646,6 +604,30 @@ DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirro
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteServiceMirrorResponse(callApi(params, req, runtime));
+}
+
+DescribeRegionsResponse Alibabacloud_Eas20210701::Client::describeRegions() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeRegionsWithOptions(headers, runtime);
+}
+
+DescribeRegionsResponse Alibabacloud_Eas20210701::Client::describeRegionsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRegions"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/regions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
 DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
