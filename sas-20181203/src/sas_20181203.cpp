@@ -5145,6 +5145,46 @@ InstallBackupClientResponse Alibabacloud_Sas20181203::Client::installBackupClien
   return installBackupClientWithOptions(request, runtime);
 }
 
+InstallCloudMonitorResponse Alibabacloud_Sas20181203::Client::installCloudMonitorWithOptions(shared_ptr<InstallCloudMonitorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentAccessKey)) {
+    query->insert(pair<string, string>("AgentAccessKey", *request->agentAccessKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentSecretKey)) {
+    query->insert(pair<string, string>("AgentSecretKey", *request->agentSecretKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->argusVersion)) {
+    query->insert(pair<string, string>("ArgusVersion", *request->argusVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIdList)) {
+    query->insert(pair<string, vector<string>>("InstanceIdList", *request->instanceIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuidList)) {
+    query->insert(pair<string, vector<string>>("UuidList", *request->uuidList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InstallCloudMonitor"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InstallCloudMonitorResponse(callApi(params, req, runtime));
+}
+
+InstallCloudMonitorResponse Alibabacloud_Sas20181203::Client::installCloudMonitor(shared_ptr<InstallCloudMonitorRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return installCloudMonitorWithOptions(request, runtime);
+}
+
 ModifyAntiBruteForceRuleResponse Alibabacloud_Sas20181203::Client::modifyAntiBruteForceRuleWithOptions(shared_ptr<ModifyAntiBruteForceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
