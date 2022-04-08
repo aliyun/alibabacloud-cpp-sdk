@@ -887,13 +887,13 @@ DeleteClusterNodepoolResponse Alibabacloud_CS20151215::Client::deleteClusterNode
   Darabonba_Util::Client::validateModel(request);
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   NodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(NodepoolId));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
-    body->insert(pair<string, bool>("force", *request->force));
+    query->insert(pair<string, bool>("force", *request->force));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteClusterNodepool"))},
