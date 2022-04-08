@@ -3486,6 +3486,35 @@ public:
 
   virtual ~DeleteClusterResponse() = default;
 };
+class DeleteClusterNodepoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> force{};
+
+  DeleteClusterNodepoolRequest() {}
+
+  explicit DeleteClusterNodepoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (force) {
+      res["force"] = boost::any(*force);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("force") != m.end() && !m["force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["force"]));
+    }
+  }
+
+
+  virtual ~DeleteClusterNodepoolRequest() = default;
+};
 class DeleteClusterNodepoolResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -17890,6 +17919,7 @@ public:
 class UpgradeClusterAddonsRequestBody : public Darabonba::Model {
 public:
   shared_ptr<string> componentName{};
+  shared_ptr<string> config{};
   shared_ptr<string> nextVersion{};
   shared_ptr<string> version{};
 
@@ -17906,6 +17936,9 @@ public:
     if (componentName) {
       res["component_name"] = boost::any(*componentName);
     }
+    if (config) {
+      res["config"] = boost::any(*config);
+    }
     if (nextVersion) {
       res["next_version"] = boost::any(*nextVersion);
     }
@@ -17918,6 +17951,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("component_name") != m.end() && !m["component_name"].empty()) {
       componentName = make_shared<string>(boost::any_cast<string>(m["component_name"]));
+    }
+    if (m.find("config") != m.end() && !m["config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["config"]));
     }
     if (m.find("next_version") != m.end() && !m["next_version"].empty()) {
       nextVersion = make_shared<string>(boost::any_cast<string>(m["next_version"]));
@@ -18070,9 +18106,10 @@ public:
                                                  shared_ptr<DeleteClusterRequest> tmpReq,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteClusterNodepoolResponse deleteClusterNodepool(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId);
+  DeleteClusterNodepoolResponse deleteClusterNodepool(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<DeleteClusterNodepoolRequest> request);
   DeleteClusterNodepoolResponse deleteClusterNodepoolWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> NodepoolId,
+                                                                 shared_ptr<DeleteClusterNodepoolRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteClusterNodesResponse deleteClusterNodes(shared_ptr<string> ClusterId, shared_ptr<DeleteClusterNodesRequest> request);
