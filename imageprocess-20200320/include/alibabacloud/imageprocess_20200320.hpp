@@ -3661,38 +3661,8 @@ public:
 
   virtual ~FeedbackSessionRequest() = default;
 };
-class FeedbackSessionResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> data{};
-
-  FeedbackSessionResponseBodyData() {}
-
-  explicit FeedbackSessionResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-  }
-
-
-  virtual ~FeedbackSessionResponseBodyData() = default;
-};
 class FeedbackSessionResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<FeedbackSessionResponseBodyData> data{};
   shared_ptr<string> requestId{};
 
   FeedbackSessionResponseBody() {}
@@ -3705,9 +3675,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3715,13 +3682,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        FeedbackSessionResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<FeedbackSessionResponseBodyData>(model1);
-      }
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
