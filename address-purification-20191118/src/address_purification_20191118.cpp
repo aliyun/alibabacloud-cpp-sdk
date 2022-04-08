@@ -31,122 +31,48 @@ string Alibabacloud_Address-purification20191118::Client::getEndpoint(shared_ptr
   if (!Darabonba_Util::Client::empty(endpoint)) {
     return *endpoint;
   }
-  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)["[object Object]"]))) {
-    return (*endpointMap)["[object Object]"];
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(endpointMap) && !Darabonba_Util::Client::empty(make_shared<string>((*endpointMap)[regionId]))) {
+    return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-GetAddressDivisionCodeResponse Alibabacloud_Address-purification20191118::Client::getAddressDivisionCodeWithOptions(shared_ptr<GetAddressDivisionCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetAddressDivisionCodeResponse(doRPCRequest(make_shared<string>("GetAddressDivisionCode"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetAddressDivisionCodeResponse Alibabacloud_Address-purification20191118::Client::getAddressDivisionCode(shared_ptr<GetAddressDivisionCodeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressDivisionCodeWithOptions(request, runtime);
-}
-
-StructureAddressResponse Alibabacloud_Address-purification20191118::Client::structureAddressWithOptions(shared_ptr<StructureAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return StructureAddressResponse(doRPCRequest(make_shared<string>("StructureAddress"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-StructureAddressResponse Alibabacloud_Address-purification20191118::Client::structureAddress(shared_ptr<StructureAddressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return structureAddressWithOptions(request, runtime);
-}
-
-ExtractExpressResponse Alibabacloud_Address-purification20191118::Client::extractExpressWithOptions(shared_ptr<ExtractExpressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ExtractExpressResponse(doRPCRequest(make_shared<string>("ExtractExpress"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ExtractExpressResponse Alibabacloud_Address-purification20191118::Client::extractExpress(shared_ptr<ExtractExpressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return extractExpressWithOptions(request, runtime);
-}
-
-ExtractNameResponse Alibabacloud_Address-purification20191118::Client::extractNameWithOptions(shared_ptr<ExtractNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ExtractNameResponse(doRPCRequest(make_shared<string>("ExtractName"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ExtractNameResponse Alibabacloud_Address-purification20191118::Client::extractName(shared_ptr<ExtractNameRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return extractNameWithOptions(request, runtime);
-}
-
-GetAddressBlockMappingResponse Alibabacloud_Address-purification20191118::Client::getAddressBlockMappingWithOptions(shared_ptr<GetAddressBlockMappingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetAddressBlockMappingResponse(doRPCRequest(make_shared<string>("GetAddressBlockMapping"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetAddressBlockMappingResponse Alibabacloud_Address-purification20191118::Client::getAddressBlockMapping(shared_ptr<GetAddressBlockMappingRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressBlockMappingWithOptions(request, runtime);
-}
-
-GetAddressSearchResponse Alibabacloud_Address-purification20191118::Client::getAddressSearchWithOptions(shared_ptr<GetAddressSearchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetAddressSearchResponse(doRPCRequest(make_shared<string>("GetAddressSearch"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetAddressSearchResponse Alibabacloud_Address-purification20191118::Client::getAddressSearch(shared_ptr<GetAddressSearchRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressSearchWithOptions(request, runtime);
-}
-
-PredictPOIResponse Alibabacloud_Address-purification20191118::Client::predictPOIWithOptions(shared_ptr<PredictPOIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return PredictPOIResponse(doRPCRequest(make_shared<string>("PredictPOI"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-PredictPOIResponse Alibabacloud_Address-purification20191118::Client::predictPOI(shared_ptr<PredictPOIRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return predictPOIWithOptions(request, runtime);
-}
-
-ClassifyPOIResponse Alibabacloud_Address-purification20191118::Client::classifyPOIWithOptions(shared_ptr<ClassifyPOIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ClassifyPOIResponse(doRPCRequest(make_shared<string>("ClassifyPOI"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ClassifyPOIResponse Alibabacloud_Address-purification20191118::Client::classifyPOI(shared_ptr<ClassifyPOIRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return classifyPOIWithOptions(request, runtime);
-}
-
 CorrectAddressResponse Alibabacloud_Address-purification20191118::Client::correctAddressWithOptions(shared_ptr<CorrectAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return CorrectAddressResponse(doRPCRequest(make_shared<string>("CorrectAddress"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CorrectAddress"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CorrectAddressResponse(callApi(params, req, runtime));
 }
 
 CorrectAddressResponse Alibabacloud_Address-purification20191118::Client::correctAddress(shared_ptr<CorrectAddressRequest> request) {
@@ -154,95 +80,128 @@ CorrectAddressResponse Alibabacloud_Address-purification20191118::Client::correc
   return correctAddressWithOptions(request, runtime);
 }
 
-GetZipcodeResponse Alibabacloud_Address-purification20191118::Client::getZipcodeWithOptions(shared_ptr<GetZipcodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ExtractAddressResponse Alibabacloud_Address-purification20191118::Client::extractAddressWithOptions(shared_ptr<ExtractAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetZipcodeResponse(doRPCRequest(make_shared<string>("GetZipcode"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetZipcodeResponse Alibabacloud_Address-purification20191118::Client::getZipcode(shared_ptr<GetZipcodeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getZipcodeWithOptions(request, runtime);
-}
-
-CompleteAddressResponse Alibabacloud_Address-purification20191118::Client::completeAddressWithOptions(shared_ptr<CompleteAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return CompleteAddressResponse(doRPCRequest(make_shared<string>("CompleteAddress"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-CompleteAddressResponse Alibabacloud_Address-purification20191118::Client::completeAddress(shared_ptr<CompleteAddressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return completeAddressWithOptions(request, runtime);
-}
-
-GetAddressSimilarityResponse Alibabacloud_Address-purification20191118::Client::getAddressSimilarityWithOptions(shared_ptr<GetAddressSimilarityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetAddressSimilarityResponse(doRPCRequest(make_shared<string>("GetAddressSimilarity"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetAddressSimilarityResponse Alibabacloud_Address-purification20191118::Client::getAddressSimilarity(shared_ptr<GetAddressSimilarityRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressSimilarityWithOptions(request, runtime);
-}
-
-GetAddressGeocodeResponse Alibabacloud_Address-purification20191118::Client::getAddressGeocodeWithOptions(shared_ptr<GetAddressGeocodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetAddressGeocodeResponse(doRPCRequest(make_shared<string>("GetAddressGeocode"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetAddressGeocodeResponse Alibabacloud_Address-purification20191118::Client::getAddressGeocode(shared_ptr<GetAddressGeocodeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressGeocodeWithOptions(request, runtime);
-}
-
-TransferCoordResponse Alibabacloud_Address-purification20191118::Client::transferCoordWithOptions(shared_ptr<TransferCoordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return TransferCoordResponse(doRPCRequest(make_shared<string>("TransferCoord"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-TransferCoordResponse Alibabacloud_Address-purification20191118::Client::transferCoord(shared_ptr<TransferCoordRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return transferCoordWithOptions(request, runtime);
-}
-
-UpdateProjectResponse Alibabacloud_Address-purification20191118::Client::updateProjectWithOptions(shared_ptr<UpdateProjectRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<UpdateProjectShrinkRequest> request = make_shared<UpdateProjectShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->parameters)) {
-    request->parametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parameters, make_shared<string>("Parameters"), make_shared<string>("json")));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return UpdateProjectResponse(doRPCRequest(make_shared<string>("UpdateProject"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExtractAddress"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExtractAddressResponse(callApi(params, req, runtime));
 }
 
-UpdateProjectResponse Alibabacloud_Address-purification20191118::Client::updateProject(shared_ptr<UpdateProjectRequest> request) {
+ExtractAddressResponse Alibabacloud_Address-purification20191118::Client::extractAddress(shared_ptr<ExtractAddressRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateProjectWithOptions(request, runtime);
+  return extractAddressWithOptions(request, runtime);
+}
+
+ExtractNameResponse Alibabacloud_Address-purification20191118::Client::extractNameWithOptions(shared_ptr<ExtractNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExtractName"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExtractNameResponse(callApi(params, req, runtime));
+}
+
+ExtractNameResponse Alibabacloud_Address-purification20191118::Client::extractName(shared_ptr<ExtractNameRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return extractNameWithOptions(request, runtime);
 }
 
 ExtractPhoneResponse Alibabacloud_Address-purification20191118::Client::extractPhoneWithOptions(shared_ptr<ExtractPhoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return ExtractPhoneResponse(doRPCRequest(make_shared<string>("ExtractPhone"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExtractPhone"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExtractPhoneResponse(callApi(params, req, runtime));
 }
 
 ExtractPhoneResponse Alibabacloud_Address-purification20191118::Client::extractPhone(shared_ptr<ExtractPhoneRequest> request) {
@@ -250,42 +209,175 @@ ExtractPhoneResponse Alibabacloud_Address-purification20191118::Client::extractP
   return extractPhoneWithOptions(request, runtime);
 }
 
-GetInputSearchResponse Alibabacloud_Address-purification20191118::Client::getInputSearchWithOptions(shared_ptr<GetInputSearchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetAddressDivisionCodeResponse Alibabacloud_Address-purification20191118::Client::getAddressDivisionCodeWithOptions(shared_ptr<GetAddressDivisionCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return GetInputSearchResponse(doRPCRequest(make_shared<string>("GetInputSearch"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAddressDivisionCode"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAddressDivisionCodeResponse(callApi(params, req, runtime));
 }
 
-GetInputSearchResponse Alibabacloud_Address-purification20191118::Client::getInputSearch(shared_ptr<GetInputSearchRequest> request) {
+GetAddressDivisionCodeResponse Alibabacloud_Address-purification20191118::Client::getAddressDivisionCode(shared_ptr<GetAddressDivisionCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getInputSearchWithOptions(request, runtime);
+  return getAddressDivisionCodeWithOptions(request, runtime);
 }
 
-GetAddressEvaluateResponse Alibabacloud_Address-purification20191118::Client::getAddressEvaluateWithOptions(shared_ptr<GetAddressEvaluateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetAddressSimilarityResponse Alibabacloud_Address-purification20191118::Client::getAddressSimilarityWithOptions(shared_ptr<GetAddressSimilarityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return GetAddressEvaluateResponse(doRPCRequest(make_shared<string>("GetAddressEvaluate"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAddressSimilarity"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAddressSimilarityResponse(callApi(params, req, runtime));
 }
 
-GetAddressEvaluateResponse Alibabacloud_Address-purification20191118::Client::getAddressEvaluate(shared_ptr<GetAddressEvaluateRequest> request) {
+GetAddressSimilarityResponse Alibabacloud_Address-purification20191118::Client::getAddressSimilarity(shared_ptr<GetAddressSimilarityRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getAddressEvaluateWithOptions(request, runtime);
+  return getAddressSimilarityWithOptions(request, runtime);
 }
 
-ExtractAddressResponse Alibabacloud_Address-purification20191118::Client::extractAddressWithOptions(shared_ptr<ExtractAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetZipcodeResponse Alibabacloud_Address-purification20191118::Client::getZipcodeWithOptions(shared_ptr<GetZipcodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
-  return ExtractAddressResponse(doRPCRequest(make_shared<string>("ExtractAddress"), make_shared<string>("2019-11-18"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetZipcode"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetZipcodeResponse(callApi(params, req, runtime));
 }
 
-ExtractAddressResponse Alibabacloud_Address-purification20191118::Client::extractAddress(shared_ptr<ExtractAddressRequest> request) {
+GetZipcodeResponse Alibabacloud_Address-purification20191118::Client::getZipcode(shared_ptr<GetZipcodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return extractAddressWithOptions(request, runtime);
+  return getZipcodeWithOptions(request, runtime);
+}
+
+StructureAddressResponse Alibabacloud_Address-purification20191118::Client::structureAddressWithOptions(shared_ptr<StructureAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
+    body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultCity)) {
+    body->insert(pair<string, string>("DefaultCity", *request->defaultCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultDistrict)) {
+    body->insert(pair<string, string>("DefaultDistrict", *request->defaultDistrict));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultProvince)) {
+    body->insert(pair<string, string>("DefaultProvince", *request->defaultProvince));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
+    body->insert(pair<string, string>("Text", *request->text));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StructureAddress"))},
+    {"version", boost::any(string("2019-11-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StructureAddressResponse(callApi(params, req, runtime));
+}
+
+StructureAddressResponse Alibabacloud_Address-purification20191118::Client::structureAddress(shared_ptr<StructureAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return structureAddressWithOptions(request, runtime);
 }
 
