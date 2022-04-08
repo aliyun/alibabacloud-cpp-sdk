@@ -823,6 +823,37 @@ DetectSpineMRIResponse Alibabacloud_Imageprocess20200320::Client::detectSpineMRI
   return detectSpineMRIWithOptions(request, runtime);
 }
 
+FeedbackSessionResponse Alibabacloud_Imageprocess20200320::Client::feedbackSessionWithOptions(shared_ptr<FeedbackSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->feedback)) {
+    body->insert(pair<string, string>("Feedback", *request->feedback));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FeedbackSession"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FeedbackSessionResponse(callApi(params, req, runtime));
+}
+
+FeedbackSessionResponse Alibabacloud_Imageprocess20200320::Client::feedbackSession(shared_ptr<FeedbackSessionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return feedbackSessionWithOptions(request, runtime);
+}
+
 GetAsyncJobResultResponse Alibabacloud_Imageprocess20200320::Client::getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
