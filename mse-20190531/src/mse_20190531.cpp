@@ -823,6 +823,9 @@ CreateEngineNamespaceResponse Alibabacloud_Mse20190531::Client::createEngineName
   if (!Darabonba_Util::Client::isUnset<string>(request->desc)) {
     query->insert(pair<string, string>("Desc", *request->desc));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -4122,49 +4125,6 @@ RetryClusterResponse Alibabacloud_Mse20190531::Client::retryClusterWithOptions(s
 RetryClusterResponse Alibabacloud_Mse20190531::Client::retryCluster(shared_ptr<RetryClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return retryClusterWithOptions(request, runtime);
-}
-
-ScalingClusterResponse Alibabacloud_Mse20190531::Client::scalingClusterWithOptions(shared_ptr<ScalingClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
-    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpecification)) {
-    query->insert(pair<string, string>("ClusterSpecification", *request->clusterSpecification));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->cpu)) {
-    query->insert(pair<string, long>("Cpu", *request->cpu));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->instanceCount)) {
-    query->insert(pair<string, long>("InstanceCount", *request->instanceCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->memoryCapacity)) {
-    query->insert(pair<string, long>("MemoryCapacity", *request->memoryCapacity));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ScalingCluster"))},
-    {"version", boost::any(string("2019-05-31"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ScalingClusterResponse(callApi(params, req, runtime));
-}
-
-ScalingClusterResponse Alibabacloud_Mse20190531::Client::scalingCluster(shared_ptr<ScalingClusterRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return scalingClusterWithOptions(request, runtime);
 }
 
 SelectGatewaySlbResponse Alibabacloud_Mse20190531::Client::selectGatewaySlbWithOptions(shared_ptr<SelectGatewaySlbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
