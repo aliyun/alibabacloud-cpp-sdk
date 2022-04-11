@@ -716,7 +716,9 @@ public:
 class CreateAutoscalingConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> coolDownDuration{};
+  shared_ptr<string> expander{};
   shared_ptr<string> gpuUtilizationThreshold{};
+  shared_ptr<bool> scaleDownEnabled{};
   shared_ptr<string> scanInterval{};
   shared_ptr<string> unneededDuration{};
   shared_ptr<string> utilizationThreshold{};
@@ -734,8 +736,14 @@ public:
     if (coolDownDuration) {
       res["cool_down_duration"] = boost::any(*coolDownDuration);
     }
+    if (expander) {
+      res["expander"] = boost::any(*expander);
+    }
     if (gpuUtilizationThreshold) {
       res["gpu_utilization_threshold"] = boost::any(*gpuUtilizationThreshold);
+    }
+    if (scaleDownEnabled) {
+      res["scale_down_enabled"] = boost::any(*scaleDownEnabled);
     }
     if (scanInterval) {
       res["scan_interval"] = boost::any(*scanInterval);
@@ -753,8 +761,14 @@ public:
     if (m.find("cool_down_duration") != m.end() && !m["cool_down_duration"].empty()) {
       coolDownDuration = make_shared<string>(boost::any_cast<string>(m["cool_down_duration"]));
     }
+    if (m.find("expander") != m.end() && !m["expander"].empty()) {
+      expander = make_shared<string>(boost::any_cast<string>(m["expander"]));
+    }
     if (m.find("gpu_utilization_threshold") != m.end() && !m["gpu_utilization_threshold"].empty()) {
       gpuUtilizationThreshold = make_shared<string>(boost::any_cast<string>(m["gpu_utilization_threshold"]));
+    }
+    if (m.find("scale_down_enabled") != m.end() && !m["scale_down_enabled"].empty()) {
+      scaleDownEnabled = make_shared<bool>(boost::any_cast<bool>(m["scale_down_enabled"]));
     }
     if (m.find("scan_interval") != m.end() && !m["scan_interval"].empty()) {
       scanInterval = make_shared<string>(boost::any_cast<string>(m["scan_interval"]));
@@ -5472,61 +5486,6 @@ public:
 
 
   virtual ~DescribeClusterLogsResponse() = default;
-};
-class DescribeClusterNamespacesResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<vector<string>> body{};
-
-  DescribeClusterNamespacesResponse() {}
-
-  explicit DescribeClusterNamespacesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = boost::any(*body);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["body"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["body"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      body = make_shared<vector<string>>(toVec1);
-    }
-  }
-
-
-  virtual ~DescribeClusterNamespacesResponse() = default;
 };
 class DescribeClusterNodePoolDetailResponseBodyAutoScaling : public Darabonba::Model {
 public:
@@ -18174,8 +18133,6 @@ public:
   DescribeClusterDetailResponse describeClusterDetailWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeClusterLogsResponse describeClusterLogs(shared_ptr<string> ClusterId);
   DescribeClusterLogsResponse describeClusterLogsWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeClusterNamespacesResponse describeClusterNamespaces(shared_ptr<string> ClusterId);
-  DescribeClusterNamespacesResponse describeClusterNamespacesWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetail(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId);
   DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetailWithOptions(shared_ptr<string> ClusterId,
                                                                                  shared_ptr<string> NodepoolId,

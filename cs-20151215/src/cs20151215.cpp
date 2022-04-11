@@ -250,8 +250,14 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
   if (!Darabonba_Util::Client::isUnset<string>(request->coolDownDuration)) {
     body->insert(pair<string, string>("cool_down_duration", *request->coolDownDuration));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->expander)) {
+    body->insert(pair<string, string>("expander", *request->expander));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->gpuUtilizationThreshold)) {
     body->insert(pair<string, string>("gpu_utilization_threshold", *request->gpuUtilizationThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->scaleDownEnabled)) {
+    body->insert(pair<string, bool>("scale_down_enabled", *request->scaleDownEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scanInterval)) {
     body->insert(pair<string, string>("scan_interval", *request->scanInterval));
@@ -1419,31 +1425,6 @@ DescribeClusterLogsResponse Alibabacloud_CS20151215::Client::describeClusterLogs
     {"bodyType", boost::any(string("array"))}
   }));
   return DescribeClusterLogsResponse(callApi(params, req, runtime));
-}
-
-DescribeClusterNamespacesResponse Alibabacloud_CS20151215::Client::describeClusterNamespaces(shared_ptr<string> ClusterId) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeClusterNamespacesWithOptions(ClusterId, headers, runtime);
-}
-
-DescribeClusterNamespacesResponse Alibabacloud_CS20151215::Client::describeClusterNamespacesWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeClusterNamespaces"))},
-    {"version", boost::any(string("2015-12-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/k8s/") + string(*ClusterId) + string("/namespaces"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("array"))}
-  }));
-  return DescribeClusterNamespacesResponse(callApi(params, req, runtime));
 }
 
 DescribeClusterNodePoolDetailResponse Alibabacloud_CS20151215::Client::describeClusterNodePoolDetail(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId) {
