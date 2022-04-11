@@ -2821,6 +2821,9 @@ DescribePropertyCronDetailResponse Alibabacloud_Sas20181203::Client::describePro
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
@@ -2866,6 +2869,9 @@ DescribePropertyPortDetailResponse Alibabacloud_Sas20181203::Client::describePro
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
@@ -2949,6 +2955,9 @@ DescribePropertyProcDetailResponse Alibabacloud_Sas20181203::Client::describePro
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -3121,6 +3130,9 @@ DescribePropertySoftwareDetailResponse Alibabacloud_Sas20181203::Client::describ
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->installTimeEnd)) {
     query->insert(pair<string, long>("InstallTimeEnd", *request->installTimeEnd));
   }
@@ -3237,6 +3249,9 @@ DescribePropertyUserDetailResponse Alibabacloud_Sas20181203::Client::describePro
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isRoot)) {
     query->insert(pair<string, string>("IsRoot", *request->isRoot));
@@ -4854,6 +4869,76 @@ ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_
 ExportVulResponse Alibabacloud_Sas20181203::Client::exportVul(shared_ptr<ExportVulRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return exportVulWithOptions(request, runtime);
+}
+
+ExportWarningResponse Alibabacloud_Sas20181203::Client::exportWarningWithOptions(shared_ptr<ExportWarningRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dealed)) {
+    query->insert(pair<string, string>("Dealed", *request->dealed));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exportType)) {
+    query->insert(pair<string, string>("ExportType", *request->exportType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->isCleartextPwd)) {
+    query->insert(pair<string, long>("IsCleartextPwd", *request->isCleartextPwd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->isSummaryExport)) {
+    query->insert(pair<string, long>("IsSummaryExport", *request->isSummaryExport));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskIds)) {
+    query->insert(pair<string, string>("RiskIds", *request->riskIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskLevels)) {
+    query->insert(pair<string, string>("RiskLevels", *request->riskLevels));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskName)) {
+    query->insert(pair<string, string>("RiskName", *request->riskName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
+    query->insert(pair<string, string>("SourceIp", *request->sourceIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusList)) {
+    query->insert(pair<string, string>("StatusList", *request->statusList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strategyId)) {
+    query->insert(pair<string, long>("StrategyId", *request->strategyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subTypeNames)) {
+    query->insert(pair<string, string>("SubTypeNames", *request->subTypeNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->typeName_)) {
+    query->insert(pair<string, string>("TypeName_", *request->typeName_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->typeNames)) {
+    query->insert(pair<string, string>("TypeNames", *request->typeNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuids)) {
+    query->insert(pair<string, string>("Uuids", *request->uuids));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExportWarning"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExportWarningResponse(callApi(params, req, runtime));
+}
+
+ExportWarningResponse Alibabacloud_Sas20181203::Client::exportWarning(shared_ptr<ExportWarningRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return exportWarningWithOptions(request, runtime);
 }
 
 FixCheckWarningsResponse Alibabacloud_Sas20181203::Client::fixCheckWarningsWithOptions(shared_ptr<FixCheckWarningsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
