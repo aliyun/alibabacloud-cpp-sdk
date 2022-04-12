@@ -19120,6 +19120,283 @@ public:
 
   virtual ~ListColumnsResponse() = default;
 };
+class ListDAGVersionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dagId{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> tid{};
+
+  ListDAGVersionsRequest() {}
+
+  explicit ListDAGVersionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagId) {
+      res["DagId"] = boost::any(*dagId);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagId") != m.end() && !m["DagId"].empty()) {
+      dagId = make_shared<long>(boost::any_cast<long>(m["DagId"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~ListDAGVersionsRequest() = default;
+};
+class ListDAGVersionsResponseBodyDagVersionListDagVersion : public Darabonba::Model {
+public:
+  shared_ptr<string> dagName{};
+  shared_ptr<string> dagOwnerId{};
+  shared_ptr<string> dagOwnerNickName{};
+  shared_ptr<long> lastVersionId{};
+  shared_ptr<string> versionComments{};
+  shared_ptr<long> versionId{};
+
+  ListDAGVersionsResponseBodyDagVersionListDagVersion() {}
+
+  explicit ListDAGVersionsResponseBodyDagVersionListDagVersion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagName) {
+      res["DagName"] = boost::any(*dagName);
+    }
+    if (dagOwnerId) {
+      res["DagOwnerId"] = boost::any(*dagOwnerId);
+    }
+    if (dagOwnerNickName) {
+      res["DagOwnerNickName"] = boost::any(*dagOwnerNickName);
+    }
+    if (lastVersionId) {
+      res["LastVersionId"] = boost::any(*lastVersionId);
+    }
+    if (versionComments) {
+      res["VersionComments"] = boost::any(*versionComments);
+    }
+    if (versionId) {
+      res["VersionId"] = boost::any(*versionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagName") != m.end() && !m["DagName"].empty()) {
+      dagName = make_shared<string>(boost::any_cast<string>(m["DagName"]));
+    }
+    if (m.find("DagOwnerId") != m.end() && !m["DagOwnerId"].empty()) {
+      dagOwnerId = make_shared<string>(boost::any_cast<string>(m["DagOwnerId"]));
+    }
+    if (m.find("DagOwnerNickName") != m.end() && !m["DagOwnerNickName"].empty()) {
+      dagOwnerNickName = make_shared<string>(boost::any_cast<string>(m["DagOwnerNickName"]));
+    }
+    if (m.find("LastVersionId") != m.end() && !m["LastVersionId"].empty()) {
+      lastVersionId = make_shared<long>(boost::any_cast<long>(m["LastVersionId"]));
+    }
+    if (m.find("VersionComments") != m.end() && !m["VersionComments"].empty()) {
+      versionComments = make_shared<string>(boost::any_cast<string>(m["VersionComments"]));
+    }
+    if (m.find("VersionId") != m.end() && !m["VersionId"].empty()) {
+      versionId = make_shared<long>(boost::any_cast<long>(m["VersionId"]));
+    }
+  }
+
+
+  virtual ~ListDAGVersionsResponseBodyDagVersionListDagVersion() = default;
+};
+class ListDAGVersionsResponseBodyDagVersionList : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDAGVersionsResponseBodyDagVersionListDagVersion>> dagVersion{};
+
+  ListDAGVersionsResponseBodyDagVersionList() {}
+
+  explicit ListDAGVersionsResponseBodyDagVersionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagVersion) {
+      vector<boost::any> temp1;
+      for(auto item1:*dagVersion){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DagVersion"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagVersion") != m.end() && !m["DagVersion"].empty()) {
+      if (typeid(vector<boost::any>) == m["DagVersion"].type()) {
+        vector<ListDAGVersionsResponseBodyDagVersionListDagVersion> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DagVersion"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDAGVersionsResponseBodyDagVersionListDagVersion model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dagVersion = make_shared<vector<ListDAGVersionsResponseBodyDagVersionListDagVersion>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListDAGVersionsResponseBodyDagVersionList() = default;
+};
+class ListDAGVersionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ListDAGVersionsResponseBodyDagVersionList> dagVersionList{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  ListDAGVersionsResponseBody() {}
+
+  explicit ListDAGVersionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagVersionList) {
+      res["DagVersionList"] = dagVersionList ? boost::any(dagVersionList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagVersionList") != m.end() && !m["DagVersionList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DagVersionList"].type()) {
+        ListDAGVersionsResponseBodyDagVersionList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DagVersionList"]));
+        dagVersionList = make_shared<ListDAGVersionsResponseBodyDagVersionList>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListDAGVersionsResponseBody() = default;
+};
+class ListDAGVersionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDAGVersionsResponseBody> body{};
+
+  ListDAGVersionsResponse() {}
+
+  explicit ListDAGVersionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDAGVersionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDAGVersionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDAGVersionsResponse() = default;
+};
 class ListDBTaskSQLJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> DBTaskGroupId{};
@@ -27856,8 +28133,6 @@ public:
 };
 class ListTaskFlowRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> dagId{};
-  shared_ptr<long> dagInstanceId{};
   shared_ptr<long> tid{};
 
   ListTaskFlowRequest() {}
@@ -27870,12 +28145,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (dagId) {
-      res["DagId"] = boost::any(*dagId);
-    }
-    if (dagInstanceId) {
-      res["DagInstanceId"] = boost::any(*dagInstanceId);
-    }
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
@@ -27883,12 +28152,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DagId") != m.end() && !m["DagId"].empty()) {
-      dagId = make_shared<long>(boost::any_cast<long>(m["DagId"]));
-    }
-    if (m.find("DagInstanceId") != m.end() && !m["DagInstanceId"].empty()) {
-      dagInstanceId = make_shared<long>(boost::any_cast<long>(m["DagInstanceId"]));
-    }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
@@ -33955,6 +34218,8 @@ public:
   InspectProxyAccessSecretResponse inspectProxyAccessSecret(shared_ptr<InspectProxyAccessSecretRequest> request);
   ListColumnsResponse listColumnsWithOptions(shared_ptr<ListColumnsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListColumnsResponse listColumns(shared_ptr<ListColumnsRequest> request);
+  ListDAGVersionsResponse listDAGVersionsWithOptions(shared_ptr<ListDAGVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDAGVersionsResponse listDAGVersions(shared_ptr<ListDAGVersionsRequest> request);
   ListDBTaskSQLJobResponse listDBTaskSQLJobWithOptions(shared_ptr<ListDBTaskSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDBTaskSQLJobResponse listDBTaskSQLJob(shared_ptr<ListDBTaskSQLJobRequest> request);
   ListDBTaskSQLJobDetailResponse listDBTaskSQLJobDetailWithOptions(shared_ptr<ListDBTaskSQLJobDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
