@@ -89,6 +89,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<long> messageId{};
   shared_ptr<string> output{};
+  shared_ptr<string> result{};
   shared_ptr<string> status{};
   shared_ptr<string> userData{};
   shared_ptr<long> userId{};
@@ -130,6 +131,9 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -169,6 +173,9 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -503,6 +510,7 @@ public:
   shared_ptr<long> level{};
   shared_ptr<string> mediaId{};
   shared_ptr<string> output{};
+  shared_ptr<string> result{};
   shared_ptr<string> status{};
   shared_ptr<string> userData{};
   shared_ptr<long> userId{};
@@ -541,6 +549,9 @@ public:
     if (output) {
       res["Output"] = boost::any(*output);
     }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -577,6 +588,9 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
