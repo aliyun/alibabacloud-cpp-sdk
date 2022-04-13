@@ -2215,6 +2215,7 @@ public:
 };
 class DescribeAffectedMaliciousFileImagesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> imageDigest{};
   shared_ptr<string> imageLayer{};
@@ -2238,6 +2239,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -2278,6 +2282,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -2322,8 +2329,10 @@ public:
 class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFileImagesResponse : public Darabonba::Model {
 public:
   shared_ptr<string> digest{};
+  shared_ptr<string> downloadUrl{};
   shared_ptr<string> filePath{};
   shared_ptr<long> firstScanTimestamp{};
+  shared_ptr<string> highLight{};
   shared_ptr<string> imageUuid{};
   shared_ptr<long> latestScanTimestamp{};
   shared_ptr<long> latestVerifyTimestamp{};
@@ -2351,11 +2360,17 @@ public:
     if (digest) {
       res["Digest"] = boost::any(*digest);
     }
+    if (downloadUrl) {
+      res["DownloadUrl"] = boost::any(*downloadUrl);
+    }
     if (filePath) {
       res["FilePath"] = boost::any(*filePath);
     }
     if (firstScanTimestamp) {
       res["FirstScanTimestamp"] = boost::any(*firstScanTimestamp);
+    }
+    if (highLight) {
+      res["HighLight"] = boost::any(*highLight);
     }
     if (imageUuid) {
       res["ImageUuid"] = boost::any(*imageUuid);
@@ -2403,11 +2418,17 @@ public:
     if (m.find("Digest") != m.end() && !m["Digest"].empty()) {
       digest = make_shared<string>(boost::any_cast<string>(m["Digest"]));
     }
+    if (m.find("DownloadUrl") != m.end() && !m["DownloadUrl"].empty()) {
+      downloadUrl = make_shared<string>(boost::any_cast<string>(m["DownloadUrl"]));
+    }
     if (m.find("FilePath") != m.end() && !m["FilePath"].empty()) {
       filePath = make_shared<string>(boost::any_cast<string>(m["FilePath"]));
     }
     if (m.find("FirstScanTimestamp") != m.end() && !m["FirstScanTimestamp"].empty()) {
       firstScanTimestamp = make_shared<long>(boost::any_cast<long>(m["FirstScanTimestamp"]));
+    }
+    if (m.find("HighLight") != m.end() && !m["HighLight"].empty()) {
+      highLight = make_shared<string>(boost::any_cast<string>(m["HighLight"]));
     }
     if (m.find("ImageUuid") != m.end() && !m["ImageUuid"].empty()) {
       imageUuid = make_shared<string>(boost::any_cast<string>(m["ImageUuid"]));
@@ -6766,6 +6787,9 @@ public:
 };
 class DescribeCheckWarningSummaryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> containerFieldName{};
+  shared_ptr<string> containerFieldValue{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> lang{};
   shared_ptr<long> pageSize{};
@@ -6774,6 +6798,7 @@ public:
   shared_ptr<string> sourceIp{};
   shared_ptr<string> status{};
   shared_ptr<long> strategyId{};
+  shared_ptr<string> targetType{};
   shared_ptr<string> typeName_{};
   shared_ptr<string> uuids{};
 
@@ -6787,6 +6812,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (containerFieldName) {
+      res["ContainerFieldName"] = boost::any(*containerFieldName);
+    }
+    if (containerFieldValue) {
+      res["ContainerFieldValue"] = boost::any(*containerFieldValue);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -6811,6 +6845,9 @@ public:
     if (strategyId) {
       res["StrategyId"] = boost::any(*strategyId);
     }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
     if (typeName_) {
       res["TypeName"] = boost::any(*typeName_);
     }
@@ -6821,6 +6858,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ContainerFieldName") != m.end() && !m["ContainerFieldName"].empty()) {
+      containerFieldName = make_shared<string>(boost::any_cast<string>(m["ContainerFieldName"]));
+    }
+    if (m.find("ContainerFieldValue") != m.end() && !m["ContainerFieldValue"].empty()) {
+      containerFieldValue = make_shared<string>(boost::any_cast<string>(m["ContainerFieldValue"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -6844,6 +6890,9 @@ public:
     }
     if (m.find("StrategyId") != m.end() && !m["StrategyId"].empty()) {
       strategyId = make_shared<long>(boost::any_cast<long>(m["StrategyId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
     }
     if (m.find("TypeName") != m.end() && !m["TypeName"].empty()) {
       typeName_ = make_shared<string>(boost::any_cast<string>(m["TypeName"]));
@@ -12360,6 +12409,7 @@ public:
 };
 class DescribeGroupedMaliciousFilesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> fuzzyMaliciousName{};
   shared_ptr<string> imageDigest{};
@@ -12384,6 +12434,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -12427,6 +12480,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -13513,6 +13569,7 @@ public:
 };
 class DescribeImageBaselineCheckSummaryRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<string> criteria{};
   shared_ptr<string> criteriaType{};
   shared_ptr<long> currentPage{};
@@ -13530,6 +13587,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (criteria) {
       res["Criteria"] = boost::any(*criteria);
     }
@@ -13552,6 +13612,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
     if (m.find("Criteria") != m.end() && !m["Criteria"].empty()) {
       criteria = make_shared<string>(boost::any_cast<string>(m["Criteria"]));
     }
@@ -14166,6 +14229,7 @@ public:
 class DescribeImageGroupedVulListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> cveId{};
   shared_ptr<string> groupId{};
@@ -14198,6 +14262,9 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -14262,6 +14329,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -14543,6 +14613,7 @@ public:
 class DescribeImageListWithBaselineNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> baselineNameKey{};
+  shared_ptr<string> clusterId{};
   shared_ptr<string> criteria{};
   shared_ptr<string> criteriaType{};
   shared_ptr<long> currentPage{};
@@ -14565,6 +14636,9 @@ public:
     map<string, boost::any> res;
     if (baselineNameKey) {
       res["BaselineNameKey"] = boost::any(*baselineNameKey);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
     }
     if (criteria) {
       res["Criteria"] = boost::any(*criteria);
@@ -14599,6 +14673,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BaselineNameKey") != m.end() && !m["BaselineNameKey"].empty()) {
       baselineNameKey = make_shared<string>(boost::any_cast<string>(m["BaselineNameKey"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
     if (m.find("Criteria") != m.end() && !m["Criteria"].empty()) {
       criteria = make_shared<string>(boost::any_cast<string>(m["Criteria"]));
@@ -15183,6 +15260,7 @@ public:
 class DescribeImageVulListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> dealed{};
   shared_ptr<string> digest{};
@@ -15214,6 +15292,9 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -15275,6 +15356,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -17780,7 +17864,6 @@ public:
 class DescribePropertyCronDetailResponseBodyPropertys : public Darabonba::Model {
 public:
   shared_ptr<string> cmd{};
-  shared_ptr<string> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
@@ -17805,9 +17888,6 @@ public:
     map<string, boost::any> res;
     if (cmd) {
       res["Cmd"] = boost::any(*cmd);
-    }
-    if (create) {
-      res["Create"] = boost::any(*create);
     }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
@@ -17848,9 +17928,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cmd") != m.end() && !m["Cmd"].empty()) {
       cmd = make_shared<string>(boost::any_cast<string>(m["Cmd"]));
-    }
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<string>(boost::any_cast<string>(m["Create"]));
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
@@ -18134,7 +18211,6 @@ public:
 class DescribePropertyPortDetailResponseBodyPropertys : public Darabonba::Model {
 public:
   shared_ptr<string> bindIp{};
-  shared_ptr<string> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
@@ -18159,9 +18235,6 @@ public:
     map<string, boost::any> res;
     if (bindIp) {
       res["BindIp"] = boost::any(*bindIp);
-    }
-    if (create) {
-      res["Create"] = boost::any(*create);
     }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
@@ -18202,9 +18275,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BindIp") != m.end() && !m["BindIp"].empty()) {
       bindIp = make_shared<string>(boost::any_cast<string>(m["BindIp"]));
-    }
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<string>(boost::any_cast<string>(m["Create"]));
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
@@ -18758,7 +18828,6 @@ public:
 class DescribePropertyProcDetailResponseBodyPropertys : public Darabonba::Model {
 public:
   shared_ptr<string> cmdline{};
-  shared_ptr<string> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> euidName{};
   shared_ptr<string> instanceId{};
@@ -18789,9 +18858,6 @@ public:
     map<string, boost::any> res;
     if (cmdline) {
       res["Cmdline"] = boost::any(*cmdline);
-    }
-    if (create) {
-      res["Create"] = boost::any(*create);
     }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
@@ -18850,9 +18916,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Cmdline") != m.end() && !m["Cmdline"].empty()) {
       cmdline = make_shared<string>(boost::any_cast<string>(m["Cmdline"]));
-    }
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<string>(boost::any_cast<string>(m["Create"]));
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
@@ -19491,7 +19554,6 @@ public:
   shared_ptr<string> cmdline{};
   shared_ptr<string> configPath{};
   shared_ptr<string> containerName{};
-  shared_ptr<string> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
@@ -19510,6 +19572,7 @@ public:
   shared_ptr<long> processStarted{};
   shared_ptr<string> processUser{};
   shared_ptr<string> proof{};
+  shared_ptr<string> runtimeEnvVersion{};
   shared_ptr<string> type{};
   shared_ptr<string> uuid{};
   shared_ptr<string> version{};
@@ -19539,9 +19602,6 @@ public:
     }
     if (containerName) {
       res["ContainerName"] = boost::any(*containerName);
-    }
-    if (create) {
-      res["Create"] = boost::any(*create);
     }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
@@ -19597,6 +19657,9 @@ public:
     if (proof) {
       res["Proof"] = boost::any(*proof);
     }
+    if (runtimeEnvVersion) {
+      res["RuntimeEnvVersion"] = boost::any(*runtimeEnvVersion);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -19627,9 +19690,6 @@ public:
     }
     if (m.find("ContainerName") != m.end() && !m["ContainerName"].empty()) {
       containerName = make_shared<string>(boost::any_cast<string>(m["ContainerName"]));
-    }
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<string>(boost::any_cast<string>(m["Create"]));
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
@@ -19684,6 +19744,9 @@ public:
     }
     if (m.find("Proof") != m.end() && !m["Proof"].empty()) {
       proof = make_shared<string>(boost::any_cast<string>(m["Proof"]));
+    }
+    if (m.find("RuntimeEnvVersion") != m.end() && !m["RuntimeEnvVersion"].empty()) {
+      runtimeEnvVersion = make_shared<string>(boost::any_cast<string>(m["RuntimeEnvVersion"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -19959,7 +20022,6 @@ public:
 };
 class DescribePropertySoftwareDetailResponseBodyPropertys : public Darabonba::Model {
 public:
-  shared_ptr<long> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<string> installTime{};
   shared_ptr<long> installTimeDt{};
@@ -19983,9 +20045,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (create) {
-      res["Create"] = boost::any(*create);
-    }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
     }
@@ -20026,9 +20085,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<long>(boost::any_cast<long>(m["Create"]));
-    }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
     }
@@ -20751,7 +20807,6 @@ public:
 class DescribePropertyUserDetailResponseBodyPropertys : public Darabonba::Model {
 public:
   shared_ptr<string> accountsExpirationDate{};
-  shared_ptr<string> create{};
   shared_ptr<long> createTimestamp{};
   shared_ptr<vector<string>> groupNames{};
   shared_ptr<string> instanceId{};
@@ -20786,9 +20841,6 @@ public:
     map<string, boost::any> res;
     if (accountsExpirationDate) {
       res["AccountsExpirationDate"] = boost::any(*accountsExpirationDate);
-    }
-    if (create) {
-      res["Create"] = boost::any(*create);
     }
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
@@ -20859,9 +20911,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountsExpirationDate") != m.end() && !m["AccountsExpirationDate"].empty()) {
       accountsExpirationDate = make_shared<string>(boost::any_cast<string>(m["AccountsExpirationDate"]));
-    }
-    if (m.find("Create") != m.end() && !m["Create"].empty()) {
-      create = make_shared<string>(boost::any_cast<string>(m["Create"]));
     }
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
@@ -27872,6 +27921,7 @@ public:
   shared_ptr<string> lastTime{};
   shared_ptr<long> lastTimeStamp{};
   shared_ptr<string> level{};
+  shared_ptr<string> maliciousRuleStatus{};
   shared_ptr<string> markMisRules{};
   shared_ptr<string> name{};
   shared_ptr<string> occurrenceTime{};
@@ -28008,6 +28058,9 @@ public:
     }
     if (level) {
       res["Level"] = boost::any(*level);
+    }
+    if (maliciousRuleStatus) {
+      res["MaliciousRuleStatus"] = boost::any(*maliciousRuleStatus);
     }
     if (markMisRules) {
       res["MarkMisRules"] = boost::any(*markMisRules);
@@ -28180,6 +28233,9 @@ public:
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("MaliciousRuleStatus") != m.end() && !m["MaliciousRuleStatus"].empty()) {
+      maliciousRuleStatus = make_shared<string>(boost::any_cast<string>(m["MaliciousRuleStatus"]));
     }
     if (m.find("MarkMisRules") != m.end() && !m["MarkMisRules"].empty()) {
       markMisRules = make_shared<string>(boost::any_cast<string>(m["MarkMisRules"]));

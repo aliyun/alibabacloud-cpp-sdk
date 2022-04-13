@@ -615,6 +615,9 @@ DescribeAccesskeyLeakListResponse Alibabacloud_Sas20181203::Client::describeAcce
 DescribeAffectedMaliciousFileImagesResponse Alibabacloud_Sas20181203::Client::describeAffectedMaliciousFileImagesWithOptions(shared_ptr<DescribeAffectedMaliciousFileImagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -1232,6 +1235,15 @@ DescribeCheckWarningDetailResponse Alibabacloud_Sas20181203::Client::describeChe
 DescribeCheckWarningSummaryResponse Alibabacloud_Sas20181203::Client::describeCheckWarningSummaryWithOptions(shared_ptr<DescribeCheckWarningSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerFieldName)) {
+    query->insert(pair<string, string>("ContainerFieldName", *request->containerFieldName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerFieldValue)) {
+    query->insert(pair<string, string>("ContainerFieldValue", *request->containerFieldValue));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -1255,6 +1267,9 @@ DescribeCheckWarningSummaryResponse Alibabacloud_Sas20181203::Client::describeCh
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->strategyId)) {
     query->insert(pair<string, long>("StrategyId", *request->strategyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    query->insert(pair<string, string>("TargetType", *request->targetType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->typeName_)) {
     query->insert(pair<string, string>("TypeName_", *request->typeName_));
@@ -1989,6 +2004,9 @@ DescribeGroupedInstancesResponse Alibabacloud_Sas20181203::Client::describeGroup
 DescribeGroupedMaliciousFilesResponse Alibabacloud_Sas20181203::Client::describeGroupedMaliciousFilesWithOptions(shared_ptr<DescribeGroupedMaliciousFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -2191,6 +2209,9 @@ DescribeHoneyPotSuspStatisticsResponse Alibabacloud_Sas20181203::Client::describ
 DescribeImageBaselineCheckSummaryResponse Alibabacloud_Sas20181203::Client::describeImageBaselineCheckSummaryWithOptions(shared_ptr<DescribeImageBaselineCheckSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->criteria)) {
     query->insert(pair<string, string>("Criteria", *request->criteria));
   }
@@ -2277,6 +2298,9 @@ DescribeImageGroupedVulListResponse Alibabacloud_Sas20181203::Client::describeIm
   if (!Darabonba_Util::Client::isUnset<string>(request->aliasName)) {
     query->insert(pair<string, string>("AliasName", *request->aliasName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
@@ -2361,6 +2385,9 @@ DescribeImageListWithBaselineNameResponse Alibabacloud_Sas20181203::Client::desc
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->baselineNameKey)) {
     query->insert(pair<string, string>("BaselineNameKey", *request->baselineNameKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->criteria)) {
     query->insert(pair<string, string>("Criteria", *request->criteria));
@@ -2458,6 +2485,9 @@ DescribeImageVulListResponse Alibabacloud_Sas20181203::Client::describeImageVulL
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aliasName)) {
     query->insert(pair<string, string>("AliasName", *request->aliasName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
