@@ -3,7 +3,10 @@
 #ifndef ALIBABACLOUD_FC-OPEN20210406_H_
 #define ALIBABACLOUD_FC-OPEN20210406_H_
 
+#include <alibabacloud/gateway_fc.hpp>
+#include <alibabacloud/gateway_spi.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -2105,6 +2108,49 @@ public:
 
   virtual ~StatefulAsyncInvocation() = default;
 };
+class TLSConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> cipherSuites{};
+  shared_ptr<string> minVersion{};
+
+  TLSConfig() {}
+
+  explicit TLSConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cipherSuites) {
+      res["cipherSuites"] = boost::any(*cipherSuites);
+    }
+    if (minVersion) {
+      res["minVersion"] = boost::any(*minVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cipherSuites") != m.end() && !m["cipherSuites"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["cipherSuites"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["cipherSuites"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      cipherSuites = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("minVersion") != m.end() && !m["minVersion"].empty()) {
+      minVersion = make_shared<string>(boost::any_cast<string>(m["minVersion"]));
+    }
+  }
+
+
+  virtual ~TLSConfig() = default;
+};
 class TargetTrackingPolicies : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -2620,6 +2666,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   CreateCustomDomainRequest() {}
 
@@ -2642,6 +2689,9 @@ public:
     }
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -2667,6 +2717,13 @@ public:
         routeConfig = make_shared<RouteConfig>(model1);
       }
     }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
   }
 
 
@@ -2682,6 +2739,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   CreateCustomDomainResponseBody() {}
 
@@ -2717,6 +2775,9 @@ public:
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -2751,6 +2812,13 @@ public:
         RouteConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routeConfig"]));
         routeConfig = make_shared<RouteConfig>(model1);
+      }
+    }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
   }
@@ -5816,6 +5884,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   GetCustomDomainResponseBody() {}
 
@@ -5851,6 +5920,9 @@ public:
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -5885,6 +5957,13 @@ public:
         RouteConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routeConfig"]));
         routeConfig = make_shared<RouteConfig>(model1);
+      }
+    }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
   }
@@ -8537,6 +8616,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   ListCustomDomainsResponseBodyCustomDomains() {}
 
@@ -8572,6 +8652,9 @@ public:
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -8606,6 +8689,13 @@ public:
         RouteConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routeConfig"]));
         routeConfig = make_shared<RouteConfig>(model1);
+      }
+    }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
   }
@@ -14208,6 +14298,7 @@ public:
   shared_ptr<CertConfig> certConfig{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   UpdateCustomDomainRequest() {}
 
@@ -14227,6 +14318,9 @@ public:
     }
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -14249,6 +14343,13 @@ public:
         routeConfig = make_shared<RouteConfig>(model1);
       }
     }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
   }
 
 
@@ -14264,6 +14365,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
+  shared_ptr<TLSConfig> tlsConfig{};
 
   UpdateCustomDomainResponseBody() {}
 
@@ -14299,6 +14401,9 @@ public:
     if (routeConfig) {
       res["routeConfig"] = routeConfig ? boost::any(routeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (tlsConfig) {
+      res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -14333,6 +14438,13 @@ public:
         RouteConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routeConfig"]));
         routeConfig = make_shared<RouteConfig>(model1);
+      }
+    }
+    if (m.find("tlsConfig") != m.end() && !m["tlsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tlsConfig"].type()) {
+        TLSConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
+        tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
   }
@@ -15464,6 +15576,7 @@ public:
 };
 class Client : Alibabacloud_OpenApi::Client {
 public:
+  shared_ptr<Alibabacloud_GatewaySPI::Client> _client{};
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
@@ -15769,6 +15882,7 @@ public:
                                                  shared_ptr<UpdateTriggerRequest> request,
                                                  shared_ptr<UpdateTriggerHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  map<string, boost::any> signRequest(shared_ptr<Alibabacloud_GatewayFC::HttpRequest> request);
 
   virtual ~Client() = default;
 };
