@@ -25202,7 +25202,7 @@ public:
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<vector<ListK8sConfigMapsResponseBodyResult>> result{};
+  shared_ptr<ListK8sConfigMapsResponseBodyResult> result{};
 
   ListK8sConfigMapsResponseBody() {}
 
@@ -25224,11 +25224,7 @@ public:
       res["RequestId"] = boost::any(*requestId);
     }
     if (result) {
-      vector<boost::any> temp1;
-      for(auto item1:*result){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Result"] = boost::any(temp1);
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -25244,16 +25240,10 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
-      if (typeid(vector<boost::any>) == m["Result"].type()) {
-        vector<ListK8sConfigMapsResponseBodyResult> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListK8sConfigMapsResponseBodyResult model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        result = make_shared<vector<ListK8sConfigMapsResponseBodyResult>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ListK8sConfigMapsResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ListK8sConfigMapsResponseBodyResult>(model1);
       }
     }
   }
@@ -25879,7 +25869,6 @@ public:
   shared_ptr<vector<string>> domainNames{};
   shared_ptr<string> endTime{};
   shared_ptr<string> issuer{};
-  shared_ptr<long> keySize{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
 
@@ -25901,9 +25890,6 @@ public:
     }
     if (issuer) {
       res["Issuer"] = boost::any(*issuer);
-    }
-    if (keySize) {
-      res["KeySize"] = boost::any(*keySize);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -25930,9 +25916,6 @@ public:
     }
     if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
-    }
-    if (m.find("KeySize") != m.end() && !m["KeySize"].empty()) {
-      keySize = make_shared<long>(boost::any_cast<long>(m["KeySize"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -26324,7 +26307,7 @@ public:
   shared_ptr<long> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<vector<ListK8sSecretsResponseBodyResult>> result{};
+  shared_ptr<ListK8sSecretsResponseBodyResult> result{};
 
   ListK8sSecretsResponseBody() {}
 
@@ -26346,11 +26329,7 @@ public:
       res["RequestId"] = boost::any(*requestId);
     }
     if (result) {
-      vector<boost::any> temp1;
-      for(auto item1:*result){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Result"] = boost::any(temp1);
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -26366,16 +26345,10 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
-      if (typeid(vector<boost::any>) == m["Result"].type()) {
-        vector<ListK8sSecretsResponseBodyResult> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListK8sSecretsResponseBodyResult model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        result = make_shared<vector<ListK8sSecretsResponseBodyResult>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ListK8sSecretsResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ListK8sSecretsResponseBodyResult>(model1);
       }
     }
   }
