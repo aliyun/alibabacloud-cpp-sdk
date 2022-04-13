@@ -599,6 +599,9 @@ CreateWorkitemResponse Alibabacloud_Devops20210625::Client::createWorkitemWithOp
   if (!Darabonba_Util::Client::isUnset<vector<CreateWorkitemRequestFieldValueList>>(request->fieldValueList)) {
     body->insert(pair<string, vector<CreateWorkitemRequestFieldValueList>>("fieldValueList", *request->fieldValueList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parent)) {
+    body->insert(pair<string, string>("parent", *request->parent));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->participant)) {
     body->insert(pair<string, vector<string>>("participant", *request->participant));
   }
@@ -2500,6 +2503,9 @@ ListWorkitemsResponse Alibabacloud_Devops20210625::Client::listWorkitemsWithOpti
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
     query->insert(pair<string, string>("category", *request->category));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->conditions)) {
+    query->insert(pair<string, string>("conditions", *request->conditions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->maxResults)) {
     query->insert(pair<string, string>("maxResults", *request->maxResults));

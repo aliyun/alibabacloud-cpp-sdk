@@ -2656,6 +2656,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> descriptionFormat{};
   shared_ptr<vector<CreateWorkitemRequestFieldValueList>> fieldValueList{};
+  shared_ptr<string> parent{};
   shared_ptr<vector<string>> participant{};
   shared_ptr<string> space{};
   shared_ptr<string> spaceIdentifier{};
@@ -2694,6 +2695,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["fieldValueList"] = boost::any(temp1);
+    }
+    if (parent) {
+      res["parent"] = boost::any(*parent);
     }
     if (participant) {
       res["participant"] = boost::any(*participant);
@@ -2750,6 +2754,9 @@ public:
         }
         fieldValueList = make_shared<vector<CreateWorkitemRequestFieldValueList>>(expect1);
       }
+    }
+    if (m.find("parent") != m.end() && !m["parent"].empty()) {
+      parent = make_shared<string>(boost::any_cast<string>(m["parent"]));
     }
     if (m.find("participant") != m.end() && !m["participant"].empty()) {
       vector<string> toVec1;
@@ -16503,6 +16510,7 @@ public:
 class ListWorkitemsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<string> conditions{};
   shared_ptr<string> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> spaceIdentifier{};
@@ -16520,6 +16528,9 @@ public:
     map<string, boost::any> res;
     if (category) {
       res["category"] = boost::any(*category);
+    }
+    if (conditions) {
+      res["conditions"] = boost::any(*conditions);
     }
     if (maxResults) {
       res["maxResults"] = boost::any(*maxResults);
@@ -16539,6 +16550,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("category") != m.end() && !m["category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["category"]));
+    }
+    if (m.find("conditions") != m.end() && !m["conditions"].empty()) {
+      conditions = make_shared<string>(boost::any_cast<string>(m["conditions"]));
     }
     if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
       maxResults = make_shared<string>(boost::any_cast<string>(m["maxResults"]));
