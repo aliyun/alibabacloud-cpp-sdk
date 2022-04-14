@@ -1,10 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
 
 #include <alibabacloud/fc__open_20210406.hpp>
-#include <alibabacloud/credential.hpp>
 #include <alibabacloud/endpoint_util.hpp>
-#include <alibabacloud/gateway_fc.hpp>
-#include <alibabacloud/gateway_spi.hpp>
 #include <alibabacloud/open_api.hpp>
 #include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
@@ -20,8 +17,6 @@ using namespace std;
 using namespace Alibabacloud_FC-Open20210406;
 
 Alibabacloud_FC-Open20210406::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _client = make_shared<Alibabacloud_GatewayFC::Client>();
-  _spi = _client;
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-1", "account-id.ap-northeast-1.fc.aliyuncs.com"},
@@ -120,7 +115,7 @@ CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAliasWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateAliasResponse(execute(params, req, runtime));
+  return CreateAliasResponse(callApi(params, req, runtime));
 }
 
 CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomain(shared_ptr<CreateCustomDomainRequest> request) {
@@ -175,7 +170,7 @@ CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDom
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateCustomDomainResponse(execute(params, req, runtime));
+  return CreateCustomDomainResponse(callApi(params, req, runtime));
 }
 
 CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request) {
@@ -276,7 +271,7 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateFunctionResponse(execute(params, req, runtime));
+  return CreateFunctionResponse(callApi(params, req, runtime));
 }
 
 CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request) {
@@ -329,7 +324,7 @@ CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVers
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateLayerVersionResponse(execute(params, req, runtime));
+  return CreateLayerVersionResponse(callApi(params, req, runtime));
 }
 
 CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createService(shared_ptr<CreateServiceRequest> request) {
@@ -393,7 +388,7 @@ CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateServiceResponse(execute(params, req, runtime));
+  return CreateServiceResponse(callApi(params, req, runtime));
 }
 
 CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request) {
@@ -460,7 +455,7 @@ CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return CreateTriggerResponse(execute(params, req, runtime));
+  return CreateTriggerResponse(callApi(params, req, runtime));
 }
 
 CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request) {
@@ -507,7 +502,7 @@ CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBindingW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return CreateVpcBindingResponse(execute(params, req, runtime));
+  return CreateVpcBindingResponse(callApi(params, req, runtime));
 }
 
 DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
@@ -552,7 +547,7 @@ DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAliasWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteAliasResponse(execute(params, req, runtime));
+  return DeleteAliasResponse(callApi(params, req, runtime));
 }
 
 DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomain(shared_ptr<string> domainName) {
@@ -590,7 +585,7 @@ DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDom
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteCustomDomainResponse(execute(params, req, runtime));
+  return DeleteCustomDomainResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName) {
@@ -635,7 +630,7 @@ DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteFunctionResponse(execute(params, req, runtime));
+  return DeleteFunctionResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request) {
@@ -684,7 +679,7 @@ DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::de
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteFunctionAsyncInvokeConfigResponse(execute(params, req, runtime));
+  return DeleteFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request) {
@@ -736,7 +731,7 @@ DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::delet
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteFunctionOnDemandConfigResponse(execute(params, req, runtime));
+  return DeleteFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
@@ -778,7 +773,7 @@ DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVers
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteLayerVersionResponse(execute(params, req, runtime));
+  return DeleteLayerVersionResponse(callApi(params, req, runtime));
 }
 
 DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteService(shared_ptr<string> serviceName) {
@@ -819,7 +814,7 @@ DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteServiceWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteServiceResponse(execute(params, req, runtime));
+  return DeleteServiceResponse(callApi(params, req, runtime));
 }
 
 DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId) {
@@ -861,7 +856,7 @@ DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteService
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteServiceVersionResponse(execute(params, req, runtime));
+  return DeleteServiceVersionResponse(callApi(params, req, runtime));
 }
 
 DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
@@ -908,7 +903,7 @@ DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTriggerWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteTriggerResponse(execute(params, req, runtime));
+  return DeleteTriggerResponse(callApi(params, req, runtime));
 }
 
 DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId) {
@@ -950,7 +945,7 @@ DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBindingW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeleteVpcBindingResponse(execute(params, req, runtime));
+  return DeleteVpcBindingResponse(callApi(params, req, runtime));
 }
 
 DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEventSource(shared_ptr<string> serviceName,
@@ -1004,7 +999,7 @@ DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEv
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return DeregisterEventSourceResponse(execute(params, req, runtime));
+  return DeregisterEventSourceResponse(callApi(params, req, runtime));
 }
 
 GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettings() {
@@ -1041,7 +1036,7 @@ GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSetti
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAccountSettingsResponse(execute(params, req, runtime));
+  return GetAccountSettingsResponse(callApi(params, req, runtime));
 }
 
 GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
@@ -1083,7 +1078,7 @@ GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAliasWithOptions(share
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetAliasResponse(execute(params, req, runtime));
+  return GetAliasResponse(callApi(params, req, runtime));
 }
 
 GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomain(shared_ptr<string> domainName) {
@@ -1121,7 +1116,7 @@ GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomainWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetCustomDomainResponse(execute(params, req, runtime));
+  return GetCustomDomainResponse(callApi(params, req, runtime));
 }
 
 GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request) {
@@ -1170,7 +1165,7 @@ GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunctionWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFunctionResponse(execute(params, req, runtime));
+  return GetFunctionResponse(callApi(params, req, runtime));
 }
 
 GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request) {
@@ -1219,7 +1214,7 @@ GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFu
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFunctionAsyncInvokeConfigResponse(execute(params, req, runtime));
+  return GetFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request) {
@@ -1268,7 +1263,7 @@ GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCodeWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFunctionCodeResponse(execute(params, req, runtime));
+  return GetFunctionCodeResponse(callApi(params, req, runtime));
 }
 
 GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request) {
@@ -1317,7 +1312,7 @@ GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunct
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetFunctionOnDemandConfigResponse(execute(params, req, runtime));
+  return GetFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
@@ -1359,7 +1354,7 @@ GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetLayerVersionResponse(execute(params, req, runtime));
+  return GetLayerVersionResponse(callApi(params, req, runtime));
 }
 
 GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request) {
@@ -1408,7 +1403,7 @@ GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionCon
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetProvisionConfigResponse(execute(params, req, runtime));
+  return GetProvisionConfigResponse(callApi(params, req, runtime));
 }
 
 GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTags(shared_ptr<GetResourceTagsRequest> request) {
@@ -1451,7 +1446,7 @@ GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTagsWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetResourceTagsResponse(execute(params, req, runtime));
+  return GetResourceTagsResponse(callApi(params, req, runtime));
 }
 
 GetServiceResponse Alibabacloud_FC-Open20210406::Client::getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request) {
@@ -1498,7 +1493,7 @@ GetServiceResponse Alibabacloud_FC-Open20210406::Client::getServiceWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetServiceResponse(execute(params, req, runtime));
+  return GetServiceResponse(callApi(params, req, runtime));
 }
 
 GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStatefulAsyncInvocation(shared_ptr<string> serviceName,
@@ -1561,7 +1556,7 @@ GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStat
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetStatefulAsyncInvocationResponse(execute(params, req, runtime));
+  return GetStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
 GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
@@ -1605,7 +1600,7 @@ GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTriggerWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetTriggerResponse(execute(params, req, runtime));
+  return GetTriggerResponse(callApi(params, req, runtime));
 }
 
 InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request) {
@@ -1664,7 +1659,7 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("byte"))}
   }));
-  return InvokeFunctionResponse(execute(params, req, runtime));
+  return InvokeFunctionResponse(callApi(params, req, runtime));
 }
 
 ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request) {
@@ -1720,7 +1715,7 @@ ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliasesWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListAliasesResponse(execute(params, req, runtime));
+  return ListAliasesResponse(callApi(params, req, runtime));
 }
 
 ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomains(shared_ptr<ListCustomDomainsRequest> request) {
@@ -1772,7 +1767,7 @@ ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomain
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListCustomDomainsResponse(execute(params, req, runtime));
+  return ListCustomDomainsResponse(callApi(params, req, runtime));
 }
 
 ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request) {
@@ -1821,7 +1816,7 @@ ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSourcesW
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListEventSourcesResponse(execute(params, req, runtime));
+  return ListEventSourcesResponse(callApi(params, req, runtime));
 }
 
 ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request) {
@@ -1882,7 +1877,7 @@ ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::lis
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListFunctionAsyncInvokeConfigsResponse(execute(params, req, runtime));
+  return ListFunctionAsyncInvokeConfigsResponse(callApi(params, req, runtime));
 }
 
 ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request) {
@@ -1941,7 +1936,7 @@ ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListFunctionsResponse(execute(params, req, runtime));
+  return ListFunctionsResponse(callApi(params, req, runtime));
 }
 
 ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request) {
@@ -1991,7 +1986,7 @@ ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersion
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListLayerVersionsResponse(execute(params, req, runtime));
+  return ListLayerVersionsResponse(callApi(params, req, runtime));
 }
 
 ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayers(shared_ptr<ListLayersRequest> request) {
@@ -2043,7 +2038,7 @@ ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(s
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListLayersResponse(execute(params, req, runtime));
+  return ListLayersResponse(callApi(params, req, runtime));
 }
 
 ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request) {
@@ -2095,7 +2090,7 @@ ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandCo
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListOnDemandConfigsResponse(execute(params, req, runtime));
+  return ListOnDemandConfigsResponse(callApi(params, req, runtime));
 }
 
 ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request) {
@@ -2147,7 +2142,7 @@ ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvision
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListProvisionConfigsResponse(execute(params, req, runtime));
+  return ListProvisionConfigsResponse(callApi(params, req, runtime));
 }
 
 ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request) {
@@ -2193,7 +2188,7 @@ ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReserve
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListReservedCapacitiesResponse(execute(params, req, runtime));
+  return ListReservedCapacitiesResponse(callApi(params, req, runtime));
 }
 
 ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request) {
@@ -2249,7 +2244,7 @@ ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVer
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServiceVersionsResponse(execute(params, req, runtime));
+  return ListServiceVersionsResponse(callApi(params, req, runtime));
 }
 
 ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServices(shared_ptr<ListServicesRequest> request) {
@@ -2301,7 +2296,7 @@ ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListServicesResponse(execute(params, req, runtime));
+  return ListServicesResponse(callApi(params, req, runtime));
 }
 
 ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request) {
@@ -2347,7 +2342,7 @@ ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Clien
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListStatefulAsyncInvocationFunctionsResponse(execute(params, req, runtime));
+  return ListStatefulAsyncInvocationFunctionsResponse(callApi(params, req, runtime));
 }
 
 ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request) {
@@ -2429,7 +2424,7 @@ ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListStatefulAsyncInvocationsResponse(execute(params, req, runtime));
+  return ListStatefulAsyncInvocationsResponse(callApi(params, req, runtime));
 }
 
 ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request) {
@@ -2475,7 +2470,7 @@ ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedReso
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTaggedResourcesResponse(execute(params, req, runtime));
+  return ListTaggedResourcesResponse(callApi(params, req, runtime));
 }
 
 ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request) {
@@ -2533,7 +2528,7 @@ ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptio
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListTriggersResponse(execute(params, req, runtime));
+  return ListTriggersResponse(callApi(params, req, runtime));
 }
 
 ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindings(shared_ptr<string> serviceName) {
@@ -2571,7 +2566,7 @@ ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindingsWit
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListVpcBindingsResponse(execute(params, req, runtime));
+  return ListVpcBindingsResponse(callApi(params, req, runtime));
 }
 
 PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request) {
@@ -2621,7 +2616,7 @@ PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServi
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PublishServiceVersionResponse(execute(params, req, runtime));
+  return PublishServiceVersionResponse(callApi(params, req, runtime));
 }
 
 PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request) {
@@ -2684,7 +2679,7 @@ PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFu
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PutFunctionAsyncInvokeConfigResponse(execute(params, req, runtime));
+  return PutFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
 PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request) {
@@ -2741,7 +2736,7 @@ PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunct
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PutFunctionOnDemandConfigResponse(execute(params, req, runtime));
+  return PutFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
 PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request) {
@@ -2804,7 +2799,7 @@ PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionCon
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return PutProvisionConfigResponse(execute(params, req, runtime));
+  return PutProvisionConfigResponse(callApi(params, req, runtime));
 }
 
 RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request) {
@@ -2858,7 +2853,7 @@ RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventS
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RegisterEventSourceResponse(execute(params, req, runtime));
+  return RegisterEventSourceResponse(callApi(params, req, runtime));
 }
 
 StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
@@ -2912,7 +2907,7 @@ StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopSt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return StopStatefulAsyncInvocationResponse(execute(params, req, runtime));
+  return StopStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
 TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResource(shared_ptr<TagResourceRequest> request) {
@@ -2958,7 +2953,7 @@ TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return TagResourceResponse(execute(params, req, runtime));
+  return TagResourceResponse(callApi(params, req, runtime));
 }
 
 UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResource(shared_ptr<UntagResourceRequest> request) {
@@ -3007,7 +3002,7 @@ UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("none"))}
   }));
-  return UntagResourceResponse(execute(params, req, runtime));
+  return UntagResourceResponse(callApi(params, req, runtime));
 }
 
 UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request) {
@@ -3065,7 +3060,7 @@ UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAliasWithOptions
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateAliasResponse(execute(params, req, runtime));
+  return UpdateAliasResponse(callApi(params, req, runtime));
 }
 
 UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request) {
@@ -3121,7 +3116,7 @@ UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDom
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateCustomDomainResponse(execute(params, req, runtime));
+  return UpdateCustomDomainResponse(callApi(params, req, runtime));
 }
 
 UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request) {
@@ -3224,7 +3219,7 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateFunctionResponse(execute(params, req, runtime));
+  return UpdateFunctionResponse(callApi(params, req, runtime));
 }
 
 UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request) {
@@ -3292,7 +3287,7 @@ UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateServiceWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceResponse(execute(params, req, runtime));
+  return UpdateServiceResponse(callApi(params, req, runtime));
 }
 
 UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTrigger(shared_ptr<string> serviceName,
@@ -3358,12 +3353,6 @@ UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTriggerWithOpt
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateTriggerResponse(execute(params, req, runtime));
-}
-
-map<string, boost::any> Alibabacloud_FC-Open20210406::Client::signRequest(shared_ptr<Alibabacloud_GatewayFC::HttpRequest> request) {
-  shared_ptr<Alibabacloud_Credential::Client> cred = _credential;
-  shared_ptr<Alibabacloud_GatewayFC::Client> gateway = make_shared<Alibabacloud_GatewayFC::Client>();
-  return gateway->signRequest(request, cred);
+  return UpdateTriggerResponse(callApi(params, req, runtime));
 }
 

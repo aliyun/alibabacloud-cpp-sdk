@@ -3,10 +3,7 @@
 #ifndef ALIBABACLOUD_FC-OPEN20210406_H_
 #define ALIBABACLOUD_FC-OPEN20210406_H_
 
-#include <alibabacloud/gateway_fc.hpp>
-#include <alibabacloud/gateway_spi.hpp>
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -15576,7 +15573,6 @@ public:
 };
 class Client : Alibabacloud_OpenApi::Client {
 public:
-  shared_ptr<Alibabacloud_GatewaySPI::Client> _client{};
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
   string getEndpoint(shared_ptr<string> productId,
                      shared_ptr<string> regionId,
@@ -15882,7 +15878,6 @@ public:
                                                  shared_ptr<UpdateTriggerRequest> request,
                                                  shared_ptr<UpdateTriggerHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  map<string, boost::any> signRequest(shared_ptr<Alibabacloud_GatewayFC::HttpRequest> request);
 
   virtual ~Client() = default;
 };
