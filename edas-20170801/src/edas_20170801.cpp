@@ -1501,6 +1501,9 @@ DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplica
   if (!Darabonba_Util::Client::isUnset<long>(request->batchWaitTime)) {
     query->insert(pair<string, long>("BatchWaitTime", *request->batchWaitTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buildPackId)) {
+    query->insert(pair<string, string>("BuildPackId", *request->buildPackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->changeOrderDesc)) {
     query->insert(pair<string, string>("ChangeOrderDesc", *request->changeOrderDesc));
   }

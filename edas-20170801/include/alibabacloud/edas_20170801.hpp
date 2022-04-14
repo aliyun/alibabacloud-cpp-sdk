@@ -7175,6 +7175,7 @@ public:
   shared_ptr<string> args{};
   shared_ptr<long> batchTimeout{};
   shared_ptr<long> batchWaitTime{};
+  shared_ptr<string> buildPackId{};
   shared_ptr<string> changeOrderDesc{};
   shared_ptr<string> command{};
   shared_ptr<string> configMountDescs{};
@@ -7241,6 +7242,9 @@ public:
     }
     if (batchWaitTime) {
       res["BatchWaitTime"] = boost::any(*batchWaitTime);
+    }
+    if (buildPackId) {
+      res["BuildPackId"] = boost::any(*buildPackId);
     }
     if (changeOrderDesc) {
       res["ChangeOrderDesc"] = boost::any(*changeOrderDesc);
@@ -7389,6 +7393,9 @@ public:
     }
     if (m.find("BatchWaitTime") != m.end() && !m["BatchWaitTime"].empty()) {
       batchWaitTime = make_shared<long>(boost::any_cast<long>(m["BatchWaitTime"]));
+    }
+    if (m.find("BuildPackId") != m.end() && !m["BuildPackId"].empty()) {
+      buildPackId = make_shared<string>(boost::any_cast<string>(m["BuildPackId"]));
     }
     if (m.find("ChangeOrderDesc") != m.end() && !m["ChangeOrderDesc"].empty()) {
       changeOrderDesc = make_shared<string>(boost::any_cast<string>(m["ChangeOrderDesc"]));
