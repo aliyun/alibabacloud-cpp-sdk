@@ -28160,7 +28160,7 @@ public:
 
   virtual ~ListTaskFlowRequest() = default;
 };
-class ListTaskFlowResponseBodyTaskFlowListDAGInstance : public Darabonba::Model {
+class ListTaskFlowResponseBodyTaskFlowListTaskFlow : public Darabonba::Model {
 public:
   shared_ptr<string> creatorId{};
   shared_ptr<string> creatorNickName{};
@@ -28171,9 +28171,9 @@ public:
   shared_ptr<string> latestInstanceTime{};
   shared_ptr<long> status{};
 
-  ListTaskFlowResponseBodyTaskFlowListDAGInstance() {}
+  ListTaskFlowResponseBodyTaskFlowListTaskFlow() {}
 
-  explicit ListTaskFlowResponseBodyTaskFlowListDAGInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit ListTaskFlowResponseBodyTaskFlowListTaskFlow(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -28236,11 +28236,11 @@ public:
   }
 
 
-  virtual ~ListTaskFlowResponseBodyTaskFlowListDAGInstance() = default;
+  virtual ~ListTaskFlowResponseBodyTaskFlowListTaskFlow() = default;
 };
 class ListTaskFlowResponseBodyTaskFlowList : public Darabonba::Model {
 public:
-  shared_ptr<vector<ListTaskFlowResponseBodyTaskFlowListDAGInstance>> DAGInstance{};
+  shared_ptr<vector<ListTaskFlowResponseBodyTaskFlowListTaskFlow>> taskFlow{};
 
   ListTaskFlowResponseBodyTaskFlowList() {}
 
@@ -28252,28 +28252,28 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (DAGInstance) {
+    if (taskFlow) {
       vector<boost::any> temp1;
-      for(auto item1:*DAGInstance){
+      for(auto item1:*taskFlow){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["DAGInstance"] = boost::any(temp1);
+      res["TaskFlow"] = boost::any(temp1);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("DAGInstance") != m.end() && !m["DAGInstance"].empty()) {
-      if (typeid(vector<boost::any>) == m["DAGInstance"].type()) {
-        vector<ListTaskFlowResponseBodyTaskFlowListDAGInstance> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["DAGInstance"])){
+    if (m.find("TaskFlow") != m.end() && !m["TaskFlow"].empty()) {
+      if (typeid(vector<boost::any>) == m["TaskFlow"].type()) {
+        vector<ListTaskFlowResponseBodyTaskFlowListTaskFlow> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TaskFlow"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            ListTaskFlowResponseBodyTaskFlowListDAGInstance model2;
+            ListTaskFlowResponseBodyTaskFlowListTaskFlow model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        DAGInstance = make_shared<vector<ListTaskFlowResponseBodyTaskFlowListDAGInstance>>(expect1);
+        taskFlow = make_shared<vector<ListTaskFlowResponseBodyTaskFlowListTaskFlow>>(expect1);
       }
     }
   }
