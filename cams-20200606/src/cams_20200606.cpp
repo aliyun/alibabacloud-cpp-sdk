@@ -52,6 +52,9 @@ CheckChatappContactsResponse Alibabacloud_Cams20200606::Client::checkChatappCont
   if (!Darabonba_Util::Client::isUnset<string>(request->contactsShrink)) {
     body->insert(pair<string, string>("Contacts", *request->contactsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
   }
@@ -139,6 +142,9 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
   if (!Darabonba_Util::Client::isUnset<string>(request->componentsShrink)) {
     body->insert(pair<string, string>("Components", *request->componentsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->exampleShrink)) {
     body->insert(pair<string, string>("Example", *request->exampleShrink));
   }
@@ -176,6 +182,9 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
 DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTemplateWithOptions(shared_ptr<DeleteChatappTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
@@ -204,11 +213,11 @@ DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTe
 GetChatappTemplateDetailResponse Alibabacloud_Cams20200606::Client::getChatappTemplateDetailWithOptions(shared_ptr<GetChatappTemplateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
@@ -245,6 +254,9 @@ ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTempla
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->auditStatus)) {
     query->insert(pair<string, string>("AuditStatus", *request->auditStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
@@ -297,6 +309,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
     body->insert(pair<string, string>("ChannelType", *request->channelType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
+    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
