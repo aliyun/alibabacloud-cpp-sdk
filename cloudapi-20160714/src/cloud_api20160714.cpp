@@ -5485,6 +5485,9 @@ SetVpcAccessResponse Alibabacloud_CloudAPI20160714::Client::setVpcAccessWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcTargetHostName)) {
+    query->insert(pair<string, string>("VpcTargetHostName", *request->vpcTargetHostName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

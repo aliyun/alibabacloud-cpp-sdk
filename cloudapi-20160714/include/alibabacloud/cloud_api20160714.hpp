@@ -27286,6 +27286,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> vpcAccessId{};
   shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcTargetHostName{};
 
   DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribute() {}
 
@@ -27321,6 +27322,9 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
+    if (vpcTargetHostName) {
+      res["VpcTargetHostName"] = boost::any(*vpcTargetHostName);
+    }
     return res;
   }
 
@@ -27348,6 +27352,9 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcTargetHostName") != m.end() && !m["VpcTargetHostName"].empty()) {
+      vpcTargetHostName = make_shared<string>(boost::any_cast<string>(m["VpcTargetHostName"]));
     }
   }
 
@@ -34881,6 +34888,7 @@ public:
   shared_ptr<long> port{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcTargetHostName{};
 
   SetVpcAccessRequest() {}
 
@@ -34910,6 +34918,9 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
+    if (vpcTargetHostName) {
+      res["VpcTargetHostName"] = boost::any(*vpcTargetHostName);
+    }
     return res;
   }
 
@@ -34931,6 +34942,9 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcTargetHostName") != m.end() && !m["VpcTargetHostName"].empty()) {
+      vpcTargetHostName = make_shared<string>(boost::any_cast<string>(m["VpcTargetHostName"]));
     }
   }
 
