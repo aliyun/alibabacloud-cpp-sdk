@@ -477,8 +477,14 @@ CreateApplicationMonitorResponse Alibabacloud_Ga20191120::Client::createApplicat
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->detectEnable)) {
+    query->insert(pair<string, bool>("DetectEnable", *request->detectEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->detectThreshold)) {
     query->insert(pair<string, long>("DetectThreshold", *request->detectThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->detectTimes)) {
+    query->insert(pair<string, long>("DetectTimes", *request->detectTimes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
@@ -488,6 +494,9 @@ CreateApplicationMonitorResponse Alibabacloud_Ga20191120::Client::createApplicat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->silenceTime)) {
+    query->insert(pair<string, long>("SilenceTime", *request->silenceTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
     query->insert(pair<string, string>("TaskName", *request->taskName));
@@ -3142,8 +3151,14 @@ UpdateApplicationMonitorResponse Alibabacloud_Ga20191120::Client::updateApplicat
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->detectEnable)) {
+    query->insert(pair<string, bool>("DetectEnable", *request->detectEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->detectThreshold)) {
     query->insert(pair<string, long>("DetectThreshold", *request->detectThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->detectTimes)) {
+    query->insert(pair<string, long>("DetectTimes", *request->detectTimes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
@@ -3153,6 +3168,9 @@ UpdateApplicationMonitorResponse Alibabacloud_Ga20191120::Client::updateApplicat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->silenceTime)) {
+    query->insert(pair<string, long>("SilenceTime", *request->silenceTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));

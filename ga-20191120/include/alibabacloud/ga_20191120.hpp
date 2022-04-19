@@ -1771,10 +1771,13 @@ public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> address{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> detectEnable{};
   shared_ptr<long> detectThreshold{};
+  shared_ptr<long> detectTimes{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> optionsJson{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> silenceTime{};
   shared_ptr<string> taskName{};
 
   CreateApplicationMonitorRequest() {}
@@ -1796,8 +1799,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (detectEnable) {
+      res["DetectEnable"] = boost::any(*detectEnable);
+    }
     if (detectThreshold) {
       res["DetectThreshold"] = boost::any(*detectThreshold);
+    }
+    if (detectTimes) {
+      res["DetectTimes"] = boost::any(*detectTimes);
     }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
@@ -1807,6 +1816,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (silenceTime) {
+      res["SilenceTime"] = boost::any(*silenceTime);
     }
     if (taskName) {
       res["TaskName"] = boost::any(*taskName);
@@ -1824,8 +1836,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DetectEnable") != m.end() && !m["DetectEnable"].empty()) {
+      detectEnable = make_shared<bool>(boost::any_cast<bool>(m["DetectEnable"]));
+    }
     if (m.find("DetectThreshold") != m.end() && !m["DetectThreshold"].empty()) {
       detectThreshold = make_shared<long>(boost::any_cast<long>(m["DetectThreshold"]));
+    }
+    if (m.find("DetectTimes") != m.end() && !m["DetectTimes"].empty()) {
+      detectTimes = make_shared<long>(boost::any_cast<long>(m["DetectTimes"]));
     }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
@@ -1835,6 +1853,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SilenceTime") != m.end() && !m["SilenceTime"].empty()) {
+      silenceTime = make_shared<long>(boost::any_cast<long>(m["SilenceTime"]));
     }
     if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
       taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
@@ -7137,12 +7158,15 @@ class DescribeApplicationMonitorResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> address{};
-  shared_ptr<string> detectThreshold{};
+  shared_ptr<bool> detectEnable{};
+  shared_ptr<long> detectThreshold{};
+  shared_ptr<long> detectTimes{};
   shared_ptr<vector<DescribeApplicationMonitorResponseBodyIspCityList>> ispCityList{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> optionsJson{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> silenceTime{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskName{};
 
@@ -7162,8 +7186,14 @@ public:
     if (address) {
       res["Address"] = boost::any(*address);
     }
+    if (detectEnable) {
+      res["DetectEnable"] = boost::any(*detectEnable);
+    }
     if (detectThreshold) {
       res["DetectThreshold"] = boost::any(*detectThreshold);
+    }
+    if (detectTimes) {
+      res["DetectTimes"] = boost::any(*detectTimes);
     }
     if (ispCityList) {
       vector<boost::any> temp1;
@@ -7184,6 +7214,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (silenceTime) {
+      res["SilenceTime"] = boost::any(*silenceTime);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -7200,8 +7233,14 @@ public:
     if (m.find("Address") != m.end() && !m["Address"].empty()) {
       address = make_shared<string>(boost::any_cast<string>(m["Address"]));
     }
+    if (m.find("DetectEnable") != m.end() && !m["DetectEnable"].empty()) {
+      detectEnable = make_shared<bool>(boost::any_cast<bool>(m["DetectEnable"]));
+    }
     if (m.find("DetectThreshold") != m.end() && !m["DetectThreshold"].empty()) {
-      detectThreshold = make_shared<string>(boost::any_cast<string>(m["DetectThreshold"]));
+      detectThreshold = make_shared<long>(boost::any_cast<long>(m["DetectThreshold"]));
+    }
+    if (m.find("DetectTimes") != m.end() && !m["DetectTimes"].empty()) {
+      detectTimes = make_shared<long>(boost::any_cast<long>(m["DetectTimes"]));
     }
     if (m.find("IspCityList") != m.end() && !m["IspCityList"].empty()) {
       if (typeid(vector<boost::any>) == m["IspCityList"].type()) {
@@ -7227,6 +7266,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SilenceTime") != m.end() && !m["SilenceTime"].empty()) {
+      silenceTime = make_shared<long>(boost::any_cast<long>(m["SilenceTime"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -12108,9 +12150,12 @@ class ListApplicationMonitorResponseBodyApplicationMonitors : public Darabonba::
 public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> address{};
+  shared_ptr<bool> detectEnable{};
   shared_ptr<long> detectThreshold{};
+  shared_ptr<long> detectTimes{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> optionsJson{};
+  shared_ptr<long> silenceTime{};
   shared_ptr<string> state{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskName{};
@@ -12131,14 +12176,23 @@ public:
     if (address) {
       res["Address"] = boost::any(*address);
     }
+    if (detectEnable) {
+      res["DetectEnable"] = boost::any(*detectEnable);
+    }
     if (detectThreshold) {
       res["DetectThreshold"] = boost::any(*detectThreshold);
+    }
+    if (detectTimes) {
+      res["DetectTimes"] = boost::any(*detectTimes);
     }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
     if (optionsJson) {
       res["OptionsJson"] = boost::any(*optionsJson);
+    }
+    if (silenceTime) {
+      res["SilenceTime"] = boost::any(*silenceTime);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -12159,14 +12213,23 @@ public:
     if (m.find("Address") != m.end() && !m["Address"].empty()) {
       address = make_shared<string>(boost::any_cast<string>(m["Address"]));
     }
+    if (m.find("DetectEnable") != m.end() && !m["DetectEnable"].empty()) {
+      detectEnable = make_shared<bool>(boost::any_cast<bool>(m["DetectEnable"]));
+    }
     if (m.find("DetectThreshold") != m.end() && !m["DetectThreshold"].empty()) {
       detectThreshold = make_shared<long>(boost::any_cast<long>(m["DetectThreshold"]));
+    }
+    if (m.find("DetectTimes") != m.end() && !m["DetectTimes"].empty()) {
+      detectTimes = make_shared<long>(boost::any_cast<long>(m["DetectTimes"]));
     }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("OptionsJson") != m.end() && !m["OptionsJson"].empty()) {
       optionsJson = make_shared<string>(boost::any_cast<string>(m["OptionsJson"]));
+    }
+    if (m.find("SilenceTime") != m.end() && !m["SilenceTime"].empty()) {
+      silenceTime = make_shared<long>(boost::any_cast<long>(m["SilenceTime"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -12372,11 +12435,14 @@ public:
 class ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
+  shared_ptr<string> content{};
   shared_ptr<string> detail{};
+  shared_ptr<string> detectTime{};
   shared_ptr<string> diagStatus{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> port{};
   shared_ptr<string> protocol{};
+  shared_ptr<string> statusCode{};
   shared_ptr<string> taskId{};
 
   ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList() {}
@@ -12392,8 +12458,14 @@ public:
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
     }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
     if (detail) {
       res["Detail"] = boost::any(*detail);
+    }
+    if (detectTime) {
+      res["DetectTime"] = boost::any(*detectTime);
     }
     if (diagStatus) {
       res["DiagStatus"] = boost::any(*diagStatus);
@@ -12407,6 +12479,9 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -12417,8 +12492,14 @@ public:
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
     }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
     if (m.find("Detail") != m.end() && !m["Detail"].empty()) {
       detail = make_shared<string>(boost::any_cast<string>(m["Detail"]));
+    }
+    if (m.find("DetectTime") != m.end() && !m["DetectTime"].empty()) {
+      detectTime = make_shared<string>(boost::any_cast<string>(m["DetectTime"]));
     }
     if (m.find("DiagStatus") != m.end() && !m["DiagStatus"].empty()) {
       diagStatus = make_shared<string>(boost::any_cast<string>(m["DiagStatus"]));
@@ -12431,6 +12512,9 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -17482,10 +17566,13 @@ class UpdateApplicationMonitorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> detectEnable{};
   shared_ptr<long> detectThreshold{};
+  shared_ptr<long> detectTimes{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> optionsJson{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> silenceTime{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskName{};
 
@@ -17505,8 +17592,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (detectEnable) {
+      res["DetectEnable"] = boost::any(*detectEnable);
+    }
     if (detectThreshold) {
       res["DetectThreshold"] = boost::any(*detectThreshold);
+    }
+    if (detectTimes) {
+      res["DetectTimes"] = boost::any(*detectTimes);
     }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
@@ -17516,6 +17609,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (silenceTime) {
+      res["SilenceTime"] = boost::any(*silenceTime);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -17533,8 +17629,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DetectEnable") != m.end() && !m["DetectEnable"].empty()) {
+      detectEnable = make_shared<bool>(boost::any_cast<bool>(m["DetectEnable"]));
+    }
     if (m.find("DetectThreshold") != m.end() && !m["DetectThreshold"].empty()) {
       detectThreshold = make_shared<long>(boost::any_cast<long>(m["DetectThreshold"]));
+    }
+    if (m.find("DetectTimes") != m.end() && !m["DetectTimes"].empty()) {
+      detectTimes = make_shared<long>(boost::any_cast<long>(m["DetectTimes"]));
     }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
@@ -17544,6 +17646,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SilenceTime") != m.end() && !m["SilenceTime"].empty()) {
+      silenceTime = make_shared<long>(boost::any_cast<long>(m["SilenceTime"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
