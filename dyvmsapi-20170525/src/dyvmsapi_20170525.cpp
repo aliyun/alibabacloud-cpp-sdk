@@ -191,43 +191,6 @@ BatchRobotSmartCallResponse Alibabacloud_Dyvmsapi20170525::Client::batchRobotSma
   return batchRobotSmartCallWithOptions(request, runtime);
 }
 
-CancelCallResponse Alibabacloud_Dyvmsapi20170525::Client::cancelCallWithOptions(shared_ptr<CancelCallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->callId)) {
-    query->insert(pair<string, string>("CallId", *request->callId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CancelCall"))},
-    {"version", boost::any(string("2017-05-25"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CancelCallResponse(callApi(params, req, runtime));
-}
-
-CancelCallResponse Alibabacloud_Dyvmsapi20170525::Client::cancelCall(shared_ptr<CancelCallRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return cancelCallWithOptions(request, runtime);
-}
-
 CancelOrderRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelOrderRobotTaskWithOptions(shared_ptr<CancelOrderRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -300,67 +263,6 @@ CancelRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelRobotTaskWi
 CancelRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::cancelRobotTask(shared_ptr<CancelRobotTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return cancelRobotTaskWithOptions(request, runtime);
-}
-
-ClickToDialResponse Alibabacloud_Dyvmsapi20170525::Client::clickToDialWithOptions(shared_ptr<ClickToDialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->asrFlag)) {
-    query->insert(pair<string, bool>("AsrFlag", *request->asrFlag));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->asrModelId)) {
-    query->insert(pair<string, string>("AsrModelId", *request->asrModelId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->calledNumber)) {
-    query->insert(pair<string, string>("CalledNumber", *request->calledNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->calledShowNumber)) {
-    query->insert(pair<string, string>("CalledShowNumber", *request->calledShowNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->callerNumber)) {
-    query->insert(pair<string, string>("CallerNumber", *request->callerNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->callerShowNumber)) {
-    query->insert(pair<string, string>("CallerShowNumber", *request->callerShowNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
-    query->insert(pair<string, string>("OutId", *request->outId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->recordFlag)) {
-    query->insert(pair<string, bool>("RecordFlag", *request->recordFlag));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->sessionTimeout)) {
-    query->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ClickToDial"))},
-    {"version", boost::any(string("2017-05-25"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ClickToDialResponse(callApi(params, req, runtime));
-}
-
-ClickToDialResponse Alibabacloud_Dyvmsapi20170525::Client::clickToDial(shared_ptr<ClickToDialRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return clickToDialWithOptions(request, runtime);
 }
 
 CreateCallTaskResponse Alibabacloud_Dyvmsapi20170525::Client::createCallTaskWithOptions(shared_ptr<CreateCallTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1605,6 +1507,43 @@ QueryVoiceFileAuditInfoResponse Alibabacloud_Dyvmsapi20170525::Client::queryVoic
   return queryVoiceFileAuditInfoWithOptions(request, runtime);
 }
 
+RecoverCallInConfigResponse Alibabacloud_Dyvmsapi20170525::Client::recoverCallInConfigWithOptions(shared_ptr<RecoverCallInConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
+    query->insert(pair<string, string>("Number", *request->number));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecoverCallInConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecoverCallInConfigResponse(callApi(params, req, runtime));
+}
+
+RecoverCallInConfigResponse Alibabacloud_Dyvmsapi20170525::Client::recoverCallInConfig(shared_ptr<RecoverCallInConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recoverCallInConfigWithOptions(request, runtime);
+}
+
 RefreshMqttTokenResponse Alibabacloud_Dyvmsapi20170525::Client::refreshMqttTokenWithOptions(shared_ptr<RefreshMqttTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2037,6 +1976,43 @@ StartRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::startRobotTaskWith
 StartRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::startRobotTask(shared_ptr<StartRobotTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startRobotTaskWithOptions(request, runtime);
+}
+
+StopCallInConfigResponse Alibabacloud_Dyvmsapi20170525::Client::stopCallInConfigWithOptions(shared_ptr<StopCallInConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
+    query->insert(pair<string, string>("Number", *request->number));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopCallInConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopCallInConfigResponse(callApi(params, req, runtime));
+}
+
+StopCallInConfigResponse Alibabacloud_Dyvmsapi20170525::Client::stopCallInConfig(shared_ptr<StopCallInConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopCallInConfigWithOptions(request, runtime);
 }
 
 StopRobotTaskResponse Alibabacloud_Dyvmsapi20170525::Client::stopRobotTaskWithOptions(shared_ptr<StopRobotTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
