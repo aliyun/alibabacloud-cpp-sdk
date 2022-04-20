@@ -1914,6 +1914,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> CRAggregationEnabled{};
+  shared_ptr<bool> canaryUpgradeEnabled{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterSpec{};
   shared_ptr<bool> configSourceEnabled{};
@@ -2016,6 +2017,9 @@ public:
     }
     if (CRAggregationEnabled) {
       res["CRAggregationEnabled"] = boost::any(*CRAggregationEnabled);
+    }
+    if (canaryUpgradeEnabled) {
+      res["CanaryUpgradeEnabled"] = boost::any(*canaryUpgradeEnabled);
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
@@ -2218,6 +2222,9 @@ public:
     }
     if (m.find("CRAggregationEnabled") != m.end() && !m["CRAggregationEnabled"].empty()) {
       CRAggregationEnabled = make_shared<bool>(boost::any_cast<bool>(m["CRAggregationEnabled"]));
+    }
+    if (m.find("CanaryUpgradeEnabled") != m.end() && !m["CanaryUpgradeEnabled"].empty()) {
+      canaryUpgradeEnabled = make_shared<bool>(boost::any_cast<bool>(m["CanaryUpgradeEnabled"]));
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
@@ -7605,6 +7612,56 @@ public:
 
   virtual ~DescribeManagedServicesResponseBodyManagedServiceInfoDeploymentInstances() = default;
 };
+class DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource : public Darabonba::Model {
+public:
+  shared_ptr<string> limitCPU{};
+  shared_ptr<string> limitMemory{};
+  shared_ptr<string> requestCPU{};
+  shared_ptr<string> requestMemory{};
+
+  DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource() {}
+
+  explicit DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limitCPU) {
+      res["LimitCPU"] = boost::any(*limitCPU);
+    }
+    if (limitMemory) {
+      res["LimitMemory"] = boost::any(*limitMemory);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
+      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
+    }
+    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
+      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource() = default;
+};
 class DescribeManagedServicesResponseBodyManagedServiceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -7613,6 +7670,7 @@ public:
   shared_ptr<map<string, string>> selector{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> sidecarInjectStatus{};
+  shared_ptr<DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource> sidecarResource{};
 
   DescribeManagedServicesResponseBodyManagedServiceInfo() {}
 
@@ -7645,6 +7703,9 @@ public:
     }
     if (sidecarInjectStatus) {
       res["SidecarInjectStatus"] = boost::any(*sidecarInjectStatus);
+    }
+    if (sidecarResource) {
+      res["SidecarResource"] = sidecarResource ? boost::any(sidecarResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -7682,6 +7743,13 @@ public:
     }
     if (m.find("SidecarInjectStatus") != m.end() && !m["SidecarInjectStatus"].empty()) {
       sidecarInjectStatus = make_shared<string>(boost::any_cast<string>(m["SidecarInjectStatus"]));
+    }
+    if (m.find("SidecarResource") != m.end() && !m["SidecarResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SidecarResource"].type()) {
+        DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SidecarResource"]));
+        sidecarResource = make_shared<DescribeManagedServicesResponseBodyManagedServiceInfoSidecarResource>(model1);
+      }
     }
   }
 
@@ -7833,6 +7901,70 @@ public:
 
   virtual ~DescribeNamespaceScopeSidecarConfigRequest() = default;
 };
+class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> inclusionPrefixes{};
+  shared_ptr<vector<string>> inclusionRegexps{};
+  shared_ptr<vector<string>> inclusionSuffixes{};
+
+  DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher() {}
+
+  explicit DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inclusionPrefixes) {
+      res["InclusionPrefixes"] = boost::any(*inclusionPrefixes);
+    }
+    if (inclusionRegexps) {
+      res["InclusionRegexps"] = boost::any(*inclusionRegexps);
+    }
+    if (inclusionSuffixes) {
+      res["InclusionSuffixes"] = boost::any(*inclusionSuffixes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InclusionPrefixes") != m.end() && !m["InclusionPrefixes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InclusionPrefixes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InclusionPrefixes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inclusionPrefixes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InclusionRegexps") != m.end() && !m["InclusionRegexps"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InclusionRegexps"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InclusionRegexps"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inclusionRegexps = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InclusionSuffixes") != m.end() && !m["InclusionSuffixes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InclusionSuffixes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InclusionSuffixes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inclusionSuffixes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher() = default;
+};
 class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit : public Darabonba::Model {
 public:
   shared_ptr<string> resourceCPULimit{};
@@ -7979,14 +8111,18 @@ public:
 };
 class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches : public Darabonba::Model {
 public:
+  shared_ptr<long> concurrency{};
   shared_ptr<string> excludeInboundPorts{};
   shared_ptr<string> excludeOutboundIPRanges{};
   shared_ptr<string> excludeOutboundPorts{};
+  shared_ptr<bool> holdApplicationUntilProxyStarts{};
   shared_ptr<string> includeInboundPorts{};
   shared_ptr<string> includeOutboundIPRanges{};
   shared_ptr<string> includeOutboundPorts{};
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycleStr{};
+  shared_ptr<string> logLevel{};
+  shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher> proxyStatsMatcher{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit> sidecarProxyInitResourceLimit{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceRequest> sidecarProxyInitResourceRequest{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyResourceLimit> sidecarProxyResourceLimit{};
@@ -8003,6 +8139,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
     if (excludeInboundPorts) {
       res["ExcludeInboundPorts"] = boost::any(*excludeInboundPorts);
     }
@@ -8011,6 +8150,9 @@ public:
     }
     if (excludeOutboundPorts) {
       res["ExcludeOutboundPorts"] = boost::any(*excludeOutboundPorts);
+    }
+    if (holdApplicationUntilProxyStarts) {
+      res["HoldApplicationUntilProxyStarts"] = boost::any(*holdApplicationUntilProxyStarts);
     }
     if (includeInboundPorts) {
       res["IncludeInboundPorts"] = boost::any(*includeInboundPorts);
@@ -8026,6 +8168,12 @@ public:
     }
     if (lifecycleStr) {
       res["LifecycleStr"] = boost::any(*lifecycleStr);
+    }
+    if (logLevel) {
+      res["LogLevel"] = boost::any(*logLevel);
+    }
+    if (proxyStatsMatcher) {
+      res["ProxyStatsMatcher"] = proxyStatsMatcher ? boost::any(proxyStatsMatcher->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sidecarProxyInitResourceLimit) {
       res["SidecarProxyInitResourceLimit"] = sidecarProxyInitResourceLimit ? boost::any(sidecarProxyInitResourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8046,6 +8194,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
     if (m.find("ExcludeInboundPorts") != m.end() && !m["ExcludeInboundPorts"].empty()) {
       excludeInboundPorts = make_shared<string>(boost::any_cast<string>(m["ExcludeInboundPorts"]));
     }
@@ -8054,6 +8205,9 @@ public:
     }
     if (m.find("ExcludeOutboundPorts") != m.end() && !m["ExcludeOutboundPorts"].empty()) {
       excludeOutboundPorts = make_shared<string>(boost::any_cast<string>(m["ExcludeOutboundPorts"]));
+    }
+    if (m.find("HoldApplicationUntilProxyStarts") != m.end() && !m["HoldApplicationUntilProxyStarts"].empty()) {
+      holdApplicationUntilProxyStarts = make_shared<bool>(boost::any_cast<bool>(m["HoldApplicationUntilProxyStarts"]));
     }
     if (m.find("IncludeInboundPorts") != m.end() && !m["IncludeInboundPorts"].empty()) {
       includeInboundPorts = make_shared<string>(boost::any_cast<string>(m["IncludeInboundPorts"]));
@@ -8069,6 +8223,16 @@ public:
     }
     if (m.find("LifecycleStr") != m.end() && !m["LifecycleStr"].empty()) {
       lifecycleStr = make_shared<string>(boost::any_cast<string>(m["LifecycleStr"]));
+    }
+    if (m.find("LogLevel") != m.end() && !m["LogLevel"].empty()) {
+      logLevel = make_shared<string>(boost::any_cast<string>(m["LogLevel"]));
+    }
+    if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyStatsMatcher"].type()) {
+        DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyStatsMatcher"]));
+        proxyStatsMatcher = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher>(model1);
+      }
     }
     if (m.find("SidecarProxyInitResourceLimit") != m.end() && !m["SidecarProxyInitResourceLimit"].empty()) {
       if (typeid(map<string, boost::any>) == m["SidecarProxyInitResourceLimit"].type()) {
@@ -8730,212 +8894,6 @@ public:
 
 
   virtual ~DescribeServiceAccessDetailResponse() = default;
-};
-class DescribeServiceManagedResourceRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> guestCluster{};
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> serviceMeshId{};
-  shared_ptr<string> serviceName{};
-
-  DescribeServiceManagedResourceRequest() {}
-
-  explicit DescribeServiceManagedResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (guestCluster) {
-      res["GuestCluster"] = boost::any(*guestCluster);
-    }
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (serviceMeshId) {
-      res["ServiceMeshId"] = boost::any(*serviceMeshId);
-    }
-    if (serviceName) {
-      res["ServiceName"] = boost::any(*serviceName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
-      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
-    }
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
-      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
-    }
-    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
-      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
-    }
-  }
-
-
-  virtual ~DescribeServiceManagedResourceRequest() = default;
-};
-class DescribeServiceManagedResourceResponseBodyManagedResource : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> destinationRules{};
-  shared_ptr<vector<string>> localRateLimiters{};
-  shared_ptr<vector<string>> virtualServices{};
-
-  DescribeServiceManagedResourceResponseBodyManagedResource() {}
-
-  explicit DescribeServiceManagedResourceResponseBodyManagedResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (destinationRules) {
-      res["DestinationRules"] = boost::any(*destinationRules);
-    }
-    if (localRateLimiters) {
-      res["LocalRateLimiters"] = boost::any(*localRateLimiters);
-    }
-    if (virtualServices) {
-      res["VirtualServices"] = boost::any(*virtualServices);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DestinationRules") != m.end() && !m["DestinationRules"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["DestinationRules"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationRules"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      destinationRules = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("LocalRateLimiters") != m.end() && !m["LocalRateLimiters"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["LocalRateLimiters"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LocalRateLimiters"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      localRateLimiters = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("VirtualServices") != m.end() && !m["VirtualServices"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["VirtualServices"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VirtualServices"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      virtualServices = make_shared<vector<string>>(toVec1);
-    }
-  }
-
-
-  virtual ~DescribeServiceManagedResourceResponseBodyManagedResource() = default;
-};
-class DescribeServiceManagedResourceResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<DescribeServiceManagedResourceResponseBodyManagedResource> managedResource{};
-  shared_ptr<string> requestId{};
-
-  DescribeServiceManagedResourceResponseBody() {}
-
-  explicit DescribeServiceManagedResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (managedResource) {
-      res["ManagedResource"] = managedResource ? boost::any(managedResource->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ManagedResource") != m.end() && !m["ManagedResource"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ManagedResource"].type()) {
-        DescribeServiceManagedResourceResponseBodyManagedResource model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ManagedResource"]));
-        managedResource = make_shared<DescribeServiceManagedResourceResponseBodyManagedResource>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~DescribeServiceManagedResourceResponseBody() = default;
-};
-class DescribeServiceManagedResourceResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<DescribeServiceManagedResourceResponseBody> body{};
-
-  DescribeServiceManagedResourceResponse() {}
-
-  explicit DescribeServiceManagedResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeServiceManagedResourceResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeServiceManagedResourceResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeServiceManagedResourceResponse() = default;
 };
 class DescribeServiceMeshAdditionalStatusRequest : public Darabonba::Model {
 public:
@@ -10039,16 +9997,16 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (command) {
-      res["Command"] = boost::any(*command);
+      res["command"] = boost::any(*command);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+    if (m.find("command") != m.end() && !m["command"].empty()) {
       vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Command"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Command"]);
+      if (typeid(vector<boost::any>) == m["command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["command"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<string>(item));
         }
@@ -10060,14 +10018,14 @@ public:
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartExec() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
   shared_ptr<string> value{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10076,36 +10034,36 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (name) {
-      res["Name"] = boost::any(*name);
+      res["name"] = boost::any(*name);
     }
     if (value) {
-      res["Value"] = boost::any(*value);
+      res["value"] = boost::any(*value);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet : public Darabonba::Model {
 public:
-  shared_ptr<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders>> HTTPHeaders{};
   shared_ptr<string> host{};
+  shared_ptr<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders>> httpHeaders{};
   shared_ptr<string> port{};
   shared_ptr<string> scheme{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10113,61 +10071,61 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (HTTPHeaders) {
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (httpHeaders) {
       vector<boost::any> temp1;
-      for(auto item1:*HTTPHeaders){
+      for(auto item1:*httpHeaders){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["HTTPHeaders"] = boost::any(temp1);
-    }
-    if (host) {
-      res["Host"] = boost::any(*host);
+      res["httpHeaders"] = boost::any(temp1);
     }
     if (port) {
-      res["Port"] = boost::any(*port);
+      res["port"] = boost::any(*port);
     }
     if (scheme) {
-      res["Scheme"] = boost::any(*scheme);
+      res["scheme"] = boost::any(*scheme);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("HTTPHeaders") != m.end() && !m["HTTPHeaders"].empty()) {
-      if (typeid(vector<boost::any>) == m["HTTPHeaders"].type()) {
-        vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["HTTPHeaders"])){
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("httpHeaders") != m.end() && !m["httpHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["httpHeaders"].type()) {
+        vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["httpHeaders"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders model2;
+            DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        HTTPHeaders = make_shared<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGetHTTPHeaders>>(expect1);
+        httpHeaders = make_shared<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGetHttpHeaders>>(expect1);
       }
     }
-    if (m.find("Host") != m.end() && !m["Host"].empty()) {
-      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["port"]));
     }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
-    }
-    if (m.find("Scheme") != m.end() && !m["Scheme"].empty()) {
-      scheme = make_shared<string>(boost::any_cast<string>(m["Scheme"]));
+    if (m.find("scheme") != m.end() && !m["scheme"].empty()) {
+      scheme = make_shared<string>(boost::any_cast<string>(m["scheme"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
   shared_ptr<string> port{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10176,31 +10134,31 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (host) {
-      res["Host"] = boost::any(*host);
+      res["host"] = boost::any(*host);
     }
     if (port) {
-      res["Port"] = boost::any(*port);
+      res["port"] = boost::any(*port);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Host") != m.end() && !m["Host"].empty()) {
-      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
     }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["port"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket() = default;
 };
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStart : public Darabonba::Model {
 public:
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartExec> exec{};
-  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet> HTTPGet{};
-  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket> TCPSocket{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet> httpGet{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket> tcpSocket{};
 
   DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStart() {}
 
@@ -10213,37 +10171,37 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (exec) {
-      res["Exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
+      res["exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (HTTPGet) {
-      res["HTTPGet"] = HTTPGet ? boost::any(HTTPGet->toMap()) : boost::any(map<string,boost::any>({}));
+    if (httpGet) {
+      res["httpGet"] = httpGet ? boost::any(httpGet->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (TCPSocket) {
-      res["TCPSocket"] = TCPSocket ? boost::any(TCPSocket->toMap()) : boost::any(map<string,boost::any>({}));
+    if (tcpSocket) {
+      res["tcpSocket"] = tcpSocket ? boost::any(tcpSocket->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Exec") != m.end() && !m["Exec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Exec"].type()) {
+    if (m.find("exec") != m.end() && !m["exec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["exec"].type()) {
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartExec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exec"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["exec"]));
         exec = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartExec>(model1);
       }
     }
-    if (m.find("HTTPGet") != m.end() && !m["HTTPGet"].empty()) {
-      if (typeid(map<string, boost::any>) == m["HTTPGet"].type()) {
-        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPGet"]));
-        HTTPGet = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHTTPGet>(model1);
+    if (m.find("httpGet") != m.end() && !m["httpGet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["httpGet"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["httpGet"]));
+        httpGet = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartHttpGet>(model1);
       }
     }
-    if (m.find("TCPSocket") != m.end() && !m["TCPSocket"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TCPSocket"].type()) {
-        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TCPSocket"]));
-        TCPSocket = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTCPSocket>(model1);
+    if (m.find("tcpSocket") != m.end() && !m["tcpSocket"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tcpSocket"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tcpSocket"]));
+        tcpSocket = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStartTcpSocket>(model1);
       }
     }
   }
@@ -10266,16 +10224,16 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (command) {
-      res["Command"] = boost::any(*command);
+      res["command"] = boost::any(*command);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+    if (m.find("command") != m.end() && !m["command"].empty()) {
       vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Command"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Command"]);
+      if (typeid(vector<boost::any>) == m["command"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["command"]);
         for (auto item:vec1) {
            toVec1.push_back(boost::any_cast<string>(item));
         }
@@ -10287,14 +10245,14 @@ public:
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopExec() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
   shared_ptr<string> value{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10303,36 +10261,36 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (name) {
-      res["Name"] = boost::any(*name);
+      res["name"] = boost::any(*name);
     }
     if (value) {
-      res["Value"] = boost::any(*value);
+      res["value"] = boost::any(*value);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet : public Darabonba::Model {
 public:
-  shared_ptr<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders>> HTTPHeaders{};
   shared_ptr<string> host{};
+  shared_ptr<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders>> httpHeaders{};
   shared_ptr<string> port{};
   shared_ptr<string> scheme{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10340,61 +10298,61 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (HTTPHeaders) {
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (httpHeaders) {
       vector<boost::any> temp1;
-      for(auto item1:*HTTPHeaders){
+      for(auto item1:*httpHeaders){
         temp1.push_back(boost::any(item1.toMap()));
       }
-      res["HTTPHeaders"] = boost::any(temp1);
-    }
-    if (host) {
-      res["Host"] = boost::any(*host);
+      res["httpHeaders"] = boost::any(temp1);
     }
     if (port) {
-      res["Port"] = boost::any(*port);
+      res["port"] = boost::any(*port);
     }
     if (scheme) {
-      res["Scheme"] = boost::any(*scheme);
+      res["scheme"] = boost::any(*scheme);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("HTTPHeaders") != m.end() && !m["HTTPHeaders"].empty()) {
-      if (typeid(vector<boost::any>) == m["HTTPHeaders"].type()) {
-        vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["HTTPHeaders"])){
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("httpHeaders") != m.end() && !m["httpHeaders"].empty()) {
+      if (typeid(vector<boost::any>) == m["httpHeaders"].type()) {
+        vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["httpHeaders"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders model2;
+            DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        HTTPHeaders = make_shared<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGetHTTPHeaders>>(expect1);
+        httpHeaders = make_shared<vector<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGetHttpHeaders>>(expect1);
       }
     }
-    if (m.find("Host") != m.end() && !m["Host"].empty()) {
-      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["port"]));
     }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
-    }
-    if (m.find("Scheme") != m.end() && !m["Scheme"].empty()) {
-      scheme = make_shared<string>(boost::any_cast<string>(m["Scheme"]));
+    if (m.find("scheme") != m.end() && !m["scheme"].empty()) {
+      scheme = make_shared<string>(boost::any_cast<string>(m["scheme"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket : public Darabonba::Model {
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
   shared_ptr<string> port{};
 
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket() {}
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket() {}
 
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10403,31 +10361,31 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (host) {
-      res["Host"] = boost::any(*host);
+      res["host"] = boost::any(*host);
     }
     if (port) {
-      res["Port"] = boost::any(*port);
+      res["port"] = boost::any(*port);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Host") != m.end() && !m["Host"].empty()) {
-      host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
     }
-    if (m.find("Port") != m.end() && !m["Port"].empty()) {
-      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    if (m.find("port") != m.end() && !m["port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["port"]));
     }
   }
 
 
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket() = default;
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket() = default;
 };
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStop : public Darabonba::Model {
 public:
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopExec> exec{};
-  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet> HTTPGet{};
-  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket> TCPSocket{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet> httpGet{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket> tcpSocket{};
 
   DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStop() {}
 
@@ -10440,37 +10398,37 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (exec) {
-      res["Exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
+      res["exec"] = exec ? boost::any(exec->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (HTTPGet) {
-      res["HTTPGet"] = HTTPGet ? boost::any(HTTPGet->toMap()) : boost::any(map<string,boost::any>({}));
+    if (httpGet) {
+      res["httpGet"] = httpGet ? boost::any(httpGet->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (TCPSocket) {
-      res["TCPSocket"] = TCPSocket ? boost::any(TCPSocket->toMap()) : boost::any(map<string,boost::any>({}));
+    if (tcpSocket) {
+      res["tcpSocket"] = tcpSocket ? boost::any(tcpSocket->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Exec") != m.end() && !m["Exec"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Exec"].type()) {
+    if (m.find("exec") != m.end() && !m["exec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["exec"].type()) {
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopExec model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Exec"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["exec"]));
         exec = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopExec>(model1);
       }
     }
-    if (m.find("HTTPGet") != m.end() && !m["HTTPGet"].empty()) {
-      if (typeid(map<string, boost::any>) == m["HTTPGet"].type()) {
-        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["HTTPGet"]));
-        HTTPGet = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHTTPGet>(model1);
+    if (m.find("httpGet") != m.end() && !m["httpGet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["httpGet"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["httpGet"]));
+        httpGet = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopHttpGet>(model1);
       }
     }
-    if (m.find("TCPSocket") != m.end() && !m["TCPSocket"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TCPSocket"].type()) {
-        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TCPSocket"]));
-        TCPSocket = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTCPSocket>(model1);
+    if (m.find("tcpSocket") != m.end() && !m["tcpSocket"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tcpSocket"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tcpSocket"]));
+        tcpSocket = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStopTcpSocket>(model1);
       }
     }
   }
@@ -10494,26 +10452,26 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (postStart) {
-      res["PostStart"] = postStart ? boost::any(postStart->toMap()) : boost::any(map<string,boost::any>({}));
+      res["postStart"] = postStart ? boost::any(postStart->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (preStop) {
-      res["PreStop"] = preStop ? boost::any(preStop->toMap()) : boost::any(map<string,boost::any>({}));
+      res["preStop"] = preStop ? boost::any(preStop->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("PostStart") != m.end() && !m["PostStart"].empty()) {
-      if (typeid(map<string, boost::any>) == m["PostStart"].type()) {
+    if (m.find("postStart") != m.end() && !m["postStart"].empty()) {
+      if (typeid(map<string, boost::any>) == m["postStart"].type()) {
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStart model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PostStart"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["postStart"]));
         postStart = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePostStart>(model1);
       }
     }
-    if (m.find("PreStop") != m.end() && !m["PreStop"].empty()) {
-      if (typeid(map<string, boost::any>) == m["PreStop"].type()) {
+    if (m.find("preStop") != m.end() && !m["preStop"].empty()) {
+      if (typeid(map<string, boost::any>) == m["preStop"].type()) {
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStop model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PreStop"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["preStop"]));
         preStop = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationLifecyclePreStop>(model1);
       }
     }
@@ -11864,6 +11822,8 @@ public:
   shared_ptr<string> clusterSpec{};
   shared_ptr<vector<string>> clusters{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshEndpoints> endpoints{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> ownerType{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshServiceMeshInfo> serviceMeshInfo{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpec> spec{};
 
@@ -11885,6 +11845,12 @@ public:
     }
     if (endpoints) {
       res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (ownerType) {
+      res["OwnerType"] = boost::any(*ownerType);
     }
     if (serviceMeshInfo) {
       res["ServiceMeshInfo"] = serviceMeshInfo ? boost::any(serviceMeshInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11915,6 +11881,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
         endpoints = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshEndpoints>(model1);
       }
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
+      ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
     }
     if (m.find("ServiceMeshInfo") != m.end() && !m["ServiceMeshInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ServiceMeshInfo"].type()) {
@@ -13692,6 +13664,8 @@ public:
   shared_ptr<string> clusterSpec{};
   shared_ptr<vector<string>> clusters{};
   shared_ptr<DescribeServiceMeshesResponseBodyServiceMeshesEndpoints> endpoints{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> ownerType{};
   shared_ptr<DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo> serviceMeshInfo{};
   shared_ptr<DescribeServiceMeshesResponseBodyServiceMeshesSpec> spec{};
 
@@ -13713,6 +13687,12 @@ public:
     }
     if (endpoints) {
       res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (ownerType) {
+      res["OwnerType"] = boost::any(*ownerType);
     }
     if (serviceMeshInfo) {
       res["ServiceMeshInfo"] = serviceMeshInfo ? boost::any(serviceMeshInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -13743,6 +13723,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
         endpoints = make_shared<DescribeServiceMeshesResponseBodyServiceMeshesEndpoints>(model1);
       }
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("OwnerType") != m.end() && !m["OwnerType"].empty()) {
+      ownerType = make_shared<string>(boost::any_cast<string>(m["OwnerType"]));
     }
     if (m.find("ServiceMeshInfo") != m.end() && !m["ServiceMeshInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["ServiceMeshInfo"].type()) {
@@ -14628,6 +14614,8 @@ public:
   shared_ptr<string> nodeIp{};
   shared_ptr<string> podIP{};
   shared_ptr<string> podName{};
+  shared_ptr<long> restartTime{};
+  shared_ptr<string> status{};
 
   DescribeVersionManagementResponseBodyVersionDetailsPodInstances() {}
 
@@ -14654,6 +14642,12 @@ public:
     if (podName) {
       res["PodName"] = boost::any(*podName);
     }
+    if (restartTime) {
+      res["RestartTime"] = boost::any(*restartTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -14673,10 +14667,66 @@ public:
     if (m.find("PodName") != m.end() && !m["PodName"].empty()) {
       podName = make_shared<string>(boost::any_cast<string>(m["PodName"]));
     }
+    if (m.find("RestartTime") != m.end() && !m["RestartTime"].empty()) {
+      restartTime = make_shared<long>(boost::any_cast<long>(m["RestartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
   }
 
 
   virtual ~DescribeVersionManagementResponseBodyVersionDetailsPodInstances() = default;
+};
+class DescribeVersionManagementResponseBodyVersionDetailsResource : public Darabonba::Model {
+public:
+  shared_ptr<string> CPULimit{};
+  shared_ptr<string> CPURequest{};
+  shared_ptr<string> memoryLimit{};
+  shared_ptr<string> memoryRequest{};
+
+  DescribeVersionManagementResponseBodyVersionDetailsResource() {}
+
+  explicit DescribeVersionManagementResponseBodyVersionDetailsResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPULimit) {
+      res["CPULimit"] = boost::any(*CPULimit);
+    }
+    if (CPURequest) {
+      res["CPURequest"] = boost::any(*CPURequest);
+    }
+    if (memoryLimit) {
+      res["MemoryLimit"] = boost::any(*memoryLimit);
+    }
+    if (memoryRequest) {
+      res["MemoryRequest"] = boost::any(*memoryRequest);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPULimit") != m.end() && !m["CPULimit"].empty()) {
+      CPULimit = make_shared<string>(boost::any_cast<string>(m["CPULimit"]));
+    }
+    if (m.find("CPURequest") != m.end() && !m["CPURequest"].empty()) {
+      CPURequest = make_shared<string>(boost::any_cast<string>(m["CPURequest"]));
+    }
+    if (m.find("MemoryLimit") != m.end() && !m["MemoryLimit"].empty()) {
+      memoryLimit = make_shared<string>(boost::any_cast<string>(m["MemoryLimit"]));
+    }
+    if (m.find("MemoryRequest") != m.end() && !m["MemoryRequest"].empty()) {
+      memoryRequest = make_shared<string>(boost::any_cast<string>(m["MemoryRequest"]));
+    }
+  }
+
+
+  virtual ~DescribeVersionManagementResponseBodyVersionDetailsResource() = default;
 };
 class DescribeVersionManagementResponseBodyVersionDetails : public Darabonba::Model {
 public:
@@ -14687,6 +14737,7 @@ public:
   shared_ptr<vector<DescribeVersionManagementResponseBodyVersionDetailsPodInstances>> podInstances{};
   shared_ptr<long> readyReplicas{};
   shared_ptr<long> replicas{};
+  shared_ptr<DescribeVersionManagementResponseBodyVersionDetailsResource> resource{};
   shared_ptr<string> version{};
 
   DescribeVersionManagementResponseBodyVersionDetails() {}
@@ -14723,6 +14774,9 @@ public:
     }
     if (replicas) {
       res["Replicas"] = boost::any(*replicas);
+    }
+    if (resource) {
+      res["Resource"] = resource ? boost::any(resource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (version) {
       res["Version"] = boost::any(*version);
@@ -14768,6 +14822,13 @@ public:
     }
     if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
       replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Resource"].type()) {
+        DescribeVersionManagementResponseBodyVersionDetailsResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Resource"]));
+        resource = make_shared<DescribeVersionManagementResponseBodyVersionDetailsResource>(model1);
+      }
     }
     if (m.find("Version") != m.end() && !m["Version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["Version"]));
@@ -17226,165 +17287,6 @@ public:
 
   virtual ~UpdateASMGatewayImportedServicesResponse() = default;
 };
-class UpdateInjectedProxyConfigRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> deploymentNames{};
-  shared_ptr<string> guestCluster{};
-  shared_ptr<string> limitCPUs{};
-  shared_ptr<string> limitMemories{};
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> requestCPUs{};
-  shared_ptr<string> requestMemories{};
-  shared_ptr<string> serviceMeshId{};
-
-  UpdateInjectedProxyConfigRequest() {}
-
-  explicit UpdateInjectedProxyConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (deploymentNames) {
-      res["DeploymentNames"] = boost::any(*deploymentNames);
-    }
-    if (guestCluster) {
-      res["GuestCluster"] = boost::any(*guestCluster);
-    }
-    if (limitCPUs) {
-      res["LimitCPUs"] = boost::any(*limitCPUs);
-    }
-    if (limitMemories) {
-      res["LimitMemories"] = boost::any(*limitMemories);
-    }
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (requestCPUs) {
-      res["RequestCPUs"] = boost::any(*requestCPUs);
-    }
-    if (requestMemories) {
-      res["RequestMemories"] = boost::any(*requestMemories);
-    }
-    if (serviceMeshId) {
-      res["ServiceMeshId"] = boost::any(*serviceMeshId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DeploymentNames") != m.end() && !m["DeploymentNames"].empty()) {
-      deploymentNames = make_shared<string>(boost::any_cast<string>(m["DeploymentNames"]));
-    }
-    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
-      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
-    }
-    if (m.find("LimitCPUs") != m.end() && !m["LimitCPUs"].empty()) {
-      limitCPUs = make_shared<string>(boost::any_cast<string>(m["LimitCPUs"]));
-    }
-    if (m.find("LimitMemories") != m.end() && !m["LimitMemories"].empty()) {
-      limitMemories = make_shared<string>(boost::any_cast<string>(m["LimitMemories"]));
-    }
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("RequestCPUs") != m.end() && !m["RequestCPUs"].empty()) {
-      requestCPUs = make_shared<string>(boost::any_cast<string>(m["RequestCPUs"]));
-    }
-    if (m.find("RequestMemories") != m.end() && !m["RequestMemories"].empty()) {
-      requestMemories = make_shared<string>(boost::any_cast<string>(m["RequestMemories"]));
-    }
-    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
-      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
-    }
-  }
-
-
-  virtual ~UpdateInjectedProxyConfigRequest() = default;
-};
-class UpdateInjectedProxyConfigResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  UpdateInjectedProxyConfigResponseBody() {}
-
-  explicit UpdateInjectedProxyConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~UpdateInjectedProxyConfigResponseBody() = default;
-};
-class UpdateInjectedProxyConfigResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<UpdateInjectedProxyConfigResponseBody> body{};
-
-  UpdateInjectedProxyConfigResponse() {}
-
-  explicit UpdateInjectedProxyConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateInjectedProxyConfigResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateInjectedProxyConfigResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateInjectedProxyConfigResponse() = default;
-};
 class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -19311,19 +19213,25 @@ public:
 };
 class UpdateNamespaceScopeSidecarConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> concurrency{};
   shared_ptr<string> excludeIPRanges{};
   shared_ptr<string> excludeInboundPorts{};
   shared_ptr<string> excludeOutboundPorts{};
+  shared_ptr<bool> holdApplicationUntilProxyStarts{};
   shared_ptr<string> includeIPRanges{};
   shared_ptr<string> includeInboundPorts{};
   shared_ptr<string> includeOutboundPorts{};
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycle{};
+  shared_ptr<string> logLevel{};
   shared_ptr<string> namespace_{};
+  shared_ptr<string> postStart{};
+  shared_ptr<string> preStop{};
   shared_ptr<string> proxyInitCPUResourceLimit{};
   shared_ptr<string> proxyInitCPUResourceRequest{};
   shared_ptr<string> proxyInitMemoryResourceLimit{};
   shared_ptr<string> proxyInitMemoryResourceRequest{};
+  shared_ptr<string> proxyStatsMatcher{};
   shared_ptr<string> serviceMeshId{};
   shared_ptr<string> sidecarProxyCPUResourceLimit{};
   shared_ptr<string> sidecarProxyCPUResourceRequest{};
@@ -19341,6 +19249,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
     if (excludeIPRanges) {
       res["ExcludeIPRanges"] = boost::any(*excludeIPRanges);
     }
@@ -19349,6 +19260,9 @@ public:
     }
     if (excludeOutboundPorts) {
       res["ExcludeOutboundPorts"] = boost::any(*excludeOutboundPorts);
+    }
+    if (holdApplicationUntilProxyStarts) {
+      res["HoldApplicationUntilProxyStarts"] = boost::any(*holdApplicationUntilProxyStarts);
     }
     if (includeIPRanges) {
       res["IncludeIPRanges"] = boost::any(*includeIPRanges);
@@ -19365,8 +19279,17 @@ public:
     if (lifecycle) {
       res["Lifecycle"] = boost::any(*lifecycle);
     }
+    if (logLevel) {
+      res["LogLevel"] = boost::any(*logLevel);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (postStart) {
+      res["PostStart"] = boost::any(*postStart);
+    }
+    if (preStop) {
+      res["PreStop"] = boost::any(*preStop);
     }
     if (proxyInitCPUResourceLimit) {
       res["ProxyInitCPUResourceLimit"] = boost::any(*proxyInitCPUResourceLimit);
@@ -19379,6 +19302,9 @@ public:
     }
     if (proxyInitMemoryResourceRequest) {
       res["ProxyInitMemoryResourceRequest"] = boost::any(*proxyInitMemoryResourceRequest);
+    }
+    if (proxyStatsMatcher) {
+      res["ProxyStatsMatcher"] = boost::any(*proxyStatsMatcher);
     }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
@@ -19402,6 +19328,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
     if (m.find("ExcludeIPRanges") != m.end() && !m["ExcludeIPRanges"].empty()) {
       excludeIPRanges = make_shared<string>(boost::any_cast<string>(m["ExcludeIPRanges"]));
     }
@@ -19410,6 +19339,9 @@ public:
     }
     if (m.find("ExcludeOutboundPorts") != m.end() && !m["ExcludeOutboundPorts"].empty()) {
       excludeOutboundPorts = make_shared<string>(boost::any_cast<string>(m["ExcludeOutboundPorts"]));
+    }
+    if (m.find("HoldApplicationUntilProxyStarts") != m.end() && !m["HoldApplicationUntilProxyStarts"].empty()) {
+      holdApplicationUntilProxyStarts = make_shared<bool>(boost::any_cast<bool>(m["HoldApplicationUntilProxyStarts"]));
     }
     if (m.find("IncludeIPRanges") != m.end() && !m["IncludeIPRanges"].empty()) {
       includeIPRanges = make_shared<string>(boost::any_cast<string>(m["IncludeIPRanges"]));
@@ -19426,8 +19358,17 @@ public:
     if (m.find("Lifecycle") != m.end() && !m["Lifecycle"].empty()) {
       lifecycle = make_shared<string>(boost::any_cast<string>(m["Lifecycle"]));
     }
+    if (m.find("LogLevel") != m.end() && !m["LogLevel"].empty()) {
+      logLevel = make_shared<string>(boost::any_cast<string>(m["LogLevel"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PostStart") != m.end() && !m["PostStart"].empty()) {
+      postStart = make_shared<string>(boost::any_cast<string>(m["PostStart"]));
+    }
+    if (m.find("PreStop") != m.end() && !m["PreStop"].empty()) {
+      preStop = make_shared<string>(boost::any_cast<string>(m["PreStop"]));
     }
     if (m.find("ProxyInitCPUResourceLimit") != m.end() && !m["ProxyInitCPUResourceLimit"].empty()) {
       proxyInitCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["ProxyInitCPUResourceLimit"]));
@@ -19440,6 +19381,9 @@ public:
     }
     if (m.find("ProxyInitMemoryResourceRequest") != m.end() && !m["ProxyInitMemoryResourceRequest"].empty()) {
       proxyInitMemoryResourceRequest = make_shared<string>(boost::any_cast<string>(m["ProxyInitMemoryResourceRequest"]));
+    }
+    if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
+      proxyStatsMatcher = make_shared<string>(boost::any_cast<string>(m["ProxyStatsMatcher"]));
     }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
@@ -19544,303 +19488,6 @@ public:
 
 
   virtual ~UpdateNamespaceScopeSidecarConfigResponse() = default;
-};
-class UpdateServiceSidecarInjectRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> guestCluster{};
-  shared_ptr<bool> inject{};
-  shared_ptr<string> limitCPU{};
-  shared_ptr<string> limitMemory{};
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> requestCPU{};
-  shared_ptr<string> requestMemory{};
-  shared_ptr<string> serviceMeshId{};
-  shared_ptr<string> serviceName{};
-
-  UpdateServiceSidecarInjectRequest() {}
-
-  explicit UpdateServiceSidecarInjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (guestCluster) {
-      res["GuestCluster"] = boost::any(*guestCluster);
-    }
-    if (inject) {
-      res["Inject"] = boost::any(*inject);
-    }
-    if (limitCPU) {
-      res["LimitCPU"] = boost::any(*limitCPU);
-    }
-    if (limitMemory) {
-      res["LimitMemory"] = boost::any(*limitMemory);
-    }
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (requestCPU) {
-      res["RequestCPU"] = boost::any(*requestCPU);
-    }
-    if (requestMemory) {
-      res["RequestMemory"] = boost::any(*requestMemory);
-    }
-    if (serviceMeshId) {
-      res["ServiceMeshId"] = boost::any(*serviceMeshId);
-    }
-    if (serviceName) {
-      res["ServiceName"] = boost::any(*serviceName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
-      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
-    }
-    if (m.find("Inject") != m.end() && !m["Inject"].empty()) {
-      inject = make_shared<bool>(boost::any_cast<bool>(m["Inject"]));
-    }
-    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
-      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
-    }
-    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
-      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
-    }
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
-      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
-    }
-    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
-      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
-    }
-    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
-      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
-    }
-    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
-      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
-    }
-  }
-
-
-  virtual ~UpdateServiceSidecarInjectRequest() = default;
-};
-class UpdateServiceSidecarInjectResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  UpdateServiceSidecarInjectResponseBody() {}
-
-  explicit UpdateServiceSidecarInjectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~UpdateServiceSidecarInjectResponseBody() = default;
-};
-class UpdateServiceSidecarInjectResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<UpdateServiceSidecarInjectResponseBody> body{};
-
-  UpdateServiceSidecarInjectResponse() {}
-
-  explicit UpdateServiceSidecarInjectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateServiceSidecarInjectResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateServiceSidecarInjectResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateServiceSidecarInjectResponse() = default;
-};
-class UpdateUnlabeledServiceManagedResourceRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> guestCluster{};
-  shared_ptr<string> namespace_{};
-  shared_ptr<string> serviceMeshId{};
-  shared_ptr<string> serviceName{};
-
-  UpdateUnlabeledServiceManagedResourceRequest() {}
-
-  explicit UpdateUnlabeledServiceManagedResourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (guestCluster) {
-      res["GuestCluster"] = boost::any(*guestCluster);
-    }
-    if (namespace_) {
-      res["Namespace"] = boost::any(*namespace_);
-    }
-    if (serviceMeshId) {
-      res["ServiceMeshId"] = boost::any(*serviceMeshId);
-    }
-    if (serviceName) {
-      res["ServiceName"] = boost::any(*serviceName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
-      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
-    }
-    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
-      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
-    }
-    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
-      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
-    }
-    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
-      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
-    }
-  }
-
-
-  virtual ~UpdateUnlabeledServiceManagedResourceRequest() = default;
-};
-class UpdateUnlabeledServiceManagedResourceResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  UpdateUnlabeledServiceManagedResourceResponseBody() {}
-
-  explicit UpdateUnlabeledServiceManagedResourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~UpdateUnlabeledServiceManagedResourceResponseBody() = default;
-};
-class UpdateUnlabeledServiceManagedResourceResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<UpdateUnlabeledServiceManagedResourceResponseBody> body{};
-
-  UpdateUnlabeledServiceManagedResourceResponse() {}
-
-  explicit UpdateUnlabeledServiceManagedResourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateUnlabeledServiceManagedResourceResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateUnlabeledServiceManagedResourceResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateUnlabeledServiceManagedResourceResponse() = default;
 };
 class UpgradeMeshEditionPartiallyRequest : public Darabonba::Model {
 public:
@@ -20083,42 +19730,6 @@ public:
 
   virtual ~UpgradeMeshVersionResponse() = default;
 };
-class ClusterStatusLogtailStatusRecordValueValue : public Darabonba::Model {
-public:
-  shared_ptr<string> title{};
-  shared_ptr<string> url{};
-
-  ClusterStatusLogtailStatusRecordValueValue() {}
-
-  explicit ClusterStatusLogtailStatusRecordValueValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (title) {
-      res["Title"] = boost::any(*title);
-    }
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Title") != m.end() && !m["Title"].empty()) {
-      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
-    }
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-  }
-
-
-  virtual ~ClusterStatusLogtailStatusRecordValueValue() = default;
-};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -20197,8 +19808,6 @@ public:
   DescribeReusableSlbResponse describeReusableSlb(shared_ptr<DescribeReusableSlbRequest> request);
   DescribeServiceAccessDetailResponse describeServiceAccessDetailWithOptions(shared_ptr<DescribeServiceAccessDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceAccessDetailResponse describeServiceAccessDetail(shared_ptr<DescribeServiceAccessDetailRequest> request);
-  DescribeServiceManagedResourceResponse describeServiceManagedResourceWithOptions(shared_ptr<DescribeServiceManagedResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceManagedResourceResponse describeServiceManagedResource(shared_ptr<DescribeServiceManagedResourceRequest> request);
   DescribeServiceMeshAdditionalStatusResponse describeServiceMeshAdditionalStatusWithOptions(shared_ptr<DescribeServiceMeshAdditionalStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeServiceMeshAdditionalStatusResponse describeServiceMeshAdditionalStatus(shared_ptr<DescribeServiceMeshAdditionalStatusRequest> request);
   DescribeServiceMeshClustersResponse describeServiceMeshClustersWithOptions(shared_ptr<DescribeServiceMeshClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -20261,8 +19870,6 @@ public:
   UpdateASMGatewayResponse updateASMGateway(shared_ptr<UpdateASMGatewayRequest> request);
   UpdateASMGatewayImportedServicesResponse updateASMGatewayImportedServicesWithOptions(shared_ptr<UpdateASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateASMGatewayImportedServicesResponse updateASMGatewayImportedServices(shared_ptr<UpdateASMGatewayImportedServicesRequest> request);
-  UpdateInjectedProxyConfigResponse updateInjectedProxyConfigWithOptions(shared_ptr<UpdateInjectedProxyConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateInjectedProxyConfigResponse updateInjectedProxyConfig(shared_ptr<UpdateInjectedProxyConfigRequest> request);
   UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutesWithOptions(shared_ptr<UpdateIstioGatewayRoutesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutes(shared_ptr<UpdateIstioGatewayRoutesRequest> request);
   UpdateIstioRouteAdditionalStatusResponse updateIstioRouteAdditionalStatusWithOptions(shared_ptr<UpdateIstioRouteAdditionalStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -20271,10 +19878,6 @@ public:
   UpdateMeshFeatureResponse updateMeshFeature(shared_ptr<UpdateMeshFeatureRequest> request);
   UpdateNamespaceScopeSidecarConfigResponse updateNamespaceScopeSidecarConfigWithOptions(shared_ptr<UpdateNamespaceScopeSidecarConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateNamespaceScopeSidecarConfigResponse updateNamespaceScopeSidecarConfig(shared_ptr<UpdateNamespaceScopeSidecarConfigRequest> request);
-  UpdateServiceSidecarInjectResponse updateServiceSidecarInjectWithOptions(shared_ptr<UpdateServiceSidecarInjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceSidecarInjectResponse updateServiceSidecarInject(shared_ptr<UpdateServiceSidecarInjectRequest> request);
-  UpdateUnlabeledServiceManagedResourceResponse updateUnlabeledServiceManagedResourceWithOptions(shared_ptr<UpdateUnlabeledServiceManagedResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateUnlabeledServiceManagedResourceResponse updateUnlabeledServiceManagedResource(shared_ptr<UpdateUnlabeledServiceManagedResourceRequest> request);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartiallyWithOptions(shared_ptr<UpgradeMeshEditionPartiallyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartially(shared_ptr<UpgradeMeshEditionPartiallyRequest> request);
   UpgradeMeshVersionResponse upgradeMeshVersionWithOptions(shared_ptr<UpgradeMeshVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
