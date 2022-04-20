@@ -2133,6 +2133,9 @@ DescribeGroupedVulResponse Alibabacloud_Sas20181203::Client::describeGroupedVulW
   if (!Darabonba_Util::Client::isUnset<string>(request->aliasName)) {
     query->insert(pair<string, string>("AliasName", *request->aliasName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->attachTypes)) {
+    query->insert(pair<string, string>("AttachTypes", *request->attachTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }

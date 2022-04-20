@@ -13154,6 +13154,7 @@ public:
 class DescribeGroupedVulRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<string> attachTypes{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> dealed{};
   shared_ptr<string> groupId{};
@@ -13176,6 +13177,9 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (attachTypes) {
+      res["AttachTypes"] = boost::any(*attachTypes);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -13210,6 +13214,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("AttachTypes") != m.end() && !m["AttachTypes"].empty()) {
+      attachTypes = make_shared<string>(boost::any_cast<string>(m["AttachTypes"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
