@@ -30756,6 +30756,144 @@ public:
 
   virtual ~ModifyDataCorrectExecSQLResponse() = default;
 };
+class OfflineTaskFlowRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dagId{};
+  shared_ptr<long> tid{};
+
+  OfflineTaskFlowRequest() {}
+
+  explicit OfflineTaskFlowRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dagId) {
+      res["DagId"] = boost::any(*dagId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DagId") != m.end() && !m["DagId"].empty()) {
+      dagId = make_shared<long>(boost::any_cast<long>(m["DagId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~OfflineTaskFlowRequest() = default;
+};
+class OfflineTaskFlowResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  OfflineTaskFlowResponseBody() {}
+
+  explicit OfflineTaskFlowResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~OfflineTaskFlowResponseBody() = default;
+};
+class OfflineTaskFlowResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<OfflineTaskFlowResponseBody> body{};
+
+  OfflineTaskFlowResponse() {}
+
+  explicit OfflineTaskFlowResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OfflineTaskFlowResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OfflineTaskFlowResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OfflineTaskFlowResponse() = default;
+};
 class PauseDataCorrectSQLJobRequest : public Darabonba::Model {
 public:
   shared_ptr<long> jobId{};
@@ -34286,6 +34424,8 @@ public:
   ListWorkFlowTemplatesResponse listWorkFlowTemplates(shared_ptr<ListWorkFlowTemplatesRequest> request);
   ModifyDataCorrectExecSQLResponse modifyDataCorrectExecSQLWithOptions(shared_ptr<ModifyDataCorrectExecSQLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDataCorrectExecSQLResponse modifyDataCorrectExecSQL(shared_ptr<ModifyDataCorrectExecSQLRequest> request);
+  OfflineTaskFlowResponse offlineTaskFlowWithOptions(shared_ptr<OfflineTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OfflineTaskFlowResponse offlineTaskFlow(shared_ptr<OfflineTaskFlowRequest> request);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJobWithOptions(shared_ptr<PauseDataCorrectSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJob(shared_ptr<PauseDataCorrectSQLJobRequest> request);
   ReDeployLhDagVersionResponse reDeployLhDagVersionWithOptions(shared_ptr<ReDeployLhDagVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
