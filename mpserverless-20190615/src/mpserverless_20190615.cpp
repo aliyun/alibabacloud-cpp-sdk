@@ -1566,14 +1566,22 @@ ListOpenPlatformConfigResponse Alibabacloud_MPServerless20190615::Client::listOp
   return listOpenPlatformConfigWithOptions(request, runtime);
 }
 
-ListSpaceResponse Alibabacloud_MPServerless20190615::Client::listSpaceWithOptions(shared_ptr<ListSpaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListSpaceResponse Alibabacloud_MPServerless20190615::Client::listSpaceWithOptions(shared_ptr<ListSpaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListSpaceShrinkRequest> request = make_shared<ListSpaceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->spaceIds)) {
+    request->spaceIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->spaceIds, make_shared<string>("SpaceIds"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNum)) {
     body->insert(pair<string, long>("PageNum", *request->pageNum));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spaceIdsShrink)) {
+    body->insert(pair<string, string>("SpaceIds", *request->spaceIdsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

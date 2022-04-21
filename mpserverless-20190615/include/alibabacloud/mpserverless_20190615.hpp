@@ -8144,6 +8144,7 @@ class ListSpaceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
+  shared_ptr<vector<string>> spaceIds{};
 
   ListSpaceRequest() {}
 
@@ -8161,6 +8162,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (spaceIds) {
+      res["SpaceIds"] = boost::any(*spaceIds);
+    }
     return res;
   }
 
@@ -8171,15 +8175,69 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("SpaceIds") != m.end() && !m["SpaceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpaceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpaceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      spaceIds = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~ListSpaceRequest() = default;
 };
+class ListSpaceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> spaceIdsShrink{};
+
+  ListSpaceShrinkRequest() {}
+
+  explicit ListSpaceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (spaceIdsShrink) {
+      res["SpaceIds"] = boost::any(*spaceIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SpaceIds") != m.end() && !m["SpaceIds"].empty()) {
+      spaceIdsShrink = make_shared<string>(boost::any_cast<string>(m["SpaceIds"]));
+    }
+  }
+
+
+  virtual ~ListSpaceShrinkRequest() = default;
+};
 class ListSpaceResponseBodySpaces : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
   shared_ptr<long> gmtCreate{};
+  shared_ptr<long> gmtLastAccess{};
   shared_ptr<string> name{};
   shared_ptr<string> spaceId{};
   shared_ptr<string> status{};
@@ -8200,6 +8258,9 @@ public:
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (gmtLastAccess) {
+      res["GmtLastAccess"] = boost::any(*gmtLastAccess);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -8218,6 +8279,9 @@ public:
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("GmtLastAccess") != m.end() && !m["GmtLastAccess"].empty()) {
+      gmtLastAccess = make_shared<long>(boost::any_cast<long>(m["GmtLastAccess"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -12657,7 +12721,7 @@ public:
   ListFunctionLogResponse listFunctionLog(shared_ptr<ListFunctionLogRequest> request);
   ListOpenPlatformConfigResponse listOpenPlatformConfigWithOptions(shared_ptr<ListOpenPlatformConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOpenPlatformConfigResponse listOpenPlatformConfig(shared_ptr<ListOpenPlatformConfigRequest> request);
-  ListSpaceResponse listSpaceWithOptions(shared_ptr<ListSpaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSpaceResponse listSpaceWithOptions(shared_ptr<ListSpaceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSpaceResponse listSpace(shared_ptr<ListSpaceRequest> request);
   ListWebHostingCustomDomainsResponse listWebHostingCustomDomainsWithOptions(shared_ptr<ListWebHostingCustomDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWebHostingCustomDomainsResponse listWebHostingCustomDomains(shared_ptr<ListWebHostingCustomDomainsRequest> request);
