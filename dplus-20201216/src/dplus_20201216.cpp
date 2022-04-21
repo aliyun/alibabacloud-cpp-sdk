@@ -975,6 +975,80 @@ ReplaceBackgroundResponse Alibabacloud_Dplus20201216::Client::replaceBackgroundA
   return *replaceBackgroundResp;
 }
 
+SeleteCommodityResponse Alibabacloud_Dplus20201216::Client::seleteCommodityWithOptions(shared_ptr<SeleteCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->num)) {
+    query->insert(pair<string, long>("Num", *request->num));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->start)) {
+    query->insert(pair<string, long>("Start", *request->start));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SeleteCommodity"))},
+    {"version", boost::any(string("2020-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SeleteCommodityResponse(callApi(params, req, runtime));
+}
+
+SeleteCommodityResponse Alibabacloud_Dplus20201216::Client::seleteCommodity(shared_ptr<SeleteCommodityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return seleteCommodityWithOptions(request, runtime);
+}
+
+SeleteCommodityByBToBResponse Alibabacloud_Dplus20201216::Client::seleteCommodityByBToBWithOptions(shared_ptr<SeleteCommodityByBToBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->num)) {
+    query->insert(pair<string, long>("Num", *request->num));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
+    query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->start)) {
+    query->insert(pair<string, long>("Start", *request->start));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SeleteCommodityByBToB"))},
+    {"version", boost::any(string("2020-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SeleteCommodityByBToBResponse(callApi(params, req, runtime));
+}
+
+SeleteCommodityByBToBResponse Alibabacloud_Dplus20201216::Client::seleteCommodityByBToB(shared_ptr<SeleteCommodityByBToBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return seleteCommodityByBToBWithOptions(request, runtime);
+}
+
 TbPredictCategoryResponse Alibabacloud_Dplus20201216::Client::tbPredictCategoryWithOptions(shared_ptr<TbPredictCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1171,5 +1245,36 @@ TbPropRecResponse Alibabacloud_Dplus20201216::Client::tbPropRecAdvance(shared_pt
   }
   shared_ptr<TbPropRecResponse> tbPropRecResp = make_shared<TbPropRecResponse>(tbPropRecWithOptions(tbPropRecReq, runtime));
   return *tbPropRecResp;
+}
+
+TransferUrlByBtoBResponse Alibabacloud_Dplus20201216::Client::transferUrlByBtoBWithOptions(shared_ptr<TransferUrlByBtoBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->offerId)) {
+    query->insert(pair<string, long>("OfferId", *request->offerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TransferUrlByBtoB"))},
+    {"version", boost::any(string("2020-12-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TransferUrlByBtoBResponse(callApi(params, req, runtime));
+}
+
+TransferUrlByBtoBResponse Alibabacloud_Dplus20201216::Client::transferUrlByBtoB(shared_ptr<TransferUrlByBtoBRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return transferUrlByBtoBWithOptions(request, runtime);
 }
 

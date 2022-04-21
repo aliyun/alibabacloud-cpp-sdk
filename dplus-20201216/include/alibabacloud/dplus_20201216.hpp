@@ -1773,6 +1773,212 @@ public:
 
   virtual ~ReplaceBackgroundResponse() = default;
 };
+class SeleteCommodityRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> num{};
+  shared_ptr<string> pid{};
+  shared_ptr<string> query{};
+  shared_ptr<long> start{};
+
+  SeleteCommodityRequest() {}
+
+  explicit SeleteCommodityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (num) {
+      res["Num"] = boost::any(*num);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (start) {
+      res["Start"] = boost::any(*start);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Num") != m.end() && !m["Num"].empty()) {
+      num = make_shared<long>(boost::any_cast<long>(m["Num"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("Start") != m.end() && !m["Start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["Start"]));
+    }
+  }
+
+
+  virtual ~SeleteCommodityRequest() = default;
+};
+class SeleteCommodityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  SeleteCommodityResponse() {}
+
+  explicit SeleteCommodityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~SeleteCommodityResponse() = default;
+};
+class SeleteCommodityByBToBRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> num{};
+  shared_ptr<string> pid{};
+  shared_ptr<string> query{};
+  shared_ptr<long> start{};
+
+  SeleteCommodityByBToBRequest() {}
+
+  explicit SeleteCommodityByBToBRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (num) {
+      res["Num"] = boost::any(*num);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (start) {
+      res["Start"] = boost::any(*start);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Num") != m.end() && !m["Num"].empty()) {
+      num = make_shared<long>(boost::any_cast<long>(m["Num"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("Start") != m.end() && !m["Start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["Start"]));
+    }
+  }
+
+
+  virtual ~SeleteCommodityByBToBRequest() = default;
+};
+class SeleteCommodityByBToBResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  SeleteCommodityByBToBResponse() {}
+
+  explicit SeleteCommodityByBToBResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~SeleteCommodityByBToBResponse() = default;
+};
 class TbPredictCategoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> picUrl{};
@@ -2003,6 +2209,95 @@ public:
 
   virtual ~TbPropRecResponse() = default;
 };
+class TransferUrlByBtoBRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> offerId{};
+  shared_ptr<string> pid{};
+
+  TransferUrlByBtoBRequest() {}
+
+  explicit TransferUrlByBtoBRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (offerId) {
+      res["OfferId"] = boost::any(*offerId);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OfferId") != m.end() && !m["OfferId"].empty()) {
+      offerId = make_shared<long>(boost::any_cast<long>(m["OfferId"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+  }
+
+
+  virtual ~TransferUrlByBtoBRequest() = default;
+};
+class TransferUrlByBtoBResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<map<string, boost::any>> body{};
+
+  TransferUrlByBtoBResponse() {}
+
+  explicit TransferUrlByBtoBResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["body"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      body = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~TransferUrlByBtoBResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2043,12 +2338,18 @@ public:
   ReplaceBackgroundResponse replaceBackgroundWithOptions(shared_ptr<ReplaceBackgroundRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReplaceBackgroundResponse replaceBackground(shared_ptr<ReplaceBackgroundRequest> request);
   ReplaceBackgroundResponse replaceBackgroundAdvance(shared_ptr<ReplaceBackgroundAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SeleteCommodityResponse seleteCommodityWithOptions(shared_ptr<SeleteCommodityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SeleteCommodityResponse seleteCommodity(shared_ptr<SeleteCommodityRequest> request);
+  SeleteCommodityByBToBResponse seleteCommodityByBToBWithOptions(shared_ptr<SeleteCommodityByBToBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SeleteCommodityByBToBResponse seleteCommodityByBToB(shared_ptr<SeleteCommodityByBToBRequest> request);
   TbPredictCategoryResponse tbPredictCategoryWithOptions(shared_ptr<TbPredictCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TbPredictCategoryResponse tbPredictCategory(shared_ptr<TbPredictCategoryRequest> request);
   TbPredictCategoryResponse tbPredictCategoryAdvance(shared_ptr<TbPredictCategoryAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TbPropRecResponse tbPropRecWithOptions(shared_ptr<TbPropRecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TbPropRecResponse tbPropRec(shared_ptr<TbPropRecRequest> request);
   TbPropRecResponse tbPropRecAdvance(shared_ptr<TbPropRecAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TransferUrlByBtoBResponse transferUrlByBtoBWithOptions(shared_ptr<TransferUrlByBtoBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  TransferUrlByBtoBResponse transferUrlByBtoB(shared_ptr<TransferUrlByBtoBRequest> request);
 
   virtual ~Client() = default;
 };
