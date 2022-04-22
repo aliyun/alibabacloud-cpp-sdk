@@ -1277,6 +1277,459 @@ public:
 
   virtual ~DescribePhoneNumberStatusResponse() = default;
 };
+class InvalidPhoneNumberFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authCode{};
+  shared_ptr<string> inputNumber{};
+  shared_ptr<string> mask{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  InvalidPhoneNumberFilterRequest() {}
+
+  explicit InvalidPhoneNumberFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authCode) {
+      res["AuthCode"] = boost::any(*authCode);
+    }
+    if (inputNumber) {
+      res["InputNumber"] = boost::any(*inputNumber);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
+      authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
+    }
+    if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
+      inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<string>(boost::any_cast<string>(m["Mask"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~InvalidPhoneNumberFilterRequest() = default;
+};
+class InvalidPhoneNumberFilterResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> encryptedNumber{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<string> originalNumber{};
+
+  InvalidPhoneNumberFilterResponseBodyData() {}
+
+  explicit InvalidPhoneNumberFilterResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (encryptedNumber) {
+      res["EncryptedNumber"] = boost::any(*encryptedNumber);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (originalNumber) {
+      res["OriginalNumber"] = boost::any(*originalNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("EncryptedNumber") != m.end() && !m["EncryptedNumber"].empty()) {
+      encryptedNumber = make_shared<string>(boost::any_cast<string>(m["EncryptedNumber"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("OriginalNumber") != m.end() && !m["OriginalNumber"].empty()) {
+      originalNumber = make_shared<string>(boost::any_cast<string>(m["OriginalNumber"]));
+    }
+  }
+
+
+  virtual ~InvalidPhoneNumberFilterResponseBodyData() = default;
+};
+class InvalidPhoneNumberFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<InvalidPhoneNumberFilterResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  InvalidPhoneNumberFilterResponseBody() {}
+
+  explicit InvalidPhoneNumberFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<InvalidPhoneNumberFilterResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InvalidPhoneNumberFilterResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<InvalidPhoneNumberFilterResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~InvalidPhoneNumberFilterResponseBody() = default;
+};
+class InvalidPhoneNumberFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<InvalidPhoneNumberFilterResponseBody> body{};
+
+  InvalidPhoneNumberFilterResponse() {}
+
+  explicit InvalidPhoneNumberFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InvalidPhoneNumberFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InvalidPhoneNumberFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InvalidPhoneNumberFilterResponse() = default;
+};
+class PhoneNumberEncryptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authCode{};
+  shared_ptr<string> inputNumber{};
+  shared_ptr<string> mask{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  PhoneNumberEncryptRequest() {}
+
+  explicit PhoneNumberEncryptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authCode) {
+      res["AuthCode"] = boost::any(*authCode);
+    }
+    if (inputNumber) {
+      res["InputNumber"] = boost::any(*inputNumber);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
+      authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
+    }
+    if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
+      inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<string>(boost::any_cast<string>(m["Mask"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~PhoneNumberEncryptRequest() = default;
+};
+class PhoneNumberEncryptResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptedNumber{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<string> originalNumber{};
+
+  PhoneNumberEncryptResponseBodyData() {}
+
+  explicit PhoneNumberEncryptResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptedNumber) {
+      res["EncryptedNumber"] = boost::any(*encryptedNumber);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (originalNumber) {
+      res["OriginalNumber"] = boost::any(*originalNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptedNumber") != m.end() && !m["EncryptedNumber"].empty()) {
+      encryptedNumber = make_shared<string>(boost::any_cast<string>(m["EncryptedNumber"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("OriginalNumber") != m.end() && !m["OriginalNumber"].empty()) {
+      originalNumber = make_shared<string>(boost::any_cast<string>(m["OriginalNumber"]));
+    }
+  }
+
+
+  virtual ~PhoneNumberEncryptResponseBodyData() = default;
+};
+class PhoneNumberEncryptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<PhoneNumberEncryptResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  PhoneNumberEncryptResponseBody() {}
+
+  explicit PhoneNumberEncryptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<PhoneNumberEncryptResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PhoneNumberEncryptResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<PhoneNumberEncryptResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~PhoneNumberEncryptResponseBody() = default;
+};
+class PhoneNumberEncryptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<PhoneNumberEncryptResponseBody> body{};
+
+  PhoneNumberEncryptResponse() {}
+
+  explicit PhoneNumberEncryptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PhoneNumberEncryptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PhoneNumberEncryptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PhoneNumberEncryptResponse() = default;
+};
 class PvrCallbackFCUResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -1337,6 +1790,10 @@ public:
   DescribePhoneNumberResaleResponse describePhoneNumberResale(shared_ptr<DescribePhoneNumberResaleRequest> request);
   DescribePhoneNumberStatusResponse describePhoneNumberStatusWithOptions(shared_ptr<DescribePhoneNumberStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePhoneNumberStatusResponse describePhoneNumberStatus(shared_ptr<DescribePhoneNumberStatusRequest> request);
+  InvalidPhoneNumberFilterResponse invalidPhoneNumberFilterWithOptions(shared_ptr<InvalidPhoneNumberFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InvalidPhoneNumberFilterResponse invalidPhoneNumberFilter(shared_ptr<InvalidPhoneNumberFilterRequest> request);
+  PhoneNumberEncryptResponse phoneNumberEncryptWithOptions(shared_ptr<PhoneNumberEncryptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PhoneNumberEncryptResponse phoneNumberEncrypt(shared_ptr<PhoneNumberEncryptRequest> request);
   PvrCallbackFCUResponse pvrCallbackFCUWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PvrCallbackFCUResponse pvrCallbackFCU();
 
