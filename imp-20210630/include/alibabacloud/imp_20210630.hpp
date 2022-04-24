@@ -7398,6 +7398,8 @@ public:
 };
 class GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList : public Darabonba::Model {
 public:
+  shared_ptr<long> commentCount{};
+  shared_ptr<long> likeCount{};
   shared_ptr<string> userId{};
   shared_ptr<long> watchLiveTime{};
 
@@ -7411,6 +7413,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commentCount) {
+      res["CommentCount"] = boost::any(*commentCount);
+    }
+    if (likeCount) {
+      res["LikeCount"] = boost::any(*likeCount);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -7421,6 +7429,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommentCount") != m.end() && !m["CommentCount"].empty()) {
+      commentCount = make_shared<long>(boost::any_cast<long>(m["CommentCount"]));
+    }
+    if (m.find("LikeCount") != m.end() && !m["LikeCount"].empty()) {
+      likeCount = make_shared<long>(boost::any_cast<long>(m["LikeCount"]));
+    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
