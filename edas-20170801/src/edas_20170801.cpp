@@ -2842,6 +2842,9 @@ InsertApplicationResponse Alibabacloud_Edas20170801::Client::insertApplicationWi
   if (!Darabonba_Util::Client::isUnset<string>(request->reservedPortStr)) {
     query->insert(pair<string, string>("ReservedPortStr", *request->reservedPortStr));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->webContainer)) {
     query->insert(pair<string, string>("WebContainer", *request->webContainer));
   }
@@ -3144,6 +3147,9 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->requestsmCpu)) {
     query->insert(pair<string, long>("RequestsmCpu", *request->requestsmCpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->runtimeClassName)) {
     query->insert(pair<string, string>("RuntimeClassName", *request->runtimeClassName));

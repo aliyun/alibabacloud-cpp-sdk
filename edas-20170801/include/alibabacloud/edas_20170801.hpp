@@ -18050,6 +18050,7 @@ public:
   shared_ptr<long> minHeapSize{};
   shared_ptr<string> packageType{};
   shared_ptr<string> reservedPortStr{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> webContainer{};
 
   InsertApplicationRequest() {}
@@ -18125,6 +18126,9 @@ public:
     if (reservedPortStr) {
       res["ReservedPortStr"] = boost::any(*reservedPortStr);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (webContainer) {
       res["WebContainer"] = boost::any(*webContainer);
     }
@@ -18194,6 +18198,9 @@ public:
     }
     if (m.find("ReservedPortStr") != m.end() && !m["ReservedPortStr"].empty()) {
       reservedPortStr = make_shared<string>(boost::any_cast<string>(m["ReservedPortStr"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("WebContainer") != m.end() && !m["WebContainer"].empty()) {
       webContainer = make_shared<string>(boost::any_cast<string>(m["WebContainer"]));
@@ -19074,6 +19081,7 @@ public:
   shared_ptr<long> requestsCpu{};
   shared_ptr<long> requestsMem{};
   shared_ptr<long> requestsmCpu{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> runtimeClassName{};
   shared_ptr<string> slsConfigs{};
   shared_ptr<string> storageType{};
@@ -19245,6 +19253,9 @@ public:
     }
     if (requestsmCpu) {
       res["RequestsmCpu"] = boost::any(*requestsmCpu);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (runtimeClassName) {
       res["RuntimeClassName"] = boost::any(*runtimeClassName);
@@ -19426,6 +19437,9 @@ public:
     }
     if (m.find("RequestsmCpu") != m.end() && !m["RequestsmCpu"].empty()) {
       requestsmCpu = make_shared<long>(boost::any_cast<long>(m["RequestsmCpu"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RuntimeClassName") != m.end() && !m["RuntimeClassName"].empty()) {
       runtimeClassName = make_shared<string>(boost::any_cast<string>(m["RuntimeClassName"]));
