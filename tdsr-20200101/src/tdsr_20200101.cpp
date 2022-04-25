@@ -166,6 +166,9 @@ AddRoomPlanResponse Alibabacloud_Tdsr20200101::Client::addRoomPlan(shared_ptr<Ad
 AddSceneResponse Alibabacloud_Tdsr20200101::Client::addSceneWithOptions(shared_ptr<AddSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customerUid)) {
+    query->insert(pair<string, string>("CustomerUid", *request->customerUid));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -778,6 +781,34 @@ GetScenePreviewInfoResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewIn
 GetScenePreviewInfoResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewInfo(shared_ptr<GetScenePreviewInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getScenePreviewInfoWithOptions(request, runtime);
+}
+
+GetScenePreviewResourceResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewResourceWithOptions(shared_ptr<GetScenePreviewResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->previewToken)) {
+    query->insert(pair<string, string>("PreviewToken", *request->previewToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetScenePreviewResource"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetScenePreviewResourceResponse(callApi(params, req, runtime));
+}
+
+GetScenePreviewResourceResponse Alibabacloud_Tdsr20200101::Client::getScenePreviewResource(shared_ptr<GetScenePreviewResourceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getScenePreviewResourceWithOptions(request, runtime);
 }
 
 GetSingleConnDataResponse Alibabacloud_Tdsr20200101::Client::getSingleConnDataWithOptions(shared_ptr<GetSingleConnDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
