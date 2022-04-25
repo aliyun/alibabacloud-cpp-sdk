@@ -2778,6 +2778,9 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->replacementOption)) {
     query->insert(pair<string, string>("ReplacementOption", *request->replacementOption));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));
   }

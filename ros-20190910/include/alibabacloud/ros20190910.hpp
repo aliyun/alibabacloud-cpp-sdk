@@ -5379,6 +5379,106 @@ public:
 
   virtual ~GetFeatureDetailsRequest() = default;
 };
+class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceType{};
+  shared_ptr<bool> sourceResourceGroupSupported{};
+  shared_ptr<bool> sourceResourcesSupported{};
+  shared_ptr<bool> sourceSupported{};
+  shared_ptr<bool> sourceTagSupported{};
+
+  GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes() {}
+
+  explicit GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (sourceResourceGroupSupported) {
+      res["SourceResourceGroupSupported"] = boost::any(*sourceResourceGroupSupported);
+    }
+    if (sourceResourcesSupported) {
+      res["SourceResourcesSupported"] = boost::any(*sourceResourcesSupported);
+    }
+    if (sourceSupported) {
+      res["SourceSupported"] = boost::any(*sourceSupported);
+    }
+    if (sourceTagSupported) {
+      res["SourceTagSupported"] = boost::any(*sourceTagSupported);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("SourceResourceGroupSupported") != m.end() && !m["SourceResourceGroupSupported"].empty()) {
+      sourceResourceGroupSupported = make_shared<bool>(boost::any_cast<bool>(m["SourceResourceGroupSupported"]));
+    }
+    if (m.find("SourceResourcesSupported") != m.end() && !m["SourceResourcesSupported"].empty()) {
+      sourceResourcesSupported = make_shared<bool>(boost::any_cast<bool>(m["SourceResourcesSupported"]));
+    }
+    if (m.find("SourceSupported") != m.end() && !m["SourceSupported"].empty()) {
+      sourceSupported = make_shared<bool>(boost::any_cast<bool>(m["SourceSupported"]));
+    }
+    if (m.find("SourceTagSupported") != m.end() && !m["SourceTagSupported"].empty()) {
+      sourceTagSupported = make_shared<bool>(boost::any_cast<bool>(m["SourceTagSupported"]));
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes() = default;
+};
+class GetFeatureDetailsResponseBodyTemplateScratch : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes>> supportedResourceTypes{};
+
+  GetFeatureDetailsResponseBodyTemplateScratch() {}
+
+  explicit GetFeatureDetailsResponseBodyTemplateScratch(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supportedResourceTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedResourceTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedResourceTypes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SupportedResourceTypes") != m.end() && !m["SupportedResourceTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedResourceTypes"].type()) {
+        vector<GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedResourceTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedResourceTypes = make_shared<vector<GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyTemplateScratch() = default;
+};
 class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> customTag{};
@@ -5628,6 +5728,7 @@ public:
 class GetFeatureDetailsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<GetFeatureDetailsResponseBodyTemplateScratch> templateScratch{};
   shared_ptr<GetFeatureDetailsResponseBodyTerraform> terraform{};
 
   GetFeatureDetailsResponseBody() {}
@@ -5643,6 +5744,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (templateScratch) {
+      res["TemplateScratch"] = templateScratch ? boost::any(templateScratch->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (terraform) {
       res["Terraform"] = terraform ? boost::any(terraform->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -5652,6 +5756,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TemplateScratch") != m.end() && !m["TemplateScratch"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TemplateScratch"].type()) {
+        GetFeatureDetailsResponseBodyTemplateScratch model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TemplateScratch"]));
+        templateScratch = make_shared<GetFeatureDetailsResponseBodyTemplateScratch>(model1);
+      }
     }
     if (m.find("Terraform") != m.end() && !m["Terraform"].empty()) {
       if (typeid(map<string, boost::any>) == m["Terraform"].type()) {
@@ -17303,6 +17414,7 @@ public:
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replacementOption{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackPolicyBody{};
   shared_ptr<string> stackPolicyDuringUpdateBody{};
@@ -17350,6 +17462,9 @@ public:
     }
     if (replacementOption) {
       res["ReplacementOption"] = boost::any(*replacementOption);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (stackId) {
       res["StackId"] = boost::any(*stackId);
@@ -17425,6 +17540,9 @@ public:
     }
     if (m.find("ReplacementOption") != m.end() && !m["ReplacementOption"].empty()) {
       replacementOption = make_shared<string>(boost::any_cast<string>(m["ReplacementOption"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
       stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
