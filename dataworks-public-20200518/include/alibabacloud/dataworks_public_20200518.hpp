@@ -3026,6 +3026,8 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<long> fileType{};
   shared_ptr<string> inputList{};
+  shared_ptr<string> inputParameters{};
+  shared_ptr<string> outputParameters{};
   shared_ptr<string> owner{};
   shared_ptr<string> paraValue{};
   shared_ptr<long> projectId{};
@@ -3095,6 +3097,12 @@ public:
     }
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
+    }
+    if (inputParameters) {
+      res["InputParameters"] = boost::any(*inputParameters);
+    }
+    if (outputParameters) {
+      res["OutputParameters"] = boost::any(*outputParameters);
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
@@ -3180,6 +3188,12 @@ public:
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));
+    }
+    if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
+      inputParameters = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
+    }
+    if (m.find("OutputParameters") != m.end() && !m["OutputParameters"].empty()) {
+      outputParameters = make_shared<string>(boost::any_cast<string>(m["OutputParameters"]));
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
@@ -17351,6 +17365,42 @@ public:
 
   virtual ~GetFileResponseBodyDataNodeConfigurationInputList() = default;
 };
+class GetFileResponseBodyDataNodeConfigurationInputParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterName{};
+  shared_ptr<string> valueSource{};
+
+  GetFileResponseBodyDataNodeConfigurationInputParameters() {}
+
+  explicit GetFileResponseBodyDataNodeConfigurationInputParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterName) {
+      res["ParameterName"] = boost::any(*parameterName);
+    }
+    if (valueSource) {
+      res["ValueSource"] = boost::any(*valueSource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterName") != m.end() && !m["ParameterName"].empty()) {
+      parameterName = make_shared<string>(boost::any_cast<string>(m["ParameterName"]));
+    }
+    if (m.find("ValueSource") != m.end() && !m["ValueSource"].empty()) {
+      valueSource = make_shared<string>(boost::any_cast<string>(m["ValueSource"]));
+    }
+  }
+
+
+  virtual ~GetFileResponseBodyDataNodeConfigurationInputParameters() = default;
+};
 class GetFileResponseBodyDataNodeConfigurationOutputList : public Darabonba::Model {
 public:
   shared_ptr<string> output{};
@@ -17387,6 +17437,56 @@ public:
 
   virtual ~GetFileResponseBodyDataNodeConfigurationOutputList() = default;
 };
+class GetFileResponseBodyDataNodeConfigurationOutputParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> parameterName{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  GetFileResponseBodyDataNodeConfigurationOutputParameters() {}
+
+  explicit GetFileResponseBodyDataNodeConfigurationOutputParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (parameterName) {
+      res["ParameterName"] = boost::any(*parameterName);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ParameterName") != m.end() && !m["ParameterName"].empty()) {
+      parameterName = make_shared<string>(boost::any_cast<string>(m["ParameterName"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetFileResponseBodyDataNodeConfigurationOutputParameters() = default;
+};
 class GetFileResponseBodyDataNodeConfiguration : public Darabonba::Model {
 public:
   shared_ptr<long> autoRerunIntervalMillis{};
@@ -17397,7 +17497,9 @@ public:
   shared_ptr<string> dependentType{};
   shared_ptr<long> endEffectDate{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputList>> inputList{};
+  shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationInputParameters>> inputParameters{};
   shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationOutputList>> outputList{};
+  shared_ptr<vector<GetFileResponseBodyDataNodeConfigurationOutputParameters>> outputParameters{};
   shared_ptr<string> paraValue{};
   shared_ptr<string> rerunMode{};
   shared_ptr<long> resourceGroupId{};
@@ -17444,12 +17546,26 @@ public:
       }
       res["InputList"] = boost::any(temp1);
     }
+    if (inputParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*inputParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InputParameters"] = boost::any(temp1);
+    }
     if (outputList) {
       vector<boost::any> temp1;
       for(auto item1:*outputList){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["OutputList"] = boost::any(temp1);
+    }
+    if (outputParameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*outputParameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OutputParameters"] = boost::any(temp1);
     }
     if (paraValue) {
       res["ParaValue"] = boost::any(*paraValue);
@@ -17510,6 +17626,19 @@ public:
         inputList = make_shared<vector<GetFileResponseBodyDataNodeConfigurationInputList>>(expect1);
       }
     }
+    if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["InputParameters"].type()) {
+        vector<GetFileResponseBodyDataNodeConfigurationInputParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InputParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFileResponseBodyDataNodeConfigurationInputParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        inputParameters = make_shared<vector<GetFileResponseBodyDataNodeConfigurationInputParameters>>(expect1);
+      }
+    }
     if (m.find("OutputList") != m.end() && !m["OutputList"].empty()) {
       if (typeid(vector<boost::any>) == m["OutputList"].type()) {
         vector<GetFileResponseBodyDataNodeConfigurationOutputList> expect1;
@@ -17521,6 +17650,19 @@ public:
           }
         }
         outputList = make_shared<vector<GetFileResponseBodyDataNodeConfigurationOutputList>>(expect1);
+      }
+    }
+    if (m.find("OutputParameters") != m.end() && !m["OutputParameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["OutputParameters"].type()) {
+        vector<GetFileResponseBodyDataNodeConfigurationOutputParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OutputParameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFileResponseBodyDataNodeConfigurationOutputParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        outputParameters = make_shared<vector<GetFileResponseBodyDataNodeConfigurationOutputParameters>>(expect1);
       }
     }
     if (m.find("ParaValue") != m.end() && !m["ParaValue"].empty()) {
@@ -54890,7 +55032,9 @@ public:
   shared_ptr<long> fileId{};
   shared_ptr<string> fileName{};
   shared_ptr<string> inputList{};
+  shared_ptr<string> inputParameters{};
   shared_ptr<string> outputList{};
+  shared_ptr<string> outputParameters{};
   shared_ptr<string> owner{};
   shared_ptr<string> paraValue{};
   shared_ptr<long> projectId{};
@@ -54960,8 +55104,14 @@ public:
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
     }
+    if (inputParameters) {
+      res["InputParameters"] = boost::any(*inputParameters);
+    }
     if (outputList) {
       res["OutputList"] = boost::any(*outputList);
+    }
+    if (outputParameters) {
+      res["OutputParameters"] = boost::any(*outputParameters);
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
@@ -55045,8 +55195,14 @@ public:
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));
     }
+    if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
+      inputParameters = make_shared<string>(boost::any_cast<string>(m["InputParameters"]));
+    }
     if (m.find("OutputList") != m.end() && !m["OutputList"].empty()) {
       outputList = make_shared<string>(boost::any_cast<string>(m["OutputList"]));
+    }
+    if (m.find("OutputParameters") != m.end() && !m["OutputParameters"].empty()) {
+      outputParameters = make_shared<string>(boost::any_cast<string>(m["OutputParameters"]));
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));

@@ -886,6 +886,12 @@ CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWith
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputParameters)) {
+    body->insert(pair<string, string>("InputParameters", *request->inputParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputParameters)) {
+    body->insert(pair<string, string>("OutputParameters", *request->outputParameters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
     body->insert(pair<string, string>("Owner", *request->owner));
   }
@@ -7815,8 +7821,14 @@ UpdateFileResponse Alibabacloud_Dataworks-public20200518::Client::updateFileWith
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->inputParameters)) {
+    body->insert(pair<string, string>("InputParameters", *request->inputParameters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputList)) {
     body->insert(pair<string, string>("OutputList", *request->outputList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputParameters)) {
+    body->insert(pair<string, string>("OutputParameters", *request->outputParameters));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
     body->insert(pair<string, string>("Owner", *request->owner));
