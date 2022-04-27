@@ -652,6 +652,151 @@ public:
 
   virtual ~BatchStopGameSessionsResponse() = default;
 };
+class CancelGameHangRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> gameSession{};
+
+  CancelGameHangRequest() {}
+
+  explicit CancelGameHangRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+  }
+
+
+  virtual ~CancelGameHangRequest() = default;
+};
+class CancelGameHangResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CancelGameHangResponseBody() {}
+
+  explicit CancelGameHangResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CancelGameHangResponseBody() = default;
+};
+class CancelGameHangResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CancelGameHangResponseBody> body{};
+
+  CancelGameHangResponse() {}
+
+  explicit CancelGameHangResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelGameHangResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelGameHangResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelGameHangResponse() = default;
+};
 class CloseOrderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountDomain{};
@@ -6396,6 +6541,172 @@ public:
 
   virtual ~QueryGameResponse() = default;
 };
+class QueryGameHangRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> gameSession{};
+
+  QueryGameHangRequest() {}
+
+  explicit QueryGameHangRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+  }
+
+
+  virtual ~QueryGameHangRequest() = default;
+};
+class QueryGameHangResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<bool> hanging{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> startHangTimestamp{};
+  shared_ptr<bool> success{};
+
+  QueryGameHangResponseBody() {}
+
+  explicit QueryGameHangResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (hanging) {
+      res["Hanging"] = boost::any(*hanging);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startHangTimestamp) {
+      res["StartHangTimestamp"] = boost::any(*startHangTimestamp);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("Hanging") != m.end() && !m["Hanging"].empty()) {
+      hanging = make_shared<bool>(boost::any_cast<bool>(m["Hanging"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartHangTimestamp") != m.end() && !m["StartHangTimestamp"].empty()) {
+      startHangTimestamp = make_shared<long>(boost::any_cast<long>(m["StartHangTimestamp"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryGameHangResponseBody() = default;
+};
+class QueryGameHangResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QueryGameHangResponseBody> body{};
+
+  QueryGameHangResponse() {}
+
+  explicit QueryGameHangResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryGameHangResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryGameHangResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryGameHangResponse() = default;
+};
 class QueryItemsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -7889,6 +8200,324 @@ public:
 
   virtual ~RemoveGameFromProjectResponse() = default;
 };
+class SetGameAliveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<long> keepAlive{};
+
+  SetGameAliveRequest() {}
+
+  explicit SetGameAliveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (keepAlive) {
+      res["KeepAlive"] = boost::any(*keepAlive);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("KeepAlive") != m.end() && !m["KeepAlive"].empty()) {
+      keepAlive = make_shared<long>(boost::any_cast<long>(m["KeepAlive"]));
+    }
+  }
+
+
+  virtual ~SetGameAliveRequest() = default;
+};
+class SetGameAliveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SetGameAliveResponseBody() {}
+
+  explicit SetGameAliveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SetGameAliveResponseBody() = default;
+};
+class SetGameAliveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SetGameAliveResponseBody> body{};
+
+  SetGameAliveResponse() {}
+
+  explicit SetGameAliveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetGameAliveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetGameAliveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetGameAliveResponse() = default;
+};
+class SetGameHangRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> gameSession{};
+
+  SetGameHangRequest() {}
+
+  explicit SetGameHangRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+  }
+
+
+  virtual ~SetGameHangRequest() = default;
+};
+class SetGameHangResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> duration{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> startHangTimestamp{};
+  shared_ptr<bool> success{};
+
+  SetGameHangResponseBody() {}
+
+  explicit SetGameHangResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startHangTimestamp) {
+      res["StartHangTimestamp"] = boost::any(*startHangTimestamp);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartHangTimestamp") != m.end() && !m["StartHangTimestamp"].empty()) {
+      startHangTimestamp = make_shared<long>(boost::any_cast<long>(m["StartHangTimestamp"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SetGameHangResponseBody() = default;
+};
+class SetGameHangResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<SetGameHangResponseBody> body{};
+
+  SetGameHangResponse() {}
+
+  explicit SetGameHangResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetGameHangResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetGameHangResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetGameHangResponse() = default;
+};
 class SkipTrialPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> gameSessionId{};
@@ -9308,6 +9937,8 @@ public:
   BatchDispatchGameSlotResponse batchDispatchGameSlot(shared_ptr<BatchDispatchGameSlotRequest> request);
   BatchStopGameSessionsResponse batchStopGameSessionsWithOptions(shared_ptr<BatchStopGameSessionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchStopGameSessionsResponse batchStopGameSessions(shared_ptr<BatchStopGameSessionsRequest> request);
+  CancelGameHangResponse cancelGameHangWithOptions(shared_ptr<CancelGameHangRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelGameHangResponse cancelGameHang(shared_ptr<CancelGameHangRequest> request);
   CloseOrderResponse closeOrderWithOptions(shared_ptr<CloseOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CloseOrderResponse closeOrder(shared_ptr<CloseOrderRequest> request);
   CreateGameResponse createGameWithOptions(shared_ptr<CreateGameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9368,6 +9999,8 @@ public:
   ListProjectsResponse listProjects(shared_ptr<ListProjectsRequest> request);
   QueryGameResponse queryGameWithOptions(shared_ptr<QueryGameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryGameResponse queryGame(shared_ptr<QueryGameRequest> request);
+  QueryGameHangResponse queryGameHangWithOptions(shared_ptr<QueryGameHangRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryGameHangResponse queryGameHang(shared_ptr<QueryGameHangRequest> request);
   QueryItemsResponse queryItemsWithOptions(shared_ptr<QueryItemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryItemsResponse queryItems(shared_ptr<QueryItemsRequest> request);
   QueryOrderResponse queryOrderWithOptions(shared_ptr<QueryOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -9380,6 +10013,10 @@ public:
   QueryTenantResponse queryTenant(shared_ptr<QueryTenantRequest> request);
   RemoveGameFromProjectResponse removeGameFromProjectWithOptions(shared_ptr<RemoveGameFromProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveGameFromProjectResponse removeGameFromProject(shared_ptr<RemoveGameFromProjectRequest> request);
+  SetGameAliveResponse setGameAliveWithOptions(shared_ptr<SetGameAliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetGameAliveResponse setGameAlive(shared_ptr<SetGameAliveRequest> request);
+  SetGameHangResponse setGameHangWithOptions(shared_ptr<SetGameHangRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetGameHangResponse setGameHang(shared_ptr<SetGameHangRequest> request);
   SkipTrialPolicyResponse skipTrialPolicyWithOptions(shared_ptr<SkipTrialPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SkipTrialPolicyResponse skipTrialPolicy(shared_ptr<SkipTrialPolicyRequest> request);
   StopGameSessionResponse stopGameSessionWithOptions(shared_ptr<StopGameSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
