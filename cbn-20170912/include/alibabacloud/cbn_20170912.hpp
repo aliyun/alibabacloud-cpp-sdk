@@ -11183,6 +11183,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> routeMapId{};
+  shared_ptr<string> transitRouterRouteTableId{};
   shared_ptr<string> transmitDirection{};
 
   DescribeCenRouteMapsRequest() {}
@@ -11222,6 +11223,9 @@ public:
     if (routeMapId) {
       res["RouteMapId"] = boost::any(*routeMapId);
     }
+    if (transitRouterRouteTableId) {
+      res["TransitRouterRouteTableId"] = boost::any(*transitRouterRouteTableId);
+    }
     if (transmitDirection) {
       res["TransmitDirection"] = boost::any(*transmitDirection);
     }
@@ -11255,6 +11259,9 @@ public:
     }
     if (m.find("RouteMapId") != m.end() && !m["RouteMapId"].empty()) {
       routeMapId = make_shared<string>(boost::any_cast<string>(m["RouteMapId"]));
+    }
+    if (m.find("TransitRouterRouteTableId") != m.end() && !m["TransitRouterRouteTableId"].empty()) {
+      transitRouterRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouterRouteTableId"]));
     }
     if (m.find("TransmitDirection") != m.end() && !m["TransmitDirection"].empty()) {
       transmitDirection = make_shared<string>(boost::any_cast<string>(m["TransmitDirection"]));
@@ -11762,6 +11769,7 @@ public:
   shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRegionIds> sourceRegionIds{};
   shared_ptr<DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableIds> sourceRouteTableIds{};
   shared_ptr<string> status{};
+  shared_ptr<string> transitRouterRouteTableId{};
   shared_ptr<string> transmitDirection{};
 
   DescribeCenRouteMapsResponseBodyRouteMapsRouteMap() {}
@@ -11857,6 +11865,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (transitRouterRouteTableId) {
+      res["TransitRouterRouteTableId"] = boost::any(*transitRouterRouteTableId);
     }
     if (transmitDirection) {
       res["TransmitDirection"] = boost::any(*transmitDirection);
@@ -12000,6 +12011,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TransitRouterRouteTableId") != m.end() && !m["TransitRouterRouteTableId"].empty()) {
+      transitRouterRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouterRouteTableId"]));
     }
     if (m.find("TransmitDirection") != m.end() && !m["TransmitDirection"].empty()) {
       transmitDirection = make_shared<string>(boost::any_cast<string>(m["TransmitDirection"]));
@@ -26922,6 +26936,7 @@ public:
 };
 class UpdateTransitRouterVbrAttachmentAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPublishRouteEnabled{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
@@ -26942,6 +26957,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPublishRouteEnabled) {
+      res["AutoPublishRouteEnabled"] = boost::any(*autoPublishRouteEnabled);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -26973,6 +26991,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPublishRouteEnabled") != m.end() && !m["AutoPublishRouteEnabled"].empty()) {
+      autoPublishRouteEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoPublishRouteEnabled"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }

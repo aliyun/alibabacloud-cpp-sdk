@@ -2798,6 +2798,9 @@ DescribeCenRouteMapsResponse Alibabacloud_Cbn20170912::Client::describeCenRouteM
   if (!Darabonba_Util::Client::isUnset<string>(request->routeMapId)) {
     query->insert(pair<string, string>("RouteMapId", *request->routeMapId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterRouteTableId)) {
+    query->insert(pair<string, string>("TransitRouterRouteTableId", *request->transitRouterRouteTableId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->transmitDirection)) {
     query->insert(pair<string, string>("TransmitDirection", *request->transmitDirection));
   }
@@ -6186,6 +6189,9 @@ UpdateTransitRouterRouteTableResponse Alibabacloud_Cbn20170912::Client::updateTr
 UpdateTransitRouterVbrAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVbrAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterVbrAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
+    query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
