@@ -4080,6 +4080,139 @@ ModifyApiResponse Alibabacloud_CloudAPI20160714::Client::modifyApi(shared_ptr<Mo
   return modifyApiWithOptions(request, runtime);
 }
 
+ModifyApiConfigurationResponse Alibabacloud_CloudAPI20160714::Client::modifyApiConfigurationWithOptions(shared_ptr<ModifyApiConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->allowSignatureMethod)) {
+    query->insert(pair<string, string>("AllowSignatureMethod", *request->allowSignatureMethod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiId)) {
+    query->insert(pair<string, string>("ApiId", *request->apiId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiName)) {
+    query->insert(pair<string, string>("ApiName", *request->apiName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appCodeAuthType)) {
+    query->insert(pair<string, string>("AppCodeAuthType", *request->appCodeAuthType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authType)) {
+    query->insert(pair<string, string>("AuthType", *request->authType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->backendName)) {
+    query->insert(pair<string, string>("BackendName", *request->backendName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bodyFormat)) {
+    query->insert(pair<string, string>("BodyFormat", *request->bodyFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bodyModel)) {
+    query->insert(pair<string, string>("BodyModel", *request->bodyModel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentTypeCategory)) {
+    query->insert(pair<string, string>("ContentTypeCategory", *request->contentTypeCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentTypeValue)) {
+    query->insert(pair<string, string>("ContentTypeValue", *request->contentTypeValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disableInternet)) {
+    query->insert(pair<string, bool>("DisableInternet", *request->disableInternet));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->errorCodeSamples)) {
+    query->insert(pair<string, string>("ErrorCodeSamples", *request->errorCodeSamples));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->failResultSample)) {
+    query->insert(pair<string, string>("FailResultSample", *request->failResultSample));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceNonceCheck)) {
+    query->insert(pair<string, bool>("ForceNonceCheck", *request->forceNonceCheck));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionComputeConfig)) {
+    query->insert(pair<string, string>("FunctionComputeConfig", *request->functionComputeConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpConfig)) {
+    query->insert(pair<string, string>("HttpConfig", *request->httpConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mockConfig)) {
+    query->insert(pair<string, string>("MockConfig", *request->mockConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelName)) {
+    query->insert(pair<string, string>("ModelName", *request->modelName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ossConfig)) {
+    query->insert(pair<string, string>("OssConfig", *request->ossConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->postBodyDescription)) {
+    query->insert(pair<string, string>("PostBodyDescription", *request->postBodyDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestHttpMethod)) {
+    query->insert(pair<string, string>("RequestHttpMethod", *request->requestHttpMethod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestMode)) {
+    query->insert(pair<string, string>("RequestMode", *request->requestMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestParameters)) {
+    query->insert(pair<string, string>("RequestParameters", *request->requestParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestPath)) {
+    query->insert(pair<string, string>("RequestPath", *request->requestPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestProtocol)) {
+    query->insert(pair<string, string>("RequestProtocol", *request->requestProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resultSample)) {
+    query->insert(pair<string, string>("ResultSample", *request->resultSample));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resultType)) {
+    query->insert(pair<string, string>("ResultType", *request->resultType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceParameters)) {
+    query->insert(pair<string, string>("ServiceParameters", *request->serviceParameters));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceParametersMap)) {
+    query->insert(pair<string, string>("ServiceParametersMap", *request->serviceParametersMap));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceProtocol)) {
+    query->insert(pair<string, string>("ServiceProtocol", *request->serviceProtocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->serviceTimeout)) {
+    query->insert(pair<string, long>("ServiceTimeout", *request->serviceTimeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useBackendService)) {
+    query->insert(pair<string, bool>("UseBackendService", *request->useBackendService));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->visibility)) {
+    query->insert(pair<string, string>("Visibility", *request->visibility));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcConfig)) {
+    query->insert(pair<string, string>("VpcConfig", *request->vpcConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyApiConfiguration"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyApiConfigurationResponse(callApi(params, req, runtime));
+}
+
+ModifyApiConfigurationResponse Alibabacloud_CloudAPI20160714::Client::modifyApiConfiguration(shared_ptr<ModifyApiConfigurationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyApiConfigurationWithOptions(request, runtime);
+}
+
 ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupWithOptions(shared_ptr<ModifyApiGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

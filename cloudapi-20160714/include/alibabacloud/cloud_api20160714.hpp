@@ -29720,6 +29720,361 @@ public:
 
   virtual ~ModifyApiResponse() = default;
 };
+class ModifyApiConfigurationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> allowSignatureMethod{};
+  shared_ptr<string> apiId{};
+  shared_ptr<string> apiName{};
+  shared_ptr<string> appCodeAuthType{};
+  shared_ptr<string> authType{};
+  shared_ptr<string> backendName{};
+  shared_ptr<string> bodyFormat{};
+  shared_ptr<string> bodyModel{};
+  shared_ptr<string> contentTypeCategory{};
+  shared_ptr<string> contentTypeValue{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> disableInternet{};
+  shared_ptr<string> errorCodeSamples{};
+  shared_ptr<string> failResultSample{};
+  shared_ptr<bool> forceNonceCheck{};
+  shared_ptr<string> functionComputeConfig{};
+  shared_ptr<string> httpConfig{};
+  shared_ptr<string> mockConfig{};
+  shared_ptr<string> modelName{};
+  shared_ptr<string> ossConfig{};
+  shared_ptr<string> postBodyDescription{};
+  shared_ptr<string> requestHttpMethod{};
+  shared_ptr<string> requestMode{};
+  shared_ptr<string> requestParameters{};
+  shared_ptr<string> requestPath{};
+  shared_ptr<string> requestProtocol{};
+  shared_ptr<string> resultSample{};
+  shared_ptr<string> resultType{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> serviceParameters{};
+  shared_ptr<string> serviceParametersMap{};
+  shared_ptr<string> serviceProtocol{};
+  shared_ptr<long> serviceTimeout{};
+  shared_ptr<bool> useBackendService{};
+  shared_ptr<string> visibility{};
+  shared_ptr<string> vpcConfig{};
+
+  ModifyApiConfigurationRequest() {}
+
+  explicit ModifyApiConfigurationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowSignatureMethod) {
+      res["AllowSignatureMethod"] = boost::any(*allowSignatureMethod);
+    }
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (apiName) {
+      res["ApiName"] = boost::any(*apiName);
+    }
+    if (appCodeAuthType) {
+      res["AppCodeAuthType"] = boost::any(*appCodeAuthType);
+    }
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
+    if (backendName) {
+      res["BackendName"] = boost::any(*backendName);
+    }
+    if (bodyFormat) {
+      res["BodyFormat"] = boost::any(*bodyFormat);
+    }
+    if (bodyModel) {
+      res["BodyModel"] = boost::any(*bodyModel);
+    }
+    if (contentTypeCategory) {
+      res["ContentTypeCategory"] = boost::any(*contentTypeCategory);
+    }
+    if (contentTypeValue) {
+      res["ContentTypeValue"] = boost::any(*contentTypeValue);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (disableInternet) {
+      res["DisableInternet"] = boost::any(*disableInternet);
+    }
+    if (errorCodeSamples) {
+      res["ErrorCodeSamples"] = boost::any(*errorCodeSamples);
+    }
+    if (failResultSample) {
+      res["FailResultSample"] = boost::any(*failResultSample);
+    }
+    if (forceNonceCheck) {
+      res["ForceNonceCheck"] = boost::any(*forceNonceCheck);
+    }
+    if (functionComputeConfig) {
+      res["FunctionComputeConfig"] = boost::any(*functionComputeConfig);
+    }
+    if (httpConfig) {
+      res["HttpConfig"] = boost::any(*httpConfig);
+    }
+    if (mockConfig) {
+      res["MockConfig"] = boost::any(*mockConfig);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    if (ossConfig) {
+      res["OssConfig"] = boost::any(*ossConfig);
+    }
+    if (postBodyDescription) {
+      res["PostBodyDescription"] = boost::any(*postBodyDescription);
+    }
+    if (requestHttpMethod) {
+      res["RequestHttpMethod"] = boost::any(*requestHttpMethod);
+    }
+    if (requestMode) {
+      res["RequestMode"] = boost::any(*requestMode);
+    }
+    if (requestParameters) {
+      res["RequestParameters"] = boost::any(*requestParameters);
+    }
+    if (requestPath) {
+      res["RequestPath"] = boost::any(*requestPath);
+    }
+    if (requestProtocol) {
+      res["RequestProtocol"] = boost::any(*requestProtocol);
+    }
+    if (resultSample) {
+      res["ResultSample"] = boost::any(*resultSample);
+    }
+    if (resultType) {
+      res["ResultType"] = boost::any(*resultType);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (serviceParameters) {
+      res["ServiceParameters"] = boost::any(*serviceParameters);
+    }
+    if (serviceParametersMap) {
+      res["ServiceParametersMap"] = boost::any(*serviceParametersMap);
+    }
+    if (serviceProtocol) {
+      res["ServiceProtocol"] = boost::any(*serviceProtocol);
+    }
+    if (serviceTimeout) {
+      res["ServiceTimeout"] = boost::any(*serviceTimeout);
+    }
+    if (useBackendService) {
+      res["UseBackendService"] = boost::any(*useBackendService);
+    }
+    if (visibility) {
+      res["Visibility"] = boost::any(*visibility);
+    }
+    if (vpcConfig) {
+      res["VpcConfig"] = boost::any(*vpcConfig);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowSignatureMethod") != m.end() && !m["AllowSignatureMethod"].empty()) {
+      allowSignatureMethod = make_shared<string>(boost::any_cast<string>(m["AllowSignatureMethod"]));
+    }
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("ApiName") != m.end() && !m["ApiName"].empty()) {
+      apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
+    }
+    if (m.find("AppCodeAuthType") != m.end() && !m["AppCodeAuthType"].empty()) {
+      appCodeAuthType = make_shared<string>(boost::any_cast<string>(m["AppCodeAuthType"]));
+    }
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BackendName") != m.end() && !m["BackendName"].empty()) {
+      backendName = make_shared<string>(boost::any_cast<string>(m["BackendName"]));
+    }
+    if (m.find("BodyFormat") != m.end() && !m["BodyFormat"].empty()) {
+      bodyFormat = make_shared<string>(boost::any_cast<string>(m["BodyFormat"]));
+    }
+    if (m.find("BodyModel") != m.end() && !m["BodyModel"].empty()) {
+      bodyModel = make_shared<string>(boost::any_cast<string>(m["BodyModel"]));
+    }
+    if (m.find("ContentTypeCategory") != m.end() && !m["ContentTypeCategory"].empty()) {
+      contentTypeCategory = make_shared<string>(boost::any_cast<string>(m["ContentTypeCategory"]));
+    }
+    if (m.find("ContentTypeValue") != m.end() && !m["ContentTypeValue"].empty()) {
+      contentTypeValue = make_shared<string>(boost::any_cast<string>(m["ContentTypeValue"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DisableInternet") != m.end() && !m["DisableInternet"].empty()) {
+      disableInternet = make_shared<bool>(boost::any_cast<bool>(m["DisableInternet"]));
+    }
+    if (m.find("ErrorCodeSamples") != m.end() && !m["ErrorCodeSamples"].empty()) {
+      errorCodeSamples = make_shared<string>(boost::any_cast<string>(m["ErrorCodeSamples"]));
+    }
+    if (m.find("FailResultSample") != m.end() && !m["FailResultSample"].empty()) {
+      failResultSample = make_shared<string>(boost::any_cast<string>(m["FailResultSample"]));
+    }
+    if (m.find("ForceNonceCheck") != m.end() && !m["ForceNonceCheck"].empty()) {
+      forceNonceCheck = make_shared<bool>(boost::any_cast<bool>(m["ForceNonceCheck"]));
+    }
+    if (m.find("FunctionComputeConfig") != m.end() && !m["FunctionComputeConfig"].empty()) {
+      functionComputeConfig = make_shared<string>(boost::any_cast<string>(m["FunctionComputeConfig"]));
+    }
+    if (m.find("HttpConfig") != m.end() && !m["HttpConfig"].empty()) {
+      httpConfig = make_shared<string>(boost::any_cast<string>(m["HttpConfig"]));
+    }
+    if (m.find("MockConfig") != m.end() && !m["MockConfig"].empty()) {
+      mockConfig = make_shared<string>(boost::any_cast<string>(m["MockConfig"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+    if (m.find("OssConfig") != m.end() && !m["OssConfig"].empty()) {
+      ossConfig = make_shared<string>(boost::any_cast<string>(m["OssConfig"]));
+    }
+    if (m.find("PostBodyDescription") != m.end() && !m["PostBodyDescription"].empty()) {
+      postBodyDescription = make_shared<string>(boost::any_cast<string>(m["PostBodyDescription"]));
+    }
+    if (m.find("RequestHttpMethod") != m.end() && !m["RequestHttpMethod"].empty()) {
+      requestHttpMethod = make_shared<string>(boost::any_cast<string>(m["RequestHttpMethod"]));
+    }
+    if (m.find("RequestMode") != m.end() && !m["RequestMode"].empty()) {
+      requestMode = make_shared<string>(boost::any_cast<string>(m["RequestMode"]));
+    }
+    if (m.find("RequestParameters") != m.end() && !m["RequestParameters"].empty()) {
+      requestParameters = make_shared<string>(boost::any_cast<string>(m["RequestParameters"]));
+    }
+    if (m.find("RequestPath") != m.end() && !m["RequestPath"].empty()) {
+      requestPath = make_shared<string>(boost::any_cast<string>(m["RequestPath"]));
+    }
+    if (m.find("RequestProtocol") != m.end() && !m["RequestProtocol"].empty()) {
+      requestProtocol = make_shared<string>(boost::any_cast<string>(m["RequestProtocol"]));
+    }
+    if (m.find("ResultSample") != m.end() && !m["ResultSample"].empty()) {
+      resultSample = make_shared<string>(boost::any_cast<string>(m["ResultSample"]));
+    }
+    if (m.find("ResultType") != m.end() && !m["ResultType"].empty()) {
+      resultType = make_shared<string>(boost::any_cast<string>(m["ResultType"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("ServiceParameters") != m.end() && !m["ServiceParameters"].empty()) {
+      serviceParameters = make_shared<string>(boost::any_cast<string>(m["ServiceParameters"]));
+    }
+    if (m.find("ServiceParametersMap") != m.end() && !m["ServiceParametersMap"].empty()) {
+      serviceParametersMap = make_shared<string>(boost::any_cast<string>(m["ServiceParametersMap"]));
+    }
+    if (m.find("ServiceProtocol") != m.end() && !m["ServiceProtocol"].empty()) {
+      serviceProtocol = make_shared<string>(boost::any_cast<string>(m["ServiceProtocol"]));
+    }
+    if (m.find("ServiceTimeout") != m.end() && !m["ServiceTimeout"].empty()) {
+      serviceTimeout = make_shared<long>(boost::any_cast<long>(m["ServiceTimeout"]));
+    }
+    if (m.find("UseBackendService") != m.end() && !m["UseBackendService"].empty()) {
+      useBackendService = make_shared<bool>(boost::any_cast<bool>(m["UseBackendService"]));
+    }
+    if (m.find("Visibility") != m.end() && !m["Visibility"].empty()) {
+      visibility = make_shared<string>(boost::any_cast<string>(m["Visibility"]));
+    }
+    if (m.find("VpcConfig") != m.end() && !m["VpcConfig"].empty()) {
+      vpcConfig = make_shared<string>(boost::any_cast<string>(m["VpcConfig"]));
+    }
+  }
+
+
+  virtual ~ModifyApiConfigurationRequest() = default;
+};
+class ModifyApiConfigurationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyApiConfigurationResponseBody() {}
+
+  explicit ModifyApiConfigurationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyApiConfigurationResponseBody() = default;
+};
+class ModifyApiConfigurationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ModifyApiConfigurationResponseBody> body{};
+
+  ModifyApiConfigurationResponse() {}
+
+  explicit ModifyApiConfigurationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyApiConfigurationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyApiConfigurationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyApiConfigurationResponse() = default;
+};
 class ModifyApiGroupRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -35860,6 +36215,8 @@ public:
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ModifyApiResponse modifyApiWithOptions(shared_ptr<ModifyApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiResponse modifyApi(shared_ptr<ModifyApiRequest> request);
+  ModifyApiConfigurationResponse modifyApiConfigurationWithOptions(shared_ptr<ModifyApiConfigurationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyApiConfigurationResponse modifyApiConfiguration(shared_ptr<ModifyApiConfigurationRequest> request);
   ModifyApiGroupResponse modifyApiGroupWithOptions(shared_ptr<ModifyApiGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiGroupResponse modifyApiGroup(shared_ptr<ModifyApiGroupRequest> request);
   ModifyApiGroupVpcWhitelistResponse modifyApiGroupVpcWhitelistWithOptions(shared_ptr<ModifyApiGroupVpcWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
