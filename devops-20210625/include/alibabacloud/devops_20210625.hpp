@@ -2606,6 +2606,129 @@ public:
 
   virtual ~CreateVariableGroupResponse() = default;
 };
+class CreateWorkitemRequestAkIssue : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> member{};
+
+  CreateWorkitemRequestAkIssue() {}
+
+  explicit CreateWorkitemRequestAkIssue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (member) {
+      res["member"] = boost::any(*member);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("member") != m.end() && !m["member"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["member"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["member"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      member = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateWorkitemRequestAkIssue() = default;
+};
+class CreateWorkitemRequestAk : public Darabonba::Model {
+public:
+  shared_ptr<CreateWorkitemRequestAkIssue> issue{};
+
+  CreateWorkitemRequestAk() {}
+
+  explicit CreateWorkitemRequestAk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!issue) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("issue is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (issue) {
+      res["issue"] = issue ? boost::any(issue->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("issue") != m.end() && !m["issue"].empty()) {
+      if (typeid(map<string, boost::any>) == m["issue"].type()) {
+        CreateWorkitemRequestAkIssue model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["issue"]));
+        issue = make_shared<CreateWorkitemRequestAkIssue>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWorkitemRequestAk() = default;
+};
+class CreateWorkitemRequestWorkitem : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> tracker{};
+  shared_ptr<vector<string>> verifier{};
+
+  CreateWorkitemRequestWorkitem() {}
+
+  explicit CreateWorkitemRequestWorkitem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tracker) {
+      res["tracker"] = boost::any(*tracker);
+    }
+    if (verifier) {
+      res["verifier"] = boost::any(*verifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tracker") != m.end() && !m["tracker"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tracker"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tracker"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tracker = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("verifier") != m.end() && !m["verifier"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["verifier"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["verifier"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verifier = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateWorkitemRequestWorkitem() = default;
+};
 class CreateWorkitemRequestFieldValueList : public Darabonba::Model {
 public:
   shared_ptr<string> fieldIdentifier{};
@@ -2651,20 +2774,19 @@ public:
 };
 class CreateWorkitemRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateWorkitemRequestAk> ak{};
+  shared_ptr<CreateWorkitemRequestWorkitem> workitem{};
   shared_ptr<string> assignedTo{};
   shared_ptr<string> category{};
   shared_ptr<string> description{};
   shared_ptr<string> descriptionFormat{};
   shared_ptr<vector<CreateWorkitemRequestFieldValueList>> fieldValueList{};
   shared_ptr<string> parent{};
-  shared_ptr<vector<string>> participant{};
   shared_ptr<string> space{};
   shared_ptr<string> spaceIdentifier{};
   shared_ptr<string> spaceType{};
   shared_ptr<vector<string>> sprint{};
   shared_ptr<string> subject{};
-  shared_ptr<vector<string>> tracker{};
-  shared_ptr<vector<string>> verifier{};
   shared_ptr<string> workitemType{};
 
   CreateWorkitemRequest() {}
@@ -2673,10 +2795,23 @@ public:
     fromMap(config);
   };
 
-  void validate() override {}
+  void validate() override {
+    if (!ak) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("ak is required.")));
+    }
+    if (!workitem) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("workitem is required.")));
+    }
+  }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ak) {
+      res["ak"] = ak ? boost::any(ak->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workitem) {
+      res["workitem"] = workitem ? boost::any(workitem->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (assignedTo) {
       res["assignedTo"] = boost::any(*assignedTo);
     }
@@ -2699,9 +2834,6 @@ public:
     if (parent) {
       res["parent"] = boost::any(*parent);
     }
-    if (participant) {
-      res["participant"] = boost::any(*participant);
-    }
     if (space) {
       res["space"] = boost::any(*space);
     }
@@ -2717,12 +2849,6 @@ public:
     if (subject) {
       res["subject"] = boost::any(*subject);
     }
-    if (tracker) {
-      res["tracker"] = boost::any(*tracker);
-    }
-    if (verifier) {
-      res["verifier"] = boost::any(*verifier);
-    }
     if (workitemType) {
       res["workitemType"] = boost::any(*workitemType);
     }
@@ -2730,6 +2856,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ak") != m.end() && !m["ak"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ak"].type()) {
+        CreateWorkitemRequestAk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ak"]));
+        ak = make_shared<CreateWorkitemRequestAk>(model1);
+      }
+    }
+    if (m.find("workitem") != m.end() && !m["workitem"].empty()) {
+      if (typeid(map<string, boost::any>) == m["workitem"].type()) {
+        CreateWorkitemRequestWorkitem model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["workitem"]));
+        workitem = make_shared<CreateWorkitemRequestWorkitem>(model1);
+      }
+    }
     if (m.find("assignedTo") != m.end() && !m["assignedTo"].empty()) {
       assignedTo = make_shared<string>(boost::any_cast<string>(m["assignedTo"]));
     }
@@ -2758,16 +2898,6 @@ public:
     if (m.find("parent") != m.end() && !m["parent"].empty()) {
       parent = make_shared<string>(boost::any_cast<string>(m["parent"]));
     }
-    if (m.find("participant") != m.end() && !m["participant"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["participant"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["participant"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      participant = make_shared<vector<string>>(toVec1);
-    }
     if (m.find("space") != m.end() && !m["space"].empty()) {
       space = make_shared<string>(boost::any_cast<string>(m["space"]));
     }
@@ -2789,26 +2919,6 @@ public:
     }
     if (m.find("subject") != m.end() && !m["subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
-    }
-    if (m.find("tracker") != m.end() && !m["tracker"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["tracker"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tracker"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      tracker = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("verifier") != m.end() && !m["verifier"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["verifier"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["verifier"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      verifier = make_shared<vector<string>>(toVec1);
     }
     if (m.find("workitemType") != m.end() && !m["workitemType"].empty()) {
       workitemType = make_shared<string>(boost::any_cast<string>(m["workitemType"]));
@@ -9502,6 +9612,129 @@ public:
 
   virtual ~GetWorkItemActivityResponse() = default;
 };
+class GetWorkItemInfoResponseBodyWorkitemAkIssue : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> member{};
+
+  GetWorkItemInfoResponseBodyWorkitemAkIssue() {}
+
+  explicit GetWorkItemInfoResponseBodyWorkitemAkIssue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (member) {
+      res["member"] = boost::any(*member);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("member") != m.end() && !m["member"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["member"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["member"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      member = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetWorkItemInfoResponseBodyWorkitemAkIssue() = default;
+};
+class GetWorkItemInfoResponseBodyWorkitemAk : public Darabonba::Model {
+public:
+  shared_ptr<GetWorkItemInfoResponseBodyWorkitemAkIssue> issue{};
+
+  GetWorkItemInfoResponseBodyWorkitemAk() {}
+
+  explicit GetWorkItemInfoResponseBodyWorkitemAk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!issue) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("issue is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (issue) {
+      res["issue"] = issue ? boost::any(issue->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("issue") != m.end() && !m["issue"].empty()) {
+      if (typeid(map<string, boost::any>) == m["issue"].type()) {
+        GetWorkItemInfoResponseBodyWorkitemAkIssue model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["issue"]));
+        issue = make_shared<GetWorkItemInfoResponseBodyWorkitemAkIssue>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetWorkItemInfoResponseBodyWorkitemAk() = default;
+};
+class GetWorkItemInfoResponseBodyWorkitemWorkitem : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> tracker{};
+  shared_ptr<vector<string>> verifier{};
+
+  GetWorkItemInfoResponseBodyWorkitemWorkitem() {}
+
+  explicit GetWorkItemInfoResponseBodyWorkitemWorkitem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tracker) {
+      res["tracker"] = boost::any(*tracker);
+    }
+    if (verifier) {
+      res["verifier"] = boost::any(*verifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tracker") != m.end() && !m["tracker"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tracker"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tracker"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tracker = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("verifier") != m.end() && !m["verifier"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["verifier"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["verifier"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verifier = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetWorkItemInfoResponseBodyWorkitemWorkitem() = default;
+};
 class GetWorkItemInfoResponseBodyWorkitemCustomFieldsValueList : public Darabonba::Model {
 public:
   shared_ptr<string> displayValue{};
@@ -9660,6 +9893,8 @@ public:
 };
 class GetWorkItemInfoResponseBodyWorkitem : public Darabonba::Model {
 public:
+  shared_ptr<GetWorkItemInfoResponseBodyWorkitemAk> ak{};
+  shared_ptr<GetWorkItemInfoResponseBodyWorkitemWorkitem> workitem{};
   shared_ptr<string> assignedTo{};
   shared_ptr<string> categoryIdentifier{};
   shared_ptr<string> creator{};
@@ -9671,7 +9906,6 @@ public:
   shared_ptr<string> logicalStatus{};
   shared_ptr<string> modifier{};
   shared_ptr<string> parentIdentifier{};
-  shared_ptr<vector<string>> participant{};
   shared_ptr<string> serialNumber{};
   shared_ptr<string> spaceIdentifier{};
   shared_ptr<string> spaceName{};
@@ -9682,9 +9916,7 @@ public:
   shared_ptr<string> statusStageIdentifier{};
   shared_ptr<string> subject{};
   shared_ptr<vector<string>> tag{};
-  shared_ptr<vector<string>> tracker{};
   shared_ptr<long> updateStatusAt{};
-  shared_ptr<vector<string>> verifier{};
   shared_ptr<string> workitemTypeIdentifier{};
 
   GetWorkItemInfoResponseBodyWorkitem() {}
@@ -9693,10 +9925,23 @@ public:
     fromMap(config);
   };
 
-  void validate() override {}
+  void validate() override {
+    if (!ak) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("ak is required.")));
+    }
+    if (!workitem) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("workitem is required.")));
+    }
+  }
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ak) {
+      res["ak"] = ak ? boost::any(ak->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (workitem) {
+      res["workitem"] = workitem ? boost::any(workitem->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (assignedTo) {
       res["assignedTo"] = boost::any(*assignedTo);
     }
@@ -9734,9 +9979,6 @@ public:
     if (parentIdentifier) {
       res["parentIdentifier"] = boost::any(*parentIdentifier);
     }
-    if (participant) {
-      res["participant"] = boost::any(*participant);
-    }
     if (serialNumber) {
       res["serialNumber"] = boost::any(*serialNumber);
     }
@@ -9767,14 +10009,8 @@ public:
     if (tag) {
       res["tag"] = boost::any(*tag);
     }
-    if (tracker) {
-      res["tracker"] = boost::any(*tracker);
-    }
     if (updateStatusAt) {
       res["updateStatusAt"] = boost::any(*updateStatusAt);
-    }
-    if (verifier) {
-      res["verifier"] = boost::any(*verifier);
     }
     if (workitemTypeIdentifier) {
       res["workitemTypeIdentifier"] = boost::any(*workitemTypeIdentifier);
@@ -9783,6 +10019,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ak") != m.end() && !m["ak"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ak"].type()) {
+        GetWorkItemInfoResponseBodyWorkitemAk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ak"]));
+        ak = make_shared<GetWorkItemInfoResponseBodyWorkitemAk>(model1);
+      }
+    }
+    if (m.find("workitem") != m.end() && !m["workitem"].empty()) {
+      if (typeid(map<string, boost::any>) == m["workitem"].type()) {
+        GetWorkItemInfoResponseBodyWorkitemWorkitem model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["workitem"]));
+        workitem = make_shared<GetWorkItemInfoResponseBodyWorkitemWorkitem>(model1);
+      }
+    }
     if (m.find("assignedTo") != m.end() && !m["assignedTo"].empty()) {
       assignedTo = make_shared<string>(boost::any_cast<string>(m["assignedTo"]));
     }
@@ -9825,16 +10075,6 @@ public:
     }
     if (m.find("parentIdentifier") != m.end() && !m["parentIdentifier"].empty()) {
       parentIdentifier = make_shared<string>(boost::any_cast<string>(m["parentIdentifier"]));
-    }
-    if (m.find("participant") != m.end() && !m["participant"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["participant"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["participant"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      participant = make_shared<vector<string>>(toVec1);
     }
     if (m.find("serialNumber") != m.end() && !m["serialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["serialNumber"]));
@@ -9880,28 +10120,8 @@ public:
       }
       tag = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("tracker") != m.end() && !m["tracker"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["tracker"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tracker"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      tracker = make_shared<vector<string>>(toVec1);
-    }
     if (m.find("updateStatusAt") != m.end() && !m["updateStatusAt"].empty()) {
       updateStatusAt = make_shared<long>(boost::any_cast<long>(m["updateStatusAt"]));
-    }
-    if (m.find("verifier") != m.end() && !m["verifier"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["verifier"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["verifier"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      verifier = make_shared<vector<string>>(toVec1);
     }
     if (m.find("workitemTypeIdentifier") != m.end() && !m["workitemTypeIdentifier"].empty()) {
       workitemTypeIdentifier = make_shared<string>(boost::any_cast<string>(m["workitemTypeIdentifier"]));
@@ -16511,8 +16731,11 @@ class ListWorkitemsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
   shared_ptr<string> conditions{};
+  shared_ptr<string> extraConditions{};
+  shared_ptr<string> groupCondition{};
   shared_ptr<string> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> orderBy{};
   shared_ptr<string> spaceIdentifier{};
   shared_ptr<string> spaceType{};
 
@@ -16532,11 +16755,20 @@ public:
     if (conditions) {
       res["conditions"] = boost::any(*conditions);
     }
+    if (extraConditions) {
+      res["extraConditions"] = boost::any(*extraConditions);
+    }
+    if (groupCondition) {
+      res["groupCondition"] = boost::any(*groupCondition);
+    }
     if (maxResults) {
       res["maxResults"] = boost::any(*maxResults);
     }
     if (nextToken) {
       res["nextToken"] = boost::any(*nextToken);
+    }
+    if (orderBy) {
+      res["orderBy"] = boost::any(*orderBy);
     }
     if (spaceIdentifier) {
       res["spaceIdentifier"] = boost::any(*spaceIdentifier);
@@ -16554,11 +16786,20 @@ public:
     if (m.find("conditions") != m.end() && !m["conditions"].empty()) {
       conditions = make_shared<string>(boost::any_cast<string>(m["conditions"]));
     }
+    if (m.find("extraConditions") != m.end() && !m["extraConditions"].empty()) {
+      extraConditions = make_shared<string>(boost::any_cast<string>(m["extraConditions"]));
+    }
+    if (m.find("groupCondition") != m.end() && !m["groupCondition"].empty()) {
+      groupCondition = make_shared<string>(boost::any_cast<string>(m["groupCondition"]));
+    }
     if (m.find("maxResults") != m.end() && !m["maxResults"].empty()) {
       maxResults = make_shared<string>(boost::any_cast<string>(m["maxResults"]));
     }
     if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("orderBy") != m.end() && !m["orderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["orderBy"]));
     }
     if (m.find("spaceIdentifier") != m.end() && !m["spaceIdentifier"].empty()) {
       spaceIdentifier = make_shared<string>(boost::any_cast<string>(m["spaceIdentifier"]));
