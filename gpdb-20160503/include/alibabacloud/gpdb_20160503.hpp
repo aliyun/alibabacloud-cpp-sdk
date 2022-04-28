@@ -15260,12 +15260,12 @@ public:
   shared_ptr<string> DBInstanceGroupCount{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> instanceSpec{};
+  shared_ptr<string> masterNodeNum{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> payType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> segNodeNum{};
   shared_ptr<string> storageSize{};
-  shared_ptr<string> masterNodeNum{};
   shared_ptr<long> upgradeType{};
 
   UpgradeDBInstanceRequest() {}
@@ -15290,6 +15290,9 @@ public:
     if (instanceSpec) {
       res["InstanceSpec"] = boost::any(*instanceSpec);
     }
+    if (masterNodeNum) {
+      res["MasterNodeNum"] = boost::any(*masterNodeNum);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -15305,11 +15308,8 @@ public:
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
     }
-    if (masterNodeNum) {
-      res["masterNodeNum"] = boost::any(*masterNodeNum);
-    }
     if (upgradeType) {
-      res["upgradeType"] = boost::any(*upgradeType);
+      res["UpgradeType"] = boost::any(*upgradeType);
     }
     return res;
   }
@@ -15327,6 +15327,9 @@ public:
     if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
       instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
     }
+    if (m.find("MasterNodeNum") != m.end() && !m["MasterNodeNum"].empty()) {
+      masterNodeNum = make_shared<string>(boost::any_cast<string>(m["MasterNodeNum"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -15342,11 +15345,8 @@ public:
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<string>(boost::any_cast<string>(m["StorageSize"]));
     }
-    if (m.find("masterNodeNum") != m.end() && !m["masterNodeNum"].empty()) {
-      masterNodeNum = make_shared<string>(boost::any_cast<string>(m["masterNodeNum"]));
-    }
-    if (m.find("upgradeType") != m.end() && !m["upgradeType"].empty()) {
-      upgradeType = make_shared<long>(boost::any_cast<long>(m["upgradeType"]));
+    if (m.find("UpgradeType") != m.end() && !m["UpgradeType"].empty()) {
+      upgradeType = make_shared<long>(boost::any_cast<long>(m["UpgradeType"]));
     }
   }
 

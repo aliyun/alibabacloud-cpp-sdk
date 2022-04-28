@@ -2675,6 +2675,9 @@ UpgradeDBInstanceResponse Alibabacloud_Gpdb20160503::Client::upgradeDBInstanceWi
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceSpec)) {
     query->insert(pair<string, string>("InstanceSpec", *request->instanceSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->masterNodeNum)) {
+    query->insert(pair<string, string>("MasterNodeNum", *request->masterNodeNum));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -2690,11 +2693,8 @@ UpgradeDBInstanceResponse Alibabacloud_Gpdb20160503::Client::upgradeDBInstanceWi
   if (!Darabonba_Util::Client::isUnset<string>(request->storageSize)) {
     query->insert(pair<string, string>("StorageSize", *request->storageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->masterNodeNum)) {
-    query->insert(pair<string, string>("masterNodeNum", *request->masterNodeNum));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->upgradeType)) {
-    query->insert(pair<string, long>("upgradeType", *request->upgradeType));
+    query->insert(pair<string, long>("UpgradeType", *request->upgradeType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
