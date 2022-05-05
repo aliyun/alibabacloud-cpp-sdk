@@ -1732,10 +1732,19 @@ ListTasksResponse Alibabacloud_Imm20200930::Client::listTasksWithOptions(shared_
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ListTasksShrinkRequest> request = make_shared<ListTasksShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->endTimeRange)) {
+    request->endTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->endTimeRange->toMap()), make_shared<string>("EndTimeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->startTimeRange)) {
+    request->startTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->startTimeRange->toMap()), make_shared<string>("StartTimeRange"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->taskTypes)) {
     request->taskTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskTypes, make_shared<string>("TaskTypes"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTimeRangeShrink)) {
+    query->insert(pair<string, string>("EndTimeRange", *request->endTimeRangeShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -1750,6 +1759,12 @@ ListTasksResponse Alibabacloud_Imm20200930::Client::listTasksWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTimeRangeShrink)) {
+    query->insert(pair<string, string>("StartTimeRange", *request->startTimeRangeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagSelector)) {
     query->insert(pair<string, string>("TagSelector", *request->tagSelector));

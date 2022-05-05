@@ -2974,6 +2974,7 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<vector<string>> figureClusterIds{};
   shared_ptr<vector<File>> files{};
+  shared_ptr<vector<map<string, boost::any>>> MIILCustomFields{};
   shared_ptr<string> objectId{};
   shared_ptr<string> objectType{};
   shared_ptr<string> ownerId{};
@@ -3019,6 +3020,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Files"] = boost::any(temp1);
+    }
+    if (MIILCustomFields) {
+      res["MIILCustomFields"] = boost::any(*MIILCustomFields);
     }
     if (objectId) {
       res["ObjectId"] = boost::any(*objectId);
@@ -3100,6 +3104,21 @@ public:
         }
         files = make_shared<vector<File>>(expect1);
       }
+    }
+    if (m.find("MIILCustomFields") != m.end() && !m["MIILCustomFields"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["MIILCustomFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MIILCustomFields"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      MIILCustomFields = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("ObjectId") != m.end() && !m["ObjectId"].empty()) {
       objectId = make_shared<string>(boost::any_cast<string>(m["ObjectId"]));
@@ -12253,11 +12272,14 @@ public:
 };
 class ListTasksRequest : public Darabonba::Model {
 public:
+  shared_ptr<TimeRange> endTimeRange{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> order{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sort{};
+  shared_ptr<TimeRange> startTimeRange{};
+  shared_ptr<string> status{};
   shared_ptr<string> tagSelector{};
   shared_ptr<vector<string>> taskTypes{};
 
@@ -12271,6 +12293,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTimeRange) {
+      res["EndTimeRange"] = endTimeRange ? boost::any(endTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -12286,6 +12311,12 @@ public:
     if (sort) {
       res["Sort"] = boost::any(*sort);
     }
+    if (startTimeRange) {
+      res["StartTimeRange"] = startTimeRange ? boost::any(startTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tagSelector) {
       res["TagSelector"] = boost::any(*tagSelector);
     }
@@ -12296,6 +12327,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTimeRange") != m.end() && !m["EndTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EndTimeRange"].type()) {
+        TimeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EndTimeRange"]));
+        endTimeRange = make_shared<TimeRange>(model1);
+      }
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -12310,6 +12348,16 @@ public:
     }
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("StartTimeRange") != m.end() && !m["StartTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StartTimeRange"].type()) {
+        TimeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StartTimeRange"]));
+        startTimeRange = make_shared<TimeRange>(model1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TagSelector") != m.end() && !m["TagSelector"].empty()) {
       tagSelector = make_shared<string>(boost::any_cast<string>(m["TagSelector"]));
@@ -12331,11 +12379,14 @@ public:
 };
 class ListTasksShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTimeRangeShrink{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> order{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sort{};
+  shared_ptr<string> startTimeRangeShrink{};
+  shared_ptr<string> status{};
   shared_ptr<string> tagSelector{};
   shared_ptr<string> taskTypesShrink{};
 
@@ -12349,6 +12400,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTimeRangeShrink) {
+      res["EndTimeRange"] = boost::any(*endTimeRangeShrink);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -12364,6 +12418,12 @@ public:
     if (sort) {
       res["Sort"] = boost::any(*sort);
     }
+    if (startTimeRangeShrink) {
+      res["StartTimeRange"] = boost::any(*startTimeRangeShrink);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tagSelector) {
       res["TagSelector"] = boost::any(*tagSelector);
     }
@@ -12374,6 +12434,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTimeRange") != m.end() && !m["EndTimeRange"].empty()) {
+      endTimeRangeShrink = make_shared<string>(boost::any_cast<string>(m["EndTimeRange"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -12388,6 +12451,12 @@ public:
     }
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("StartTimeRange") != m.end() && !m["StartTimeRange"].empty()) {
+      startTimeRangeShrink = make_shared<string>(boost::any_cast<string>(m["StartTimeRange"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TagSelector") != m.end() && !m["TagSelector"].empty()) {
       tagSelector = make_shared<string>(boost::any_cast<string>(m["TagSelector"]));
