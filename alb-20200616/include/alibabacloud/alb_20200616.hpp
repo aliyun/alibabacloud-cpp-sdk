@@ -13279,6 +13279,7 @@ public:
 };
 class ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> QPS{};
 
   ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig() {}
 
@@ -13290,17 +13291,103 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (QPS) {
+      res["QPS"] = boost::any(*QPS);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
+      QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
+    }
   }
 
 
   virtual ~ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig() = default;
 };
+class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples : public Darabonba::Model {
+public:
+  shared_ptr<string> serverGroupId{};
+  shared_ptr<long> weight{};
+
+  ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples() {}
+
+  explicit ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples() = default;
+};
+class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples>> serverGroupTuples{};
+
+  ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig() {}
+
+  explicit ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (serverGroupTuples) {
+      vector<boost::any> temp1;
+      for(auto item1:*serverGroupTuples){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServerGroupTuples"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServerGroupTuples") != m.end() && !m["ServerGroupTuples"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServerGroupTuples"].type()) {
+        vector<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServerGroupTuples"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serverGroupTuples = make_shared<vector<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig() = default;
+};
 class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig : public Darabonba::Model {
 public:
+  shared_ptr<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig> mirrorGroupConfig{};
 
   ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig() {}
 
@@ -13312,10 +13399,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mirrorGroupConfig) {
+      res["MirrorGroupConfig"] = mirrorGroupConfig ? boost::any(mirrorGroupConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MirrorGroupConfig") != m.end() && !m["MirrorGroupConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MirrorGroupConfig"].type()) {
+        ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MirrorGroupConfig"]));
+        mirrorGroupConfig = make_shared<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig>(model1);
+      }
+    }
   }
 
 
@@ -13743,6 +13840,42 @@ public:
 
   virtual ~ListRulesResponseBodyRulesRuleConditionsQueryStringConfig() = default;
 };
+class ListRulesResponseBodyRulesRuleConditionsSourceIpConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> values{};
+
+  ListRulesResponseBodyRulesRuleConditionsSourceIpConfig() {}
+
+  explicit ListRulesResponseBodyRulesRuleConditionsSourceIpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListRulesResponseBodyRulesRuleConditionsSourceIpConfig() = default;
+};
 class ListRulesResponseBodyRulesRuleConditions : public Darabonba::Model {
 public:
   shared_ptr<ListRulesResponseBodyRulesRuleConditionsCookieConfig> cookieConfig{};
@@ -13751,6 +13884,7 @@ public:
   shared_ptr<ListRulesResponseBodyRulesRuleConditionsMethodConfig> methodConfig{};
   shared_ptr<ListRulesResponseBodyRulesRuleConditionsPathConfig> pathConfig{};
   shared_ptr<ListRulesResponseBodyRulesRuleConditionsQueryStringConfig> queryStringConfig{};
+  shared_ptr<ListRulesResponseBodyRulesRuleConditionsSourceIpConfig> sourceIpConfig{};
   shared_ptr<string> type{};
 
   ListRulesResponseBodyRulesRuleConditions() {}
@@ -13780,6 +13914,9 @@ public:
     }
     if (queryStringConfig) {
       res["QueryStringConfig"] = queryStringConfig ? boost::any(queryStringConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceIpConfig) {
+      res["SourceIpConfig"] = sourceIpConfig ? boost::any(sourceIpConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -13828,6 +13965,13 @@ public:
         ListRulesResponseBodyRulesRuleConditionsQueryStringConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryStringConfig"]));
         queryStringConfig = make_shared<ListRulesResponseBodyRulesRuleConditionsQueryStringConfig>(model1);
+      }
+    }
+    if (m.find("SourceIpConfig") != m.end() && !m["SourceIpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SourceIpConfig"].type()) {
+        ListRulesResponseBodyRulesRuleConditionsSourceIpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SourceIpConfig"]));
+        sourceIpConfig = make_shared<ListRulesResponseBodyRulesRuleConditionsSourceIpConfig>(model1);
       }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
@@ -17579,6 +17723,7 @@ public:
 };
 class UnTagResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> all{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<UnTagResourcesRequestTag>> tag{};
@@ -17594,6 +17739,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (all) {
+      res["All"] = boost::any(*all);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -17614,6 +17762,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("All") != m.end() && !m["All"].empty()) {
+      all = make_shared<bool>(boost::any_cast<bool>(m["All"]));
+    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ResourceId"].type()) {
