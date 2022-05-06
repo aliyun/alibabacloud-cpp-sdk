@@ -1729,6 +1729,130 @@ public:
 
   virtual ~DeleteRecordTemplateResponse() = default;
 };
+class DescribeAppKeyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<long> ownerId{};
+
+  DescribeAppKeyRequest() {}
+
+  explicit DescribeAppKeyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+  }
+
+
+  virtual ~DescribeAppKeyRequest() = default;
+};
+class DescribeAppKeyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> appKey{};
+  shared_ptr<string> requestId{};
+
+  DescribeAppKeyResponseBody() {}
+
+  explicit DescribeAppKeyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAppKeyResponseBody() = default;
+};
+class DescribeAppKeyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DescribeAppKeyResponseBody> body{};
+
+  DescribeAppKeyResponse() {}
+
+  explicit DescribeAppKeyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAppKeyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAppKeyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAppKeyResponse() = default;
+};
 class DescribeAppsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -1836,6 +1960,7 @@ public:
   shared_ptr<string> appType{};
   shared_ptr<string> billType{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> region{};
   shared_ptr<DescribeAppsResponseBodyAppListAppServiceAreas> serviceAreas{};
   shared_ptr<long> status{};
 
@@ -1864,6 +1989,9 @@ public:
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
     if (serviceAreas) {
       res["ServiceAreas"] = serviceAreas ? boost::any(serviceAreas->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1888,6 +2016,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("ServiceAreas") != m.end() && !m["ServiceAreas"].empty()) {
       if (typeid(map<string, boost::any>) == m["ServiceAreas"].type()) {
@@ -9040,6 +9171,8 @@ public:
   DeleteMPULayoutResponse deleteMPULayout(shared_ptr<DeleteMPULayoutRequest> request);
   DeleteRecordTemplateResponse deleteRecordTemplateWithOptions(shared_ptr<DeleteRecordTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRecordTemplateResponse deleteRecordTemplate(shared_ptr<DeleteRecordTemplateRequest> request);
+  DescribeAppKeyResponse describeAppKeyWithOptions(shared_ptr<DescribeAppKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAppKeyResponse describeAppKey(shared_ptr<DescribeAppKeyRequest> request);
   DescribeAppsResponse describeAppsWithOptions(shared_ptr<DescribeAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAppsResponse describeApps(shared_ptr<DescribeAppsRequest> request);
   DescribeAutoLiveStreamRuleResponse describeAutoLiveStreamRuleWithOptions(shared_ptr<DescribeAutoLiveStreamRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
