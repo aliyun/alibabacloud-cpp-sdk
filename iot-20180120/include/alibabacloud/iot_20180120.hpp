@@ -1840,6 +1840,331 @@ public:
 
   virtual ~BatchClearEdgeInstanceDeviceConfigResponse() = default;
 };
+class BatchCreateSoundCodeLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> scheduleCode{};
+  shared_ptr<long> total{};
+
+  BatchCreateSoundCodeLabelRequest() {}
+
+  explicit BatchCreateSoundCodeLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelRequest() = default;
+};
+class BatchCreateSoundCodeLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BatchCreateSoundCodeLabelResponseBody() {}
+
+  explicit BatchCreateSoundCodeLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelResponseBody() = default;
+};
+class BatchCreateSoundCodeLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BatchCreateSoundCodeLabelResponseBody> body{};
+
+  BatchCreateSoundCodeLabelResponse() {}
+
+  explicit BatchCreateSoundCodeLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchCreateSoundCodeLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchCreateSoundCodeLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelResponse() = default;
+};
+class BatchCreateSoundCodeLabelWithLabelsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<vector<string>> labels{};
+  shared_ptr<string> scheduleCode{};
+
+  BatchCreateSoundCodeLabelWithLabelsRequest() {}
+
+  explicit BatchCreateSoundCodeLabelWithLabelsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Labels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelWithLabelsRequest() = default;
+};
+class BatchCreateSoundCodeLabelWithLabelsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BatchCreateSoundCodeLabelWithLabelsResponseBody() {}
+
+  explicit BatchCreateSoundCodeLabelWithLabelsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelWithLabelsResponseBody() = default;
+};
+class BatchCreateSoundCodeLabelWithLabelsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BatchCreateSoundCodeLabelWithLabelsResponseBody> body{};
+
+  BatchCreateSoundCodeLabelWithLabelsResponse() {}
+
+  explicit BatchCreateSoundCodeLabelWithLabelsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchCreateSoundCodeLabelWithLabelsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchCreateSoundCodeLabelWithLabelsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchCreateSoundCodeLabelWithLabelsResponse() = default;
+};
 class BatchDeleteDeviceGroupRelationsRequestDevice : public Darabonba::Model {
 public:
   shared_ptr<string> deviceName{};
@@ -6674,6 +6999,385 @@ public:
 
   virtual ~BindGatewayToEdgeInstanceResponse() = default;
 };
+class BindLicenseDeviceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> iotIdList{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> licenseCode{};
+  shared_ptr<string> productKey{};
+
+  BindLicenseDeviceRequest() {}
+
+  explicit BindLicenseDeviceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotIdList) {
+      res["IotIdList"] = boost::any(*iotIdList);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (licenseCode) {
+      res["LicenseCode"] = boost::any(*licenseCode);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotIdList") != m.end() && !m["IotIdList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IotIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IotIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iotIdList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("LicenseCode") != m.end() && !m["LicenseCode"].empty()) {
+      licenseCode = make_shared<string>(boost::any_cast<string>(m["LicenseCode"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~BindLicenseDeviceRequest() = default;
+};
+class BindLicenseDeviceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> checkProgressId{};
+  shared_ptr<long> failSum{};
+  shared_ptr<long> progress{};
+  shared_ptr<string> resultCsvFile{};
+  shared_ptr<long> successSum{};
+
+  BindLicenseDeviceResponseBodyData() {}
+
+  explicit BindLicenseDeviceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkProgressId) {
+      res["CheckProgressId"] = boost::any(*checkProgressId);
+    }
+    if (failSum) {
+      res["FailSum"] = boost::any(*failSum);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (resultCsvFile) {
+      res["ResultCsvFile"] = boost::any(*resultCsvFile);
+    }
+    if (successSum) {
+      res["SuccessSum"] = boost::any(*successSum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckProgressId") != m.end() && !m["CheckProgressId"].empty()) {
+      checkProgressId = make_shared<string>(boost::any_cast<string>(m["CheckProgressId"]));
+    }
+    if (m.find("FailSum") != m.end() && !m["FailSum"].empty()) {
+      failSum = make_shared<long>(boost::any_cast<long>(m["FailSum"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("ResultCsvFile") != m.end() && !m["ResultCsvFile"].empty()) {
+      resultCsvFile = make_shared<string>(boost::any_cast<string>(m["ResultCsvFile"]));
+    }
+    if (m.find("SuccessSum") != m.end() && !m["SuccessSum"].empty()) {
+      successSum = make_shared<long>(boost::any_cast<long>(m["SuccessSum"]));
+    }
+  }
+
+
+  virtual ~BindLicenseDeviceResponseBodyData() = default;
+};
+class BindLicenseDeviceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<BindLicenseDeviceResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BindLicenseDeviceResponseBody() {}
+
+  explicit BindLicenseDeviceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        BindLicenseDeviceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<BindLicenseDeviceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindLicenseDeviceResponseBody() = default;
+};
+class BindLicenseDeviceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BindLicenseDeviceResponseBody> body{};
+
+  BindLicenseDeviceResponse() {}
+
+  explicit BindLicenseDeviceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindLicenseDeviceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindLicenseDeviceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindLicenseDeviceResponse() = default;
+};
+class BindLicenseProductRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> licenseCode{};
+  shared_ptr<string> productKey{};
+
+  BindLicenseProductRequest() {}
+
+  explicit BindLicenseProductRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (licenseCode) {
+      res["LicenseCode"] = boost::any(*licenseCode);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("LicenseCode") != m.end() && !m["LicenseCode"].empty()) {
+      licenseCode = make_shared<string>(boost::any_cast<string>(m["LicenseCode"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~BindLicenseProductRequest() = default;
+};
+class BindLicenseProductResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  BindLicenseProductResponseBody() {}
+
+  explicit BindLicenseProductResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BindLicenseProductResponseBody() = default;
+};
+class BindLicenseProductResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<BindLicenseProductResponseBody> body{};
+
+  BindLicenseProductResponse() {}
+
+  explicit BindLicenseProductResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindLicenseProductResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindLicenseProductResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindLicenseProductResponse() = default;
+};
 class BindRoleToEdgeInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -9114,6 +9818,151 @@ public:
 
 
   virtual ~CreateDataAPIServiceResponse() = default;
+};
+class CreateDataSourceItemRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dataSourceId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> topic{};
+
+  CreateDataSourceItemRequest() {}
+
+  explicit CreateDataSourceItemRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<long>(boost::any_cast<long>(m["DataSourceId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~CreateDataSourceItemRequest() = default;
+};
+class CreateDataSourceItemResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDataSourceItemResponseBody() {}
+
+  explicit CreateDataSourceItemResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDataSourceItemResponseBody() = default;
+};
+class CreateDataSourceItemResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateDataSourceItemResponseBody> body{};
+
+  CreateDataSourceItemResponse() {}
+
+  explicit CreateDataSourceItemResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataSourceItemResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataSourceItemResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataSourceItemResponse() = default;
 };
 class CreateDeviceDistributeJobRequestTargetInstanceConfig : public Darabonba::Model {
 public:
@@ -14843,10 +15692,185 @@ public:
 
   virtual ~CreateSceneRuleResponse() = default;
 };
+class CreateSchedulePeriodRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> scheduleCode{};
+  shared_ptr<string> soundCodeContent{};
+  shared_ptr<string> startTime{};
+
+  CreateSchedulePeriodRequest() {}
+
+  explicit CreateSchedulePeriodRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    if (soundCodeContent) {
+      res["SoundCodeContent"] = boost::any(*soundCodeContent);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+    if (m.find("SoundCodeContent") != m.end() && !m["SoundCodeContent"].empty()) {
+      soundCodeContent = make_shared<string>(boost::any_cast<string>(m["SoundCodeContent"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~CreateSchedulePeriodRequest() = default;
+};
+class CreateSchedulePeriodResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateSchedulePeriodResponseBody() {}
+
+  explicit CreateSchedulePeriodResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateSchedulePeriodResponseBody() = default;
+};
+class CreateSchedulePeriodResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateSchedulePeriodResponseBody> body{};
+
+  CreateSchedulePeriodResponse() {}
+
+  explicit CreateSchedulePeriodResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSchedulePeriodResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSchedulePeriodResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSchedulePeriodResponse() = default;
+};
 class CreateSoundCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> duration{};
   shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> openType{};
   shared_ptr<string> soundCodeContent{};
 
   CreateSoundCodeRequest() {}
@@ -14865,6 +15889,12 @@ public:
     if (iotInstanceId) {
       res["IotInstanceId"] = boost::any(*iotInstanceId);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (openType) {
+      res["OpenType"] = boost::any(*openType);
+    }
     if (soundCodeContent) {
       res["SoundCodeContent"] = boost::any(*soundCodeContent);
     }
@@ -14877,6 +15907,12 @@ public:
     }
     if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
       iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OpenType") != m.end() && !m["OpenType"].empty()) {
+      openType = make_shared<string>(boost::any_cast<string>(m["OpenType"]));
     }
     if (m.find("SoundCodeContent") != m.end() && !m["SoundCodeContent"].empty()) {
       soundCodeContent = make_shared<string>(boost::any_cast<string>(m["SoundCodeContent"]));
@@ -14994,6 +16030,331 @@ public:
 
 
   virtual ~CreateSoundCodeResponse() = default;
+};
+class CreateSoundCodeLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> label{};
+  shared_ptr<string> scheduleCode{};
+
+  CreateSoundCodeLabelRequest() {}
+
+  explicit CreateSoundCodeLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~CreateSoundCodeLabelRequest() = default;
+};
+class CreateSoundCodeLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateSoundCodeLabelResponseBody() {}
+
+  explicit CreateSoundCodeLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateSoundCodeLabelResponseBody() = default;
+};
+class CreateSoundCodeLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateSoundCodeLabelResponseBody> body{};
+
+  CreateSoundCodeLabelResponse() {}
+
+  explicit CreateSoundCodeLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSoundCodeLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSoundCodeLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSoundCodeLabelResponse() = default;
+};
+class CreateSoundCodeScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> openType{};
+  shared_ptr<string> startDate{};
+
+  CreateSoundCodeScheduleRequest() {}
+
+  explicit CreateSoundCodeScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (openType) {
+      res["OpenType"] = boost::any(*openType);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OpenType") != m.end() && !m["OpenType"].empty()) {
+      openType = make_shared<string>(boost::any_cast<string>(m["OpenType"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~CreateSoundCodeScheduleRequest() = default;
+};
+class CreateSoundCodeScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateSoundCodeScheduleResponseBody() {}
+
+  explicit CreateSoundCodeScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateSoundCodeScheduleResponseBody() = default;
+};
+class CreateSoundCodeScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<CreateSoundCodeScheduleResponseBody> body{};
+
+  CreateSoundCodeScheduleResponse() {}
+
+  explicit CreateSoundCodeScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSoundCodeScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSoundCodeScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSoundCodeScheduleResponse() = default;
 };
 class CreateSpeechRequest : public Darabonba::Model {
 public:
@@ -19766,6 +21127,144 @@ public:
 
   virtual ~DeleteSceneRuleResponse() = default;
 };
+class DeleteSchedulePeriodRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> periodCode{};
+
+  DeleteSchedulePeriodRequest() {}
+
+  explicit DeleteSchedulePeriodRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (periodCode) {
+      res["PeriodCode"] = boost::any(*periodCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PeriodCode") != m.end() && !m["PeriodCode"].empty()) {
+      periodCode = make_shared<string>(boost::any_cast<string>(m["PeriodCode"]));
+    }
+  }
+
+
+  virtual ~DeleteSchedulePeriodRequest() = default;
+};
+class DeleteSchedulePeriodResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteSchedulePeriodResponseBody() {}
+
+  explicit DeleteSchedulePeriodResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteSchedulePeriodResponseBody() = default;
+};
+class DeleteSchedulePeriodResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteSchedulePeriodResponseBody> body{};
+
+  DeleteSchedulePeriodResponse() {}
+
+  explicit DeleteSchedulePeriodResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSchedulePeriodResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSchedulePeriodResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSchedulePeriodResponse() = default;
+};
 class DeleteSoundCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iotInstanceId{};
@@ -19903,6 +21402,282 @@ public:
 
 
   virtual ~DeleteSoundCodeResponse() = default;
+};
+class DeleteSoundCodeLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> soundCode{};
+
+  DeleteSoundCodeLabelRequest() {}
+
+  explicit DeleteSoundCodeLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (soundCode) {
+      res["SoundCode"] = boost::any(*soundCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("SoundCode") != m.end() && !m["SoundCode"].empty()) {
+      soundCode = make_shared<string>(boost::any_cast<string>(m["SoundCode"]));
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeLabelRequest() = default;
+};
+class DeleteSoundCodeLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteSoundCodeLabelResponseBody() {}
+
+  explicit DeleteSoundCodeLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeLabelResponseBody() = default;
+};
+class DeleteSoundCodeLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteSoundCodeLabelResponseBody> body{};
+
+  DeleteSoundCodeLabelResponse() {}
+
+  explicit DeleteSoundCodeLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSoundCodeLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSoundCodeLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeLabelResponse() = default;
+};
+class DeleteSoundCodeScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> scheduleCode{};
+
+  DeleteSoundCodeScheduleRequest() {}
+
+  explicit DeleteSoundCodeScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeScheduleRequest() = default;
+};
+class DeleteSoundCodeScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteSoundCodeScheduleResponseBody() {}
+
+  explicit DeleteSoundCodeScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeScheduleResponseBody() = default;
+};
+class DeleteSoundCodeScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<DeleteSoundCodeScheduleResponseBody> body{};
+
+  DeleteSoundCodeScheduleResponse() {}
+
+  explicit DeleteSoundCodeScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteSoundCodeScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteSoundCodeScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteSoundCodeScheduleResponse() = default;
 };
 class DeleteSpeechRequest : public Darabonba::Model {
 public:
@@ -26592,6 +28367,247 @@ public:
 
   virtual ~GetSoundCodeAudioResponse() = default;
 };
+class GetSoundCodeScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> scheduleCode{};
+
+  GetSoundCodeScheduleRequest() {}
+
+  explicit GetSoundCodeScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~GetSoundCodeScheduleRequest() = default;
+};
+class GetSoundCodeScheduleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> name{};
+  shared_ptr<string> openType{};
+  shared_ptr<string> scheduleCode{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  GetSoundCodeScheduleResponseBodyData() {}
+
+  explicit GetSoundCodeScheduleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (openType) {
+      res["OpenType"] = boost::any(*openType);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OpenType") != m.end() && !m["OpenType"].empty()) {
+      openType = make_shared<string>(boost::any_cast<string>(m["OpenType"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetSoundCodeScheduleResponseBodyData() = default;
+};
+class GetSoundCodeScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetSoundCodeScheduleResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetSoundCodeScheduleResponseBody() {}
+
+  explicit GetSoundCodeScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetSoundCodeScheduleResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetSoundCodeScheduleResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetSoundCodeScheduleResponseBody() = default;
+};
+class GetSoundCodeScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<GetSoundCodeScheduleResponseBody> body{};
+
+  GetSoundCodeScheduleResponse() {}
+
+  explicit GetSoundCodeScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSoundCodeScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSoundCodeScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSoundCodeScheduleResponse() = default;
+};
 class GetSpeechDeviceDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iotId{};
@@ -30197,6 +32213,276 @@ public:
 
 
   virtual ~ListAnalyticsDataResponse() = default;
+};
+class ListDataSourceItemRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dataSourceId{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchName{};
+
+  ListDataSourceItemRequest() {}
+
+  explicit ListDataSourceItemRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceId) {
+      res["DataSourceId"] = boost::any(*dataSourceId);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchName) {
+      res["SearchName"] = boost::any(*searchName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
+      dataSourceId = make_shared<long>(boost::any_cast<long>(m["DataSourceId"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchName") != m.end() && !m["SearchName"].empty()) {
+      searchName = make_shared<string>(boost::any_cast<string>(m["SearchName"]));
+    }
+  }
+
+
+  virtual ~ListDataSourceItemRequest() = default;
+};
+class ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem : public Darabonba::Model {
+public:
+  shared_ptr<long> dataSourceItemId{};
+  shared_ptr<string> topic{};
+
+  ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem() {}
+
+  explicit ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceItemId) {
+      res["DataSourceItemId"] = boost::any(*dataSourceItemId);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceItemId") != m.end() && !m["DataSourceItemId"].empty()) {
+      dataSourceItemId = make_shared<long>(boost::any_cast<long>(m["DataSourceItemId"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem() = default;
+};
+class ListDataSourceItemResponseBodyDataSourceItems : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem>> dataSourceItem{};
+
+  ListDataSourceItemResponseBodyDataSourceItems() {}
+
+  explicit ListDataSourceItemResponseBodyDataSourceItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceItem) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataSourceItem){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["dataSourceItem"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataSourceItem") != m.end() && !m["dataSourceItem"].empty()) {
+      if (typeid(vector<boost::any>) == m["dataSourceItem"].type()) {
+        vector<ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["dataSourceItem"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataSourceItem = make_shared<vector<ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataSourceItemResponseBodyDataSourceItems() = default;
+};
+class ListDataSourceItemResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ListDataSourceItemResponseBodyDataSourceItems> dataSourceItems{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> total{};
+
+  ListDataSourceItemResponseBody() {}
+
+  explicit ListDataSourceItemResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dataSourceItems) {
+      res["DataSourceItems"] = dataSourceItems ? boost::any(dataSourceItems->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DataSourceItems") != m.end() && !m["DataSourceItems"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataSourceItems"].type()) {
+        ListDataSourceItemResponseBodyDataSourceItems model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataSourceItems"]));
+        dataSourceItems = make_shared<ListDataSourceItemResponseBodyDataSourceItems>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~ListDataSourceItemResponseBody() = default;
+};
+class ListDataSourceItemResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<ListDataSourceItemResponseBody> body{};
+
+  ListDataSourceItemResponse() {}
+
+  explicit ListDataSourceItemResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDataSourceItemResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDataSourceItemResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDataSourceItemResponse() = default;
 };
 class ListDeviceDistributeJobRequest : public Darabonba::Model {
 public:
@@ -36446,6 +38732,151 @@ public:
 
 
   virtual ~OpenIotServiceResponse() = default;
+};
+class PackageSoundCodeLabelBatchAudioRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> batchCode{};
+  shared_ptr<string> iotInstanceId{};
+
+  PackageSoundCodeLabelBatchAudioRequest() {}
+
+  explicit PackageSoundCodeLabelBatchAudioRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchCode) {
+      res["BatchCode"] = boost::any(*batchCode);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchCode") != m.end() && !m["BatchCode"].empty()) {
+      batchCode = make_shared<string>(boost::any_cast<string>(m["BatchCode"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+  }
+
+
+  virtual ~PackageSoundCodeLabelBatchAudioRequest() = default;
+};
+class PackageSoundCodeLabelBatchAudioResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PackageSoundCodeLabelBatchAudioResponseBody() {}
+
+  explicit PackageSoundCodeLabelBatchAudioResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~PackageSoundCodeLabelBatchAudioResponseBody() = default;
+};
+class PackageSoundCodeLabelBatchAudioResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<PackageSoundCodeLabelBatchAudioResponseBody> body{};
+
+  PackageSoundCodeLabelBatchAudioResponse() {}
+
+  explicit PackageSoundCodeLabelBatchAudioResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PackageSoundCodeLabelBatchAudioResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PackageSoundCodeLabelBatchAudioResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PackageSoundCodeLabelBatchAudioResponse() = default;
 };
 class PrintByTemplateRequest : public Darabonba::Model {
 public:
@@ -56169,6 +58600,323 @@ public:
 
   virtual ~QuerySceneRuleResponse() = default;
 };
+class QuerySchedulePeriodListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scheduleCode{};
+
+  QuerySchedulePeriodListRequest() {}
+
+  explicit QuerySchedulePeriodListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListRequest() = default;
+};
+class QuerySchedulePeriodListResponseBodyDataListItems : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> periodCode{};
+  shared_ptr<string> soundCodeContent{};
+  shared_ptr<string> startTime{};
+
+  QuerySchedulePeriodListResponseBodyDataListItems() {}
+
+  explicit QuerySchedulePeriodListResponseBodyDataListItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (periodCode) {
+      res["PeriodCode"] = boost::any(*periodCode);
+    }
+    if (soundCodeContent) {
+      res["SoundCodeContent"] = boost::any(*soundCodeContent);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("PeriodCode") != m.end() && !m["PeriodCode"].empty()) {
+      periodCode = make_shared<string>(boost::any_cast<string>(m["PeriodCode"]));
+    }
+    if (m.find("SoundCodeContent") != m.end() && !m["SoundCodeContent"].empty()) {
+      soundCodeContent = make_shared<string>(boost::any_cast<string>(m["SoundCodeContent"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListResponseBodyDataListItems() = default;
+};
+class QuerySchedulePeriodListResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySchedulePeriodListResponseBodyDataListItems>> items{};
+
+  QuerySchedulePeriodListResponseBodyDataList() {}
+
+  explicit QuerySchedulePeriodListResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<QuerySchedulePeriodListResponseBodyDataListItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySchedulePeriodListResponseBodyDataListItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<QuerySchedulePeriodListResponseBodyDataListItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListResponseBodyDataList() = default;
+};
+class QuerySchedulePeriodListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<QuerySchedulePeriodListResponseBodyDataList> list{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+
+  QuerySchedulePeriodListResponseBodyData() {}
+
+  explicit QuerySchedulePeriodListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      res["List"] = list ? boost::any(list->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(map<string, boost::any>) == m["List"].type()) {
+        QuerySchedulePeriodListResponseBodyDataList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["List"]));
+        list = make_shared<QuerySchedulePeriodListResponseBodyDataList>(model1);
+      }
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListResponseBodyData() = default;
+};
+class QuerySchedulePeriodListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QuerySchedulePeriodListResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySchedulePeriodListResponseBody() {}
+
+  explicit QuerySchedulePeriodListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySchedulePeriodListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySchedulePeriodListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListResponseBody() = default;
+};
+class QuerySchedulePeriodListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QuerySchedulePeriodListResponseBody> body{};
+
+  QuerySchedulePeriodListResponse() {}
+
+  explicit QuerySchedulePeriodListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySchedulePeriodListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySchedulePeriodListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySchedulePeriodListResponse() = default;
+};
 class QuerySolutionDeviceGroupPageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fuzzyGroupName{};
@@ -56500,6 +59248,861 @@ public:
 
   virtual ~QuerySolutionDeviceGroupPageResponse() = default;
 };
+class QuerySoundCodeLabelBatchFailedResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> batchCode{};
+  shared_ptr<string> iotInstanceId{};
+
+  QuerySoundCodeLabelBatchFailedResultRequest() {}
+
+  explicit QuerySoundCodeLabelBatchFailedResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchCode) {
+      res["BatchCode"] = boost::any(*batchCode);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchCode") != m.end() && !m["BatchCode"].empty()) {
+      batchCode = make_shared<string>(boost::any_cast<string>(m["BatchCode"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchFailedResultRequest() = default;
+};
+class QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> label{};
+  shared_ptr<string> resultCode{};
+
+  QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems() {}
+
+  explicit QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (resultCode) {
+      res["ResultCode"] = boost::any(*resultCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("ResultCode") != m.end() && !m["ResultCode"].empty()) {
+      resultCode = make_shared<string>(boost::any_cast<string>(m["ResultCode"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems() = default;
+};
+class QuerySoundCodeLabelBatchFailedResultResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems>> items{};
+
+  QuerySoundCodeLabelBatchFailedResultResponseBodyData() {}
+
+  explicit QuerySoundCodeLabelBatchFailedResultResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchFailedResultResponseBodyData() = default;
+};
+class QuerySoundCodeLabelBatchFailedResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QuerySoundCodeLabelBatchFailedResultResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySoundCodeLabelBatchFailedResultResponseBody() {}
+
+  explicit QuerySoundCodeLabelBatchFailedResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySoundCodeLabelBatchFailedResultResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySoundCodeLabelBatchFailedResultResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchFailedResultResponseBody() = default;
+};
+class QuerySoundCodeLabelBatchFailedResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QuerySoundCodeLabelBatchFailedResultResponseBody> body{};
+
+  QuerySoundCodeLabelBatchFailedResultResponse() {}
+
+  explicit QuerySoundCodeLabelBatchFailedResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySoundCodeLabelBatchFailedResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySoundCodeLabelBatchFailedResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchFailedResultResponse() = default;
+};
+class QuerySoundCodeLabelBatchListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scheduleCode{};
+
+  QuerySoundCodeLabelBatchListRequest() {}
+
+  explicit QuerySoundCodeLabelBatchListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListRequest() = default;
+};
+class QuerySoundCodeLabelBatchListResponseBodyDataListItems : public Darabonba::Model {
+public:
+  shared_ptr<string> batchCode{};
+  shared_ptr<string> description{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> status{};
+  shared_ptr<long> successNum{};
+  shared_ptr<long> total{};
+
+  QuerySoundCodeLabelBatchListResponseBodyDataListItems() {}
+
+  explicit QuerySoundCodeLabelBatchListResponseBodyDataListItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchCode) {
+      res["BatchCode"] = boost::any(*batchCode);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (successNum) {
+      res["SuccessNum"] = boost::any(*successNum);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchCode") != m.end() && !m["BatchCode"].empty()) {
+      batchCode = make_shared<string>(boost::any_cast<string>(m["BatchCode"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SuccessNum") != m.end() && !m["SuccessNum"].empty()) {
+      successNum = make_shared<long>(boost::any_cast<long>(m["SuccessNum"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListResponseBodyDataListItems() = default;
+};
+class QuerySoundCodeLabelBatchListResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySoundCodeLabelBatchListResponseBodyDataListItems>> items{};
+
+  QuerySoundCodeLabelBatchListResponseBodyDataList() {}
+
+  explicit QuerySoundCodeLabelBatchListResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<QuerySoundCodeLabelBatchListResponseBodyDataListItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySoundCodeLabelBatchListResponseBodyDataListItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<QuerySoundCodeLabelBatchListResponseBodyDataListItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListResponseBodyDataList() = default;
+};
+class QuerySoundCodeLabelBatchListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<QuerySoundCodeLabelBatchListResponseBodyDataList> list{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+
+  QuerySoundCodeLabelBatchListResponseBodyData() {}
+
+  explicit QuerySoundCodeLabelBatchListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      res["List"] = list ? boost::any(list->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(map<string, boost::any>) == m["List"].type()) {
+        QuerySoundCodeLabelBatchListResponseBodyDataList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["List"]));
+        list = make_shared<QuerySoundCodeLabelBatchListResponseBodyDataList>(model1);
+      }
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListResponseBodyData() = default;
+};
+class QuerySoundCodeLabelBatchListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QuerySoundCodeLabelBatchListResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySoundCodeLabelBatchListResponseBody() {}
+
+  explicit QuerySoundCodeLabelBatchListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySoundCodeLabelBatchListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySoundCodeLabelBatchListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListResponseBody() = default;
+};
+class QuerySoundCodeLabelBatchListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QuerySoundCodeLabelBatchListResponseBody> body{};
+
+  QuerySoundCodeLabelBatchListResponse() {}
+
+  explicit QuerySoundCodeLabelBatchListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySoundCodeLabelBatchListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySoundCodeLabelBatchListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelBatchListResponse() = default;
+};
+class QuerySoundCodeLabelListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> scheduleCode{};
+
+  QuerySoundCodeLabelListRequest() {}
+
+  explicit QuerySoundCodeLabelListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListRequest() = default;
+};
+class QuerySoundCodeLabelListResponseBodyDataListItems : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<string> soundCode{};
+
+  QuerySoundCodeLabelListResponseBodyDataListItems() {}
+
+  explicit QuerySoundCodeLabelListResponseBodyDataListItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (soundCode) {
+      res["SoundCode"] = boost::any(*soundCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("SoundCode") != m.end() && !m["SoundCode"].empty()) {
+      soundCode = make_shared<string>(boost::any_cast<string>(m["SoundCode"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListResponseBodyDataListItems() = default;
+};
+class QuerySoundCodeLabelListResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySoundCodeLabelListResponseBodyDataListItems>> items{};
+
+  QuerySoundCodeLabelListResponseBodyDataList() {}
+
+  explicit QuerySoundCodeLabelListResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<QuerySoundCodeLabelListResponseBodyDataListItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySoundCodeLabelListResponseBodyDataListItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<QuerySoundCodeLabelListResponseBodyDataListItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListResponseBodyDataList() = default;
+};
+class QuerySoundCodeLabelListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<QuerySoundCodeLabelListResponseBodyDataList> list{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+
+  QuerySoundCodeLabelListResponseBodyData() {}
+
+  explicit QuerySoundCodeLabelListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      res["List"] = list ? boost::any(list->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(map<string, boost::any>) == m["List"].type()) {
+        QuerySoundCodeLabelListResponseBodyDataList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["List"]));
+        list = make_shared<QuerySoundCodeLabelListResponseBodyDataList>(model1);
+      }
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListResponseBodyData() = default;
+};
+class QuerySoundCodeLabelListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QuerySoundCodeLabelListResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySoundCodeLabelListResponseBody() {}
+
+  explicit QuerySoundCodeLabelListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySoundCodeLabelListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySoundCodeLabelListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListResponseBody() = default;
+};
+class QuerySoundCodeLabelListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QuerySoundCodeLabelListResponseBody> body{};
+
+  QuerySoundCodeLabelListResponse() {}
+
+  explicit QuerySoundCodeLabelListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySoundCodeLabelListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySoundCodeLabelListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeLabelListResponse() = default;
+};
 class QuerySoundCodeListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iotInstanceId{};
@@ -56547,6 +60150,8 @@ class QuerySoundCodeListResponseBodyDataListItems : public Darabonba::Model {
 public:
   shared_ptr<long> duration{};
   shared_ptr<long> gmtCreate{};
+  shared_ptr<string> name{};
+  shared_ptr<string> openType{};
   shared_ptr<string> soundCode{};
   shared_ptr<string> soundCodeContent{};
 
@@ -56566,6 +60171,12 @@ public:
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (openType) {
+      res["OpenType"] = boost::any(*openType);
+    }
     if (soundCode) {
       res["SoundCode"] = boost::any(*soundCode);
     }
@@ -56581,6 +60192,12 @@ public:
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OpenType") != m.end() && !m["OpenType"].empty()) {
+      openType = make_shared<string>(boost::any_cast<string>(m["OpenType"]));
     }
     if (m.find("SoundCode") != m.end() && !m["SoundCode"].empty()) {
       soundCode = make_shared<string>(boost::any_cast<string>(m["SoundCode"]));
@@ -56802,6 +60419,351 @@ public:
 
 
   virtual ~QuerySoundCodeListResponse() = default;
+};
+class QuerySoundCodeScheduleListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+
+  QuerySoundCodeScheduleListRequest() {}
+
+  explicit QuerySoundCodeScheduleListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListRequest() = default;
+};
+class QuerySoundCodeScheduleListResponseBodyDataListItems : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> name{};
+  shared_ptr<string> openType{};
+  shared_ptr<string> scheduleCode{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  QuerySoundCodeScheduleListResponseBodyDataListItems() {}
+
+  explicit QuerySoundCodeScheduleListResponseBodyDataListItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (openType) {
+      res["OpenType"] = boost::any(*openType);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OpenType") != m.end() && !m["OpenType"].empty()) {
+      openType = make_shared<string>(boost::any_cast<string>(m["OpenType"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListResponseBodyDataListItems() = default;
+};
+class QuerySoundCodeScheduleListResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<vector<QuerySoundCodeScheduleListResponseBodyDataListItems>> items{};
+
+  QuerySoundCodeScheduleListResponseBodyDataList() {}
+
+  explicit QuerySoundCodeScheduleListResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<QuerySoundCodeScheduleListResponseBodyDataListItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QuerySoundCodeScheduleListResponseBodyDataListItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<QuerySoundCodeScheduleListResponseBodyDataListItems>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListResponseBodyDataList() = default;
+};
+class QuerySoundCodeScheduleListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<QuerySoundCodeScheduleListResponseBodyDataList> list{};
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> total{};
+
+  QuerySoundCodeScheduleListResponseBodyData() {}
+
+  explicit QuerySoundCodeScheduleListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      res["List"] = list ? boost::any(list->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(map<string, boost::any>) == m["List"].type()) {
+        QuerySoundCodeScheduleListResponseBodyDataList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["List"]));
+        list = make_shared<QuerySoundCodeScheduleListResponseBodyDataList>(model1);
+      }
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListResponseBodyData() = default;
+};
+class QuerySoundCodeScheduleListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QuerySoundCodeScheduleListResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySoundCodeScheduleListResponseBody() {}
+
+  explicit QuerySoundCodeScheduleListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QuerySoundCodeScheduleListResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QuerySoundCodeScheduleListResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListResponseBody() = default;
+};
+class QuerySoundCodeScheduleListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<QuerySoundCodeScheduleListResponseBody> body{};
+
+  QuerySoundCodeScheduleListResponse() {}
+
+  explicit QuerySoundCodeScheduleListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySoundCodeScheduleListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySoundCodeScheduleListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySoundCodeScheduleListResponse() = default;
 };
 class QuerySpeechRequest : public Darabonba::Model {
 public:
@@ -62866,6 +66828,282 @@ public:
 
   virtual ~RRpcResponse() = default;
 };
+class RecognizeCarNumRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+
+  RecognizeCarNumRequest() {}
+
+  explicit RecognizeCarNumRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~RecognizeCarNumRequest() = default;
+};
+class RecognizeCarNumResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RecognizeCarNumResponseBody() {}
+
+  explicit RecognizeCarNumResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RecognizeCarNumResponseBody() = default;
+};
+class RecognizeCarNumResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizeCarNumResponseBody> body{};
+
+  RecognizeCarNumResponse() {}
+
+  explicit RecognizeCarNumResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeCarNumResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeCarNumResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeCarNumResponse() = default;
+};
+class RecognizePictureGeneralRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> url{};
+
+  RecognizePictureGeneralRequest() {}
+
+  explicit RecognizePictureGeneralRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~RecognizePictureGeneralRequest() = default;
+};
+class RecognizePictureGeneralResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RecognizePictureGeneralResponseBody() {}
+
+  explicit RecognizePictureGeneralResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RecognizePictureGeneralResponseBody() = default;
+};
+class RecognizePictureGeneralResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RecognizePictureGeneralResponseBody> body{};
+
+  RecognizePictureGeneralResponse() {}
+
+  explicit RecognizePictureGeneralResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizePictureGeneralResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizePictureGeneralResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizePictureGeneralResponse() = default;
+};
 class RefreshDeviceTunnelSharePasswordRequest : public Darabonba::Model {
 public:
   shared_ptr<string> deviceName{};
@@ -64521,6 +68759,144 @@ public:
 
 
   virtual ~ResetThingResponse() = default;
+};
+class RetrySoundCodeLabelBatchRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> batchCode{};
+  shared_ptr<string> iotInstanceId{};
+
+  RetrySoundCodeLabelBatchRequest() {}
+
+  explicit RetrySoundCodeLabelBatchRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (batchCode) {
+      res["BatchCode"] = boost::any(*batchCode);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BatchCode") != m.end() && !m["BatchCode"].empty()) {
+      batchCode = make_shared<string>(boost::any_cast<string>(m["BatchCode"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+  }
+
+
+  virtual ~RetrySoundCodeLabelBatchRequest() = default;
+};
+class RetrySoundCodeLabelBatchResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RetrySoundCodeLabelBatchResponseBody() {}
+
+  explicit RetrySoundCodeLabelBatchResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RetrySoundCodeLabelBatchResponseBody() = default;
+};
+class RetrySoundCodeLabelBatchResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<RetrySoundCodeLabelBatchResponseBody> body{};
+
+  RetrySoundCodeLabelBatchResponse() {}
+
+  explicit RetrySoundCodeLabelBatchResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RetrySoundCodeLabelBatchResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RetrySoundCodeLabelBatchResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RetrySoundCodeLabelBatchResponse() = default;
 };
 class ReupgradeOTATaskRequest : public Darabonba::Model {
 public:
@@ -68510,6 +72886,158 @@ public:
 
   virtual ~UnbindDriverFromEdgeInstanceResponse() = default;
 };
+class UnbindLicenseProductRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> licenseCode{};
+  shared_ptr<string> productKey{};
+
+  UnbindLicenseProductRequest() {}
+
+  explicit UnbindLicenseProductRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (licenseCode) {
+      res["LicenseCode"] = boost::any(*licenseCode);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("LicenseCode") != m.end() && !m["LicenseCode"].empty()) {
+      licenseCode = make_shared<string>(boost::any_cast<string>(m["LicenseCode"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~UnbindLicenseProductRequest() = default;
+};
+class UnbindLicenseProductResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UnbindLicenseProductResponseBody() {}
+
+  explicit UnbindLicenseProductResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UnbindLicenseProductResponseBody() = default;
+};
+class UnbindLicenseProductResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UnbindLicenseProductResponseBody> body{};
+
+  UnbindLicenseProductResponse() {}
+
+  explicit UnbindLicenseProductResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UnbindLicenseProductResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UnbindLicenseProductResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnbindLicenseProductResponse() = default;
+};
 class UnbindRoleFromEdgeInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -71664,6 +76192,663 @@ public:
 
   virtual ~UpdateSceneRuleResponse() = default;
 };
+class UpdateSchedulePeriodRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> periodCode{};
+  shared_ptr<string> soundCodeContent{};
+  shared_ptr<string> startTime{};
+
+  UpdateSchedulePeriodRequest() {}
+
+  explicit UpdateSchedulePeriodRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (periodCode) {
+      res["PeriodCode"] = boost::any(*periodCode);
+    }
+    if (soundCodeContent) {
+      res["SoundCodeContent"] = boost::any(*soundCodeContent);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PeriodCode") != m.end() && !m["PeriodCode"].empty()) {
+      periodCode = make_shared<string>(boost::any_cast<string>(m["PeriodCode"]));
+    }
+    if (m.find("SoundCodeContent") != m.end() && !m["SoundCodeContent"].empty()) {
+      soundCodeContent = make_shared<string>(boost::any_cast<string>(m["SoundCodeContent"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~UpdateSchedulePeriodRequest() = default;
+};
+class UpdateSchedulePeriodResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateSchedulePeriodResponseBody() {}
+
+  explicit UpdateSchedulePeriodResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateSchedulePeriodResponseBody() = default;
+};
+class UpdateSchedulePeriodResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateSchedulePeriodResponseBody> body{};
+
+  UpdateSchedulePeriodResponse() {}
+
+  explicit UpdateSchedulePeriodResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSchedulePeriodResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSchedulePeriodResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSchedulePeriodResponse() = default;
+};
+class UpdateSoundCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> duration{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> soundCode{};
+  shared_ptr<string> soundCodeContent{};
+
+  UpdateSoundCodeRequest() {}
+
+  explicit UpdateSoundCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (soundCode) {
+      res["SoundCode"] = boost::any(*soundCode);
+    }
+    if (soundCodeContent) {
+      res["SoundCodeContent"] = boost::any(*soundCodeContent);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SoundCode") != m.end() && !m["SoundCode"].empty()) {
+      soundCode = make_shared<string>(boost::any_cast<string>(m["SoundCode"]));
+    }
+    if (m.find("SoundCodeContent") != m.end() && !m["SoundCodeContent"].empty()) {
+      soundCodeContent = make_shared<string>(boost::any_cast<string>(m["SoundCodeContent"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeRequest() = default;
+};
+class UpdateSoundCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateSoundCodeResponseBody() {}
+
+  explicit UpdateSoundCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeResponseBody() = default;
+};
+class UpdateSoundCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateSoundCodeResponseBody> body{};
+
+  UpdateSoundCodeResponse() {}
+
+  explicit UpdateSoundCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSoundCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSoundCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeResponse() = default;
+};
+class UpdateSoundCodeLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> label{};
+  shared_ptr<string> soundCode{};
+
+  UpdateSoundCodeLabelRequest() {}
+
+  explicit UpdateSoundCodeLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (soundCode) {
+      res["SoundCode"] = boost::any(*soundCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("SoundCode") != m.end() && !m["SoundCode"].empty()) {
+      soundCode = make_shared<string>(boost::any_cast<string>(m["SoundCode"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeLabelRequest() = default;
+};
+class UpdateSoundCodeLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateSoundCodeLabelResponseBody() {}
+
+  explicit UpdateSoundCodeLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeLabelResponseBody() = default;
+};
+class UpdateSoundCodeLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateSoundCodeLabelResponseBody> body{};
+
+  UpdateSoundCodeLabelResponse() {}
+
+  explicit UpdateSoundCodeLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSoundCodeLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSoundCodeLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeLabelResponse() = default;
+};
+class UpdateSoundCodeScheduleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> scheduleCode{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  UpdateSoundCodeScheduleRequest() {}
+
+  explicit UpdateSoundCodeScheduleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (scheduleCode) {
+      res["ScheduleCode"] = boost::any(*scheduleCode);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ScheduleCode") != m.end() && !m["ScheduleCode"].empty()) {
+      scheduleCode = make_shared<string>(boost::any_cast<string>(m["ScheduleCode"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeScheduleRequest() = default;
+};
+class UpdateSoundCodeScheduleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateSoundCodeScheduleResponseBody() {}
+
+  explicit UpdateSoundCodeScheduleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeScheduleResponseBody() = default;
+};
+class UpdateSoundCodeScheduleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<UpdateSoundCodeScheduleResponseBody> body{};
+
+  UpdateSoundCodeScheduleResponse() {}
+
+  explicit UpdateSoundCodeScheduleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSoundCodeScheduleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSoundCodeScheduleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSoundCodeScheduleResponse() = default;
+};
 class UpdateSpeechRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableSoundCode{};
@@ -72509,6 +77694,10 @@ public:
   BatchCheckDeviceNamesResponse batchCheckDeviceNames(shared_ptr<BatchCheckDeviceNamesRequest> request);
   BatchClearEdgeInstanceDeviceConfigResponse batchClearEdgeInstanceDeviceConfigWithOptions(shared_ptr<BatchClearEdgeInstanceDeviceConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchClearEdgeInstanceDeviceConfigResponse batchClearEdgeInstanceDeviceConfig(shared_ptr<BatchClearEdgeInstanceDeviceConfigRequest> request);
+  BatchCreateSoundCodeLabelResponse batchCreateSoundCodeLabelWithOptions(shared_ptr<BatchCreateSoundCodeLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchCreateSoundCodeLabelResponse batchCreateSoundCodeLabel(shared_ptr<BatchCreateSoundCodeLabelRequest> request);
+  BatchCreateSoundCodeLabelWithLabelsResponse batchCreateSoundCodeLabelWithLabelsWithOptions(shared_ptr<BatchCreateSoundCodeLabelWithLabelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchCreateSoundCodeLabelWithLabelsResponse batchCreateSoundCodeLabelWithLabels(shared_ptr<BatchCreateSoundCodeLabelWithLabelsRequest> request);
   BatchDeleteDeviceGroupRelationsResponse batchDeleteDeviceGroupRelationsWithOptions(shared_ptr<BatchDeleteDeviceGroupRelationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeleteDeviceGroupRelationsResponse batchDeleteDeviceGroupRelations(shared_ptr<BatchDeleteDeviceGroupRelationsRequest> request);
   BatchDeleteEdgeInstanceChannelResponse batchDeleteEdgeInstanceChannelWithOptions(shared_ptr<BatchDeleteEdgeInstanceChannelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72555,6 +77744,10 @@ public:
   BindDriverToEdgeInstanceResponse bindDriverToEdgeInstance(shared_ptr<BindDriverToEdgeInstanceRequest> request);
   BindGatewayToEdgeInstanceResponse bindGatewayToEdgeInstanceWithOptions(shared_ptr<BindGatewayToEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindGatewayToEdgeInstanceResponse bindGatewayToEdgeInstance(shared_ptr<BindGatewayToEdgeInstanceRequest> request);
+  BindLicenseDeviceResponse bindLicenseDeviceWithOptions(shared_ptr<BindLicenseDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindLicenseDeviceResponse bindLicenseDevice(shared_ptr<BindLicenseDeviceRequest> request);
+  BindLicenseProductResponse bindLicenseProductWithOptions(shared_ptr<BindLicenseProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindLicenseProductResponse bindLicenseProduct(shared_ptr<BindLicenseProductRequest> request);
   BindRoleToEdgeInstanceResponse bindRoleToEdgeInstanceWithOptions(shared_ptr<BindRoleToEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindRoleToEdgeInstanceResponse bindRoleToEdgeInstance(shared_ptr<BindRoleToEdgeInstanceRequest> request);
   BindSceneRuleToEdgeInstanceResponse bindSceneRuleToEdgeInstanceWithOptions(shared_ptr<BindSceneRuleToEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72585,6 +77778,8 @@ public:
   CreateConsumerGroupSubscribeRelationResponse createConsumerGroupSubscribeRelation(shared_ptr<CreateConsumerGroupSubscribeRelationRequest> request);
   CreateDataAPIServiceResponse createDataAPIServiceWithOptions(shared_ptr<CreateDataAPIServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataAPIServiceResponse createDataAPIService(shared_ptr<CreateDataAPIServiceRequest> request);
+  CreateDataSourceItemResponse createDataSourceItemWithOptions(shared_ptr<CreateDataSourceItemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataSourceItemResponse createDataSourceItem(shared_ptr<CreateDataSourceItemRequest> request);
   CreateDeviceDistributeJobResponse createDeviceDistributeJobWithOptions(shared_ptr<CreateDeviceDistributeJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDeviceDistributeJobResponse createDeviceDistributeJob(shared_ptr<CreateDeviceDistributeJobRequest> request);
   CreateDeviceDynamicGroupResponse createDeviceDynamicGroupWithOptions(shared_ptr<CreateDeviceDynamicGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72635,8 +77830,14 @@ public:
   CreateRuleActionResponse createRuleAction(shared_ptr<CreateRuleActionRequest> request);
   CreateSceneRuleResponse createSceneRuleWithOptions(shared_ptr<CreateSceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSceneRuleResponse createSceneRule(shared_ptr<CreateSceneRuleRequest> request);
+  CreateSchedulePeriodResponse createSchedulePeriodWithOptions(shared_ptr<CreateSchedulePeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSchedulePeriodResponse createSchedulePeriod(shared_ptr<CreateSchedulePeriodRequest> request);
   CreateSoundCodeResponse createSoundCodeWithOptions(shared_ptr<CreateSoundCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSoundCodeResponse createSoundCode(shared_ptr<CreateSoundCodeRequest> request);
+  CreateSoundCodeLabelResponse createSoundCodeLabelWithOptions(shared_ptr<CreateSoundCodeLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSoundCodeLabelResponse createSoundCodeLabel(shared_ptr<CreateSoundCodeLabelRequest> request);
+  CreateSoundCodeScheduleResponse createSoundCodeScheduleWithOptions(shared_ptr<CreateSoundCodeScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSoundCodeScheduleResponse createSoundCodeSchedule(shared_ptr<CreateSoundCodeScheduleRequest> request);
   CreateSpeechResponse createSpeechWithOptions(shared_ptr<CreateSpeechRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSpeechResponse createSpeech(shared_ptr<CreateSpeechRequest> request);
   CreateStudioAppDomainOpenResponse createStudioAppDomainOpenWithOptions(shared_ptr<CreateStudioAppDomainOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72697,8 +77898,14 @@ public:
   DeleteRuleActionResponse deleteRuleAction(shared_ptr<DeleteRuleActionRequest> request);
   DeleteSceneRuleResponse deleteSceneRuleWithOptions(shared_ptr<DeleteSceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSceneRuleResponse deleteSceneRule(shared_ptr<DeleteSceneRuleRequest> request);
+  DeleteSchedulePeriodResponse deleteSchedulePeriodWithOptions(shared_ptr<DeleteSchedulePeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSchedulePeriodResponse deleteSchedulePeriod(shared_ptr<DeleteSchedulePeriodRequest> request);
   DeleteSoundCodeResponse deleteSoundCodeWithOptions(shared_ptr<DeleteSoundCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSoundCodeResponse deleteSoundCode(shared_ptr<DeleteSoundCodeRequest> request);
+  DeleteSoundCodeLabelResponse deleteSoundCodeLabelWithOptions(shared_ptr<DeleteSoundCodeLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSoundCodeLabelResponse deleteSoundCodeLabel(shared_ptr<DeleteSoundCodeLabelRequest> request);
+  DeleteSoundCodeScheduleResponse deleteSoundCodeScheduleWithOptions(shared_ptr<DeleteSoundCodeScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteSoundCodeScheduleResponse deleteSoundCodeSchedule(shared_ptr<DeleteSoundCodeScheduleRequest> request);
   DeleteSpeechResponse deleteSpeechWithOptions(shared_ptr<DeleteSpeechRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSpeechResponse deleteSpeech(shared_ptr<DeleteSpeechRequest> request);
   DeleteStudioAppDomainOpenResponse deleteStudioAppDomainOpenWithOptions(shared_ptr<DeleteStudioAppDomainOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72761,6 +77968,8 @@ public:
   GetSceneRuleResponse getSceneRule(shared_ptr<GetSceneRuleRequest> request);
   GetSoundCodeAudioResponse getSoundCodeAudioWithOptions(shared_ptr<GetSoundCodeAudioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSoundCodeAudioResponse getSoundCodeAudio(shared_ptr<GetSoundCodeAudioRequest> request);
+  GetSoundCodeScheduleResponse getSoundCodeScheduleWithOptions(shared_ptr<GetSoundCodeScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSoundCodeScheduleResponse getSoundCodeSchedule(shared_ptr<GetSoundCodeScheduleRequest> request);
   GetSpeechDeviceDetailResponse getSpeechDeviceDetailWithOptions(shared_ptr<GetSpeechDeviceDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSpeechDeviceDetailResponse getSpeechDeviceDetail(shared_ptr<GetSpeechDeviceDetailRequest> request);
   GetSpeechVoiceResponse getSpeechVoiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72791,6 +78000,8 @@ public:
   InvokeThingsServiceResponse invokeThingsService(shared_ptr<InvokeThingsServiceRequest> request);
   ListAnalyticsDataResponse listAnalyticsDataWithOptions(shared_ptr<ListAnalyticsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAnalyticsDataResponse listAnalyticsData(shared_ptr<ListAnalyticsDataRequest> request);
+  ListDataSourceItemResponse listDataSourceItemWithOptions(shared_ptr<ListDataSourceItemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDataSourceItemResponse listDataSourceItem(shared_ptr<ListDataSourceItemRequest> request);
   ListDeviceDistributeJobResponse listDeviceDistributeJobWithOptions(shared_ptr<ListDeviceDistributeJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDeviceDistributeJobResponse listDeviceDistributeJob(shared_ptr<ListDeviceDistributeJobRequest> request);
   ListDistributedDeviceResponse listDistributedDeviceWithOptions(shared_ptr<ListDistributedDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72831,6 +78042,8 @@ public:
   NotifyAddThingTopoResponse notifyAddThingTopo(shared_ptr<NotifyAddThingTopoRequest> request);
   OpenIotServiceResponse openIotServiceWithOptions(shared_ptr<OpenIotServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenIotServiceResponse openIotService(shared_ptr<OpenIotServiceRequest> request);
+  PackageSoundCodeLabelBatchAudioResponse packageSoundCodeLabelBatchAudioWithOptions(shared_ptr<PackageSoundCodeLabelBatchAudioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PackageSoundCodeLabelBatchAudioResponse packageSoundCodeLabelBatchAudio(shared_ptr<PackageSoundCodeLabelBatchAudioRequest> request);
   PrintByTemplateResponse printByTemplateWithOptions(shared_ptr<PrintByTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PrintByTemplateResponse printByTemplate(shared_ptr<PrintByTemplateRequest> request);
   PubResponse pubWithOptions(shared_ptr<PubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -72967,10 +78180,20 @@ public:
   QueryProductTopicResponse queryProductTopic(shared_ptr<QueryProductTopicRequest> request);
   QuerySceneRuleResponse querySceneRuleWithOptions(shared_ptr<QuerySceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySceneRuleResponse querySceneRule(shared_ptr<QuerySceneRuleRequest> request);
+  QuerySchedulePeriodListResponse querySchedulePeriodListWithOptions(shared_ptr<QuerySchedulePeriodListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySchedulePeriodListResponse querySchedulePeriodList(shared_ptr<QuerySchedulePeriodListRequest> request);
   QuerySolutionDeviceGroupPageResponse querySolutionDeviceGroupPageWithOptions(shared_ptr<QuerySolutionDeviceGroupPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySolutionDeviceGroupPageResponse querySolutionDeviceGroupPage(shared_ptr<QuerySolutionDeviceGroupPageRequest> request);
+  QuerySoundCodeLabelBatchFailedResultResponse querySoundCodeLabelBatchFailedResultWithOptions(shared_ptr<QuerySoundCodeLabelBatchFailedResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySoundCodeLabelBatchFailedResultResponse querySoundCodeLabelBatchFailedResult(shared_ptr<QuerySoundCodeLabelBatchFailedResultRequest> request);
+  QuerySoundCodeLabelBatchListResponse querySoundCodeLabelBatchListWithOptions(shared_ptr<QuerySoundCodeLabelBatchListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySoundCodeLabelBatchListResponse querySoundCodeLabelBatchList(shared_ptr<QuerySoundCodeLabelBatchListRequest> request);
+  QuerySoundCodeLabelListResponse querySoundCodeLabelListWithOptions(shared_ptr<QuerySoundCodeLabelListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySoundCodeLabelListResponse querySoundCodeLabelList(shared_ptr<QuerySoundCodeLabelListRequest> request);
   QuerySoundCodeListResponse querySoundCodeListWithOptions(shared_ptr<QuerySoundCodeListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySoundCodeListResponse querySoundCodeList(shared_ptr<QuerySoundCodeListRequest> request);
+  QuerySoundCodeScheduleListResponse querySoundCodeScheduleListWithOptions(shared_ptr<QuerySoundCodeScheduleListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySoundCodeScheduleListResponse querySoundCodeScheduleList(shared_ptr<QuerySoundCodeScheduleListRequest> request);
   QuerySpeechResponse querySpeechWithOptions(shared_ptr<QuerySpeechRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySpeechResponse querySpeech(shared_ptr<QuerySpeechRequest> request);
   QuerySpeechDeviceResponse querySpeechDeviceWithOptions(shared_ptr<QuerySpeechDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73013,6 +78236,10 @@ public:
   QueryTopicRouteTableResponse queryTopicRouteTable(shared_ptr<QueryTopicRouteTableRequest> request);
   RRpcResponse rRpcWithOptions(shared_ptr<RRpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RRpcResponse rRpc(shared_ptr<RRpcRequest> request);
+  RecognizeCarNumResponse recognizeCarNumWithOptions(shared_ptr<RecognizeCarNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeCarNumResponse recognizeCarNum(shared_ptr<RecognizeCarNumRequest> request);
+  RecognizePictureGeneralResponse recognizePictureGeneralWithOptions(shared_ptr<RecognizePictureGeneralRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizePictureGeneralResponse recognizePictureGeneral(shared_ptr<RecognizePictureGeneralRequest> request);
   RefreshDeviceTunnelSharePasswordResponse refreshDeviceTunnelSharePasswordWithOptions(shared_ptr<RefreshDeviceTunnelSharePasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshDeviceTunnelSharePasswordResponse refreshDeviceTunnelSharePassword(shared_ptr<RefreshDeviceTunnelSharePasswordRequest> request);
   RefreshStudioAppTokenOpenResponse refreshStudioAppTokenOpenWithOptions(shared_ptr<RefreshStudioAppTokenOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73033,6 +78260,8 @@ public:
   ResetConsumerGroupPositionResponse resetConsumerGroupPosition(shared_ptr<ResetConsumerGroupPositionRequest> request);
   ResetThingResponse resetThingWithOptions(shared_ptr<ResetThingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetThingResponse resetThing(shared_ptr<ResetThingRequest> request);
+  RetrySoundCodeLabelBatchResponse retrySoundCodeLabelBatchWithOptions(shared_ptr<RetrySoundCodeLabelBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RetrySoundCodeLabelBatchResponse retrySoundCodeLabelBatch(shared_ptr<RetrySoundCodeLabelBatchRequest> request);
   ReupgradeOTATaskResponse reupgradeOTATaskWithOptions(shared_ptr<ReupgradeOTATaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReupgradeOTATaskResponse reupgradeOTATask(shared_ptr<ReupgradeOTATaskRequest> request);
   SaveDevicePropResponse saveDevicePropWithOptions(shared_ptr<SaveDevicePropRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73077,6 +78306,8 @@ public:
   UnbindApplicationFromEdgeInstanceResponse unbindApplicationFromEdgeInstance(shared_ptr<UnbindApplicationFromEdgeInstanceRequest> request);
   UnbindDriverFromEdgeInstanceResponse unbindDriverFromEdgeInstanceWithOptions(shared_ptr<UnbindDriverFromEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnbindDriverFromEdgeInstanceResponse unbindDriverFromEdgeInstance(shared_ptr<UnbindDriverFromEdgeInstanceRequest> request);
+  UnbindLicenseProductResponse unbindLicenseProductWithOptions(shared_ptr<UnbindLicenseProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UnbindLicenseProductResponse unbindLicenseProduct(shared_ptr<UnbindLicenseProductRequest> request);
   UnbindRoleFromEdgeInstanceResponse unbindRoleFromEdgeInstanceWithOptions(shared_ptr<UnbindRoleFromEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnbindRoleFromEdgeInstanceResponse unbindRoleFromEdgeInstance(shared_ptr<UnbindRoleFromEdgeInstanceRequest> request);
   UnbindSceneRuleFromEdgeInstanceResponse unbindSceneRuleFromEdgeInstanceWithOptions(shared_ptr<UnbindSceneRuleFromEdgeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -73113,6 +78344,14 @@ public:
   UpdateRuleActionResponse updateRuleAction(shared_ptr<UpdateRuleActionRequest> request);
   UpdateSceneRuleResponse updateSceneRuleWithOptions(shared_ptr<UpdateSceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSceneRuleResponse updateSceneRule(shared_ptr<UpdateSceneRuleRequest> request);
+  UpdateSchedulePeriodResponse updateSchedulePeriodWithOptions(shared_ptr<UpdateSchedulePeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSchedulePeriodResponse updateSchedulePeriod(shared_ptr<UpdateSchedulePeriodRequest> request);
+  UpdateSoundCodeResponse updateSoundCodeWithOptions(shared_ptr<UpdateSoundCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSoundCodeResponse updateSoundCode(shared_ptr<UpdateSoundCodeRequest> request);
+  UpdateSoundCodeLabelResponse updateSoundCodeLabelWithOptions(shared_ptr<UpdateSoundCodeLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSoundCodeLabelResponse updateSoundCodeLabel(shared_ptr<UpdateSoundCodeLabelRequest> request);
+  UpdateSoundCodeScheduleResponse updateSoundCodeScheduleWithOptions(shared_ptr<UpdateSoundCodeScheduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSoundCodeScheduleResponse updateSoundCodeSchedule(shared_ptr<UpdateSoundCodeScheduleRequest> request);
   UpdateSpeechResponse updateSpeechWithOptions(shared_ptr<UpdateSpeechRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSpeechResponse updateSpeech(shared_ptr<UpdateSpeechRequest> request);
   UpdateSubscribeRelationResponse updateSubscribeRelationWithOptions(shared_ptr<UpdateSubscribeRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
