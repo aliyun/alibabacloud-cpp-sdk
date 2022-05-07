@@ -525,6 +525,43 @@ CreateIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::createIoTClo
   return createIoTCloudConnectorWithOptions(request, runtime);
 }
 
+CreateIoTCloudConnectorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<CreateIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateIoTCloudConnectorBackhaulRoute"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateIoTCloudConnectorBackhaulRouteResponse(callApi(params, req, runtime));
+}
+
+CreateIoTCloudConnectorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorBackhaulRoute(shared_ptr<CreateIoTCloudConnectorBackhaulRouteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
+}
+
 CreateIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::createIoTCloudConnectorGroupWithOptions(shared_ptr<CreateIoTCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -932,6 +969,43 @@ DeleteIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::deleteI
 DeleteIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnectorGroup(shared_ptr<DeleteIoTCloudConnectorGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteIoTCloudConnectorGroupWithOptions(request, runtime);
+}
+
+DeleteIoTCloudConnetorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnetorBackhaulRouteWithOptions(shared_ptr<DeleteIoTCloudConnetorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteIoTCloudConnetorBackhaulRoute"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteIoTCloudConnetorBackhaulRouteResponse(callApi(params, req, runtime));
+}
+
+DeleteIoTCloudConnetorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::deleteIoTCloudConnetorBackhaulRoute(shared_ptr<DeleteIoTCloudConnetorBackhaulRouteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteIoTCloudConnetorBackhaulRouteWithOptions(request, runtime);
 }
 
 DeleteServiceResponse Alibabacloud_IoTCC20210513::Client::deleteServiceWithOptions(shared_ptr<DeleteServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1979,6 +2053,43 @@ ListIoTCloudConnectorsResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudC
 ListIoTCloudConnectorsResponse Alibabacloud_IoTCC20210513::Client::listIoTCloudConnectors(shared_ptr<ListIoTCloudConnectorsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listIoTCloudConnectorsWithOptions(request, runtime);
+}
+
+ListIoTCoudConnectorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::listIoTCoudConnectorBackhaulRouteWithOptions(shared_ptr<ListIoTCoudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ioTCloudConnectorId)) {
+    query->insert(pair<string, string>("IoTCloudConnectorId", *request->ioTCloudConnectorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListIoTCoudConnectorBackhaulRoute"))},
+    {"version", boost::any(string("2021-05-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListIoTCoudConnectorBackhaulRouteResponse(callApi(params, req, runtime));
+}
+
+ListIoTCoudConnectorBackhaulRouteResponse Alibabacloud_IoTCC20210513::Client::listIoTCoudConnectorBackhaulRoute(shared_ptr<ListIoTCoudConnectorBackhaulRouteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listIoTCoudConnectorBackhaulRouteWithOptions(request, runtime);
 }
 
 ListRegionsResponse Alibabacloud_IoTCC20210513::Client::listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
