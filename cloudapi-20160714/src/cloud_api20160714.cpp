@@ -5418,6 +5418,9 @@ SetDomainCertificateResponse Alibabacloud_CloudAPI20160714::Client::setDomainCer
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sslVerifyDepth)) {
+    query->insert(pair<string, string>("SslVerifyDepth", *request->sslVerifyDepth));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
