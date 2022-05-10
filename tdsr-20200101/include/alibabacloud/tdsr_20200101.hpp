@@ -3535,7 +3535,7 @@ public:
 };
 class GetPackSceneTaskStatusResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<string> progress{};
+  shared_ptr<long> progress{};
   shared_ptr<string> status{};
 
   GetPackSceneTaskStatusResponseBodyData() {}
@@ -3559,7 +3559,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
-      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -4042,7 +4042,7 @@ class GetScenePackUrlResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> expire{};
   shared_ptr<string> url{};
-  shared_ptr<string> valid{};
+  shared_ptr<bool> valid{};
 
   GetScenePackUrlResponseBodyData() {}
 
@@ -4074,7 +4074,7 @@ public:
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
     if (m.find("Valid") != m.end() && !m["Valid"].empty()) {
-      valid = make_shared<string>(boost::any_cast<string>(m["Valid"]));
+      valid = make_shared<bool>(boost::any_cast<bool>(m["Valid"]));
     }
   }
 
