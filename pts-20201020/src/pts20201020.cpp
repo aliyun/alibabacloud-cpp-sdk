@@ -894,12 +894,12 @@ ListPtsSceneResponse Alibabacloud_PTS20201020::Client::listPtsScene(shared_ptr<L
 
 ModifyPtsSceneResponse Alibabacloud_PTS20201020::Client::modifyPtsSceneWithOptions(shared_ptr<ModifyPtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->scene)) {
-    query->insert(pair<string, string>("Scene", *request->scene));
+    body->insert(pair<string, string>("Scene", *request->scene));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ModifyPtsScene"))},
