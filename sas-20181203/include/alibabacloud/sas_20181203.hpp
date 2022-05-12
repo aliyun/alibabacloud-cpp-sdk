@@ -10502,6 +10502,7 @@ public:
 };
 class DescribeEmgVulItemRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> checkType{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> lang{};
   shared_ptr<long> pageSize{};
@@ -10519,6 +10520,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkType) {
+      res["CheckType"] = boost::any(*checkType);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -10541,6 +10545,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckType") != m.end() && !m["CheckType"].empty()) {
+      checkType = make_shared<long>(boost::any_cast<long>(m["CheckType"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -10567,6 +10574,7 @@ public:
 class DescribeEmgVulItemResponseBodyGroupedVulItems : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<long> checkType{};
   shared_ptr<long> gmtLastCheck{};
   shared_ptr<long> gmtPublish{};
   shared_ptr<string> name{};
@@ -10587,6 +10595,9 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (checkType) {
+      res["CheckType"] = boost::any(*checkType);
     }
     if (gmtLastCheck) {
       res["GmtLastCheck"] = boost::any(*gmtLastCheck);
@@ -10615,6 +10626,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("CheckType") != m.end() && !m["CheckType"].empty()) {
+      checkType = make_shared<long>(boost::any_cast<long>(m["CheckType"]));
     }
     if (m.find("GmtLastCheck") != m.end() && !m["GmtLastCheck"].empty()) {
       gmtLastCheck = make_shared<long>(boost::any_cast<long>(m["GmtLastCheck"]));
