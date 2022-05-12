@@ -584,9 +584,6 @@ CreateWorkitemResponse Alibabacloud_Devops20210625::Client::createWorkitemWithOp
   Darabonba_Util::Client::validateModel(request);
   organizationId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(organizationId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ak->issue->member)) {
-    body->insert(pair<string, vector<string>>("ak", *request->ak->issue->member));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->assignedTo)) {
     body->insert(pair<string, string>("assignedTo", *request->assignedTo));
   }
@@ -605,6 +602,9 @@ CreateWorkitemResponse Alibabacloud_Devops20210625::Client::createWorkitemWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->parent)) {
     body->insert(pair<string, string>("parent", *request->parent));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->participant)) {
+    body->insert(pair<string, vector<string>>("participant", *request->participant));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->space)) {
     body->insert(pair<string, string>("space", *request->space));
   }
@@ -620,11 +620,11 @@ CreateWorkitemResponse Alibabacloud_Devops20210625::Client::createWorkitemWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
     body->insert(pair<string, string>("subject", *request->subject));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workitem->tracker)) {
-    body->insert(pair<string, vector<string>>("workitem", *request->workitem->tracker));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tracker)) {
+    body->insert(pair<string, vector<string>>("tracker", *request->tracker));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->workitem->verifier)) {
-    body->insert(pair<string, vector<string>>("workitem", *request->workitem->verifier));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->verifier)) {
+    body->insert(pair<string, vector<string>>("verifier", *request->verifier));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workitemType)) {
     body->insert(pair<string, string>("workitemType", *request->workitemType));
@@ -2521,6 +2521,9 @@ ListWorkitemsResponse Alibabacloud_Devops20210625::Client::listWorkitemsWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
     query->insert(pair<string, string>("orderBy", *request->orderBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->searchType)) {
+    query->insert(pair<string, string>("searchType", *request->searchType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spaceIdentifier)) {
     query->insert(pair<string, string>("spaceIdentifier", *request->spaceIdentifier));
