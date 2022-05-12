@@ -635,6 +635,15 @@ CreatePickUpWaybillResponse Alibabacloud_Dyplsapi20170525::Client::createPickUpW
     request->sendAddressShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->sendAddress->toMap()), make_shared<string>("SendAddress"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appointGotEndTime)) {
+    query->insert(pair<string, string>("AppointGotEndTime", *request->appointGotEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appointGotStartTime)) {
+    query->insert(pair<string, string>("AppointGotStartTime", *request->appointGotStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bizType)) {
+    query->insert(pair<string, long>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->consigneeAddressShrink)) {
     query->insert(pair<string, string>("ConsigneeAddress", *request->consigneeAddressShrink));
   }
