@@ -1175,6 +1175,194 @@ public:
 
   virtual ~CheckUserPropertyResponse() = default;
 };
+class CopySceneRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sceneName{};
+
+  CopySceneRequest() {}
+
+  explicit CopySceneRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sceneName) {
+      res["SceneName"] = boost::any(*sceneName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SceneName") != m.end() && !m["SceneName"].empty()) {
+      sceneName = make_shared<string>(boost::any_cast<string>(m["SceneName"]));
+    }
+  }
+
+
+  virtual ~CopySceneRequest() = default;
+};
+class CopySceneResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  CopySceneResponseBodyData() {}
+
+  explicit CopySceneResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CopySceneResponseBodyData() = default;
+};
+class CopySceneResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<CopySceneResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CopySceneResponseBody() {}
+
+  explicit CopySceneResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CopySceneResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CopySceneResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CopySceneResponseBody() = default;
+};
+class CopySceneResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CopySceneResponseBody> body{};
+
+  CopySceneResponse() {}
+
+  explicit CopySceneResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CopySceneResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CopySceneResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CopySceneResponse() = default;
+};
 class DetailProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -2442,6 +2630,194 @@ public:
 
 
   virtual ~GetConnDataResponse() = default;
+};
+class GetCopySceneTaskStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> taskId{};
+
+  GetCopySceneTaskStatusRequest() {}
+
+  explicit GetCopySceneTaskStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~GetCopySceneTaskStatusRequest() = default;
+};
+class GetCopySceneTaskStatusResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> progress{};
+  shared_ptr<string> status{};
+
+  GetCopySceneTaskStatusResponseBodyData() {}
+
+  explicit GetCopySceneTaskStatusResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetCopySceneTaskStatusResponseBodyData() = default;
+};
+class GetCopySceneTaskStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetCopySceneTaskStatusResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetCopySceneTaskStatusResponseBody() {}
+
+  explicit GetCopySceneTaskStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetCopySceneTaskStatusResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetCopySceneTaskStatusResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetCopySceneTaskStatusResponseBody() = default;
+};
+class GetCopySceneTaskStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCopySceneTaskStatusResponseBody> body{};
+
+  GetCopySceneTaskStatusResponse() {}
+
+  explicit GetCopySceneTaskStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCopySceneTaskStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCopySceneTaskStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCopySceneTaskStatusResponse() = default;
 };
 class GetHotspotConfigRequest : public Darabonba::Model {
 public:
@@ -7107,6 +7483,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> sceneId{};
   shared_ptr<bool> showLayoutData{};
+  shared_ptr<string> sortField{};
 
   ListSubSceneRequest() {}
 
@@ -7130,6 +7507,9 @@ public:
     if (showLayoutData) {
       res["ShowLayoutData"] = boost::any(*showLayoutData);
     }
+    if (sortField) {
+      res["SortField"] = boost::any(*sortField);
+    }
     return res;
   }
 
@@ -7145,6 +7525,9 @@ public:
     }
     if (m.find("ShowLayoutData") != m.end() && !m["ShowLayoutData"].empty()) {
       showLayoutData = make_shared<bool>(boost::any_cast<bool>(m["ShowLayoutData"]));
+    }
+    if (m.find("SortField") != m.end() && !m["SortField"].empty()) {
+      sortField = make_shared<string>(boost::any_cast<string>(m["SortField"]));
     }
   }
 
@@ -10504,6 +10887,7 @@ class UpdateSubSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
+  shared_ptr<vector<double>> viewPoint{};
 
   UpdateSubSceneRequest() {}
 
@@ -10521,6 +10905,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (viewPoint) {
+      res["ViewPoint"] = boost::any(*viewPoint);
+    }
     return res;
   }
 
@@ -10531,10 +10918,63 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ViewPoint") != m.end() && !m["ViewPoint"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["ViewPoint"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ViewPoint"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      viewPoint = make_shared<vector<double>>(toVec1);
+    }
   }
 
 
   virtual ~UpdateSubSceneRequest() = default;
+};
+class UpdateSubSceneShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> viewPointShrink{};
+
+  UpdateSubSceneShrinkRequest() {}
+
+  explicit UpdateSubSceneShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (viewPointShrink) {
+      res["ViewPoint"] = boost::any(*viewPointShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ViewPoint") != m.end() && !m["ViewPoint"].empty()) {
+      viewPointShrink = make_shared<string>(boost::any_cast<string>(m["ViewPoint"]));
+    }
+  }
+
+
+  virtual ~UpdateSubSceneShrinkRequest() = default;
 };
 class UpdateSubSceneResponseBody : public Darabonba::Model {
 public:
@@ -10648,6 +11088,197 @@ public:
 
   virtual ~UpdateSubSceneResponse() = default;
 };
+class UpdateSubSceneSeqRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+  shared_ptr<vector<string>> sortSubSceneIds{};
+
+  UpdateSubSceneSeqRequest() {}
+
+  explicit UpdateSubSceneSeqRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sortSubSceneIds) {
+      res["SortSubSceneIds"] = boost::any(*sortSubSceneIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SortSubSceneIds") != m.end() && !m["SortSubSceneIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SortSubSceneIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SortSubSceneIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sortSubSceneIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateSubSceneSeqRequest() = default;
+};
+class UpdateSubSceneSeqShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sceneId{};
+  shared_ptr<string> sortSubSceneIdsShrink{};
+
+  UpdateSubSceneSeqShrinkRequest() {}
+
+  explicit UpdateSubSceneSeqShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    if (sortSubSceneIdsShrink) {
+      res["SortSubSceneIds"] = boost::any(*sortSubSceneIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("SortSubSceneIds") != m.end() && !m["SortSubSceneIds"].empty()) {
+      sortSubSceneIdsShrink = make_shared<string>(boost::any_cast<string>(m["SortSubSceneIds"]));
+    }
+  }
+
+
+  virtual ~UpdateSubSceneSeqShrinkRequest() = default;
+};
+class UpdateSubSceneSeqResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateSubSceneSeqResponseBody() {}
+
+  explicit UpdateSubSceneSeqResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateSubSceneSeqResponseBody() = default;
+};
+class UpdateSubSceneSeqResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateSubSceneSeqResponseBody> body{};
+
+  UpdateSubSceneSeqResponse() {}
+
+  explicit UpdateSubSceneSeqResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateSubSceneSeqResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateSubSceneSeqResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateSubSceneSeqResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -10672,6 +11303,8 @@ public:
   AddSubSceneResponse addSubScene(shared_ptr<AddSubSceneRequest> request);
   CheckUserPropertyResponse checkUserPropertyWithOptions(shared_ptr<CheckUserPropertyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckUserPropertyResponse checkUserProperty(shared_ptr<CheckUserPropertyRequest> request);
+  CopySceneResponse copySceneWithOptions(shared_ptr<CopySceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CopySceneResponse copyScene(shared_ptr<CopySceneRequest> request);
   DetailProjectResponse detailProjectWithOptions(shared_ptr<DetailProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetailProjectResponse detailProject(shared_ptr<DetailProjectRequest> request);
   DetailSceneResponse detailSceneWithOptions(shared_ptr<DetailSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10686,6 +11319,8 @@ public:
   DropSubSceneResponse dropSubScene(shared_ptr<DropSubSceneRequest> request);
   GetConnDataResponse getConnDataWithOptions(shared_ptr<GetConnDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetConnDataResponse getConnData(shared_ptr<GetConnDataRequest> request);
+  GetCopySceneTaskStatusResponse getCopySceneTaskStatusWithOptions(shared_ptr<GetCopySceneTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCopySceneTaskStatusResponse getCopySceneTaskStatus(shared_ptr<GetCopySceneTaskStatusRequest> request);
   GetHotspotConfigResponse getHotspotConfigWithOptions(shared_ptr<GetHotspotConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetHotspotConfigResponse getHotspotConfig(shared_ptr<GetHotspotConfigRequest> request);
   GetHotspotSceneDataResponse getHotspotSceneDataWithOptions(shared_ptr<GetHotspotSceneDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -10770,8 +11405,10 @@ public:
   UpdateProjectResponse updateProject(shared_ptr<UpdateProjectRequest> request);
   UpdateSceneResponse updateSceneWithOptions(shared_ptr<UpdateSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSceneResponse updateScene(shared_ptr<UpdateSceneRequest> request);
-  UpdateSubSceneResponse updateSubSceneWithOptions(shared_ptr<UpdateSubSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSubSceneResponse updateSubSceneWithOptions(shared_ptr<UpdateSubSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSubSceneResponse updateSubScene(shared_ptr<UpdateSubSceneRequest> request);
+  UpdateSubSceneSeqResponse updateSubSceneSeqWithOptions(shared_ptr<UpdateSubSceneSeqRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateSubSceneSeqResponse updateSubSceneSeq(shared_ptr<UpdateSubSceneSeqRequest> request);
 
   virtual ~Client() = default;
 };

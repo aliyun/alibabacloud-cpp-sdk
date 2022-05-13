@@ -262,6 +262,37 @@ CheckUserPropertyResponse Alibabacloud_Tdsr20200101::Client::checkUserProperty(s
   return checkUserPropertyWithOptions(request, runtime);
 }
 
+CopySceneResponse Alibabacloud_Tdsr20200101::Client::copySceneWithOptions(shared_ptr<CopySceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneName)) {
+    query->insert(pair<string, string>("SceneName", *request->sceneName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CopyScene"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CopySceneResponse(callApi(params, req, runtime));
+}
+
+CopySceneResponse Alibabacloud_Tdsr20200101::Client::copyScene(shared_ptr<CopySceneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return copySceneWithOptions(request, runtime);
+}
+
 DetailProjectResponse Alibabacloud_Tdsr20200101::Client::detailProjectWithOptions(shared_ptr<DetailProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -456,6 +487,34 @@ GetConnDataResponse Alibabacloud_Tdsr20200101::Client::getConnDataWithOptions(sh
 GetConnDataResponse Alibabacloud_Tdsr20200101::Client::getConnData(shared_ptr<GetConnDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getConnDataWithOptions(request, runtime);
+}
+
+GetCopySceneTaskStatusResponse Alibabacloud_Tdsr20200101::Client::getCopySceneTaskStatusWithOptions(shared_ptr<GetCopySceneTaskStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCopySceneTaskStatus"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCopySceneTaskStatusResponse(callApi(params, req, runtime));
+}
+
+GetCopySceneTaskStatusResponse Alibabacloud_Tdsr20200101::Client::getCopySceneTaskStatus(shared_ptr<GetCopySceneTaskStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCopySceneTaskStatusWithOptions(request, runtime);
 }
 
 GetHotspotConfigResponse Alibabacloud_Tdsr20200101::Client::getHotspotConfigWithOptions(shared_ptr<GetHotspotConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1136,6 +1195,9 @@ ListSubSceneResponse Alibabacloud_Tdsr20200101::Client::listSubSceneWithOptions(
   if (!Darabonba_Util::Client::isUnset<bool>(request->showLayoutData)) {
     query->insert(pair<string, bool>("ShowLayoutData", *request->showLayoutData));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortField)) {
+    query->insert(pair<string, string>("SortField", *request->sortField));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1769,14 +1831,22 @@ UpdateSceneResponse Alibabacloud_Tdsr20200101::Client::updateScene(shared_ptr<Up
   return updateSceneWithOptions(request, runtime);
 }
 
-UpdateSubSceneResponse Alibabacloud_Tdsr20200101::Client::updateSubSceneWithOptions(shared_ptr<UpdateSubSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateSubSceneResponse Alibabacloud_Tdsr20200101::Client::updateSubSceneWithOptions(shared_ptr<UpdateSubSceneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateSubSceneShrinkRequest> request = make_shared<UpdateSubSceneShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<double>>(tmpReq->viewPoint)) {
+    request->viewPointShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->viewPoint, make_shared<string>("ViewPoint"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->viewPointShrink)) {
+    query->insert(pair<string, string>("ViewPoint", *request->viewPointShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1798,5 +1868,41 @@ UpdateSubSceneResponse Alibabacloud_Tdsr20200101::Client::updateSubSceneWithOpti
 UpdateSubSceneResponse Alibabacloud_Tdsr20200101::Client::updateSubScene(shared_ptr<UpdateSubSceneRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateSubSceneWithOptions(request, runtime);
+}
+
+UpdateSubSceneSeqResponse Alibabacloud_Tdsr20200101::Client::updateSubSceneSeqWithOptions(shared_ptr<UpdateSubSceneSeqRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateSubSceneSeqShrinkRequest> request = make_shared<UpdateSubSceneSeqShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sortSubSceneIds)) {
+    request->sortSubSceneIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sortSubSceneIds, make_shared<string>("SortSubSceneIds"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortSubSceneIdsShrink)) {
+    query->insert(pair<string, string>("SortSubSceneIds", *request->sortSubSceneIdsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateSubSceneSeq"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateSubSceneSeqResponse(callApi(params, req, runtime));
+}
+
+UpdateSubSceneSeqResponse Alibabacloud_Tdsr20200101::Client::updateSubSceneSeq(shared_ptr<UpdateSubSceneSeqRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateSubSceneSeqWithOptions(request, runtime);
 }
 
