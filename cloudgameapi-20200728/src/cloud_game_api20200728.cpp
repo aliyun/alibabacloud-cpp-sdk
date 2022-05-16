@@ -698,9 +698,6 @@ GetGameStockResponse Alibabacloud_CloudGameAPI20200728::Client::getGameStockWith
   if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
     query->insert(pair<string, string>("GameId", *request->gameId));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->userLevel)) {
-    query->insert(pair<string, long>("UserLevel", *request->userLevel));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -873,6 +870,40 @@ GetOutAccountBindDetailResponse Alibabacloud_CloudGameAPI20200728::Client::getOu
 GetOutAccountBindDetailResponse Alibabacloud_CloudGameAPI20200728::Client::getOutAccountBindDetail(shared_ptr<GetOutAccountBindDetailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getOutAccountBindDetailWithOptions(request, runtime);
+}
+
+GetQueuingSizeResponse Alibabacloud_CloudGameAPI20200728::Client::getQueuingSizeWithOptions(shared_ptr<GetQueuingSizeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
+    query->insert(pair<string, string>("GameId", *request->gameId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userLevel)) {
+    query->insert(pair<string, long>("UserLevel", *request->userLevel));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetQueuingSize"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetQueuingSizeResponse(callApi(params, req, runtime));
+}
+
+GetQueuingSizeResponse Alibabacloud_CloudGameAPI20200728::Client::getQueuingSize(shared_ptr<GetQueuingSizeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getQueuingSizeWithOptions(request, runtime);
 }
 
 GetSessionResponse Alibabacloud_CloudGameAPI20200728::Client::getSessionWithOptions(shared_ptr<GetSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
