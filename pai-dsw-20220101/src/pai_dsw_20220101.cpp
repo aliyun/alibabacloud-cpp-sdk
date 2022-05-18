@@ -68,6 +68,15 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("InstanceName", *request->instanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    body->insert(pair<string, long>("Priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestRequestedResource>(request->requestedResource)) {
+    body->insert(pair<string, CreateInstanceRequestRequestedResource>("RequestedResource", *request->requestedResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    body->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestUserVpc>(request->userVpc)) {
     body->insert(pair<string, CreateInstanceRequestUserVpc>("UserVpc", *request->userVpc));
   }
