@@ -1277,6 +1277,161 @@ public:
 
   virtual ~CreateSimilarSecurityEventsQueryTaskResponse() = default;
 };
+class CreateSuspEventNoteRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> eventId{};
+  shared_ptr<string> note{};
+
+  CreateSuspEventNoteRequest() {}
+
+  explicit CreateSuspEventNoteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (note) {
+      res["Note"] = boost::any(*note);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<long>(boost::any_cast<long>(m["EventId"]));
+    }
+    if (m.find("Note") != m.end() && !m["Note"].empty()) {
+      note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+  }
+
+
+  virtual ~CreateSuspEventNoteRequest() = default;
+};
+class CreateSuspEventNoteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateSuspEventNoteResponseBody() {}
+
+  explicit CreateSuspEventNoteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateSuspEventNoteResponseBody() = default;
+};
+class CreateSuspEventNoteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSuspEventNoteResponseBody> body{};
+
+  CreateSuspEventNoteResponse() {}
+
+  explicit CreateSuspEventNoteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSuspEventNoteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSuspEventNoteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSuspEventNoteResponse() = default;
+};
 class CreateVulAutoRepairConfigRequestVulAutoRepairConfigList : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
@@ -16984,6 +17139,7 @@ public:
 class DescribeImageVulListResponseBodyVulRecords : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<string> canFix{};
   shared_ptr<bool> canUpdate{};
   shared_ptr<DescribeImageVulListResponseBodyVulRecordsExtendContentJson> extendContentJson{};
   shared_ptr<long> firstTs{};
@@ -17014,6 +17170,9 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (canFix) {
+      res["CanFix"] = boost::any(*canFix);
     }
     if (canUpdate) {
       res["CanUpdate"] = boost::any(*canUpdate);
@@ -17072,6 +17231,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("CanFix") != m.end() && !m["CanFix"].empty()) {
+      canFix = make_shared<string>(boost::any_cast<string>(m["CanFix"]));
     }
     if (m.find("CanUpdate") != m.end() && !m["CanUpdate"].empty()) {
       canUpdate = make_shared<bool>(boost::any_cast<bool>(m["CanUpdate"]));
@@ -19055,6 +19217,328 @@ public:
 
 
   virtual ~DescribeNoticeConfigResponse() = default;
+};
+class DescribeOnceTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> endTimeQuery{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> rootTaskId{};
+  shared_ptr<long> startTimeQuery{};
+  shared_ptr<string> taskType{};
+
+  DescribeOnceTaskRequest() {}
+
+  explicit DescribeOnceTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (endTimeQuery) {
+      res["EndTimeQuery"] = boost::any(*endTimeQuery);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (rootTaskId) {
+      res["RootTaskId"] = boost::any(*rootTaskId);
+    }
+    if (startTimeQuery) {
+      res["StartTimeQuery"] = boost::any(*startTimeQuery);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EndTimeQuery") != m.end() && !m["EndTimeQuery"].empty()) {
+      endTimeQuery = make_shared<long>(boost::any_cast<long>(m["EndTimeQuery"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RootTaskId") != m.end() && !m["RootTaskId"].empty()) {
+      rootTaskId = make_shared<string>(boost::any_cast<string>(m["RootTaskId"]));
+    }
+    if (m.find("StartTimeQuery") != m.end() && !m["StartTimeQuery"].empty()) {
+      startTimeQuery = make_shared<long>(boost::any_cast<long>(m["StartTimeQuery"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~DescribeOnceTaskRequest() = default;
+};
+class DescribeOnceTaskResponseBodyPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  DescribeOnceTaskResponseBodyPageInfo() {}
+
+  explicit DescribeOnceTaskResponseBodyPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeOnceTaskResponseBodyPageInfo() = default;
+};
+class DescribeOnceTaskResponseBodyTaskManageResponseList : public Darabonba::Model {
+public:
+  shared_ptr<string> detailData{};
+  shared_ptr<string> progress{};
+  shared_ptr<long> taskEndTime{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskName{};
+  shared_ptr<long> taskStartTime{};
+  shared_ptr<long> taskStatus{};
+  shared_ptr<string> taskStatusText{};
+  shared_ptr<string> taskType{};
+
+  DescribeOnceTaskResponseBodyTaskManageResponseList() {}
+
+  explicit DescribeOnceTaskResponseBodyTaskManageResponseList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detailData) {
+      res["DetailData"] = boost::any(*detailData);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (taskEndTime) {
+      res["TaskEndTime"] = boost::any(*taskEndTime);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    if (taskStartTime) {
+      res["TaskStartTime"] = boost::any(*taskStartTime);
+    }
+    if (taskStatus) {
+      res["TaskStatus"] = boost::any(*taskStatus);
+    }
+    if (taskStatusText) {
+      res["TaskStatusText"] = boost::any(*taskStatusText);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetailData") != m.end() && !m["DetailData"].empty()) {
+      detailData = make_shared<string>(boost::any_cast<string>(m["DetailData"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("TaskEndTime") != m.end() && !m["TaskEndTime"].empty()) {
+      taskEndTime = make_shared<long>(boost::any_cast<long>(m["TaskEndTime"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+    if (m.find("TaskStartTime") != m.end() && !m["TaskStartTime"].empty()) {
+      taskStartTime = make_shared<long>(boost::any_cast<long>(m["TaskStartTime"]));
+    }
+    if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
+      taskStatus = make_shared<long>(boost::any_cast<long>(m["TaskStatus"]));
+    }
+    if (m.find("TaskStatusText") != m.end() && !m["TaskStatusText"].empty()) {
+      taskStatusText = make_shared<string>(boost::any_cast<string>(m["TaskStatusText"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~DescribeOnceTaskResponseBodyTaskManageResponseList() = default;
+};
+class DescribeOnceTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeOnceTaskResponseBodyPageInfo> pageInfo{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeOnceTaskResponseBodyTaskManageResponseList>> taskManageResponseList{};
+
+  DescribeOnceTaskResponseBody() {}
+
+  explicit DescribeOnceTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskManageResponseList) {
+      vector<boost::any> temp1;
+      for(auto item1:*taskManageResponseList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TaskManageResponseList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        DescribeOnceTaskResponseBodyPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<DescribeOnceTaskResponseBodyPageInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskManageResponseList") != m.end() && !m["TaskManageResponseList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TaskManageResponseList"].type()) {
+        vector<DescribeOnceTaskResponseBodyTaskManageResponseList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TaskManageResponseList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeOnceTaskResponseBodyTaskManageResponseList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        taskManageResponseList = make_shared<vector<DescribeOnceTaskResponseBodyTaskManageResponseList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeOnceTaskResponseBody() = default;
+};
+class DescribeOnceTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeOnceTaskResponseBody> body{};
+
+  DescribeOnceTaskResponse() {}
+
+  explicit DescribeOnceTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeOnceTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeOnceTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeOnceTaskResponse() = default;
 };
 class DescribePropertyCountRequest : public Darabonba::Model {
 public:
@@ -45622,6 +46106,8 @@ public:
   CreateServiceLinkedRoleResponse createServiceLinkedRole();
   CreateSimilarSecurityEventsQueryTaskResponse createSimilarSecurityEventsQueryTaskWithOptions(shared_ptr<CreateSimilarSecurityEventsQueryTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSimilarSecurityEventsQueryTaskResponse createSimilarSecurityEventsQueryTask(shared_ptr<CreateSimilarSecurityEventsQueryTaskRequest> request);
+  CreateSuspEventNoteResponse createSuspEventNoteWithOptions(shared_ptr<CreateSuspEventNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSuspEventNoteResponse createSuspEventNote(shared_ptr<CreateSuspEventNoteRequest> request);
   CreateVulAutoRepairConfigResponse createVulAutoRepairConfigWithOptions(shared_ptr<CreateVulAutoRepairConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVulAutoRepairConfigResponse createVulAutoRepairConfig(shared_ptr<CreateVulAutoRepairConfigRequest> request);
   DeleteBackupPolicyResponse deleteBackupPolicyWithOptions(shared_ptr<DeleteBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -45762,6 +46248,8 @@ public:
   DescribeModuleConfigResponse describeModuleConfig();
   DescribeNoticeConfigResponse describeNoticeConfigWithOptions(shared_ptr<DescribeNoticeConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeNoticeConfigResponse describeNoticeConfig(shared_ptr<DescribeNoticeConfigRequest> request);
+  DescribeOnceTaskResponse describeOnceTaskWithOptions(shared_ptr<DescribeOnceTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeOnceTaskResponse describeOnceTask(shared_ptr<DescribeOnceTaskRequest> request);
   DescribePropertyCountResponse describePropertyCountWithOptions(shared_ptr<DescribePropertyCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePropertyCountResponse describePropertyCount(shared_ptr<DescribePropertyCountRequest> request);
   DescribePropertyCronDetailResponse describePropertyCronDetailWithOptions(shared_ptr<DescribePropertyCronDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

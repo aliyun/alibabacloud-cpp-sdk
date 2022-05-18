@@ -374,6 +374,37 @@ CreateSimilarSecurityEventsQueryTaskResponse Alibabacloud_Sas20181203::Client::c
   return createSimilarSecurityEventsQueryTaskWithOptions(request, runtime);
 }
 
+CreateSuspEventNoteResponse Alibabacloud_Sas20181203::Client::createSuspEventNoteWithOptions(shared_ptr<CreateSuspEventNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->eventId)) {
+    query->insert(pair<string, long>("EventId", *request->eventId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->note)) {
+    query->insert(pair<string, string>("Note", *request->note));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSuspEventNote"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSuspEventNoteResponse(callApi(params, req, runtime));
+}
+
+CreateSuspEventNoteResponse Alibabacloud_Sas20181203::Client::createSuspEventNote(shared_ptr<CreateSuspEventNoteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSuspEventNoteWithOptions(request, runtime);
+}
+
 CreateVulAutoRepairConfigResponse Alibabacloud_Sas20181203::Client::createVulAutoRepairConfigWithOptions(shared_ptr<CreateVulAutoRepairConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2957,6 +2988,49 @@ DescribeNoticeConfigResponse Alibabacloud_Sas20181203::Client::describeNoticeCon
 DescribeNoticeConfigResponse Alibabacloud_Sas20181203::Client::describeNoticeConfig(shared_ptr<DescribeNoticeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeNoticeConfigWithOptions(request, runtime);
+}
+
+DescribeOnceTaskResponse Alibabacloud_Sas20181203::Client::describeOnceTaskWithOptions(shared_ptr<DescribeOnceTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTimeQuery)) {
+    query->insert(pair<string, long>("EndTimeQuery", *request->endTimeQuery));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rootTaskId)) {
+    query->insert(pair<string, string>("RootTaskId", *request->rootTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTimeQuery)) {
+    query->insert(pair<string, long>("StartTimeQuery", *request->startTimeQuery));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskType)) {
+    query->insert(pair<string, string>("TaskType", *request->taskType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeOnceTask"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeOnceTaskResponse(callApi(params, req, runtime));
+}
+
+DescribeOnceTaskResponse Alibabacloud_Sas20181203::Client::describeOnceTask(shared_ptr<DescribeOnceTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeOnceTaskWithOptions(request, runtime);
 }
 
 DescribePropertyCountResponse Alibabacloud_Sas20181203::Client::describePropertyCountWithOptions(shared_ptr<DescribePropertyCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
