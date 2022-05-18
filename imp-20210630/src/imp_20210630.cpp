@@ -979,6 +979,74 @@ DeleteSensitiveWordResponse Alibabacloud_Imp20210630::Client::deleteSensitiveWor
   return deleteSensitiveWordWithOptions(request, runtime);
 }
 
+DescribeMeterImpPlayBackTimeByLiveIdResponse Alibabacloud_Imp20210630::Client::describeMeterImpPlayBackTimeByLiveIdWithOptions(shared_ptr<DescribeMeterImpPlayBackTimeByLiveIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTs)) {
+    query->insert(pair<string, long>("EndTs", *request->endTs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->liveId)) {
+    query->insert(pair<string, string>("LiveId", *request->liveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTs)) {
+    query->insert(pair<string, long>("StartTs", *request->startTs));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMeterImpPlayBackTimeByLiveId"))},
+    {"version", boost::any(string("2021-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMeterImpPlayBackTimeByLiveIdResponse(callApi(params, req, runtime));
+}
+
+DescribeMeterImpPlayBackTimeByLiveIdResponse Alibabacloud_Imp20210630::Client::describeMeterImpPlayBackTimeByLiveId(shared_ptr<DescribeMeterImpPlayBackTimeByLiveIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeMeterImpPlayBackTimeByLiveIdWithOptions(request, runtime);
+}
+
+DescribeMeterImpWatchLiveTimeByLiveIdResponse Alibabacloud_Imp20210630::Client::describeMeterImpWatchLiveTimeByLiveIdWithOptions(shared_ptr<DescribeMeterImpWatchLiveTimeByLiveIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->liveId)) {
+    query->insert(pair<string, string>("LiveId", *request->liveId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeMeterImpWatchLiveTimeByLiveId"))},
+    {"version", boost::any(string("2021-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeMeterImpWatchLiveTimeByLiveIdResponse(callApi(params, req, runtime));
+}
+
+DescribeMeterImpWatchLiveTimeByLiveIdResponse Alibabacloud_Imp20210630::Client::describeMeterImpWatchLiveTimeByLiveId(shared_ptr<DescribeMeterImpWatchLiveTimeByLiveIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeMeterImpWatchLiveTimeByLiveIdWithOptions(request, runtime);
+}
+
 GetAppResponse Alibabacloud_Imp20210630::Client::getAppWithOptions(shared_ptr<GetAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());

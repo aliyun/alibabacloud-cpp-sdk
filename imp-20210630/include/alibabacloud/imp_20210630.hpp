@@ -4587,6 +4587,381 @@ public:
 
   virtual ~DeleteSensitiveWordResponse() = default;
 };
+class DescribeMeterImpPlayBackTimeByLiveIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<long> endTs{};
+  shared_ptr<string> liveId{};
+  shared_ptr<long> startTs{};
+
+  DescribeMeterImpPlayBackTimeByLiveIdRequest() {}
+
+  explicit DescribeMeterImpPlayBackTimeByLiveIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (endTs) {
+      res["EndTs"] = boost::any(*endTs);
+    }
+    if (liveId) {
+      res["LiveId"] = boost::any(*liveId);
+    }
+    if (startTs) {
+      res["StartTs"] = boost::any(*startTs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("EndTs") != m.end() && !m["EndTs"].empty()) {
+      endTs = make_shared<long>(boost::any_cast<long>(m["EndTs"]));
+    }
+    if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
+      liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+    if (m.find("StartTs") != m.end() && !m["StartTs"].empty()) {
+      startTs = make_shared<long>(boost::any_cast<long>(m["StartTs"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpPlayBackTimeByLiveIdRequest() = default;
+};
+class DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> watchTime{};
+
+  DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData() {}
+
+  explicit DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (watchTime) {
+      res["WatchTime"] = boost::any(*watchTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WatchTime") != m.end() && !m["WatchTime"].empty()) {
+      watchTime = make_shared<long>(boost::any_cast<long>(m["WatchTime"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData() = default;
+};
+class DescribeMeterImpPlayBackTimeByLiveIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeMeterImpPlayBackTimeByLiveIdResponseBody() {}
+
+  explicit DescribeMeterImpPlayBackTimeByLiveIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpPlayBackTimeByLiveIdResponseBody() = default;
+};
+class DescribeMeterImpPlayBackTimeByLiveIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMeterImpPlayBackTimeByLiveIdResponseBody> body{};
+
+  DescribeMeterImpPlayBackTimeByLiveIdResponse() {}
+
+  explicit DescribeMeterImpPlayBackTimeByLiveIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMeterImpPlayBackTimeByLiveIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMeterImpPlayBackTimeByLiveIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMeterImpPlayBackTimeByLiveIdResponse() = default;
+};
+class DescribeMeterImpWatchLiveTimeByLiveIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> liveId{};
+
+  DescribeMeterImpWatchLiveTimeByLiveIdRequest() {}
+
+  explicit DescribeMeterImpWatchLiveTimeByLiveIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (liveId) {
+      res["LiveId"] = boost::any(*liveId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
+      liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpWatchLiveTimeByLiveIdRequest() = default;
+};
+class DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> watchTimeInLatency{};
+  shared_ptr<long> watchTimeInLowLatency{};
+
+  DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData() {}
+
+  explicit DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (watchTimeInLatency) {
+      res["WatchTimeInLatency"] = boost::any(*watchTimeInLatency);
+    }
+    if (watchTimeInLowLatency) {
+      res["WatchTimeInLowLatency"] = boost::any(*watchTimeInLowLatency);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WatchTimeInLatency") != m.end() && !m["WatchTimeInLatency"].empty()) {
+      watchTimeInLatency = make_shared<long>(boost::any_cast<long>(m["WatchTimeInLatency"]));
+    }
+    if (m.find("WatchTimeInLowLatency") != m.end() && !m["WatchTimeInLowLatency"].empty()) {
+      watchTimeInLowLatency = make_shared<long>(boost::any_cast<long>(m["WatchTimeInLowLatency"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData() = default;
+};
+class DescribeMeterImpWatchLiveTimeByLiveIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  DescribeMeterImpWatchLiveTimeByLiveIdResponseBody() {}
+
+  explicit DescribeMeterImpWatchLiveTimeByLiveIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeMeterImpWatchLiveTimeByLiveIdResponseBody() = default;
+};
+class DescribeMeterImpWatchLiveTimeByLiveIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeMeterImpWatchLiveTimeByLiveIdResponseBody> body{};
+
+  DescribeMeterImpWatchLiveTimeByLiveIdResponse() {}
+
+  explicit DescribeMeterImpWatchLiveTimeByLiveIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeMeterImpWatchLiveTimeByLiveIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeMeterImpWatchLiveTimeByLiveIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeMeterImpWatchLiveTimeByLiveIdResponse() = default;
+};
 class GetAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -16257,6 +16632,10 @@ public:
   DeleteRoomResponse deleteRoom(shared_ptr<DeleteRoomRequest> request);
   DeleteSensitiveWordResponse deleteSensitiveWordWithOptions(shared_ptr<DeleteSensitiveWordRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSensitiveWordResponse deleteSensitiveWord(shared_ptr<DeleteSensitiveWordRequest> request);
+  DescribeMeterImpPlayBackTimeByLiveIdResponse describeMeterImpPlayBackTimeByLiveIdWithOptions(shared_ptr<DescribeMeterImpPlayBackTimeByLiveIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMeterImpPlayBackTimeByLiveIdResponse describeMeterImpPlayBackTimeByLiveId(shared_ptr<DescribeMeterImpPlayBackTimeByLiveIdRequest> request);
+  DescribeMeterImpWatchLiveTimeByLiveIdResponse describeMeterImpWatchLiveTimeByLiveIdWithOptions(shared_ptr<DescribeMeterImpWatchLiveTimeByLiveIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeMeterImpWatchLiveTimeByLiveIdResponse describeMeterImpWatchLiveTimeByLiveId(shared_ptr<DescribeMeterImpWatchLiveTimeByLiveIdRequest> request);
   GetAppResponse getAppWithOptions(shared_ptr<GetAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAppResponse getApp(shared_ptr<GetAppRequest> request);
   GetAppTemplateResponse getAppTemplateWithOptions(shared_ptr<GetAppTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
