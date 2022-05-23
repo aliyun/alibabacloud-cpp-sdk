@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Edas20170801;
 
 Alibabacloud_Edas20170801::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-2-pop", "edas.ap-northeast-1.aliyuncs.com"},
@@ -1489,6 +1490,9 @@ DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplica
 DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplicationWithOptions(shared_ptr<DeployK8sApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->annotations)) {
+    query->insert(pair<string, string>("Annotations", *request->annotations));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
@@ -1540,6 +1544,12 @@ DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplica
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableAhas)) {
     query->insert(pair<string, bool>("EnableAhas", *request->enableAhas));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableEmptyPushReject)) {
+    query->insert(pair<string, bool>("EnableEmptyPushReject", *request->enableEmptyPushReject));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableLosslessRule)) {
+    query->insert(pair<string, bool>("EnableLosslessRule", *request->enableLosslessRule));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->envFroms)) {
     query->insert(pair<string, string>("EnvFroms", *request->envFroms));
   }
@@ -1558,11 +1568,29 @@ DeployK8sApplicationResponse Alibabacloud_Edas20170801::Client::deployK8sApplica
   if (!Darabonba_Util::Client::isUnset<string>(request->javaStartUpConfig)) {
     query->insert(pair<string, string>("JavaStartUpConfig", *request->javaStartUpConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
+    query->insert(pair<string, string>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->liveness)) {
     query->insert(pair<string, string>("Liveness", *request->liveness));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->localVolume)) {
     query->insert(pair<string, string>("LocalVolume", *request->localVolume));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->losslessRuleAligned)) {
+    query->insert(pair<string, bool>("LosslessRuleAligned", *request->losslessRuleAligned));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleDelayTime)) {
+    query->insert(pair<string, long>("LosslessRuleDelayTime", *request->losslessRuleDelayTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleFuncType)) {
+    query->insert(pair<string, long>("LosslessRuleFuncType", *request->losslessRuleFuncType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->losslessRuleRelated)) {
+    query->insert(pair<string, bool>("LosslessRuleRelated", *request->losslessRuleRelated));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleWarmupTime)) {
+    query->insert(pair<string, long>("LosslessRuleWarmupTime", *request->losslessRuleWarmupTime));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->mcpuLimit)) {
     query->insert(pair<string, long>("McpuLimit", *request->mcpuLimit));
@@ -2995,6 +3023,9 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
 InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplicationWithOptions(shared_ptr<InsertK8sApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->annotations)) {
+    query->insert(pair<string, string>("Annotations", *request->annotations));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
   }
@@ -3043,6 +3074,12 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableAsm)) {
     query->insert(pair<string, bool>("EnableAsm", *request->enableAsm));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableEmptyPushReject)) {
+    query->insert(pair<string, bool>("EnableEmptyPushReject", *request->enableEmptyPushReject));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableLosslessRule)) {
+    query->insert(pair<string, bool>("EnableLosslessRule", *request->enableLosslessRule));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->envFroms)) {
     query->insert(pair<string, string>("EnvFroms", *request->envFroms));
   }
@@ -3085,6 +3122,9 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   if (!Darabonba_Util::Client::isUnset<string>(request->javaStartUpConfig)) {
     query->insert(pair<string, string>("JavaStartUpConfig", *request->javaStartUpConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
+    query->insert(pair<string, string>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->limitCpu)) {
     query->insert(pair<string, long>("LimitCpu", *request->limitCpu));
   }
@@ -3102,6 +3142,21 @@ InsertK8sApplicationResponse Alibabacloud_Edas20170801::Client::insertK8sApplica
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->logicalRegionId)) {
     query->insert(pair<string, string>("LogicalRegionId", *request->logicalRegionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->losslessRuleAligned)) {
+    query->insert(pair<string, bool>("LosslessRuleAligned", *request->losslessRuleAligned));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleDelayTime)) {
+    query->insert(pair<string, long>("LosslessRuleDelayTime", *request->losslessRuleDelayTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleFuncType)) {
+    query->insert(pair<string, long>("LosslessRuleFuncType", *request->losslessRuleFuncType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->losslessRuleRelated)) {
+    query->insert(pair<string, bool>("LosslessRuleRelated", *request->losslessRuleRelated));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->losslessRuleWarmupTime)) {
+    query->insert(pair<string, long>("LosslessRuleWarmupTime", *request->losslessRuleWarmupTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mountDescs)) {
     query->insert(pair<string, string>("MountDescs", *request->mountDescs));
