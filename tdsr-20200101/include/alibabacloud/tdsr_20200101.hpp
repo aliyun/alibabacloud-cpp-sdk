@@ -6585,7 +6585,11 @@ public:
 class LabelBuildRequest : public Darabonba::Model {
 public:
   shared_ptr<string> mode{};
+  shared_ptr<string> optimizeModelEffect{};
+  shared_ptr<string> optimizeWallWidth{};
+  shared_ptr<string> planStyle{};
   shared_ptr<string> sceneId{};
+  shared_ptr<long> wallHeight{};
 
   LabelBuildRequest() {}
 
@@ -6600,8 +6604,20 @@ public:
     if (mode) {
       res["Mode"] = boost::any(*mode);
     }
+    if (optimizeModelEffect) {
+      res["OptimizeModelEffect"] = boost::any(*optimizeModelEffect);
+    }
+    if (optimizeWallWidth) {
+      res["OptimizeWallWidth"] = boost::any(*optimizeWallWidth);
+    }
+    if (planStyle) {
+      res["PlanStyle"] = boost::any(*planStyle);
+    }
     if (sceneId) {
       res["SceneId"] = boost::any(*sceneId);
+    }
+    if (wallHeight) {
+      res["WallHeight"] = boost::any(*wallHeight);
     }
     return res;
   }
@@ -6610,8 +6626,20 @@ public:
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
     }
+    if (m.find("OptimizeModelEffect") != m.end() && !m["OptimizeModelEffect"].empty()) {
+      optimizeModelEffect = make_shared<string>(boost::any_cast<string>(m["OptimizeModelEffect"]));
+    }
+    if (m.find("OptimizeWallWidth") != m.end() && !m["OptimizeWallWidth"].empty()) {
+      optimizeWallWidth = make_shared<string>(boost::any_cast<string>(m["OptimizeWallWidth"]));
+    }
+    if (m.find("PlanStyle") != m.end() && !m["PlanStyle"].empty()) {
+      planStyle = make_shared<string>(boost::any_cast<string>(m["PlanStyle"]));
+    }
     if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
       sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+    if (m.find("WallHeight") != m.end() && !m["WallHeight"].empty()) {
+      wallHeight = make_shared<long>(boost::any_cast<long>(m["WallHeight"]));
     }
   }
 

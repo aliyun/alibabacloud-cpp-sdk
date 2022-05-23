@@ -1047,8 +1047,20 @@ LabelBuildResponse Alibabacloud_Tdsr20200101::Client::labelBuildWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
     query->insert(pair<string, string>("Mode", *request->mode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->optimizeModelEffect)) {
+    query->insert(pair<string, string>("OptimizeModelEffect", *request->optimizeModelEffect));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->optimizeWallWidth)) {
+    query->insert(pair<string, string>("OptimizeWallWidth", *request->optimizeWallWidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planStyle)) {
+    query->insert(pair<string, string>("PlanStyle", *request->planStyle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
     query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->wallHeight)) {
+    query->insert(pair<string, long>("WallHeight", *request->wallHeight));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
