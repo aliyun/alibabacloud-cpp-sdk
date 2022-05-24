@@ -200,6 +200,31 @@ CancelComponentUpgradeResponse Alibabacloud_CS20151215::Client::cancelComponentU
   return CancelComponentUpgradeResponse(callApi(params, req, runtime));
 }
 
+CancelTaskResponse Alibabacloud_CS20151215::Client::cancelTask(shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelTaskWithOptions(taskId, headers, runtime);
+}
+
+CancelTaskResponse Alibabacloud_CS20151215::Client::cancelTaskWithOptions(shared_ptr<string> taskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  taskId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelTask"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/tasks/") + string(*taskId) + string("/cancel"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return CancelTaskResponse(callApi(params, req, runtime));
+}
+
 CancelWorkflowResponse Alibabacloud_CS20151215::Client::cancelWorkflow(shared_ptr<string> workflowName, shared_ptr<CancelWorkflowRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1938,6 +1963,35 @@ DescribeKubernetesVersionMetadataResponse Alibabacloud_CS20151215::Client::descr
   return DescribeKubernetesVersionMetadataResponse(callApi(params, req, runtime));
 }
 
+DescribeNodePoolVulsResponse Alibabacloud_CS20151215::Client::describeNodePoolVuls(shared_ptr<string> clusterId, shared_ptr<string> nodepoolId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return describeNodePoolVulsWithOptions(clusterId, nodepoolId, headers, runtime);
+}
+
+DescribeNodePoolVulsResponse Alibabacloud_CS20151215::Client::describeNodePoolVulsWithOptions(shared_ptr<string> clusterId,
+                                                                                              shared_ptr<string> nodepoolId,
+                                                                                              shared_ptr<map<string, string>> headers,
+                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
+  nodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(nodepoolId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeNodePoolVuls"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(*clusterId) + string("/nodepools/") + string(*nodepoolId) + string("/vuls"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeNodePoolVulsResponse(callApi(params, req, runtime));
+}
+
 DescribePoliciesResponse Alibabacloud_CS20151215::Client::describePolicies() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -2325,6 +2379,48 @@ EdgeClusterAddEdgeMachineResponse Alibabacloud_CS20151215::Client::edgeClusterAd
     {"bodyType", boost::any(string("json"))}
   }));
   return EdgeClusterAddEdgeMachineResponse(callApi(params, req, runtime));
+}
+
+FixNodePoolVulsResponse Alibabacloud_CS20151215::Client::fixNodePoolVuls(shared_ptr<string> clusterId, shared_ptr<string> nodepoolId, shared_ptr<FixNodePoolVulsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
+}
+
+FixNodePoolVulsResponse Alibabacloud_CS20151215::Client::fixNodePoolVulsWithOptions(shared_ptr<string> clusterId,
+                                                                                    shared_ptr<string> nodepoolId,
+                                                                                    shared_ptr<FixNodePoolVulsRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  clusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId));
+  nodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(nodepoolId));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
+    body->insert(pair<string, vector<string>>("nodes", *request->nodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<FixNodePoolVulsRequestRolloutPolicy>(request->rolloutPolicy)) {
+    body->insert(pair<string, FixNodePoolVulsRequestRolloutPolicy>("rollout_policy", *request->rolloutPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vulList)) {
+    body->insert(pair<string, vector<string>>("vul_list", *request->vulList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FixNodePoolVuls"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(*clusterId) + string("/nodepools/") + string(*nodepoolId) + string("/vuls/fix"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FixNodePoolVulsResponse(callApi(params, req, runtime));
 }
 
 GetKubernetesTriggerResponse Alibabacloud_CS20151215::Client::getKubernetesTrigger(shared_ptr<string> ClusterId, shared_ptr<GetKubernetesTriggerRequest> request) {
@@ -2871,6 +2967,31 @@ PauseComponentUpgradeResponse Alibabacloud_CS20151215::Client::pauseComponentUpg
   return PauseComponentUpgradeResponse(callApi(params, req, runtime));
 }
 
+PauseTaskResponse Alibabacloud_CS20151215::Client::pauseTask(shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return pauseTaskWithOptions(taskId, headers, runtime);
+}
+
+PauseTaskResponse Alibabacloud_CS20151215::Client::pauseTaskWithOptions(shared_ptr<string> taskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  taskId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PauseTask"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/tasks/") + string(*taskId) + string("/pause"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return PauseTaskResponse(callApi(params, req, runtime));
+}
+
 RemoveClusterNodesResponse Alibabacloud_CS20151215::Client::removeClusterNodes(shared_ptr<string> ClusterId, shared_ptr<RemoveClusterNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -2999,6 +3120,31 @@ ResumeComponentUpgradeResponse Alibabacloud_CS20151215::Client::resumeComponentU
     {"bodyType", boost::any(string("none"))}
   }));
   return ResumeComponentUpgradeResponse(callApi(params, req, runtime));
+}
+
+ResumeTaskResponse Alibabacloud_CS20151215::Client::resumeTask(shared_ptr<string> taskId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return resumeTaskWithOptions(taskId, headers, runtime);
+}
+
+ResumeTaskResponse Alibabacloud_CS20151215::Client::resumeTaskWithOptions(shared_ptr<string> taskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  taskId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(taskId));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResumeTask"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/tasks/") + string(*taskId) + string("/resume"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return ResumeTaskResponse(callApi(params, req, runtime));
 }
 
 ResumeUpgradeClusterResponse Alibabacloud_CS20151215::Client::resumeUpgradeCluster(shared_ptr<string> ClusterId) {
