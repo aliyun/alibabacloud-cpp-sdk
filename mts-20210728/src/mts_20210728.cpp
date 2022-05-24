@@ -347,6 +347,9 @@ SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     body->insert(pair<string, string>("UserData", *request->userData));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->visibleMessage)) {
+    body->insert(pair<string, string>("VisibleMessage", *request->visibleMessage));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
