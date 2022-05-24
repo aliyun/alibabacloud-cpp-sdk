@@ -452,6 +452,9 @@ CreateLoadBalancerResponse Alibabacloud_Alb20200616::Client::createLoadBalancerW
   if (!Darabonba_Util::Client::isUnset<string>(request->addressAllocatedMode)) {
     query->insert(pair<string, string>("AddressAllocatedMode", *request->addressAllocatedMode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIpVersion)) {
+    query->insert(pair<string, string>("AddressIpVersion", *request->addressIpVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
     query->insert(pair<string, string>("AddressType", *request->addressType));
   }
