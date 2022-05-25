@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Dyplsapi20170525;
 
 Alibabacloud_Dyplsapi20170525::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("central");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("dyplsapi"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -703,6 +704,57 @@ CreatePickUpWaybillResponse Alibabacloud_Dyplsapi20170525::Client::createPickUpW
 CreatePickUpWaybillResponse Alibabacloud_Dyplsapi20170525::Client::createPickUpWaybill(shared_ptr<CreatePickUpWaybillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createPickUpWaybillWithOptions(request, runtime);
+}
+
+CreatePickUpWaybillPreQueryResponse Alibabacloud_Dyplsapi20170525::Client::createPickUpWaybillPreQueryWithOptions(shared_ptr<CreatePickUpWaybillPreQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePickUpWaybillPreQueryShrinkRequest> request = make_shared<CreatePickUpWaybillPreQueryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreatePickUpWaybillPreQueryRequestConsigneeInfo>(tmpReq->consigneeInfo)) {
+    request->consigneeInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->consigneeInfo->toMap()), make_shared<string>("ConsigneeInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreatePickUpWaybillPreQueryRequestSenderInfo>(tmpReq->senderInfo)) {
+    request->senderInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->senderInfo->toMap()), make_shared<string>("SenderInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->consigneeInfoShrink)) {
+    query->insert(pair<string, string>("ConsigneeInfo", *request->consigneeInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cpCode)) {
+    query->insert(pair<string, string>("CpCode", *request->cpCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderChannels)) {
+    query->insert(pair<string, string>("OrderChannels", *request->orderChannels));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outerOrderCode)) {
+    query->insert(pair<string, string>("OuterOrderCode", *request->outerOrderCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->preWeight)) {
+    query->insert(pair<string, string>("PreWeight", *request->preWeight));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->senderInfoShrink)) {
+    query->insert(pair<string, string>("SenderInfo", *request->senderInfoShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePickUpWaybillPreQuery"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePickUpWaybillPreQueryResponse(callApi(params, req, runtime));
+}
+
+CreatePickUpWaybillPreQueryResponse Alibabacloud_Dyplsapi20170525::Client::createPickUpWaybillPreQuery(shared_ptr<CreatePickUpWaybillPreQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createPickUpWaybillPreQueryWithOptions(request, runtime);
 }
 
 DeleteSecretBlacklistResponse Alibabacloud_Dyplsapi20170525::Client::deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

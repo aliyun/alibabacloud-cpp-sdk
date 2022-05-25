@@ -3019,6 +3019,755 @@ public:
 
   virtual ~CreatePickUpWaybillResponse() = default;
 };
+class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> addressDetail{};
+  shared_ptr<string> areaName{};
+  shared_ptr<string> cityName{};
+  shared_ptr<string> provinceName{};
+  shared_ptr<string> townName{};
+
+  CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo() {}
+
+  explicit CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressDetail) {
+      res["AddressDetail"] = boost::any(*addressDetail);
+    }
+    if (areaName) {
+      res["AreaName"] = boost::any(*areaName);
+    }
+    if (cityName) {
+      res["CityName"] = boost::any(*cityName);
+    }
+    if (provinceName) {
+      res["ProvinceName"] = boost::any(*provinceName);
+    }
+    if (townName) {
+      res["TownName"] = boost::any(*townName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressDetail") != m.end() && !m["AddressDetail"].empty()) {
+      addressDetail = make_shared<string>(boost::any_cast<string>(m["AddressDetail"]));
+    }
+    if (m.find("AreaName") != m.end() && !m["AreaName"].empty()) {
+      areaName = make_shared<string>(boost::any_cast<string>(m["AreaName"]));
+    }
+    if (m.find("CityName") != m.end() && !m["CityName"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["CityName"]));
+    }
+    if (m.find("ProvinceName") != m.end() && !m["ProvinceName"].empty()) {
+      provinceName = make_shared<string>(boost::any_cast<string>(m["ProvinceName"]));
+    }
+    if (m.find("TownName") != m.end() && !m["TownName"].empty()) {
+      townName = make_shared<string>(boost::any_cast<string>(m["TownName"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo() = default;
+};
+class CreatePickUpWaybillPreQueryRequestConsigneeInfo : public Darabonba::Model {
+public:
+  shared_ptr<CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo> addressInfo{};
+  shared_ptr<string> mobile{};
+  shared_ptr<string> name{};
+
+  CreatePickUpWaybillPreQueryRequestConsigneeInfo() {}
+
+  explicit CreatePickUpWaybillPreQueryRequestConsigneeInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressInfo) {
+      res["AddressInfo"] = addressInfo ? boost::any(addressInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressInfo") != m.end() && !m["AddressInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AddressInfo"].type()) {
+        CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AddressInfo"]));
+        addressInfo = make_shared<CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo>(model1);
+      }
+    }
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryRequestConsigneeInfo() = default;
+};
+class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> addressDetail{};
+  shared_ptr<string> areaName{};
+  shared_ptr<string> cityName{};
+  shared_ptr<string> provinceName{};
+  shared_ptr<string> townName{};
+
+  CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo() {}
+
+  explicit CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressDetail) {
+      res["AddressDetail"] = boost::any(*addressDetail);
+    }
+    if (areaName) {
+      res["AreaName"] = boost::any(*areaName);
+    }
+    if (cityName) {
+      res["CityName"] = boost::any(*cityName);
+    }
+    if (provinceName) {
+      res["ProvinceName"] = boost::any(*provinceName);
+    }
+    if (townName) {
+      res["TownName"] = boost::any(*townName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressDetail") != m.end() && !m["AddressDetail"].empty()) {
+      addressDetail = make_shared<string>(boost::any_cast<string>(m["AddressDetail"]));
+    }
+    if (m.find("AreaName") != m.end() && !m["AreaName"].empty()) {
+      areaName = make_shared<string>(boost::any_cast<string>(m["AreaName"]));
+    }
+    if (m.find("CityName") != m.end() && !m["CityName"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["CityName"]));
+    }
+    if (m.find("ProvinceName") != m.end() && !m["ProvinceName"].empty()) {
+      provinceName = make_shared<string>(boost::any_cast<string>(m["ProvinceName"]));
+    }
+    if (m.find("TownName") != m.end() && !m["TownName"].empty()) {
+      townName = make_shared<string>(boost::any_cast<string>(m["TownName"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo() = default;
+};
+class CreatePickUpWaybillPreQueryRequestSenderInfo : public Darabonba::Model {
+public:
+  shared_ptr<CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo> addressInfo{};
+  shared_ptr<string> mobile{};
+  shared_ptr<string> name{};
+
+  CreatePickUpWaybillPreQueryRequestSenderInfo() {}
+
+  explicit CreatePickUpWaybillPreQueryRequestSenderInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressInfo) {
+      res["AddressInfo"] = addressInfo ? boost::any(addressInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressInfo") != m.end() && !m["AddressInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AddressInfo"].type()) {
+        CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AddressInfo"]));
+        addressInfo = make_shared<CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo>(model1);
+      }
+    }
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryRequestSenderInfo() = default;
+};
+class CreatePickUpWaybillPreQueryRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreatePickUpWaybillPreQueryRequestConsigneeInfo> consigneeInfo{};
+  shared_ptr<string> cpCode{};
+  shared_ptr<string> orderChannels{};
+  shared_ptr<string> outerOrderCode{};
+  shared_ptr<string> preWeight{};
+  shared_ptr<CreatePickUpWaybillPreQueryRequestSenderInfo> senderInfo{};
+
+  CreatePickUpWaybillPreQueryRequest() {}
+
+  explicit CreatePickUpWaybillPreQueryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consigneeInfo) {
+      res["ConsigneeInfo"] = consigneeInfo ? boost::any(consigneeInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cpCode) {
+      res["CpCode"] = boost::any(*cpCode);
+    }
+    if (orderChannels) {
+      res["OrderChannels"] = boost::any(*orderChannels);
+    }
+    if (outerOrderCode) {
+      res["OuterOrderCode"] = boost::any(*outerOrderCode);
+    }
+    if (preWeight) {
+      res["PreWeight"] = boost::any(*preWeight);
+    }
+    if (senderInfo) {
+      res["SenderInfo"] = senderInfo ? boost::any(senderInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsigneeInfo") != m.end() && !m["ConsigneeInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConsigneeInfo"].type()) {
+        CreatePickUpWaybillPreQueryRequestConsigneeInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConsigneeInfo"]));
+        consigneeInfo = make_shared<CreatePickUpWaybillPreQueryRequestConsigneeInfo>(model1);
+      }
+    }
+    if (m.find("CpCode") != m.end() && !m["CpCode"].empty()) {
+      cpCode = make_shared<string>(boost::any_cast<string>(m["CpCode"]));
+    }
+    if (m.find("OrderChannels") != m.end() && !m["OrderChannels"].empty()) {
+      orderChannels = make_shared<string>(boost::any_cast<string>(m["OrderChannels"]));
+    }
+    if (m.find("OuterOrderCode") != m.end() && !m["OuterOrderCode"].empty()) {
+      outerOrderCode = make_shared<string>(boost::any_cast<string>(m["OuterOrderCode"]));
+    }
+    if (m.find("PreWeight") != m.end() && !m["PreWeight"].empty()) {
+      preWeight = make_shared<string>(boost::any_cast<string>(m["PreWeight"]));
+    }
+    if (m.find("SenderInfo") != m.end() && !m["SenderInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SenderInfo"].type()) {
+        CreatePickUpWaybillPreQueryRequestSenderInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SenderInfo"]));
+        senderInfo = make_shared<CreatePickUpWaybillPreQueryRequestSenderInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryRequest() = default;
+};
+class CreatePickUpWaybillPreQueryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> consigneeInfoShrink{};
+  shared_ptr<string> cpCode{};
+  shared_ptr<string> orderChannels{};
+  shared_ptr<string> outerOrderCode{};
+  shared_ptr<string> preWeight{};
+  shared_ptr<string> senderInfoShrink{};
+
+  CreatePickUpWaybillPreQueryShrinkRequest() {}
+
+  explicit CreatePickUpWaybillPreQueryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (consigneeInfoShrink) {
+      res["ConsigneeInfo"] = boost::any(*consigneeInfoShrink);
+    }
+    if (cpCode) {
+      res["CpCode"] = boost::any(*cpCode);
+    }
+    if (orderChannels) {
+      res["OrderChannels"] = boost::any(*orderChannels);
+    }
+    if (outerOrderCode) {
+      res["OuterOrderCode"] = boost::any(*outerOrderCode);
+    }
+    if (preWeight) {
+      res["PreWeight"] = boost::any(*preWeight);
+    }
+    if (senderInfoShrink) {
+      res["SenderInfo"] = boost::any(*senderInfoShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConsigneeInfo") != m.end() && !m["ConsigneeInfo"].empty()) {
+      consigneeInfoShrink = make_shared<string>(boost::any_cast<string>(m["ConsigneeInfo"]));
+    }
+    if (m.find("CpCode") != m.end() && !m["CpCode"].empty()) {
+      cpCode = make_shared<string>(boost::any_cast<string>(m["CpCode"]));
+    }
+    if (m.find("OrderChannels") != m.end() && !m["OrderChannels"].empty()) {
+      orderChannels = make_shared<string>(boost::any_cast<string>(m["OrderChannels"]));
+    }
+    if (m.find("OuterOrderCode") != m.end() && !m["OuterOrderCode"].empty()) {
+      outerOrderCode = make_shared<string>(boost::any_cast<string>(m["OuterOrderCode"]));
+    }
+    if (m.find("PreWeight") != m.end() && !m["PreWeight"].empty()) {
+      preWeight = make_shared<string>(boost::any_cast<string>(m["PreWeight"]));
+    }
+    if (m.find("SenderInfo") != m.end() && !m["SenderInfo"].empty()) {
+      senderInfoShrink = make_shared<string>(boost::any_cast<string>(m["SenderInfo"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryShrinkRequest() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> selectDisableTip{};
+  shared_ptr<bool> selectable{};
+  shared_ptr<string> startTime{};
+
+  CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (selectDisableTip) {
+      res["SelectDisableTip"] = boost::any(*selectDisableTip);
+    }
+    if (selectable) {
+      res["Selectable"] = boost::any(*selectable);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("SelectDisableTip") != m.end() && !m["SelectDisableTip"].empty()) {
+      selectDisableTip = make_shared<string>(boost::any_cast<string>(m["SelectDisableTip"]));
+    }
+    if (m.find("Selectable") != m.end() && !m["Selectable"].empty()) {
+      selectable = make_shared<bool>(boost::any_cast<bool>(m["Selectable"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes : public Darabonba::Model {
+public:
+  shared_ptr<string> date{};
+  shared_ptr<bool> dateSelectable{};
+  shared_ptr<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList>> timeList{};
+
+  CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (date) {
+      res["Date"] = boost::any(*date);
+    }
+    if (dateSelectable) {
+      res["DateSelectable"] = boost::any(*dateSelectable);
+    }
+    if (timeList) {
+      vector<boost::any> temp1;
+      for(auto item1:*timeList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TimeList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Date") != m.end() && !m["Date"].empty()) {
+      date = make_shared<string>(boost::any_cast<string>(m["Date"]));
+    }
+    if (m.find("DateSelectable") != m.end() && !m["DateSelectable"].empty()) {
+      dateSelectable = make_shared<bool>(boost::any_cast<bool>(m["DateSelectable"]));
+    }
+    if (m.find("TimeList") != m.end() && !m["TimeList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TimeList"].type()) {
+        vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TimeList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timeList = make_shared<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> selectDisableTip{};
+  shared_ptr<bool> selectable{};
+
+  CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (selectDisableTip) {
+      res["SelectDisableTip"] = boost::any(*selectDisableTip);
+    }
+    if (selectable) {
+      res["Selectable"] = boost::any(*selectable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SelectDisableTip") != m.end() && !m["SelectDisableTip"].empty()) {
+      selectDisableTip = make_shared<string>(boost::any_cast<string>(m["SelectDisableTip"]));
+    }
+    if (m.find("Selectable") != m.end() && !m["Selectable"].empty()) {
+      selectable = make_shared<bool>(boost::any_cast<bool>(m["Selectable"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes>> appointTimes{};
+  shared_ptr<string> prePrice{};
+  shared_ptr<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime> realTime{};
+
+  CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appointTimes) {
+      vector<boost::any> temp1;
+      for(auto item1:*appointTimes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AppointTimes"] = boost::any(temp1);
+    }
+    if (prePrice) {
+      res["PrePrice"] = boost::any(*prePrice);
+    }
+    if (realTime) {
+      res["RealTime"] = realTime ? boost::any(realTime->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppointTimes") != m.end() && !m["AppointTimes"].empty()) {
+      if (typeid(vector<boost::any>) == m["AppointTimes"].type()) {
+        vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AppointTimes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        appointTimes = make_shared<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes>>(expect1);
+      }
+    }
+    if (m.find("PrePrice") != m.end() && !m["PrePrice"].empty()) {
+      prePrice = make_shared<string>(boost::any_cast<string>(m["PrePrice"]));
+    }
+    if (m.find("RealTime") != m.end() && !m["RealTime"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RealTime"].type()) {
+        CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RealTime"]));
+        realTime = make_shared<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList>> cpTimeSelectList{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> message{};
+  shared_ptr<bool> success{};
+
+  CreatePickUpWaybillPreQueryResponseBodyData() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (cpTimeSelectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*cpTimeSelectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CpTimeSelectList"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CpTimeSelectList") != m.end() && !m["CpTimeSelectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["CpTimeSelectList"].type()) {
+        vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CpTimeSelectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cpTimeSelectList = make_shared<vector<CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList>>(expect1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBodyData() = default;
+};
+class CreatePickUpWaybillPreQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreatePickUpWaybillPreQueryResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreatePickUpWaybillPreQueryResponseBody() {}
+
+  explicit CreatePickUpWaybillPreQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreatePickUpWaybillPreQueryResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreatePickUpWaybillPreQueryResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponseBody() = default;
+};
+class CreatePickUpWaybillPreQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePickUpWaybillPreQueryResponseBody> body{};
+
+  CreatePickUpWaybillPreQueryResponse() {}
+
+  explicit CreatePickUpWaybillPreQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePickUpWaybillPreQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePickUpWaybillPreQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePickUpWaybillPreQueryResponse() = default;
+};
 class DeleteSecretBlacklistRequest : public Darabonba::Model {
 public:
   shared_ptr<string> blackNo{};
@@ -6941,6 +7690,8 @@ public:
   CreateAxgGroupResponse createAxgGroup(shared_ptr<CreateAxgGroupRequest> request);
   CreatePickUpWaybillResponse createPickUpWaybillWithOptions(shared_ptr<CreatePickUpWaybillRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePickUpWaybillResponse createPickUpWaybill(shared_ptr<CreatePickUpWaybillRequest> request);
+  CreatePickUpWaybillPreQueryResponse createPickUpWaybillPreQueryWithOptions(shared_ptr<CreatePickUpWaybillPreQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePickUpWaybillPreQueryResponse createPickUpWaybillPreQuery(shared_ptr<CreatePickUpWaybillPreQueryRequest> request);
   DeleteSecretBlacklistResponse deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretBlacklistResponse deleteSecretBlacklist(shared_ptr<DeleteSecretBlacklistRequest> request);
   GetSecretAsrDetailResponse getSecretAsrDetailWithOptions(shared_ptr<GetSecretAsrDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
