@@ -1076,6 +1076,105 @@ RecognizeIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeIdentit
   return *recognizeIdentityCardResp;
 }
 
+RecognizeIndonesiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeIndonesiaIdentityCardWithOptions(shared_ptr<RecognizeIndonesiaIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeIndonesiaIdentityCard"))},
+    {"version", boost::any(string("2019-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeIndonesiaIdentityCardResponse(callApi(params, req, runtime));
+}
+
+RecognizeIndonesiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeIndonesiaIdentityCard(shared_ptr<RecognizeIndonesiaIdentityCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeIndonesiaIdentityCardWithOptions(request, runtime);
+}
+
+RecognizeIndonesiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeIndonesiaIdentityCardAdvance(shared_ptr<RecognizeIndonesiaIdentityCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("ocr"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<RecognizeIndonesiaIdentityCardRequest> recognizeIndonesiaIdentityCardReq = make_shared<RecognizeIndonesiaIdentityCardRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, recognizeIndonesiaIdentityCardReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageUrlObject ? boost::any() : boost::any(*request->imageUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeIndonesiaIdentityCardReq->imageUrl = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<RecognizeIndonesiaIdentityCardResponse> recognizeIndonesiaIdentityCardResp = make_shared<RecognizeIndonesiaIdentityCardResponse>(recognizeIndonesiaIdentityCardWithOptions(recognizeIndonesiaIdentityCardReq, runtime));
+  return *recognizeIndonesiaIdentityCardResp;
+}
+
 RecognizeLicensePlateResponse Alibabacloud_Ocr20191230::Client::recognizeLicensePlateWithOptions(shared_ptr<RecognizeLicensePlateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1173,6 +1272,105 @@ RecognizeLicensePlateResponse Alibabacloud_Ocr20191230::Client::recognizeLicense
   }
   shared_ptr<RecognizeLicensePlateResponse> recognizeLicensePlateResp = make_shared<RecognizeLicensePlateResponse>(recognizeLicensePlateWithOptions(recognizeLicensePlateReq, runtime));
   return *recognizeLicensePlateResp;
+}
+
+RecognizeMalaysiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeMalaysiaIdentityCardWithOptions(shared_ptr<RecognizeMalaysiaIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeMalaysiaIdentityCard"))},
+    {"version", boost::any(string("2019-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeMalaysiaIdentityCardResponse(callApi(params, req, runtime));
+}
+
+RecognizeMalaysiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeMalaysiaIdentityCard(shared_ptr<RecognizeMalaysiaIdentityCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeMalaysiaIdentityCardWithOptions(request, runtime);
+}
+
+RecognizeMalaysiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeMalaysiaIdentityCardAdvance(shared_ptr<RecognizeMalaysiaIdentityCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("ocr"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<RecognizeMalaysiaIdentityCardRequest> recognizeMalaysiaIdentityCardReq = make_shared<RecognizeMalaysiaIdentityCardRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, recognizeMalaysiaIdentityCardReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageUrlObject ? boost::any() : boost::any(*request->imageUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeMalaysiaIdentityCardReq->imageUrl = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<RecognizeMalaysiaIdentityCardResponse> recognizeMalaysiaIdentityCardResp = make_shared<RecognizeMalaysiaIdentityCardResponse>(recognizeMalaysiaIdentityCardWithOptions(recognizeMalaysiaIdentityCardReq, runtime));
+  return *recognizeMalaysiaIdentityCardResp;
 }
 
 RecognizePassportMRZResponse Alibabacloud_Ocr20191230::Client::recognizePassportMRZWithOptions(shared_ptr<RecognizePassportMRZRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1597,6 +1795,105 @@ RecognizeQuotaInvoiceResponse Alibabacloud_Ocr20191230::Client::recognizeQuotaIn
   }
   shared_ptr<RecognizeQuotaInvoiceResponse> recognizeQuotaInvoiceResp = make_shared<RecognizeQuotaInvoiceResponse>(recognizeQuotaInvoiceWithOptions(recognizeQuotaInvoiceReq, runtime));
   return *recognizeQuotaInvoiceResp;
+}
+
+RecognizeRussiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeRussiaIdentityCardWithOptions(shared_ptr<RecognizeRussiaIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeRussiaIdentityCard"))},
+    {"version", boost::any(string("2019-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeRussiaIdentityCardResponse(callApi(params, req, runtime));
+}
+
+RecognizeRussiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeRussiaIdentityCard(shared_ptr<RecognizeRussiaIdentityCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeRussiaIdentityCardWithOptions(request, runtime);
+}
+
+RecognizeRussiaIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeRussiaIdentityCardAdvance(shared_ptr<RecognizeRussiaIdentityCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("ocr"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<RecognizeRussiaIdentityCardRequest> recognizeRussiaIdentityCardReq = make_shared<RecognizeRussiaIdentityCardRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, recognizeRussiaIdentityCardReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageUrlObject ? boost::any() : boost::any(*request->imageUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeRussiaIdentityCardReq->imageUrl = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<RecognizeRussiaIdentityCardResponse> recognizeRussiaIdentityCardResp = make_shared<RecognizeRussiaIdentityCardResponse>(recognizeRussiaIdentityCardWithOptions(recognizeRussiaIdentityCardReq, runtime));
+  return *recognizeRussiaIdentityCardResp;
 }
 
 RecognizeStampResponse Alibabacloud_Ocr20191230::Client::recognizeStampWithOptions(shared_ptr<RecognizeStampRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2208,6 +2505,105 @@ RecognizeTrainTicketResponse Alibabacloud_Ocr20191230::Client::recognizeTrainTic
   return *recognizeTrainTicketResp;
 }
 
+RecognizeTurkeyIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeTurkeyIdentityCardWithOptions(shared_ptr<RecognizeTurkeyIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeTurkeyIdentityCard"))},
+    {"version", boost::any(string("2019-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeTurkeyIdentityCardResponse(callApi(params, req, runtime));
+}
+
+RecognizeTurkeyIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeTurkeyIdentityCard(shared_ptr<RecognizeTurkeyIdentityCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeTurkeyIdentityCardWithOptions(request, runtime);
+}
+
+RecognizeTurkeyIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeTurkeyIdentityCardAdvance(shared_ptr<RecognizeTurkeyIdentityCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("ocr"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<RecognizeTurkeyIdentityCardRequest> recognizeTurkeyIdentityCardReq = make_shared<RecognizeTurkeyIdentityCardRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, recognizeTurkeyIdentityCardReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageUrlObject ? boost::any() : boost::any(*request->imageUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeTurkeyIdentityCardReq->imageUrl = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<RecognizeTurkeyIdentityCardResponse> recognizeTurkeyIdentityCardResp = make_shared<RecognizeTurkeyIdentityCardResponse>(recognizeTurkeyIdentityCardWithOptions(recognizeTurkeyIdentityCardReq, runtime));
+  return *recognizeTurkeyIdentityCardResp;
+}
+
 RecognizeUkraineIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeUkraineIdentityCardWithOptions(shared_ptr<RecognizeUkraineIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2743,6 +3139,105 @@ RecognizeVideoCharacterResponse Alibabacloud_Ocr20191230::Client::recognizeVideo
 RecognizeVideoCharacterResponse Alibabacloud_Ocr20191230::Client::recognizeVideoCharacter(shared_ptr<RecognizeVideoCharacterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return recognizeVideoCharacterWithOptions(request, runtime);
+}
+
+RecognizeVietnamIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeVietnamIdentityCardWithOptions(shared_ptr<RecognizeVietnamIdentityCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
+    body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeVietnamIdentityCard"))},
+    {"version", boost::any(string("2019-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeVietnamIdentityCardResponse(callApi(params, req, runtime));
+}
+
+RecognizeVietnamIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeVietnamIdentityCard(shared_ptr<RecognizeVietnamIdentityCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeVietnamIdentityCardWithOptions(request, runtime);
+}
+
+RecognizeVietnamIdentityCardResponse Alibabacloud_Ocr20191230::Client::recognizeVietnamIdentityCardAdvance(shared_ptr<RecognizeVietnamIdentityCardAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  // Step 0: init client
+  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
+  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
+  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
+  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
+  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
+    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
+  }
+  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
+    credentialType = make_shared<string>("access_key");
+  }
+  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
+    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
+    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
+    {"product", boost::any(string("ocr"))},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
+  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
+    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
+    {"type", boost::any(string("access_key"))},
+    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
+    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
+  }));
+  shared_ptr<Alibabacloud_OSS::Client> ossClient;
+  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
+  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
+  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
+  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
+  shared_ptr<RecognizeVietnamIdentityCardRequest> recognizeVietnamIdentityCardReq = make_shared<RecognizeVietnamIdentityCardRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(request, recognizeVietnamIdentityCardReq);
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->imageUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"content", !request->imageUrlObject ? boost::any() : boost::any(*request->imageUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
+      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
+      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
+      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeVietnamIdentityCardReq->imageUrl = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+  }
+  shared_ptr<RecognizeVietnamIdentityCardResponse> recognizeVietnamIdentityCardResp = make_shared<RecognizeVietnamIdentityCardResponse>(recognizeVietnamIdentityCardWithOptions(recognizeVietnamIdentityCardReq, runtime));
+  return *recognizeVietnamIdentityCardResp;
 }
 
 TrimDocumentResponse Alibabacloud_Ocr20191230::Client::trimDocumentWithOptions(shared_ptr<TrimDocumentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
