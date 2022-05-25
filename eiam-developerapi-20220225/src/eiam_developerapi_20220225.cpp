@@ -255,9 +255,6 @@ GenerateDeviceCodeResponse Alibabacloud_Eiam-developerapi20220225::Client::gener
   instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   applicationId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(applicationId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
-    query->insert(pair<string, string>("client_id", *request->clientId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
     query->insert(pair<string, string>("scope", *request->scope));
   }

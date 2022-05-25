@@ -608,7 +608,6 @@ public:
 };
 class GenerateDeviceCodeRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> clientId{};
   shared_ptr<string> scope{};
 
   GenerateDeviceCodeRequest() {}
@@ -621,9 +620,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (clientId) {
-      res["client_id"] = boost::any(*clientId);
-    }
     if (scope) {
       res["scope"] = boost::any(*scope);
     }
@@ -631,9 +627,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("client_id") != m.end() && !m["client_id"].empty()) {
-      clientId = make_shared<string>(boost::any_cast<string>(m["client_id"]));
-    }
     if (m.find("scope") != m.end() && !m["scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["scope"]));
     }
