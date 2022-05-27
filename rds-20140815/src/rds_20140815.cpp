@@ -184,6 +184,9 @@ AddTagsToResourceResponse Alibabacloud_Rds20140815::Client::addTagsToResource(sh
 AllocateInstancePublicConnectionResponse Alibabacloud_Rds20140815::Client::allocateInstancePublicConnectionWithOptions(shared_ptr<AllocateInstancePublicConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->babelfishPort)) {
+    query->insert(pair<string, string>("BabelfishPort", *request->babelfishPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionStringPrefix)) {
     query->insert(pair<string, string>("ConnectionStringPrefix", *request->connectionStringPrefix));
   }
@@ -1062,14 +1065,22 @@ CreateCloudMigrationTaskResponse Alibabacloud_Rds20140815::Client::createCloudMi
   return createCloudMigrationTaskWithOptions(request, runtime);
 }
 
-CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithOptions(shared_ptr<CreateDBInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDBInstanceShrinkRequest> request = make_shared<CreateDBInstanceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateDBInstanceRequestServerlessConfig>(tmpReq->serverlessConfig)) {
+    request->serverlessConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->serverlessConfig->toMap()), make_shared<string>("ServerlessConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
     query->insert(pair<string, long>("Amount", *request->amount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->autoRenew)) {
     query->insert(pair<string, string>("AutoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->babelfishConfig)) {
+    query->insert(pair<string, string>("BabelfishConfig", *request->babelfishConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->businessInfo)) {
     query->insert(pair<string, string>("BusinessInfo", *request->businessInfo));
@@ -1155,6 +1166,9 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessConfigShrink)) {
+    query->insert(pair<string, string>("ServerlessConfig", *request->serverlessConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageAutoScale)) {
     query->insert(pair<string, string>("StorageAutoScale", *request->storageAutoScale));
   }
@@ -1167,8 +1181,8 @@ CreateDBInstanceResponse Alibabacloud_Rds20140815::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->systemDBCharset)) {
     query->insert(pair<string, string>("SystemDBCharset", *request->systemDBCharset));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateDBInstanceRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateDBInstanceRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDBInstanceShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateDBInstanceShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetDedicatedHostIdForLog)) {
     query->insert(pair<string, string>("TargetDedicatedHostIdForLog", *request->targetDedicatedHostIdForLog));
@@ -1632,46 +1646,6 @@ CreateMigrateTaskResponse Alibabacloud_Rds20140815::Client::createMigrateTaskWit
 CreateMigrateTaskResponse Alibabacloud_Rds20140815::Client::createMigrateTask(shared_ptr<CreateMigrateTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createMigrateTaskWithOptions(request, runtime);
-}
-
-CreateNotifyResponse Alibabacloud_Rds20140815::Client::createNotifyWithOptions(shared_ptr<CreateNotifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->idempotentId)) {
-    body->insert(pair<string, string>("IdempotentId", *request->idempotentId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
-    body->insert(pair<string, string>("Level", *request->level));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->notifyElement)) {
-    body->insert(pair<string, string>("NotifyElement", *request->notifyElement));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
-    body->insert(pair<string, string>("TemplateName", *request->templateName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    body->insert(pair<string, string>("Type", *request->type));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateNotify"))},
-    {"version", boost::any(string("2014-08-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateNotifyResponse(callApi(params, req, runtime));
-}
-
-CreateNotifyResponse Alibabacloud_Rds20140815::Client::createNotify(shared_ptr<CreateNotifyRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createNotifyWithOptions(request, runtime);
 }
 
 CreateOnlineDatabaseTaskResponse Alibabacloud_Rds20140815::Client::createOnlineDatabaseTaskWithOptions(shared_ptr<CreateOnlineDatabaseTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2576,49 +2550,6 @@ DescribeAvailableCrossRegionResponse Alibabacloud_Rds20140815::Client::describeA
 DescribeAvailableCrossRegionResponse Alibabacloud_Rds20140815::Client::describeAvailableCrossRegion(shared_ptr<DescribeAvailableCrossRegionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeAvailableCrossRegionWithOptions(request, runtime);
-}
-
-DescribeAvailableDedicatedHostClassesResponse Alibabacloud_Rds20140815::Client::describeAvailableDedicatedHostClassesWithOptions(shared_ptr<DescribeAvailableDedicatedHostClassesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->storageType)) {
-    query->insert(pair<string, string>("StorageType", *request->storageType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
-    query->insert(pair<string, string>("ZoneId", *request->zoneId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeAvailableDedicatedHostClasses"))},
-    {"version", boost::any(string("2014-08-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeAvailableDedicatedHostClassesResponse(callApi(params, req, runtime));
-}
-
-DescribeAvailableDedicatedHostClassesResponse Alibabacloud_Rds20140815::Client::describeAvailableDedicatedHostClasses(shared_ptr<DescribeAvailableDedicatedHostClassesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeAvailableDedicatedHostClassesWithOptions(request, runtime);
 }
 
 DescribeAvailableMetricsResponse Alibabacloud_Rds20140815::Client::describeAvailableMetricsWithOptions(shared_ptr<DescribeAvailableMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7699,6 +7630,9 @@ ModifyDBInstanceConnectionModeResponse Alibabacloud_Rds20140815::Client::modifyD
 ModifyDBInstanceConnectionStringResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceConnectionStringWithOptions(shared_ptr<ModifyDBInstanceConnectionStringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->babelfishPort)) {
+    query->insert(pair<string, string>("BabelfishPort", *request->babelfishPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionStringPrefix)) {
     query->insert(pair<string, string>("ConnectionStringPrefix", *request->connectionStringPrefix));
   }
