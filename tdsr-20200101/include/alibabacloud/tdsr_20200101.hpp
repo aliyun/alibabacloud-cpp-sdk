@@ -1585,6 +1585,7 @@ public:
 class DetailSceneResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
+  shared_ptr<string> coverUrl{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> id{};
@@ -1610,6 +1611,9 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["Code"] = boost::any(*code);
+    }
+    if (coverUrl) {
+      res["CoverUrl"] = boost::any(*coverUrl);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -1653,6 +1657,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
+      coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
@@ -7456,6 +7463,7 @@ public:
 };
 class ListSceneResponseBodyList : public Darabonba::Model {
 public:
+  shared_ptr<string> coverUrl{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> id{};
@@ -7476,6 +7484,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (coverUrl) {
+      res["CoverUrl"] = boost::any(*coverUrl);
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
@@ -7507,6 +7518,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
+      coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
     }
