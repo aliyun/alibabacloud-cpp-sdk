@@ -2561,6 +2561,259 @@ public:
 
   virtual ~DeleteVpcHoneyPotResponse() = default;
 };
+class DescribeAccessKeyLeakDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+
+  DescribeAccessKeyLeakDetailRequest() {}
+
+  explicit DescribeAccessKeyLeakDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessKeyLeakDetailRequest() = default;
+};
+class DescribeAccessKeyLeakDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> accesskeyId{};
+  shared_ptr<string> asset{};
+  shared_ptr<string> code{};
+  shared_ptr<string> dealTime{};
+  shared_ptr<string> dealType{};
+  shared_ptr<string> githubFileName{};
+  shared_ptr<string> githubFileType{};
+  shared_ptr<string> githubFileUpdateTime{};
+  shared_ptr<string> githubFileUrl{};
+  shared_ptr<string> githubRepoName{};
+  shared_ptr<string> githubRepoUrl{};
+  shared_ptr<string> githubUser{};
+  shared_ptr<string> githubUserPicUrl{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> remark{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> type{};
+  shared_ptr<string> whitelistStatus{};
+
+  DescribeAccessKeyLeakDetailResponseBody() {}
+
+  explicit DescribeAccessKeyLeakDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accesskeyId) {
+      res["AccesskeyId"] = boost::any(*accesskeyId);
+    }
+    if (asset) {
+      res["Asset"] = boost::any(*asset);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dealTime) {
+      res["DealTime"] = boost::any(*dealTime);
+    }
+    if (dealType) {
+      res["DealType"] = boost::any(*dealType);
+    }
+    if (githubFileName) {
+      res["GithubFileName"] = boost::any(*githubFileName);
+    }
+    if (githubFileType) {
+      res["GithubFileType"] = boost::any(*githubFileType);
+    }
+    if (githubFileUpdateTime) {
+      res["GithubFileUpdateTime"] = boost::any(*githubFileUpdateTime);
+    }
+    if (githubFileUrl) {
+      res["GithubFileUrl"] = boost::any(*githubFileUrl);
+    }
+    if (githubRepoName) {
+      res["GithubRepoName"] = boost::any(*githubRepoName);
+    }
+    if (githubRepoUrl) {
+      res["GithubRepoUrl"] = boost::any(*githubRepoUrl);
+    }
+    if (githubUser) {
+      res["GithubUser"] = boost::any(*githubUser);
+    }
+    if (githubUserPicUrl) {
+      res["GithubUserPicUrl"] = boost::any(*githubUserPicUrl);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (whitelistStatus) {
+      res["WhitelistStatus"] = boost::any(*whitelistStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccesskeyId") != m.end() && !m["AccesskeyId"].empty()) {
+      accesskeyId = make_shared<string>(boost::any_cast<string>(m["AccesskeyId"]));
+    }
+    if (m.find("Asset") != m.end() && !m["Asset"].empty()) {
+      asset = make_shared<string>(boost::any_cast<string>(m["Asset"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("DealTime") != m.end() && !m["DealTime"].empty()) {
+      dealTime = make_shared<string>(boost::any_cast<string>(m["DealTime"]));
+    }
+    if (m.find("DealType") != m.end() && !m["DealType"].empty()) {
+      dealType = make_shared<string>(boost::any_cast<string>(m["DealType"]));
+    }
+    if (m.find("GithubFileName") != m.end() && !m["GithubFileName"].empty()) {
+      githubFileName = make_shared<string>(boost::any_cast<string>(m["GithubFileName"]));
+    }
+    if (m.find("GithubFileType") != m.end() && !m["GithubFileType"].empty()) {
+      githubFileType = make_shared<string>(boost::any_cast<string>(m["GithubFileType"]));
+    }
+    if (m.find("GithubFileUpdateTime") != m.end() && !m["GithubFileUpdateTime"].empty()) {
+      githubFileUpdateTime = make_shared<string>(boost::any_cast<string>(m["GithubFileUpdateTime"]));
+    }
+    if (m.find("GithubFileUrl") != m.end() && !m["GithubFileUrl"].empty()) {
+      githubFileUrl = make_shared<string>(boost::any_cast<string>(m["GithubFileUrl"]));
+    }
+    if (m.find("GithubRepoName") != m.end() && !m["GithubRepoName"].empty()) {
+      githubRepoName = make_shared<string>(boost::any_cast<string>(m["GithubRepoName"]));
+    }
+    if (m.find("GithubRepoUrl") != m.end() && !m["GithubRepoUrl"].empty()) {
+      githubRepoUrl = make_shared<string>(boost::any_cast<string>(m["GithubRepoUrl"]));
+    }
+    if (m.find("GithubUser") != m.end() && !m["GithubUser"].empty()) {
+      githubUser = make_shared<string>(boost::any_cast<string>(m["GithubUser"]));
+    }
+    if (m.find("GithubUserPicUrl") != m.end() && !m["GithubUserPicUrl"].empty()) {
+      githubUserPicUrl = make_shared<string>(boost::any_cast<string>(m["GithubUserPicUrl"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("WhitelistStatus") != m.end() && !m["WhitelistStatus"].empty()) {
+      whitelistStatus = make_shared<string>(boost::any_cast<string>(m["WhitelistStatus"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessKeyLeakDetailResponseBody() = default;
+};
+class DescribeAccessKeyLeakDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccessKeyLeakDetailResponseBody> body{};
+
+  DescribeAccessKeyLeakDetailResponse() {}
+
+  explicit DescribeAccessKeyLeakDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccessKeyLeakDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccessKeyLeakDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessKeyLeakDetailResponse() = default;
+};
 class DescribeAccesskeyLeakListRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
@@ -3784,6 +4037,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> sourceIp{};
   shared_ptr<string> tacticId{};
+  shared_ptr<string> uniqueInfo{};
 
   DescribeAlarmEventListRequest() {}
 
@@ -3837,6 +4091,9 @@ public:
     if (tacticId) {
       res["TacticId"] = boost::any(*tacticId);
     }
+    if (uniqueInfo) {
+      res["UniqueInfo"] = boost::any(*uniqueInfo);
+    }
     return res;
   }
 
@@ -3889,6 +4146,9 @@ public:
     }
     if (m.find("TacticId") != m.end() && !m["TacticId"].empty()) {
       tacticId = make_shared<string>(boost::any_cast<string>(m["TacticId"]));
+    }
+    if (m.find("UniqueInfo") != m.end() && !m["UniqueInfo"].empty()) {
+      uniqueInfo = make_shared<string>(boost::any_cast<string>(m["UniqueInfo"]));
     }
   }
 
@@ -34714,6 +34974,8 @@ public:
 class DescribeVulListResponseBodyVulRecords : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
+  shared_ptr<string> authVersion{};
+  shared_ptr<bool> bind{};
   shared_ptr<DescribeVulListResponseBodyVulRecordsExtendContentJson> extendContentJson{};
   shared_ptr<long> firstTs{};
   shared_ptr<long> groupId{};
@@ -34726,6 +34988,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> necessity{};
   shared_ptr<bool> online{};
+  shared_ptr<string> osName{};
   shared_ptr<string> osVersion{};
   shared_ptr<long> primaryId{};
   shared_ptr<string> regionId{};
@@ -34750,6 +35013,12 @@ public:
     map<string, boost::any> res;
     if (aliasName) {
       res["AliasName"] = boost::any(*aliasName);
+    }
+    if (authVersion) {
+      res["AuthVersion"] = boost::any(*authVersion);
+    }
+    if (bind) {
+      res["Bind"] = boost::any(*bind);
     }
     if (extendContentJson) {
       res["ExtendContentJson"] = extendContentJson ? boost::any(extendContentJson->toMap()) : boost::any(map<string,boost::any>({}));
@@ -34786,6 +35055,9 @@ public:
     }
     if (online) {
       res["Online"] = boost::any(*online);
+    }
+    if (osName) {
+      res["OsName"] = boost::any(*osName);
     }
     if (osVersion) {
       res["OsVersion"] = boost::any(*osVersion);
@@ -34827,6 +35099,12 @@ public:
     if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
       aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
     }
+    if (m.find("AuthVersion") != m.end() && !m["AuthVersion"].empty()) {
+      authVersion = make_shared<string>(boost::any_cast<string>(m["AuthVersion"]));
+    }
+    if (m.find("Bind") != m.end() && !m["Bind"].empty()) {
+      bind = make_shared<bool>(boost::any_cast<bool>(m["Bind"]));
+    }
     if (m.find("ExtendContentJson") != m.end() && !m["ExtendContentJson"].empty()) {
       if (typeid(map<string, boost::any>) == m["ExtendContentJson"].type()) {
         DescribeVulListResponseBodyVulRecordsExtendContentJson model1;
@@ -34866,6 +35144,9 @@ public:
     }
     if (m.find("Online") != m.end() && !m["Online"].empty()) {
       online = make_shared<bool>(boost::any_cast<bool>(m["Online"]));
+    }
+    if (m.find("OsName") != m.end() && !m["OsName"].empty()) {
+      osName = make_shared<string>(boost::any_cast<string>(m["OsName"]));
     }
     if (m.find("OsVersion") != m.end() && !m["OsVersion"].empty()) {
       osVersion = make_shared<string>(boost::any_cast<string>(m["OsVersion"]));
@@ -46124,6 +46405,8 @@ public:
   DeleteTagWithUuidResponse deleteTagWithUuid(shared_ptr<DeleteTagWithUuidRequest> request);
   DeleteVpcHoneyPotResponse deleteVpcHoneyPotWithOptions(shared_ptr<DeleteVpcHoneyPotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVpcHoneyPotResponse deleteVpcHoneyPot(shared_ptr<DeleteVpcHoneyPotRequest> request);
+  DescribeAccessKeyLeakDetailResponse describeAccessKeyLeakDetailWithOptions(shared_ptr<DescribeAccessKeyLeakDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccessKeyLeakDetailResponse describeAccessKeyLeakDetail(shared_ptr<DescribeAccessKeyLeakDetailRequest> request);
   DescribeAccesskeyLeakListResponse describeAccesskeyLeakListWithOptions(shared_ptr<DescribeAccesskeyLeakListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAccesskeyLeakListResponse describeAccesskeyLeakList(shared_ptr<DescribeAccesskeyLeakListRequest> request);
   DescribeAffectedMaliciousFileImagesResponse describeAffectedMaliciousFileImagesWithOptions(shared_ptr<DescribeAffectedMaliciousFileImagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
