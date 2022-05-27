@@ -299,37 +299,6 @@ DescribeDiskReplicaGroupsResponse Alibabacloud_Ebs20210730::Client::describeDisk
   return describeDiskReplicaGroupsWithOptions(request, runtime);
 }
 
-DescribeDiskReplicaPairProgressResponse Alibabacloud_Ebs20210730::Client::describeDiskReplicaPairProgressWithOptions(shared_ptr<DescribeDiskReplicaPairProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->replicaPairId)) {
-    query->insert(pair<string, string>("ReplicaPairId", *request->replicaPairId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeDiskReplicaPairProgress"))},
-    {"version", boost::any(string("2021-07-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeDiskReplicaPairProgressResponse(callApi(params, req, runtime));
-}
-
-DescribeDiskReplicaPairProgressResponse Alibabacloud_Ebs20210730::Client::describeDiskReplicaPairProgress(shared_ptr<DescribeDiskReplicaPairProgressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeDiskReplicaPairProgressWithOptions(request, runtime);
-}
-
 DescribeDiskReplicaPairsResponse Alibabacloud_Ebs20210730::Client::describeDiskReplicaPairsWithOptions(shared_ptr<DescribeDiskReplicaPairsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
