@@ -325,10 +325,16 @@ CreateDetectVideoLabelsTaskResponse Alibabacloud_Imm20200930::Client::createDete
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDetectVideoLabelsTaskShrinkRequest> request = make_shared<CreateDetectVideoLabelsTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyEndpoint)) {
     query->insert(pair<string, string>("NotifyEndpoint", *request->notifyEndpoint));
   }
@@ -475,6 +481,9 @@ CreateMediaConvertTaskResponse Alibabacloud_Imm20200930::Client::createMediaConv
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateMediaConvertTaskShrinkRequest> request = make_shared<CreateMediaConvertTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateMediaConvertTaskRequestSources>>(tmpReq->sources)) {
     request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
   }
@@ -485,8 +494,8 @@ CreateMediaConvertTaskResponse Alibabacloud_Imm20200930::Client::createMediaConv
     request->targetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->targets, make_shared<string>("Targets"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
-    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyEndpoint)) {
     query->insert(pair<string, string>("NotifyEndpoint", *request->notifyEndpoint));
@@ -535,8 +544,8 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateOfficeConversionTaskShrinkRequest> request = make_shared<CreateOfficeConversionTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<AssumeRoleChain>(tmpReq->assumeRoleChain)) {
-    request->assumeRoleChainShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->assumeRoleChain->toMap()), make_shared<string>("AssumeRoleChain"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
@@ -545,8 +554,8 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
     request->trimPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->trimPolicy->toMap()), make_shared<string>("TrimPolicy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->assumeRoleChainShrink)) {
-    query->insert(pair<string, string>("AssumeRoleChain", *request->assumeRoleChainShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->endPage)) {
     query->insert(pair<string, long>("EndPage", *request->endPage));
@@ -562,6 +571,9 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->holdLineFeed)) {
     query->insert(pair<string, bool>("HoldLineFeed", *request->holdLineFeed));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->imageDPI)) {
+    query->insert(pair<string, long>("ImageDPI", *request->imageDPI));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->longPicture)) {
     query->insert(pair<string, bool>("LongPicture", *request->longPicture));
@@ -580,6 +592,9 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
     query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pages)) {
+    query->insert(pair<string, string>("Pages", *request->pages));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->paperHorizontal)) {
     query->insert(pair<string, bool>("PaperHorizontal", *request->paperHorizontal));
@@ -990,11 +1005,19 @@ DetachOSSBucketResponse Alibabacloud_Imm20200930::Client::detachOSSBucket(shared
   return detachOSSBucketWithOptions(request, runtime);
 }
 
-DetectImageCroppingResponse Alibabacloud_Imm20200930::Client::detectImageCroppingWithOptions(shared_ptr<DetectImageCroppingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DetectImageCroppingResponse Alibabacloud_Imm20200930::Client::detectImageCroppingWithOptions(shared_ptr<DetectImageCroppingRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetectImageCroppingShrinkRequest> request = make_shared<DetectImageCroppingShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aspectRatios)) {
     query->insert(pair<string, string>("AspectRatios", *request->aspectRatios));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -1024,9 +1047,17 @@ DetectImageCroppingResponse Alibabacloud_Imm20200930::Client::detectImageCroppin
   return detectImageCroppingWithOptions(request, runtime);
 }
 
-DetectImageFacesResponse Alibabacloud_Imm20200930::Client::detectImageFacesWithOptions(shared_ptr<DetectImageFacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DetectImageFacesResponse Alibabacloud_Imm20200930::Client::detectImageFacesWithOptions(shared_ptr<DetectImageFacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetectImageFacesShrinkRequest> request = make_shared<DetectImageFacesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -1055,9 +1086,17 @@ DetectImageFacesResponse Alibabacloud_Imm20200930::Client::detectImageFaces(shar
   return detectImageFacesWithOptions(request, runtime);
 }
 
-DetectImageLabelsResponse Alibabacloud_Imm20200930::Client::detectImageLabelsWithOptions(shared_ptr<DetectImageLabelsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DetectImageLabelsResponse Alibabacloud_Imm20200930::Client::detectImageLabelsWithOptions(shared_ptr<DetectImageLabelsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetectImageLabelsShrinkRequest> request = make_shared<DetectImageLabelsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -1089,9 +1128,17 @@ DetectImageLabelsResponse Alibabacloud_Imm20200930::Client::detectImageLabels(sh
   return detectImageLabelsWithOptions(request, runtime);
 }
 
-DetectImageScoreResponse Alibabacloud_Imm20200930::Client::detectImageScoreWithOptions(shared_ptr<DetectImageScoreRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DetectImageScoreResponse Alibabacloud_Imm20200930::Client::detectImageScoreWithOptions(shared_ptr<DetectImageScoreRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DetectImageScoreShrinkRequest> request = make_shared<DetectImageScoreShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -1330,9 +1377,17 @@ GetFileMetaResponse Alibabacloud_Imm20200930::Client::getFileMeta(shared_ptr<Get
   return getFileMetaWithOptions(request, runtime);
 }
 
-GetMediaMetaResponse Alibabacloud_Imm20200930::Client::getMediaMetaWithOptions(shared_ptr<GetMediaMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetMediaMetaResponse Alibabacloud_Imm20200930::Client::getMediaMetaWithOptions(shared_ptr<GetMediaMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetMediaMetaShrinkRequest> request = make_shared<GetMediaMetaShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -1492,8 +1547,8 @@ GetWebofficeURLResponse Alibabacloud_Imm20200930::Client::getWebofficeURLWithOpt
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetWebofficeURLShrinkRequest> request = make_shared<GetWebofficeURLShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<AssumeRoleChain>(tmpReq->assumeRoleChain)) {
-    request->assumeRoleChainShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->assumeRoleChain->toMap()), make_shared<string>("AssumeRoleChain"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<WebofficePermission>(tmpReq->permission)) {
     request->permissionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->permission->toMap()), make_shared<string>("Permission"), make_shared<string>("json")));
@@ -1505,11 +1560,11 @@ GetWebofficeURLResponse Alibabacloud_Imm20200930::Client::getWebofficeURLWithOpt
     request->watermarkShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->watermark->toMap()), make_shared<string>("Watermark"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->assumeRoleChainShrink)) {
-    query->insert(pair<string, string>("AssumeRoleChain", *request->assumeRoleChainShrink));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->cachePreview)) {
     query->insert(pair<string, bool>("CachePreview", *request->cachePreview));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->externalUploaded)) {
     query->insert(pair<string, bool>("ExternalUploaded", *request->externalUploaded));
@@ -1980,15 +2035,15 @@ RefreshWebofficeTokenResponse Alibabacloud_Imm20200930::Client::refreshWeboffice
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RefreshWebofficeTokenShrinkRequest> request = make_shared<RefreshWebofficeTokenShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<AssumeRoleChain>(tmpReq->assumeRoleChain)) {
-    request->assumeRoleChainShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->assumeRoleChain->toMap()), make_shared<string>("AssumeRoleChain"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
     query->insert(pair<string, string>("AccessToken", *request->accessToken));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->assumeRoleChainShrink)) {
-    query->insert(pair<string, string>("AssumeRoleChain", *request->assumeRoleChainShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
