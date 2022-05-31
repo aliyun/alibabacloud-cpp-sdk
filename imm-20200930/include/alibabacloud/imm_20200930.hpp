@@ -5783,6 +5783,325 @@ public:
 
   virtual ~CreateFigureClustersMergingTaskResponse() = default;
 };
+class CreateImageModerationTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> maxFrames{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> reviewer{};
+  shared_ptr<vector<string>> scenes{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<string> userData{};
+
+  CreateImageModerationTaskRequest() {}
+
+  explicit CreateImageModerationTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (maxFrames) {
+      res["MaxFrames"] = boost::any(*maxFrames);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (reviewer) {
+      res["Reviewer"] = boost::any(*reviewer);
+    }
+    if (scenes) {
+      res["Scenes"] = boost::any(*scenes);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("MaxFrames") != m.end() && !m["MaxFrames"].empty()) {
+      maxFrames = make_shared<long>(boost::any_cast<long>(m["MaxFrames"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Reviewer") != m.end() && !m["Reviewer"].empty()) {
+      reviewer = make_shared<string>(boost::any_cast<string>(m["Reviewer"]));
+    }
+    if (m.find("Scenes") != m.end() && !m["Scenes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Scenes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Scenes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scenes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateImageModerationTaskRequest() = default;
+};
+class CreateImageModerationTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> maxFrames{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> reviewer{};
+  shared_ptr<string> scenesShrink{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+
+  CreateImageModerationTaskShrinkRequest() {}
+
+  explicit CreateImageModerationTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (maxFrames) {
+      res["MaxFrames"] = boost::any(*maxFrames);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (reviewer) {
+      res["Reviewer"] = boost::any(*reviewer);
+    }
+    if (scenesShrink) {
+      res["Scenes"] = boost::any(*scenesShrink);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("MaxFrames") != m.end() && !m["MaxFrames"].empty()) {
+      maxFrames = make_shared<long>(boost::any_cast<long>(m["MaxFrames"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Reviewer") != m.end() && !m["Reviewer"].empty()) {
+      reviewer = make_shared<string>(boost::any_cast<string>(m["Reviewer"]));
+    }
+    if (m.find("Scenes") != m.end() && !m["Scenes"].empty()) {
+      scenesShrink = make_shared<string>(boost::any_cast<string>(m["Scenes"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateImageModerationTaskShrinkRequest() = default;
+};
+class CreateImageModerationTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateImageModerationTaskResponseBody() {}
+
+  explicit CreateImageModerationTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateImageModerationTaskResponseBody() = default;
+};
+class CreateImageModerationTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateImageModerationTaskResponseBody> body{};
+
+  CreateImageModerationTaskResponse() {}
+
+  explicit CreateImageModerationTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateImageModerationTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateImageModerationTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateImageModerationTaskResponse() = default;
+};
 class CreateMediaConvertTaskRequestSourcesSubtitles : public Darabonba::Model {
 public:
   shared_ptr<string> language{};
@@ -8463,6 +8782,325 @@ public:
 
   virtual ~CreateStoryResponse() = default;
 };
+class CreateVideoModerationTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> maxFrames{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> reviewer{};
+  shared_ptr<vector<string>> scenes{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<string> userData{};
+
+  CreateVideoModerationTaskRequest() {}
+
+  explicit CreateVideoModerationTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (maxFrames) {
+      res["MaxFrames"] = boost::any(*maxFrames);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (reviewer) {
+      res["Reviewer"] = boost::any(*reviewer);
+    }
+    if (scenes) {
+      res["Scenes"] = boost::any(*scenes);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("MaxFrames") != m.end() && !m["MaxFrames"].empty()) {
+      maxFrames = make_shared<long>(boost::any_cast<long>(m["MaxFrames"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Reviewer") != m.end() && !m["Reviewer"].empty()) {
+      reviewer = make_shared<string>(boost::any_cast<string>(m["Reviewer"]));
+    }
+    if (m.find("Scenes") != m.end() && !m["Scenes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Scenes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Scenes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      scenes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateVideoModerationTaskRequest() = default;
+};
+class CreateVideoModerationTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> maxFrames{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> reviewer{};
+  shared_ptr<string> scenesShrink{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+
+  CreateVideoModerationTaskShrinkRequest() {}
+
+  explicit CreateVideoModerationTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (maxFrames) {
+      res["MaxFrames"] = boost::any(*maxFrames);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (reviewer) {
+      res["Reviewer"] = boost::any(*reviewer);
+    }
+    if (scenesShrink) {
+      res["Scenes"] = boost::any(*scenesShrink);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("MaxFrames") != m.end() && !m["MaxFrames"].empty()) {
+      maxFrames = make_shared<long>(boost::any_cast<long>(m["MaxFrames"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Reviewer") != m.end() && !m["Reviewer"].empty()) {
+      reviewer = make_shared<string>(boost::any_cast<string>(m["Reviewer"]));
+    }
+    if (m.find("Scenes") != m.end() && !m["Scenes"].empty()) {
+      scenesShrink = make_shared<string>(boost::any_cast<string>(m["Scenes"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateVideoModerationTaskShrinkRequest() = default;
+};
+class CreateVideoModerationTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateVideoModerationTaskResponseBody() {}
+
+  explicit CreateVideoModerationTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateVideoModerationTaskResponseBody() = default;
+};
+class CreateVideoModerationTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateVideoModerationTaskResponseBody> body{};
+
+  CreateVideoModerationTaskResponse() {}
+
+  explicit CreateVideoModerationTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateVideoModerationTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateVideoModerationTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVideoModerationTaskResponse() = default;
+};
 class DeleteBindingRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> cleanup{};
@@ -10093,6 +10731,140 @@ public:
 
 
   virtual ~DetectImageScoreResponse() = default;
+};
+class DetectTextAnomalyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> projectName{};
+
+  DetectTextAnomalyRequest() {}
+
+  explicit DetectTextAnomalyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+  }
+
+
+  virtual ~DetectTextAnomalyRequest() = default;
+};
+class DetectTextAnomalyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> suggestion{};
+
+  DetectTextAnomalyResponseBody() {}
+
+  explicit DetectTextAnomalyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (suggestion) {
+      res["Suggestion"] = boost::any(*suggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
+      suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+  }
+
+
+  virtual ~DetectTextAnomalyResponseBody() = default;
+};
+class DetectTextAnomalyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetectTextAnomalyResponseBody> body{};
+
+  DetectTextAnomalyResponse() {}
+
+  explicit DetectTextAnomalyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetectTextAnomalyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetectTextAnomalyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetectTextAnomalyResponse() = default;
 };
 class FuzzyQueryRequest : public Darabonba::Model {
 public:
@@ -16616,6 +17388,8 @@ public:
   CreateFigureClusteringTaskResponse createFigureClusteringTask(shared_ptr<CreateFigureClusteringTaskRequest> request);
   CreateFigureClustersMergingTaskResponse createFigureClustersMergingTaskWithOptions(shared_ptr<CreateFigureClustersMergingTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFigureClustersMergingTaskResponse createFigureClustersMergingTask(shared_ptr<CreateFigureClustersMergingTaskRequest> request);
+  CreateImageModerationTaskResponse createImageModerationTaskWithOptions(shared_ptr<CreateImageModerationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateImageModerationTaskResponse createImageModerationTask(shared_ptr<CreateImageModerationTaskRequest> request);
   CreateMediaConvertTaskResponse createMediaConvertTaskWithOptions(shared_ptr<CreateMediaConvertTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMediaConvertTaskResponse createMediaConvertTask(shared_ptr<CreateMediaConvertTaskRequest> request);
   CreateOfficeConversionTaskResponse createOfficeConversionTaskWithOptions(shared_ptr<CreateOfficeConversionTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16624,6 +17398,8 @@ public:
   CreateProjectResponse createProject(shared_ptr<CreateProjectRequest> request);
   CreateStoryResponse createStoryWithOptions(shared_ptr<CreateStoryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateStoryResponse createStory(shared_ptr<CreateStoryRequest> request);
+  CreateVideoModerationTaskResponse createVideoModerationTaskWithOptions(shared_ptr<CreateVideoModerationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateVideoModerationTaskResponse createVideoModerationTask(shared_ptr<CreateVideoModerationTaskRequest> request);
   DeleteBindingResponse deleteBindingWithOptions(shared_ptr<DeleteBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBindingResponse deleteBinding(shared_ptr<DeleteBindingRequest> request);
   DeleteDatasetResponse deleteDatasetWithOptions(shared_ptr<DeleteDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16644,6 +17420,8 @@ public:
   DetectImageLabelsResponse detectImageLabels(shared_ptr<DetectImageLabelsRequest> request);
   DetectImageScoreResponse detectImageScoreWithOptions(shared_ptr<DetectImageScoreRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectImageScoreResponse detectImageScore(shared_ptr<DetectImageScoreRequest> request);
+  DetectTextAnomalyResponse detectTextAnomalyWithOptions(shared_ptr<DetectTextAnomalyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetectTextAnomalyResponse detectTextAnomaly(shared_ptr<DetectTextAnomalyRequest> request);
   FuzzyQueryResponse fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FuzzyQueryResponse fuzzyQuery(shared_ptr<FuzzyQueryRequest> request);
   GetBindingResponse getBindingWithOptions(shared_ptr<GetBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
