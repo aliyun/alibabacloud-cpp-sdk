@@ -3944,6 +3944,36 @@ ListK8sIngressRulesResponse Alibabacloud_Edas20170801::Client::listK8sIngressRul
   return ListK8sIngressRulesResponse(callApi(params, req, runtime));
 }
 
+ListK8sNamespacesResponse Alibabacloud_Edas20170801::Client::listK8sNamespaces(shared_ptr<ListK8sNamespacesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listK8sNamespacesWithOptions(request, headers, runtime);
+}
+
+ListK8sNamespacesResponse Alibabacloud_Edas20170801::Client::listK8sNamespacesWithOptions(shared_ptr<ListK8sNamespacesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListK8sNamespaces"))},
+    {"version", boost::any(string("2017-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/v5/k8s/acs/k8s_namespace"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListK8sNamespacesResponse(callApi(params, req, runtime));
+}
+
 ListK8sSecretsResponse Alibabacloud_Edas20170801::Client::listK8sSecrets(shared_ptr<ListK8sSecretsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());

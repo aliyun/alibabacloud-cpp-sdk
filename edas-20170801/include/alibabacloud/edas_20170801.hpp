@@ -13876,6 +13876,7 @@ public:
 class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup : public Darabonba::Model {
 public:
   shared_ptr<GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents> components{};
+  shared_ptr<string> env{};
 
   GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup() {}
 
@@ -13890,6 +13891,9 @@ public:
     if (components) {
       res["Components"] = components ? boost::any(components->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (env) {
+      res["Env"] = boost::any(*env);
+    }
     return res;
   }
 
@@ -13900,6 +13904,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Components"]));
         components = make_shared<GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents>(model1);
       }
+    }
+    if (m.find("Env") != m.end() && !m["Env"].empty()) {
+      env = make_shared<string>(boost::any_cast<string>(m["Env"]));
     }
   }
 
@@ -26869,6 +26876,190 @@ public:
 
 
   virtual ~ListK8sIngressRulesResponse() = default;
+};
+class ListK8sNamespacesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+
+  ListK8sNamespacesRequest() {}
+
+  explicit ListK8sNamespacesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+  }
+
+
+  virtual ~ListK8sNamespacesRequest() = default;
+};
+class ListK8sNamespacesResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> namespace_{};
+
+  ListK8sNamespacesResponseBodyData() {}
+
+  explicit ListK8sNamespacesResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ListK8sNamespacesResponseBodyData() = default;
+};
+class ListK8sNamespacesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<vector<ListK8sNamespacesResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ListK8sNamespacesResponseBody() {}
+
+  explicit ListK8sNamespacesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListK8sNamespacesResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListK8sNamespacesResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListK8sNamespacesResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListK8sNamespacesResponseBody() = default;
+};
+class ListK8sNamespacesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListK8sNamespacesResponseBody> body{};
+
+  ListK8sNamespacesResponse() {}
+
+  explicit ListK8sNamespacesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListK8sNamespacesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListK8sNamespacesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListK8sNamespacesResponse() = default;
 };
 class ListK8sSecretsRequest : public Darabonba::Model {
 public:
@@ -42488,6 +42679,8 @@ public:
   ListK8sConfigMapsResponse listK8sConfigMapsWithOptions(shared_ptr<ListK8sConfigMapsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListK8sIngressRulesResponse listK8sIngressRules(shared_ptr<ListK8sIngressRulesRequest> request);
   ListK8sIngressRulesResponse listK8sIngressRulesWithOptions(shared_ptr<ListK8sIngressRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListK8sNamespacesResponse listK8sNamespaces(shared_ptr<ListK8sNamespacesRequest> request);
+  ListK8sNamespacesResponse listK8sNamespacesWithOptions(shared_ptr<ListK8sNamespacesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListK8sSecretsResponse listK8sSecrets(shared_ptr<ListK8sSecretsRequest> request);
   ListK8sSecretsResponse listK8sSecretsWithOptions(shared_ptr<ListK8sSecretsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMethodsResponse listMethods(shared_ptr<ListMethodsRequest> request);
