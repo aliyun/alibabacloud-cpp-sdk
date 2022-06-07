@@ -1104,6 +1104,243 @@ public:
 
   virtual ~CreateHostGroupResponse() = default;
 };
+class CreateOAuthTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientId{};
+  shared_ptr<string> clientSecret{};
+  shared_ptr<string> code{};
+  shared_ptr<string> grantType{};
+  shared_ptr<string> login{};
+  shared_ptr<string> scope{};
+
+  CreateOAuthTokenRequest() {}
+
+  explicit CreateOAuthTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientId) {
+      res["clientId"] = boost::any(*clientId);
+    }
+    if (clientSecret) {
+      res["clientSecret"] = boost::any(*clientSecret);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (grantType) {
+      res["grantType"] = boost::any(*grantType);
+    }
+    if (login) {
+      res["login"] = boost::any(*login);
+    }
+    if (scope) {
+      res["scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("clientId") != m.end() && !m["clientId"].empty()) {
+      clientId = make_shared<string>(boost::any_cast<string>(m["clientId"]));
+    }
+    if (m.find("clientSecret") != m.end() && !m["clientSecret"].empty()) {
+      clientSecret = make_shared<string>(boost::any_cast<string>(m["clientSecret"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("grantType") != m.end() && !m["grantType"].empty()) {
+      grantType = make_shared<string>(boost::any_cast<string>(m["grantType"]));
+    }
+    if (m.find("login") != m.end() && !m["login"].empty()) {
+      login = make_shared<string>(boost::any_cast<string>(m["login"]));
+    }
+    if (m.find("scope") != m.end() && !m["scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["scope"]));
+    }
+  }
+
+
+  virtual ~CreateOAuthTokenRequest() = default;
+};
+class CreateOAuthTokenResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> id{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> tokenType{};
+
+  CreateOAuthTokenResponseBodyResult() {}
+
+  explicit CreateOAuthTokenResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (scope) {
+      res["scope"] = boost::any(*scope);
+    }
+    if (tokenType) {
+      res["tokenType"] = boost::any(*tokenType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("scope") != m.end() && !m["scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["scope"]));
+    }
+    if (m.find("tokenType") != m.end() && !m["tokenType"].empty()) {
+      tokenType = make_shared<string>(boost::any_cast<string>(m["tokenType"]));
+    }
+  }
+
+
+  virtual ~CreateOAuthTokenResponseBodyResult() = default;
+};
+class CreateOAuthTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CreateOAuthTokenResponseBodyResult> result{};
+  shared_ptr<string> success{};
+
+  CreateOAuthTokenResponseBody() {}
+
+  explicit CreateOAuthTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        CreateOAuthTokenResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<CreateOAuthTokenResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateOAuthTokenResponseBody() = default;
+};
+class CreateOAuthTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateOAuthTokenResponseBody> body{};
+
+  CreateOAuthTokenResponse() {}
+
+  explicit CreateOAuthTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateOAuthTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateOAuthTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateOAuthTokenResponse() = default;
+};
 class CreateProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> customCode{};
@@ -21800,6 +22037,8 @@ public:
                                                      shared_ptr<CreateHostGroupRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateOAuthTokenResponse createOAuthToken(shared_ptr<CreateOAuthTokenRequest> request);
+  CreateOAuthTokenResponse createOAuthTokenWithOptions(shared_ptr<CreateOAuthTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateProjectResponse createProject(shared_ptr<string> organizationId, shared_ptr<CreateProjectRequest> request);
   CreateProjectResponse createProjectWithOptions(shared_ptr<string> organizationId,
                                                  shared_ptr<CreateProjectRequest> request,

@@ -281,6 +281,51 @@ CreateHostGroupResponse Alibabacloud_Devops20210625::Client::createHostGroupWith
   return CreateHostGroupResponse(callApi(params, req, runtime));
 }
 
+CreateOAuthTokenResponse Alibabacloud_Devops20210625::Client::createOAuthToken(shared_ptr<CreateOAuthTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createOAuthTokenWithOptions(request, headers, runtime);
+}
+
+CreateOAuthTokenResponse Alibabacloud_Devops20210625::Client::createOAuthTokenWithOptions(shared_ptr<CreateOAuthTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientId)) {
+    body->insert(pair<string, string>("clientId", *request->clientId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientSecret)) {
+    body->insert(pair<string, string>("clientSecret", *request->clientSecret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->code)) {
+    body->insert(pair<string, string>("code", *request->code));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->grantType)) {
+    body->insert(pair<string, string>("grantType", *request->grantType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->login)) {
+    body->insert(pair<string, string>("login", *request->login));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("scope", *request->scope));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateOAuthToken"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/login/oauth/create"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateOAuthTokenResponse(callApi(params, req, runtime));
+}
+
 CreateProjectResponse Alibabacloud_Devops20210625::Client::createProject(shared_ptr<string> organizationId, shared_ptr<CreateProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
