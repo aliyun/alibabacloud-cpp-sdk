@@ -5417,6 +5417,7 @@ public:
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
   shared_ptr<vector<ScreenChestCTRequestURLList>> URLList{};
+  shared_ptr<long> verbose{};
 
   ScreenChestCTRequest() {}
 
@@ -5447,6 +5448,9 @@ public:
       }
       res["URLList"] = boost::any(temp1);
     }
+    if (verbose) {
+      res["Verbose"] = boost::any(*verbose);
+    }
     return res;
   }
 
@@ -5475,6 +5479,9 @@ public:
         }
         URLList = make_shared<vector<ScreenChestCTRequestURLList>>(expect1);
       }
+    }
+    if (m.find("Verbose") != m.end() && !m["Verbose"].empty()) {
+      verbose = make_shared<long>(boost::any_cast<long>(m["Verbose"]));
     }
   }
 
@@ -6221,6 +6228,7 @@ public:
   shared_ptr<ScreenChestCTResponseBodyDataDetectRibFracture> detectRibFracture{};
   shared_ptr<string> errorMessage{};
   shared_ptr<ScreenChestCTResponseBodyDataLungNodule> lungNodule{};
+  shared_ptr<map<string, boost::any>> URLList{};
 
   ScreenChestCTResponseBodyData() {}
 
@@ -6249,6 +6257,9 @@ public:
     }
     if (lungNodule) {
       res["LungNodule"] = lungNodule ? boost::any(lungNodule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (URLList) {
+      res["URLList"] = boost::any(*URLList);
     }
     return res;
   }
@@ -6291,6 +6302,14 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LungNodule"]));
         lungNodule = make_shared<ScreenChestCTResponseBodyDataLungNodule>(model1);
       }
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["URLList"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      URLList = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 

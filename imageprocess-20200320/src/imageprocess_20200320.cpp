@@ -1054,6 +1054,9 @@ ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCTWi
   if (!Darabonba_Util::Client::isUnset<vector<ScreenChestCTRequestURLList>>(request->URLList)) {
     body->insert(pair<string, vector<ScreenChestCTRequestURLList>>("URLList", *request->URLList));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->verbose)) {
+    body->insert(pair<string, long>("Verbose", *request->verbose));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

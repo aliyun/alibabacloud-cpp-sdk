@@ -1,3 +1,6 @@
+2022-06-09 Version: 1.0.10
+- Update ScreenChestCT.
+
 2022-05-27 Version: 1.0.9
 - Release DetectLymph DetectPanc.
 
