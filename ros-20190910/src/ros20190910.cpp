@@ -1470,6 +1470,9 @@ GetTemplateResponse Alibabacloud_ROS20190910::Client::getTemplateWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->includePermission)) {
     query->insert(pair<string, string>("IncludePermission", *request->includePermission));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->includeTags)) {
+    query->insert(pair<string, string>("IncludeTags", *request->includeTags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2345,6 +2348,9 @@ ListTemplateVersionsResponse Alibabacloud_ROS20190910::Client::listTemplateVersi
 ListTemplatesResponse Alibabacloud_ROS20190910::Client::listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->includeTags)) {
+    query->insert(pair<string, string>("IncludeTags", *request->includeTags));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
