@@ -1599,6 +1599,65 @@ SkipTrialPolicyResponse Alibabacloud_CloudGameAPI20200728::Client::skipTrialPoli
   return skipTrialPolicyWithOptions(request, runtime);
 }
 
+StartGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::startGameLiveWithOptions(shared_ptr<StartGameLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameSession)) {
+    query->insert(pair<string, string>("GameSession", *request->gameSession));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoPushAddress)) {
+    query->insert(pair<string, string>("VideoPushAddress", *request->videoPushAddress));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartGameLive"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartGameLiveResponse(callApi(params, req, runtime));
+}
+
+StartGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::startGameLive(shared_ptr<StartGameLiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startGameLiveWithOptions(request, runtime);
+}
+
+StopGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::stopGameLiveWithOptions(shared_ptr<StopGameLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameSession)) {
+    query->insert(pair<string, string>("GameSession", *request->gameSession));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopGameLive"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopGameLiveResponse(callApi(params, req, runtime));
+}
+
+StopGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::stopGameLive(shared_ptr<StopGameLiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopGameLiveWithOptions(request, runtime);
+}
+
 StopGameSessionResponse Alibabacloud_CloudGameAPI20200728::Client::stopGameSessionWithOptions(shared_ptr<StopGameSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
