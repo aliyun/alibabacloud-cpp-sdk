@@ -1939,6 +1939,55 @@ ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOpt
   return ListFunctionsResponse(callApi(params, req, runtime));
 }
 
+ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListInstancesHeaders> headers = make_shared<ListInstancesHeaders>();
+  return listInstancesWithOptions(serviceName, functionName, request, headers, runtime);
+}
+
+ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOptions(shared_ptr<string> serviceName,
+                                                                                     shared_ptr<string> functionName,
+                                                                                     shared_ptr<ListInstancesRequest> request,
+                                                                                     shared_ptr<ListInstancesHeaders> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  serviceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(serviceName));
+  functionName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
+    query->insert(pair<string, vector<string>>("instanceIds", *request->instanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    query->insert(pair<string, long>("limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
+    query->insert(pair<string, string>("qualifier", *request->qualifier));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Account-Id", Darabonba_Util::Client::toJSONString(headers->xFcAccountId)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListInstances"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/services/") + string(*serviceName) + string("/functions/") + string(*functionName) + string("/instances"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListInstancesResponse(callApi(params, req, runtime));
+}
+
 ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ListLayerVersionsHeaders> headers = make_shared<ListLayerVersionsHeaders>();
@@ -2491,8 +2540,8 @@ ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
     query->insert(pair<string, long>("limit", *request->limit));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->nextToken)) {
-    query->insert(pair<string, long>("nextToken", *request->nextToken));
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("nextToken", *request->nextToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
@@ -2996,7 +3045,7 @@ UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOpt
     {"version", boost::any(string("2021-04-06"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/2021-04-06/tag"))},
-    {"method", boost::any(string("DELETE"))},
+    {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
