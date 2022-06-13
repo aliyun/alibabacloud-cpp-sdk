@@ -1789,6 +1789,9 @@ ListDsMenusResponse Alibabacloud_Chatbot20220408::Client::listDsMenusWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->robotEnv)) {
     query->insert(pair<string, long>("RobotEnv", *request->robotEnv));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->source)) {
+    query->insert(pair<string, long>("Source", *request->source));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
     query->insert(pair<string, string>("Tags", *request->tags));
   }

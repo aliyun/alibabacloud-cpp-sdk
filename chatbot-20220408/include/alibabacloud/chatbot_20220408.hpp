@@ -9874,6 +9874,7 @@ public:
   shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> robotEnv{};
+  shared_ptr<long> source{};
   shared_ptr<string> tags{};
 
   ListDsMenusRequest() {}
@@ -9895,6 +9896,9 @@ public:
     if (robotEnv) {
       res["RobotEnv"] = boost::any(*robotEnv);
     }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
@@ -9910,6 +9914,9 @@ public:
     }
     if (m.find("RobotEnv") != m.end() && !m["RobotEnv"].empty()) {
       robotEnv = make_shared<long>(boost::any_cast<long>(m["RobotEnv"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<long>(boost::any_cast<long>(m["Source"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
