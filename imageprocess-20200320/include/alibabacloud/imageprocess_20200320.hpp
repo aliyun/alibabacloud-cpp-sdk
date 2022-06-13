@@ -5716,10 +5716,55 @@ public:
 
   virtual ~ScreenChestCTResponseBodyDataAnalyzeChestVessel() = default;
 };
+class ScreenChestCTResponseBodyDataCACSDetections : public Darabonba::Model {
+public:
+  shared_ptr<long> calciumId{};
+  shared_ptr<double> calciumScore{};
+  shared_ptr<double> calciumVolume{};
+
+  ScreenChestCTResponseBodyDataCACSDetections() {}
+
+  explicit ScreenChestCTResponseBodyDataCACSDetections(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (calciumId) {
+      res["CalciumId"] = boost::any(*calciumId);
+    }
+    if (calciumScore) {
+      res["CalciumScore"] = boost::any(*calciumScore);
+    }
+    if (calciumVolume) {
+      res["CalciumVolume"] = boost::any(*calciumVolume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CalciumId") != m.end() && !m["CalciumId"].empty()) {
+      calciumId = make_shared<long>(boost::any_cast<long>(m["CalciumId"]));
+    }
+    if (m.find("CalciumScore") != m.end() && !m["CalciumScore"].empty()) {
+      calciumScore = make_shared<double>(boost::any_cast<double>(m["CalciumScore"]));
+    }
+    if (m.find("CalciumVolume") != m.end() && !m["CalciumVolume"].empty()) {
+      calciumVolume = make_shared<double>(boost::any_cast<double>(m["CalciumVolume"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataCACSDetections() = default;
+};
 class ScreenChestCTResponseBodyDataCACS : public Darabonba::Model {
 public:
+  shared_ptr<vector<ScreenChestCTResponseBodyDataCACSDetections>> detections{};
   shared_ptr<string> resultUrl{};
   shared_ptr<string> score{};
+  shared_ptr<string> volumeScore{};
 
   ScreenChestCTResponseBodyDataCACS() {}
 
@@ -5731,21 +5776,47 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (detections) {
+      vector<boost::any> temp1;
+      for(auto item1:*detections){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Detections"] = boost::any(temp1);
+    }
     if (resultUrl) {
       res["ResultUrl"] = boost::any(*resultUrl);
     }
     if (score) {
       res["Score"] = boost::any(*score);
     }
+    if (volumeScore) {
+      res["VolumeScore"] = boost::any(*volumeScore);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Detections") != m.end() && !m["Detections"].empty()) {
+      if (typeid(vector<boost::any>) == m["Detections"].type()) {
+        vector<ScreenChestCTResponseBodyDataCACSDetections> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Detections"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScreenChestCTResponseBodyDataCACSDetections model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        detections = make_shared<vector<ScreenChestCTResponseBodyDataCACSDetections>>(expect1);
+      }
+    }
     if (m.find("ResultUrl") != m.end() && !m["ResultUrl"].empty()) {
       resultUrl = make_shared<string>(boost::any_cast<string>(m["ResultUrl"]));
     }
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<string>(boost::any_cast<string>(m["Score"]));
+    }
+    if (m.find("VolumeScore") != m.end() && !m["VolumeScore"].empty()) {
+      volumeScore = make_shared<string>(boost::any_cast<string>(m["VolumeScore"]));
     }
   }
 
@@ -5808,6 +5879,231 @@ public:
 
 
   virtual ~ScreenChestCTResponseBodyDataCovid() = default;
+};
+class ScreenChestCTResponseBodyDataDetectLymphLesions : public Darabonba::Model {
+public:
+  shared_ptr<vector<double>> boxes{};
+  shared_ptr<vector<double>> diametermm{};
+  shared_ptr<long> keySlice{};
+  shared_ptr<vector<vector<double>>> recist{};
+  shared_ptr<double> score{};
+
+  ScreenChestCTResponseBodyDataDetectLymphLesions() {}
+
+  explicit ScreenChestCTResponseBodyDataDetectLymphLesions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boxes) {
+      res["Boxes"] = boost::any(*boxes);
+    }
+    if (diametermm) {
+      res["Diametermm"] = boost::any(*diametermm);
+    }
+    if (keySlice) {
+      res["KeySlice"] = boost::any(*keySlice);
+    }
+    if (recist) {
+      res["Recist"] = boost::any(*recist);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Boxes") != m.end() && !m["Boxes"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Boxes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Boxes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      boxes = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("Diametermm") != m.end() && !m["Diametermm"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["Diametermm"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Diametermm"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      diametermm = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("KeySlice") != m.end() && !m["KeySlice"].empty()) {
+      keySlice = make_shared<long>(boost::any_cast<long>(m["KeySlice"]));
+    }
+    if (m.find("Recist") != m.end() && !m["Recist"].empty()) {
+      vector<vector<double>> toVec1;
+      if (typeid(vector<boost::any>) == m["Recist"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Recist"]);
+        for (auto item:vec1) {
+          vector<double> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<double>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      recist = make_shared<vector<vector<double>>>(toVec1);
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataDetectLymphLesions() = default;
+};
+class ScreenChestCTResponseBodyDataDetectLymph : public Darabonba::Model {
+public:
+  shared_ptr<vector<ScreenChestCTResponseBodyDataDetectLymphLesions>> lesions{};
+
+  ScreenChestCTResponseBodyDataDetectLymph() {}
+
+  explicit ScreenChestCTResponseBodyDataDetectLymph(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lesions) {
+      vector<boost::any> temp1;
+      for(auto item1:*lesions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Lesions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lesions") != m.end() && !m["Lesions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Lesions"].type()) {
+        vector<ScreenChestCTResponseBodyDataDetectLymphLesions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Lesions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScreenChestCTResponseBodyDataDetectLymphLesions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        lesions = make_shared<vector<ScreenChestCTResponseBodyDataDetectLymphLesions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataDetectLymph() = default;
+};
+class ScreenChestCTResponseBodyDataDetectPdacLesion : public Darabonba::Model {
+public:
+  shared_ptr<string> mask{};
+  shared_ptr<string> nonPdacVol{};
+  shared_ptr<string> pancVol{};
+  shared_ptr<string> pdacVol{};
+  shared_ptr<vector<string>> possibilities{};
+
+  ScreenChestCTResponseBodyDataDetectPdacLesion() {}
+
+  explicit ScreenChestCTResponseBodyDataDetectPdacLesion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (nonPdacVol) {
+      res["NonPdacVol"] = boost::any(*nonPdacVol);
+    }
+    if (pancVol) {
+      res["PancVol"] = boost::any(*pancVol);
+    }
+    if (pdacVol) {
+      res["PdacVol"] = boost::any(*pdacVol);
+    }
+    if (possibilities) {
+      res["Possibilities"] = boost::any(*possibilities);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<string>(boost::any_cast<string>(m["Mask"]));
+    }
+    if (m.find("NonPdacVol") != m.end() && !m["NonPdacVol"].empty()) {
+      nonPdacVol = make_shared<string>(boost::any_cast<string>(m["NonPdacVol"]));
+    }
+    if (m.find("PancVol") != m.end() && !m["PancVol"].empty()) {
+      pancVol = make_shared<string>(boost::any_cast<string>(m["PancVol"]));
+    }
+    if (m.find("PdacVol") != m.end() && !m["PdacVol"].empty()) {
+      pdacVol = make_shared<string>(boost::any_cast<string>(m["PdacVol"]));
+    }
+    if (m.find("Possibilities") != m.end() && !m["Possibilities"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Possibilities"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Possibilities"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      possibilities = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataDetectPdacLesion() = default;
+};
+class ScreenChestCTResponseBodyDataDetectPdac : public Darabonba::Model {
+public:
+  shared_ptr<ScreenChestCTResponseBodyDataDetectPdacLesion> lesion{};
+
+  ScreenChestCTResponseBodyDataDetectPdac() {}
+
+  explicit ScreenChestCTResponseBodyDataDetectPdac(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lesion) {
+      res["Lesion"] = lesion ? boost::any(lesion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lesion") != m.end() && !m["Lesion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Lesion"].type()) {
+        ScreenChestCTResponseBodyDataDetectPdacLesion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Lesion"]));
+        lesion = make_shared<ScreenChestCTResponseBodyDataDetectPdacLesion>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataDetectPdac() = default;
 };
 class ScreenChestCTResponseBodyDataDetectRibFractureDetections : public Darabonba::Model {
 public:
@@ -6225,6 +6521,8 @@ public:
   shared_ptr<ScreenChestCTResponseBodyDataAnalyzeChestVessel> analyzeChestVessel{};
   shared_ptr<ScreenChestCTResponseBodyDataCACS> CACS{};
   shared_ptr<ScreenChestCTResponseBodyDataCovid> covid{};
+  shared_ptr<ScreenChestCTResponseBodyDataDetectLymph> detectLymph{};
+  shared_ptr<ScreenChestCTResponseBodyDataDetectPdac> detectPdac{};
   shared_ptr<ScreenChestCTResponseBodyDataDetectRibFracture> detectRibFracture{};
   shared_ptr<string> errorMessage{};
   shared_ptr<ScreenChestCTResponseBodyDataLungNodule> lungNodule{};
@@ -6248,6 +6546,12 @@ public:
     }
     if (covid) {
       res["Covid"] = covid ? boost::any(covid->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (detectLymph) {
+      res["DetectLymph"] = detectLymph ? boost::any(detectLymph->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (detectPdac) {
+      res["DetectPdac"] = detectPdac ? boost::any(detectPdac->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (detectRibFracture) {
       res["DetectRibFracture"] = detectRibFracture ? boost::any(detectRibFracture->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6284,6 +6588,20 @@ public:
         ScreenChestCTResponseBodyDataCovid model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Covid"]));
         covid = make_shared<ScreenChestCTResponseBodyDataCovid>(model1);
+      }
+    }
+    if (m.find("DetectLymph") != m.end() && !m["DetectLymph"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DetectLymph"].type()) {
+        ScreenChestCTResponseBodyDataDetectLymph model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetectLymph"]));
+        detectLymph = make_shared<ScreenChestCTResponseBodyDataDetectLymph>(model1);
+      }
+    }
+    if (m.find("DetectPdac") != m.end() && !m["DetectPdac"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DetectPdac"].type()) {
+        ScreenChestCTResponseBodyDataDetectPdac model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetectPdac"]));
+        detectPdac = make_shared<ScreenChestCTResponseBodyDataDetectPdac>(model1);
       }
     }
     if (m.find("DetectRibFracture") != m.end() && !m["DetectRibFracture"].empty()) {
