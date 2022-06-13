@@ -275,6 +275,9 @@ CreateJobResponse Alibabacloud_Schedulerx220190430::Client::createJobWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->sendChannel)) {
     body->insert(pair<string, string>("SendChannel", *request->sendChannel));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    body->insert(pair<string, long>("Status", *request->status));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->taskAttemptInterval)) {
     body->insert(pair<string, long>("TaskAttemptInterval", *request->taskAttemptInterval));
   }
@@ -330,9 +333,6 @@ CreateNamespaceResponse Alibabacloud_Schedulerx220190430::Client::createNamespac
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
-    query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uid)) {
     query->insert(pair<string, string>("Uid", *request->uid));
