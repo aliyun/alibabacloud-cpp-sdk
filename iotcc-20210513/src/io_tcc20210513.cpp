@@ -399,6 +399,9 @@ CreateGroupAuthorizationRuleResponse Alibabacloud_IoTCC20210513::Client::createG
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sourceCidrs)) {
     query->insert(pair<string, vector<string>>("SourceCidrs", *request->sourceCidrs));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -500,6 +503,9 @@ CreateIoTCloudConnectorResponse Alibabacloud_IoTCC20210513::Client::createIoTClo
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceUid)) {
     query->insert(pair<string, long>("ResourceUid", *request->resourceUid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->wildcardDomainEnabled)) {
     query->insert(pair<string, bool>("WildcardDomainEnabled", *request->wildcardDomainEnabled));
   }
@@ -579,6 +585,9 @@ CreateIoTCloudConnectorGroupResponse Alibabacloud_IoTCC20210513::Client::createI
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1797,6 +1806,9 @@ ListGroupAuthorizationRulesResponse Alibabacloud_IoTCC20210513::Client::listGrou
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1974,6 +1986,9 @@ ListIoTCloudConnectorGroupsResponse Alibabacloud_IoTCC20210513::Client::listIoTC
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

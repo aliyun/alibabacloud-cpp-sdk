@@ -1237,6 +1237,7 @@ public:
   shared_ptr<string> policy{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> sourceCidrs{};
+  shared_ptr<string> type{};
 
   CreateGroupAuthorizationRuleRequest() {}
 
@@ -1278,6 +1279,9 @@ public:
     if (sourceCidrs) {
       res["SourceCidrs"] = boost::any(*sourceCidrs);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -1318,6 +1322,9 @@ public:
         }
       }
       sourceCidrs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -1629,6 +1636,7 @@ public:
   shared_ptr<string> ioTCloudConnectorName{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resourceUid{};
+  shared_ptr<string> type{};
   shared_ptr<bool> wildcardDomainEnabled{};
 
   CreateIoTCloudConnectorRequest() {}
@@ -1665,6 +1673,9 @@ public:
     if (resourceUid) {
       res["ResourceUid"] = boost::any(*resourceUid);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (wildcardDomainEnabled) {
       res["WildcardDomainEnabled"] = boost::any(*wildcardDomainEnabled);
     }
@@ -1695,6 +1706,9 @@ public:
     }
     if (m.find("ResourceUid") != m.end() && !m["ResourceUid"].empty()) {
       resourceUid = make_shared<long>(boost::any_cast<long>(m["ResourceUid"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("WildcardDomainEnabled") != m.end() && !m["WildcardDomainEnabled"].empty()) {
       wildcardDomainEnabled = make_shared<bool>(boost::any_cast<bool>(m["WildcardDomainEnabled"]));
@@ -1957,6 +1971,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
 
   CreateIoTCloudConnectorGroupRequest() {}
 
@@ -1983,6 +1998,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -2001,6 +2019,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -7551,6 +7572,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<vector<string>> policy{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
 
   ListGroupAuthorizationRulesRequest() {}
 
@@ -7591,6 +7613,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     return res;
   }
@@ -7668,6 +7693,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
   }
 
 
@@ -7684,6 +7712,7 @@ public:
   shared_ptr<string> ioTCloudConnectorGroupId{};
   shared_ptr<string> policy{};
   shared_ptr<vector<string>> sourceCidrs{};
+  shared_ptr<string> type{};
 
   ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules() {}
 
@@ -7722,6 +7751,9 @@ public:
     if (sourceCidrs) {
       res["SourceCidrs"] = boost::any(*sourceCidrs);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -7759,6 +7791,9 @@ public:
         }
       }
       sourceCidrs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -8702,6 +8737,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
 
   ListIoTCloudConnectorGroupsRequest() {}
 
@@ -8730,6 +8766,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     return res;
   }
@@ -8773,6 +8812,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -8858,6 +8900,7 @@ public:
   shared_ptr<string> ioTCloudConnectorGroupStatus{};
   shared_ptr<vector<ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors>> ioTCloudConnectors{};
   shared_ptr<string> name{};
+  shared_ptr<string> type{};
 
   ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups() {}
 
@@ -8891,6 +8934,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
@@ -8922,6 +8968,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -9217,6 +9266,7 @@ public:
   shared_ptr<string> mode{};
   shared_ptr<long> modifyTime{};
   shared_ptr<long> rateLimit{};
+  shared_ptr<string> type{};
   shared_ptr<vector<string>> vSwitchList{};
   shared_ptr<string> vpcId{};
   shared_ptr<bool> wildcardDomainEnabled{};
@@ -9270,6 +9320,9 @@ public:
     if (rateLimit) {
       res["RateLimit"] = boost::any(*rateLimit);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (vSwitchList) {
       res["VSwitchList"] = boost::any(*vSwitchList);
     }
@@ -9321,6 +9374,9 @@ public:
     }
     if (m.find("RateLimit") != m.end() && !m["RateLimit"].empty()) {
       rateLimit = make_shared<long>(boost::any_cast<long>(m["RateLimit"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("VSwitchList") != m.end() && !m["VSwitchList"].empty()) {
       vector<string> toVec1;
