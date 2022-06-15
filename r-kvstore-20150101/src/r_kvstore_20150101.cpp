@@ -107,6 +107,9 @@ AddShardingNodeResponse Alibabacloud_R-kvstore20150101::Client::addShardingNodeW
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readOnlyCount)) {
+    query->insert(pair<string, long>("ReadOnlyCount", *request->readOnlyCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -571,6 +574,9 @@ CreateInstanceResponse Alibabacloud_R-kvstore20150101::Client::createInstanceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->shardCount)) {
+    query->insert(pair<string, long>("ShardCount", *request->shardCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->srcDBInstanceId)) {
     query->insert(pair<string, string>("SrcDBInstanceId", *request->srcDBInstanceId));
   }
@@ -908,6 +914,9 @@ DeleteShardingNodeResponse Alibabacloud_R-kvstore20150101::Client::deleteShardin
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readOnlyCount)) {
+    query->insert(pair<string, long>("ReadOnlyCount", *request->readOnlyCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -4173,6 +4182,9 @@ ModifyInstanceSpecResponse Alibabacloud_R-kvstore20150101::Client::modifyInstanc
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readOnlyCount)) {
+    query->insert(pair<string, long>("ReadOnlyCount", *request->readOnlyCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
