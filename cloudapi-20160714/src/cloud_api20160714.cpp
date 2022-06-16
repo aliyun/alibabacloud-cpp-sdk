@@ -2272,6 +2272,9 @@ DescribeApisByAppResponse Alibabacloud_CloudAPI20160714::Client::describeApisByA
   if (!Darabonba_Util::Client::isUnset<long>(request->appId)) {
     query->insert(pair<string, long>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->method)) {
     query->insert(pair<string, string>("Method", *request->method));
   }
@@ -2978,6 +2981,46 @@ DescribeHistoryApisResponse Alibabacloud_CloudAPI20160714::Client::describeHisto
 DescribeHistoryApisResponse Alibabacloud_CloudAPI20160714::Client::describeHistoryApis(shared_ptr<DescribeHistoryApisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeHistoryApisWithOptions(request, runtime);
+}
+
+DescribeInstancesResponse Alibabacloud_CloudAPI20160714::Client::describeInstancesWithOptions(shared_ptr<DescribeInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableTagAuthorization)) {
+    query->insert(pair<string, bool>("EnableTagAuthorization", *request->enableTagAuthorization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeInstancesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeInstancesRequestTag>>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstances"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstancesResponse(callApi(params, req, runtime));
+}
+
+DescribeInstancesResponse Alibabacloud_CloudAPI20160714::Client::describeInstances(shared_ptr<DescribeInstancesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstancesWithOptions(request, runtime);
 }
 
 DescribeIpControlPolicyItemsResponse Alibabacloud_CloudAPI20160714::Client::describeIpControlPolicyItemsWithOptions(shared_ptr<DescribeIpControlPolicyItemsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5226,6 +5269,40 @@ SdkGenerateByAppResponse Alibabacloud_CloudAPI20160714::Client::sdkGenerateByApp
 SdkGenerateByAppResponse Alibabacloud_CloudAPI20160714::Client::sdkGenerateByApp(shared_ptr<SdkGenerateByAppRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return sdkGenerateByAppWithOptions(request, runtime);
+}
+
+SdkGenerateByAppForRegionResponse Alibabacloud_CloudAPI20160714::Client::sdkGenerateByAppForRegionWithOptions(shared_ptr<SdkGenerateByAppForRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->appId)) {
+    query->insert(pair<string, long>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SdkGenerateByAppForRegion"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SdkGenerateByAppForRegionResponse(callApi(params, req, runtime));
+}
+
+SdkGenerateByAppForRegionResponse Alibabacloud_CloudAPI20160714::Client::sdkGenerateByAppForRegion(shared_ptr<SdkGenerateByAppForRegionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return sdkGenerateByAppForRegionWithOptions(request, runtime);
 }
 
 SdkGenerateByGroupResponse Alibabacloud_CloudAPI20160714::Client::sdkGenerateByGroupWithOptions(shared_ptr<SdkGenerateByGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
