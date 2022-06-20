@@ -55,7 +55,7 @@ vcpkg install boost openssl-windows cpprestsdk
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh https://github.com/alibabacloud-sdk-cpp/imageenhan-20190930.git/scripts/install.sh
+sh imageenhan-20190930/scripts/install.sh
 ```
 
 ### Windows
@@ -64,13 +64,13 @@ sh https://github.com/alibabacloud-sdk-cpp/imageenhan-20190930.git/scripts/insta
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/imageenhan-20190930.git
+  cd alibabacloud-cpp-sdk/imageenhan-20190930
   ```
 2. 使用 Visual Studio 进行编译:
   * 安装 [CMake](https://cmake.org/download/) 和 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
   * 在项目根目录下创建 `cmake_build` 文件夹
   * 打开 [CMake](https://cmake.org/download/) 软件, 然后进行以下操作
-    * 选择 `Browse Source` 为 `源代码目录(https://github.com/alibabacloud-sdk-cpp/imageenhan-20190930.git)`
+    * 选择 `Browse Source` 为 `源代码目录(imageenhan-20190930)`
     * 选择 `Browse build` 为 `构建目录(cmake_build)`
     * 点击 `configure`
     * 点击 `generate`, 构建 VS 解决方案。
