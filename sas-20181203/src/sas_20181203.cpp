@@ -5003,6 +5003,9 @@ DescribeVulListResponse Alibabacloud_Sas20181203::Client::describeVulListWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->necessity)) {
     query->insert(pair<string, string>("Necessity", *request->necessity));
   }
@@ -6931,6 +6934,34 @@ OperateVulsResponse Alibabacloud_Sas20181203::Client::operateVuls(shared_ptr<Ope
   return operateVulsWithOptions(request, runtime);
 }
 
+OperationCancelIgnoreSuspEventResponse Alibabacloud_Sas20181203::Client::operationCancelIgnoreSuspEventWithOptions(shared_ptr<OperationCancelIgnoreSuspEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->securityEventIds)) {
+    query->insert(pair<string, vector<long>>("SecurityEventIds", *request->securityEventIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OperationCancelIgnoreSuspEvent"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return OperationCancelIgnoreSuspEventResponse(callApi(params, req, runtime));
+}
+
+OperationCancelIgnoreSuspEventResponse Alibabacloud_Sas20181203::Client::operationCancelIgnoreSuspEvent(shared_ptr<OperationCancelIgnoreSuspEventRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return operationCancelIgnoreSuspEventWithOptions(request, runtime);
+}
+
 OperationSuspEventsResponse Alibabacloud_Sas20181203::Client::operationSuspEventsWithOptions(shared_ptr<OperationSuspEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -7174,6 +7205,9 @@ QueryGroupIdByGroupNameResponse Alibabacloud_Sas20181203::Client::queryGroupIdBy
 QueryGroupedSecurityEventMarkMissListResponse Alibabacloud_Sas20181203::Client::queryGroupedSecurityEventMarkMissListWithOptions(shared_ptr<QueryGroupedSecurityEventMarkMissListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->disposalWay)) {
+    query->insert(pair<string, string>("DisposalWay", *request->disposalWay));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
     query->insert(pair<string, string>("SourceIp", *request->sourceIp));
   }
