@@ -385,8 +385,13 @@ CreateDSEntityResponse Alibabacloud_Chatbot20220408::Client::createDSEntity(shar
   return createDSEntityWithOptions(request, runtime);
 }
 
-CreateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::createDSEntityValueWithOptions(shared_ptr<CreateDSEntityValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::createDSEntityValueWithOptions(shared_ptr<CreateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDSEntityValueShrinkRequest> request = make_shared<CreateDSEntityValueShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->synonyms)) {
+    request->synonymsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->synonyms, make_shared<string>("Synonyms"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
@@ -400,11 +405,13 @@ CreateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::createDSEntity
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->synonyms)) {
-    query->insert(pair<string, vector<string>>("Synonyms", *request->synonyms));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->synonymsShrink)) {
+    body->insert(pair<string, string>("Synonyms", *request->synonymsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateDSEntityValue"))},
@@ -1777,46 +1784,6 @@ ListDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::listDSEntityValu
   return listDSEntityValueWithOptions(request, runtime);
 }
 
-ListDsMenusResponse Alibabacloud_Chatbot20220408::Client::listDsMenusWithOptions(shared_ptr<ListDsMenusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
-    query->insert(pair<string, string>("AgentKey", *request->agentKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
-    query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->robotEnv)) {
-    query->insert(pair<string, long>("RobotEnv", *request->robotEnv));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->source)) {
-    query->insert(pair<string, long>("Source", *request->source));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
-    query->insert(pair<string, string>("Tags", *request->tags));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListDsMenus"))},
-    {"version", boost::any(string("2022-04-08"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListDsMenusResponse(callApi(params, req, runtime));
-}
-
-ListDsMenusResponse Alibabacloud_Chatbot20220408::Client::listDsMenus(shared_ptr<ListDsMenusRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listDsMenusWithOptions(request, runtime);
-}
-
 ListInstanceResponse Alibabacloud_Chatbot20220408::Client::listInstanceWithOptions(shared_ptr<ListInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1868,6 +1835,12 @@ ListIntentResponse Alibabacloud_Chatbot20220408::Client::listIntentWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->intentName)) {
     query->insert(pair<string, string>("IntentName", *request->intentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2300,8 +2273,13 @@ UpdateDSEntityResponse Alibabacloud_Chatbot20220408::Client::updateDSEntity(shar
   return updateDSEntityWithOptions(request, runtime);
 }
 
-UpdateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::updateDSEntityValueWithOptions(shared_ptr<UpdateDSEntityValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::updateDSEntityValueWithOptions(shared_ptr<UpdateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateDSEntityValueShrinkRequest> request = make_shared<UpdateDSEntityValueShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->synonyms)) {
+    request->synonymsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->synonyms, make_shared<string>("Synonyms"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
     query->insert(pair<string, string>("AgentKey", *request->agentKey));
@@ -2318,11 +2296,13 @@ UpdateDSEntityValueResponse Alibabacloud_Chatbot20220408::Client::updateDSEntity
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->synonyms)) {
-    query->insert(pair<string, vector<string>>("Synonyms", *request->synonyms));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->synonymsShrink)) {
+    body->insert(pair<string, string>("Synonyms", *request->synonymsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateDSEntityValue"))},

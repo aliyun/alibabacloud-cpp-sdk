@@ -1010,49 +1010,6 @@ public:
 
   virtual ~ChatShrinkRequest() = default;
 };
-class ChatResponseBodyMessagesCardList : public Darabonba::Model {
-public:
-  shared_ptr<string> answerSource{};
-  shared_ptr<string> msgType{};
-  shared_ptr<string> platform{};
-
-  ChatResponseBodyMessagesCardList() {}
-
-  explicit ChatResponseBodyMessagesCardList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (answerSource) {
-      res["AnswerSource"] = boost::any(*answerSource);
-    }
-    if (msgType) {
-      res["MsgType"] = boost::any(*msgType);
-    }
-    if (platform) {
-      res["Platform"] = boost::any(*platform);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AnswerSource") != m.end() && !m["AnswerSource"].empty()) {
-      answerSource = make_shared<string>(boost::any_cast<string>(m["AnswerSource"]));
-    }
-    if (m.find("MsgType") != m.end() && !m["MsgType"].empty()) {
-      msgType = make_shared<string>(boost::any_cast<string>(m["MsgType"]));
-    }
-    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
-      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
-    }
-  }
-
-
-  virtual ~ChatResponseBodyMessagesCardList() = default;
-};
 class ChatResponseBodyMessagesKnowledgeRelatedKnowledges : public Darabonba::Model {
 public:
   shared_ptr<string> knowledgeId{};
@@ -1462,7 +1419,6 @@ class ChatResponseBodyMessages : public Darabonba::Model {
 public:
   shared_ptr<string> answerSource{};
   shared_ptr<string> answerType{};
-  shared_ptr<vector<ChatResponseBodyMessagesCardList>> cardList{};
   shared_ptr<ChatResponseBodyMessagesKnowledge> knowledge{};
   shared_ptr<vector<ChatResponseBodyMessagesRecommends>> recommends{};
   shared_ptr<ChatResponseBodyMessagesText> text{};
@@ -1484,13 +1440,6 @@ public:
     }
     if (answerType) {
       res["AnswerType"] = boost::any(*answerType);
-    }
-    if (cardList) {
-      vector<boost::any> temp1;
-      for(auto item1:*cardList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["CardList"] = boost::any(temp1);
     }
     if (knowledge) {
       res["Knowledge"] = knowledge ? boost::any(knowledge->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1520,19 +1469,6 @@ public:
     }
     if (m.find("AnswerType") != m.end() && !m["AnswerType"].empty()) {
       answerType = make_shared<string>(boost::any_cast<string>(m["AnswerType"]));
-    }
-    if (m.find("CardList") != m.end() && !m["CardList"].empty()) {
-      if (typeid(vector<boost::any>) == m["CardList"].type()) {
-        vector<ChatResponseBodyMessagesCardList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["CardList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ChatResponseBodyMessagesCardList model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        cardList = make_shared<vector<ChatResponseBodyMessagesCardList>>(expect1);
-      }
     }
     if (m.find("Knowledge") != m.end() && !m["Knowledge"].empty()) {
       if (typeid(map<string, boost::any>) == m["Knowledge"].type()) {
@@ -2473,6 +2409,63 @@ public:
 
 
   virtual ~CreateDSEntityValueRequest() = default;
+};
+class CreateDSEntityValueShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> content{};
+  shared_ptr<long> entityId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> synonymsShrink{};
+
+  CreateDSEntityValueShrinkRequest() {}
+
+  explicit CreateDSEntityValueShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (synonymsShrink) {
+      res["Synonyms"] = boost::any(*synonymsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Synonyms") != m.end() && !m["Synonyms"].empty()) {
+      synonymsShrink = make_shared<string>(boost::any_cast<string>(m["Synonyms"]));
+    }
+  }
+
+
+  virtual ~CreateDSEntityValueShrinkRequest() = default;
 };
 class CreateDSEntityValueResponseBody : public Darabonba::Model {
 public:
@@ -9869,232 +9862,6 @@ public:
 
   virtual ~ListDSEntityValueResponse() = default;
 };
-class ListDsMenusRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> agentKey{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<long> robotEnv{};
-  shared_ptr<long> source{};
-  shared_ptr<string> tags{};
-
-  ListDsMenusRequest() {}
-
-  explicit ListDsMenusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (agentKey) {
-      res["AgentKey"] = boost::any(*agentKey);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (robotEnv) {
-      res["RobotEnv"] = boost::any(*robotEnv);
-    }
-    if (source) {
-      res["Source"] = boost::any(*source);
-    }
-    if (tags) {
-      res["Tags"] = boost::any(*tags);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
-      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("RobotEnv") != m.end() && !m["RobotEnv"].empty()) {
-      robotEnv = make_shared<long>(boost::any_cast<long>(m["RobotEnv"]));
-    }
-    if (m.find("Source") != m.end() && !m["Source"].empty()) {
-      source = make_shared<long>(boost::any_cast<long>(m["Source"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
-    }
-  }
-
-
-  virtual ~ListDsMenusRequest() = default;
-};
-class ListDsMenusResponseBodyMenus : public Darabonba::Model {
-public:
-  shared_ptr<string> tag{};
-  shared_ptr<string> title{};
-  shared_ptr<string> titleEn{};
-  shared_ptr<string> url{};
-
-  ListDsMenusResponseBodyMenus() {}
-
-  explicit ListDsMenusResponseBodyMenus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tag) {
-      res["Tag"] = boost::any(*tag);
-    }
-    if (title) {
-      res["Title"] = boost::any(*title);
-    }
-    if (titleEn) {
-      res["TitleEn"] = boost::any(*titleEn);
-    }
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
-    }
-    if (m.find("Title") != m.end() && !m["Title"].empty()) {
-      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
-    }
-    if (m.find("TitleEn") != m.end() && !m["TitleEn"].empty()) {
-      titleEn = make_shared<string>(boost::any_cast<string>(m["TitleEn"]));
-    }
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-  }
-
-
-  virtual ~ListDsMenusResponseBodyMenus() = default;
-};
-class ListDsMenusResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> ext{};
-  shared_ptr<vector<ListDsMenusResponseBodyMenus>> menus{};
-  shared_ptr<string> requestId{};
-
-  ListDsMenusResponseBody() {}
-
-  explicit ListDsMenusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (ext) {
-      res["Ext"] = boost::any(*ext);
-    }
-    if (menus) {
-      vector<boost::any> temp1;
-      for(auto item1:*menus){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Menus"] = boost::any(temp1);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
-      ext = make_shared<string>(boost::any_cast<string>(m["Ext"]));
-    }
-    if (m.find("Menus") != m.end() && !m["Menus"].empty()) {
-      if (typeid(vector<boost::any>) == m["Menus"].type()) {
-        vector<ListDsMenusResponseBodyMenus> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Menus"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListDsMenusResponseBodyMenus model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        menus = make_shared<vector<ListDsMenusResponseBodyMenus>>(expect1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ListDsMenusResponseBody() = default;
-};
-class ListDsMenusResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListDsMenusResponseBody> body{};
-
-  ListDsMenusResponse() {}
-
-  explicit ListDsMenusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListDsMenusResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListDsMenusResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListDsMenusResponse() = default;
-};
 class ListInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -10361,6 +10128,8 @@ public:
   shared_ptr<string> agentKey{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> intentName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
 
   ListIntentRequest() {}
 
@@ -10381,6 +10150,12 @@ public:
     if (intentName) {
       res["IntentName"] = boost::any(*intentName);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     return res;
   }
 
@@ -10393,6 +10168,12 @@ public:
     }
     if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
       intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -13537,6 +13318,70 @@ public:
 
   virtual ~UpdateDSEntityValueRequest() = default;
 };
+class UpdateDSEntityValueShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> content{};
+  shared_ptr<long> entityId{};
+  shared_ptr<long> entityValueId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> synonymsShrink{};
+
+  UpdateDSEntityValueShrinkRequest() {}
+
+  explicit UpdateDSEntityValueShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (entityValueId) {
+      res["EntityValueId"] = boost::any(*entityValueId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (synonymsShrink) {
+      res["Synonyms"] = boost::any(*synonymsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
+    }
+    if (m.find("EntityValueId") != m.end() && !m["EntityValueId"].empty()) {
+      entityValueId = make_shared<long>(boost::any_cast<long>(m["EntityValueId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Synonyms") != m.end() && !m["Synonyms"].empty()) {
+      synonymsShrink = make_shared<string>(boost::any_cast<string>(m["Synonyms"]));
+    }
+  }
+
+
+  virtual ~UpdateDSEntityValueShrinkRequest() = default;
+};
 class UpdateDSEntityValueResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> entityValueId{};
@@ -15245,7 +15090,7 @@ public:
   CreateConnQuestionResponse createConnQuestion(shared_ptr<CreateConnQuestionRequest> request);
   CreateDSEntityResponse createDSEntityWithOptions(shared_ptr<CreateDSEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDSEntityResponse createDSEntity(shared_ptr<CreateDSEntityRequest> request);
-  CreateDSEntityValueResponse createDSEntityValueWithOptions(shared_ptr<CreateDSEntityValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDSEntityValueResponse createDSEntityValueWithOptions(shared_ptr<CreateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDSEntityValueResponse createDSEntityValue(shared_ptr<CreateDSEntityValueRequest> request);
   CreateFaqResponse createFaqWithOptions(shared_ptr<CreateFaqRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFaqResponse createFaq(shared_ptr<CreateFaqRequest> request);
@@ -15323,8 +15168,6 @@ public:
   ListDSEntityResponse listDSEntity(shared_ptr<ListDSEntityRequest> request);
   ListDSEntityValueResponse listDSEntityValueWithOptions(shared_ptr<ListDSEntityValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDSEntityValueResponse listDSEntityValue(shared_ptr<ListDSEntityValueRequest> request);
-  ListDsMenusResponse listDsMenusWithOptions(shared_ptr<ListDsMenusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDsMenusResponse listDsMenus(shared_ptr<ListDsMenusRequest> request);
   ListInstanceResponse listInstanceWithOptions(shared_ptr<ListInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstanceResponse listInstance(shared_ptr<ListInstanceRequest> request);
   ListIntentResponse listIntentWithOptions(shared_ptr<ListIntentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15349,7 +15192,7 @@ public:
   UpdateConnQuestionResponse updateConnQuestion(shared_ptr<UpdateConnQuestionRequest> request);
   UpdateDSEntityResponse updateDSEntityWithOptions(shared_ptr<UpdateDSEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDSEntityResponse updateDSEntity(shared_ptr<UpdateDSEntityRequest> request);
-  UpdateDSEntityValueResponse updateDSEntityValueWithOptions(shared_ptr<UpdateDSEntityValueRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDSEntityValueResponse updateDSEntityValueWithOptions(shared_ptr<UpdateDSEntityValueRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDSEntityValueResponse updateDSEntityValue(shared_ptr<UpdateDSEntityValueRequest> request);
   UpdateFaqResponse updateFaqWithOptions(shared_ptr<UpdateFaqRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFaqResponse updateFaq(shared_ptr<UpdateFaqRequest> request);
