@@ -2471,8 +2471,10 @@ public:
 };
 class DeleteFlowCategoryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<bool> data{};
+  shared_ptr<string> flowId{};
+  shared_ptr<string> jobId{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
 
   DeleteFlowCategoryResponseBody() {}
 
@@ -2484,21 +2486,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (data) {
-      res["Data"] = boost::any(*data);
+    if (flowId) {
+      res["FlowId"] = boost::any(*flowId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
+      flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
     }
   }
 
@@ -9160,6 +9174,266 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
+class ModifyFlowForWebRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertConf{};
+  shared_ptr<string> alertDingDingGroupBizId{};
+  shared_ptr<string> alertUserGroupBizId{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> createCluster{};
+  shared_ptr<string> cronExpr{};
+  shared_ptr<string> description{};
+  shared_ptr<long> endSchedule{};
+  shared_ptr<string> graph{};
+  shared_ptr<string> hostName{};
+  shared_ptr<string> id{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> parentCategory{};
+  shared_ptr<string> parentFlowList{};
+  shared_ptr<bool> periodic{};
+  shared_ptr<string> projectId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> startSchedule{};
+  shared_ptr<string> status{};
+
+  ModifyFlowForWebRequest() {}
+
+  explicit ModifyFlowForWebRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertConf) {
+      res["AlertConf"] = boost::any(*alertConf);
+    }
+    if (alertDingDingGroupBizId) {
+      res["AlertDingDingGroupBizId"] = boost::any(*alertDingDingGroupBizId);
+    }
+    if (alertUserGroupBizId) {
+      res["AlertUserGroupBizId"] = boost::any(*alertUserGroupBizId);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (createCluster) {
+      res["CreateCluster"] = boost::any(*createCluster);
+    }
+    if (cronExpr) {
+      res["CronExpr"] = boost::any(*cronExpr);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endSchedule) {
+      res["EndSchedule"] = boost::any(*endSchedule);
+    }
+    if (graph) {
+      res["Graph"] = boost::any(*graph);
+    }
+    if (hostName) {
+      res["HostName"] = boost::any(*hostName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (parentCategory) {
+      res["ParentCategory"] = boost::any(*parentCategory);
+    }
+    if (parentFlowList) {
+      res["ParentFlowList"] = boost::any(*parentFlowList);
+    }
+    if (periodic) {
+      res["Periodic"] = boost::any(*periodic);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startSchedule) {
+      res["StartSchedule"] = boost::any(*startSchedule);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertConf") != m.end() && !m["AlertConf"].empty()) {
+      alertConf = make_shared<string>(boost::any_cast<string>(m["AlertConf"]));
+    }
+    if (m.find("AlertDingDingGroupBizId") != m.end() && !m["AlertDingDingGroupBizId"].empty()) {
+      alertDingDingGroupBizId = make_shared<string>(boost::any_cast<string>(m["AlertDingDingGroupBizId"]));
+    }
+    if (m.find("AlertUserGroupBizId") != m.end() && !m["AlertUserGroupBizId"].empty()) {
+      alertUserGroupBizId = make_shared<string>(boost::any_cast<string>(m["AlertUserGroupBizId"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("CreateCluster") != m.end() && !m["CreateCluster"].empty()) {
+      createCluster = make_shared<bool>(boost::any_cast<bool>(m["CreateCluster"]));
+    }
+    if (m.find("CronExpr") != m.end() && !m["CronExpr"].empty()) {
+      cronExpr = make_shared<string>(boost::any_cast<string>(m["CronExpr"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndSchedule") != m.end() && !m["EndSchedule"].empty()) {
+      endSchedule = make_shared<long>(boost::any_cast<long>(m["EndSchedule"]));
+    }
+    if (m.find("Graph") != m.end() && !m["Graph"].empty()) {
+      graph = make_shared<string>(boost::any_cast<string>(m["Graph"]));
+    }
+    if (m.find("HostName") != m.end() && !m["HostName"].empty()) {
+      hostName = make_shared<string>(boost::any_cast<string>(m["HostName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ParentCategory") != m.end() && !m["ParentCategory"].empty()) {
+      parentCategory = make_shared<string>(boost::any_cast<string>(m["ParentCategory"]));
+    }
+    if (m.find("ParentFlowList") != m.end() && !m["ParentFlowList"].empty()) {
+      parentFlowList = make_shared<string>(boost::any_cast<string>(m["ParentFlowList"]));
+    }
+    if (m.find("Periodic") != m.end() && !m["Periodic"].empty()) {
+      periodic = make_shared<bool>(boost::any_cast<bool>(m["Periodic"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartSchedule") != m.end() && !m["StartSchedule"].empty()) {
+      startSchedule = make_shared<long>(boost::any_cast<long>(m["StartSchedule"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ModifyFlowForWebRequest() = default;
+};
+class ModifyFlowForWebResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<string> requestId{};
+
+  ModifyFlowForWebResponseBody() {}
+
+  explicit ModifyFlowForWebResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyFlowForWebResponseBody() = default;
+};
+class ModifyFlowForWebResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyFlowForWebResponseBody> body{};
+
+  ModifyFlowForWebResponse() {}
+
+  explicit ModifyFlowForWebResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyFlowForWebResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyFlowForWebResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyFlowForWebResponse() = default;
+};
 class ModifyFlowJobRequestResourceList : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
@@ -10869,6 +11143,8 @@ public:
   ListFlowProjectsResponse listFlowProjects(shared_ptr<ListFlowProjectsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  ModifyFlowForWebResponse modifyFlowForWebWithOptions(shared_ptr<ModifyFlowForWebRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyFlowForWebResponse modifyFlowForWeb(shared_ptr<ModifyFlowForWebRequest> request);
   ModifyFlowJobResponse modifyFlowJobWithOptions(shared_ptr<ModifyFlowJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyFlowJobResponse modifyFlowJob(shared_ptr<ModifyFlowJobRequest> request);
   ModifyFlowProjectResponse modifyFlowProjectWithOptions(shared_ptr<ModifyFlowProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
