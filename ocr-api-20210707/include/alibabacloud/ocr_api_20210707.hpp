@@ -2489,6 +2489,7 @@ public:
 };
 class RecognizeCovidTestReportRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> multipleResult{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -2502,6 +2503,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (multipleResult) {
+      res["MultipleResult"] = boost::any(*multipleResult);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -2512,6 +2516,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultipleResult") != m.end() && !m["MultipleResult"].empty()) {
+      multipleResult = make_shared<bool>(boost::any_cast<bool>(m["MultipleResult"]));
+    }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
