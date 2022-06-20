@@ -547,6 +547,7 @@ public:
 };
 class CalcCACSResponseBodyDataDetections : public Darabonba::Model {
 public:
+  shared_ptr<vector<long>> calciumCenter{};
   shared_ptr<long> calciumId{};
   shared_ptr<double> calciumScore{};
   shared_ptr<double> calciumVolume{};
@@ -561,6 +562,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (calciumCenter) {
+      res["CalciumCenter"] = boost::any(*calciumCenter);
+    }
     if (calciumId) {
       res["CalciumId"] = boost::any(*calciumId);
     }
@@ -574,6 +578,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CalciumCenter") != m.end() && !m["CalciumCenter"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CalciumCenter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CalciumCenter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      calciumCenter = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("CalciumId") != m.end() && !m["CalciumId"].empty()) {
       calciumId = make_shared<long>(boost::any_cast<long>(m["CalciumId"]));
     }
@@ -5718,6 +5732,7 @@ public:
 };
 class ScreenChestCTResponseBodyDataCACSDetections : public Darabonba::Model {
 public:
+  shared_ptr<vector<long>> calciumCenter{};
   shared_ptr<long> calciumId{};
   shared_ptr<double> calciumScore{};
   shared_ptr<double> calciumVolume{};
@@ -5732,6 +5747,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (calciumCenter) {
+      res["CalciumCenter"] = boost::any(*calciumCenter);
+    }
     if (calciumId) {
       res["CalciumId"] = boost::any(*calciumId);
     }
@@ -5745,6 +5763,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CalciumCenter") != m.end() && !m["CalciumCenter"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CalciumCenter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CalciumCenter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      calciumCenter = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("CalciumId") != m.end() && !m["CalciumId"].empty()) {
       calciumId = make_shared<long>(boost::any_cast<long>(m["CalciumId"]));
     }
