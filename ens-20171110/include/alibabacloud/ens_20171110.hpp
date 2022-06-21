@@ -1202,6 +1202,187 @@ public:
 
   virtual ~AddNetworkInterfaceToInstanceResponse() = default;
 };
+class AssignPrivateIpAddressesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkInterfaceId{};
+  shared_ptr<string> vSwitchId{};
+
+  AssignPrivateIpAddressesRequest() {}
+
+  explicit AssignPrivateIpAddressesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~AssignPrivateIpAddressesRequest() = default;
+};
+class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet : public Darabonba::Model {
+public:
+  shared_ptr<string> networkInterfaceId{};
+  shared_ptr<vector<string>> privateIpSet{};
+
+  AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet() {}
+
+  explicit AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
+    }
+    if (privateIpSet) {
+      res["PrivateIpSet"] = boost::any(*privateIpSet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
+    }
+    if (m.find("PrivateIpSet") != m.end() && !m["PrivateIpSet"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivateIpSet"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivateIpSet"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privateIpSet = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet() = default;
+};
+class AssignPrivateIpAddressesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet> assignedPrivateIpAddressesSet{};
+  shared_ptr<string> requestId{};
+
+  AssignPrivateIpAddressesResponseBody() {}
+
+  explicit AssignPrivateIpAddressesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assignedPrivateIpAddressesSet) {
+      res["AssignedPrivateIpAddressesSet"] = assignedPrivateIpAddressesSet ? boost::any(assignedPrivateIpAddressesSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssignedPrivateIpAddressesSet") != m.end() && !m["AssignedPrivateIpAddressesSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AssignedPrivateIpAddressesSet"].type()) {
+        AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AssignedPrivateIpAddressesSet"]));
+        assignedPrivateIpAddressesSet = make_shared<AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AssignPrivateIpAddressesResponseBody() = default;
+};
+class AssignPrivateIpAddressesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AssignPrivateIpAddressesResponseBody> body{};
+
+  AssignPrivateIpAddressesResponse() {}
+
+  explicit AssignPrivateIpAddressesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssignPrivateIpAddressesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssignPrivateIpAddressesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssignPrivateIpAddressesResponse() = default;
+};
 class AssociateEnsEipAddressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> allocationId{};
@@ -1481,7 +1662,6 @@ class AttachEnsInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> scripts{};
-  shared_ptr<string> version{};
 
   AttachEnsInstancesRequest() {}
 
@@ -1499,9 +1679,6 @@ public:
     if (scripts) {
       res["Scripts"] = boost::any(*scripts);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
@@ -1511,9 +1688,6 @@ public:
     }
     if (m.find("Scripts") != m.end() && !m["Scripts"].empty()) {
       scripts = make_shared<string>(boost::any_cast<string>(m["Scripts"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -2082,6 +2256,154 @@ public:
 
 
   virtual ~CreateApplicationResponse() = default;
+};
+class CreateClassicNetworkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ensRegionId{};
+  shared_ptr<string> networkName{};
+
+  CreateClassicNetworkRequest() {}
+
+  explicit CreateClassicNetworkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ensRegionId) {
+      res["EnsRegionId"] = boost::any(*ensRegionId);
+    }
+    if (networkName) {
+      res["NetworkName"] = boost::any(*networkName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
+      ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
+    }
+    if (m.find("NetworkName") != m.end() && !m["NetworkName"].empty()) {
+      networkName = make_shared<string>(boost::any_cast<string>(m["NetworkName"]));
+    }
+  }
+
+
+  virtual ~CreateClassicNetworkRequest() = default;
+};
+class CreateClassicNetworkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> networkId{};
+  shared_ptr<string> requestId{};
+
+  CreateClassicNetworkResponseBody() {}
+
+  explicit CreateClassicNetworkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkId) {
+      res["NetworkId"] = boost::any(*networkId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkId") != m.end() && !m["NetworkId"].empty()) {
+      networkId = make_shared<string>(boost::any_cast<string>(m["NetworkId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateClassicNetworkResponseBody() = default;
+};
+class CreateClassicNetworkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateClassicNetworkResponseBody> body{};
+
+  CreateClassicNetworkResponse() {}
+
+  explicit CreateClassicNetworkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateClassicNetworkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateClassicNetworkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateClassicNetworkResponse() = default;
 };
 class CreateDiskRequest : public Darabonba::Model {
 public:
@@ -5479,7 +5801,6 @@ public:
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> networkId{};
   shared_ptr<string> vSwitchName{};
-  shared_ptr<string> version{};
 
   CreateVSwitchRequest() {}
 
@@ -5506,9 +5827,6 @@ public:
     if (vSwitchName) {
       res["VSwitchName"] = boost::any(*vSwitchName);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
@@ -5527,9 +5845,6 @@ public:
     }
     if (m.find("VSwitchName") != m.end() && !m["VSwitchName"].empty()) {
       vSwitchName = make_shared<string>(boost::any_cast<string>(m["VSwitchName"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -23114,6 +23429,85 @@ public:
 
   virtual ~DescribeNetworkInterfacesRequest() = default;
 };
+class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet : public Darabonba::Model {
+public:
+  shared_ptr<bool> primary{};
+  shared_ptr<string> privateIpAddress{};
+
+  DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet() {}
+
+  explicit DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (primary) {
+      res["Primary"] = boost::any(*primary);
+    }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Primary") != m.end() && !m["Primary"].empty()) {
+      primary = make_shared<bool>(boost::any_cast<bool>(m["Primary"]));
+    }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
+    }
+  }
+
+
+  virtual ~DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet() = default;
+};
+class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet>> privateIpSet{};
+
+  DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets() {}
+
+  explicit DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (privateIpSet) {
+      vector<boost::any> temp1;
+      for(auto item1:*privateIpSet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PrivateIpSet"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PrivateIpSet") != m.end() && !m["PrivateIpSet"].empty()) {
+      if (typeid(vector<boost::any>) == m["PrivateIpSet"].type()) {
+        vector<DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PrivateIpSet"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        privateIpSet = make_shared<vector<DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets() = default;
+};
 class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet : public Darabonba::Model {
 public:
   shared_ptr<string> creationTime{};
@@ -23123,6 +23517,7 @@ public:
   shared_ptr<string> networkInterfaceId{};
   shared_ptr<string> primaryIp{};
   shared_ptr<string> primaryIpType{};
+  shared_ptr<DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets> privateIpSets{};
   shared_ptr<string> status{};
   shared_ptr<string> vSwitchId{};
 
@@ -23157,6 +23552,9 @@ public:
     if (primaryIpType) {
       res["PrimaryIpType"] = boost::any(*primaryIpType);
     }
+    if (privateIpSets) {
+      res["PrivateIpSets"] = privateIpSets ? boost::any(privateIpSets->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -23187,6 +23585,13 @@ public:
     }
     if (m.find("PrimaryIpType") != m.end() && !m["PrimaryIpType"].empty()) {
       primaryIpType = make_shared<string>(boost::any_cast<string>(m["PrimaryIpType"]));
+    }
+    if (m.find("PrivateIpSets") != m.end() && !m["PrivateIpSets"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PrivateIpSets"].type()) {
+        DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PrivateIpSets"]));
+        privateIpSets = make_shared<DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets>(model1);
+      }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -28198,7 +28603,6 @@ class JoinSecurityGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> securityGroupId{};
-  shared_ptr<string> version{};
 
   JoinSecurityGroupRequest() {}
 
@@ -28216,9 +28620,6 @@ public:
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
@@ -28228,9 +28629,6 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -30491,7 +30889,6 @@ public:
   shared_ptr<string> schedulingStrategy{};
   shared_ptr<string> systemDiskSize{};
   shared_ptr<string> userData{};
-  shared_ptr<string> version{};
 
   PreCreateEnsServiceRequest() {}
 
@@ -30545,9 +30942,6 @@ public:
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
-    if (version) {
-      res["Version"] = boost::any(*version);
-    }
     return res;
   }
 
@@ -30593,9 +30987,6 @@ public:
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
-    }
-    if (m.find("Version") != m.end() && !m["Version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -33625,6 +34016,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> privateIpAddress{};
+  shared_ptr<bool> publicIpIdentification{};
   shared_ptr<string> scheduleAreaLevel{};
   shared_ptr<string> schedulingPriceStrategy{};
   shared_ptr<string> schedulingStrategy{};
@@ -33704,6 +34096,9 @@ public:
     }
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    if (publicIpIdentification) {
+      res["PublicIpIdentification"] = boost::any(*publicIpIdentification);
     }
     if (scheduleAreaLevel) {
       res["ScheduleAreaLevel"] = boost::any(*scheduleAreaLevel);
@@ -33800,6 +34195,9 @@ public:
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
     }
+    if (m.find("PublicIpIdentification") != m.end() && !m["PublicIpIdentification"].empty()) {
+      publicIpIdentification = make_shared<bool>(boost::any_cast<bool>(m["PublicIpIdentification"]));
+    }
     if (m.find("ScheduleAreaLevel") != m.end() && !m["ScheduleAreaLevel"].empty()) {
       scheduleAreaLevel = make_shared<string>(boost::any_cast<string>(m["ScheduleAreaLevel"]));
     }
@@ -33854,6 +34252,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> privateIpAddress{};
+  shared_ptr<bool> publicIpIdentification{};
   shared_ptr<string> scheduleAreaLevel{};
   shared_ptr<string> schedulingPriceStrategy{};
   shared_ptr<string> schedulingStrategy{};
@@ -33929,6 +34328,9 @@ public:
     }
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    if (publicIpIdentification) {
+      res["PublicIpIdentification"] = boost::any(*publicIpIdentification);
     }
     if (scheduleAreaLevel) {
       res["ScheduleAreaLevel"] = boost::any(*scheduleAreaLevel);
@@ -34014,6 +34416,9 @@ public:
     }
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
+    }
+    if (m.find("PublicIpIdentification") != m.end() && !m["PublicIpIdentification"].empty()) {
+      publicIpIdentification = make_shared<bool>(boost::any_cast<bool>(m["PublicIpIdentification"]));
     }
     if (m.find("ScheduleAreaLevel") != m.end() && !m["ScheduleAreaLevel"].empty()) {
       scheduleAreaLevel = make_shared<string>(boost::any_cast<string>(m["ScheduleAreaLevel"]));
@@ -36711,6 +37116,140 @@ public:
 
   virtual ~UnAssociateEnsEipAddressResponse() = default;
 };
+class UnassignPrivateIpAddressesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkInterfaceId{};
+  shared_ptr<vector<string>> privateIpAddress{};
+
+  UnassignPrivateIpAddressesRequest() {}
+
+  explicit UnassignPrivateIpAddressesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
+    }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
+    }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PrivateIpAddress"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PrivateIpAddress"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      privateIpAddress = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UnassignPrivateIpAddressesRequest() = default;
+};
+class UnassignPrivateIpAddressesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UnassignPrivateIpAddressesResponseBody() {}
+
+  explicit UnassignPrivateIpAddressesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UnassignPrivateIpAddressesResponseBody() = default;
+};
+class UnassignPrivateIpAddressesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UnassignPrivateIpAddressesResponseBody> body{};
+
+  UnassignPrivateIpAddressesResponse() {}
+
+  explicit UnassignPrivateIpAddressesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UnassignPrivateIpAddressesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UnassignPrivateIpAddressesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnassignPrivateIpAddressesResponse() = default;
+};
 class UpgradeApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -36861,6 +37400,8 @@ public:
   AddDeviceInternetPortResponse addDeviceInternetPort(shared_ptr<AddDeviceInternetPortRequest> request);
   AddNetworkInterfaceToInstanceResponse addNetworkInterfaceToInstanceWithOptions(shared_ptr<AddNetworkInterfaceToInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddNetworkInterfaceToInstanceResponse addNetworkInterfaceToInstance(shared_ptr<AddNetworkInterfaceToInstanceRequest> request);
+  AssignPrivateIpAddressesResponse assignPrivateIpAddressesWithOptions(shared_ptr<AssignPrivateIpAddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssignPrivateIpAddressesResponse assignPrivateIpAddresses(shared_ptr<AssignPrivateIpAddressesRequest> request);
   AssociateEnsEipAddressResponse associateEnsEipAddressWithOptions(shared_ptr<AssociateEnsEipAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssociateEnsEipAddressResponse associateEnsEipAddress(shared_ptr<AssociateEnsEipAddressRequest> request);
   AttachDiskResponse attachDiskWithOptions(shared_ptr<AttachDiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -36873,6 +37414,8 @@ public:
   AuthorizeSecurityGroupEgressResponse authorizeSecurityGroupEgress(shared_ptr<AuthorizeSecurityGroupEgressRequest> request);
   CreateApplicationResponse createApplicationWithOptions(shared_ptr<CreateApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateApplicationResponse createApplication(shared_ptr<CreateApplicationRequest> request);
+  CreateClassicNetworkResponse createClassicNetworkWithOptions(shared_ptr<CreateClassicNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateClassicNetworkResponse createClassicNetwork(shared_ptr<CreateClassicNetworkRequest> request);
   CreateDiskResponse createDiskWithOptions(shared_ptr<CreateDiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDiskResponse createDisk(shared_ptr<CreateDiskRequest> request);
   CreateEipInstanceResponse createEipInstanceWithOptions(shared_ptr<CreateEipInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37179,6 +37722,8 @@ public:
   StopLoadBalancerListenerResponse stopLoadBalancerListener(shared_ptr<StopLoadBalancerListenerRequest> request);
   UnAssociateEnsEipAddressResponse unAssociateEnsEipAddressWithOptions(shared_ptr<UnAssociateEnsEipAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UnAssociateEnsEipAddressResponse unAssociateEnsEipAddress(shared_ptr<UnAssociateEnsEipAddressRequest> request);
+  UnassignPrivateIpAddressesResponse unassignPrivateIpAddressesWithOptions(shared_ptr<UnassignPrivateIpAddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UnassignPrivateIpAddressesResponse unassignPrivateIpAddresses(shared_ptr<UnassignPrivateIpAddressesRequest> request);
   UpgradeApplicationResponse upgradeApplicationWithOptions(shared_ptr<UpgradeApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeApplicationResponse upgradeApplication(shared_ptr<UpgradeApplicationRequest> request);
 
