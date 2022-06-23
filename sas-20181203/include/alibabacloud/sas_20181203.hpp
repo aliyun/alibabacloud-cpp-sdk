@@ -857,6 +857,427 @@ public:
 
   virtual ~CreateBackupPolicyResponse() = default;
 };
+class CreateFileDetectRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> hashKey{};
+  shared_ptr<string> ossKey{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<long> type{};
+
+  CreateFileDetectRequest() {}
+
+  explicit CreateFileDetectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hashKey) {
+      res["HashKey"] = boost::any(*hashKey);
+    }
+    if (ossKey) {
+      res["OssKey"] = boost::any(*ossKey);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
+      hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+    if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
+      ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectRequest() = default;
+};
+class CreateFileDetectResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> hashKey{};
+  shared_ptr<string> requestId{};
+
+  CreateFileDetectResponseBody() {}
+
+  explicit CreateFileDetectResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hashKey) {
+      res["HashKey"] = boost::any(*hashKey);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
+      hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectResponseBody() = default;
+};
+class CreateFileDetectResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateFileDetectResponseBody> body{};
+
+  CreateFileDetectResponse() {}
+
+  explicit CreateFileDetectResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateFileDetectResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFileDetectResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFileDetectResponse() = default;
+};
+class CreateFileDetectUploadUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hashKeyList{};
+  shared_ptr<long> type{};
+
+  CreateFileDetectUploadUrlRequest() {}
+
+  explicit CreateFileDetectUploadUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hashKeyList) {
+      res["HashKeyList"] = boost::any(*hashKeyList);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HashKeyList") != m.end() && !m["HashKeyList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HashKeyList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HashKeyList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hashKeyList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlRequest() = default;
+};
+class CreateFileDetectUploadUrlResponseBodyUploadUrlListContext : public Darabonba::Model {
+public:
+  shared_ptr<string> accessId{};
+  shared_ptr<string> ossKey{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> signature{};
+
+  CreateFileDetectUploadUrlResponseBodyUploadUrlListContext() {}
+
+  explicit CreateFileDetectUploadUrlResponseBodyUploadUrlListContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessId) {
+      res["AccessId"] = boost::any(*accessId);
+    }
+    if (ossKey) {
+      res["OssKey"] = boost::any(*ossKey);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessId") != m.end() && !m["AccessId"].empty()) {
+      accessId = make_shared<string>(boost::any_cast<string>(m["AccessId"]));
+    }
+    if (m.find("OssKey") != m.end() && !m["OssKey"].empty()) {
+      ossKey = make_shared<string>(boost::any_cast<string>(m["OssKey"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlResponseBodyUploadUrlListContext() = default;
+};
+class CreateFileDetectUploadUrlResponseBodyUploadUrlList : public Darabonba::Model {
+public:
+  shared_ptr<CreateFileDetectUploadUrlResponseBodyUploadUrlListContext> context{};
+  shared_ptr<string> expire{};
+  shared_ptr<bool> fileExist{};
+  shared_ptr<string> hashKey{};
+  shared_ptr<string> internalUrl{};
+  shared_ptr<string> publicUrl{};
+
+  CreateFileDetectUploadUrlResponseBodyUploadUrlList() {}
+
+  explicit CreateFileDetectUploadUrlResponseBodyUploadUrlList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (context) {
+      res["Context"] = context ? boost::any(context->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (expire) {
+      res["Expire"] = boost::any(*expire);
+    }
+    if (fileExist) {
+      res["FileExist"] = boost::any(*fileExist);
+    }
+    if (hashKey) {
+      res["HashKey"] = boost::any(*hashKey);
+    }
+    if (internalUrl) {
+      res["InternalUrl"] = boost::any(*internalUrl);
+    }
+    if (publicUrl) {
+      res["PublicUrl"] = boost::any(*publicUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Context") != m.end() && !m["Context"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Context"].type()) {
+        CreateFileDetectUploadUrlResponseBodyUploadUrlListContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Context"]));
+        context = make_shared<CreateFileDetectUploadUrlResponseBodyUploadUrlListContext>(model1);
+      }
+    }
+    if (m.find("Expire") != m.end() && !m["Expire"].empty()) {
+      expire = make_shared<string>(boost::any_cast<string>(m["Expire"]));
+    }
+    if (m.find("FileExist") != m.end() && !m["FileExist"].empty()) {
+      fileExist = make_shared<bool>(boost::any_cast<bool>(m["FileExist"]));
+    }
+    if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
+      hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+    if (m.find("InternalUrl") != m.end() && !m["InternalUrl"].empty()) {
+      internalUrl = make_shared<string>(boost::any_cast<string>(m["InternalUrl"]));
+    }
+    if (m.find("PublicUrl") != m.end() && !m["PublicUrl"].empty()) {
+      publicUrl = make_shared<string>(boost::any_cast<string>(m["PublicUrl"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlResponseBodyUploadUrlList() = default;
+};
+class CreateFileDetectUploadUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<CreateFileDetectUploadUrlResponseBodyUploadUrlList>> uploadUrlList{};
+
+  CreateFileDetectUploadUrlResponseBody() {}
+
+  explicit CreateFileDetectUploadUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (uploadUrlList) {
+      vector<boost::any> temp1;
+      for(auto item1:*uploadUrlList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UploadUrlList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UploadUrlList") != m.end() && !m["UploadUrlList"].empty()) {
+      if (typeid(vector<boost::any>) == m["UploadUrlList"].type()) {
+        vector<CreateFileDetectUploadUrlResponseBodyUploadUrlList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UploadUrlList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFileDetectUploadUrlResponseBodyUploadUrlList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        uploadUrlList = make_shared<vector<CreateFileDetectUploadUrlResponseBodyUploadUrlList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlResponseBody() = default;
+};
+class CreateFileDetectUploadUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateFileDetectUploadUrlResponseBody> body{};
+
+  CreateFileDetectUploadUrlResponse() {}
+
+  explicit CreateFileDetectUploadUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateFileDetectUploadUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFileDetectUploadUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlResponse() = default;
+};
 class CreateOrUpdateAssetGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<long> groupId{};
@@ -4038,6 +4459,7 @@ public:
   shared_ptr<string> sourceIp{};
   shared_ptr<string> tacticId{};
   shared_ptr<string> uniqueInfo{};
+  shared_ptr<string> uuids{};
 
   DescribeAlarmEventListRequest() {}
 
@@ -4094,6 +4516,9 @@ public:
     if (uniqueInfo) {
       res["UniqueInfo"] = boost::any(*uniqueInfo);
     }
+    if (uuids) {
+      res["Uuids"] = boost::any(*uuids);
+    }
     return res;
   }
 
@@ -4149,6 +4574,9 @@ public:
     }
     if (m.find("UniqueInfo") != m.end() && !m["UniqueInfo"].empty()) {
       uniqueInfo = make_shared<string>(boost::any_cast<string>(m["UniqueInfo"]));
+    }
+    if (m.find("Uuids") != m.end() && !m["Uuids"].empty()) {
+      uuids = make_shared<string>(boost::any_cast<string>(m["Uuids"]));
     }
   }
 
@@ -6108,6 +6536,8 @@ public:
 };
 class DescribeAssetSummaryResponseBodyAssetsSummary : public Darabonba::Model {
 public:
+  shared_ptr<long> totalAssetAllRegion{};
+  shared_ptr<long> totalCoreAllRegion{};
   shared_ptr<long> totalCoreNum{};
 
   DescribeAssetSummaryResponseBodyAssetsSummary() {}
@@ -6120,6 +6550,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (totalAssetAllRegion) {
+      res["TotalAssetAllRegion"] = boost::any(*totalAssetAllRegion);
+    }
+    if (totalCoreAllRegion) {
+      res["TotalCoreAllRegion"] = boost::any(*totalCoreAllRegion);
+    }
     if (totalCoreNum) {
       res["TotalCoreNum"] = boost::any(*totalCoreNum);
     }
@@ -6127,6 +6563,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TotalAssetAllRegion") != m.end() && !m["TotalAssetAllRegion"].empty()) {
+      totalAssetAllRegion = make_shared<long>(boost::any_cast<long>(m["TotalAssetAllRegion"]));
+    }
+    if (m.find("TotalCoreAllRegion") != m.end() && !m["TotalCoreAllRegion"].empty()) {
+      totalCoreAllRegion = make_shared<long>(boost::any_cast<long>(m["TotalCoreAllRegion"]));
+    }
     if (m.find("TotalCoreNum") != m.end() && !m["TotalCoreNum"].empty()) {
       totalCoreNum = make_shared<long>(boost::any_cast<long>(m["TotalCoreNum"]));
     }
@@ -31224,6 +31666,8 @@ public:
   shared_ptr<string> levels{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> operateErrorCodeList{};
+  shared_ptr<long> operateTimeEnd{};
+  shared_ptr<long> operateTimeStart{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> parentEventTypes{};
   shared_ptr<string> remark{};
@@ -31286,6 +31730,12 @@ public:
     }
     if (operateErrorCodeList) {
       res["OperateErrorCodeList"] = boost::any(*operateErrorCodeList);
+    }
+    if (operateTimeEnd) {
+      res["OperateTimeEnd"] = boost::any(*operateTimeEnd);
+    }
+    if (operateTimeStart) {
+      res["OperateTimeStart"] = boost::any(*operateTimeStart);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
@@ -31369,6 +31819,12 @@ public:
         }
       }
       operateErrorCodeList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OperateTimeEnd") != m.end() && !m["OperateTimeEnd"].empty()) {
+      operateTimeEnd = make_shared<long>(boost::any_cast<long>(m["OperateTimeEnd"]));
+    }
+    if (m.find("OperateTimeStart") != m.end() && !m["OperateTimeStart"].empty()) {
+      operateTimeStart = make_shared<long>(boost::any_cast<long>(m["OperateTimeStart"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
@@ -33048,11 +33504,13 @@ public:
   shared_ptr<long> honeypotCapacity{};
   shared_ptr<long> imageScanCapacity{};
   shared_ptr<string> instanceId{};
+  shared_ptr<bool> isNewContainerVersion{};
   shared_ptr<bool> isOverBalance{};
   shared_ptr<long> isTrialVersion{};
   shared_ptr<long> lastTrailEndTime{};
   shared_ptr<long> MVAuthCount{};
   shared_ptr<long> MVUnusedAuthCount{};
+  shared_ptr<long> openTime{};
   shared_ptr<long> releaseTime{};
   shared_ptr<string> requestId{};
   shared_ptr<long> sasLog{};
@@ -33098,6 +33556,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (isNewContainerVersion) {
+      res["IsNewContainerVersion"] = boost::any(*isNewContainerVersion);
+    }
     if (isOverBalance) {
       res["IsOverBalance"] = boost::any(*isOverBalance);
     }
@@ -33112,6 +33573,9 @@ public:
     }
     if (MVUnusedAuthCount) {
       res["MVUnusedAuthCount"] = boost::any(*MVUnusedAuthCount);
+    }
+    if (openTime) {
+      res["OpenTime"] = boost::any(*openTime);
     }
     if (releaseTime) {
       res["ReleaseTime"] = boost::any(*releaseTime);
@@ -33171,6 +33635,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("IsNewContainerVersion") != m.end() && !m["IsNewContainerVersion"].empty()) {
+      isNewContainerVersion = make_shared<bool>(boost::any_cast<bool>(m["IsNewContainerVersion"]));
+    }
     if (m.find("IsOverBalance") != m.end() && !m["IsOverBalance"].empty()) {
       isOverBalance = make_shared<bool>(boost::any_cast<bool>(m["IsOverBalance"]));
     }
@@ -33185,6 +33652,9 @@ public:
     }
     if (m.find("MVUnusedAuthCount") != m.end() && !m["MVUnusedAuthCount"].empty()) {
       MVUnusedAuthCount = make_shared<long>(boost::any_cast<long>(m["MVUnusedAuthCount"]));
+    }
+    if (m.find("OpenTime") != m.end() && !m["OpenTime"].empty()) {
+      openTime = make_shared<long>(boost::any_cast<long>(m["OpenTime"]));
     }
     if (m.find("ReleaseTime") != m.end() && !m["ReleaseTime"].empty()) {
       releaseTime = make_shared<long>(boost::any_cast<long>(m["ReleaseTime"]));
@@ -37351,6 +37821,244 @@ public:
 
 
   virtual ~GetBackupStorageCountResponse() = default;
+};
+class GetFileDetectResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> hashKeyList{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<long> type{};
+
+  GetFileDetectResultRequest() {}
+
+  explicit GetFileDetectResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hashKeyList) {
+      res["HashKeyList"] = boost::any(*hashKeyList);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HashKeyList") != m.end() && !m["HashKeyList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["HashKeyList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["HashKeyList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hashKeyList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GetFileDetectResultRequest() = default;
+};
+class GetFileDetectResultResponseBodyResultListExt : public Darabonba::Model {
+public:
+  shared_ptr<string> virusName{};
+
+  GetFileDetectResultResponseBodyResultListExt() {}
+
+  explicit GetFileDetectResultResponseBodyResultListExt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (virusName) {
+      res["VirusName"] = boost::any(*virusName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VirusName") != m.end() && !m["VirusName"].empty()) {
+      virusName = make_shared<string>(boost::any_cast<string>(m["VirusName"]));
+    }
+  }
+
+
+  virtual ~GetFileDetectResultResponseBodyResultListExt() = default;
+};
+class GetFileDetectResultResponseBodyResultList : public Darabonba::Model {
+public:
+  shared_ptr<GetFileDetectResultResponseBodyResultListExt> ext{};
+  shared_ptr<string> hashKey{};
+  shared_ptr<long> result{};
+
+  GetFileDetectResultResponseBodyResultList() {}
+
+  explicit GetFileDetectResultResponseBodyResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ext) {
+      res["Ext"] = ext ? boost::any(ext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (hashKey) {
+      res["HashKey"] = boost::any(*hashKey);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Ext"].type()) {
+        GetFileDetectResultResponseBodyResultListExt model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ext"]));
+        ext = make_shared<GetFileDetectResultResponseBodyResultListExt>(model1);
+      }
+    }
+    if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
+      hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+  }
+
+
+  virtual ~GetFileDetectResultResponseBodyResultList() = default;
+};
+class GetFileDetectResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetFileDetectResultResponseBodyResultList>> resultList{};
+
+  GetFileDetectResultResponseBody() {}
+
+  explicit GetFileDetectResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*resultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResultList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResultList") != m.end() && !m["ResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResultList"].type()) {
+        vector<GetFileDetectResultResponseBodyResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFileDetectResultResponseBodyResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resultList = make_shared<vector<GetFileDetectResultResponseBodyResultList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetFileDetectResultResponseBody() = default;
+};
+class GetFileDetectResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetFileDetectResultResponseBody> body{};
+
+  GetFileDetectResultResponse() {}
+
+  explicit GetFileDetectResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetFileDetectResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetFileDetectResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetFileDetectResultResponse() = default;
 };
 class GetSuspiciousStatisticsRequest : public Darabonba::Model {
 public:
@@ -46571,6 +47279,10 @@ public:
   CreateAntiBruteForceRuleResponse createAntiBruteForceRule(shared_ptr<CreateAntiBruteForceRuleRequest> request);
   CreateBackupPolicyResponse createBackupPolicyWithOptions(shared_ptr<CreateBackupPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBackupPolicyResponse createBackupPolicy(shared_ptr<CreateBackupPolicyRequest> request);
+  CreateFileDetectResponse createFileDetectWithOptions(shared_ptr<CreateFileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateFileDetectResponse createFileDetect(shared_ptr<CreateFileDetectRequest> request);
+  CreateFileDetectUploadUrlResponse createFileDetectUploadUrlWithOptions(shared_ptr<CreateFileDetectUploadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateFileDetectUploadUrlResponse createFileDetectUploadUrl(shared_ptr<CreateFileDetectUploadUrlRequest> request);
   CreateOrUpdateAssetGroupResponse createOrUpdateAssetGroupWithOptions(shared_ptr<CreateOrUpdateAssetGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOrUpdateAssetGroupResponse createOrUpdateAssetGroup(shared_ptr<CreateOrUpdateAssetGroupRequest> request);
   CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46841,6 +47553,8 @@ public:
   FixCheckWarningsResponse fixCheckWarnings(shared_ptr<FixCheckWarningsRequest> request);
   GetBackupStorageCountResponse getBackupStorageCountWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBackupStorageCountResponse getBackupStorageCount();
+  GetFileDetectResultResponse getFileDetectResultWithOptions(shared_ptr<GetFileDetectResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetFileDetectResultResponse getFileDetectResult(shared_ptr<GetFileDetectResultRequest> request);
   GetSuspiciousStatisticsResponse getSuspiciousStatisticsWithOptions(shared_ptr<GetSuspiciousStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSuspiciousStatisticsResponse getSuspiciousStatistics(shared_ptr<GetSuspiciousStatisticsRequest> request);
   GetVulStatisticsResponse getVulStatisticsWithOptions(shared_ptr<GetVulStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
