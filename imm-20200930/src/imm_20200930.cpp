@@ -707,6 +707,9 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     query->insert(pair<string, string>("TargetType", *request->targetType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetURI)) {
+    query->insert(pair<string, string>("TargetURI", *request->targetURI));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetURIPrefix)) {
     query->insert(pair<string, string>("TargetURIPrefix", *request->targetURIPrefix));
   }

@@ -7625,6 +7625,7 @@ public:
   shared_ptr<long> startPage{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> targetURI{};
   shared_ptr<string> targetURIPrefix{};
   shared_ptr<TrimPolicy> trimPolicy{};
   shared_ptr<string> userData{};
@@ -7722,6 +7723,9 @@ public:
     }
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
+    }
+    if (targetURI) {
+      res["TargetURI"] = boost::any(*targetURI);
     }
     if (targetURIPrefix) {
       res["TargetURIPrefix"] = boost::any(*targetURIPrefix);
@@ -7829,6 +7833,9 @@ public:
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
     }
+    if (m.find("TargetURI") != m.end() && !m["TargetURI"].empty()) {
+      targetURI = make_shared<string>(boost::any_cast<string>(m["TargetURI"]));
+    }
     if (m.find("TargetURIPrefix") != m.end() && !m["TargetURIPrefix"].empty()) {
       targetURIPrefix = make_shared<string>(boost::any_cast<string>(m["TargetURIPrefix"]));
     }
@@ -7877,6 +7884,7 @@ public:
   shared_ptr<long> startPage{};
   shared_ptr<string> tagsShrink{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> targetURI{};
   shared_ptr<string> targetURIPrefix{};
   shared_ptr<string> trimPolicyShrink{};
   shared_ptr<string> userData{};
@@ -7975,6 +7983,9 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (targetURI) {
+      res["TargetURI"] = boost::any(*targetURI);
+    }
     if (targetURIPrefix) {
       res["TargetURIPrefix"] = boost::any(*targetURIPrefix);
     }
@@ -8071,6 +8082,9 @@ public:
     }
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TargetURI") != m.end() && !m["TargetURI"].empty()) {
+      targetURI = make_shared<string>(boost::any_cast<string>(m["TargetURI"]));
     }
     if (m.find("TargetURIPrefix") != m.end() && !m["TargetURIPrefix"].empty()) {
       targetURIPrefix = make_shared<string>(boost::any_cast<string>(m["TargetURIPrefix"]));
