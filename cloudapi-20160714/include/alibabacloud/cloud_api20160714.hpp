@@ -156,6 +156,140 @@ public:
 
   virtual ~AbolishApiResponse() = default;
 };
+class AddAccessControlListEntryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclEntrys{};
+  shared_ptr<string> aclId{};
+  shared_ptr<string> securityToken{};
+
+  AddAccessControlListEntryRequest() {}
+
+  explicit AddAccessControlListEntryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclEntrys) {
+      res["AclEntrys"] = boost::any(*aclEntrys);
+    }
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclEntrys") != m.end() && !m["AclEntrys"].empty()) {
+      aclEntrys = make_shared<string>(boost::any_cast<string>(m["AclEntrys"]));
+    }
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~AddAccessControlListEntryRequest() = default;
+};
+class AddAccessControlListEntryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AddAccessControlListEntryResponseBody() {}
+
+  explicit AddAccessControlListEntryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddAccessControlListEntryResponseBody() = default;
+};
+class AddAccessControlListEntryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddAccessControlListEntryResponseBody> body{};
+
+  AddAccessControlListEntryResponse() {}
+
+  explicit AddAccessControlListEntryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddAccessControlListEntryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddAccessControlListEntryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddAccessControlListEntryResponse() = default;
+};
 class AddIpControlPolicyItemRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -995,6 +1129,133 @@ public:
 
 
   virtual ~BatchDeployApisResponse() = default;
+};
+class CreateAccessControlListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclName{};
+  shared_ptr<string> securityToken{};
+
+  CreateAccessControlListRequest() {}
+
+  explicit CreateAccessControlListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~CreateAccessControlListRequest() = default;
+};
+class CreateAccessControlListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateAccessControlListResponseBody() {}
+
+  explicit CreateAccessControlListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAccessControlListResponseBody() = default;
+};
+class CreateAccessControlListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAccessControlListResponseBody> body{};
+
+  CreateAccessControlListResponse() {}
+
+  explicit CreateAccessControlListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAccessControlListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAccessControlListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAccessControlListResponse() = default;
 };
 class CreateApiRequest : public Darabonba::Model {
 public:
@@ -3814,6 +4075,133 @@ public:
 
 
   virtual ~CreateTrafficControlResponse() = default;
+};
+class DeleteAccessControlListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> securityToken{};
+
+  DeleteAccessControlListRequest() {}
+
+  explicit DeleteAccessControlListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DeleteAccessControlListRequest() = default;
+};
+class DeleteAccessControlListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAccessControlListResponseBody() {}
+
+  explicit DeleteAccessControlListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccessControlListResponseBody() = default;
+};
+class DeleteAccessControlListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAccessControlListResponseBody> body{};
+
+  DeleteAccessControlListResponse() {}
+
+  explicit DeleteAccessControlListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAccessControlListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAccessControlListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAccessControlListResponse() = default;
 };
 class DeleteAllTrafficSpecialControlRequest : public Darabonba::Model {
 public:
@@ -6812,6 +7200,496 @@ public:
 
 
   virtual ~DescribeAbolishApiTaskResponse() = default;
+};
+class DescribeAccessControlListAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> securityToken{};
+
+  DescribeAccessControlListAttributeRequest() {}
+
+  explicit DescribeAccessControlListAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListAttributeRequest() = default;
+};
+class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry : public Darabonba::Model {
+public:
+  shared_ptr<string> aclEntryComment{};
+  shared_ptr<string> aclEntryIp{};
+
+  DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry() {}
+
+  explicit DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclEntryComment) {
+      res["AclEntryComment"] = boost::any(*aclEntryComment);
+    }
+    if (aclEntryIp) {
+      res["AclEntryIp"] = boost::any(*aclEntryIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclEntryComment") != m.end() && !m["AclEntryComment"].empty()) {
+      aclEntryComment = make_shared<string>(boost::any_cast<string>(m["AclEntryComment"]));
+    }
+    if (m.find("AclEntryIp") != m.end() && !m["AclEntryIp"].empty()) {
+      aclEntryIp = make_shared<string>(boost::any_cast<string>(m["AclEntryIp"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry() = default;
+};
+class DescribeAccessControlListAttributeResponseBodyAclEntrys : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry>> aclEntry{};
+
+  DescribeAccessControlListAttributeResponseBodyAclEntrys() {}
+
+  explicit DescribeAccessControlListAttributeResponseBodyAclEntrys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclEntry) {
+      vector<boost::any> temp1;
+      for(auto item1:*aclEntry){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AclEntry"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclEntry") != m.end() && !m["AclEntry"].empty()) {
+      if (typeid(vector<boost::any>) == m["AclEntry"].type()) {
+        vector<DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AclEntry"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        aclEntry = make_shared<vector<DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListAttributeResponseBodyAclEntrys() = default;
+};
+class DescribeAccessControlListAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAccessControlListAttributeResponseBodyAclEntrys> aclEntrys{};
+  shared_ptr<string> aclId{};
+  shared_ptr<string> aclName{};
+  shared_ptr<string> isUsed{};
+  shared_ptr<string> requestId{};
+
+  DescribeAccessControlListAttributeResponseBody() {}
+
+  explicit DescribeAccessControlListAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclEntrys) {
+      res["AclEntrys"] = aclEntrys ? boost::any(aclEntrys->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    if (isUsed) {
+      res["IsUsed"] = boost::any(*isUsed);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclEntrys") != m.end() && !m["AclEntrys"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AclEntrys"].type()) {
+        DescribeAccessControlListAttributeResponseBodyAclEntrys model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AclEntrys"]));
+        aclEntrys = make_shared<DescribeAccessControlListAttributeResponseBodyAclEntrys>(model1);
+      }
+    }
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("IsUsed") != m.end() && !m["IsUsed"].empty()) {
+      isUsed = make_shared<string>(boost::any_cast<string>(m["IsUsed"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListAttributeResponseBody() = default;
+};
+class DescribeAccessControlListAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccessControlListAttributeResponseBody> body{};
+
+  DescribeAccessControlListAttributeResponse() {}
+
+  explicit DescribeAccessControlListAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccessControlListAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccessControlListAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListAttributeResponse() = default;
+};
+class DescribeAccessControlListsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> securityToken{};
+
+  DescribeAccessControlListsRequest() {}
+
+  explicit DescribeAccessControlListsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListsRequest() = default;
+};
+class DescribeAccessControlListsResponseBodyAclsAcl : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> aclName{};
+
+  DescribeAccessControlListsResponseBodyAclsAcl() {}
+
+  explicit DescribeAccessControlListsResponseBodyAclsAcl(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListsResponseBodyAclsAcl() = default;
+};
+class DescribeAccessControlListsResponseBodyAcls : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeAccessControlListsResponseBodyAclsAcl>> acl{};
+
+  DescribeAccessControlListsResponseBodyAcls() {}
+
+  explicit DescribeAccessControlListsResponseBodyAcls(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acl) {
+      vector<boost::any> temp1;
+      for(auto item1:*acl){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Acl"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Acl") != m.end() && !m["Acl"].empty()) {
+      if (typeid(vector<boost::any>) == m["Acl"].type()) {
+        vector<DescribeAccessControlListsResponseBodyAclsAcl> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Acl"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAccessControlListsResponseBodyAclsAcl model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        acl = make_shared<vector<DescribeAccessControlListsResponseBodyAclsAcl>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListsResponseBodyAcls() = default;
+};
+class DescribeAccessControlListsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAccessControlListsResponseBodyAcls> acls{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeAccessControlListsResponseBody() {}
+
+  explicit DescribeAccessControlListsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acls) {
+      res["Acls"] = acls ? boost::any(acls->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Acls") != m.end() && !m["Acls"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Acls"].type()) {
+        DescribeAccessControlListsResponseBodyAcls model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Acls"]));
+        acls = make_shared<DescribeAccessControlListsResponseBodyAcls>(model1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListsResponseBody() = default;
+};
+class DescribeAccessControlListsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAccessControlListsResponseBody> body{};
+
+  DescribeAccessControlListsResponse() {}
+
+  explicit DescribeAccessControlListsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAccessControlListsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAccessControlListsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAccessControlListsResponse() = default;
 };
 class DescribeApiRequest : public Darabonba::Model {
 public:
@@ -22713,6 +23591,10 @@ public:
 };
 class DescribeInstancesResponseBodyInstancesInstanceAttribute : public Darabonba::Model {
 public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> aclName{};
+  shared_ptr<string> aclStatus{};
+  shared_ptr<string> aclType{};
   shared_ptr<string> classicEgressAddress{};
   shared_ptr<string> createdTime{};
   shared_ptr<bool> egressIpv6Enable{};
@@ -22749,6 +23631,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    if (aclStatus) {
+      res["AclStatus"] = boost::any(*aclStatus);
+    }
+    if (aclType) {
+      res["AclType"] = boost::any(*aclType);
+    }
     if (classicEgressAddress) {
       res["ClassicEgressAddress"] = boost::any(*classicEgressAddress);
     }
@@ -22828,6 +23722,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("AclStatus") != m.end() && !m["AclStatus"].empty()) {
+      aclStatus = make_shared<string>(boost::any_cast<string>(m["AclStatus"]));
+    }
+    if (m.find("AclType") != m.end() && !m["AclType"].empty()) {
+      aclType = make_shared<string>(boost::any_cast<string>(m["AclType"]));
+    }
     if (m.find("ClassicEgressAddress") != m.end() && !m["ClassicEgressAddress"].empty()) {
       classicEgressAddress = make_shared<string>(boost::any_cast<string>(m["ClassicEgressAddress"]));
     }
@@ -29392,6 +30298,140 @@ public:
 
   virtual ~DetachPluginResponse() = default;
 };
+class DisableInstanceAccessControlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> securityToken{};
+
+  DisableInstanceAccessControlRequest() {}
+
+  explicit DisableInstanceAccessControlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DisableInstanceAccessControlRequest() = default;
+};
+class DisableInstanceAccessControlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisableInstanceAccessControlResponseBody() {}
+
+  explicit DisableInstanceAccessControlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisableInstanceAccessControlResponseBody() = default;
+};
+class DisableInstanceAccessControlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisableInstanceAccessControlResponseBody> body{};
+
+  DisableInstanceAccessControlResponse() {}
+
+  explicit DisableInstanceAccessControlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisableInstanceAccessControlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisableInstanceAccessControlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisableInstanceAccessControlResponse() = default;
+};
 class DryRunSwaggerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -30031,6 +31071,147 @@ public:
 
 
   virtual ~DryRunSwaggerResponse() = default;
+};
+class EnableInstanceAccessControlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> aclType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> securityToken{};
+
+  EnableInstanceAccessControlRequest() {}
+
+  explicit EnableInstanceAccessControlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (aclType) {
+      res["AclType"] = boost::any(*aclType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclType") != m.end() && !m["AclType"].empty()) {
+      aclType = make_shared<string>(boost::any_cast<string>(m["AclType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~EnableInstanceAccessControlRequest() = default;
+};
+class EnableInstanceAccessControlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  EnableInstanceAccessControlResponseBody() {}
+
+  explicit EnableInstanceAccessControlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableInstanceAccessControlResponseBody() = default;
+};
+class EnableInstanceAccessControlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableInstanceAccessControlResponseBody> body{};
+
+  EnableInstanceAccessControlResponse() {}
+
+  explicit EnableInstanceAccessControlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableInstanceAccessControlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableInstanceAccessControlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableInstanceAccessControlResponse() = default;
 };
 class ImportSwaggerRequest : public Darabonba::Model {
 public:
@@ -34079,6 +35260,140 @@ public:
 
 
   virtual ~ReactivateDomainResponse() = default;
+};
+class RemoveAccessControlListEntryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclEntrys{};
+  shared_ptr<string> aclId{};
+  shared_ptr<string> securityToken{};
+
+  RemoveAccessControlListEntryRequest() {}
+
+  explicit RemoveAccessControlListEntryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclEntrys) {
+      res["AclEntrys"] = boost::any(*aclEntrys);
+    }
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclEntrys") != m.end() && !m["AclEntrys"].empty()) {
+      aclEntrys = make_shared<string>(boost::any_cast<string>(m["AclEntrys"]));
+    }
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~RemoveAccessControlListEntryRequest() = default;
+};
+class RemoveAccessControlListEntryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RemoveAccessControlListEntryResponseBody() {}
+
+  explicit RemoveAccessControlListEntryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveAccessControlListEntryResponseBody() = default;
+};
+class RemoveAccessControlListEntryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveAccessControlListEntryResponseBody> body{};
+
+  RemoveAccessControlListEntryResponse() {}
+
+  explicit RemoveAccessControlListEntryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveAccessControlListEntryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveAccessControlListEntryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveAccessControlListEntryResponse() = default;
 };
 class RemoveApisAuthoritiesRequest : public Darabonba::Model {
 public:
@@ -38143,6 +39458,8 @@ public:
                      shared_ptr<string> endpoint);
   AbolishApiResponse abolishApiWithOptions(shared_ptr<AbolishApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AbolishApiResponse abolishApi(shared_ptr<AbolishApiRequest> request);
+  AddAccessControlListEntryResponse addAccessControlListEntryWithOptions(shared_ptr<AddAccessControlListEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddAccessControlListEntryResponse addAccessControlListEntry(shared_ptr<AddAccessControlListEntryRequest> request);
   AddIpControlPolicyItemResponse addIpControlPolicyItemWithOptions(shared_ptr<AddIpControlPolicyItemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddIpControlPolicyItemResponse addIpControlPolicyItem(shared_ptr<AddIpControlPolicyItemRequest> request);
   AddTrafficSpecialControlResponse addTrafficSpecialControlWithOptions(shared_ptr<AddTrafficSpecialControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38153,6 +39470,8 @@ public:
   BatchAbolishApisResponse batchAbolishApis(shared_ptr<BatchAbolishApisRequest> request);
   BatchDeployApisResponse batchDeployApisWithOptions(shared_ptr<BatchDeployApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchDeployApisResponse batchDeployApis(shared_ptr<BatchDeployApisRequest> request);
+  CreateAccessControlListResponse createAccessControlListWithOptions(shared_ptr<CreateAccessControlListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAccessControlListResponse createAccessControlList(shared_ptr<CreateAccessControlListRequest> request);
   CreateApiResponse createApiWithOptions(shared_ptr<CreateApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateApiResponse createApi(shared_ptr<CreateApiRequest> request);
   CreateApiGroupResponse createApiGroupWithOptions(shared_ptr<CreateApiGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38183,6 +39502,8 @@ public:
   CreateSignatureResponse createSignature(shared_ptr<CreateSignatureRequest> request);
   CreateTrafficControlResponse createTrafficControlWithOptions(shared_ptr<CreateTrafficControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTrafficControlResponse createTrafficControl(shared_ptr<CreateTrafficControlRequest> request);
+  DeleteAccessControlListResponse deleteAccessControlListWithOptions(shared_ptr<DeleteAccessControlListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAccessControlListResponse deleteAccessControlList(shared_ptr<DeleteAccessControlListRequest> request);
   DeleteAllTrafficSpecialControlResponse deleteAllTrafficSpecialControlWithOptions(shared_ptr<DeleteAllTrafficSpecialControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAllTrafficSpecialControlResponse deleteAllTrafficSpecialControl(shared_ptr<DeleteAllTrafficSpecialControlRequest> request);
   DeleteApiResponse deleteApiWithOptions(shared_ptr<DeleteApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38223,6 +39544,10 @@ public:
   DeployApiResponse deployApi(shared_ptr<DeployApiRequest> request);
   DescribeAbolishApiTaskResponse describeAbolishApiTaskWithOptions(shared_ptr<DescribeAbolishApiTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAbolishApiTaskResponse describeAbolishApiTask(shared_ptr<DescribeAbolishApiTaskRequest> request);
+  DescribeAccessControlListAttributeResponse describeAccessControlListAttributeWithOptions(shared_ptr<DescribeAccessControlListAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccessControlListAttributeResponse describeAccessControlListAttribute(shared_ptr<DescribeAccessControlListAttributeRequest> request);
+  DescribeAccessControlListsResponse describeAccessControlListsWithOptions(shared_ptr<DescribeAccessControlListsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAccessControlListsResponse describeAccessControlLists(shared_ptr<DescribeAccessControlListsRequest> request);
   DescribeApiResponse describeApiWithOptions(shared_ptr<DescribeApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeApiResponse describeApi(shared_ptr<DescribeApiRequest> request);
   DescribeApiDocResponse describeApiDocWithOptions(shared_ptr<DescribeApiDocRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38337,8 +39662,12 @@ public:
   DescribeZonesResponse describeZones(shared_ptr<DescribeZonesRequest> request);
   DetachPluginResponse detachPluginWithOptions(shared_ptr<DetachPluginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachPluginResponse detachPlugin(shared_ptr<DetachPluginRequest> request);
+  DisableInstanceAccessControlResponse disableInstanceAccessControlWithOptions(shared_ptr<DisableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableInstanceAccessControlResponse disableInstanceAccessControl(shared_ptr<DisableInstanceAccessControlRequest> request);
   DryRunSwaggerResponse dryRunSwaggerWithOptions(shared_ptr<DryRunSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DryRunSwaggerResponse dryRunSwagger(shared_ptr<DryRunSwaggerRequest> request);
+  EnableInstanceAccessControlResponse enableInstanceAccessControlWithOptions(shared_ptr<EnableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableInstanceAccessControlResponse enableInstanceAccessControl(shared_ptr<EnableInstanceAccessControlRequest> request);
   ImportSwaggerResponse importSwaggerWithOptions(shared_ptr<ImportSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportSwaggerResponse importSwagger(shared_ptr<ImportSwaggerRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38377,6 +39706,8 @@ public:
   OpenApiGatewayServiceResponse openApiGatewayService();
   ReactivateDomainResponse reactivateDomainWithOptions(shared_ptr<ReactivateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReactivateDomainResponse reactivateDomain(shared_ptr<ReactivateDomainRequest> request);
+  RemoveAccessControlListEntryResponse removeAccessControlListEntryWithOptions(shared_ptr<RemoveAccessControlListEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveAccessControlListEntryResponse removeAccessControlListEntry(shared_ptr<RemoveAccessControlListEntryRequest> request);
   RemoveApisAuthoritiesResponse removeApisAuthoritiesWithOptions(shared_ptr<RemoveApisAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveApisAuthoritiesResponse removeApisAuthorities(shared_ptr<RemoveApisAuthoritiesRequest> request);
   RemoveAppsAuthoritiesResponse removeAppsAuthoritiesWithOptions(shared_ptr<RemoveAppsAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
