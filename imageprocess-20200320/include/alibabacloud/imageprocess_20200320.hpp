@@ -6221,8 +6221,10 @@ public:
 class ScreenChestCTResponseBodyDataDetectRibFracture : public Darabonba::Model {
 public:
   shared_ptr<vector<ScreenChestCTResponseBodyDataDetectRibFractureDetections>> detections{};
+  shared_ptr<string> fractureMaskURL{};
   shared_ptr<vector<double>> origin{};
   shared_ptr<string> resultURL{};
+  shared_ptr<string> ribSegmentMaskURL{};
   shared_ptr<vector<double>> spacing{};
 
   ScreenChestCTResponseBodyDataDetectRibFracture() {}
@@ -6242,11 +6244,17 @@ public:
       }
       res["Detections"] = boost::any(temp1);
     }
+    if (fractureMaskURL) {
+      res["FractureMaskURL"] = boost::any(*fractureMaskURL);
+    }
     if (origin) {
       res["Origin"] = boost::any(*origin);
     }
     if (resultURL) {
       res["ResultURL"] = boost::any(*resultURL);
+    }
+    if (ribSegmentMaskURL) {
+      res["RibSegmentMaskURL"] = boost::any(*ribSegmentMaskURL);
     }
     if (spacing) {
       res["Spacing"] = boost::any(*spacing);
@@ -6268,6 +6276,9 @@ public:
         detections = make_shared<vector<ScreenChestCTResponseBodyDataDetectRibFractureDetections>>(expect1);
       }
     }
+    if (m.find("FractureMaskURL") != m.end() && !m["FractureMaskURL"].empty()) {
+      fractureMaskURL = make_shared<string>(boost::any_cast<string>(m["FractureMaskURL"]));
+    }
     if (m.find("Origin") != m.end() && !m["Origin"].empty()) {
       vector<double> toVec1;
       if (typeid(vector<boost::any>) == m["Origin"].type()) {
@@ -6280,6 +6291,9 @@ public:
     }
     if (m.find("ResultURL") != m.end() && !m["ResultURL"].empty()) {
       resultURL = make_shared<string>(boost::any_cast<string>(m["ResultURL"]));
+    }
+    if (m.find("RibSegmentMaskURL") != m.end() && !m["RibSegmentMaskURL"].empty()) {
+      ribSegmentMaskURL = make_shared<string>(boost::any_cast<string>(m["RibSegmentMaskURL"]));
     }
     if (m.find("Spacing") != m.end() && !m["Spacing"].empty()) {
       vector<double> toVec1;
