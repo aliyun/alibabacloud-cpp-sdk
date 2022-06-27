@@ -1261,6 +1261,8 @@ public:
 };
 class CreateNodeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountName{};
+  shared_ptr<string> accountPassword{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> businessInfo{};
   shared_ptr<string> clientToken{};
@@ -1275,6 +1277,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<bool> shardDirect{};
 
   CreateNodeRequest() {}
 
@@ -1286,6 +1289,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (accountPassword) {
+      res["AccountPassword"] = boost::any(*accountPassword);
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -1328,10 +1337,19 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (shardDirect) {
+      res["ShardDirect"] = boost::any(*shardDirect);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
+      accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
@@ -1373,6 +1391,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("ShardDirect") != m.end() && !m["ShardDirect"].empty()) {
+      shardDirect = make_shared<bool>(boost::any_cast<bool>(m["ShardDirect"]));
     }
   }
 
@@ -1486,6 +1507,8 @@ public:
 };
 class CreateNodeBatchRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accountName{};
+  shared_ptr<string> accountPassword{};
   shared_ptr<bool> autoPay{};
   shared_ptr<string> businessInfo{};
   shared_ptr<string> clientToken{};
@@ -1498,6 +1521,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<bool> shardDirect{};
 
   CreateNodeBatchRequest() {}
 
@@ -1509,6 +1533,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (accountPassword) {
+      res["AccountPassword"] = boost::any(*accountPassword);
+    }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
     }
@@ -1545,10 +1575,19 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (shardDirect) {
+      res["ShardDirect"] = boost::any(*shardDirect);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
+      accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
+    }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
@@ -1584,6 +1623,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("ShardDirect") != m.end() && !m["ShardDirect"].empty()) {
+      shardDirect = make_shared<bool>(boost::any_cast<bool>(m["ShardDirect"]));
     }
   }
 
@@ -2094,6 +2136,7 @@ public:
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> hiddenZoneId{};
   shared_ptr<vector<CreateShardingDBInstanceRequestMongos>> mongos{};
   shared_ptr<string> networkType{};
   shared_ptr<string> ownerAccount{};
@@ -2106,6 +2149,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> restoreTime{};
+  shared_ptr<string> secondaryZoneId{};
   shared_ptr<string> securityIPList{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> srcDBInstanceId{};
@@ -2152,6 +2196,9 @@ public:
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
     }
+    if (hiddenZoneId) {
+      res["HiddenZoneId"] = boost::any(*hiddenZoneId);
+    }
     if (mongos) {
       vector<boost::any> temp1;
       for(auto item1:*mongos){
@@ -2195,6 +2242,9 @@ public:
     }
     if (restoreTime) {
       res["RestoreTime"] = boost::any(*restoreTime);
+    }
+    if (secondaryZoneId) {
+      res["SecondaryZoneId"] = boost::any(*secondaryZoneId);
     }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
@@ -2255,6 +2305,9 @@ public:
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
     }
+    if (m.find("HiddenZoneId") != m.end() && !m["HiddenZoneId"].empty()) {
+      hiddenZoneId = make_shared<string>(boost::any_cast<string>(m["HiddenZoneId"]));
+    }
     if (m.find("Mongos") != m.end() && !m["Mongos"].empty()) {
       if (typeid(vector<boost::any>) == m["Mongos"].type()) {
         vector<CreateShardingDBInstanceRequestMongos> expect1;
@@ -2310,6 +2363,9 @@ public:
     }
     if (m.find("RestoreTime") != m.end() && !m["RestoreTime"].empty()) {
       restoreTime = make_shared<string>(boost::any_cast<string>(m["RestoreTime"]));
+    }
+    if (m.find("SecondaryZoneId") != m.end() && !m["SecondaryZoneId"].empty()) {
+      secondaryZoneId = make_shared<string>(boost::any_cast<string>(m["SecondaryZoneId"]));
     }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
@@ -6691,6 +6747,7 @@ public:
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> hiddenZoneId{};
   shared_ptr<string> kindCode{};
   shared_ptr<string> lastDowngradeTime{};
   shared_ptr<string> lockMode{};
@@ -6708,6 +6765,7 @@ public:
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets> replicaSets{};
   shared_ptr<string> replicationFactor{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> secondaryZoneId{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList> shardList{};
   shared_ptr<string> storageEngine{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags> tags{};
@@ -6772,6 +6830,9 @@ public:
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
+    if (hiddenZoneId) {
+      res["HiddenZoneId"] = boost::any(*hiddenZoneId);
+    }
     if (kindCode) {
       res["KindCode"] = boost::any(*kindCode);
     }
@@ -6822,6 +6883,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (secondaryZoneId) {
+      res["SecondaryZoneId"] = boost::any(*secondaryZoneId);
     }
     if (shardList) {
       res["ShardList"] = shardList ? boost::any(shardList->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6900,6 +6964,9 @@ public:
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
+    if (m.find("HiddenZoneId") != m.end() && !m["HiddenZoneId"].empty()) {
+      hiddenZoneId = make_shared<string>(boost::any_cast<string>(m["HiddenZoneId"]));
+    }
     if (m.find("KindCode") != m.end() && !m["KindCode"].empty()) {
       kindCode = make_shared<string>(boost::any_cast<string>(m["KindCode"]));
     }
@@ -6958,6 +7025,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecondaryZoneId") != m.end() && !m["SecondaryZoneId"].empty()) {
+      secondaryZoneId = make_shared<string>(boost::any_cast<string>(m["SecondaryZoneId"]));
     }
     if (m.find("ShardList") != m.end() && !m["ShardList"].empty()) {
       if (typeid(map<string, boost::any>) == m["ShardList"].type()) {
@@ -8791,6 +8861,7 @@ public:
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> hiddenZoneId{};
   shared_ptr<string> kindCode{};
   shared_ptr<string> lastDowngradeTime{};
   shared_ptr<string> lockMode{};
@@ -8799,6 +8870,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> replicationFactor{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> secondaryZoneId{};
   shared_ptr<DescribeDBInstancesResponseBodyDBInstancesDBInstanceShardList> shardList{};
   shared_ptr<string> storageType{};
   shared_ptr<DescribeDBInstancesResponseBodyDBInstancesDBInstanceTags> tags{};
@@ -8854,6 +8926,9 @@ public:
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
+    if (hiddenZoneId) {
+      res["HiddenZoneId"] = boost::any(*hiddenZoneId);
+    }
     if (kindCode) {
       res["KindCode"] = boost::any(*kindCode);
     }
@@ -8877,6 +8952,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (secondaryZoneId) {
+      res["SecondaryZoneId"] = boost::any(*secondaryZoneId);
     }
     if (shardList) {
       res["ShardList"] = shardList ? boost::any(shardList->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8936,6 +9014,9 @@ public:
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
+    if (m.find("HiddenZoneId") != m.end() && !m["HiddenZoneId"].empty()) {
+      hiddenZoneId = make_shared<string>(boost::any_cast<string>(m["HiddenZoneId"]));
+    }
     if (m.find("KindCode") != m.end() && !m["KindCode"].empty()) {
       kindCode = make_shared<string>(boost::any_cast<string>(m["KindCode"]));
     }
@@ -8963,6 +9044,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecondaryZoneId") != m.end() && !m["SecondaryZoneId"].empty()) {
+      secondaryZoneId = make_shared<string>(boost::any_cast<string>(m["SecondaryZoneId"]));
     }
     if (m.find("ShardList") != m.end() && !m["ShardList"].empty()) {
       if (typeid(map<string, boost::any>) == m["ShardList"].type()) {
@@ -19726,6 +19810,7 @@ public:
 class ModifyDBInstanceSSLRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> disableTlsProtocol{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -19745,6 +19830,9 @@ public:
     map<string, boost::any> res;
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (disableTlsProtocol) {
+      res["DisableTlsProtocol"] = boost::any(*disableTlsProtocol);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -19770,6 +19858,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DisableTlsProtocol") != m.end() && !m["DisableTlsProtocol"].empty()) {
+      disableTlsProtocol = make_shared<string>(boost::any_cast<string>(m["DisableTlsProtocol"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
