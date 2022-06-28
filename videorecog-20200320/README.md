@@ -13,6 +13,8 @@ Alibaba Cloud videorecog SDK is based on the [`Darabonba DSL`](https://github.co
 - [CPPRestSDK](https://github.com/microsoft/cpprestsdk/releases)
 - [OpenSSL](https://www.openssl.org/source/)
 - [Git](https://git-scm.com/)
+- [GCC](https://gcc.gnu.org/) >= 10.0
+- [CMake](https://cmake.org/) >= 3.11
 
 To use this SDK to access the API, you must first install the required dependency libraries.
 
@@ -87,8 +89,7 @@ sh videorecog-20200320/scripts/install.sh
 
 ## Related
 
-* [OpenAPI Developer Portal][open-api]
-* [Latest Release][latest-release]
+* [Alibaba Cloud OpenAPI Developer Portal][open-api]
 * [Alibabacloud Console System][console]
 * [Alibaba Cloud Home Page][aliyun]
 
