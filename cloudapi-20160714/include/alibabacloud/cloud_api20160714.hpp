@@ -37684,6 +37684,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<bool> isForce{};
+  shared_ptr<bool> isHttpRedirectToHttps{};
 
   SetDomainRequest() {}
 
@@ -37710,6 +37711,9 @@ public:
     if (isForce) {
       res["IsForce"] = boost::any(*isForce);
     }
+    if (isHttpRedirectToHttps) {
+      res["IsHttpRedirectToHttps"] = boost::any(*isHttpRedirectToHttps);
+    }
     return res;
   }
 
@@ -37728,6 +37732,9 @@ public:
     }
     if (m.find("IsForce") != m.end() && !m["IsForce"].empty()) {
       isForce = make_shared<bool>(boost::any_cast<bool>(m["IsForce"]));
+    }
+    if (m.find("IsHttpRedirectToHttps") != m.end() && !m["IsHttpRedirectToHttps"].empty()) {
+      isHttpRedirectToHttps = make_shared<bool>(boost::any_cast<bool>(m["IsHttpRedirectToHttps"]));
     }
   }
 

@@ -5718,6 +5718,9 @@ SetDomainResponse Alibabacloud_CloudAPI20160714::Client::setDomainWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<bool>(request->isForce)) {
     query->insert(pair<string, bool>("IsForce", *request->isForce));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isHttpRedirectToHttps)) {
+    query->insert(pair<string, bool>("IsHttpRedirectToHttps", *request->isHttpRedirectToHttps));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
