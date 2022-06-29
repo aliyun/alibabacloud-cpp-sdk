@@ -4529,9 +4529,12 @@ public:
 class QuerySmsSignListResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<long> currentPage{};
   shared_ptr<string> message{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<QuerySmsSignListResponseBodySmsSignList>> smsSignList{};
+  shared_ptr<long> totalCount{};
 
   QuerySmsSignListResponseBody() {}
 
@@ -4546,8 +4549,14 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -4559,6 +4568,9 @@ public:
       }
       res["SmsSignList"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -4566,8 +4578,14 @@ public:
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4584,6 +4602,9 @@ public:
         }
         smsSignList = make_shared<vector<QuerySmsSignListResponseBodySmsSignList>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -5041,9 +5062,12 @@ public:
 class QuerySmsTemplateListResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<long> currentPage{};
   shared_ptr<string> message{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<QuerySmsTemplateListResponseBodySmsTemplateList>> smsTemplateList{};
+  shared_ptr<long> totalCount{};
 
   QuerySmsTemplateListResponseBody() {}
 
@@ -5058,8 +5082,14 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -5071,6 +5101,9 @@ public:
       }
       res["SmsTemplateList"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -5078,8 +5111,14 @@ public:
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -5096,6 +5135,9 @@ public:
         }
         smsTemplateList = make_shared<vector<QuerySmsTemplateListResponseBodySmsTemplateList>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
