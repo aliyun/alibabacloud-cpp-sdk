@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_FC-OPEN20210406_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -689,6 +690,319 @@ public:
 
 
   virtual ~ErrorInfo() = default;
+};
+class SourceMNSParameters : public Darabonba::Model {
+public:
+  shared_ptr<bool> isBase64Decode{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> regionId{};
+
+  SourceMNSParameters() {}
+
+  explicit SourceMNSParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isBase64Decode) {
+      res["IsBase64Decode"] = boost::any(*isBase64Decode);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsBase64Decode") != m.end() && !m["IsBase64Decode"].empty()) {
+      isBase64Decode = make_shared<bool>(boost::any_cast<bool>(m["IsBase64Decode"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~SourceMNSParameters() = default;
+};
+class SourceRabbitMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> queueName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> virtualHostName{};
+
+  SourceRabbitMQParameters() {}
+
+  explicit SourceRabbitMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (queueName) {
+      res["QueueName"] = boost::any(*queueName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (virtualHostName) {
+      res["VirtualHostName"] = boost::any(*virtualHostName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
+      queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VirtualHostName") != m.end() && !m["VirtualHostName"].empty()) {
+      virtualHostName = make_shared<string>(boost::any_cast<string>(m["VirtualHostName"]));
+    }
+  }
+
+
+  virtual ~SourceRabbitMQParameters() = default;
+};
+class SourceRocketMQParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> groupID{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> offset{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> tag{};
+  shared_ptr<long> timestamp{};
+  shared_ptr<string> topic{};
+
+  SourceRocketMQParameters() {}
+
+  explicit SourceRocketMQParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupID) {
+      res["GroupID"] = boost::any(*groupID);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (topic) {
+      res["Topic"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
+      groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+    if (m.find("Topic") != m.end() && !m["Topic"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["Topic"]));
+    }
+  }
+
+
+  virtual ~SourceRocketMQParameters() = default;
+};
+class EventSourceParameters : public Darabonba::Model {
+public:
+  shared_ptr<SourceMNSParameters> sourceMNSParameters{};
+  shared_ptr<SourceRabbitMQParameters> sourceRabbitMQParameters{};
+  shared_ptr<SourceRocketMQParameters> sourceRocketMQParameters{};
+
+  EventSourceParameters() {}
+
+  explicit EventSourceParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceMNSParameters) {
+      res["sourceMNSParameters"] = sourceMNSParameters ? boost::any(sourceMNSParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRabbitMQParameters) {
+      res["sourceRabbitMQParameters"] = sourceRabbitMQParameters ? boost::any(sourceRabbitMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceRocketMQParameters) {
+      res["sourceRocketMQParameters"] = sourceRocketMQParameters ? boost::any(sourceRocketMQParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sourceMNSParameters") != m.end() && !m["sourceMNSParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceMNSParameters"].type()) {
+        SourceMNSParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceMNSParameters"]));
+        sourceMNSParameters = make_shared<SourceMNSParameters>(model1);
+      }
+    }
+    if (m.find("sourceRabbitMQParameters") != m.end() && !m["sourceRabbitMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceRabbitMQParameters"].type()) {
+        SourceRabbitMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceRabbitMQParameters"]));
+        sourceRabbitMQParameters = make_shared<SourceRabbitMQParameters>(model1);
+      }
+    }
+    if (m.find("sourceRocketMQParameters") != m.end() && !m["sourceRocketMQParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceRocketMQParameters"].type()) {
+        SourceRocketMQParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceRocketMQParameters"]));
+        sourceRocketMQParameters = make_shared<SourceRocketMQParameters>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EventSourceParameters() = default;
+};
+class EventSourceConfig : public Darabonba::Model {
+public:
+  shared_ptr<EventSourceParameters> eventSourceParameters{};
+  shared_ptr<string> eventSourceType{};
+
+  EventSourceConfig() {}
+
+  explicit EventSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventSourceParameters) {
+      res["eventSourceParameters"] = eventSourceParameters ? boost::any(eventSourceParameters->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (eventSourceType) {
+      res["eventSourceType"] = boost::any(*eventSourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("eventSourceParameters") != m.end() && !m["eventSourceParameters"].empty()) {
+      if (typeid(map<string, boost::any>) == m["eventSourceParameters"].type()) {
+        EventSourceParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["eventSourceParameters"]));
+        eventSourceParameters = make_shared<EventSourceParameters>(model1);
+      }
+    }
+    if (m.find("eventSourceType") != m.end() && !m["eventSourceType"].empty()) {
+      eventSourceType = make_shared<string>(boost::any_cast<string>(m["eventSourceType"]));
+    }
+  }
+
+
+  virtual ~EventSourceConfig() = default;
+};
+class EventBridgeTriggerConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> asyncInvocationType{};
+  shared_ptr<string> eventRuleFilterPattern{};
+  shared_ptr<EventSourceConfig> eventSourceConfig{};
+  shared_ptr<bool> triggerEnable{};
+
+  EventBridgeTriggerConfig() {}
+
+  explicit EventBridgeTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncInvocationType) {
+      res["asyncInvocationType"] = boost::any(*asyncInvocationType);
+    }
+    if (eventRuleFilterPattern) {
+      res["eventRuleFilterPattern"] = boost::any(*eventRuleFilterPattern);
+    }
+    if (eventSourceConfig) {
+      res["eventSourceConfig"] = eventSourceConfig ? boost::any(eventSourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (triggerEnable) {
+      res["triggerEnable"] = boost::any(*triggerEnable);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("asyncInvocationType") != m.end() && !m["asyncInvocationType"].empty()) {
+      asyncInvocationType = make_shared<bool>(boost::any_cast<bool>(m["asyncInvocationType"]));
+    }
+    if (m.find("eventRuleFilterPattern") != m.end() && !m["eventRuleFilterPattern"].empty()) {
+      eventRuleFilterPattern = make_shared<string>(boost::any_cast<string>(m["eventRuleFilterPattern"]));
+    }
+    if (m.find("eventSourceConfig") != m.end() && !m["eventSourceConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["eventSourceConfig"].type()) {
+        EventSourceConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["eventSourceConfig"]));
+        eventSourceConfig = make_shared<EventSourceConfig>(model1);
+      }
+    }
+    if (m.find("triggerEnable") != m.end() && !m["triggerEnable"].empty()) {
+      triggerEnable = make_shared<bool>(boost::any_cast<bool>(m["triggerEnable"]));
+    }
+  }
+
+
+  virtual ~EventBridgeTriggerConfig() = default;
 };
 class HTTPTriggerConfig : public Darabonba::Model {
 public:
@@ -4154,7 +4468,7 @@ public:
   shared_ptr<string> invocationRole{};
   shared_ptr<string> qualifier{};
   shared_ptr<string> sourceArn{};
-  shared_ptr<string> triggerConfig{};
+  shared_ptr<boost::any> triggerConfig{};
   shared_ptr<string> triggerName{};
   shared_ptr<string> triggerType{};
 
@@ -4206,7 +4520,7 @@ public:
       sourceArn = make_shared<string>(boost::any_cast<string>(m["sourceArn"]));
     }
     if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
-      triggerConfig = make_shared<string>(boost::any_cast<string>(m["triggerConfig"]));
+      triggerConfig = make_shared<boost::any>(boost::any_cast<boost::any>(m["triggerConfig"]));
     }
     if (m.find("triggerName") != m.end() && !m["triggerName"].empty()) {
       triggerName = make_shared<string>(boost::any_cast<string>(m["triggerName"]));
@@ -8575,7 +8889,7 @@ public:
 };
 class InvokeFunctionRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> body{};
+  shared_ptr<boost::any> body{};
   shared_ptr<string> qualifier{};
 
   InvokeFunctionRequest() {}
@@ -8599,7 +8913,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["body"]));
+      body = make_shared<boost::any>(boost::any_cast<boost::any>(m["body"]));
     }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
@@ -10215,6 +10529,8 @@ class ListInstancesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
 
   ListInstancesHeaders() {}
 
@@ -10232,6 +10548,12 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
     return res;
   }
 
@@ -10246,6 +10568,12 @@ public:
     }
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
     }
   }
 
