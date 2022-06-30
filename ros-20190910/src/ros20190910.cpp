@@ -1223,6 +1223,9 @@ GetStackResponse Alibabacloud_ROS20190910::Client::getStackWithOptions(shared_pt
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logOption)) {
+    query->insert(pair<string, string>("LogOption", *request->logOption));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputOption)) {
     query->insert(pair<string, string>("OutputOption", *request->outputOption));
   }
@@ -1432,6 +1435,9 @@ GetStackResourceResponse Alibabacloud_ROS20190910::Client::getStackResourceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceAttributes)) {
+    query->insert(pair<string, vector<string>>("ResourceAttributes", *request->resourceAttributes));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->showResourceAttributes)) {
     query->insert(pair<string, bool>("ShowResourceAttributes", *request->showResourceAttributes));

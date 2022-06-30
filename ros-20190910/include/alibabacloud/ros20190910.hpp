@@ -6927,6 +6927,7 @@ public:
 class GetStackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> logOption{};
   shared_ptr<string> outputOption{};
   shared_ptr<string> regionId{};
   shared_ptr<string> showResourceProgress{};
@@ -6944,6 +6945,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (logOption) {
+      res["LogOption"] = boost::any(*logOption);
     }
     if (outputOption) {
       res["OutputOption"] = boost::any(*outputOption);
@@ -6964,6 +6968,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("LogOption") != m.end() && !m["LogOption"].empty()) {
+      logOption = make_shared<string>(boost::any_cast<string>(m["LogOption"]));
+    }
     if (m.find("OutputOption") != m.end() && !m["OutputOption"].empty()) {
       outputOption = make_shared<string>(boost::any_cast<string>(m["OutputOption"]));
     }
@@ -6980,6 +6987,99 @@ public:
 
 
   virtual ~GetStackRequest() = default;
+};
+class GetStackResponseBodyLogResourceLogsLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<vector<string>> keys{};
+
+  GetStackResponseBodyLogResourceLogsLogs() {}
+
+  explicit GetStackResponseBodyLogResourceLogsLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (keys) {
+      res["Keys"] = boost::any(*keys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Keys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Keys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetStackResponseBodyLogResourceLogsLogs() = default;
+};
+class GetStackResponseBodyLogResourceLogs : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetStackResponseBodyLogResourceLogsLogs>> logs{};
+  shared_ptr<string> resourceName{};
+
+  GetStackResponseBodyLogResourceLogs() {}
+
+  explicit GetStackResponseBodyLogResourceLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logs) {
+      vector<boost::any> temp1;
+      for(auto item1:*logs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Logs"] = boost::any(temp1);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Logs") != m.end() && !m["Logs"].empty()) {
+      if (typeid(vector<boost::any>) == m["Logs"].type()) {
+        vector<GetStackResponseBodyLogResourceLogsLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Logs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetStackResponseBodyLogResourceLogsLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        logs = make_shared<vector<GetStackResponseBodyLogResourceLogsLogs>>(expect1);
+      }
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+  }
+
+
+  virtual ~GetStackResponseBodyLogResourceLogs() = default;
 };
 class GetStackResponseBodyLogTerraformLogs : public Darabonba::Model {
 public:
@@ -7026,6 +7126,7 @@ public:
 };
 class GetStackResponseBodyLog : public Darabonba::Model {
 public:
+  shared_ptr<vector<GetStackResponseBodyLogResourceLogs>> resourceLogs{};
   shared_ptr<vector<GetStackResponseBodyLogTerraformLogs>> terraformLogs{};
 
   GetStackResponseBodyLog() {}
@@ -7038,6 +7139,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resourceLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceLogs"] = boost::any(temp1);
+    }
     if (terraformLogs) {
       vector<boost::any> temp1;
       for(auto item1:*terraformLogs){
@@ -7049,6 +7157,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceLogs") != m.end() && !m["ResourceLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceLogs"].type()) {
+        vector<GetStackResponseBodyLogResourceLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetStackResponseBodyLogResourceLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceLogs = make_shared<vector<GetStackResponseBodyLogResourceLogs>>(expect1);
+      }
+    }
     if (m.find("TerraformLogs") != m.end() && !m["TerraformLogs"].empty()) {
       if (typeid(vector<boost::any>) == m["TerraformLogs"].type()) {
         vector<GetStackResponseBodyLogTerraformLogs> expect1;
@@ -9171,6 +9292,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> logicalResourceId{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> resourceAttributes{};
   shared_ptr<bool> showResourceAttributes{};
   shared_ptr<string> stackId{};
 
@@ -9193,6 +9315,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceAttributes) {
+      res["ResourceAttributes"] = boost::any(*resourceAttributes);
+    }
     if (showResourceAttributes) {
       res["ShowResourceAttributes"] = boost::any(*showResourceAttributes);
     }
@@ -9211,6 +9336,16 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceAttributes") != m.end() && !m["ResourceAttributes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceAttributes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceAttributes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceAttributes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ShowResourceAttributes") != m.end() && !m["ShowResourceAttributes"].empty()) {
       showResourceAttributes = make_shared<bool>(boost::any_cast<bool>(m["ShowResourceAttributes"]));
@@ -20539,12 +20674,63 @@ public:
 
   virtual ~ValidateTemplateResponseBodyOutputs() = default;
 };
+class ValidateTemplateResponseBodyResourceTypes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> dataSources{};
+  shared_ptr<vector<string>> resources{};
+
+  ValidateTemplateResponseBodyResourceTypes() {}
+
+  explicit ValidateTemplateResponseBodyResourceTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSources) {
+      res["DataSources"] = boost::any(*dataSources);
+    }
+    if (resources) {
+      res["Resources"] = boost::any(*resources);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSources") != m.end() && !m["DataSources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DataSources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DataSources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dataSources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Resources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Resources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resources = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ValidateTemplateResponseBodyResourceTypes() = default;
+};
 class ValidateTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<vector<ValidateTemplateResponseBodyOutputs>> outputs{};
   shared_ptr<vector<map<string, boost::any>>> parameters{};
   shared_ptr<string> requestId{};
+  shared_ptr<ValidateTemplateResponseBodyResourceTypes> resourceTypes{};
 
   ValidateTemplateResponseBody() {}
 
@@ -20571,6 +20757,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceTypes) {
+      res["ResourceTypes"] = resourceTypes ? boost::any(resourceTypes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -20609,6 +20798,13 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceTypes"].type()) {
+        ValidateTemplateResponseBodyResourceTypes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceTypes"]));
+        resourceTypes = make_shared<ValidateTemplateResponseBodyResourceTypes>(model1);
+      }
     }
   }
 
