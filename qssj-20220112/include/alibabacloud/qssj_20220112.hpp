@@ -2856,6 +2856,7 @@ public:
   shared_ptr<double> institutionalIndex{};
   shared_ptr<double> mediaIndex{};
   shared_ptr<double> socialIndex{};
+  shared_ptr<double> trendIndex{};
   shared_ptr<string> yearMonth{};
 
   GetTrendIndexResponseBodyData() {}
@@ -2883,6 +2884,9 @@ public:
     if (socialIndex) {
       res["SocialIndex"] = boost::any(*socialIndex);
     }
+    if (trendIndex) {
+      res["TrendIndex"] = boost::any(*trendIndex);
+    }
     if (yearMonth) {
       res["YearMonth"] = boost::any(*yearMonth);
     }
@@ -2904,6 +2908,9 @@ public:
     }
     if (m.find("SocialIndex") != m.end() && !m["SocialIndex"].empty()) {
       socialIndex = make_shared<double>(boost::any_cast<double>(m["SocialIndex"]));
+    }
+    if (m.find("TrendIndex") != m.end() && !m["TrendIndex"].empty()) {
+      trendIndex = make_shared<double>(boost::any_cast<double>(m["TrendIndex"]));
     }
     if (m.find("YearMonth") != m.end() && !m["YearMonth"].empty()) {
       yearMonth = make_shared<string>(boost::any_cast<string>(m["YearMonth"]));
