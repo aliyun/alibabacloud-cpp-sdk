@@ -3333,8 +3333,18 @@ ListBodyPersonResponse Alibabacloud_Facebody20191230::Client::listBodyPerson(sha
   return listBodyPersonWithOptions(request, runtime);
 }
 
-ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbsWithOptions(shared_ptr<ListFaceDbsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    body->insert(pair<string, long>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
+    body->insert(pair<string, long>("Offset", *request->offset));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListFaceDbs"))},
     {"version", boost::any(string("2019-12-30"))},
@@ -3349,9 +3359,9 @@ ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbsWithOption
   return ListFaceDbsResponse(callApi(params, req, runtime));
 }
 
-ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbs() {
+ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbs(shared_ptr<ListFaceDbsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listFaceDbsWithOptions(runtime);
+  return listFaceDbsWithOptions(request, runtime);
 }
 
 ListFaceEntitiesResponse Alibabacloud_Facebody20191230::Client::listFaceEntitiesWithOptions(shared_ptr<ListFaceEntitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
