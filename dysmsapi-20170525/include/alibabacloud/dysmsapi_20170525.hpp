@@ -828,6 +828,7 @@ public:
 };
 class CreateCardSmsTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> factorys{};
   shared_ptr<string> memo{};
   shared_ptr<map<string, boost::any>> template_{};
   shared_ptr<string> templateName{};
@@ -842,6 +843,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (factorys) {
+      res["Factorys"] = boost::any(*factorys);
+    }
     if (memo) {
       res["Memo"] = boost::any(*memo);
     }
@@ -855,6 +859,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Factorys") != m.end() && !m["Factorys"].empty()) {
+      factorys = make_shared<string>(boost::any_cast<string>(m["Factorys"]));
+    }
     if (m.find("Memo") != m.end() && !m["Memo"].empty()) {
       memo = make_shared<string>(boost::any_cast<string>(m["Memo"]));
     }
@@ -876,6 +883,7 @@ public:
 };
 class CreateCardSmsTemplateShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> factorys{};
   shared_ptr<string> memo{};
   shared_ptr<string> templateShrink{};
   shared_ptr<string> templateName{};
@@ -890,6 +898,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (factorys) {
+      res["Factorys"] = boost::any(*factorys);
+    }
     if (memo) {
       res["Memo"] = boost::any(*memo);
     }
@@ -903,6 +914,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Factorys") != m.end() && !m["Factorys"].empty()) {
+      factorys = make_shared<string>(boost::any_cast<string>(m["Factorys"]));
+    }
     if (m.find("Memo") != m.end() && !m["Memo"].empty()) {
       memo = make_shared<string>(boost::any_cast<string>(m["Memo"]));
     }
@@ -1543,8 +1557,12 @@ public:
 };
 class GetCardSmsLinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> cardCodeType{};
+  shared_ptr<long> cardLinkType{};
   shared_ptr<string> cardTemplateCode{};
   shared_ptr<string> cardTemplateParamJson{};
+  shared_ptr<string> customShortCodeJson{};
+  shared_ptr<string> domain{};
   shared_ptr<string> outId{};
   shared_ptr<string> phoneNumberJson{};
   shared_ptr<string> signNameJson{};
@@ -1559,11 +1577,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cardCodeType) {
+      res["CardCodeType"] = boost::any(*cardCodeType);
+    }
+    if (cardLinkType) {
+      res["CardLinkType"] = boost::any(*cardLinkType);
+    }
     if (cardTemplateCode) {
       res["CardTemplateCode"] = boost::any(*cardTemplateCode);
     }
     if (cardTemplateParamJson) {
       res["CardTemplateParamJson"] = boost::any(*cardTemplateParamJson);
+    }
+    if (customShortCodeJson) {
+      res["CustomShortCodeJson"] = boost::any(*customShortCodeJson);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
     }
     if (outId) {
       res["OutId"] = boost::any(*outId);
@@ -1578,11 +1608,23 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CardCodeType") != m.end() && !m["CardCodeType"].empty()) {
+      cardCodeType = make_shared<long>(boost::any_cast<long>(m["CardCodeType"]));
+    }
+    if (m.find("CardLinkType") != m.end() && !m["CardLinkType"].empty()) {
+      cardLinkType = make_shared<long>(boost::any_cast<long>(m["CardLinkType"]));
+    }
     if (m.find("CardTemplateCode") != m.end() && !m["CardTemplateCode"].empty()) {
       cardTemplateCode = make_shared<string>(boost::any_cast<string>(m["CardTemplateCode"]));
     }
     if (m.find("CardTemplateParamJson") != m.end() && !m["CardTemplateParamJson"].empty()) {
       cardTemplateParamJson = make_shared<string>(boost::any_cast<string>(m["CardTemplateParamJson"]));
+    }
+    if (m.find("CustomShortCodeJson") != m.end() && !m["CustomShortCodeJson"].empty()) {
+      customShortCodeJson = make_shared<string>(boost::any_cast<string>(m["CustomShortCodeJson"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
     if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
       outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));

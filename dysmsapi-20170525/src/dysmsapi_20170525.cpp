@@ -223,6 +223,9 @@ CreateCardSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::createCardS
     request->templateShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->template_, make_shared<string>("Template"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->factorys)) {
+    query->insert(pair<string, string>("Factorys", *request->factorys));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->memo)) {
     query->insert(pair<string, string>("Memo", *request->memo));
   }
@@ -370,11 +373,23 @@ DeleteSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::deleteSmsTempla
 GetCardSmsLinkResponse Alibabacloud_Dysmsapi20170525::Client::getCardSmsLinkWithOptions(shared_ptr<GetCardSmsLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->cardCodeType)) {
+    query->insert(pair<string, long>("CardCodeType", *request->cardCodeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cardLinkType)) {
+    query->insert(pair<string, long>("CardLinkType", *request->cardLinkType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cardTemplateCode)) {
     query->insert(pair<string, string>("CardTemplateCode", *request->cardTemplateCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cardTemplateParamJson)) {
     query->insert(pair<string, string>("CardTemplateParamJson", *request->cardTemplateParamJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customShortCodeJson)) {
+    query->insert(pair<string, string>("CustomShortCodeJson", *request->customShortCodeJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
+    query->insert(pair<string, string>("Domain", *request->domain));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
     query->insert(pair<string, string>("OutId", *request->outId));
