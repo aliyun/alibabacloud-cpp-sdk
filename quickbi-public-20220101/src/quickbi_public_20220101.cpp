@@ -1473,6 +1473,34 @@ QueryEmbeddedInfoResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbe
   return queryEmbeddedInfoWithOptions(runtime);
 }
 
+QueryEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbeddedStatusWithOptions(shared_ptr<QueryEmbeddedStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->worksId)) {
+    query->insert(pair<string, string>("WorksId", *request->worksId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryEmbeddedStatus"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryEmbeddedStatusResponse(callApi(params, req, runtime));
+}
+
+QueryEmbeddedStatusResponse Alibabacloud_Quickbi-public20220101::Client::queryEmbeddedStatus(shared_ptr<QueryEmbeddedStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryEmbeddedStatusWithOptions(request, runtime);
+}
+
 QueryOrganizationWorkspaceListResponse Alibabacloud_Quickbi-public20220101::Client::queryOrganizationWorkspaceListWithOptions(shared_ptr<QueryOrganizationWorkspaceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
