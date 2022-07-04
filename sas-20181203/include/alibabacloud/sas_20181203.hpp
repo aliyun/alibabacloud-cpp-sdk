@@ -25042,7 +25042,7 @@ public:
 };
 class DescribeRiskCheckResultResponseBodyListRiskItemResources : public Darabonba::Model {
 public:
-  shared_ptr<map<string, string>> contentResource{};
+  shared_ptr<map<string, boost::any>> contentResource{};
   shared_ptr<string> resourceName{};
 
   DescribeRiskCheckResultResponseBodyListRiskItemResources() {}
@@ -25066,12 +25066,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ContentResource") != m.end() && !m["ContentResource"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ContentResource"]);
-      map<string, string> toMap1;
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ContentResource"]);
+      map<string, boost::any> toMap1;
       for (auto item:map1) {
          toMap1[item.first] = item.second;
       }
-      contentResource = make_shared<map<string, string>>(toMap1);
+      contentResource = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
@@ -36035,6 +36035,182 @@ public:
 
 
   virtual ~DescribeVulWhitelistResponse() = default;
+};
+class DescribeWarningExportInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> exportId{};
+
+  DescribeWarningExportInfoRequest() {}
+
+  explicit DescribeWarningExportInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exportId) {
+      res["ExportId"] = boost::any(*exportId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExportId") != m.end() && !m["ExportId"].empty()) {
+      exportId = make_shared<long>(boost::any_cast<long>(m["ExportId"]));
+    }
+  }
+
+
+  virtual ~DescribeWarningExportInfoRequest() = default;
+};
+class DescribeWarningExportInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> currentCount{};
+  shared_ptr<string> exportStatus{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> id{};
+  shared_ptr<string> link{};
+  shared_ptr<string> message{};
+  shared_ptr<long> progress{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeWarningExportInfoResponseBody() {}
+
+  explicit DescribeWarningExportInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentCount) {
+      res["CurrentCount"] = boost::any(*currentCount);
+    }
+    if (exportStatus) {
+      res["ExportStatus"] = boost::any(*exportStatus);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (link) {
+      res["Link"] = boost::any(*link);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentCount") != m.end() && !m["CurrentCount"].empty()) {
+      currentCount = make_shared<long>(boost::any_cast<long>(m["CurrentCount"]));
+    }
+    if (m.find("ExportStatus") != m.end() && !m["ExportStatus"].empty()) {
+      exportStatus = make_shared<string>(boost::any_cast<string>(m["ExportStatus"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Link") != m.end() && !m["Link"].empty()) {
+      link = make_shared<string>(boost::any_cast<string>(m["Link"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeWarningExportInfoResponseBody() = default;
+};
+class DescribeWarningExportInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWarningExportInfoResponseBody> body{};
+
+  DescribeWarningExportInfoResponse() {}
+
+  explicit DescribeWarningExportInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWarningExportInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWarningExportInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWarningExportInfoResponse() = default;
 };
 class DescribeWarningMachinesRequest : public Darabonba::Model {
 public:
@@ -47537,6 +47713,8 @@ public:
   DescribeVulListResponse describeVulList(shared_ptr<DescribeVulListRequest> request);
   DescribeVulWhitelistResponse describeVulWhitelistWithOptions(shared_ptr<DescribeVulWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVulWhitelistResponse describeVulWhitelist(shared_ptr<DescribeVulWhitelistRequest> request);
+  DescribeWarningExportInfoResponse describeWarningExportInfoWithOptions(shared_ptr<DescribeWarningExportInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWarningExportInfoResponse describeWarningExportInfo(shared_ptr<DescribeWarningExportInfoRequest> request);
   DescribeWarningMachinesResponse describeWarningMachinesWithOptions(shared_ptr<DescribeWarningMachinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeWarningMachinesResponse describeWarningMachines(shared_ptr<DescribeWarningMachinesRequest> request);
   DescribeWebLockBindListResponse describeWebLockBindListWithOptions(shared_ptr<DescribeWebLockBindListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
