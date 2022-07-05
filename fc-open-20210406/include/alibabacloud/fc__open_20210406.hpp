@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_FC-OPEN20210406_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -4468,7 +4467,7 @@ public:
   shared_ptr<string> invocationRole{};
   shared_ptr<string> qualifier{};
   shared_ptr<string> sourceArn{};
-  shared_ptr<boost::any> triggerConfig{};
+  shared_ptr<string> triggerConfig{};
   shared_ptr<string> triggerName{};
   shared_ptr<string> triggerType{};
 
@@ -4520,7 +4519,7 @@ public:
       sourceArn = make_shared<string>(boost::any_cast<string>(m["sourceArn"]));
     }
     if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
-      triggerConfig = make_shared<boost::any>(boost::any_cast<boost::any>(m["triggerConfig"]));
+      triggerConfig = make_shared<string>(boost::any_cast<string>(m["triggerConfig"]));
     }
     if (m.find("triggerName") != m.end() && !m["triggerName"].empty()) {
       triggerName = make_shared<string>(boost::any_cast<string>(m["triggerName"]));
@@ -8889,7 +8888,7 @@ public:
 };
 class InvokeFunctionRequest : public Darabonba::Model {
 public:
-  shared_ptr<boost::any> body{};
+  shared_ptr<vector<uint8_t>> body{};
   shared_ptr<string> qualifier{};
 
   InvokeFunctionRequest() {}
@@ -8913,7 +8912,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<boost::any>(boost::any_cast<boost::any>(m["body"]));
+      body = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["body"]));
     }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
@@ -10529,8 +10528,6 @@ class ListInstancesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcTraceId{};
 
   ListInstancesHeaders() {}
 
@@ -10548,12 +10545,6 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcDate) {
-      res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcTraceId) {
-      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
-    }
     return res;
   }
 
@@ -10568,12 +10559,6 @@ public:
     }
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
-      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
-      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
     }
   }
 

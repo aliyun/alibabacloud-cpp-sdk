@@ -418,8 +418,8 @@ CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceArn)) {
     body->insert(pair<string, string>("sourceArn", *request->sourceArn));
   }
-  if (!Darabonba_Util::Client::isUnset<boost::any>(request->triggerConfig)) {
-    body->insert(pair<string, boost::any>("triggerConfig", *request->triggerConfig));
+  if (!Darabonba_Util::Client::isUnset<string>(request->triggerConfig)) {
+    body->insert(pair<string, string>("triggerConfig", *request->triggerConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->triggerName)) {
     body->insert(pair<string, string>("triggerName", *request->triggerName));
@@ -1646,7 +1646,7 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(string(Darabonba_Util::Client::toString(request->body)))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("InvokeFunction"))},
@@ -1969,12 +1969,6 @@ ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
     realHeaders->insert(pair<string, string>("X-Fc-Account-Id", Darabonba_Util::Client::toJSONString(headers->xFcAccountId)));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
-    realHeaders->insert(pair<string, string>("X-Fc-Date", Darabonba_Util::Client::toJSONString(headers->xFcDate)));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
-    realHeaders->insert(pair<string, string>("X-Fc-Trace-Id", Darabonba_Util::Client::toJSONString(headers->xFcTraceId)));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
