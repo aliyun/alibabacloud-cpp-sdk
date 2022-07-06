@@ -280,6 +280,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> sceneType{};
   shared_ptr<vector<AddSmsSignRequestSignFileList>> signFileList{};
   shared_ptr<string> signName{};
   shared_ptr<long> signSource{};
@@ -305,6 +306,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sceneType) {
+      res["SceneType"] = boost::any(*sceneType);
     }
     if (signFileList) {
       vector<boost::any> temp1;
@@ -334,6 +338,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
+      sceneType = make_shared<long>(boost::any_cast<long>(m["SceneType"]));
     }
     if (m.find("SignFileList") != m.end() && !m["SignFileList"].empty()) {
       if (typeid(vector<boost::any>) == m["SignFileList"].type()) {
@@ -2609,6 +2616,7 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> sceneType{};
   shared_ptr<vector<ModifySmsSignRequestSignFileList>> signFileList{};
   shared_ptr<string> signName{};
   shared_ptr<long> signSource{};
@@ -2634,6 +2642,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sceneType) {
+      res["SceneType"] = boost::any(*sceneType);
     }
     if (signFileList) {
       vector<boost::any> temp1;
@@ -2663,6 +2674,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
+      sceneType = make_shared<long>(boost::any_cast<long>(m["SceneType"]));
     }
     if (m.find("SignFileList") != m.end() && !m["SignFileList"].empty()) {
       if (typeid(vector<boost::any>) == m["SignFileList"].type()) {

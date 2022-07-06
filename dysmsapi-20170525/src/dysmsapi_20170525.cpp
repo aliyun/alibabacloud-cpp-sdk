@@ -105,6 +105,9 @@ AddSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::addSmsSignWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneType)) {
+    query->insert(pair<string, long>("SceneType", *request->sceneType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
     query->insert(pair<string, string>("SignName", *request->signName));
   }
@@ -552,6 +555,9 @@ ModifySmsSignResponse Alibabacloud_Dysmsapi20170525::Client::modifySmsSignWithOp
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sceneType)) {
+    query->insert(pair<string, long>("SceneType", *request->sceneType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
     query->insert(pair<string, string>("SignName", *request->signName));
