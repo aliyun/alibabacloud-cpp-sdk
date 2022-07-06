@@ -280,10 +280,10 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
-  shared_ptr<long> sceneType{};
   shared_ptr<vector<AddSmsSignRequestSignFileList>> signFileList{};
   shared_ptr<string> signName{};
   shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
 
   AddSmsSignRequest() {}
 
@@ -307,9 +307,6 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
-    if (sceneType) {
-      res["SceneType"] = boost::any(*sceneType);
-    }
     if (signFileList) {
       vector<boost::any> temp1;
       for(auto item1:*signFileList){
@@ -322,6 +319,9 @@ public:
     }
     if (signSource) {
       res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
     }
     return res;
   }
@@ -338,9 +338,6 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
-      sceneType = make_shared<long>(boost::any_cast<long>(m["SceneType"]));
     }
     if (m.find("SignFileList") != m.end() && !m["SignFileList"].empty()) {
       if (typeid(vector<boost::any>) == m["SignFileList"].type()) {
@@ -360,6 +357,9 @@ public:
     }
     if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
       signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
     }
   }
 
@@ -2616,10 +2616,10 @@ public:
   shared_ptr<string> remark{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
-  shared_ptr<long> sceneType{};
   shared_ptr<vector<ModifySmsSignRequestSignFileList>> signFileList{};
   shared_ptr<string> signName{};
   shared_ptr<long> signSource{};
+  shared_ptr<long> signType{};
 
   ModifySmsSignRequest() {}
 
@@ -2643,9 +2643,6 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
-    if (sceneType) {
-      res["SceneType"] = boost::any(*sceneType);
-    }
     if (signFileList) {
       vector<boost::any> temp1;
       for(auto item1:*signFileList){
@@ -2658,6 +2655,9 @@ public:
     }
     if (signSource) {
       res["SignSource"] = boost::any(*signSource);
+    }
+    if (signType) {
+      res["SignType"] = boost::any(*signType);
     }
     return res;
   }
@@ -2674,9 +2674,6 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("SceneType") != m.end() && !m["SceneType"].empty()) {
-      sceneType = make_shared<long>(boost::any_cast<long>(m["SceneType"]));
     }
     if (m.find("SignFileList") != m.end() && !m["SignFileList"].empty()) {
       if (typeid(vector<boost::any>) == m["SignFileList"].type()) {
@@ -2696,6 +2693,9 @@ public:
     }
     if (m.find("SignSource") != m.end() && !m["SignSource"].empty()) {
       signSource = make_shared<long>(boost::any_cast<long>(m["SignSource"]));
+    }
+    if (m.find("SignType") != m.end() && !m["SignType"].empty()) {
+      signType = make_shared<long>(boost::any_cast<long>(m["SignType"]));
     }
   }
 

@@ -105,14 +105,14 @@ AddSmsSignResponse Alibabacloud_Dysmsapi20170525::Client::addSmsSignWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->sceneType)) {
-    query->insert(pair<string, long>("SceneType", *request->sceneType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
     query->insert(pair<string, string>("SignName", *request->signName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->signSource)) {
     query->insert(pair<string, long>("SignSource", *request->signSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->signType)) {
+    query->insert(pair<string, long>("SignType", *request->signType));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<AddSmsSignRequestSignFileList>>(request->signFileList)) {
@@ -556,14 +556,14 @@ ModifySmsSignResponse Alibabacloud_Dysmsapi20170525::Client::modifySmsSignWithOp
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->sceneType)) {
-    query->insert(pair<string, long>("SceneType", *request->sceneType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
     query->insert(pair<string, string>("SignName", *request->signName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->signSource)) {
     query->insert(pair<string, long>("SignSource", *request->signSource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->signType)) {
+    query->insert(pair<string, long>("SignType", *request->signType));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<ModifySmsSignRequestSignFileList>>(request->signFileList)) {
