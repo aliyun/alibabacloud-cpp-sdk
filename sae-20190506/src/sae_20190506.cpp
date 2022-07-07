@@ -1423,6 +1423,9 @@ DescribeConfigurationPriceResponse Alibabacloud_Sae20190506::Client::describeCon
   if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
     query->insert(pair<string, long>("Memory", *request->memory));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workload)) {
+    query->insert(pair<string, string>("Workload", *request->workload));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1823,6 +1826,57 @@ EnableApplicationScalingRuleResponse Alibabacloud_Sae20190506::Client::enableApp
     {"bodyType", boost::any(string("json"))}
   }));
   return EnableApplicationScalingRuleResponse(callApi(params, req, runtime));
+}
+
+ExecJobResponse Alibabacloud_Sae20190506::Client::execJob(shared_ptr<ExecJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return execJobWithOptions(request, headers, runtime);
+}
+
+ExecJobResponse Alibabacloud_Sae20190506::Client::execJobWithOptions(shared_ptr<ExecJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->command)) {
+    query->insert(pair<string, string>("Command", *request->command));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commandArgs)) {
+    query->insert(pair<string, string>("CommandArgs", *request->commandArgs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->envs)) {
+    query->insert(pair<string, string>("Envs", *request->envs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventId)) {
+    query->insert(pair<string, string>("EventId", *request->eventId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jarStartArgs)) {
+    query->insert(pair<string, string>("JarStartArgs", *request->jarStartArgs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jarStartOptions)) {
+    query->insert(pair<string, string>("JarStartOptions", *request->jarStartOptions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->warStartOptions)) {
+    query->insert(pair<string, string>("WarStartOptions", *request->warStartOptions));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ExecJob"))},
+    {"version", boost::any(string("2019-05-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/pop/v1/sam/job/execJob"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ExecJobResponse(callApi(params, req, runtime));
 }
 
 ListAppEventsResponse Alibabacloud_Sae20190506::Client::listAppEvents(shared_ptr<ListAppEventsRequest> request) {

@@ -6690,6 +6690,7 @@ public:
 class DescribeApplicationInstancesResponseBodyDataInstances : public Darabonba::Model {
 public:
   shared_ptr<long> createTimeStamp{};
+  shared_ptr<bool> debugStatus{};
   shared_ptr<string> eip{};
   shared_ptr<long> finishTimeStamp{};
   shared_ptr<string> groupId{};
@@ -6714,6 +6715,9 @@ public:
     map<string, boost::any> res;
     if (createTimeStamp) {
       res["CreateTimeStamp"] = boost::any(*createTimeStamp);
+    }
+    if (debugStatus) {
+      res["DebugStatus"] = boost::any(*debugStatus);
     }
     if (eip) {
       res["Eip"] = boost::any(*eip);
@@ -6754,6 +6758,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTimeStamp") != m.end() && !m["CreateTimeStamp"].empty()) {
       createTimeStamp = make_shared<long>(boost::any_cast<long>(m["CreateTimeStamp"]));
+    }
+    if (m.find("DebugStatus") != m.end() && !m["DebugStatus"].empty()) {
+      debugStatus = make_shared<bool>(boost::any_cast<bool>(m["DebugStatus"]));
     }
     if (m.find("Eip") != m.end() && !m["Eip"].empty()) {
       eip = make_shared<string>(boost::any_cast<string>(m["Eip"]));
@@ -10100,6 +10107,7 @@ class DescribeConfigurationPriceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cpu{};
   shared_ptr<long> memory{};
+  shared_ptr<string> workload{};
 
   DescribeConfigurationPriceRequest() {}
 
@@ -10117,6 +10125,9 @@ public:
     if (memory) {
       res["Memory"] = boost::any(*memory);
     }
+    if (workload) {
+      res["Workload"] = boost::any(*workload);
+    }
     return res;
   }
 
@@ -10126,6 +10137,9 @@ public:
     }
     if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
       memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
+    }
+    if (m.find("Workload") != m.end() && !m["Workload"].empty()) {
+      workload = make_shared<string>(boost::any_cast<string>(m["Workload"]));
     }
   }
 
@@ -11228,6 +11242,7 @@ class DescribeIngressResponseBodyDataDefaultRule : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> backendProtocol{};
   shared_ptr<long> containerPort{};
 
   DescribeIngressResponseBodyDataDefaultRule() {}
@@ -11246,6 +11261,9 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (backendProtocol) {
+      res["BackendProtocol"] = boost::any(*backendProtocol);
+    }
     if (containerPort) {
       res["ContainerPort"] = boost::any(*containerPort);
     }
@@ -11259,6 +11277,9 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
+    if (m.find("BackendProtocol") != m.end() && !m["BackendProtocol"].empty()) {
+      backendProtocol = make_shared<string>(boost::any_cast<string>(m["BackendProtocol"]));
+    }
     if (m.find("ContainerPort") != m.end() && !m["ContainerPort"].empty()) {
       containerPort = make_shared<long>(boost::any_cast<long>(m["ContainerPort"]));
     }
@@ -11271,6 +11292,7 @@ class DescribeIngressResponseBodyDataRules : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> backendProtocol{};
   shared_ptr<long> containerPort{};
   shared_ptr<string> domain{};
   shared_ptr<string> path{};
@@ -11291,6 +11313,9 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (backendProtocol) {
+      res["BackendProtocol"] = boost::any(*backendProtocol);
+    }
     if (containerPort) {
       res["ContainerPort"] = boost::any(*containerPort);
     }
@@ -11309,6 +11334,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("BackendProtocol") != m.end() && !m["BackendProtocol"].empty()) {
+      backendProtocol = make_shared<string>(boost::any_cast<string>(m["BackendProtocol"]));
     }
     if (m.find("ContainerPort") != m.end() && !m["ContainerPort"].empty()) {
       containerPort = make_shared<long>(boost::any_cast<long>(m["ContainerPort"]));
@@ -14001,6 +14029,217 @@ public:
 
 
   virtual ~EnableApplicationScalingRuleResponse() = default;
+};
+class ExecJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> command{};
+  shared_ptr<string> commandArgs{};
+  shared_ptr<string> envs{};
+  shared_ptr<string> eventId{};
+  shared_ptr<string> jarStartArgs{};
+  shared_ptr<string> jarStartOptions{};
+  shared_ptr<string> warStartOptions{};
+
+  ExecJobRequest() {}
+
+  explicit ExecJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (command) {
+      res["Command"] = boost::any(*command);
+    }
+    if (commandArgs) {
+      res["CommandArgs"] = boost::any(*commandArgs);
+    }
+    if (envs) {
+      res["Envs"] = boost::any(*envs);
+    }
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (jarStartArgs) {
+      res["JarStartArgs"] = boost::any(*jarStartArgs);
+    }
+    if (jarStartOptions) {
+      res["JarStartOptions"] = boost::any(*jarStartOptions);
+    }
+    if (warStartOptions) {
+      res["WarStartOptions"] = boost::any(*warStartOptions);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("Command") != m.end() && !m["Command"].empty()) {
+      command = make_shared<string>(boost::any_cast<string>(m["Command"]));
+    }
+    if (m.find("CommandArgs") != m.end() && !m["CommandArgs"].empty()) {
+      commandArgs = make_shared<string>(boost::any_cast<string>(m["CommandArgs"]));
+    }
+    if (m.find("Envs") != m.end() && !m["Envs"].empty()) {
+      envs = make_shared<string>(boost::any_cast<string>(m["Envs"]));
+    }
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("JarStartArgs") != m.end() && !m["JarStartArgs"].empty()) {
+      jarStartArgs = make_shared<string>(boost::any_cast<string>(m["JarStartArgs"]));
+    }
+    if (m.find("JarStartOptions") != m.end() && !m["JarStartOptions"].empty()) {
+      jarStartOptions = make_shared<string>(boost::any_cast<string>(m["JarStartOptions"]));
+    }
+    if (m.find("WarStartOptions") != m.end() && !m["WarStartOptions"].empty()) {
+      warStartOptions = make_shared<string>(boost::any_cast<string>(m["WarStartOptions"]));
+    }
+  }
+
+
+  virtual ~ExecJobRequest() = default;
+};
+class ExecJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  ExecJobResponseBody() {}
+
+  explicit ExecJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~ExecJobResponseBody() = default;
+};
+class ExecJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ExecJobResponseBody> body{};
+
+  ExecJobResponse() {}
+
+  explicit ExecJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ExecJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ExecJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ExecJobResponse() = default;
 };
 class ListAppEventsRequest : public Darabonba::Model {
 public:
@@ -23249,6 +23488,8 @@ public:
   DisableApplicationScalingRuleResponse disableApplicationScalingRuleWithOptions(shared_ptr<DisableApplicationScalingRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableApplicationScalingRuleResponse enableApplicationScalingRule(shared_ptr<EnableApplicationScalingRuleRequest> request);
   EnableApplicationScalingRuleResponse enableApplicationScalingRuleWithOptions(shared_ptr<EnableApplicationScalingRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ExecJobResponse execJob(shared_ptr<ExecJobRequest> request);
+  ExecJobResponse execJobWithOptions(shared_ptr<ExecJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAppEventsResponse listAppEvents(shared_ptr<ListAppEventsRequest> request);
   ListAppEventsResponse listAppEventsWithOptions(shared_ptr<ListAppEventsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAppServicesPageResponse listAppServicesPage(shared_ptr<ListAppServicesPageRequest> request);
