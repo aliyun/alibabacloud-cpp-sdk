@@ -5291,7 +5291,7 @@ public:
   shared_ptr<string> createUserName{};
   shared_ptr<string> error{};
   shared_ptr<long> id{};
-  shared_ptr<vector<uint8_t>> requestId{};
+  shared_ptr<string> requestId{};
   shared_ptr<long> response{};
   shared_ptr<string> status{};
 
@@ -5362,7 +5362,7 @@ public:
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["RequestId"]));
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Response") != m.end() && !m["Response"].empty()) {
       response = make_shared<long>(boost::any_cast<long>(m["Response"]));
