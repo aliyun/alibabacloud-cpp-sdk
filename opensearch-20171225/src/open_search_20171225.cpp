@@ -436,16 +436,25 @@ CreateInterventionDictionaryResponse Alibabacloud_OpenSearch20171225::Client::cr
   return CreateInterventionDictionaryResponse(callApi(params, req, runtime));
 }
 
-CreateModelResponse Alibabacloud_OpenSearch20171225::Client::createModel(shared_ptr<string> appGroupIdentity) {
+CreateModelResponse Alibabacloud_OpenSearch20171225::Client::createModel(shared_ptr<string> appGroupIdentity, shared_ptr<CreateModelRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createModelWithOptions(appGroupIdentity, headers, runtime);
+  return createModelWithOptions(appGroupIdentity, request, headers, runtime);
 }
 
-CreateModelResponse Alibabacloud_OpenSearch20171225::Client::createModelWithOptions(shared_ptr<string> appGroupIdentity, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+CreateModelResponse Alibabacloud_OpenSearch20171225::Client::createModelWithOptions(shared_ptr<string> appGroupIdentity,
+                                                                                    shared_ptr<CreateModelRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   appGroupIdentity = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(appGroupIdentity));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->body)) {
+    body->insert(pair<string, map<string, boost::any>>("body", *request->body));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateModel"))},
