@@ -1288,6 +1288,7 @@ public:
   shared_ptr<string> vpcId{};
   shared_ptr<string> warStartOptions{};
   shared_ptr<string> webContainer{};
+  shared_ptr<string> mseFeatureConfig{};
 
   CreateApplicationRequest() {}
 
@@ -1455,6 +1456,9 @@ public:
     if (webContainer) {
       res["WebContainer"] = boost::any(*webContainer);
     }
+    if (mseFeatureConfig) {
+      res["mseFeatureConfig"] = boost::any(*mseFeatureConfig);
+    }
     return res;
   }
 
@@ -1614,6 +1618,9 @@ public:
     }
     if (m.find("WebContainer") != m.end() && !m["WebContainer"].empty()) {
       webContainer = make_shared<string>(boost::any_cast<string>(m["WebContainer"]));
+    }
+    if (m.find("mseFeatureConfig") != m.end() && !m["mseFeatureConfig"].empty()) {
+      mseFeatureConfig = make_shared<string>(boost::any_cast<string>(m["mseFeatureConfig"]));
     }
   }
 
@@ -4285,6 +4292,7 @@ public:
   shared_ptr<long> minReadyInstances{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
+  shared_ptr<string> mseFeatureConfig{};
   shared_ptr<string> nasId{};
   shared_ptr<bool> openCollectToKafka{};
   shared_ptr<string> ossAkId{};
@@ -4399,6 +4407,9 @@ public:
     }
     if (mountHost) {
       res["MountHost"] = boost::any(*mountHost);
+    }
+    if (mseFeatureConfig) {
+      res["MseFeatureConfig"] = boost::any(*mseFeatureConfig);
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
@@ -4547,6 +4558,9 @@ public:
     }
     if (m.find("MountHost") != m.end() && !m["MountHost"].empty()) {
       mountHost = make_shared<string>(boost::any_cast<string>(m["MountHost"]));
+    }
+    if (m.find("MseFeatureConfig") != m.end() && !m["MseFeatureConfig"].empty()) {
+      mseFeatureConfig = make_shared<string>(boost::any_cast<string>(m["MseFeatureConfig"]));
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
@@ -5506,6 +5520,7 @@ public:
   shared_ptr<vector<DescribeApplicationConfigResponseBodyDataMountDesc>> mountDesc{};
   shared_ptr<string> mountHost{};
   shared_ptr<string> mseApplicationId{};
+  shared_ptr<string> mseFeatureConfig{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nasId{};
   shared_ptr<string> ossAkId{};
@@ -5636,6 +5651,9 @@ public:
     }
     if (mseApplicationId) {
       res["MseApplicationId"] = boost::any(*mseApplicationId);
+    }
+    if (mseFeatureConfig) {
+      res["MseFeatureConfig"] = boost::any(*mseFeatureConfig);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -5836,6 +5854,9 @@ public:
     }
     if (m.find("MseApplicationId") != m.end() && !m["MseApplicationId"].empty()) {
       mseApplicationId = make_shared<string>(boost::any_cast<string>(m["MseApplicationId"]));
+    }
+    if (m.find("MseFeatureConfig") != m.end() && !m["MseFeatureConfig"].empty()) {
+      mseFeatureConfig = make_shared<string>(boost::any_cast<string>(m["MseFeatureConfig"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -14108,10 +14129,60 @@ public:
 
   virtual ~ExecJobRequest() = default;
 };
-class ExecJobResponseBody : public Darabonba::Model {
+class ExecJobResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> success{};
+
+  ExecJobResponseBodyData() {}
+
+  explicit ExecJobResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ExecJobResponseBodyData() = default;
+};
+class ExecJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ExecJobResponseBodyData> data{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -14132,7 +14203,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -14157,7 +14228,11 @@ public:
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ExecJobResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ExecJobResponseBodyData>(model1);
+      }
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));

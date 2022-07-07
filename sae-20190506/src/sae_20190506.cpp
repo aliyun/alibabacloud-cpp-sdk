@@ -383,6 +383,9 @@ CreateApplicationResponse Alibabacloud_Sae20190506::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->webContainer)) {
     query->insert(pair<string, string>("WebContainer", *request->webContainer));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseFeatureConfig)) {
+    query->insert(pair<string, string>("mseFeatureConfig", *request->mseFeatureConfig));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acrInstanceId)) {
     body->insert(pair<string, string>("AcrInstanceId", *request->acrInstanceId));
@@ -916,6 +919,9 @@ DeployApplicationResponse Alibabacloud_Sae20190506::Client::deployApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mountHost)) {
     query->insert(pair<string, string>("MountHost", *request->mountHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseFeatureConfig)) {
+    query->insert(pair<string, string>("MseFeatureConfig", *request->mseFeatureConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nasId)) {
     query->insert(pair<string, string>("NasId", *request->nasId));
