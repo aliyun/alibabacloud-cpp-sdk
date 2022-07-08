@@ -3,6 +3,10 @@
 #include <alibabacloud/wfts_20220212.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
+#include <boost/any.hpp>
+#include <boost/throw_exception.hpp>
+#include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
@@ -31,5 +35,35 @@ string Alibabacloud_Wfts20220212::Client::getEndpoint(shared_ptr<string> product
     return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+GetLjxAccountInfoResponse Alibabacloud_Wfts20220212::Client::getLjxAccountInfo(shared_ptr<GetLjxAccountInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getLjxAccountInfoWithOptions(request, headers, runtime);
+}
+
+GetLjxAccountInfoResponse Alibabacloud_Wfts20220212::Client::getLjxAccountInfoWithOptions(shared_ptr<GetLjxAccountInfoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ljxAccountInfoId)) {
+    query->insert(pair<string, string>("LjxAccountInfoId", *request->ljxAccountInfoId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLjxAccountInfo"))},
+    {"version", boost::any(string("2022-02-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/get/ljx/acc"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLjxAccountInfoResponse(callApi(params, req, runtime));
 }
 
