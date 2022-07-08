@@ -4454,10 +4454,14 @@ public:
   shared_ptr<string> lang{};
   shared_ptr<string> levels{};
   shared_ptr<vector<string>> operateErrorCodeList{};
+  shared_ptr<string> operateTimeEnd{};
+  shared_ptr<string> operateTimeStart{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> remark{};
   shared_ptr<string> sourceIp{};
   shared_ptr<string> tacticId{};
+  shared_ptr<string> timeEnd{};
+  shared_ptr<string> timeStart{};
   shared_ptr<string> uniqueInfo{};
   shared_ptr<string> uuids{};
 
@@ -4501,6 +4505,12 @@ public:
     if (operateErrorCodeList) {
       res["OperateErrorCodeList"] = boost::any(*operateErrorCodeList);
     }
+    if (operateTimeEnd) {
+      res["OperateTimeEnd"] = boost::any(*operateTimeEnd);
+    }
+    if (operateTimeStart) {
+      res["OperateTimeStart"] = boost::any(*operateTimeStart);
+    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -4512,6 +4522,12 @@ public:
     }
     if (tacticId) {
       res["TacticId"] = boost::any(*tacticId);
+    }
+    if (timeEnd) {
+      res["TimeEnd"] = boost::any(*timeEnd);
+    }
+    if (timeStart) {
+      res["TimeStart"] = boost::any(*timeStart);
     }
     if (uniqueInfo) {
       res["UniqueInfo"] = boost::any(*uniqueInfo);
@@ -4560,6 +4576,12 @@ public:
       }
       operateErrorCodeList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("OperateTimeEnd") != m.end() && !m["OperateTimeEnd"].empty()) {
+      operateTimeEnd = make_shared<string>(boost::any_cast<string>(m["OperateTimeEnd"]));
+    }
+    if (m.find("OperateTimeStart") != m.end() && !m["OperateTimeStart"].empty()) {
+      operateTimeStart = make_shared<string>(boost::any_cast<string>(m["OperateTimeStart"]));
+    }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
     }
@@ -4571,6 +4593,12 @@ public:
     }
     if (m.find("TacticId") != m.end() && !m["TacticId"].empty()) {
       tacticId = make_shared<string>(boost::any_cast<string>(m["TacticId"]));
+    }
+    if (m.find("TimeEnd") != m.end() && !m["TimeEnd"].empty()) {
+      timeEnd = make_shared<string>(boost::any_cast<string>(m["TimeEnd"]));
+    }
+    if (m.find("TimeStart") != m.end() && !m["TimeStart"].empty()) {
+      timeStart = make_shared<string>(boost::any_cast<string>(m["TimeStart"]));
     }
     if (m.find("UniqueInfo") != m.end() && !m["UniqueInfo"].empty()) {
       uniqueInfo = make_shared<string>(boost::any_cast<string>(m["UniqueInfo"]));
@@ -31666,8 +31694,8 @@ public:
   shared_ptr<string> levels{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> operateErrorCodeList{};
-  shared_ptr<long> operateTimeEnd{};
-  shared_ptr<long> operateTimeStart{};
+  shared_ptr<string> operateTimeEnd{};
+  shared_ptr<string> operateTimeStart{};
   shared_ptr<string> pageSize{};
   shared_ptr<string> parentEventTypes{};
   shared_ptr<string> remark{};
@@ -31676,6 +31704,8 @@ public:
   shared_ptr<string> status{};
   shared_ptr<string> tacticId{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> timeEnd{};
+  shared_ptr<string> timeStart{};
   shared_ptr<string> uniqueInfo{};
   shared_ptr<string> uuids{};
 
@@ -31761,6 +31791,12 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (timeEnd) {
+      res["TimeEnd"] = boost::any(*timeEnd);
+    }
+    if (timeStart) {
+      res["TimeStart"] = boost::any(*timeStart);
+    }
     if (uniqueInfo) {
       res["UniqueInfo"] = boost::any(*uniqueInfo);
     }
@@ -31821,10 +31857,10 @@ public:
       operateErrorCodeList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("OperateTimeEnd") != m.end() && !m["OperateTimeEnd"].empty()) {
-      operateTimeEnd = make_shared<long>(boost::any_cast<long>(m["OperateTimeEnd"]));
+      operateTimeEnd = make_shared<string>(boost::any_cast<string>(m["OperateTimeEnd"]));
     }
     if (m.find("OperateTimeStart") != m.end() && !m["OperateTimeStart"].empty()) {
-      operateTimeStart = make_shared<long>(boost::any_cast<long>(m["OperateTimeStart"]));
+      operateTimeStart = make_shared<string>(boost::any_cast<string>(m["OperateTimeStart"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
@@ -31849,6 +31885,12 @@ public:
     }
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TimeEnd") != m.end() && !m["TimeEnd"].empty()) {
+      timeEnd = make_shared<string>(boost::any_cast<string>(m["TimeEnd"]));
+    }
+    if (m.find("TimeStart") != m.end() && !m["TimeStart"].empty()) {
+      timeStart = make_shared<string>(boost::any_cast<string>(m["TimeStart"]));
     }
     if (m.find("UniqueInfo") != m.end() && !m["UniqueInfo"].empty()) {
       uniqueInfo = make_shared<string>(boost::any_cast<string>(m["UniqueInfo"]));

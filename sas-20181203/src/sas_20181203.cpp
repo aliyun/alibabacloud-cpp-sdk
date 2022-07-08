@@ -935,6 +935,12 @@ DescribeAlarmEventListResponse Alibabacloud_Sas20181203::Client::describeAlarmEv
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operateErrorCodeList)) {
     query->insert(pair<string, vector<string>>("OperateErrorCodeList", *request->operateErrorCodeList));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateTimeEnd)) {
+    query->insert(pair<string, string>("OperateTimeEnd", *request->operateTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateTimeStart)) {
+    query->insert(pair<string, string>("OperateTimeStart", *request->operateTimeStart));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
   }
@@ -946,6 +952,12 @@ DescribeAlarmEventListResponse Alibabacloud_Sas20181203::Client::describeAlarmEv
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tacticId)) {
     query->insert(pair<string, string>("TacticId", *request->tacticId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeEnd)) {
+    query->insert(pair<string, string>("TimeEnd", *request->timeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeStart)) {
+    query->insert(pair<string, string>("TimeStart", *request->timeStart));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uniqueInfo)) {
     query->insert(pair<string, string>("UniqueInfo", *request->uniqueInfo));
@@ -4631,11 +4643,11 @@ DescribeSuspEventsResponse Alibabacloud_Sas20181203::Client::describeSuspEventsW
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operateErrorCodeList)) {
     query->insert(pair<string, vector<string>>("OperateErrorCodeList", *request->operateErrorCodeList));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->operateTimeEnd)) {
-    query->insert(pair<string, long>("OperateTimeEnd", *request->operateTimeEnd));
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateTimeEnd)) {
+    query->insert(pair<string, string>("OperateTimeEnd", *request->operateTimeEnd));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->operateTimeStart)) {
-    query->insert(pair<string, long>("OperateTimeStart", *request->operateTimeStart));
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateTimeStart)) {
+    query->insert(pair<string, string>("OperateTimeStart", *request->operateTimeStart));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
@@ -4657,6 +4669,12 @@ DescribeSuspEventsResponse Alibabacloud_Sas20181203::Client::describeSuspEventsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeEnd)) {
+    query->insert(pair<string, string>("TimeEnd", *request->timeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->timeStart)) {
+    query->insert(pair<string, string>("TimeStart", *request->timeStart));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uniqueInfo)) {
     query->insert(pair<string, string>("UniqueInfo", *request->uniqueInfo));
