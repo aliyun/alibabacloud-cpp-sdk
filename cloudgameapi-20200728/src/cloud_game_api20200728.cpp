@@ -1630,9 +1630,17 @@ SkipTrialPolicyResponse Alibabacloud_CloudGameAPI20200728::Client::skipTrialPoli
   return skipTrialPolicyWithOptions(request, runtime);
 }
 
-StartGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::startGameLiveWithOptions(shared_ptr<StartGameLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+StartGameLiveResponse Alibabacloud_CloudGameAPI20200728::Client::startGameLiveWithOptions(shared_ptr<StartGameLiveRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<StartGameLiveShrinkRequest> request = make_shared<StartGameLiveShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->extension)) {
+    request->extensionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extension, make_shared<string>("Extension"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->extensionShrink)) {
+    query->insert(pair<string, string>("Extension", *request->extensionShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->gameSession)) {
     query->insert(pair<string, string>("GameSession", *request->gameSession));
   }

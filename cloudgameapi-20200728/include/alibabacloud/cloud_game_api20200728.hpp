@@ -9451,6 +9451,7 @@ public:
 };
 class StartGameLiveRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> extension{};
   shared_ptr<string> gameSession{};
   shared_ptr<string> videoPushAddress{};
 
@@ -9464,6 +9465,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
     if (gameSession) {
       res["GameSession"] = boost::any(*gameSession);
     }
@@ -9474,6 +9478,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Extension"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extension = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
       gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
     }
@@ -9484,6 +9496,49 @@ public:
 
 
   virtual ~StartGameLiveRequest() = default;
+};
+class StartGameLiveShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> extensionShrink{};
+  shared_ptr<string> gameSession{};
+  shared_ptr<string> videoPushAddress{};
+
+  StartGameLiveShrinkRequest() {}
+
+  explicit StartGameLiveShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extensionShrink) {
+      res["Extension"] = boost::any(*extensionShrink);
+    }
+    if (gameSession) {
+      res["GameSession"] = boost::any(*gameSession);
+    }
+    if (videoPushAddress) {
+      res["VideoPushAddress"] = boost::any(*videoPushAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extensionShrink = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("GameSession") != m.end() && !m["GameSession"].empty()) {
+      gameSession = make_shared<string>(boost::any_cast<string>(m["GameSession"]));
+    }
+    if (m.find("VideoPushAddress") != m.end() && !m["VideoPushAddress"].empty()) {
+      videoPushAddress = make_shared<string>(boost::any_cast<string>(m["VideoPushAddress"]));
+    }
+  }
+
+
+  virtual ~StartGameLiveShrinkRequest() = default;
 };
 class StartGameLiveResponseBody : public Darabonba::Model {
 public:
@@ -11125,7 +11180,7 @@ public:
   SetGameHangResponse setGameHang(shared_ptr<SetGameHangRequest> request);
   SkipTrialPolicyResponse skipTrialPolicyWithOptions(shared_ptr<SkipTrialPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SkipTrialPolicyResponse skipTrialPolicy(shared_ptr<SkipTrialPolicyRequest> request);
-  StartGameLiveResponse startGameLiveWithOptions(shared_ptr<StartGameLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartGameLiveResponse startGameLiveWithOptions(shared_ptr<StartGameLiveRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartGameLiveResponse startGameLive(shared_ptr<StartGameLiveRequest> request);
   StopGameLiveResponse stopGameLiveWithOptions(shared_ptr<StopGameLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopGameLiveResponse stopGameLive(shared_ptr<StopGameLiveRequest> request);
