@@ -109,8 +109,10 @@ public:
 };
 class DescribeBgpPackByIpResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
   shared_ptr<DescribeBgpPackByIpResponseBodyDdosbgpInfo> ddosbgpInfo{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   DescribeBgpPackByIpResponseBody() {}
 
@@ -122,16 +124,25 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (ddosbgpInfo) {
       res["DdosbgpInfo"] = ddosbgpInfo ? boost::any(ddosbgpInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
     if (m.find("DdosbgpInfo") != m.end() && !m["DdosbgpInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["DdosbgpInfo"].type()) {
         DescribeBgpPackByIpResponseBodyDdosbgpInfo model1;
@@ -141,6 +152,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -2640,6 +2654,7 @@ public:
   shared_ptr<string> ddosRegionId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<string> internetIp{};
 
   ModifyDdosStatusRequest() {}
 
@@ -2660,6 +2675,9 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (internetIp) {
+      res["InternetIp"] = boost::any(*internetIp);
+    }
     return res;
   }
 
@@ -2672,6 +2690,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
+      internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
     }
   }
 

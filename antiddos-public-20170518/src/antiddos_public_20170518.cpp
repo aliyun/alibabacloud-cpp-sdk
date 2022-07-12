@@ -447,6 +447,9 @@ ModifyDdosStatusResponse Alibabacloud_Antiddos-public20170518::Client::modifyDdo
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetIp)) {
+    query->insert(pair<string, string>("InternetIp", *request->internetIp));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
