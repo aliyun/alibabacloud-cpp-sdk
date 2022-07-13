@@ -20,6 +20,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> userARN{};
   shared_ptr<long> userId{};
 
   AddUserToVpcEndpointServiceRequest() {}
@@ -44,6 +45,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (userARN) {
+      res["UserARN"] = boost::any(*userARN);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -62,6 +66,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("UserARN") != m.end() && !m["UserARN"].empty()) {
+      userARN = make_shared<string>(boost::any_cast<string>(m["UserARN"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
@@ -725,6 +732,154 @@ public:
 
   virtual ~CheckProductOpenResponse() = default;
 };
+class CheckResourceSupportOperateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> zoneId{};
+
+  CheckResourceSupportOperateRequest() {}
+
+  explicit CheckResourceSupportOperateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~CheckResourceSupportOperateRequest() = default;
+};
+class CheckResourceSupportOperateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> resourceSupportDowngrade{};
+  shared_ptr<bool> resourceZoneSupportDeleted{};
+
+  CheckResourceSupportOperateResponseBody() {}
+
+  explicit CheckResourceSupportOperateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceSupportDowngrade) {
+      res["ResourceSupportDowngrade"] = boost::any(*resourceSupportDowngrade);
+    }
+    if (resourceZoneSupportDeleted) {
+      res["ResourceZoneSupportDeleted"] = boost::any(*resourceZoneSupportDeleted);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceSupportDowngrade") != m.end() && !m["ResourceSupportDowngrade"].empty()) {
+      resourceSupportDowngrade = make_shared<bool>(boost::any_cast<bool>(m["ResourceSupportDowngrade"]));
+    }
+    if (m.find("ResourceZoneSupportDeleted") != m.end() && !m["ResourceZoneSupportDeleted"].empty()) {
+      resourceZoneSupportDeleted = make_shared<bool>(boost::any_cast<bool>(m["ResourceZoneSupportDeleted"]));
+    }
+  }
+
+
+  virtual ~CheckResourceSupportOperateResponseBody() = default;
+};
+class CheckResourceSupportOperateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckResourceSupportOperateResponseBody> body{};
+
+  CheckResourceSupportOperateResponse() {}
+
+  explicit CheckResourceSupportOperateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckResourceSupportOperateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckResourceSupportOperateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckResourceSupportOperateResponse() = default;
+};
 class CreateVpcEndpointRequestZone : public Darabonba::Model {
 public:
   shared_ptr<string> vSwitchId{};
@@ -1123,6 +1278,7 @@ public:
   shared_ptr<vector<CreateVpcEndpointServiceRequestResource>> resource{};
   shared_ptr<string> serviceDescription{};
   shared_ptr<string> serviceResourceType{};
+  shared_ptr<bool> serviceSupportIPv6{};
   shared_ptr<bool> zoneAffinityEnabled{};
 
   CreateVpcEndpointServiceRequest() {}
@@ -1162,6 +1318,9 @@ public:
     }
     if (serviceResourceType) {
       res["ServiceResourceType"] = boost::any(*serviceResourceType);
+    }
+    if (serviceSupportIPv6) {
+      res["ServiceSupportIPv6"] = boost::any(*serviceSupportIPv6);
     }
     if (zoneAffinityEnabled) {
       res["ZoneAffinityEnabled"] = boost::any(*zoneAffinityEnabled);
@@ -1204,6 +1363,9 @@ public:
     if (m.find("ServiceResourceType") != m.end() && !m["ServiceResourceType"].empty()) {
       serviceResourceType = make_shared<string>(boost::any_cast<string>(m["ServiceResourceType"]));
     }
+    if (m.find("ServiceSupportIPv6") != m.end() && !m["ServiceSupportIPv6"].empty()) {
+      serviceSupportIPv6 = make_shared<bool>(boost::any_cast<bool>(m["ServiceSupportIPv6"]));
+    }
     if (m.find("ZoneAffinityEnabled") != m.end() && !m["ZoneAffinityEnabled"].empty()) {
       zoneAffinityEnabled = make_shared<bool>(boost::any_cast<bool>(m["ZoneAffinityEnabled"]));
     }
@@ -1223,6 +1385,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceStatus{};
+  shared_ptr<bool> serviceSupportIPv6{};
   shared_ptr<bool> zoneAffinityEnabled{};
 
   CreateVpcEndpointServiceResponseBody() {}
@@ -1262,6 +1425,9 @@ public:
     if (serviceStatus) {
       res["ServiceStatus"] = boost::any(*serviceStatus);
     }
+    if (serviceSupportIPv6) {
+      res["ServiceSupportIPv6"] = boost::any(*serviceSupportIPv6);
+    }
     if (zoneAffinityEnabled) {
       res["ZoneAffinityEnabled"] = boost::any(*zoneAffinityEnabled);
     }
@@ -1295,6 +1461,9 @@ public:
     }
     if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
       serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
+    }
+    if (m.find("ServiceSupportIPv6") != m.end() && !m["ServiceSupportIPv6"].empty()) {
+      serviceSupportIPv6 = make_shared<bool>(boost::any_cast<bool>(m["ServiceSupportIPv6"]));
     }
     if (m.find("ZoneAffinityEnabled") != m.end() && !m["ZoneAffinityEnabled"].empty()) {
       zoneAffinityEnabled = make_shared<bool>(boost::any_cast<bool>(m["ZoneAffinityEnabled"]));
@@ -2998,6 +3167,259 @@ public:
 
   virtual ~EnableVpcEndpointZoneConnectionResponse() = default;
 };
+class GetEndpointAttributeByNsiAndServiceIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> nsiIndex{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceId{};
+
+  GetEndpointAttributeByNsiAndServiceIdRequest() {}
+
+  explicit GetEndpointAttributeByNsiAndServiceIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (nsiIndex) {
+      res["NsiIndex"] = boost::any(*nsiIndex);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("NsiIndex") != m.end() && !m["NsiIndex"].empty()) {
+      nsiIndex = make_shared<string>(boost::any_cast<string>(m["NsiIndex"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~GetEndpointAttributeByNsiAndServiceIdRequest() = default;
+};
+class GetEndpointAttributeByNsiAndServiceIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> connectionStatus{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> endpointName{};
+  shared_ptr<string> endpointStatus{};
+  shared_ptr<string> endpointType{};
+  shared_ptr<string> payer{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> resourceOwner{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<bool> zoneAffinityEnabled{};
+  shared_ptr<long> zonePrivateIpAddressCount{};
+
+  GetEndpointAttributeByNsiAndServiceIdResponseBody() {}
+
+  explicit GetEndpointAttributeByNsiAndServiceIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (connectionStatus) {
+      res["ConnectionStatus"] = boost::any(*connectionStatus);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (endpointName) {
+      res["EndpointName"] = boost::any(*endpointName);
+    }
+    if (endpointStatus) {
+      res["EndpointStatus"] = boost::any(*endpointStatus);
+    }
+    if (endpointType) {
+      res["EndpointType"] = boost::any(*endpointType);
+    }
+    if (payer) {
+      res["Payer"] = boost::any(*payer);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceOwner) {
+      res["ResourceOwner"] = boost::any(*resourceOwner);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (zoneAffinityEnabled) {
+      res["ZoneAffinityEnabled"] = boost::any(*zoneAffinityEnabled);
+    }
+    if (zonePrivateIpAddressCount) {
+      res["ZonePrivateIpAddressCount"] = boost::any(*zonePrivateIpAddressCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
+    if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
+      connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("EndpointName") != m.end() && !m["EndpointName"].empty()) {
+      endpointName = make_shared<string>(boost::any_cast<string>(m["EndpointName"]));
+    }
+    if (m.find("EndpointStatus") != m.end() && !m["EndpointStatus"].empty()) {
+      endpointStatus = make_shared<string>(boost::any_cast<string>(m["EndpointStatus"]));
+    }
+    if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
+      endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
+    }
+    if (m.find("Payer") != m.end() && !m["Payer"].empty()) {
+      payer = make_shared<string>(boost::any_cast<string>(m["Payer"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceOwner") != m.end() && !m["ResourceOwner"].empty()) {
+      resourceOwner = make_shared<bool>(boost::any_cast<bool>(m["ResourceOwner"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("ZoneAffinityEnabled") != m.end() && !m["ZoneAffinityEnabled"].empty()) {
+      zoneAffinityEnabled = make_shared<bool>(boost::any_cast<bool>(m["ZoneAffinityEnabled"]));
+    }
+    if (m.find("ZonePrivateIpAddressCount") != m.end() && !m["ZonePrivateIpAddressCount"].empty()) {
+      zonePrivateIpAddressCount = make_shared<long>(boost::any_cast<long>(m["ZonePrivateIpAddressCount"]));
+    }
+  }
+
+
+  virtual ~GetEndpointAttributeByNsiAndServiceIdResponseBody() = default;
+};
+class GetEndpointAttributeByNsiAndServiceIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetEndpointAttributeByNsiAndServiceIdResponseBody> body{};
+
+  GetEndpointAttributeByNsiAndServiceIdResponse() {}
+
+  explicit GetEndpointAttributeByNsiAndServiceIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetEndpointAttributeByNsiAndServiceIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetEndpointAttributeByNsiAndServiceIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetEndpointAttributeByNsiAndServiceIdResponse() = default;
+};
 class GetVpcEndpointAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endpointId{};
@@ -3304,6 +3726,7 @@ public:
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceResourceType{};
   shared_ptr<string> serviceStatus{};
+  shared_ptr<string> serviceSupportIpv6{};
   shared_ptr<string> serviceType{};
   shared_ptr<bool> zoneAffinityEnabled{};
   shared_ptr<vector<string>> zones{};
@@ -3363,6 +3786,9 @@ public:
     if (serviceStatus) {
       res["ServiceStatus"] = boost::any(*serviceStatus);
     }
+    if (serviceSupportIpv6) {
+      res["ServiceSupportIpv6"] = boost::any(*serviceSupportIpv6);
+    }
     if (serviceType) {
       res["ServiceType"] = boost::any(*serviceType);
     }
@@ -3420,6 +3846,9 @@ public:
     }
     if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
       serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
+    }
+    if (m.find("ServiceSupportIpv6") != m.end() && !m["ServiceSupportIpv6"].empty()) {
+      serviceSupportIpv6 = make_shared<string>(boost::any_cast<string>(m["ServiceSupportIpv6"]));
     }
     if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
       serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
@@ -3506,6 +3935,7 @@ public:
 };
 class ListVpcEndpointConnectionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> connectionId{};
   shared_ptr<string> connectionStatus{};
   shared_ptr<string> endpointId{};
   shared_ptr<long> endpointOwnerId{};
@@ -3527,6 +3957,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (connectionId) {
+      res["ConnectionId"] = boost::any(*connectionId);
+    }
     if (connectionStatus) {
       res["ConnectionStatus"] = boost::any(*connectionStatus);
     }
@@ -3561,6 +3994,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionId") != m.end() && !m["ConnectionId"].empty()) {
+      connectionId = make_shared<long>(boost::any_cast<long>(m["ConnectionId"]));
+    }
     if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
       connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
     }
@@ -3598,6 +4034,8 @@ public:
 };
 class ListVpcEndpointConnectionsResponseBodyConnectionsZones : public Darabonba::Model {
 public:
+  shared_ptr<long> connectionId{};
+  shared_ptr<string> connectionStringId{};
   shared_ptr<string> eniId{};
   shared_ptr<string> replacedEniId{};
   shared_ptr<string> replacedResourceId{};
@@ -3617,6 +4055,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (connectionId) {
+      res["ConnectionId"] = boost::any(*connectionId);
+    }
+    if (connectionStringId) {
+      res["ConnectionStringId"] = boost::any(*connectionStringId);
+    }
     if (eniId) {
       res["EniId"] = boost::any(*eniId);
     }
@@ -3645,6 +4089,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionId") != m.end() && !m["ConnectionId"].empty()) {
+      connectionId = make_shared<long>(boost::any_cast<long>(m["ConnectionId"]));
+    }
+    if (m.find("ConnectionStringId") != m.end() && !m["ConnectionStringId"].empty()) {
+      connectionStringId = make_shared<string>(boost::any_cast<string>(m["ConnectionStringId"]));
+    }
     if (m.find("EniId") != m.end() && !m["EniId"].empty()) {
       eniId = make_shared<string>(boost::any_cast<string>(m["EniId"]));
     }
@@ -4162,6 +4612,7 @@ public:
   shared_ptr<long> relatedDeprecatedEndpointCount{};
   shared_ptr<long> relatedEndpointCount{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceSupportIpv6{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -4194,6 +4645,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceSupportIpv6) {
+      res["ResourceSupportIpv6"] = boost::any(*resourceSupportIpv6);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -4228,6 +4682,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceSupportIpv6") != m.end() && !m["ResourceSupportIpv6"].empty()) {
+      resourceSupportIpv6 = make_shared<string>(boost::any_cast<string>(m["ResourceSupportIpv6"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -4379,6 +4836,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceId{};
   shared_ptr<long> userId{};
+  shared_ptr<string> userListType{};
 
   ListVpcEndpointServiceUsersRequest() {}
 
@@ -4405,6 +4863,9 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (userListType) {
+      res["UserListType"] = boost::any(*userListType);
+    }
     return res;
   }
 
@@ -4424,10 +4885,42 @@ public:
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
     }
+    if (m.find("UserListType") != m.end() && !m["UserListType"].empty()) {
+      userListType = make_shared<string>(boost::any_cast<string>(m["UserListType"]));
+    }
   }
 
 
   virtual ~ListVpcEndpointServiceUsersRequest() = default;
+};
+class ListVpcEndpointServiceUsersResponseBodyUserARNs : public Darabonba::Model {
+public:
+  shared_ptr<string> userARN{};
+
+  ListVpcEndpointServiceUsersResponseBodyUserARNs() {}
+
+  explicit ListVpcEndpointServiceUsersResponseBodyUserARNs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userARN) {
+      res["UserARN"] = boost::any(*userARN);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserARN") != m.end() && !m["UserARN"].empty()) {
+      userARN = make_shared<string>(boost::any_cast<string>(m["UserARN"]));
+    }
+  }
+
+
+  virtual ~ListVpcEndpointServiceUsersResponseBodyUserARNs() = default;
 };
 class ListVpcEndpointServiceUsersResponseBodyUsers : public Darabonba::Model {
 public:
@@ -4463,6 +4956,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
+  shared_ptr<vector<ListVpcEndpointServiceUsersResponseBodyUserARNs>> userARNs{};
   shared_ptr<vector<ListVpcEndpointServiceUsersResponseBodyUsers>> users{};
 
   ListVpcEndpointServiceUsersResponseBody() {}
@@ -4484,6 +4978,13 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (userARNs) {
+      vector<boost::any> temp1;
+      for(auto item1:*userARNs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserARNs"] = boost::any(temp1);
+    }
     if (users) {
       vector<boost::any> temp1;
       for(auto item1:*users){
@@ -4503,6 +5004,19 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UserARNs") != m.end() && !m["UserARNs"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserARNs"].type()) {
+        vector<ListVpcEndpointServiceUsersResponseBodyUserARNs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserARNs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVpcEndpointServiceUsersResponseBodyUserARNs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userARNs = make_shared<vector<ListVpcEndpointServiceUsersResponseBodyUserARNs>>(expect1);
+      }
     }
     if (m.find("Users") != m.end() && !m["Users"].empty()) {
       if (typeid(vector<boost::any>) == m["Users"].type()) {
@@ -4692,6 +5206,7 @@ public:
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceResourceType{};
   shared_ptr<string> serviceStatus{};
+  shared_ptr<string> serviceSupportIpv6{};
   shared_ptr<string> serviceType{};
   shared_ptr<bool> zoneAffinityEnabled{};
 
@@ -4747,6 +5262,9 @@ public:
     if (serviceStatus) {
       res["ServiceStatus"] = boost::any(*serviceStatus);
     }
+    if (serviceSupportIpv6) {
+      res["ServiceSupportIpv6"] = boost::any(*serviceSupportIpv6);
+    }
     if (serviceType) {
       res["ServiceType"] = boost::any(*serviceType);
     }
@@ -4798,6 +5316,9 @@ public:
     }
     if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
       serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
+    }
+    if (m.find("ServiceSupportIpv6") != m.end() && !m["ServiceSupportIpv6"].empty()) {
+      serviceSupportIpv6 = make_shared<string>(boost::any_cast<string>(m["ServiceSupportIpv6"]));
     }
     if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
       serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
@@ -5006,6 +5527,7 @@ public:
   shared_ptr<string> serviceDomain{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceSupportIPv6{};
   shared_ptr<string> serviceType{};
   shared_ptr<vector<string>> zones{};
 
@@ -5031,6 +5553,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (serviceSupportIPv6) {
+      res["ServiceSupportIPv6"] = boost::any(*serviceSupportIPv6);
+    }
     if (serviceType) {
       res["ServiceType"] = boost::any(*serviceType);
     }
@@ -5052,6 +5577,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceSupportIPv6") != m.end() && !m["ServiceSupportIPv6"].empty()) {
+      serviceSupportIPv6 = make_shared<string>(boost::any_cast<string>(m["ServiceSupportIPv6"]));
     }
     if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
       serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
@@ -5251,11 +5779,14 @@ class ListVpcEndpointZonesResponseBodyZones : public Darabonba::Model {
 public:
   shared_ptr<string> eniId{};
   shared_ptr<string> eniIp{};
+  shared_ptr<long> nsiIndex{};
+  shared_ptr<string> nsiIndexString{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceStatus{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneDomain{};
   shared_ptr<string> zoneId{};
+  shared_ptr<string> zoneIpv6Address{};
   shared_ptr<string> zoneStatus{};
 
   ListVpcEndpointZonesResponseBodyZones() {}
@@ -5274,6 +5805,12 @@ public:
     if (eniIp) {
       res["EniIp"] = boost::any(*eniIp);
     }
+    if (nsiIndex) {
+      res["NsiIndex"] = boost::any(*nsiIndex);
+    }
+    if (nsiIndexString) {
+      res["NsiIndexString"] = boost::any(*nsiIndexString);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -5289,6 +5826,9 @@ public:
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
+    if (zoneIpv6Address) {
+      res["ZoneIpv6Address"] = boost::any(*zoneIpv6Address);
+    }
     if (zoneStatus) {
       res["ZoneStatus"] = boost::any(*zoneStatus);
     }
@@ -5301,6 +5841,12 @@ public:
     }
     if (m.find("EniIp") != m.end() && !m["EniIp"].empty()) {
       eniIp = make_shared<string>(boost::any_cast<string>(m["EniIp"]));
+    }
+    if (m.find("NsiIndex") != m.end() && !m["NsiIndex"].empty()) {
+      nsiIndex = make_shared<long>(boost::any_cast<long>(m["NsiIndex"]));
+    }
+    if (m.find("NsiIndexString") != m.end() && !m["NsiIndexString"].empty()) {
+      nsiIndexString = make_shared<string>(boost::any_cast<string>(m["NsiIndexString"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -5316,6 +5862,9 @@ public:
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+    if (m.find("ZoneIpv6Address") != m.end() && !m["ZoneIpv6Address"].empty()) {
+      zoneIpv6Address = make_shared<string>(boost::any_cast<string>(m["ZoneIpv6Address"]));
     }
     if (m.find("ZoneStatus") != m.end() && !m["ZoneStatus"].empty()) {
       zoneStatus = make_shared<string>(boost::any_cast<string>(m["ZoneStatus"]));
@@ -5803,6 +6352,147 @@ public:
 
   virtual ~ListVpcEndpointsResponse() = default;
 };
+class NotifyResourceAddressFamilyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> addressFamily{};
+  shared_ptr<string> ipv6Address{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+
+  NotifyResourceAddressFamilyRequest() {}
+
+  explicit NotifyResourceAddressFamilyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addressFamily) {
+      res["AddressFamily"] = boost::any(*addressFamily);
+    }
+    if (ipv6Address) {
+      res["Ipv6Address"] = boost::any(*ipv6Address);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressFamily") != m.end() && !m["AddressFamily"].empty()) {
+      addressFamily = make_shared<string>(boost::any_cast<string>(m["AddressFamily"]));
+    }
+    if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
+      ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~NotifyResourceAddressFamilyRequest() = default;
+};
+class NotifyResourceAddressFamilyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  NotifyResourceAddressFamilyResponseBody() {}
+
+  explicit NotifyResourceAddressFamilyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~NotifyResourceAddressFamilyResponseBody() = default;
+};
+class NotifyResourceAddressFamilyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<NotifyResourceAddressFamilyResponseBody> body{};
+
+  NotifyResourceAddressFamilyResponse() {}
+
+  explicit NotifyResourceAddressFamilyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        NotifyResourceAddressFamilyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<NotifyResourceAddressFamilyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~NotifyResourceAddressFamilyResponse() = default;
+};
 class OpenPrivateLinkServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ownerId{};
@@ -5936,6 +6626,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceId{};
+  shared_ptr<string> userARN{};
   shared_ptr<long> userId{};
 
   RemoveUserFromVpcEndpointServiceRequest() {}
@@ -5960,6 +6651,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (userARN) {
+      res["UserARN"] = boost::any(*userARN);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -5978,6 +6672,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("UserARN") != m.end() && !m["UserARN"].empty()) {
+      userARN = make_shared<string>(boost::any_cast<string>(m["UserARN"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
@@ -6545,6 +7242,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceDescription{};
   shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceSupportIpv6{};
   shared_ptr<bool> zoneAffinityEnabled{};
 
   UpdateVpcEndpointServiceAttributeRequest() {}
@@ -6578,6 +7276,9 @@ public:
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
+    if (serviceSupportIpv6) {
+      res["ServiceSupportIpv6"] = boost::any(*serviceSupportIpv6);
+    }
     if (zoneAffinityEnabled) {
       res["ZoneAffinityEnabled"] = boost::any(*zoneAffinityEnabled);
     }
@@ -6605,6 +7306,9 @@ public:
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceSupportIpv6") != m.end() && !m["ServiceSupportIpv6"].empty()) {
+      serviceSupportIpv6 = make_shared<bool>(boost::any_cast<bool>(m["ServiceSupportIpv6"]));
     }
     if (m.find("ZoneAffinityEnabled") != m.end() && !m["ZoneAffinityEnabled"].empty()) {
       zoneAffinityEnabled = make_shared<bool>(boost::any_cast<bool>(m["ZoneAffinityEnabled"]));
@@ -7063,6 +7767,8 @@ public:
   AttachSecurityGroupToVpcEndpointResponse attachSecurityGroupToVpcEndpoint(shared_ptr<AttachSecurityGroupToVpcEndpointRequest> request);
   CheckProductOpenResponse checkProductOpenWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckProductOpenResponse checkProductOpen();
+  CheckResourceSupportOperateResponse checkResourceSupportOperateWithOptions(shared_ptr<CheckResourceSupportOperateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckResourceSupportOperateResponse checkResourceSupportOperate(shared_ptr<CheckResourceSupportOperateRequest> request);
   CreateVpcEndpointResponse createVpcEndpointWithOptions(shared_ptr<CreateVpcEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVpcEndpointResponse createVpcEndpoint(shared_ptr<CreateVpcEndpointRequest> request);
   CreateVpcEndpointServiceResponse createVpcEndpointServiceWithOptions(shared_ptr<CreateVpcEndpointServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7087,6 +7793,8 @@ public:
   EnableVpcEndpointConnectionResponse enableVpcEndpointConnection(shared_ptr<EnableVpcEndpointConnectionRequest> request);
   EnableVpcEndpointZoneConnectionResponse enableVpcEndpointZoneConnectionWithOptions(shared_ptr<EnableVpcEndpointZoneConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableVpcEndpointZoneConnectionResponse enableVpcEndpointZoneConnection(shared_ptr<EnableVpcEndpointZoneConnectionRequest> request);
+  GetEndpointAttributeByNsiAndServiceIdResponse getEndpointAttributeByNsiAndServiceIdWithOptions(shared_ptr<GetEndpointAttributeByNsiAndServiceIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetEndpointAttributeByNsiAndServiceIdResponse getEndpointAttributeByNsiAndServiceId(shared_ptr<GetEndpointAttributeByNsiAndServiceIdRequest> request);
   GetVpcEndpointAttributeResponse getVpcEndpointAttributeWithOptions(shared_ptr<GetVpcEndpointAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVpcEndpointAttributeResponse getVpcEndpointAttribute(shared_ptr<GetVpcEndpointAttributeRequest> request);
   GetVpcEndpointServiceAttributeResponse getVpcEndpointServiceAttributeWithOptions(shared_ptr<GetVpcEndpointServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7107,6 +7815,8 @@ public:
   ListVpcEndpointZonesResponse listVpcEndpointZones(shared_ptr<ListVpcEndpointZonesRequest> request);
   ListVpcEndpointsResponse listVpcEndpointsWithOptions(shared_ptr<ListVpcEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpcEndpointsResponse listVpcEndpoints(shared_ptr<ListVpcEndpointsRequest> request);
+  NotifyResourceAddressFamilyResponse notifyResourceAddressFamilyWithOptions(shared_ptr<NotifyResourceAddressFamilyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  NotifyResourceAddressFamilyResponse notifyResourceAddressFamily(shared_ptr<NotifyResourceAddressFamilyRequest> request);
   OpenPrivateLinkServiceResponse openPrivateLinkServiceWithOptions(shared_ptr<OpenPrivateLinkServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenPrivateLinkServiceResponse openPrivateLinkService(shared_ptr<OpenPrivateLinkServiceRequest> request);
   RemoveUserFromVpcEndpointServiceResponse removeUserFromVpcEndpointServiceWithOptions(shared_ptr<RemoveUserFromVpcEndpointServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
