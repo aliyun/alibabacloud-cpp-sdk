@@ -16707,6 +16707,7 @@ public:
   shared_ptr<long> parallelism{};
   shared_ptr<vector<PreviewStackRequestParameters>> parameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
   shared_ptr<string> stackPolicyBody{};
   shared_ptr<string> stackPolicyURL{};
@@ -16746,6 +16747,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
     }
     if (stackName) {
       res["StackName"] = boost::any(*stackName);
@@ -16805,6 +16809,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
     if (m.find("StackName") != m.end() && !m["StackName"].empty()) {
       stackName = make_shared<string>(boost::any_cast<string>(m["StackName"]));
@@ -16965,9 +16972,11 @@ public:
 };
 class PreviewStackResponseBodyStackResources : public Darabonba::Model {
 public:
+  shared_ptr<string> action{};
   shared_ptr<string> description{};
   shared_ptr<string> logicalResourceId{};
   shared_ptr<map<string, boost::any>> properties{};
+  shared_ptr<string> replacement{};
   shared_ptr<vector<string>> requiredBy{};
   shared_ptr<string> resourceType{};
   shared_ptr<map<string, boost::any>> stack{};
@@ -16982,6 +16991,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -16990,6 +17002,9 @@ public:
     }
     if (properties) {
       res["Properties"] = boost::any(*properties);
+    }
+    if (replacement) {
+      res["Replacement"] = boost::any(*replacement);
     }
     if (requiredBy) {
       res["RequiredBy"] = boost::any(*requiredBy);
@@ -17004,6 +17019,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -17017,6 +17035,9 @@ public:
          toMap1[item.first] = item.second;
       }
       properties = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Replacement") != m.end() && !m["Replacement"].empty()) {
+      replacement = make_shared<string>(boost::any_cast<string>(m["Replacement"]));
     }
     if (m.find("RequiredBy") != m.end() && !m["RequiredBy"].empty()) {
       vector<string> toVec1;
