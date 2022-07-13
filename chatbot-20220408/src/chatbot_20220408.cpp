@@ -1464,6 +1464,52 @@ FeedbackResponse Alibabacloud_Chatbot20220408::Client::feedback(shared_ptr<Feedb
   return feedbackWithOptions(request, runtime);
 }
 
+GenerateUserAccessTokenResponse Alibabacloud_Chatbot20220408::Client::generateUserAccessTokenWithOptions(shared_ptr<GenerateUserAccessTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expireTime)) {
+    query->insert(pair<string, long>("ExpireTime", *request->expireTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
+    query->insert(pair<string, string>("ExtraInfo", *request->extraInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->foreignId)) {
+    query->insert(pair<string, string>("ForeignId", *request->foreignId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nick)) {
+    query->insert(pair<string, string>("Nick", *request->nick));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->telephone)) {
+    query->insert(pair<string, string>("Telephone", *request->telephone));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateUserAccessToken"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateUserAccessTokenResponse(callApi(params, req, runtime));
+}
+
+GenerateUserAccessTokenResponse Alibabacloud_Chatbot20220408::Client::generateUserAccessToken(shared_ptr<GenerateUserAccessTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return generateUserAccessTokenWithOptions(request, runtime);
+}
+
 GetAsyncResultResponse Alibabacloud_Chatbot20220408::Client::getAsyncResultWithOptions(shared_ptr<GetAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
