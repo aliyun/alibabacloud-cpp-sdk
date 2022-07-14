@@ -10277,6 +10277,7 @@ public:
 };
 class DescribeCriteriaResponseBodyCriteriaList : public Darabonba::Model {
 public:
+  shared_ptr<string> multiValues{};
   shared_ptr<string> name{};
   shared_ptr<string> type{};
   shared_ptr<string> values{};
@@ -10291,6 +10292,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (multiValues) {
+      res["MultiValues"] = boost::any(*multiValues);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -10304,6 +10308,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultiValues") != m.end() && !m["MultiValues"].empty()) {
+      multiValues = make_shared<string>(boost::any_cast<string>(m["MultiValues"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -18762,6 +18769,204 @@ public:
 
   virtual ~DescribeInstanceAntiBruteForceRulesResponse() = default;
 };
+class DescribeInstanceRebootStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> uuids{};
+
+  DescribeInstanceRebootStatusRequest() {}
+
+  explicit DescribeInstanceRebootStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (uuids) {
+      res["Uuids"] = boost::any(*uuids);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Uuids") != m.end() && !m["Uuids"].empty()) {
+      uuids = make_shared<string>(boost::any_cast<string>(m["Uuids"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRebootStatusRequest() = default;
+};
+class DescribeInstanceRebootStatusResponseBodyRebootStatuses : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> msg{};
+  shared_ptr<long> rebootStatus{};
+  shared_ptr<string> uuid{};
+
+  DescribeInstanceRebootStatusResponseBodyRebootStatuses() {}
+
+  explicit DescribeInstanceRebootStatusResponseBodyRebootStatuses(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (rebootStatus) {
+      res["RebootStatus"] = boost::any(*rebootStatus);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RebootStatus") != m.end() && !m["RebootStatus"].empty()) {
+      rebootStatus = make_shared<long>(boost::any_cast<long>(m["RebootStatus"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRebootStatusResponseBodyRebootStatuses() = default;
+};
+class DescribeInstanceRebootStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeInstanceRebootStatusResponseBodyRebootStatuses>> rebootStatuses{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeInstanceRebootStatusResponseBody() {}
+
+  explicit DescribeInstanceRebootStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rebootStatuses) {
+      vector<boost::any> temp1;
+      for(auto item1:*rebootStatuses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RebootStatuses"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RebootStatuses") != m.end() && !m["RebootStatuses"].empty()) {
+      if (typeid(vector<boost::any>) == m["RebootStatuses"].type()) {
+        vector<DescribeInstanceRebootStatusResponseBodyRebootStatuses> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RebootStatuses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstanceRebootStatusResponseBodyRebootStatuses model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rebootStatuses = make_shared<vector<DescribeInstanceRebootStatusResponseBodyRebootStatuses>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceRebootStatusResponseBody() = default;
+};
+class DescribeInstanceRebootStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeInstanceRebootStatusResponseBody> body{};
+
+  DescribeInstanceRebootStatusResponse() {}
+
+  explicit DescribeInstanceRebootStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeInstanceRebootStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeInstanceRebootStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInstanceRebootStatusResponse() = default;
+};
 class DescribeInstanceStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> from{};
@@ -24791,7 +24996,7 @@ public:
 };
 class DescribeRiskCheckItemResultResponseBodyPageContentResource : public Darabonba::Model {
 public:
-  shared_ptr<string> contentResource{};
+  shared_ptr<map<string, boost::any>> contentResource{};
   shared_ptr<long> count{};
   shared_ptr<long> currentPage{};
   shared_ptr<long> pageCount{};
@@ -24831,7 +25036,12 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ContentResource") != m.end() && !m["ContentResource"].empty()) {
-      contentResource = make_shared<string>(boost::any_cast<string>(m["ContentResource"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ContentResource"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      contentResource = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Count") != m.end() && !m["Count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["Count"]));
@@ -46299,6 +46509,126 @@ public:
 
   virtual ~QueryGroupedSecurityEventMarkMissListResponse() = default;
 };
+class RebootMachineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> uuid{};
+
+  RebootMachineRequest() {}
+
+  explicit RebootMachineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~RebootMachineRequest() = default;
+};
+class RebootMachineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RebootMachineResponseBody() {}
+
+  explicit RebootMachineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RebootMachineResponseBody() = default;
+};
+class RebootMachineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RebootMachineResponseBody> body{};
+
+  RebootMachineResponse() {}
+
+  explicit RebootMachineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RebootMachineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RebootMachineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RebootMachineResponse() = default;
+};
 class RefreshAssetsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> assetType{};
@@ -47641,6 +47971,8 @@ public:
   DescribeInstallCodesResponse describeInstallCodes();
   DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRulesWithOptions(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceAntiBruteForceRulesResponse describeInstanceAntiBruteForceRules(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request);
+  DescribeInstanceRebootStatusResponse describeInstanceRebootStatusWithOptions(shared_ptr<DescribeInstanceRebootStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeInstanceRebootStatusResponse describeInstanceRebootStatus(shared_ptr<DescribeInstanceRebootStatusRequest> request);
   DescribeInstanceStatisticsResponse describeInstanceStatisticsWithOptions(shared_ptr<DescribeInstanceStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceStatisticsResponse describeInstanceStatistics(shared_ptr<DescribeInstanceStatisticsRequest> request);
   DescribeLoginBaseConfigsResponse describeLoginBaseConfigsWithOptions(shared_ptr<DescribeLoginBaseConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -47869,6 +48201,8 @@ public:
   QueryGroupIdByGroupNameResponse queryGroupIdByGroupName(shared_ptr<QueryGroupIdByGroupNameRequest> request);
   QueryGroupedSecurityEventMarkMissListResponse queryGroupedSecurityEventMarkMissListWithOptions(shared_ptr<QueryGroupedSecurityEventMarkMissListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryGroupedSecurityEventMarkMissListResponse queryGroupedSecurityEventMarkMissList(shared_ptr<QueryGroupedSecurityEventMarkMissListRequest> request);
+  RebootMachineResponse rebootMachineWithOptions(shared_ptr<RebootMachineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RebootMachineResponse rebootMachine(shared_ptr<RebootMachineRequest> request);
   RefreshAssetsResponse refreshAssetsWithOptions(shared_ptr<RefreshAssetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefreshAssetsResponse refreshAssets(shared_ptr<RefreshAssetsRequest> request);
   RefreshContainerAssetsResponse refreshContainerAssetsWithOptions(shared_ptr<RefreshContainerAssetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

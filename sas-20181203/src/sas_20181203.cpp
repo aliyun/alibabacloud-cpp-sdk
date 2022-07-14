@@ -20,62 +20,62 @@ Alibabacloud_Sas20181203::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-hangzhou", "tds.aliyuncs.com"},
-    {"ap-southeast-3", "tds.ap-southeast-3.aliyuncs.com"},
-    {"ap-northeast-1", "tds.aliyuncs.com"},
-    {"ap-northeast-2-pop", "tds.aliyuncs.com"},
-    {"ap-south-1", "tds.aliyuncs.com"},
     {"ap-southeast-1", "tds.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-2", "tds.aliyuncs.com"},
-    {"ap-southeast-5", "tds.aliyuncs.com"},
-    {"cn-beijing", "tds.aliyuncs.com"},
-    {"cn-beijing-finance-1", "tds.aliyuncs.com"},
-    {"cn-beijing-finance-pop", "tds.aliyuncs.com"},
-    {"cn-beijing-gov-1", "tds.aliyuncs.com"},
-    {"cn-beijing-nu16-b01", "tds.aliyuncs.com"},
-    {"cn-chengdu", "tds.aliyuncs.com"},
-    {"cn-edge-1", "tds.aliyuncs.com"},
-    {"cn-fujian", "tds.aliyuncs.com"},
-    {"cn-haidian-cm12-c01", "tds.aliyuncs.com"},
-    {"cn-hangzhou-bj-b01", "tds.aliyuncs.com"},
-    {"cn-hangzhou-finance", "tds.aliyuncs.com"},
-    {"cn-hangzhou-internal-prod-1", "tds.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "tds.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "tds.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "tds.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "tds.aliyuncs.com"},
-    {"cn-hongkong", "tds.aliyuncs.com"},
-    {"cn-hongkong-finance-pop", "tds.aliyuncs.com"},
-    {"cn-huhehaote", "tds.aliyuncs.com"},
-    {"cn-huhehaote-nebula-1", "tds.aliyuncs.com"},
-    {"cn-north-2-gov-1", "tds.aliyuncs.com"},
-    {"cn-qingdao", "tds.aliyuncs.com"},
-    {"cn-qingdao-nebula", "tds.aliyuncs.com"},
-    {"cn-shanghai", "tds.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "tds.aliyuncs.com"},
-    {"cn-shanghai-et2-b01", "tds.aliyuncs.com"},
-    {"cn-shanghai-finance-1", "tds.aliyuncs.com"},
-    {"cn-shanghai-inner", "tds.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "tds.aliyuncs.com"},
-    {"cn-shenzhen", "tds.aliyuncs.com"},
-    {"cn-shenzhen-finance-1", "tds.aliyuncs.com"},
-    {"cn-shenzhen-inner", "tds.aliyuncs.com"},
-    {"cn-shenzhen-st4-d01", "tds.aliyuncs.com"},
-    {"cn-shenzhen-su18-b01", "tds.aliyuncs.com"},
-    {"cn-wuhan", "tds.aliyuncs.com"},
-    {"cn-wulanchabu", "tds.aliyuncs.com"},
-    {"cn-yushanfang", "tds.aliyuncs.com"},
-    {"cn-zhangbei", "tds.aliyuncs.com"},
-    {"cn-zhangbei-na61-b01", "tds.aliyuncs.com"},
-    {"cn-zhangjiakou", "tds.aliyuncs.com"},
-    {"cn-zhangjiakou-na62-a01", "tds.aliyuncs.com"},
-    {"cn-zhengzhou-nebula-1", "tds.aliyuncs.com"},
-    {"eu-central-1", "tds.aliyuncs.com"},
-    {"eu-west-1", "tds.aliyuncs.com"},
-    {"eu-west-1-oxs", "tds.aliyuncs.com"},
-    {"me-east-1", "tds.aliyuncs.com"},
-    {"rus-west-1-pop", "tds.aliyuncs.com"},
-    {"us-east-1", "tds.aliyuncs.com"},
-    {"us-west-1", "tds.aliyuncs.com"}
+    {"ap-southeast-3", "tds.ap-southeast-3.aliyuncs.com"},
+    {"ap-northeast-1", "sas.aliyuncs.com"},
+    {"ap-northeast-2-pop", "sas.aliyuncs.com"},
+    {"ap-south-1", "sas.aliyuncs.com"},
+    {"ap-southeast-2", "sas.aliyuncs.com"},
+    {"ap-southeast-5", "sas.aliyuncs.com"},
+    {"cn-beijing", "sas.aliyuncs.com"},
+    {"cn-beijing-finance-1", "sas.aliyuncs.com"},
+    {"cn-beijing-finance-pop", "sas.aliyuncs.com"},
+    {"cn-beijing-gov-1", "sas.aliyuncs.com"},
+    {"cn-beijing-nu16-b01", "sas.aliyuncs.com"},
+    {"cn-chengdu", "sas.aliyuncs.com"},
+    {"cn-edge-1", "sas.aliyuncs.com"},
+    {"cn-fujian", "sas.aliyuncs.com"},
+    {"cn-haidian-cm12-c01", "sas.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01", "sas.aliyuncs.com"},
+    {"cn-hangzhou-finance", "sas.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1", "sas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1", "sas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2", "sas.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3", "sas.aliyuncs.com"},
+    {"cn-hangzhou-test-306", "sas.aliyuncs.com"},
+    {"cn-hongkong", "sas.aliyuncs.com"},
+    {"cn-hongkong-finance-pop", "sas.aliyuncs.com"},
+    {"cn-huhehaote", "sas.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1", "sas.aliyuncs.com"},
+    {"cn-north-2-gov-1", "sas.aliyuncs.com"},
+    {"cn-qingdao", "sas.aliyuncs.com"},
+    {"cn-qingdao-nebula", "sas.aliyuncs.com"},
+    {"cn-shanghai", "sas.aliyuncs.com"},
+    {"cn-shanghai-et15-b01", "sas.aliyuncs.com"},
+    {"cn-shanghai-et2-b01", "sas.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "sas.aliyuncs.com"},
+    {"cn-shanghai-inner", "sas.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1", "sas.aliyuncs.com"},
+    {"cn-shenzhen", "sas.aliyuncs.com"},
+    {"cn-shenzhen-finance-1", "sas.aliyuncs.com"},
+    {"cn-shenzhen-inner", "sas.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01", "sas.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01", "sas.aliyuncs.com"},
+    {"cn-wuhan", "sas.aliyuncs.com"},
+    {"cn-wulanchabu", "sas.aliyuncs.com"},
+    {"cn-yushanfang", "sas.aliyuncs.com"},
+    {"cn-zhangbei", "sas.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01", "sas.aliyuncs.com"},
+    {"cn-zhangjiakou", "sas.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01", "sas.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1", "sas.aliyuncs.com"},
+    {"eu-central-1", "sas.aliyuncs.com"},
+    {"eu-west-1", "sas.aliyuncs.com"},
+    {"eu-west-1-oxs", "sas.aliyuncs.com"},
+    {"me-east-1", "sas.aliyuncs.com"},
+    {"rus-west-1-pop", "sas.aliyuncs.com"},
+    {"us-east-1", "sas.aliyuncs.com"},
+    {"us-west-1", "sas.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -2948,6 +2948,34 @@ DescribeInstanceAntiBruteForceRulesResponse Alibabacloud_Sas20181203::Client::de
 DescribeInstanceAntiBruteForceRulesResponse Alibabacloud_Sas20181203::Client::describeInstanceAntiBruteForceRules(shared_ptr<DescribeInstanceAntiBruteForceRulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeInstanceAntiBruteForceRulesWithOptions(request, runtime);
+}
+
+DescribeInstanceRebootStatusResponse Alibabacloud_Sas20181203::Client::describeInstanceRebootStatusWithOptions(shared_ptr<DescribeInstanceRebootStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuids)) {
+    query->insert(pair<string, string>("Uuids", *request->uuids));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceRebootStatus"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceRebootStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceRebootStatusResponse Alibabacloud_Sas20181203::Client::describeInstanceRebootStatus(shared_ptr<DescribeInstanceRebootStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceRebootStatusWithOptions(request, runtime);
 }
 
 DescribeInstanceStatisticsResponse Alibabacloud_Sas20181203::Client::describeInstanceStatisticsWithOptions(shared_ptr<DescribeInstanceStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7408,6 +7436,34 @@ QueryGroupedSecurityEventMarkMissListResponse Alibabacloud_Sas20181203::Client::
 QueryGroupedSecurityEventMarkMissListResponse Alibabacloud_Sas20181203::Client::queryGroupedSecurityEventMarkMissList(shared_ptr<QueryGroupedSecurityEventMarkMissListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryGroupedSecurityEventMarkMissListWithOptions(request, runtime);
+}
+
+RebootMachineResponse Alibabacloud_Sas20181203::Client::rebootMachineWithOptions(shared_ptr<RebootMachineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RebootMachine"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RebootMachineResponse(callApi(params, req, runtime));
+}
+
+RebootMachineResponse Alibabacloud_Sas20181203::Client::rebootMachine(shared_ptr<RebootMachineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return rebootMachineWithOptions(request, runtime);
 }
 
 RefreshAssetsResponse Alibabacloud_Sas20181203::Client::refreshAssetsWithOptions(shared_ptr<RefreshAssetsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
