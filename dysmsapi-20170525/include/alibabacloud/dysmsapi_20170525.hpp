@@ -5038,6 +5038,7 @@ public:
   shared_ptr<string> auditStatus{};
   shared_ptr<string> createDate{};
   shared_ptr<string> orderId{};
+  shared_ptr<long> outerTemplateType{};
   shared_ptr<QuerySmsTemplateListResponseBodySmsTemplateListReason> reason{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateContent{};
@@ -5062,6 +5063,9 @@ public:
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (outerTemplateType) {
+      res["OuterTemplateType"] = boost::any(*outerTemplateType);
     }
     if (reason) {
       res["Reason"] = reason ? boost::any(reason->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5090,6 +5094,9 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OuterTemplateType") != m.end() && !m["OuterTemplateType"].empty()) {
+      outerTemplateType = make_shared<long>(boost::any_cast<long>(m["OuterTemplateType"]));
     }
     if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
       if (typeid(map<string, boost::any>) == m["Reason"].type()) {
