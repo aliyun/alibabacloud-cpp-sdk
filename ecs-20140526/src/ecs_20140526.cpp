@@ -960,6 +960,9 @@ AuthorizeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::authorizeSecuri
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -984,6 +987,9 @@ AuthorizeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::authorizeSecuri
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<AuthorizeSecurityGroupRequestPermissions>>(request->permissions)) {
+    query->insert(pair<string, vector<AuthorizeSecurityGroupRequestPermissions>>("Permissions", *request->permissions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
   }
@@ -999,11 +1005,17 @@ AuthorizeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::authorizeSecuri
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
@@ -1054,6 +1066,9 @@ AuthorizeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::authorize
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -1090,6 +1105,9 @@ AuthorizeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::authorize
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<AuthorizeSecurityGroupEgressRequestPermissions>>(request->permissions)) {
+    query->insert(pair<string, vector<AuthorizeSecurityGroupEgressRequestPermissions>>("Permissions", *request->permissions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
   }
@@ -1105,11 +1123,17 @@ AuthorizeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::authorize
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
@@ -18176,6 +18200,9 @@ RevokeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::revokeSecurityGrou
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -18200,6 +18227,9 @@ RevokeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::revokeSecurityGrou
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RevokeSecurityGroupRequestPermissions>>(request->permissions)) {
+    query->insert(pair<string, vector<RevokeSecurityGroupRequestPermissions>>("Permissions", *request->permissions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
   }
@@ -18220,6 +18250,9 @@ RevokeSecurityGroupResponse Alibabacloud_Ecs20140526::Client::revokeSecurityGrou
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
@@ -18270,6 +18303,9 @@ RevokeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::revokeSecuri
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -18306,6 +18342,9 @@ RevokeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::revokeSecuri
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<RevokeSecurityGroupEgressRequestPermissions>>(request->permissions)) {
+    query->insert(pair<string, vector<RevokeSecurityGroupEgressRequestPermissions>>("Permissions", *request->permissions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
   }
@@ -18321,11 +18360,17 @@ RevokeSecurityGroupEgressResponse Alibabacloud_Ecs20140526::Client::revokeSecuri
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));

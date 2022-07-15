@@ -3578,6 +3578,133 @@ public:
 
   virtual ~AttachNetworkInterfaceResponse() = default;
 };
+class AuthorizeSecurityGroupRequestPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> destCidrIp{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> ipv6DestCidrIp{};
+  shared_ptr<string> ipv6SourceCidrIp{};
+  shared_ptr<string> nicType{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<string> sourceGroupId{};
+  shared_ptr<string> sourceGroupOwnerAccount{};
+  shared_ptr<long> sourceGroupOwnerId{};
+  shared_ptr<string> sourcePortRange{};
+  shared_ptr<string> sourcePrefixListId{};
+
+  AuthorizeSecurityGroupRequestPermissions() {}
+
+  explicit AuthorizeSecurityGroupRequestPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destCidrIp) {
+      res["DestCidrIp"] = boost::any(*destCidrIp);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (ipv6DestCidrIp) {
+      res["Ipv6DestCidrIp"] = boost::any(*ipv6DestCidrIp);
+    }
+    if (ipv6SourceCidrIp) {
+      res["Ipv6SourceCidrIp"] = boost::any(*ipv6SourceCidrIp);
+    }
+    if (nicType) {
+      res["NicType"] = boost::any(*nicType);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (sourceCidrIp) {
+      res["SourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (sourceGroupId) {
+      res["SourceGroupId"] = boost::any(*sourceGroupId);
+    }
+    if (sourceGroupOwnerAccount) {
+      res["SourceGroupOwnerAccount"] = boost::any(*sourceGroupOwnerAccount);
+    }
+    if (sourceGroupOwnerId) {
+      res["SourceGroupOwnerId"] = boost::any(*sourceGroupOwnerId);
+    }
+    if (sourcePortRange) {
+      res["SourcePortRange"] = boost::any(*sourcePortRange);
+    }
+    if (sourcePrefixListId) {
+      res["SourcePrefixListId"] = boost::any(*sourcePrefixListId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestCidrIp") != m.end() && !m["DestCidrIp"].empty()) {
+      destCidrIp = make_shared<string>(boost::any_cast<string>(m["DestCidrIp"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Ipv6DestCidrIp") != m.end() && !m["Ipv6DestCidrIp"].empty()) {
+      ipv6DestCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6DestCidrIp"]));
+    }
+    if (m.find("Ipv6SourceCidrIp") != m.end() && !m["Ipv6SourceCidrIp"].empty()) {
+      ipv6SourceCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6SourceCidrIp"]));
+    }
+    if (m.find("NicType") != m.end() && !m["NicType"].empty()) {
+      nicType = make_shared<string>(boost::any_cast<string>(m["NicType"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SourceCidrIp") != m.end() && !m["SourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["SourceCidrIp"]));
+    }
+    if (m.find("SourceGroupId") != m.end() && !m["SourceGroupId"].empty()) {
+      sourceGroupId = make_shared<string>(boost::any_cast<string>(m["SourceGroupId"]));
+    }
+    if (m.find("SourceGroupOwnerAccount") != m.end() && !m["SourceGroupOwnerAccount"].empty()) {
+      sourceGroupOwnerAccount = make_shared<string>(boost::any_cast<string>(m["SourceGroupOwnerAccount"]));
+    }
+    if (m.find("SourceGroupOwnerId") != m.end() && !m["SourceGroupOwnerId"].empty()) {
+      sourceGroupOwnerId = make_shared<long>(boost::any_cast<long>(m["SourceGroupOwnerId"]));
+    }
+    if (m.find("SourcePortRange") != m.end() && !m["SourcePortRange"].empty()) {
+      sourcePortRange = make_shared<string>(boost::any_cast<string>(m["SourcePortRange"]));
+    }
+    if (m.find("SourcePrefixListId") != m.end() && !m["SourcePrefixListId"].empty()) {
+      sourcePrefixListId = make_shared<string>(boost::any_cast<string>(m["SourcePrefixListId"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSecurityGroupRequestPermissions() = default;
+};
 class AuthorizeSecurityGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -3589,6 +3716,7 @@ public:
   shared_ptr<string> nicType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<vector<AuthorizeSecurityGroupRequestPermissions>> permissions{};
   shared_ptr<string> policy{};
   shared_ptr<string> portRange{};
   shared_ptr<string> priority{};
@@ -3639,6 +3767,13 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
@@ -3709,6 +3844,19 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<AuthorizeSecurityGroupRequestPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AuthorizeSecurityGroupRequestPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<AuthorizeSecurityGroupRequestPermissions>>(expect1);
+      }
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
@@ -3845,6 +3993,133 @@ public:
 
   virtual ~AuthorizeSecurityGroupResponse() = default;
 };
+class AuthorizeSecurityGroupEgressRequestPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> destCidrIp{};
+  shared_ptr<string> destGroupId{};
+  shared_ptr<string> destGroupOwnerAccount{};
+  shared_ptr<long> destGroupOwnerId{};
+  shared_ptr<string> destPrefixListId{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> ipv6DestCidrIp{};
+  shared_ptr<string> ipv6SourceCidrIp{};
+  shared_ptr<string> nicType{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<string> sourcePortRange{};
+
+  AuthorizeSecurityGroupEgressRequestPermissions() {}
+
+  explicit AuthorizeSecurityGroupEgressRequestPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destCidrIp) {
+      res["DestCidrIp"] = boost::any(*destCidrIp);
+    }
+    if (destGroupId) {
+      res["DestGroupId"] = boost::any(*destGroupId);
+    }
+    if (destGroupOwnerAccount) {
+      res["DestGroupOwnerAccount"] = boost::any(*destGroupOwnerAccount);
+    }
+    if (destGroupOwnerId) {
+      res["DestGroupOwnerId"] = boost::any(*destGroupOwnerId);
+    }
+    if (destPrefixListId) {
+      res["DestPrefixListId"] = boost::any(*destPrefixListId);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (ipv6DestCidrIp) {
+      res["Ipv6DestCidrIp"] = boost::any(*ipv6DestCidrIp);
+    }
+    if (ipv6SourceCidrIp) {
+      res["Ipv6SourceCidrIp"] = boost::any(*ipv6SourceCidrIp);
+    }
+    if (nicType) {
+      res["NicType"] = boost::any(*nicType);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (sourceCidrIp) {
+      res["SourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (sourcePortRange) {
+      res["SourcePortRange"] = boost::any(*sourcePortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestCidrIp") != m.end() && !m["DestCidrIp"].empty()) {
+      destCidrIp = make_shared<string>(boost::any_cast<string>(m["DestCidrIp"]));
+    }
+    if (m.find("DestGroupId") != m.end() && !m["DestGroupId"].empty()) {
+      destGroupId = make_shared<string>(boost::any_cast<string>(m["DestGroupId"]));
+    }
+    if (m.find("DestGroupOwnerAccount") != m.end() && !m["DestGroupOwnerAccount"].empty()) {
+      destGroupOwnerAccount = make_shared<string>(boost::any_cast<string>(m["DestGroupOwnerAccount"]));
+    }
+    if (m.find("DestGroupOwnerId") != m.end() && !m["DestGroupOwnerId"].empty()) {
+      destGroupOwnerId = make_shared<long>(boost::any_cast<long>(m["DestGroupOwnerId"]));
+    }
+    if (m.find("DestPrefixListId") != m.end() && !m["DestPrefixListId"].empty()) {
+      destPrefixListId = make_shared<string>(boost::any_cast<string>(m["DestPrefixListId"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Ipv6DestCidrIp") != m.end() && !m["Ipv6DestCidrIp"].empty()) {
+      ipv6DestCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6DestCidrIp"]));
+    }
+    if (m.find("Ipv6SourceCidrIp") != m.end() && !m["Ipv6SourceCidrIp"].empty()) {
+      ipv6SourceCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6SourceCidrIp"]));
+    }
+    if (m.find("NicType") != m.end() && !m["NicType"].empty()) {
+      nicType = make_shared<string>(boost::any_cast<string>(m["NicType"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SourceCidrIp") != m.end() && !m["SourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["SourceCidrIp"]));
+    }
+    if (m.find("SourcePortRange") != m.end() && !m["SourcePortRange"].empty()) {
+      sourcePortRange = make_shared<string>(boost::any_cast<string>(m["SourcePortRange"]));
+    }
+  }
+
+
+  virtual ~AuthorizeSecurityGroupEgressRequestPermissions() = default;
+};
 class AuthorizeSecurityGroupEgressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -3860,6 +4135,7 @@ public:
   shared_ptr<string> nicType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<vector<AuthorizeSecurityGroupEgressRequestPermissions>> permissions{};
   shared_ptr<string> policy{};
   shared_ptr<string> portRange{};
   shared_ptr<string> priority{};
@@ -3918,6 +4194,13 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
@@ -3988,6 +4271,19 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<AuthorizeSecurityGroupEgressRequestPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AuthorizeSecurityGroupEgressRequestPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<AuthorizeSecurityGroupEgressRequestPermissions>>(expect1);
+      }
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
@@ -99148,6 +99444,133 @@ public:
 
   virtual ~ResizeDiskResponse() = default;
 };
+class RevokeSecurityGroupRequestPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> destCidrIp{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> ipv6DestCidrIp{};
+  shared_ptr<string> ipv6SourceCidrIp{};
+  shared_ptr<string> nicType{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<string> sourceGroupId{};
+  shared_ptr<string> sourceGroupOwnerAccount{};
+  shared_ptr<long> sourceGroupOwnerId{};
+  shared_ptr<string> sourcePortRange{};
+  shared_ptr<string> sourcePrefixListId{};
+
+  RevokeSecurityGroupRequestPermissions() {}
+
+  explicit RevokeSecurityGroupRequestPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destCidrIp) {
+      res["DestCidrIp"] = boost::any(*destCidrIp);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (ipv6DestCidrIp) {
+      res["Ipv6DestCidrIp"] = boost::any(*ipv6DestCidrIp);
+    }
+    if (ipv6SourceCidrIp) {
+      res["Ipv6SourceCidrIp"] = boost::any(*ipv6SourceCidrIp);
+    }
+    if (nicType) {
+      res["NicType"] = boost::any(*nicType);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (sourceCidrIp) {
+      res["SourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (sourceGroupId) {
+      res["SourceGroupId"] = boost::any(*sourceGroupId);
+    }
+    if (sourceGroupOwnerAccount) {
+      res["SourceGroupOwnerAccount"] = boost::any(*sourceGroupOwnerAccount);
+    }
+    if (sourceGroupOwnerId) {
+      res["SourceGroupOwnerId"] = boost::any(*sourceGroupOwnerId);
+    }
+    if (sourcePortRange) {
+      res["SourcePortRange"] = boost::any(*sourcePortRange);
+    }
+    if (sourcePrefixListId) {
+      res["SourcePrefixListId"] = boost::any(*sourcePrefixListId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestCidrIp") != m.end() && !m["DestCidrIp"].empty()) {
+      destCidrIp = make_shared<string>(boost::any_cast<string>(m["DestCidrIp"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Ipv6DestCidrIp") != m.end() && !m["Ipv6DestCidrIp"].empty()) {
+      ipv6DestCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6DestCidrIp"]));
+    }
+    if (m.find("Ipv6SourceCidrIp") != m.end() && !m["Ipv6SourceCidrIp"].empty()) {
+      ipv6SourceCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6SourceCidrIp"]));
+    }
+    if (m.find("NicType") != m.end() && !m["NicType"].empty()) {
+      nicType = make_shared<string>(boost::any_cast<string>(m["NicType"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SourceCidrIp") != m.end() && !m["SourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["SourceCidrIp"]));
+    }
+    if (m.find("SourceGroupId") != m.end() && !m["SourceGroupId"].empty()) {
+      sourceGroupId = make_shared<string>(boost::any_cast<string>(m["SourceGroupId"]));
+    }
+    if (m.find("SourceGroupOwnerAccount") != m.end() && !m["SourceGroupOwnerAccount"].empty()) {
+      sourceGroupOwnerAccount = make_shared<string>(boost::any_cast<string>(m["SourceGroupOwnerAccount"]));
+    }
+    if (m.find("SourceGroupOwnerId") != m.end() && !m["SourceGroupOwnerId"].empty()) {
+      sourceGroupOwnerId = make_shared<long>(boost::any_cast<long>(m["SourceGroupOwnerId"]));
+    }
+    if (m.find("SourcePortRange") != m.end() && !m["SourcePortRange"].empty()) {
+      sourcePortRange = make_shared<string>(boost::any_cast<string>(m["SourcePortRange"]));
+    }
+    if (m.find("SourcePrefixListId") != m.end() && !m["SourcePrefixListId"].empty()) {
+      sourcePrefixListId = make_shared<string>(boost::any_cast<string>(m["SourcePrefixListId"]));
+    }
+  }
+
+
+  virtual ~RevokeSecurityGroupRequestPermissions() = default;
+};
 class RevokeSecurityGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -99159,6 +99582,7 @@ public:
   shared_ptr<string> nicType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<vector<RevokeSecurityGroupRequestPermissions>> permissions{};
   shared_ptr<string> policy{};
   shared_ptr<string> portRange{};
   shared_ptr<string> priority{};
@@ -99209,6 +99633,13 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
@@ -99279,6 +99710,19 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<RevokeSecurityGroupRequestPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RevokeSecurityGroupRequestPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<RevokeSecurityGroupRequestPermissions>>(expect1);
+      }
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
@@ -99415,6 +99859,133 @@ public:
 
   virtual ~RevokeSecurityGroupResponse() = default;
 };
+class RevokeSecurityGroupEgressRequestPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> destCidrIp{};
+  shared_ptr<string> destGroupId{};
+  shared_ptr<string> destGroupOwnerAccount{};
+  shared_ptr<string> destGroupOwnerId{};
+  shared_ptr<string> destPrefixListId{};
+  shared_ptr<string> ipProtocol{};
+  shared_ptr<string> ipv6DestCidrIp{};
+  shared_ptr<string> ipv6SourceCidrIp{};
+  shared_ptr<string> nicType{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<string> sourcePortRange{};
+
+  RevokeSecurityGroupEgressRequestPermissions() {}
+
+  explicit RevokeSecurityGroupEgressRequestPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destCidrIp) {
+      res["DestCidrIp"] = boost::any(*destCidrIp);
+    }
+    if (destGroupId) {
+      res["DestGroupId"] = boost::any(*destGroupId);
+    }
+    if (destGroupOwnerAccount) {
+      res["DestGroupOwnerAccount"] = boost::any(*destGroupOwnerAccount);
+    }
+    if (destGroupOwnerId) {
+      res["DestGroupOwnerId"] = boost::any(*destGroupOwnerId);
+    }
+    if (destPrefixListId) {
+      res["DestPrefixListId"] = boost::any(*destPrefixListId);
+    }
+    if (ipProtocol) {
+      res["IpProtocol"] = boost::any(*ipProtocol);
+    }
+    if (ipv6DestCidrIp) {
+      res["Ipv6DestCidrIp"] = boost::any(*ipv6DestCidrIp);
+    }
+    if (ipv6SourceCidrIp) {
+      res["Ipv6SourceCidrIp"] = boost::any(*ipv6SourceCidrIp);
+    }
+    if (nicType) {
+      res["NicType"] = boost::any(*nicType);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (sourceCidrIp) {
+      res["SourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (sourcePortRange) {
+      res["SourcePortRange"] = boost::any(*sourcePortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestCidrIp") != m.end() && !m["DestCidrIp"].empty()) {
+      destCidrIp = make_shared<string>(boost::any_cast<string>(m["DestCidrIp"]));
+    }
+    if (m.find("DestGroupId") != m.end() && !m["DestGroupId"].empty()) {
+      destGroupId = make_shared<string>(boost::any_cast<string>(m["DestGroupId"]));
+    }
+    if (m.find("DestGroupOwnerAccount") != m.end() && !m["DestGroupOwnerAccount"].empty()) {
+      destGroupOwnerAccount = make_shared<string>(boost::any_cast<string>(m["DestGroupOwnerAccount"]));
+    }
+    if (m.find("DestGroupOwnerId") != m.end() && !m["DestGroupOwnerId"].empty()) {
+      destGroupOwnerId = make_shared<string>(boost::any_cast<string>(m["DestGroupOwnerId"]));
+    }
+    if (m.find("DestPrefixListId") != m.end() && !m["DestPrefixListId"].empty()) {
+      destPrefixListId = make_shared<string>(boost::any_cast<string>(m["DestPrefixListId"]));
+    }
+    if (m.find("IpProtocol") != m.end() && !m["IpProtocol"].empty()) {
+      ipProtocol = make_shared<string>(boost::any_cast<string>(m["IpProtocol"]));
+    }
+    if (m.find("Ipv6DestCidrIp") != m.end() && !m["Ipv6DestCidrIp"].empty()) {
+      ipv6DestCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6DestCidrIp"]));
+    }
+    if (m.find("Ipv6SourceCidrIp") != m.end() && !m["Ipv6SourceCidrIp"].empty()) {
+      ipv6SourceCidrIp = make_shared<string>(boost::any_cast<string>(m["Ipv6SourceCidrIp"]));
+    }
+    if (m.find("NicType") != m.end() && !m["NicType"].empty()) {
+      nicType = make_shared<string>(boost::any_cast<string>(m["NicType"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("SourceCidrIp") != m.end() && !m["SourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["SourceCidrIp"]));
+    }
+    if (m.find("SourcePortRange") != m.end() && !m["SourcePortRange"].empty()) {
+      sourcePortRange = make_shared<string>(boost::any_cast<string>(m["SourcePortRange"]));
+    }
+  }
+
+
+  virtual ~RevokeSecurityGroupEgressRequestPermissions() = default;
+};
 class RevokeSecurityGroupEgressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -99430,6 +100001,7 @@ public:
   shared_ptr<string> nicType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<vector<RevokeSecurityGroupEgressRequestPermissions>> permissions{};
   shared_ptr<string> policy{};
   shared_ptr<string> portRange{};
   shared_ptr<string> priority{};
@@ -99488,6 +100060,13 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
@@ -99558,6 +100137,19 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<RevokeSecurityGroupEgressRequestPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RevokeSecurityGroupEgressRequestPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<RevokeSecurityGroupEgressRequestPermissions>>(expect1);
+      }
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
