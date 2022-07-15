@@ -1483,6 +1483,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<GetInstanceResponseBodyRequestedResource> requestedResource{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
   shared_ptr<string> status{};
   shared_ptr<bool> success{};
   shared_ptr<string> terminalUrl{};
@@ -1587,6 +1588,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -1726,6 +1730,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -3405,6 +3412,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> paymentType{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> status{};
   shared_ptr<string> workspaceId{};
@@ -3440,6 +3448,9 @@ public:
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
     }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
     }
@@ -3473,6 +3484,9 @@ public:
     }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
@@ -3770,6 +3784,7 @@ public:
   shared_ptr<string> reasonMessage{};
   shared_ptr<ListInstancesResponseBodyInstancesRequestedResource> requestedResource{};
   shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceName{};
   shared_ptr<string> status{};
   shared_ptr<string> terminalUrl{};
   shared_ptr<string> userId{};
@@ -3861,6 +3876,9 @@ public:
     }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3985,6 +4003,9 @@ public:
     }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));

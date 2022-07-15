@@ -568,6 +568,9 @@ ListInstancesResponse Alibabacloud_Pai-dsw20220101::Client::listInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
     query->insert(pair<string, string>("PaymentType", *request->paymentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
   }
