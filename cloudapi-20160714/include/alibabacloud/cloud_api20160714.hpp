@@ -2027,7 +2027,10 @@ public:
 };
 class CreateAppRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appCode{};
+  shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
+  shared_ptr<string> appSecret{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
   shared_ptr<string> source{};
@@ -2043,8 +2046,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appCode) {
+      res["AppCode"] = boost::any(*appCode);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (appSecret) {
+      res["AppSecret"] = boost::any(*appSecret);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -2066,8 +2078,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
+      appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppSecret") != m.end() && !m["AppSecret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["AppSecret"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -10581,6 +10602,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> domainRemark{};
   shared_ptr<string> domainWebSocketStatus{};
+  shared_ptr<bool> isHttpRedirectToHttps{};
   shared_ptr<string> wildcardDomainPatterns{};
 
   DescribeApiGroupResponseBodyCustomDomainsDomainItem() {}
@@ -10623,6 +10645,9 @@ public:
     if (domainWebSocketStatus) {
       res["DomainWebSocketStatus"] = boost::any(*domainWebSocketStatus);
     }
+    if (isHttpRedirectToHttps) {
+      res["IsHttpRedirectToHttps"] = boost::any(*isHttpRedirectToHttps);
+    }
     if (wildcardDomainPatterns) {
       res["WildcardDomainPatterns"] = boost::any(*wildcardDomainPatterns);
     }
@@ -10659,6 +10684,9 @@ public:
     }
     if (m.find("DomainWebSocketStatus") != m.end() && !m["DomainWebSocketStatus"].empty()) {
       domainWebSocketStatus = make_shared<string>(boost::any_cast<string>(m["DomainWebSocketStatus"]));
+    }
+    if (m.find("IsHttpRedirectToHttps") != m.end() && !m["IsHttpRedirectToHttps"].empty()) {
+      isHttpRedirectToHttps = make_shared<bool>(boost::any_cast<bool>(m["IsHttpRedirectToHttps"]));
     }
     if (m.find("WildcardDomainPatterns") != m.end() && !m["WildcardDomainPatterns"].empty()) {
       wildcardDomainPatterns = make_shared<string>(boost::any_cast<string>(m["WildcardDomainPatterns"]));
@@ -33779,6 +33807,7 @@ public:
   shared_ptr<bool> autoPay{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceSpec{};
+  shared_ptr<string> modifyAction{};
   shared_ptr<string> token{};
 
   ModifyInstanceSpecRequest() {}
@@ -33800,6 +33829,9 @@ public:
     if (instanceSpec) {
       res["InstanceSpec"] = boost::any(*instanceSpec);
     }
+    if (modifyAction) {
+      res["ModifyAction"] = boost::any(*modifyAction);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -33815,6 +33847,9 @@ public:
     }
     if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
       instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("ModifyAction") != m.end() && !m["ModifyAction"].empty()) {
+      modifyAction = make_shared<string>(boost::any_cast<string>(m["ModifyAction"]));
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -36679,6 +36714,7 @@ public:
 class ResetAppCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appCode{};
+  shared_ptr<string> newAppCode{};
   shared_ptr<string> securityToken{};
 
   ResetAppCodeRequest() {}
@@ -36694,6 +36730,9 @@ public:
     if (appCode) {
       res["AppCode"] = boost::any(*appCode);
     }
+    if (newAppCode) {
+      res["NewAppCode"] = boost::any(*newAppCode);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -36703,6 +36742,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppCode") != m.end() && !m["AppCode"].empty()) {
       appCode = make_shared<string>(boost::any_cast<string>(m["AppCode"]));
+    }
+    if (m.find("NewAppCode") != m.end() && !m["NewAppCode"].empty()) {
+      newAppCode = make_shared<string>(boost::any_cast<string>(m["NewAppCode"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -36806,6 +36848,7 @@ public:
 class ResetAppSecretRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
+  shared_ptr<string> newAppSecret{};
   shared_ptr<string> securityToken{};
 
   ResetAppSecretRequest() {}
@@ -36821,6 +36864,9 @@ public:
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
+    if (newAppSecret) {
+      res["NewAppSecret"] = boost::any(*newAppSecret);
+    }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
@@ -36830,6 +36876,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("NewAppSecret") != m.end() && !m["NewAppSecret"].empty()) {
+      newAppSecret = make_shared<string>(boost::any_cast<string>(m["NewAppSecret"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
@@ -37352,6 +37401,140 @@ public:
 
 
   virtual ~SdkGenerateByGroupResponse() = default;
+};
+class SetAccessControlListAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aclId{};
+  shared_ptr<string> aclName{};
+  shared_ptr<string> securityToken{};
+
+  SetAccessControlListAttributeRequest() {}
+
+  explicit SetAccessControlListAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclId) {
+      res["AclId"] = boost::any(*aclId);
+    }
+    if (aclName) {
+      res["AclName"] = boost::any(*aclName);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
+      aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("AclName") != m.end() && !m["AclName"].empty()) {
+      aclName = make_shared<string>(boost::any_cast<string>(m["AclName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~SetAccessControlListAttributeRequest() = default;
+};
+class SetAccessControlListAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetAccessControlListAttributeResponseBody() {}
+
+  explicit SetAccessControlListAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetAccessControlListAttributeResponseBody() = default;
+};
+class SetAccessControlListAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetAccessControlListAttributeResponseBody> body{};
+
+  SetAccessControlListAttributeResponse() {}
+
+  explicit SetAccessControlListAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetAccessControlListAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetAccessControlListAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetAccessControlListAttributeResponse() = default;
 };
 class SetApisAuthoritiesRequest : public Darabonba::Model {
 public:
@@ -39741,6 +39924,8 @@ public:
   SdkGenerateByAppForRegionResponse sdkGenerateByAppForRegion(shared_ptr<SdkGenerateByAppForRegionRequest> request);
   SdkGenerateByGroupResponse sdkGenerateByGroupWithOptions(shared_ptr<SdkGenerateByGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SdkGenerateByGroupResponse sdkGenerateByGroup(shared_ptr<SdkGenerateByGroupRequest> request);
+  SetAccessControlListAttributeResponse setAccessControlListAttributeWithOptions(shared_ptr<SetAccessControlListAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetAccessControlListAttributeResponse setAccessControlListAttribute(shared_ptr<SetAccessControlListAttributeRequest> request);
   SetApisAuthoritiesResponse setApisAuthoritiesWithOptions(shared_ptr<SetApisAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetApisAuthoritiesResponse setApisAuthorities(shared_ptr<SetApisAuthoritiesRequest> request);
   SetAppsAuthoritiesResponse setAppsAuthoritiesWithOptions(shared_ptr<SetAppsAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
