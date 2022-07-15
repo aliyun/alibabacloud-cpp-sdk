@@ -1612,6 +1612,8 @@ public:
   shared_ptr<string> channelType{};
   shared_ptr<string> content{};
   shared_ptr<string> custWabaId{};
+  shared_ptr<string> fallBackContent{};
+  shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
@@ -1639,6 +1641,12 @@ public:
     }
     if (custWabaId) {
       res["CustWabaId"] = boost::any(*custWabaId);
+    }
+    if (fallBackContent) {
+      res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackId) {
+      res["FallBackId"] = boost::any(*fallBackId);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -1676,6 +1684,12 @@ public:
     }
     if (m.find("CustWabaId") != m.end() && !m["CustWabaId"].empty()) {
       custWabaId = make_shared<string>(boost::any_cast<string>(m["CustWabaId"]));
+    }
+    if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
+      fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
+      fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
@@ -1723,6 +1737,8 @@ public:
   shared_ptr<string> channelType{};
   shared_ptr<string> content{};
   shared_ptr<string> custWabaId{};
+  shared_ptr<string> fallBackContent{};
+  shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
@@ -1750,6 +1766,12 @@ public:
     }
     if (custWabaId) {
       res["CustWabaId"] = boost::any(*custWabaId);
+    }
+    if (fallBackContent) {
+      res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackId) {
+      res["FallBackId"] = boost::any(*fallBackId);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -1787,6 +1809,12 @@ public:
     }
     if (m.find("CustWabaId") != m.end() && !m["CustWabaId"].empty()) {
       custWabaId = make_shared<string>(boost::any_cast<string>(m["CustWabaId"]));
+    }
+    if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
+      fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
+      fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));

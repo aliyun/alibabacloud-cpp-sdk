@@ -268,6 +268,12 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
     body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
+    body->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
+    body->insert(pair<string, string>("FallBackId", *request->fallBackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
   }
