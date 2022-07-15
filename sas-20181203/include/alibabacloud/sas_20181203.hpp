@@ -8631,6 +8631,8 @@ public:
 class DescribeCheckWarningSummaryResponseBodyWarningSummarys : public Darabonba::Model {
 public:
   shared_ptr<long> checkCount{};
+  shared_ptr<bool> checkExploit{};
+  shared_ptr<bool> databaseRisk{};
   shared_ptr<long> highWarningCount{};
   shared_ptr<string> lastFoundTime{};
   shared_ptr<string> level{};
@@ -8654,6 +8656,12 @@ public:
     map<string, boost::any> res;
     if (checkCount) {
       res["CheckCount"] = boost::any(*checkCount);
+    }
+    if (checkExploit) {
+      res["CheckExploit"] = boost::any(*checkExploit);
+    }
+    if (databaseRisk) {
+      res["DatabaseRisk"] = boost::any(*databaseRisk);
     }
     if (highWarningCount) {
       res["HighWarningCount"] = boost::any(*highWarningCount);
@@ -8691,6 +8699,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CheckCount") != m.end() && !m["CheckCount"].empty()) {
       checkCount = make_shared<long>(boost::any_cast<long>(m["CheckCount"]));
+    }
+    if (m.find("CheckExploit") != m.end() && !m["CheckExploit"].empty()) {
+      checkExploit = make_shared<bool>(boost::any_cast<bool>(m["CheckExploit"]));
+    }
+    if (m.find("DatabaseRisk") != m.end() && !m["DatabaseRisk"].empty()) {
+      databaseRisk = make_shared<bool>(boost::any_cast<bool>(m["DatabaseRisk"]));
     }
     if (m.find("HighWarningCount") != m.end() && !m["HighWarningCount"].empty()) {
       highWarningCount = make_shared<long>(boost::any_cast<long>(m["HighWarningCount"]));
@@ -8870,6 +8884,7 @@ public:
 class DescribeCheckWarningsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> checkId{};
+  shared_ptr<string> checkType{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> lang{};
   shared_ptr<long> pageSize{};
@@ -8889,6 +8904,9 @@ public:
     map<string, boost::any> res;
     if (checkId) {
       res["CheckId"] = boost::any(*checkId);
+    }
+    if (checkType) {
+      res["CheckType"] = boost::any(*checkType);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -8914,6 +8932,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
       checkId = make_shared<long>(boost::any_cast<long>(m["CheckId"]));
+    }
+    if (m.find("CheckType") != m.end() && !m["CheckType"].empty()) {
+      checkType = make_shared<string>(boost::any_cast<string>(m["CheckType"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -8942,8 +8963,10 @@ class DescribeCheckWarningsResponseBodyCheckWarnings : public Darabonba::Model {
 public:
   shared_ptr<long> checkId{};
   shared_ptr<long> checkWarningId{};
+  shared_ptr<long> fixStatus{};
   shared_ptr<string> item{};
   shared_ptr<string> level{};
+  shared_ptr<string> reason{};
   shared_ptr<long> status{};
   shared_ptr<string> type{};
   shared_ptr<string> uuid{};
@@ -8964,11 +8987,17 @@ public:
     if (checkWarningId) {
       res["CheckWarningId"] = boost::any(*checkWarningId);
     }
+    if (fixStatus) {
+      res["FixStatus"] = boost::any(*fixStatus);
+    }
     if (item) {
       res["Item"] = boost::any(*item);
     }
     if (level) {
       res["Level"] = boost::any(*level);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -8989,11 +9018,17 @@ public:
     if (m.find("CheckWarningId") != m.end() && !m["CheckWarningId"].empty()) {
       checkWarningId = make_shared<long>(boost::any_cast<long>(m["CheckWarningId"]));
     }
+    if (m.find("FixStatus") != m.end() && !m["FixStatus"].empty()) {
+      fixStatus = make_shared<long>(boost::any_cast<long>(m["FixStatus"]));
+    }
     if (m.find("Item") != m.end() && !m["Item"].empty()) {
       item = make_shared<string>(boost::any_cast<string>(m["Item"]));
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
@@ -36544,6 +36579,8 @@ public:
 };
 class DescribeWarningMachinesResponseBodyWarningMachines : public Darabonba::Model {
 public:
+  shared_ptr<long> authVersion{};
+  shared_ptr<bool> bind{};
   shared_ptr<long> highWarningCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
@@ -36567,6 +36604,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authVersion) {
+      res["AuthVersion"] = boost::any(*authVersion);
+    }
+    if (bind) {
+      res["Bind"] = boost::any(*bind);
+    }
     if (highWarningCount) {
       res["HighWarningCount"] = boost::any(*highWarningCount);
     }
@@ -36607,6 +36650,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthVersion") != m.end() && !m["AuthVersion"].empty()) {
+      authVersion = make_shared<long>(boost::any_cast<long>(m["AuthVersion"]));
+    }
+    if (m.find("Bind") != m.end() && !m["Bind"].empty()) {
+      bind = make_shared<bool>(boost::any_cast<bool>(m["Bind"]));
+    }
     if (m.find("HighWarningCount") != m.end() && !m["HighWarningCount"].empty()) {
       highWarningCount = make_shared<long>(boost::any_cast<long>(m["HighWarningCount"]));
     }

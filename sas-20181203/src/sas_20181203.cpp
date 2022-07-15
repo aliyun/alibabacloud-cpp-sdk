@@ -1555,6 +1555,9 @@ DescribeCheckWarningsResponse Alibabacloud_Sas20181203::Client::describeCheckWar
   if (!Darabonba_Util::Client::isUnset<long>(request->checkId)) {
     query->insert(pair<string, long>("CheckId", *request->checkId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkType)) {
+    query->insert(pair<string, string>("CheckType", *request->checkType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
