@@ -890,11 +890,15 @@ public:
   shared_ptr<long> lastRecoverPoint{};
   shared_ptr<vector<vector<uint8_t>>> pairIds{};
   shared_ptr<long> pairNumber{};
+  shared_ptr<string> primaryRegion{};
+  shared_ptr<string> primaryZone{};
   shared_ptr<long> RPO{};
   shared_ptr<string> replicaGroupId{};
   shared_ptr<string> site{};
   shared_ptr<string> sourceRegionId{};
   shared_ptr<string> sourceZoneId{};
+  shared_ptr<string> standbyRegion{};
+  shared_ptr<string> standbyZone{};
   shared_ptr<string> status{};
 
   DescribeDiskReplicaGroupsResponseBodyReplicaGroups() {}
@@ -928,6 +932,12 @@ public:
     if (pairNumber) {
       res["PairNumber"] = boost::any(*pairNumber);
     }
+    if (primaryRegion) {
+      res["PrimaryRegion"] = boost::any(*primaryRegion);
+    }
+    if (primaryZone) {
+      res["PrimaryZone"] = boost::any(*primaryZone);
+    }
     if (RPO) {
       res["RPO"] = boost::any(*RPO);
     }
@@ -942,6 +952,12 @@ public:
     }
     if (sourceZoneId) {
       res["SourceZoneId"] = boost::any(*sourceZoneId);
+    }
+    if (standbyRegion) {
+      res["StandbyRegion"] = boost::any(*standbyRegion);
+    }
+    if (standbyZone) {
+      res["StandbyZone"] = boost::any(*standbyZone);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -978,6 +994,12 @@ public:
     if (m.find("PairNumber") != m.end() && !m["PairNumber"].empty()) {
       pairNumber = make_shared<long>(boost::any_cast<long>(m["PairNumber"]));
     }
+    if (m.find("PrimaryRegion") != m.end() && !m["PrimaryRegion"].empty()) {
+      primaryRegion = make_shared<string>(boost::any_cast<string>(m["PrimaryRegion"]));
+    }
+    if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
+      primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
+    }
     if (m.find("RPO") != m.end() && !m["RPO"].empty()) {
       RPO = make_shared<long>(boost::any_cast<long>(m["RPO"]));
     }
@@ -992,6 +1014,12 @@ public:
     }
     if (m.find("SourceZoneId") != m.end() && !m["SourceZoneId"].empty()) {
       sourceZoneId = make_shared<string>(boost::any_cast<string>(m["SourceZoneId"]));
+    }
+    if (m.find("StandbyRegion") != m.end() && !m["StandbyRegion"].empty()) {
+      standbyRegion = make_shared<string>(boost::any_cast<string>(m["StandbyRegion"]));
+    }
+    if (m.find("StandbyZone") != m.end() && !m["StandbyZone"].empty()) {
+      standbyZone = make_shared<string>(boost::any_cast<string>(m["StandbyZone"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -2479,8 +2507,6 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaGroupId{};
-  shared_ptr<string> sourceRegionId{};
-  shared_ptr<string> sourceZoneId{};
 
   ReprotectDiskReplicaGroupRequest() {}
 
@@ -2501,12 +2527,6 @@ public:
     if (replicaGroupId) {
       res["ReplicaGroupId"] = boost::any(*replicaGroupId);
     }
-    if (sourceRegionId) {
-      res["SourceRegionId"] = boost::any(*sourceRegionId);
-    }
-    if (sourceZoneId) {
-      res["SourceZoneId"] = boost::any(*sourceZoneId);
-    }
     return res;
   }
 
@@ -2519,12 +2539,6 @@ public:
     }
     if (m.find("ReplicaGroupId") != m.end() && !m["ReplicaGroupId"].empty()) {
       replicaGroupId = make_shared<string>(boost::any_cast<string>(m["ReplicaGroupId"]));
-    }
-    if (m.find("SourceRegionId") != m.end() && !m["SourceRegionId"].empty()) {
-      sourceRegionId = make_shared<string>(boost::any_cast<string>(m["SourceRegionId"]));
-    }
-    if (m.find("SourceZoneId") != m.end() && !m["SourceZoneId"].empty()) {
-      sourceZoneId = make_shared<string>(boost::any_cast<string>(m["SourceZoneId"]));
     }
   }
 
