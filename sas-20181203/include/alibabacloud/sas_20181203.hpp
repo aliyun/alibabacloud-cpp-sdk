@@ -39690,6 +39690,532 @@ public:
 
   virtual ~InstallCloudMonitorResponse() = default;
 };
+class ListCheckResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> checkKey{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<vector<string>> instanceIds{};
+  shared_ptr<vector<string>> instanceSubTypes{};
+  shared_ptr<vector<string>> instanceTypes{};
+  shared_ptr<string> lang{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<long>> requirementIds{};
+  shared_ptr<vector<string>> riskLevels{};
+  shared_ptr<vector<string>> sortTypes{};
+  shared_ptr<vector<long>> standardIds{};
+  shared_ptr<vector<string>> statuses{};
+  shared_ptr<vector<string>> vendors{};
+
+  ListCheckResultRequest() {}
+
+  explicit ListCheckResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkKey) {
+      res["CheckKey"] = boost::any(*checkKey);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    if (instanceSubTypes) {
+      res["InstanceSubTypes"] = boost::any(*instanceSubTypes);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requirementIds) {
+      res["RequirementIds"] = boost::any(*requirementIds);
+    }
+    if (riskLevels) {
+      res["RiskLevels"] = boost::any(*riskLevels);
+    }
+    if (sortTypes) {
+      res["SortTypes"] = boost::any(*sortTypes);
+    }
+    if (standardIds) {
+      res["StandardIds"] = boost::any(*standardIds);
+    }
+    if (statuses) {
+      res["Statuses"] = boost::any(*statuses);
+    }
+    if (vendors) {
+      res["Vendors"] = boost::any(*vendors);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckKey") != m.end() && !m["CheckKey"].empty()) {
+      checkKey = make_shared<string>(boost::any_cast<string>(m["CheckKey"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceSubTypes") != m.end() && !m["InstanceSubTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceSubTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceSubTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceSubTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequirementIds") != m.end() && !m["RequirementIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RequirementIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RequirementIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      requirementIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RiskLevels") != m.end() && !m["RiskLevels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RiskLevels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RiskLevels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      riskLevels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("SortTypes") != m.end() && !m["SortTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SortTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SortTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sortTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StandardIds") != m.end() && !m["StandardIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StandardIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StandardIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      standardIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Statuses") != m.end() && !m["Statuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Statuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Statuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      statuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Vendors") != m.end() && !m["Vendors"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Vendors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Vendors"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vendors = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListCheckResultRequest() = default;
+};
+class ListCheckResultResponseBodyChecksCheckPolicies : public Darabonba::Model {
+public:
+  shared_ptr<long> requirementId{};
+  shared_ptr<string> requirementShowName{};
+  shared_ptr<long> sectionId{};
+  shared_ptr<string> sectionShowName{};
+  shared_ptr<long> standardId{};
+  shared_ptr<string> standardShowName{};
+
+  ListCheckResultResponseBodyChecksCheckPolicies() {}
+
+  explicit ListCheckResultResponseBodyChecksCheckPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requirementId) {
+      res["RequirementId"] = boost::any(*requirementId);
+    }
+    if (requirementShowName) {
+      res["RequirementShowName"] = boost::any(*requirementShowName);
+    }
+    if (sectionId) {
+      res["SectionId"] = boost::any(*sectionId);
+    }
+    if (sectionShowName) {
+      res["SectionShowName"] = boost::any(*sectionShowName);
+    }
+    if (standardId) {
+      res["StandardId"] = boost::any(*standardId);
+    }
+    if (standardShowName) {
+      res["StandardShowName"] = boost::any(*standardShowName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequirementId") != m.end() && !m["RequirementId"].empty()) {
+      requirementId = make_shared<long>(boost::any_cast<long>(m["RequirementId"]));
+    }
+    if (m.find("RequirementShowName") != m.end() && !m["RequirementShowName"].empty()) {
+      requirementShowName = make_shared<string>(boost::any_cast<string>(m["RequirementShowName"]));
+    }
+    if (m.find("SectionId") != m.end() && !m["SectionId"].empty()) {
+      sectionId = make_shared<long>(boost::any_cast<long>(m["SectionId"]));
+    }
+    if (m.find("SectionShowName") != m.end() && !m["SectionShowName"].empty()) {
+      sectionShowName = make_shared<string>(boost::any_cast<string>(m["SectionShowName"]));
+    }
+    if (m.find("StandardId") != m.end() && !m["StandardId"].empty()) {
+      standardId = make_shared<long>(boost::any_cast<long>(m["StandardId"]));
+    }
+    if (m.find("StandardShowName") != m.end() && !m["StandardShowName"].empty()) {
+      standardShowName = make_shared<string>(boost::any_cast<string>(m["StandardShowName"]));
+    }
+  }
+
+
+  virtual ~ListCheckResultResponseBodyChecksCheckPolicies() = default;
+};
+class ListCheckResultResponseBodyChecks : public Darabonba::Model {
+public:
+  shared_ptr<long> checkId{};
+  shared_ptr<vector<ListCheckResultResponseBodyChecksCheckPolicies>> checkPolicies{};
+  shared_ptr<string> checkShowName{};
+  shared_ptr<string> instanceSubType{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<long> lastCheckTime{};
+  shared_ptr<string> riskLevel{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> vendor{};
+  shared_ptr<string> vendorShowName{};
+
+  ListCheckResultResponseBodyChecks() {}
+
+  explicit ListCheckResultResponseBodyChecks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkId) {
+      res["CheckId"] = boost::any(*checkId);
+    }
+    if (checkPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*checkPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CheckPolicies"] = boost::any(temp1);
+    }
+    if (checkShowName) {
+      res["CheckShowName"] = boost::any(*checkShowName);
+    }
+    if (instanceSubType) {
+      res["InstanceSubType"] = boost::any(*instanceSubType);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (lastCheckTime) {
+      res["LastCheckTime"] = boost::any(*lastCheckTime);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (vendor) {
+      res["Vendor"] = boost::any(*vendor);
+    }
+    if (vendorShowName) {
+      res["VendorShowName"] = boost::any(*vendorShowName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
+      checkId = make_shared<long>(boost::any_cast<long>(m["CheckId"]));
+    }
+    if (m.find("CheckPolicies") != m.end() && !m["CheckPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["CheckPolicies"].type()) {
+        vector<ListCheckResultResponseBodyChecksCheckPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CheckPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCheckResultResponseBodyChecksCheckPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checkPolicies = make_shared<vector<ListCheckResultResponseBodyChecksCheckPolicies>>(expect1);
+      }
+    }
+    if (m.find("CheckShowName") != m.end() && !m["CheckShowName"].empty()) {
+      checkShowName = make_shared<string>(boost::any_cast<string>(m["CheckShowName"]));
+    }
+    if (m.find("InstanceSubType") != m.end() && !m["InstanceSubType"].empty()) {
+      instanceSubType = make_shared<string>(boost::any_cast<string>(m["InstanceSubType"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("LastCheckTime") != m.end() && !m["LastCheckTime"].empty()) {
+      lastCheckTime = make_shared<long>(boost::any_cast<long>(m["LastCheckTime"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
+      vendor = make_shared<string>(boost::any_cast<string>(m["Vendor"]));
+    }
+    if (m.find("VendorShowName") != m.end() && !m["VendorShowName"].empty()) {
+      vendorShowName = make_shared<string>(boost::any_cast<string>(m["VendorShowName"]));
+    }
+  }
+
+
+  virtual ~ListCheckResultResponseBodyChecks() = default;
+};
+class ListCheckResultResponseBodyPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  ListCheckResultResponseBodyPageInfo() {}
+
+  explicit ListCheckResultResponseBodyPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCheckResultResponseBodyPageInfo() = default;
+};
+class ListCheckResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCheckResultResponseBodyChecks>> checks{};
+  shared_ptr<ListCheckResultResponseBodyPageInfo> pageInfo{};
+  shared_ptr<string> requestId{};
+
+  ListCheckResultResponseBody() {}
+
+  explicit ListCheckResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checks) {
+      vector<boost::any> temp1;
+      for(auto item1:*checks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Checks"] = boost::any(temp1);
+    }
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Checks") != m.end() && !m["Checks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Checks"].type()) {
+        vector<ListCheckResultResponseBodyChecks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Checks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCheckResultResponseBodyChecks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        checks = make_shared<vector<ListCheckResultResponseBodyChecks>>(expect1);
+      }
+    }
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        ListCheckResultResponseBodyPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<ListCheckResultResponseBodyPageInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListCheckResultResponseBody() = default;
+};
+class ListCheckResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCheckResultResponseBody> body{};
+
+  ListCheckResultResponse() {}
+
+  explicit ListCheckResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCheckResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCheckResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCheckResultResponse() = default;
+};
 class ListVulAutoRepairConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliasName{};
@@ -48170,6 +48696,8 @@ public:
   InstallBackupClientResponse installBackupClient(shared_ptr<InstallBackupClientRequest> request);
   InstallCloudMonitorResponse installCloudMonitorWithOptions(shared_ptr<InstallCloudMonitorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InstallCloudMonitorResponse installCloudMonitor(shared_ptr<InstallCloudMonitorRequest> request);
+  ListCheckResultResponse listCheckResultWithOptions(shared_ptr<ListCheckResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCheckResultResponse listCheckResult(shared_ptr<ListCheckResultRequest> request);
   ListVulAutoRepairConfigResponse listVulAutoRepairConfigWithOptions(shared_ptr<ListVulAutoRepairConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVulAutoRepairConfigResponse listVulAutoRepairConfig(shared_ptr<ListVulAutoRepairConfigRequest> request);
   ModifyAntiBruteForceRuleResponse modifyAntiBruteForceRuleWithOptions(shared_ptr<ModifyAntiBruteForceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

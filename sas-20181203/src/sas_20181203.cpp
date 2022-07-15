@@ -5879,6 +5879,70 @@ InstallCloudMonitorResponse Alibabacloud_Sas20181203::Client::installCloudMonito
   return installCloudMonitorWithOptions(request, runtime);
 }
 
+ListCheckResultResponse Alibabacloud_Sas20181203::Client::listCheckResultWithOptions(shared_ptr<ListCheckResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkKey)) {
+    query->insert(pair<string, string>("CheckKey", *request->checkKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
+    query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceSubTypes)) {
+    query->insert(pair<string, vector<string>>("InstanceSubTypes", *request->instanceSubTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypes)) {
+    query->insert(pair<string, vector<string>>("InstanceTypes", *request->instanceTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->requirementIds)) {
+    query->insert(pair<string, vector<long>>("RequirementIds", *request->requirementIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->riskLevels)) {
+    query->insert(pair<string, vector<string>>("RiskLevels", *request->riskLevels));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sortTypes)) {
+    query->insert(pair<string, vector<string>>("SortTypes", *request->sortTypes));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->standardIds)) {
+    query->insert(pair<string, vector<long>>("StandardIds", *request->standardIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->statuses)) {
+    query->insert(pair<string, vector<string>>("Statuses", *request->statuses));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vendors)) {
+    query->insert(pair<string, vector<string>>("Vendors", *request->vendors));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCheckResult"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCheckResultResponse(callApi(params, req, runtime));
+}
+
+ListCheckResultResponse Alibabacloud_Sas20181203::Client::listCheckResult(shared_ptr<ListCheckResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCheckResultWithOptions(request, runtime);
+}
+
 ListVulAutoRepairConfigResponse Alibabacloud_Sas20181203::Client::listVulAutoRepairConfigWithOptions(shared_ptr<ListVulAutoRepairConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
