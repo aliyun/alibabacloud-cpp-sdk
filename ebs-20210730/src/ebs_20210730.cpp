@@ -308,6 +308,12 @@ DescribeDiskReplicaPairsResponse Alibabacloud_Ebs20210730::Client::describeDiskR
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pairIds)) {
     query->insert(pair<string, string>("PairIds", *request->pairIds));
   }

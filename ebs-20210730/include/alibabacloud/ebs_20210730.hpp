@@ -1152,6 +1152,8 @@ class DescribeDiskReplicaPairsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> pairIds{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaGroupId{};
@@ -1172,6 +1174,12 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
     }
     if (pairIds) {
       res["PairIds"] = boost::any(*pairIds);
@@ -1194,6 +1202,12 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("PairIds") != m.end() && !m["PairIds"].empty()) {
       pairIds = make_shared<string>(boost::any_cast<string>(m["PairIds"]));
@@ -1405,8 +1419,11 @@ public:
 class DescribeDiskReplicaPairsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<vector<DescribeDiskReplicaPairsResponseBodyReplicaPairs>> replicaPairs{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   DescribeDiskReplicaPairsResponseBody() {}
 
@@ -1421,6 +1438,12 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (replicaPairs) {
       vector<boost::any> temp1;
       for(auto item1:*replicaPairs){
@@ -1431,12 +1454,21 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("ReplicaPairs") != m.end() && !m["ReplicaPairs"].empty()) {
       if (typeid(vector<boost::any>) == m["ReplicaPairs"].type()) {
@@ -1453,6 +1485,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
