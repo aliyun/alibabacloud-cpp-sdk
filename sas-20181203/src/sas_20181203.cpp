@@ -5891,9 +5891,6 @@ ListCheckResultResponse Alibabacloud_Sas20181203::Client::listCheckResultWithOpt
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIds)) {
     query->insert(pair<string, vector<string>>("InstanceIds", *request->instanceIds));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceSubTypes)) {
-    query->insert(pair<string, vector<string>>("InstanceSubTypes", *request->instanceSubTypes));
-  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypes)) {
     query->insert(pair<string, vector<string>>("InstanceTypes", *request->instanceTypes));
   }
@@ -6146,6 +6143,43 @@ ModifyBackupPolicyStatusResponse Alibabacloud_Sas20181203::Client::modifyBackupP
 ModifyBackupPolicyStatusResponse Alibabacloud_Sas20181203::Client::modifyBackupPolicyStatus(shared_ptr<ModifyBackupPolicyStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyBackupPolicyStatusWithOptions(request, runtime);
+}
+
+ModifyClearLogstoreStorageResponse Alibabacloud_Sas20181203::Client::modifyClearLogstoreStorageWithOptions(shared_ptr<ModifyClearLogstoreStorageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
+    query->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userLogStore)) {
+    query->insert(pair<string, string>("UserLogStore", *request->userLogStore));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userProject)) {
+    query->insert(pair<string, string>("UserProject", *request->userProject));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyClearLogstoreStorage"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyClearLogstoreStorageResponse(callApi(params, req, runtime));
+}
+
+ModifyClearLogstoreStorageResponse Alibabacloud_Sas20181203::Client::modifyClearLogstoreStorage(shared_ptr<ModifyClearLogstoreStorageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyClearLogstoreStorageWithOptions(request, runtime);
 }
 
 ModifyCreateVulWhitelistResponse Alibabacloud_Sas20181203::Client::modifyCreateVulWhitelistWithOptions(shared_ptr<ModifyCreateVulWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -39695,7 +39695,6 @@ public:
   shared_ptr<string> checkKey{};
   shared_ptr<long> currentPage{};
   shared_ptr<vector<string>> instanceIds{};
-  shared_ptr<vector<string>> instanceSubTypes{};
   shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<string> lang{};
   shared_ptr<long> pageSize{};
@@ -39724,9 +39723,6 @@ public:
     }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
-    }
-    if (instanceSubTypes) {
-      res["InstanceSubTypes"] = boost::any(*instanceSubTypes);
     }
     if (instanceTypes) {
       res["InstanceTypes"] = boost::any(*instanceTypes);
@@ -39774,16 +39770,6 @@ public:
         }
       }
       instanceIds = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("InstanceSubTypes") != m.end() && !m["InstanceSubTypes"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["InstanceSubTypes"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceSubTypes"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      instanceSubTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
       vector<string> toVec1;
@@ -41212,6 +41198,147 @@ public:
 
 
   virtual ~ModifyBackupPolicyStatusResponse() = default;
+};
+class ModifyClearLogstoreStorageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> from{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> userLogStore{};
+  shared_ptr<string> userProject{};
+
+  ModifyClearLogstoreStorageRequest() {}
+
+  explicit ModifyClearLogstoreStorageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (userLogStore) {
+      res["UserLogStore"] = boost::any(*userLogStore);
+    }
+    if (userProject) {
+      res["UserProject"] = boost::any(*userProject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<string>(boost::any_cast<string>(m["From"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("UserLogStore") != m.end() && !m["UserLogStore"].empty()) {
+      userLogStore = make_shared<string>(boost::any_cast<string>(m["UserLogStore"]));
+    }
+    if (m.find("UserProject") != m.end() && !m["UserProject"].empty()) {
+      userProject = make_shared<string>(boost::any_cast<string>(m["UserProject"]));
+    }
+  }
+
+
+  virtual ~ModifyClearLogstoreStorageRequest() = default;
+};
+class ModifyClearLogstoreStorageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyClearLogstoreStorageResponseBody() {}
+
+  explicit ModifyClearLogstoreStorageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyClearLogstoreStorageResponseBody() = default;
+};
+class ModifyClearLogstoreStorageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyClearLogstoreStorageResponseBody> body{};
+
+  ModifyClearLogstoreStorageResponse() {}
+
+  explicit ModifyClearLogstoreStorageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyClearLogstoreStorageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyClearLogstoreStorageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyClearLogstoreStorageResponse() = default;
 };
 class ModifyCreateVulWhitelistRequest : public Darabonba::Model {
 public:
@@ -48708,6 +48835,8 @@ public:
   ModifyBackupPolicyResponse modifyBackupPolicy(shared_ptr<ModifyBackupPolicyRequest> request);
   ModifyBackupPolicyStatusResponse modifyBackupPolicyStatusWithOptions(shared_ptr<ModifyBackupPolicyStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyBackupPolicyStatusResponse modifyBackupPolicyStatus(shared_ptr<ModifyBackupPolicyStatusRequest> request);
+  ModifyClearLogstoreStorageResponse modifyClearLogstoreStorageWithOptions(shared_ptr<ModifyClearLogstoreStorageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyClearLogstoreStorageResponse modifyClearLogstoreStorage(shared_ptr<ModifyClearLogstoreStorageRequest> request);
   ModifyCreateVulWhitelistResponse modifyCreateVulWhitelistWithOptions(shared_ptr<ModifyCreateVulWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCreateVulWhitelistResponse modifyCreateVulWhitelist(shared_ptr<ModifyCreateVulWhitelistRequest> request);
   ModifyEmgVulSubmitResponse modifyEmgVulSubmitWithOptions(shared_ptr<ModifyEmgVulSubmitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
