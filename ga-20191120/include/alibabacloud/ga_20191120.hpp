@@ -2666,6 +2666,7 @@ public:
   shared_ptr<string> accelerateRegionId{};
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> ispType{};
   shared_ptr<string> regionId{};
 
   CreateBasicIpSetRequest() {}
@@ -2687,6 +2688,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -2702,6 +2706,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -11297,6 +11304,7 @@ public:
   shared_ptr<string> ipAddress{};
   shared_ptr<string> ipSetId{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<string> ispType{};
   shared_ptr<string> requestId{};
   shared_ptr<string> state{};
 
@@ -11328,6 +11336,9 @@ public:
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
     }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -11355,6 +11366,9 @@ public:
     }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));

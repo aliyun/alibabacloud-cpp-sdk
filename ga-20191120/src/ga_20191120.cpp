@@ -706,6 +706,9 @@ CreateBasicIpSetResponse Alibabacloud_Ga20191120::Client::createBasicIpSetWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ispType)) {
+    query->insert(pair<string, string>("IspType", *request->ispType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
