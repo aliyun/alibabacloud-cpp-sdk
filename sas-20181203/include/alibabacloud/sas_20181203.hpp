@@ -38383,6 +38383,8 @@ public:
   shared_ptr<GetFileDetectResultResponseBodyResultListExt> ext{};
   shared_ptr<string> hashKey{};
   shared_ptr<long> result{};
+  shared_ptr<long> score{};
+  shared_ptr<string> virusType{};
 
   GetFileDetectResultResponseBodyResultList() {}
 
@@ -38403,6 +38405,12 @@ public:
     if (result) {
       res["Result"] = boost::any(*result);
     }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (virusType) {
+      res["VirusType"] = boost::any(*virusType);
+    }
     return res;
   }
 
@@ -38419,6 +38427,12 @@ public:
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<long>(boost::any_cast<long>(m["Result"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<long>(boost::any_cast<long>(m["Score"]));
+    }
+    if (m.find("VirusType") != m.end() && !m["VirusType"].empty()) {
+      virusType = make_shared<string>(boost::any_cast<string>(m["VirusType"]));
     }
   }
 
