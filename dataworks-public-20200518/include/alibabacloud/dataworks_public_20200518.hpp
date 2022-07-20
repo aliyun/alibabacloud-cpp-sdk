@@ -57903,6 +57903,7 @@ public:
   shared_ptr<long> fileId{};
   shared_ptr<long> projectId{};
   shared_ptr<string> projectIdentifier{};
+  shared_ptr<bool> skipAllDeployFileExtensions{};
 
   SubmitFileRequest() {}
 
@@ -57926,6 +57927,9 @@ public:
     if (projectIdentifier) {
       res["ProjectIdentifier"] = boost::any(*projectIdentifier);
     }
+    if (skipAllDeployFileExtensions) {
+      res["SkipAllDeployFileExtensions"] = boost::any(*skipAllDeployFileExtensions);
+    }
     return res;
   }
 
@@ -57941,6 +57945,9 @@ public:
     }
     if (m.find("ProjectIdentifier") != m.end() && !m["ProjectIdentifier"].empty()) {
       projectIdentifier = make_shared<string>(boost::any_cast<string>(m["ProjectIdentifier"]));
+    }
+    if (m.find("SkipAllDeployFileExtensions") != m.end() && !m["SkipAllDeployFileExtensions"].empty()) {
+      skipAllDeployFileExtensions = make_shared<bool>(boost::any_cast<bool>(m["SkipAllDeployFileExtensions"]));
     }
   }
 

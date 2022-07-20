@@ -7737,6 +7737,9 @@ SubmitFileResponse Alibabacloud_Dataworks-public20200518::Client::submitFileWith
   if (!Darabonba_Util::Client::isUnset<string>(request->projectIdentifier)) {
     body->insert(pair<string, string>("ProjectIdentifier", *request->projectIdentifier));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->skipAllDeployFileExtensions)) {
+    body->insert(pair<string, bool>("SkipAllDeployFileExtensions", *request->skipAllDeployFileExtensions));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
