@@ -617,6 +617,9 @@ CreateImageSplicingTaskResponse Alibabacloud_Imm20200930::Client::createImageSpl
   if (!Darabonba_Util::Client::isUnset<string>(request->imageFormat)) {
     query->insert(pair<string, string>("ImageFormat", *request->imageFormat));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->margin)) {
+    query->insert(pair<string, long>("Margin", *request->margin));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyEndpoint)) {
     query->insert(pair<string, string>("NotifyEndpoint", *request->notifyEndpoint));
   }

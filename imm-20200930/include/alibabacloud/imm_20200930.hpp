@@ -6547,6 +6547,7 @@ public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<string> direction{};
   shared_ptr<string> imageFormat{};
+  shared_ptr<long> margin{};
   shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<long> padding{};
@@ -6582,6 +6583,9 @@ public:
     }
     if (imageFormat) {
       res["ImageFormat"] = boost::any(*imageFormat);
+    }
+    if (margin) {
+      res["Margin"] = boost::any(*margin);
     }
     if (notifyEndpoint) {
       res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
@@ -6640,6 +6644,9 @@ public:
     if (m.find("ImageFormat") != m.end() && !m["ImageFormat"].empty()) {
       imageFormat = make_shared<string>(boost::any_cast<string>(m["ImageFormat"]));
     }
+    if (m.find("Margin") != m.end() && !m["Margin"].empty()) {
+      margin = make_shared<long>(boost::any_cast<long>(m["Margin"]));
+    }
     if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
       notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
     }
@@ -6697,6 +6704,7 @@ public:
   shared_ptr<string> credentialConfigShrink{};
   shared_ptr<string> direction{};
   shared_ptr<string> imageFormat{};
+  shared_ptr<long> margin{};
   shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<long> padding{};
@@ -6732,6 +6740,9 @@ public:
     }
     if (imageFormat) {
       res["ImageFormat"] = boost::any(*imageFormat);
+    }
+    if (margin) {
+      res["Margin"] = boost::any(*margin);
     }
     if (notifyEndpoint) {
       res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
@@ -6781,6 +6792,9 @@ public:
     }
     if (m.find("ImageFormat") != m.end() && !m["ImageFormat"].empty()) {
       imageFormat = make_shared<string>(boost::any_cast<string>(m["ImageFormat"]));
+    }
+    if (m.find("Margin") != m.end() && !m["Margin"].empty()) {
+      margin = make_shared<long>(boost::any_cast<long>(m["Margin"]));
     }
     if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
       notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
