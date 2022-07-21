@@ -225,6 +225,9 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
   if (!Darabonba_Util::Client::isUnset<InstanceLifecycleConfig>(request->instanceLifecycleConfig)) {
     body->insert(pair<string, InstanceLifecycleConfig>("instanceLifecycleConfig", *request->instanceLifecycleConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceSoftConcurrency)) {
+    body->insert(pair<string, long>("instanceSoftConcurrency", *request->instanceSoftConcurrency));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     body->insert(pair<string, string>("instanceType", *request->instanceType));
   }
@@ -1970,6 +1973,12 @@ ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
     realHeaders->insert(pair<string, string>("X-Fc-Account-Id", Darabonba_Util::Client::toJSONString(headers->xFcAccountId)));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Date", Darabonba_Util::Client::toJSONString(headers->xFcDate)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Trace-Id", Darabonba_Util::Client::toJSONString(headers->xFcTraceId)));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3218,6 +3227,9 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
   }
   if (!Darabonba_Util::Client::isUnset<InstanceLifecycleConfig>(request->instanceLifecycleConfig)) {
     body->insert(pair<string, InstanceLifecycleConfig>("instanceLifecycleConfig", *request->instanceLifecycleConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->instanceSoftConcurrency)) {
+    body->insert(pair<string, long>("instanceSoftConcurrency", *request->instanceSoftConcurrency));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     body->insert(pair<string, string>("instanceType", *request->instanceType));

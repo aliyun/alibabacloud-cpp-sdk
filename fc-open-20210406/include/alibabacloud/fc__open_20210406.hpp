@@ -3375,6 +3375,7 @@ public:
   shared_ptr<string> initializer{};
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<vector<string>> layers{};
   shared_ptr<long> memorySize{};
@@ -3429,6 +3430,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -3513,6 +3517,9 @@ public:
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
     }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
+    }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
     }
@@ -3558,6 +3565,7 @@ public:
   shared_ptr<string> initializer{};
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<vector<string>> layers{};
@@ -3622,6 +3630,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -3713,6 +3724,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instanceLifecycleConfig"]));
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
+    }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
     }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
@@ -4241,6 +4255,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<VendorConfig> vendorConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   CreateServiceResponseBody() {}
@@ -4282,6 +4297,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vendorConfig) {
+      res["vendorConfig"] = vendorConfig ? boost::any(vendorConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4330,6 +4348,13 @@ public:
         TracingConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
+      }
+    }
+    if (m.find("vendorConfig") != m.end() && !m["vendorConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["vendorConfig"].type()) {
+        VendorConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vendorConfig"]));
+        vendorConfig = make_shared<VendorConfig>(model1);
       }
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
@@ -6756,6 +6781,7 @@ public:
   shared_ptr<string> initializer{};
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<vector<string>> layers{};
@@ -6820,6 +6846,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -6911,6 +6940,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instanceLifecycleConfig"]));
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
+    }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
     }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
@@ -10246,6 +10278,7 @@ public:
   shared_ptr<string> initializer{};
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<vector<string>> layers{};
@@ -10304,6 +10337,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -10381,6 +10417,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instanceLifecycleConfig"]));
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
+    }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
     }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
@@ -10528,6 +10567,8 @@ class ListInstancesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
 
   ListInstancesHeaders() {}
 
@@ -10545,6 +10586,12 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
     return res;
   }
 
@@ -10559,6 +10606,12 @@ public:
     }
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
     }
   }
 
@@ -15858,6 +15911,7 @@ public:
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<vector<string>> layers{};
   shared_ptr<long> memorySize{};
@@ -15909,6 +15963,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -15990,6 +16047,9 @@ public:
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
     }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
+    }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
     }
@@ -16034,6 +16094,7 @@ public:
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
+  shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<vector<string>> layers{};
@@ -16095,6 +16156,9 @@ public:
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (instanceSoftConcurrency) {
+      res["instanceSoftConcurrency"] = boost::any(*instanceSoftConcurrency);
     }
     if (instanceType) {
       res["instanceType"] = boost::any(*instanceType);
@@ -16183,6 +16247,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["instanceLifecycleConfig"]));
         instanceLifecycleConfig = make_shared<InstanceLifecycleConfig>(model1);
       }
+    }
+    if (m.find("instanceSoftConcurrency") != m.end() && !m["instanceSoftConcurrency"].empty()) {
+      instanceSoftConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceSoftConcurrency"]));
     }
     if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
@@ -16437,6 +16504,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
+  shared_ptr<VendorConfig> vendorConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   UpdateServiceResponseBody() {}
@@ -16478,6 +16546,9 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (vendorConfig) {
+      res["vendorConfig"] = vendorConfig ? boost::any(vendorConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16526,6 +16597,13 @@ public:
         TracingConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
+      }
+    }
+    if (m.find("vendorConfig") != m.end() && !m["vendorConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["vendorConfig"].type()) {
+        VendorConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vendorConfig"]));
+        vendorConfig = make_shared<VendorConfig>(model1);
       }
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
