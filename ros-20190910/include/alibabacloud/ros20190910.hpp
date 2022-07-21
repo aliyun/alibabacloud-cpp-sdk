@@ -11258,9 +11258,47 @@ public:
 
   virtual ~GetTemplateScratchResponse() = default;
 };
+class GetTemplateSummaryRequestParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  GetTemplateSummaryRequestParameters() {}
+
+  explicit GetTemplateSummaryRequestParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~GetTemplateSummaryRequestParameters() = default;
+};
 class GetTemplateSummaryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> changeSetId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<GetTemplateSummaryRequestParameters>> parameters{};
   shared_ptr<string> regionId{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<string> stackId{};
@@ -11281,6 +11319,16 @@ public:
     map<string, boost::any> res;
     if (changeSetId) {
       res["ChangeSetId"] = boost::any(*changeSetId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (parameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*parameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Parameters"] = boost::any(temp1);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -11309,6 +11357,22 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ChangeSetId") != m.end() && !m["ChangeSetId"].empty()) {
       changeSetId = make_shared<string>(boost::any_cast<string>(m["ChangeSetId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
+        vector<GetTemplateSummaryRequestParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Parameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateSummaryRequestParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        parameters = make_shared<vector<GetTemplateSummaryRequestParameters>>(expect1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

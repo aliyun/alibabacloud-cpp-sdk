@@ -1665,6 +1665,12 @@ GetTemplateSummaryResponse Alibabacloud_ROS20190910::Client::getTemplateSummaryW
   if (!Darabonba_Util::Client::isUnset<string>(request->changeSetId)) {
     query->insert(pair<string, string>("ChangeSetId", *request->changeSetId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<GetTemplateSummaryRequestParameters>>(request->parameters)) {
+    query->insert(pair<string, vector<GetTemplateSummaryRequestParameters>>("Parameters", *request->parameters));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
