@@ -5792,6 +5792,7 @@ public:
   shared_ptr<vector<ScreenChestCTResponseBodyDataCACSDetections>> detections{};
   shared_ptr<string> resultUrl{};
   shared_ptr<string> score{};
+  shared_ptr<string> seriesInstanceUID{};
   shared_ptr<string> volumeScore{};
 
   ScreenChestCTResponseBodyDataCACS() {}
@@ -5816,6 +5817,9 @@ public:
     }
     if (score) {
       res["Score"] = boost::any(*score);
+    }
+    if (seriesInstanceUID) {
+      res["SeriesInstanceUID"] = boost::any(*seriesInstanceUID);
     }
     if (volumeScore) {
       res["VolumeScore"] = boost::any(*volumeScore);
@@ -5843,6 +5847,9 @@ public:
     if (m.find("Score") != m.end() && !m["Score"].empty()) {
       score = make_shared<string>(boost::any_cast<string>(m["Score"]));
     }
+    if (m.find("SeriesInstanceUID") != m.end() && !m["SeriesInstanceUID"].empty()) {
+      seriesInstanceUID = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUID"]));
+    }
     if (m.find("VolumeScore") != m.end() && !m["VolumeScore"].empty()) {
       volumeScore = make_shared<string>(boost::any_cast<string>(m["VolumeScore"]));
     }
@@ -5858,6 +5865,7 @@ public:
   shared_ptr<string> newProbability{};
   shared_ptr<string> normalProbability{};
   shared_ptr<string> otherProbability{};
+  shared_ptr<string> seriesInstanceUID{};
 
   ScreenChestCTResponseBodyDataCovid() {}
 
@@ -5884,6 +5892,9 @@ public:
     if (otherProbability) {
       res["OtherProbability"] = boost::any(*otherProbability);
     }
+    if (seriesInstanceUID) {
+      res["SeriesInstanceUID"] = boost::any(*seriesInstanceUID);
+    }
     return res;
   }
 
@@ -5902,6 +5913,9 @@ public:
     }
     if (m.find("OtherProbability") != m.end() && !m["OtherProbability"].empty()) {
       otherProbability = make_shared<string>(boost::any_cast<string>(m["OtherProbability"]));
+    }
+    if (m.find("SeriesInstanceUID") != m.end() && !m["SeriesInstanceUID"].empty()) {
+      seriesInstanceUID = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUID"]));
     }
   }
 
@@ -5996,6 +6010,7 @@ public:
 class ScreenChestCTResponseBodyDataDetectLymph : public Darabonba::Model {
 public:
   shared_ptr<vector<ScreenChestCTResponseBodyDataDetectLymphLesions>> lesions{};
+  shared_ptr<string> seriesInstanceUID{};
 
   ScreenChestCTResponseBodyDataDetectLymph() {}
 
@@ -6014,6 +6029,9 @@ public:
       }
       res["Lesions"] = boost::any(temp1);
     }
+    if (seriesInstanceUID) {
+      res["SeriesInstanceUID"] = boost::any(*seriesInstanceUID);
+    }
     return res;
   }
 
@@ -6030,6 +6048,9 @@ public:
         }
         lesions = make_shared<vector<ScreenChestCTResponseBodyDataDetectLymphLesions>>(expect1);
       }
+    }
+    if (m.find("SeriesInstanceUID") != m.end() && !m["SeriesInstanceUID"].empty()) {
+      seriesInstanceUID = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUID"]));
     }
   }
 
@@ -6103,6 +6124,7 @@ public:
 class ScreenChestCTResponseBodyDataDetectPdac : public Darabonba::Model {
 public:
   shared_ptr<ScreenChestCTResponseBodyDataDetectPdacLesion> lesion{};
+  shared_ptr<string> seriesInstanceUID{};
 
   ScreenChestCTResponseBodyDataDetectPdac() {}
 
@@ -6117,6 +6139,9 @@ public:
     if (lesion) {
       res["Lesion"] = lesion ? boost::any(lesion->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (seriesInstanceUID) {
+      res["SeriesInstanceUID"] = boost::any(*seriesInstanceUID);
+    }
     return res;
   }
 
@@ -6127,6 +6152,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Lesion"]));
         lesion = make_shared<ScreenChestCTResponseBodyDataDetectPdacLesion>(model1);
       }
+    }
+    if (m.find("SeriesInstanceUID") != m.end() && !m["SeriesInstanceUID"].empty()) {
+      seriesInstanceUID = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUID"]));
     }
   }
 
@@ -6225,6 +6253,7 @@ public:
   shared_ptr<vector<double>> origin{};
   shared_ptr<string> resultURL{};
   shared_ptr<string> ribSegmentMaskURL{};
+  shared_ptr<string> seriesInstanceUID{};
   shared_ptr<vector<double>> spacing{};
 
   ScreenChestCTResponseBodyDataDetectRibFracture() {}
@@ -6255,6 +6284,9 @@ public:
     }
     if (ribSegmentMaskURL) {
       res["RibSegmentMaskURL"] = boost::any(*ribSegmentMaskURL);
+    }
+    if (seriesInstanceUID) {
+      res["SeriesInstanceUID"] = boost::any(*seriesInstanceUID);
     }
     if (spacing) {
       res["Spacing"] = boost::any(*spacing);
@@ -6294,6 +6326,9 @@ public:
     }
     if (m.find("RibSegmentMaskURL") != m.end() && !m["RibSegmentMaskURL"].empty()) {
       ribSegmentMaskURL = make_shared<string>(boost::any_cast<string>(m["RibSegmentMaskURL"]));
+    }
+    if (m.find("SeriesInstanceUID") != m.end() && !m["SeriesInstanceUID"].empty()) {
+      seriesInstanceUID = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUID"]));
     }
     if (m.find("Spacing") != m.end() && !m["Spacing"].empty()) {
       vector<double> toVec1;
@@ -6568,6 +6603,7 @@ public:
   shared_ptr<ScreenChestCTResponseBodyDataDetectRibFracture> detectRibFracture{};
   shared_ptr<string> errorMessage{};
   shared_ptr<ScreenChestCTResponseBodyDataLungNodule> lungNodule{};
+  shared_ptr<map<string, boost::any>> nestedUrlList{};
   shared_ptr<map<string, boost::any>> URLList{};
 
   ScreenChestCTResponseBodyData() {}
@@ -6603,6 +6639,9 @@ public:
     }
     if (lungNodule) {
       res["LungNodule"] = lungNodule ? boost::any(lungNodule->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nestedUrlList) {
+      res["NestedUrlList"] = boost::any(*nestedUrlList);
     }
     if (URLList) {
       res["URLList"] = boost::any(*URLList);
@@ -6662,6 +6701,14 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LungNodule"]));
         lungNodule = make_shared<ScreenChestCTResponseBodyDataLungNodule>(model1);
       }
+    }
+    if (m.find("NestedUrlList") != m.end() && !m["NestedUrlList"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["NestedUrlList"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      nestedUrlList = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["URLList"]);
