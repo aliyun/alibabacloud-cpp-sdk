@@ -1481,10 +1481,16 @@ public:
   shared_ptr<bool> enabledDebugger{};
   shared_ptr<map<string, string>> envs{};
   shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtFailedTime{};
   shared_ptr<string> gmtFinishTime{};
+  shared_ptr<string> gmtRunningTime{};
+  shared_ptr<string> gmtStoppedTime{};
+  shared_ptr<string> gmtSubmittedTime{};
+  shared_ptr<string> gmtSuccessedTime{};
   shared_ptr<string> jobId{};
   shared_ptr<vector<JobSpec>> jobSpecs{};
   shared_ptr<string> jobType{};
+  shared_ptr<long> priority{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> resourceId{};
@@ -1534,8 +1540,23 @@ public:
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
+    if (gmtFailedTime) {
+      res["GmtFailedTime"] = boost::any(*gmtFailedTime);
+    }
     if (gmtFinishTime) {
       res["GmtFinishTime"] = boost::any(*gmtFinishTime);
+    }
+    if (gmtRunningTime) {
+      res["GmtRunningTime"] = boost::any(*gmtRunningTime);
+    }
+    if (gmtStoppedTime) {
+      res["GmtStoppedTime"] = boost::any(*gmtStoppedTime);
+    }
+    if (gmtSubmittedTime) {
+      res["GmtSubmittedTime"] = boost::any(*gmtSubmittedTime);
+    }
+    if (gmtSuccessedTime) {
+      res["GmtSuccessedTime"] = boost::any(*gmtSuccessedTime);
     }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
@@ -1549,6 +1570,9 @@ public:
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -1633,8 +1657,23 @@ public:
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
     }
+    if (m.find("GmtFailedTime") != m.end() && !m["GmtFailedTime"].empty()) {
+      gmtFailedTime = make_shared<string>(boost::any_cast<string>(m["GmtFailedTime"]));
+    }
     if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
       gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
+    }
+    if (m.find("GmtRunningTime") != m.end() && !m["GmtRunningTime"].empty()) {
+      gmtRunningTime = make_shared<string>(boost::any_cast<string>(m["GmtRunningTime"]));
+    }
+    if (m.find("GmtStoppedTime") != m.end() && !m["GmtStoppedTime"].empty()) {
+      gmtStoppedTime = make_shared<string>(boost::any_cast<string>(m["GmtStoppedTime"]));
+    }
+    if (m.find("GmtSubmittedTime") != m.end() && !m["GmtSubmittedTime"].empty()) {
+      gmtSubmittedTime = make_shared<string>(boost::any_cast<string>(m["GmtSubmittedTime"]));
+    }
+    if (m.find("GmtSuccessedTime") != m.end() && !m["GmtSuccessedTime"].empty()) {
+      gmtSuccessedTime = make_shared<string>(boost::any_cast<string>(m["GmtSuccessedTime"]));
     }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
@@ -1654,6 +1693,9 @@ public:
     }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
@@ -4735,6 +4777,7 @@ public:
   shared_ptr<vector<JobSpec>> jobSpecs{};
   shared_ptr<string> jobType{};
   shared_ptr<vector<GetJobResponseBodyPods>> pods{};
+  shared_ptr<long> priority{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> requestId{};
@@ -4827,6 +4870,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Pods"] = boost::any(temp1);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -4970,6 +5016,9 @@ public:
         }
         pods = make_shared<vector<GetJobResponseBodyPods>>(expect1);
       }
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
