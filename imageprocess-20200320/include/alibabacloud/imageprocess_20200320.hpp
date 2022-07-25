@@ -6825,6 +6825,258 @@ public:
 
   virtual ~ScreenChestCTResponse() = default;
 };
+class SegmentOARRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<string> URL{};
+
+  SegmentOARRequestURLList() {}
+
+  explicit SegmentOARRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~SegmentOARRequestURLList() = default;
+};
+class SegmentOARRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyPart{};
+  shared_ptr<bool> contrast{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<vector<long>> maskList{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<SegmentOARRequestURLList>> URLList{};
+
+  SegmentOARRequest() {}
+
+  explicit SegmentOARRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyPart) {
+      res["BodyPart"] = boost::any(*bodyPart);
+    }
+    if (contrast) {
+      res["Contrast"] = boost::any(*contrast);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (maskList) {
+      res["MaskList"] = boost::any(*maskList);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyPart") != m.end() && !m["BodyPart"].empty()) {
+      bodyPart = make_shared<string>(boost::any_cast<string>(m["BodyPart"]));
+    }
+    if (m.find("Contrast") != m.end() && !m["Contrast"].empty()) {
+      contrast = make_shared<bool>(boost::any_cast<bool>(m["Contrast"]));
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("MaskList") != m.end() && !m["MaskList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaskList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaskList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maskList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<SegmentOARRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SegmentOARRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<SegmentOARRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentOARRequest() = default;
+};
+class SegmentOARResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> resultURL{};
+
+  SegmentOARResponseBodyData() {}
+
+  explicit SegmentOARResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resultURL) {
+      res["ResultURL"] = boost::any(*resultURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResultURL") != m.end() && !m["ResultURL"].empty()) {
+      resultURL = make_shared<string>(boost::any_cast<string>(m["ResultURL"]));
+    }
+  }
+
+
+  virtual ~SegmentOARResponseBodyData() = default;
+};
+class SegmentOARResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SegmentOARResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  SegmentOARResponseBody() {}
+
+  explicit SegmentOARResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SegmentOARResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SegmentOARResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SegmentOARResponseBody() = default;
+};
+class SegmentOARResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SegmentOARResponseBody> body{};
+
+  SegmentOARResponse() {}
+
+  explicit SegmentOARResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SegmentOARResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SegmentOARResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentOARResponse() = default;
+};
 class TranslateMedRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fromLanguage{};
@@ -7057,6 +7309,8 @@ public:
   RunMedQAResponse runMedQA(shared_ptr<RunMedQARequest> request);
   ScreenChestCTResponse screenChestCTWithOptions(shared_ptr<ScreenChestCTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenChestCTResponse screenChestCT(shared_ptr<ScreenChestCTRequest> request);
+  SegmentOARResponse segmentOARWithOptions(shared_ptr<SegmentOARRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SegmentOARResponse segmentOAR(shared_ptr<SegmentOARRequest> request);
   TranslateMedResponse translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TranslateMedResponse translateMed(shared_ptr<TranslateMedRequest> request);
 

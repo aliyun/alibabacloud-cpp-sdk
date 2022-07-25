@@ -1079,6 +1079,52 @@ ScreenChestCTResponse Alibabacloud_Imageprocess20200320::Client::screenChestCT(s
   return screenChestCTWithOptions(request, runtime);
 }
 
+SegmentOARResponse Alibabacloud_Imageprocess20200320::Client::segmentOARWithOptions(shared_ptr<SegmentOARRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bodyPart)) {
+    body->insert(pair<string, string>("BodyPart", *request->bodyPart));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->contrast)) {
+    body->insert(pair<string, bool>("Contrast", *request->contrast));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataFormat)) {
+    body->insert(pair<string, string>("DataFormat", *request->dataFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->maskList)) {
+    body->insert(pair<string, vector<long>>("MaskList", *request->maskList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
+    body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orgName)) {
+    body->insert(pair<string, string>("OrgName", *request->orgName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SegmentOARRequestURLList>>(request->URLList)) {
+    body->insert(pair<string, vector<SegmentOARRequestURLList>>("URLList", *request->URLList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SegmentOAR"))},
+    {"version", boost::any(string("2020-03-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SegmentOARResponse(callApi(params, req, runtime));
+}
+
+SegmentOARResponse Alibabacloud_Imageprocess20200320::Client::segmentOAR(shared_ptr<SegmentOARRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return segmentOARWithOptions(request, runtime);
+}
+
 TranslateMedResponse Alibabacloud_Imageprocess20200320::Client::translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
