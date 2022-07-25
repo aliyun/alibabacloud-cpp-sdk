@@ -40337,11 +40337,10 @@ public:
 class ListCheckInstanceResultResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListCheckInstanceResultResponseBodyBasicData>> basicData{};
-  shared_ptr<map<string, boost::any>> checks{};
+  shared_ptr<vector<map<string, boost::any>>> checks{};
   shared_ptr<vector<ListCheckInstanceResultResponseBodyColumns>> columns{};
   shared_ptr<ListCheckInstanceResultResponseBodyPageInfo> pageInfo{};
   shared_ptr<string> requestId{};
-  shared_ptr<long> totalCount{};
 
   ListCheckInstanceResultResponseBody() {}
 
@@ -40376,9 +40375,6 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (totalCount) {
-      res["TotalCount"] = boost::any(*totalCount);
-    }
     return res;
   }
 
@@ -40397,12 +40393,19 @@ public:
       }
     }
     if (m.find("Checks") != m.end() && !m["Checks"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Checks"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Checks"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Checks"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
       }
-      checks = make_shared<map<string, boost::any>>(toMap1);
+      checks = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("Columns") != m.end() && !m["Columns"].empty()) {
       if (typeid(vector<boost::any>) == m["Columns"].type()) {
@@ -40426,9 +40429,6 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
