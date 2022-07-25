@@ -13396,7 +13396,7 @@ public:
 };
 class MonitorExaminationResponseBodyDataFaceInfo : public Darabonba::Model {
 public:
-  shared_ptr<long> completeness{};
+  shared_ptr<double> completeness{};
   shared_ptr<long> faceNumber{};
   shared_ptr<MonitorExaminationResponseBodyDataFaceInfoPose> pose{};
 
@@ -13424,7 +13424,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Completeness") != m.end() && !m["Completeness"].empty()) {
-      completeness = make_shared<long>(boost::any_cast<long>(m["Completeness"]));
+      completeness = make_shared<double>(boost::any_cast<double>(m["Completeness"]));
     }
     if (m.find("FaceNumber") != m.end() && !m["FaceNumber"].empty()) {
       faceNumber = make_shared<long>(boost::any_cast<long>(m["FaceNumber"]));
