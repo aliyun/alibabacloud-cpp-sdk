@@ -76,6 +76,40 @@ string Alibabacloud_Alikafka20190916::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ChangeResourceGroupResponse Alibabacloud_Alikafka20190916::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->newResourceGroupId)) {
+    query->insert(pair<string, string>("NewResourceGroupId", *request->newResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeResourceGroup"))},
+    {"version", boost::any(string("2019-09-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeResourceGroupResponse(callApi(params, req, runtime));
+}
+
+ChangeResourceGroupResponse Alibabacloud_Alikafka20190916::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeResourceGroupWithOptions(request, runtime);
+}
+
 ConvertPostPayOrderResponse Alibabacloud_Alikafka20190916::Client::convertPostPayOrderWithOptions(shared_ptr<ConvertPostPayOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -217,6 +251,9 @@ CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->specType)) {
     query->insert(pair<string, string>("SpecType", *request->specType));
   }
@@ -268,6 +305,9 @@ CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->specType)) {
     query->insert(pair<string, string>("SpecType", *request->specType));
@@ -823,6 +863,9 @@ GetInstanceListResponse Alibabacloud_Alikafka20190916::Client::getInstanceListWi
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<GetInstanceListRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<GetInstanceListRequestTag>>("Tag", *request->tag));
   }
@@ -1119,6 +1162,9 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstanceWithOp
   if (!Darabonba_Util::Client::isUnset<bool>(request->isEipInner)) {
     query->insert(pair<string, bool>("IsEipInner", *request->isEipInner));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isForceSelectedZones)) {
+    query->insert(pair<string, bool>("IsForceSelectedZones", *request->isForceSelectedZones));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isSetUserAndPassword)) {
     query->insert(pair<string, bool>("IsSetUserAndPassword", *request->isSetUserAndPassword));
   }
@@ -1127,6 +1173,9 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstanceWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifier)) {
+    query->insert(pair<string, string>("Notifier", *request->notifier));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));
@@ -1137,8 +1186,14 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstanceWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroup)) {
     query->insert(pair<string, string>("SecurityGroup", *request->securityGroup));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->selectedZones)) {
+    query->insert(pair<string, string>("SelectedZones", *request->selectedZones));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
     query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userPhoneNum)) {
+    query->insert(pair<string, string>("UserPhoneNum", *request->userPhoneNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     query->insert(pair<string, string>("Username", *request->username));
@@ -1177,6 +1232,9 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstance(share
 TagResourcesResponse Alibabacloud_Alikafka20190916::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
