@@ -42,6 +42,40 @@ string Alibabacloud_Tdsr20200101::Client::getEndpoint(shared_ptr<string> product
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+AddHotspotFileResponse Alibabacloud_Tdsr20200101::Client::addHotspotFileWithOptions(shared_ptr<AddHotspotFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    query->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddHotspotFile"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddHotspotFileResponse(callApi(params, req, runtime));
+}
+
+AddHotspotFileResponse Alibabacloud_Tdsr20200101::Client::addHotspotFile(shared_ptr<AddHotspotFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addHotspotFileWithOptions(request, runtime);
+}
+
 AddMosaicsResponse Alibabacloud_Tdsr20200101::Client::addMosaicsWithOptions(shared_ptr<AddMosaicsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -327,6 +361,34 @@ CreateUploadPolicyResponse Alibabacloud_Tdsr20200101::Client::createUploadPolicy
   return createUploadPolicyWithOptions(request, runtime);
 }
 
+DecryptContentResponse Alibabacloud_Tdsr20200101::Client::decryptContentWithOptions(shared_ptr<DecryptContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("Content", *request->content));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DecryptContent"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DecryptContentResponse(callApi(params, req, runtime));
+}
+
+DecryptContentResponse Alibabacloud_Tdsr20200101::Client::decryptContent(shared_ptr<DecryptContentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return decryptContentWithOptions(request, runtime);
+}
+
 DetailProjectResponse Alibabacloud_Tdsr20200101::Client::detailProjectWithOptions(shared_ptr<DetailProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -493,6 +555,34 @@ DropSubSceneResponse Alibabacloud_Tdsr20200101::Client::dropSubSceneWithOptions(
 DropSubSceneResponse Alibabacloud_Tdsr20200101::Client::dropSubScene(shared_ptr<DropSubSceneRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return dropSubSceneWithOptions(request, runtime);
+}
+
+EncryptContentResponse Alibabacloud_Tdsr20200101::Client::encryptContentWithOptions(shared_ptr<EncryptContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("Content", *request->content));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EncryptContent"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EncryptContentResponse(callApi(params, req, runtime));
+}
+
+EncryptContentResponse Alibabacloud_Tdsr20200101::Client::encryptContent(shared_ptr<EncryptContentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return encryptContentWithOptions(request, runtime);
 }
 
 GetConnDataResponse Alibabacloud_Tdsr20200101::Client::getConnDataWithOptions(shared_ptr<GetConnDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
