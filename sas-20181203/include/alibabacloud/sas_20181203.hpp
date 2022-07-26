@@ -38666,38 +38666,9 @@ public:
 
   virtual ~GetFileDetectResultRequest() = default;
 };
-class GetFileDetectResultResponseBodyResultListExt : public Darabonba::Model {
-public:
-  shared_ptr<string> virusName{};
-
-  GetFileDetectResultResponseBodyResultListExt() {}
-
-  explicit GetFileDetectResultResponseBodyResultListExt(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (virusName) {
-      res["VirusName"] = boost::any(*virusName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("VirusName") != m.end() && !m["VirusName"].empty()) {
-      virusName = make_shared<string>(boost::any_cast<string>(m["VirusName"]));
-    }
-  }
-
-
-  virtual ~GetFileDetectResultResponseBodyResultListExt() = default;
-};
 class GetFileDetectResultResponseBodyResultList : public Darabonba::Model {
 public:
-  shared_ptr<GetFileDetectResultResponseBodyResultListExt> ext{};
+  shared_ptr<string> ext{};
   shared_ptr<string> hashKey{};
   shared_ptr<long> result{};
   shared_ptr<long> score{};
@@ -38714,7 +38685,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (ext) {
-      res["Ext"] = ext ? boost::any(ext->toMap()) : boost::any(map<string,boost::any>({}));
+      res["Ext"] = boost::any(*ext);
     }
     if (hashKey) {
       res["HashKey"] = boost::any(*hashKey);
@@ -38733,11 +38704,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Ext"].type()) {
-        GetFileDetectResultResponseBodyResultListExt model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ext"]));
-        ext = make_shared<GetFileDetectResultResponseBodyResultListExt>(model1);
-      }
+      ext = make_shared<string>(boost::any_cast<string>(m["Ext"]));
     }
     if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
       hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
