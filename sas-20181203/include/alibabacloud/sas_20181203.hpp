@@ -36501,6 +36501,9 @@ public:
 };
 class DescribeWarningMachinesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> containerFieldName{};
+  shared_ptr<string> containerFieldValue{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> lang{};
   shared_ptr<string> machineName{};
@@ -36508,6 +36511,7 @@ public:
   shared_ptr<long> riskId{};
   shared_ptr<string> sourceIp{};
   shared_ptr<long> strategyId{};
+  shared_ptr<string> targetType{};
   shared_ptr<string> uuids{};
 
   DescribeWarningMachinesRequest() {}
@@ -36520,6 +36524,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (containerFieldName) {
+      res["ContainerFieldName"] = boost::any(*containerFieldName);
+    }
+    if (containerFieldValue) {
+      res["ContainerFieldValue"] = boost::any(*containerFieldValue);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -36541,6 +36554,9 @@ public:
     if (strategyId) {
       res["StrategyId"] = boost::any(*strategyId);
     }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
     if (uuids) {
       res["Uuids"] = boost::any(*uuids);
     }
@@ -36548,6 +36564,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ContainerFieldName") != m.end() && !m["ContainerFieldName"].empty()) {
+      containerFieldName = make_shared<string>(boost::any_cast<string>(m["ContainerFieldName"]));
+    }
+    if (m.find("ContainerFieldValue") != m.end() && !m["ContainerFieldValue"].empty()) {
+      containerFieldValue = make_shared<string>(boost::any_cast<string>(m["ContainerFieldValue"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -36568,6 +36593,9 @@ public:
     }
     if (m.find("StrategyId") != m.end() && !m["StrategyId"].empty()) {
       strategyId = make_shared<long>(boost::any_cast<long>(m["StrategyId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
     }
     if (m.find("Uuids") != m.end() && !m["Uuids"].empty()) {
       uuids = make_shared<string>(boost::any_cast<string>(m["Uuids"]));
