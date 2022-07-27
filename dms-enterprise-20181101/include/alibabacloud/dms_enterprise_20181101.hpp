@@ -15316,9 +15316,10 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpsPort{};
   shared_ptr<long> instanceId{};
-  shared_ptr<long> mysqlPort{};
   shared_ptr<bool> privateEnable{};
   shared_ptr<string> privateHost{};
+  shared_ptr<long> protocolPort{};
+  shared_ptr<string> protocolType{};
   shared_ptr<long> proxyId{};
   shared_ptr<bool> publicEnable{};
   shared_ptr<string> publicHost{};
@@ -15353,14 +15354,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mysqlPort) {
-      res["MysqlPort"] = boost::any(*mysqlPort);
-    }
     if (privateEnable) {
       res["PrivateEnable"] = boost::any(*privateEnable);
     }
     if (privateHost) {
       res["PrivateHost"] = boost::any(*privateHost);
+    }
+    if (protocolPort) {
+      res["ProtocolPort"] = boost::any(*protocolPort);
+    }
+    if (protocolType) {
+      res["ProtocolType"] = boost::any(*protocolType);
     }
     if (proxyId) {
       res["ProxyId"] = boost::any(*proxyId);
@@ -15399,14 +15403,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
     }
-    if (m.find("MysqlPort") != m.end() && !m["MysqlPort"].empty()) {
-      mysqlPort = make_shared<long>(boost::any_cast<long>(m["MysqlPort"]));
-    }
     if (m.find("PrivateEnable") != m.end() && !m["PrivateEnable"].empty()) {
       privateEnable = make_shared<bool>(boost::any_cast<bool>(m["PrivateEnable"]));
     }
     if (m.find("PrivateHost") != m.end() && !m["PrivateHost"].empty()) {
       privateHost = make_shared<string>(boost::any_cast<string>(m["PrivateHost"]));
+    }
+    if (m.find("ProtocolPort") != m.end() && !m["ProtocolPort"].empty()) {
+      protocolPort = make_shared<long>(boost::any_cast<long>(m["ProtocolPort"]));
+    }
+    if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
+      protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
     }
     if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
       proxyId = make_shared<long>(boost::any_cast<long>(m["ProxyId"]));
@@ -26723,9 +26730,10 @@ public:
   shared_ptr<string> creatorName{};
   shared_ptr<long> httpsPort{};
   shared_ptr<long> instanceId{};
-  shared_ptr<long> mysqlPort{};
   shared_ptr<bool> privateEnable{};
   shared_ptr<string> privateHost{};
+  shared_ptr<long> protocolPort{};
+  shared_ptr<string> protocolType{};
   shared_ptr<long> proxyId{};
   shared_ptr<bool> publicEnable{};
   shared_ptr<string> publicHost{};
@@ -26752,14 +26760,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mysqlPort) {
-      res["MysqlPort"] = boost::any(*mysqlPort);
-    }
     if (privateEnable) {
       res["PrivateEnable"] = boost::any(*privateEnable);
     }
     if (privateHost) {
       res["PrivateHost"] = boost::any(*privateHost);
+    }
+    if (protocolPort) {
+      res["ProtocolPort"] = boost::any(*protocolPort);
+    }
+    if (protocolType) {
+      res["ProtocolType"] = boost::any(*protocolType);
     }
     if (proxyId) {
       res["ProxyId"] = boost::any(*proxyId);
@@ -26786,14 +26797,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
     }
-    if (m.find("MysqlPort") != m.end() && !m["MysqlPort"].empty()) {
-      mysqlPort = make_shared<long>(boost::any_cast<long>(m["MysqlPort"]));
-    }
     if (m.find("PrivateEnable") != m.end() && !m["PrivateEnable"].empty()) {
       privateEnable = make_shared<bool>(boost::any_cast<bool>(m["PrivateEnable"]));
     }
     if (m.find("PrivateHost") != m.end() && !m["PrivateHost"].empty()) {
       privateHost = make_shared<string>(boost::any_cast<string>(m["PrivateHost"]));
+    }
+    if (m.find("ProtocolPort") != m.end() && !m["ProtocolPort"].empty()) {
+      protocolPort = make_shared<long>(boost::any_cast<long>(m["ProtocolPort"]));
+    }
+    if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
+      protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
     }
     if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
       proxyId = make_shared<long>(boost::any_cast<long>(m["ProxyId"]));
