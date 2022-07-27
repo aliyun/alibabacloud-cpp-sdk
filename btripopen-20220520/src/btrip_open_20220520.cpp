@@ -1135,8 +1135,8 @@ EntityDeleteResponse Alibabacloud_BtripOpen20220520::Client::entityDeleteWithOpt
     {"action", boost::any(string("EntityDelete"))},
     {"version", boost::any(string("2022-05-20"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/costcenter/v1/delete-entity"))},
-    {"method", boost::any(string("DELETE"))},
+    {"pathname", boost::any(string("/costcenter/v1/entity/action/delete"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -2125,5 +2125,50 @@ TrainOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderQueryW
     {"bodyType", boost::any(string("json"))}
   }));
   return TrainOrderQueryResponse(callApi(params, req, runtime));
+}
+
+UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQuery(shared_ptr<UserQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return userQueryWithOptions(request, headers, runtime);
+}
+
+UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQueryWithOptions(shared_ptr<UserQueryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->modifiedTimeGreaterOrEqualThan)) {
+    query->insert(pair<string, string>("modified_time_greater_or_equal_than", *request->modifiedTimeGreaterOrEqualThan));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartCorpId)) {
+    query->insert(pair<string, string>("third_part_corp_id", *request->thirdPartCorpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartJobNo)) {
+    query->insert(pair<string, string>("third_part_job_no", *request->thirdPartJobNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topAppKeyOwnerId)) {
+    query->insert(pair<string, string>("top_app_key_owner_id", *request->topAppKeyOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topAuthorizedHavanaId)) {
+    query->insert(pair<string, string>("top_authorized_havana_id", *request->topAuthorizedHavanaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topAuthorizedUserNick)) {
+    query->insert(pair<string, string>("top_authorized_user_nick", *request->topAuthorizedUserNick));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UserQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/user/v1/user"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UserQueryResponse(callApi(params, req, runtime));
 }
 
