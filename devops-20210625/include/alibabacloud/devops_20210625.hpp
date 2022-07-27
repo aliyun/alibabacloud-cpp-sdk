@@ -7250,7 +7250,7 @@ public:
 class GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions : public Darabonba::Model {
 public:
   shared_ptr<bool> disable{};
-  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<boost::any> params{};
   shared_ptr<string> type{};
 
   GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions() {}
@@ -7280,12 +7280,7 @@ public:
       disable = make_shared<bool>(boost::any_cast<bool>(m["disable"]));
     }
     if (m.find("params") != m.end() && !m["params"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["params"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      params = make_shared<map<string, boost::any>>(toMap1);
+      params = make_shared<boost::any>(boost::any_cast<boost::any>(m["params"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -9081,7 +9076,7 @@ public:
 class GetVMDeployOrderResponseBodyDeployOrderActions : public Darabonba::Model {
 public:
   shared_ptr<bool> disable{};
-  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<boost::any> params{};
   shared_ptr<string> type{};
 
   GetVMDeployOrderResponseBodyDeployOrderActions() {}
@@ -9111,12 +9106,7 @@ public:
       disable = make_shared<bool>(boost::any_cast<bool>(m["disable"]));
     }
     if (m.find("params") != m.end() && !m["params"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["params"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      params = make_shared<map<string, boost::any>>(toMap1);
+      params = make_shared<boost::any>(boost::any_cast<boost::any>(m["params"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -9129,7 +9119,7 @@ public:
 class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions : public Darabonba::Model {
 public:
   shared_ptr<bool> disable{};
-  shared_ptr<map<string, boost::any>> params{};
+  shared_ptr<boost::any> params{};
   shared_ptr<string> type{};
 
   GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions() {}
@@ -9159,12 +9149,7 @@ public:
       disable = make_shared<bool>(boost::any_cast<bool>(m["disable"]));
     }
     if (m.find("params") != m.end() && !m["params"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["params"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      params = make_shared<map<string, boost::any>>(toMap1);
+      params = make_shared<boost::any>(boost::any_cast<boost::any>(m["params"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
