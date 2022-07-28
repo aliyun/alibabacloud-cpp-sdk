@@ -354,32 +354,6 @@ CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirro
   return CreateServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-CreateStressResponse Alibabacloud_Eas20210701::Client::createStress(shared_ptr<CreateStressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createStressWithOptions(request, headers, runtime);
-}
-
-CreateStressResponse Alibabacloud_Eas20210701::Client::createStressWithOptions(shared_ptr<CreateStressRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateStressResponse(callApi(params, req, runtime));
-}
-
 DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -685,35 +659,6 @@ DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirro
     {"bodyType", boost::any(string("json"))}
   }));
   return DeleteServiceMirrorResponse(callApi(params, req, runtime));
-}
-
-DeleteStressResponse Alibabacloud_Eas20210701::Client::deleteStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteStressWithOptions(ClusterId, StressName, headers, runtime);
-}
-
-DeleteStressResponse Alibabacloud_Eas20210701::Client::deleteStressWithOptions(shared_ptr<string> ClusterId,
-                                                                               shared_ptr<string> StressName,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeleteStressResponse(callApi(params, req, runtime));
 }
 
 DescribeBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
@@ -1028,35 +973,6 @@ DescribeServiceMirrorResponse Alibabacloud_Eas20210701::Client::describeServiceM
   return DescribeServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-DescribeStressResponse Alibabacloud_Eas20210701::Client::describeStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeStressWithOptions(ClusterId, StressName, headers, runtime);
-}
-
-DescribeStressResponse Alibabacloud_Eas20210701::Client::describeStressWithOptions(shared_ptr<string> ClusterId,
-                                                                                   shared_ptr<string> StressName,
-                                                                                   shared_ptr<map<string, string>> headers,
-                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeStressResponse(callApi(params, req, runtime));
-}
-
 ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTask() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1320,30 +1236,6 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   return ListServicesResponse(callApi(params, req, runtime));
 }
 
-ListStressesResponse Alibabacloud_Eas20210701::Client::listStresses() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listStressesWithOptions(headers, runtime);
-}
-
-ListStressesResponse Alibabacloud_Eas20210701::Client::listStressesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListStresses"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListStressesResponse(callApi(params, req, runtime));
-}
-
 ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ReleaseServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1378,35 +1270,6 @@ ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseServiceWithOptio
     {"bodyType", boost::any(string("json"))}
   }));
   return ReleaseServiceResponse(callApi(params, req, runtime));
-}
-
-ReportStressResponse Alibabacloud_Eas20210701::Client::reportStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return reportStressWithOptions(ClusterId, StressName, headers, runtime);
-}
-
-ReportStressResponse Alibabacloud_Eas20210701::Client::reportStressWithOptions(shared_ptr<string> ClusterId,
-                                                                               shared_ptr<string> StressName,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ReportStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName) + string("/report"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ReportStressResponse(callApi(params, req, runtime));
 }
 
 StartBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::startBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
@@ -1467,35 +1330,6 @@ StartServiceResponse Alibabacloud_Eas20210701::Client::startServiceWithOptions(s
   return StartServiceResponse(callApi(params, req, runtime));
 }
 
-StartStressResponse Alibabacloud_Eas20210701::Client::startStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startStressWithOptions(ClusterId, StressName, headers, runtime);
-}
-
-StartStressResponse Alibabacloud_Eas20210701::Client::startStressWithOptions(shared_ptr<string> ClusterId,
-                                                                             shared_ptr<string> StressName,
-                                                                             shared_ptr<map<string, string>> headers,
-                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName) + string("/start"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StartStressResponse(callApi(params, req, runtime));
-}
-
 StopBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::stopBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1552,35 +1386,6 @@ StopServiceResponse Alibabacloud_Eas20210701::Client::stopServiceWithOptions(sha
     {"bodyType", boost::any(string("json"))}
   }));
   return StopServiceResponse(callApi(params, req, runtime));
-}
-
-StopStressResponse Alibabacloud_Eas20210701::Client::stopStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopStressWithOptions(ClusterId, StressName, headers, runtime);
-}
-
-StopStressResponse Alibabacloud_Eas20210701::Client::stopStressWithOptions(shared_ptr<string> ClusterId,
-                                                                           shared_ptr<string> StressName,
-                                                                           shared_ptr<map<string, string>> headers,
-                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StopStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName) + string("/stop"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StopStressResponse(callApi(params, req, runtime));
 }
 
 UpdateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::updateBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<UpdateBenchmarkTaskRequest> request) {
@@ -1882,37 +1687,5 @@ UpdateServiceVersionResponse Alibabacloud_Eas20210701::Client::updateServiceVers
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateServiceVersionResponse(callApi(params, req, runtime));
-}
-
-UpdateStressResponse Alibabacloud_Eas20210701::Client::updateStress(shared_ptr<string> ClusterId, shared_ptr<string> StressName, shared_ptr<UpdateStressRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateStressWithOptions(ClusterId, StressName, request, headers, runtime);
-}
-
-UpdateStressResponse Alibabacloud_Eas20210701::Client::updateStressWithOptions(shared_ptr<string> ClusterId,
-                                                                               shared_ptr<string> StressName,
-                                                                               shared_ptr<UpdateStressRequest> request,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
-  StressName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(StressName));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateStress"))},
-    {"version", boost::any(string("2021-07-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/stress/") + string(*ClusterId) + string("/") + string(*StressName))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return UpdateStressResponse(callApi(params, req, runtime));
 }
 
