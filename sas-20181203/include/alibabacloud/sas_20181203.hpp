@@ -15,6 +15,154 @@
 using namespace std;
 
 namespace Alibabacloud_Sas20181203 {
+class AddInstallCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> expiredDate{};
+  shared_ptr<long> groupId{};
+  shared_ptr<bool> onlyImage{};
+  shared_ptr<string> os{};
+  shared_ptr<string> vendorName{};
+
+  AddInstallCodeRequest() {}
+
+  explicit AddInstallCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredDate) {
+      res["ExpiredDate"] = boost::any(*expiredDate);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (onlyImage) {
+      res["OnlyImage"] = boost::any(*onlyImage);
+    }
+    if (os) {
+      res["Os"] = boost::any(*os);
+    }
+    if (vendorName) {
+      res["VendorName"] = boost::any(*vendorName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredDate") != m.end() && !m["ExpiredDate"].empty()) {
+      expiredDate = make_shared<long>(boost::any_cast<long>(m["ExpiredDate"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("OnlyImage") != m.end() && !m["OnlyImage"].empty()) {
+      onlyImage = make_shared<bool>(boost::any_cast<bool>(m["OnlyImage"]));
+    }
+    if (m.find("Os") != m.end() && !m["Os"].empty()) {
+      os = make_shared<string>(boost::any_cast<string>(m["Os"]));
+    }
+    if (m.find("VendorName") != m.end() && !m["VendorName"].empty()) {
+      vendorName = make_shared<string>(boost::any_cast<string>(m["VendorName"]));
+    }
+  }
+
+
+  virtual ~AddInstallCodeRequest() = default;
+};
+class AddInstallCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AddInstallCodeResponseBody() {}
+
+  explicit AddInstallCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddInstallCodeResponseBody() = default;
+};
+class AddInstallCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddInstallCodeResponseBody> body{};
+
+  AddInstallCodeResponse() {}
+
+  explicit AddInstallCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddInstallCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddInstallCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddInstallCodeResponse() = default;
+};
 class AddVpcHoneyPotRequest : public Darabonba::Model {
 public:
   shared_ptr<string> vpcId{};
@@ -9938,6 +10086,180 @@ public:
 
   virtual ~DescribeCloudProductFieldStatisticsResponse() = default;
 };
+class DescribeCommonOverallConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> type{};
+
+  DescribeCommonOverallConfigRequest() {}
+
+  explicit DescribeCommonOverallConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeCommonOverallConfigRequest() = default;
+};
+class DescribeCommonOverallConfigResponseBodyOverallConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> type{};
+
+  DescribeCommonOverallConfigResponseBodyOverallConfig() {}
+
+  explicit DescribeCommonOverallConfigResponseBodyOverallConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeCommonOverallConfigResponseBodyOverallConfig() = default;
+};
+class DescribeCommonOverallConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeCommonOverallConfigResponseBodyOverallConfig> overallConfig{};
+  shared_ptr<string> requestId{};
+
+  DescribeCommonOverallConfigResponseBody() {}
+
+  explicit DescribeCommonOverallConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (overallConfig) {
+      res["OverallConfig"] = overallConfig ? boost::any(overallConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OverallConfig") != m.end() && !m["OverallConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OverallConfig"].type()) {
+        DescribeCommonOverallConfigResponseBodyOverallConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OverallConfig"]));
+        overallConfig = make_shared<DescribeCommonOverallConfigResponseBodyOverallConfig>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCommonOverallConfigResponseBody() = default;
+};
+class DescribeCommonOverallConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCommonOverallConfigResponseBody> body{};
+
+  DescribeCommonOverallConfigResponse() {}
+
+  explicit DescribeCommonOverallConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCommonOverallConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCommonOverallConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCommonOverallConfigResponse() = default;
+};
 class DescribeConcernNecessityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
@@ -13405,6 +13727,7 @@ public:
   shared_ptr<long> newInstanceCount{};
   shared_ptr<long> notRunningStatusCount{};
   shared_ptr<long> offlineInstanceCount{};
+  shared_ptr<long> outMachineInstanceCount{};
   shared_ptr<long> pauseInstanceCount{};
   shared_ptr<long> regionCount{};
   shared_ptr<long> riskInstanceCount{};
@@ -13461,6 +13784,9 @@ public:
     }
     if (offlineInstanceCount) {
       res["OfflineInstanceCount"] = boost::any(*offlineInstanceCount);
+    }
+    if (outMachineInstanceCount) {
+      res["OutMachineInstanceCount"] = boost::any(*outMachineInstanceCount);
     }
     if (pauseInstanceCount) {
       res["PauseInstanceCount"] = boost::any(*pauseInstanceCount);
@@ -13525,6 +13851,9 @@ public:
     }
     if (m.find("OfflineInstanceCount") != m.end() && !m["OfflineInstanceCount"].empty()) {
       offlineInstanceCount = make_shared<long>(boost::any_cast<long>(m["OfflineInstanceCount"]));
+    }
+    if (m.find("OutMachineInstanceCount") != m.end() && !m["OutMachineInstanceCount"].empty()) {
+      outMachineInstanceCount = make_shared<long>(boost::any_cast<long>(m["OutMachineInstanceCount"]));
     }
     if (m.find("PauseInstanceCount") != m.end() && !m["PauseInstanceCount"].empty()) {
       pauseInstanceCount = make_shared<long>(boost::any_cast<long>(m["PauseInstanceCount"]));
@@ -32824,6 +33153,180 @@ public:
 
   virtual ~DescribeSuspEventsResponse() = default;
 };
+class DescribeSuspiciousOverallConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> type{};
+
+  DescribeSuspiciousOverallConfigRequest() {}
+
+  explicit DescribeSuspiciousOverallConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSuspiciousOverallConfigRequest() = default;
+};
+class DescribeSuspiciousOverallConfigResponseBodyOverallConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> type{};
+
+  DescribeSuspiciousOverallConfigResponseBodyOverallConfig() {}
+
+  explicit DescribeSuspiciousOverallConfigResponseBodyOverallConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeSuspiciousOverallConfigResponseBodyOverallConfig() = default;
+};
+class DescribeSuspiciousOverallConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSuspiciousOverallConfigResponseBodyOverallConfig> overallConfig{};
+  shared_ptr<string> requestId{};
+
+  DescribeSuspiciousOverallConfigResponseBody() {}
+
+  explicit DescribeSuspiciousOverallConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (overallConfig) {
+      res["OverallConfig"] = overallConfig ? boost::any(overallConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OverallConfig") != m.end() && !m["OverallConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OverallConfig"].type()) {
+        DescribeSuspiciousOverallConfigResponseBodyOverallConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OverallConfig"]));
+        overallConfig = make_shared<DescribeSuspiciousOverallConfigResponseBodyOverallConfig>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeSuspiciousOverallConfigResponseBody() = default;
+};
+class DescribeSuspiciousOverallConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSuspiciousOverallConfigResponseBody> body{};
+
+  DescribeSuspiciousOverallConfigResponse() {}
+
+  explicit DescribeSuspiciousOverallConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSuspiciousOverallConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSuspiciousOverallConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSuspiciousOverallConfigResponse() = default;
+};
 class DescribeSuspiciousUUIDConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
@@ -33744,6 +34247,111 @@ public:
 
 
   virtual ~DescribeUuidsByVulNamesResponse() = default;
+};
+class DescribeVendorListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> vendorNameList{};
+
+  DescribeVendorListResponseBody() {}
+
+  explicit DescribeVendorListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (vendorNameList) {
+      res["VendorNameList"] = boost::any(*vendorNameList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("VendorNameList") != m.end() && !m["VendorNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VendorNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VendorNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vendorNameList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeVendorListResponseBody() = default;
+};
+class DescribeVendorListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVendorListResponseBody> body{};
+
+  DescribeVendorListResponse() {}
+
+  explicit DescribeVendorListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVendorListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVendorListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVendorListResponse() = default;
 };
 class DescribeVersionConfigRequest : public Darabonba::Model {
 public:
@@ -46029,6 +46637,288 @@ public:
 
   virtual ~OperateAgentClientInstallResponse() = default;
 };
+class OperateCommonOverallConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> type{};
+
+  OperateCommonOverallConfigRequest() {}
+
+  explicit OperateCommonOverallConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~OperateCommonOverallConfigRequest() = default;
+};
+class OperateCommonOverallConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  OperateCommonOverallConfigResponseBody() {}
+
+  explicit OperateCommonOverallConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~OperateCommonOverallConfigResponseBody() = default;
+};
+class OperateCommonOverallConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OperateCommonOverallConfigResponseBody> body{};
+
+  OperateCommonOverallConfigResponse() {}
+
+  explicit OperateCommonOverallConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OperateCommonOverallConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OperateCommonOverallConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OperateCommonOverallConfigResponse() = default;
+};
+class OperateSuspiciousOverallConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> config{};
+  shared_ptr<string> lang{};
+  shared_ptr<bool> noTargetAsOn{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> type{};
+
+  OperateSuspiciousOverallConfigRequest() {}
+
+  explicit OperateSuspiciousOverallConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (config) {
+      res["Config"] = boost::any(*config);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (noTargetAsOn) {
+      res["NoTargetAsOn"] = boost::any(*noTargetAsOn);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Config") != m.end() && !m["Config"].empty()) {
+      config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("NoTargetAsOn") != m.end() && !m["NoTargetAsOn"].empty()) {
+      noTargetAsOn = make_shared<bool>(boost::any_cast<bool>(m["NoTargetAsOn"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~OperateSuspiciousOverallConfigRequest() = default;
+};
+class OperateSuspiciousOverallConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  OperateSuspiciousOverallConfigResponseBody() {}
+
+  explicit OperateSuspiciousOverallConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~OperateSuspiciousOverallConfigResponseBody() = default;
+};
+class OperateSuspiciousOverallConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OperateSuspiciousOverallConfigResponseBody> body{};
+
+  OperateSuspiciousOverallConfigResponse() {}
+
+  explicit OperateSuspiciousOverallConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OperateSuspiciousOverallConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OperateSuspiciousOverallConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OperateSuspiciousOverallConfigResponse() = default;
+};
 class OperateSuspiciousTargetConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
@@ -49321,6 +50211,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AddInstallCodeResponse addInstallCodeWithOptions(shared_ptr<AddInstallCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddInstallCodeResponse addInstallCode(shared_ptr<AddInstallCodeRequest> request);
   AddVpcHoneyPotResponse addVpcHoneyPotWithOptions(shared_ptr<AddVpcHoneyPotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddVpcHoneyPotResponse addVpcHoneyPot(shared_ptr<AddVpcHoneyPotRequest> request);
   CheckQuaraFileIdResponse checkQuaraFileIdWithOptions(shared_ptr<CheckQuaraFileIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -49409,6 +50301,8 @@ public:
   DescribeCloudCenterInstancesResponse describeCloudCenterInstances(shared_ptr<DescribeCloudCenterInstancesRequest> request);
   DescribeCloudProductFieldStatisticsResponse describeCloudProductFieldStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudProductFieldStatisticsResponse describeCloudProductFieldStatistics();
+  DescribeCommonOverallConfigResponse describeCommonOverallConfigWithOptions(shared_ptr<DescribeCommonOverallConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCommonOverallConfigResponse describeCommonOverallConfig(shared_ptr<DescribeCommonOverallConfigRequest> request);
   DescribeConcernNecessityResponse describeConcernNecessityWithOptions(shared_ptr<DescribeConcernNecessityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeConcernNecessityResponse describeConcernNecessity(shared_ptr<DescribeConcernNecessityRequest> request);
   DescribeContainerStatisticsResponse describeContainerStatisticsWithOptions(shared_ptr<DescribeContainerStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -49565,6 +50459,8 @@ public:
   DescribeSuspEventQuaraFilesResponse describeSuspEventQuaraFiles(shared_ptr<DescribeSuspEventQuaraFilesRequest> request);
   DescribeSuspEventsResponse describeSuspEventsWithOptions(shared_ptr<DescribeSuspEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSuspEventsResponse describeSuspEvents(shared_ptr<DescribeSuspEventsRequest> request);
+  DescribeSuspiciousOverallConfigResponse describeSuspiciousOverallConfigWithOptions(shared_ptr<DescribeSuspiciousOverallConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSuspiciousOverallConfigResponse describeSuspiciousOverallConfig(shared_ptr<DescribeSuspiciousOverallConfigRequest> request);
   DescribeSuspiciousUUIDConfigResponse describeSuspiciousUUIDConfigWithOptions(shared_ptr<DescribeSuspiciousUUIDConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSuspiciousUUIDConfigResponse describeSuspiciousUUIDConfig(shared_ptr<DescribeSuspiciousUUIDConfigRequest> request);
   DescribeUserBackupMachinesResponse describeUserBackupMachinesWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -49575,6 +50471,8 @@ public:
   DescribeUserLayoutAuthorizationResponse describeUserLayoutAuthorization(shared_ptr<DescribeUserLayoutAuthorizationRequest> request);
   DescribeUuidsByVulNamesResponse describeUuidsByVulNamesWithOptions(shared_ptr<DescribeUuidsByVulNamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeUuidsByVulNamesResponse describeUuidsByVulNames(shared_ptr<DescribeUuidsByVulNamesRequest> request);
+  DescribeVendorListResponse describeVendorListWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVendorListResponse describeVendorList();
   DescribeVersionConfigResponse describeVersionConfigWithOptions(shared_ptr<DescribeVersionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVersionConfigResponse describeVersionConfig(shared_ptr<DescribeVersionConfigRequest> request);
   DescribeVpcHoneyPotCriteriaResponse describeVpcHoneyPotCriteriaWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -49693,6 +50591,10 @@ public:
   ModifyWebLockUpdateConfigResponse modifyWebLockUpdateConfig(shared_ptr<ModifyWebLockUpdateConfigRequest> request);
   OperateAgentClientInstallResponse operateAgentClientInstallWithOptions(shared_ptr<OperateAgentClientInstallRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OperateAgentClientInstallResponse operateAgentClientInstall(shared_ptr<OperateAgentClientInstallRequest> request);
+  OperateCommonOverallConfigResponse operateCommonOverallConfigWithOptions(shared_ptr<OperateCommonOverallConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OperateCommonOverallConfigResponse operateCommonOverallConfig(shared_ptr<OperateCommonOverallConfigRequest> request);
+  OperateSuspiciousOverallConfigResponse operateSuspiciousOverallConfigWithOptions(shared_ptr<OperateSuspiciousOverallConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OperateSuspiciousOverallConfigResponse operateSuspiciousOverallConfig(shared_ptr<OperateSuspiciousOverallConfigRequest> request);
   OperateSuspiciousTargetConfigResponse operateSuspiciousTargetConfigWithOptions(shared_ptr<OperateSuspiciousTargetConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OperateSuspiciousTargetConfigResponse operateSuspiciousTargetConfig(shared_ptr<OperateSuspiciousTargetConfigRequest> request);
   OperateVulsResponse operateVulsWithOptions(shared_ptr<OperateVulsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
