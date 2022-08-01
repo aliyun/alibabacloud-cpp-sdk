@@ -746,6 +746,7 @@ public:
   shared_ptr<string> apiUid{};
   shared_ptr<string> groupId{};
   shared_ptr<string> stageId{};
+  shared_ptr<string> stageName{};
 
   BatchAbolishApisRequestApi() {}
 
@@ -766,6 +767,9 @@ public:
     if (stageId) {
       res["StageId"] = boost::any(*stageId);
     }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
     return res;
   }
 
@@ -778,6 +782,9 @@ public:
     }
     if (m.find("StageId") != m.end() && !m["StageId"].empty()) {
       stageId = make_shared<string>(boost::any_cast<string>(m["StageId"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
     }
   }
 
