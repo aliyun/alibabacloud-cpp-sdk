@@ -4583,6 +4583,9 @@ public:
   shared_ptr<GetInstanceListResponseBodyInstanceListInstanceVOTags> tags{};
   shared_ptr<long> topicNumLimit{};
   shared_ptr<GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo> upgradeServiceDetailInfo{};
+  shared_ptr<long> usedGroupCount{};
+  shared_ptr<long> usedPartitionCount{};
+  shared_ptr<long> usedTopicCount{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -4671,6 +4674,15 @@ public:
     }
     if (upgradeServiceDetailInfo) {
       res["UpgradeServiceDetailInfo"] = upgradeServiceDetailInfo ? boost::any(upgradeServiceDetailInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (usedGroupCount) {
+      res["UsedGroupCount"] = boost::any(*usedGroupCount);
+    }
+    if (usedPartitionCount) {
+      res["UsedPartitionCount"] = boost::any(*usedPartitionCount);
+    }
+    if (usedTopicCount) {
+      res["UsedTopicCount"] = boost::any(*usedTopicCount);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -4767,6 +4779,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UpgradeServiceDetailInfo"]));
         upgradeServiceDetailInfo = make_shared<GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo>(model1);
       }
+    }
+    if (m.find("UsedGroupCount") != m.end() && !m["UsedGroupCount"].empty()) {
+      usedGroupCount = make_shared<long>(boost::any_cast<long>(m["UsedGroupCount"]));
+    }
+    if (m.find("UsedPartitionCount") != m.end() && !m["UsedPartitionCount"].empty()) {
+      usedPartitionCount = make_shared<long>(boost::any_cast<long>(m["UsedPartitionCount"]));
+    }
+    if (m.find("UsedTopicCount") != m.end() && !m["UsedTopicCount"].empty()) {
+      usedTopicCount = make_shared<long>(boost::any_cast<long>(m["UsedTopicCount"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
