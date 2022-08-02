@@ -470,6 +470,40 @@ DeleteGameResponse Alibabacloud_CloudGameAPI20200728::Client::deleteGame(shared_
   return deleteGameWithOptions(request, runtime);
 }
 
+DeleteGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::deleteGameArchiveWithOptions(shared_ptr<DeleteGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->archiveId)) {
+    query->insert(pair<string, string>("ArchiveId", *request->archiveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
+    query->insert(pair<string, string>("GameId", *request->gameId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteGameArchive"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteGameArchiveResponse(callApi(params, req, runtime));
+}
+
+DeleteGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::deleteGameArchive(shared_ptr<DeleteGameArchiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteGameArchiveWithOptions(request, runtime);
+}
+
 DeleteGameVersionResponse Alibabacloud_CloudGameAPI20200728::Client::deleteGameVersionWithOptions(shared_ptr<DeleteGameVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1234,6 +1268,46 @@ ListHistoryContainerStatusResponse Alibabacloud_CloudGameAPI20200728::Client::li
   return listHistoryContainerStatusWithOptions(request, runtime);
 }
 
+ListLatestGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::listLatestGameArchiveWithOptions(shared_ptr<ListLatestGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
+    query->insert(pair<string, string>("GameId", *request->gameId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tagStatus)) {
+    query->insert(pair<string, long>("TagStatus", *request->tagStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLatestGameArchive"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLatestGameArchiveResponse(callApi(params, req, runtime));
+}
+
+ListLatestGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::listLatestGameArchive(shared_ptr<ListLatestGameArchiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listLatestGameArchiveWithOptions(request, runtime);
+}
+
 ListProjectsResponse Alibabacloud_CloudGameAPI20200728::Client::listProjectsWithOptions(shared_ptr<ListProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1532,6 +1606,40 @@ RemoveGameFromProjectResponse Alibabacloud_CloudGameAPI20200728::Client::removeG
 RemoveGameFromProjectResponse Alibabacloud_CloudGameAPI20200728::Client::removeGameFromProject(shared_ptr<RemoveGameFromProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return removeGameFromProjectWithOptions(request, runtime);
+}
+
+RestoreGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::restoreGameArchiveWithOptions(shared_ptr<RestoreGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->archiveId)) {
+    query->insert(pair<string, string>("ArchiveId", *request->archiveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
+    query->insert(pair<string, string>("GameId", *request->gameId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RestoreGameArchive"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RestoreGameArchiveResponse(callApi(params, req, runtime));
+}
+
+RestoreGameArchiveResponse Alibabacloud_CloudGameAPI20200728::Client::restoreGameArchive(shared_ptr<RestoreGameArchiveRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return restoreGameArchiveWithOptions(request, runtime);
 }
 
 SetGameAliveResponse Alibabacloud_CloudGameAPI20200728::Client::setGameAliveWithOptions(shared_ptr<SetGameAliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1928,6 +2036,43 @@ SubmitInternalPurchaseReadyFlagResponse Alibabacloud_CloudGameAPI20200728::Clien
 SubmitInternalPurchaseReadyFlagResponse Alibabacloud_CloudGameAPI20200728::Client::submitInternalPurchaseReadyFlag(shared_ptr<SubmitInternalPurchaseReadyFlagRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitInternalPurchaseReadyFlagWithOptions(request, runtime);
+}
+
+UpdateGameArchiveTagStatusResponse Alibabacloud_CloudGameAPI20200728::Client::updateGameArchiveTagStatusWithOptions(shared_ptr<UpdateGameArchiveTagStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->archiveId)) {
+    query->insert(pair<string, string>("ArchiveId", *request->archiveId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gameId)) {
+    query->insert(pair<string, string>("GameId", *request->gameId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tagStatus)) {
+    query->insert(pair<string, long>("TagStatus", *request->tagStatus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGameArchiveTagStatus"))},
+    {"version", boost::any(string("2020-07-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGameArchiveTagStatusResponse(callApi(params, req, runtime));
+}
+
+UpdateGameArchiveTagStatusResponse Alibabacloud_CloudGameAPI20200728::Client::updateGameArchiveTagStatus(shared_ptr<UpdateGameArchiveTagStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGameArchiveTagStatusWithOptions(request, runtime);
 }
 
 UploadGameVersionByDownloadResponse Alibabacloud_CloudGameAPI20200728::Client::uploadGameVersionByDownloadWithOptions(shared_ptr<UploadGameVersionByDownloadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

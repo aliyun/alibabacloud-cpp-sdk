@@ -2040,6 +2040,147 @@ public:
 
   virtual ~DeleteGameResponse() = default;
 };
+class DeleteGameArchiveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> archiveId{};
+  shared_ptr<string> gameId{};
+
+  DeleteGameArchiveRequest() {}
+
+  explicit DeleteGameArchiveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (archiveId) {
+      res["ArchiveId"] = boost::any(*archiveId);
+    }
+    if (gameId) {
+      res["GameId"] = boost::any(*gameId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("ArchiveId") != m.end() && !m["ArchiveId"].empty()) {
+      archiveId = make_shared<string>(boost::any_cast<string>(m["ArchiveId"]));
+    }
+    if (m.find("GameId") != m.end() && !m["GameId"].empty()) {
+      gameId = make_shared<string>(boost::any_cast<string>(m["GameId"]));
+    }
+  }
+
+
+  virtual ~DeleteGameArchiveRequest() = default;
+};
+class DeleteGameArchiveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> status{};
+
+  DeleteGameArchiveResponseBody() {}
+
+  explicit DeleteGameArchiveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DeleteGameArchiveResponseBody() = default;
+};
+class DeleteGameArchiveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGameArchiveResponseBody> body{};
+
+  DeleteGameArchiveResponse() {}
+
+  explicit DeleteGameArchiveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGameArchiveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGameArchiveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGameArchiveResponse() = default;
+};
 class DeleteGameVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> versionId{};
@@ -6770,6 +6911,253 @@ public:
 
   virtual ~ListHistoryContainerStatusResponse() = default;
 };
+class ListLatestGameArchiveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> gameId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> tagStatus{};
+
+  ListLatestGameArchiveRequest() {}
+
+  explicit ListLatestGameArchiveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (gameId) {
+      res["GameId"] = boost::any(*gameId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (tagStatus) {
+      res["TagStatus"] = boost::any(*tagStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("GameId") != m.end() && !m["GameId"].empty()) {
+      gameId = make_shared<string>(boost::any_cast<string>(m["GameId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TagStatus") != m.end() && !m["TagStatus"].empty()) {
+      tagStatus = make_shared<long>(boost::any_cast<long>(m["TagStatus"]));
+    }
+  }
+
+
+  virtual ~ListLatestGameArchiveRequest() = default;
+};
+class ListLatestGameArchiveResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> archiveId{};
+  shared_ptr<string> archiveTime{};
+  shared_ptr<string> gameId{};
+  shared_ptr<long> tagStatus{};
+
+  ListLatestGameArchiveResponseBodyDataList() {}
+
+  explicit ListLatestGameArchiveResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (archiveId) {
+      res["ArchiveId"] = boost::any(*archiveId);
+    }
+    if (archiveTime) {
+      res["ArchiveTime"] = boost::any(*archiveTime);
+    }
+    if (gameId) {
+      res["GameId"] = boost::any(*gameId);
+    }
+    if (tagStatus) {
+      res["TagStatus"] = boost::any(*tagStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("ArchiveId") != m.end() && !m["ArchiveId"].empty()) {
+      archiveId = make_shared<string>(boost::any_cast<string>(m["ArchiveId"]));
+    }
+    if (m.find("ArchiveTime") != m.end() && !m["ArchiveTime"].empty()) {
+      archiveTime = make_shared<string>(boost::any_cast<string>(m["ArchiveTime"]));
+    }
+    if (m.find("GameId") != m.end() && !m["GameId"].empty()) {
+      gameId = make_shared<string>(boost::any_cast<string>(m["GameId"]));
+    }
+    if (m.find("TagStatus") != m.end() && !m["TagStatus"].empty()) {
+      tagStatus = make_shared<long>(boost::any_cast<long>(m["TagStatus"]));
+    }
+  }
+
+
+  virtual ~ListLatestGameArchiveResponseBodyDataList() = default;
+};
+class ListLatestGameArchiveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListLatestGameArchiveResponseBodyDataList>> dataList{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListLatestGameArchiveResponseBody() {}
+
+  explicit ListLatestGameArchiveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataList"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataList") != m.end() && !m["DataList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataList"].type()) {
+        vector<ListLatestGameArchiveResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListLatestGameArchiveResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataList = make_shared<vector<ListLatestGameArchiveResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListLatestGameArchiveResponseBody() = default;
+};
+class ListLatestGameArchiveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListLatestGameArchiveResponseBody> body{};
+
+  ListLatestGameArchiveResponse() {}
+
+  explicit ListLatestGameArchiveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListLatestGameArchiveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListLatestGameArchiveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLatestGameArchiveResponse() = default;
+};
 class ListProjectsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> maxResults{};
@@ -8951,6 +9339,147 @@ public:
 
   virtual ~RemoveGameFromProjectResponse() = default;
 };
+class RestoreGameArchiveRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> archiveId{};
+  shared_ptr<string> gameId{};
+
+  RestoreGameArchiveRequest() {}
+
+  explicit RestoreGameArchiveRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (archiveId) {
+      res["ArchiveId"] = boost::any(*archiveId);
+    }
+    if (gameId) {
+      res["GameId"] = boost::any(*gameId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("ArchiveId") != m.end() && !m["ArchiveId"].empty()) {
+      archiveId = make_shared<string>(boost::any_cast<string>(m["ArchiveId"]));
+    }
+    if (m.find("GameId") != m.end() && !m["GameId"].empty()) {
+      gameId = make_shared<string>(boost::any_cast<string>(m["GameId"]));
+    }
+  }
+
+
+  virtual ~RestoreGameArchiveRequest() = default;
+};
+class RestoreGameArchiveResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> status{};
+
+  RestoreGameArchiveResponseBody() {}
+
+  explicit RestoreGameArchiveResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~RestoreGameArchiveResponseBody() = default;
+};
+class RestoreGameArchiveResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RestoreGameArchiveResponseBody> body{};
+
+  RestoreGameArchiveResponse() {}
+
+  explicit RestoreGameArchiveResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RestoreGameArchiveResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RestoreGameArchiveResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RestoreGameArchiveResponse() = default;
+};
 class SetGameAliveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessKey{};
@@ -10914,6 +11443,154 @@ public:
 
   virtual ~SubmitInternalPurchaseReadyFlagResponse() = default;
 };
+class UpdateGameArchiveTagStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> archiveId{};
+  shared_ptr<string> gameId{};
+  shared_ptr<long> tagStatus{};
+
+  UpdateGameArchiveTagStatusRequest() {}
+
+  explicit UpdateGameArchiveTagStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (archiveId) {
+      res["ArchiveId"] = boost::any(*archiveId);
+    }
+    if (gameId) {
+      res["GameId"] = boost::any(*gameId);
+    }
+    if (tagStatus) {
+      res["TagStatus"] = boost::any(*tagStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("ArchiveId") != m.end() && !m["ArchiveId"].empty()) {
+      archiveId = make_shared<string>(boost::any_cast<string>(m["ArchiveId"]));
+    }
+    if (m.find("GameId") != m.end() && !m["GameId"].empty()) {
+      gameId = make_shared<string>(boost::any_cast<string>(m["GameId"]));
+    }
+    if (m.find("TagStatus") != m.end() && !m["TagStatus"].empty()) {
+      tagStatus = make_shared<long>(boost::any_cast<long>(m["TagStatus"]));
+    }
+  }
+
+
+  virtual ~UpdateGameArchiveTagStatusRequest() = default;
+};
+class UpdateGameArchiveTagStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> status{};
+
+  UpdateGameArchiveTagStatusResponseBody() {}
+
+  explicit UpdateGameArchiveTagStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateGameArchiveTagStatusResponseBody() = default;
+};
+class UpdateGameArchiveTagStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGameArchiveTagStatusResponseBody> body{};
+
+  UpdateGameArchiveTagStatusResponse() {}
+
+  explicit UpdateGameArchiveTagStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGameArchiveTagStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGameArchiveTagStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGameArchiveTagStatusResponse() = default;
+};
 class UploadGameVersionByDownloadRequest : public Darabonba::Model {
 public:
   shared_ptr<string> downloadType{};
@@ -11110,6 +11787,8 @@ public:
   CreateTokenResponse createToken(shared_ptr<CreateTokenRequest> request);
   DeleteGameResponse deleteGameWithOptions(shared_ptr<DeleteGameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGameResponse deleteGame(shared_ptr<DeleteGameRequest> request);
+  DeleteGameArchiveResponse deleteGameArchiveWithOptions(shared_ptr<DeleteGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGameArchiveResponse deleteGameArchive(shared_ptr<DeleteGameArchiveRequest> request);
   DeleteGameVersionResponse deleteGameVersionWithOptions(shared_ptr<DeleteGameVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGameVersionResponse deleteGameVersion(shared_ptr<DeleteGameVersionRequest> request);
   DeleteProjectResponse deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11156,6 +11835,8 @@ public:
   ListGamesResponse listGames(shared_ptr<ListGamesRequest> request);
   ListHistoryContainerStatusResponse listHistoryContainerStatusWithOptions(shared_ptr<ListHistoryContainerStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListHistoryContainerStatusResponse listHistoryContainerStatus(shared_ptr<ListHistoryContainerStatusRequest> request);
+  ListLatestGameArchiveResponse listLatestGameArchiveWithOptions(shared_ptr<ListLatestGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListLatestGameArchiveResponse listLatestGameArchive(shared_ptr<ListLatestGameArchiveRequest> request);
   ListProjectsResponse listProjectsWithOptions(shared_ptr<ListProjectsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListProjectsResponse listProjects(shared_ptr<ListProjectsRequest> request);
   QueryGameResponse queryGameWithOptions(shared_ptr<QueryGameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11174,6 +11855,8 @@ public:
   QueryTenantResponse queryTenant(shared_ptr<QueryTenantRequest> request);
   RemoveGameFromProjectResponse removeGameFromProjectWithOptions(shared_ptr<RemoveGameFromProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveGameFromProjectResponse removeGameFromProject(shared_ptr<RemoveGameFromProjectRequest> request);
+  RestoreGameArchiveResponse restoreGameArchiveWithOptions(shared_ptr<RestoreGameArchiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RestoreGameArchiveResponse restoreGameArchive(shared_ptr<RestoreGameArchiveRequest> request);
   SetGameAliveResponse setGameAliveWithOptions(shared_ptr<SetGameAliveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetGameAliveResponse setGameAlive(shared_ptr<SetGameAliveRequest> request);
   SetGameHangResponse setGameHangWithOptions(shared_ptr<SetGameHangRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11194,6 +11877,8 @@ public:
   SubmitInternalPurchaseOrdersResponse submitInternalPurchaseOrders(shared_ptr<SubmitInternalPurchaseOrdersRequest> request);
   SubmitInternalPurchaseReadyFlagResponse submitInternalPurchaseReadyFlagWithOptions(shared_ptr<SubmitInternalPurchaseReadyFlagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitInternalPurchaseReadyFlagResponse submitInternalPurchaseReadyFlag(shared_ptr<SubmitInternalPurchaseReadyFlagRequest> request);
+  UpdateGameArchiveTagStatusResponse updateGameArchiveTagStatusWithOptions(shared_ptr<UpdateGameArchiveTagStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGameArchiveTagStatusResponse updateGameArchiveTagStatus(shared_ptr<UpdateGameArchiveTagStatusRequest> request);
   UploadGameVersionByDownloadResponse uploadGameVersionByDownloadWithOptions(shared_ptr<UploadGameVersionByDownloadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UploadGameVersionByDownloadResponse uploadGameVersionByDownload(shared_ptr<UploadGameVersionByDownloadRequest> request);
 
