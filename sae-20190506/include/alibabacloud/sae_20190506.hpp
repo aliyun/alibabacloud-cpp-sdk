@@ -1255,16 +1255,12 @@ public:
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
   shared_ptr<string> kafkaConfigs{};
-  shared_ptr<string> kafkaEndpoint{};
-  shared_ptr<string> kafkaInstanceId{};
-  shared_ptr<string> kafkaLogfileConfig{};
   shared_ptr<string> liveness{};
   shared_ptr<long> memory{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nasId{};
-  shared_ptr<bool> openCollectToKafka{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -1288,7 +1284,6 @@ public:
   shared_ptr<string> vpcId{};
   shared_ptr<string> warStartOptions{};
   shared_ptr<string> webContainer{};
-  shared_ptr<string> mseFeatureConfig{};
 
   CreateApplicationRequest() {}
 
@@ -1357,15 +1352,6 @@ public:
     if (kafkaConfigs) {
       res["KafkaConfigs"] = boost::any(*kafkaConfigs);
     }
-    if (kafkaEndpoint) {
-      res["KafkaEndpoint"] = boost::any(*kafkaEndpoint);
-    }
-    if (kafkaInstanceId) {
-      res["KafkaInstanceId"] = boost::any(*kafkaInstanceId);
-    }
-    if (kafkaLogfileConfig) {
-      res["KafkaLogfileConfig"] = boost::any(*kafkaLogfileConfig);
-    }
     if (liveness) {
       res["Liveness"] = boost::any(*liveness);
     }
@@ -1383,9 +1369,6 @@ public:
     }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
-    }
-    if (openCollectToKafka) {
-      res["OpenCollectToKafka"] = boost::any(*openCollectToKafka);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -1456,9 +1439,6 @@ public:
     if (webContainer) {
       res["WebContainer"] = boost::any(*webContainer);
     }
-    if (mseFeatureConfig) {
-      res["mseFeatureConfig"] = boost::any(*mseFeatureConfig);
-    }
     return res;
   }
 
@@ -1520,15 +1500,6 @@ public:
     if (m.find("KafkaConfigs") != m.end() && !m["KafkaConfigs"].empty()) {
       kafkaConfigs = make_shared<string>(boost::any_cast<string>(m["KafkaConfigs"]));
     }
-    if (m.find("KafkaEndpoint") != m.end() && !m["KafkaEndpoint"].empty()) {
-      kafkaEndpoint = make_shared<string>(boost::any_cast<string>(m["KafkaEndpoint"]));
-    }
-    if (m.find("KafkaInstanceId") != m.end() && !m["KafkaInstanceId"].empty()) {
-      kafkaInstanceId = make_shared<string>(boost::any_cast<string>(m["KafkaInstanceId"]));
-    }
-    if (m.find("KafkaLogfileConfig") != m.end() && !m["KafkaLogfileConfig"].empty()) {
-      kafkaLogfileConfig = make_shared<string>(boost::any_cast<string>(m["KafkaLogfileConfig"]));
-    }
     if (m.find("Liveness") != m.end() && !m["Liveness"].empty()) {
       liveness = make_shared<string>(boost::any_cast<string>(m["Liveness"]));
     }
@@ -1546,9 +1517,6 @@ public:
     }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
-    }
-    if (m.find("OpenCollectToKafka") != m.end() && !m["OpenCollectToKafka"].empty()) {
-      openCollectToKafka = make_shared<bool>(boost::any_cast<bool>(m["OpenCollectToKafka"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
@@ -1618,9 +1586,6 @@ public:
     }
     if (m.find("WebContainer") != m.end() && !m["WebContainer"].empty()) {
       webContainer = make_shared<string>(boost::any_cast<string>(m["WebContainer"]));
-    }
-    if (m.find("mseFeatureConfig") != m.end() && !m["mseFeatureConfig"].empty()) {
-      mseFeatureConfig = make_shared<string>(boost::any_cast<string>(m["mseFeatureConfig"]));
     }
   }
 
@@ -4284,17 +4249,12 @@ public:
   shared_ptr<string> jarStartOptions{};
   shared_ptr<string> jdk{};
   shared_ptr<string> kafkaConfigs{};
-  shared_ptr<string> kafkaEndpoint{};
-  shared_ptr<string> kafkaInstanceId{};
-  shared_ptr<string> kafkaLogfileConfig{};
   shared_ptr<string> liveness{};
   shared_ptr<long> minReadyInstanceRatio{};
   shared_ptr<long> minReadyInstances{};
   shared_ptr<string> mountDesc{};
   shared_ptr<string> mountHost{};
-  shared_ptr<string> mseFeatureConfig{};
   shared_ptr<string> nasId{};
-  shared_ptr<bool> openCollectToKafka{};
   shared_ptr<string> ossAkId{};
   shared_ptr<string> ossAkSecret{};
   shared_ptr<string> ossMountDescs{};
@@ -4384,15 +4344,6 @@ public:
     if (kafkaConfigs) {
       res["KafkaConfigs"] = boost::any(*kafkaConfigs);
     }
-    if (kafkaEndpoint) {
-      res["KafkaEndpoint"] = boost::any(*kafkaEndpoint);
-    }
-    if (kafkaInstanceId) {
-      res["KafkaInstanceId"] = boost::any(*kafkaInstanceId);
-    }
-    if (kafkaLogfileConfig) {
-      res["KafkaLogfileConfig"] = boost::any(*kafkaLogfileConfig);
-    }
     if (liveness) {
       res["Liveness"] = boost::any(*liveness);
     }
@@ -4408,14 +4359,8 @@ public:
     if (mountHost) {
       res["MountHost"] = boost::any(*mountHost);
     }
-    if (mseFeatureConfig) {
-      res["MseFeatureConfig"] = boost::any(*mseFeatureConfig);
-    }
     if (nasId) {
       res["NasId"] = boost::any(*nasId);
-    }
-    if (openCollectToKafka) {
-      res["OpenCollectToKafka"] = boost::any(*openCollectToKafka);
     }
     if (ossAkId) {
       res["OssAkId"] = boost::any(*ossAkId);
@@ -4535,15 +4480,6 @@ public:
     if (m.find("KafkaConfigs") != m.end() && !m["KafkaConfigs"].empty()) {
       kafkaConfigs = make_shared<string>(boost::any_cast<string>(m["KafkaConfigs"]));
     }
-    if (m.find("KafkaEndpoint") != m.end() && !m["KafkaEndpoint"].empty()) {
-      kafkaEndpoint = make_shared<string>(boost::any_cast<string>(m["KafkaEndpoint"]));
-    }
-    if (m.find("KafkaInstanceId") != m.end() && !m["KafkaInstanceId"].empty()) {
-      kafkaInstanceId = make_shared<string>(boost::any_cast<string>(m["KafkaInstanceId"]));
-    }
-    if (m.find("KafkaLogfileConfig") != m.end() && !m["KafkaLogfileConfig"].empty()) {
-      kafkaLogfileConfig = make_shared<string>(boost::any_cast<string>(m["KafkaLogfileConfig"]));
-    }
     if (m.find("Liveness") != m.end() && !m["Liveness"].empty()) {
       liveness = make_shared<string>(boost::any_cast<string>(m["Liveness"]));
     }
@@ -4559,14 +4495,8 @@ public:
     if (m.find("MountHost") != m.end() && !m["MountHost"].empty()) {
       mountHost = make_shared<string>(boost::any_cast<string>(m["MountHost"]));
     }
-    if (m.find("MseFeatureConfig") != m.end() && !m["MseFeatureConfig"].empty()) {
-      mseFeatureConfig = make_shared<string>(boost::any_cast<string>(m["MseFeatureConfig"]));
-    }
     if (m.find("NasId") != m.end() && !m["NasId"].empty()) {
       nasId = make_shared<string>(boost::any_cast<string>(m["NasId"]));
-    }
-    if (m.find("OpenCollectToKafka") != m.end() && !m["OpenCollectToKafka"].empty()) {
-      openCollectToKafka = make_shared<bool>(boost::any_cast<bool>(m["OpenCollectToKafka"]));
     }
     if (m.find("OssAkId") != m.end() && !m["OssAkId"].empty()) {
       ossAkId = make_shared<string>(boost::any_cast<string>(m["OssAkId"]));
