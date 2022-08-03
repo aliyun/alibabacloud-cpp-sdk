@@ -95,7 +95,6 @@ public:
 class ListResourceRelationshipsResponseBodyResourceRelationships : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
-  shared_ptr<string> relationshipType{};
   shared_ptr<string> sourceRegionId{};
   shared_ptr<string> sourceResourceId{};
   shared_ptr<string> sourceResourceType{};
@@ -115,9 +114,6 @@ public:
     map<string, boost::any> res;
     if (accountId) {
       res["AccountId"] = boost::any(*accountId);
-    }
-    if (relationshipType) {
-      res["RelationshipType"] = boost::any(*relationshipType);
     }
     if (sourceRegionId) {
       res["SourceRegionId"] = boost::any(*sourceRegionId);
@@ -143,9 +139,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
       accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
-    }
-    if (m.find("RelationshipType") != m.end() && !m["RelationshipType"].empty()) {
-      relationshipType = make_shared<string>(boost::any_cast<string>(m["RelationshipType"]));
     }
     if (m.find("SourceRegionId") != m.end() && !m["SourceRegionId"].empty()) {
       sourceRegionId = make_shared<string>(boost::any_cast<string>(m["SourceRegionId"]));
@@ -237,6 +230,7 @@ public:
 class ListResourceRelationshipsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<ListResourceRelationshipsResponseBody> body{};
 
   ListResourceRelationshipsResponse() {}
@@ -249,6 +243,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -258,6 +255,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -273,6 +273,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -734,6 +737,7 @@ public:
 class SearchResourcesResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<SearchResourcesResponseBody> body{};
 
   SearchResourcesResponse() {}
@@ -746,6 +750,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -755,6 +762,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -770,6 +780,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
