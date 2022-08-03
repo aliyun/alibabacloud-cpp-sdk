@@ -1879,6 +1879,7 @@ public:
 };
 class GetMediaResourceIdResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> resUrlDownload{};
   shared_ptr<long> resourceId{};
 
   GetMediaResourceIdResponseBodyData() {}
@@ -1891,6 +1892,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resUrlDownload) {
+      res["ResUrlDownload"] = boost::any(*resUrlDownload);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -1898,6 +1902,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResUrlDownload") != m.end() && !m["ResUrlDownload"].empty()) {
+      resUrlDownload = make_shared<string>(boost::any_cast<string>(m["ResUrlDownload"]));
+    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<long>(boost::any_cast<long>(m["ResourceId"]));
     }
@@ -3695,7 +3702,9 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> signName{};
   shared_ptr<string> startDate{};
+  shared_ptr<long> templateType{};
 
   QuerySendStatisticsRequest() {}
 
@@ -3728,8 +3737,14 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (signName) {
+      res["SignName"] = boost::any(*signName);
+    }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
+    }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
     }
     return res;
   }
@@ -3756,8 +3771,14 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("SignName") != m.end() && !m["SignName"].empty()) {
+      signName = make_shared<string>(boost::any_cast<string>(m["SignName"]));
+    }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<long>(boost::any_cast<long>(m["TemplateType"]));
     }
   }
 

@@ -776,8 +776,14 @@ QuerySendStatisticsResponse Alibabacloud_Dysmsapi20170525::Client::querySendStat
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
+    query->insert(pair<string, string>("SignName", *request->signName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
     query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateType)) {
+    query->insert(pair<string, long>("TemplateType", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
