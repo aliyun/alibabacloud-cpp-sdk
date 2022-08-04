@@ -1332,6 +1332,967 @@ public:
 
   virtual ~CreateWorkspaceResponse() = default;
 };
+class CustomizeClassifyImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeClassifyImageRequest() {}
+
+  explicit CustomizeClassifyImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeClassifyImageRequest() = default;
+};
+class CustomizeClassifyImageAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeClassifyImageAdvanceRequest() {}
+
+  explicit CustomizeClassifyImageAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrlObject) {
+      res["ImageUrlObject"] = boost::any(*imageUrlObject);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeClassifyImageAdvanceRequest() = default;
+};
+class CustomizeClassifyImageResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<double> score{};
+
+  CustomizeClassifyImageResponseBodyData() {}
+
+  explicit CustomizeClassifyImageResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~CustomizeClassifyImageResponseBodyData() = default;
+};
+class CustomizeClassifyImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CustomizeClassifyImageResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CustomizeClassifyImageResponseBody() {}
+
+  explicit CustomizeClassifyImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CustomizeClassifyImageResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CustomizeClassifyImageResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CustomizeClassifyImageResponseBody() = default;
+};
+class CustomizeClassifyImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CustomizeClassifyImageResponseBody> body{};
+
+  CustomizeClassifyImageResponse() {}
+
+  explicit CustomizeClassifyImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CustomizeClassifyImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CustomizeClassifyImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CustomizeClassifyImageResponse() = default;
+};
+class CustomizeDetectImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeDetectImageRequest() {}
+
+  explicit CustomizeDetectImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageRequest() = default;
+};
+class CustomizeDetectImageAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeDetectImageAdvanceRequest() {}
+
+  explicit CustomizeDetectImageAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrlObject) {
+      res["ImageUrlObject"] = boost::any(*imageUrlObject);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageAdvanceRequest() = default;
+};
+class CustomizeDetectImageResponseBodyDataElementsBoxes : public Darabonba::Model {
+public:
+  shared_ptr<double> height{};
+  shared_ptr<double> width{};
+  shared_ptr<double> x{};
+  shared_ptr<double> y{};
+
+  CustomizeDetectImageResponseBodyDataElementsBoxes() {}
+
+  explicit CustomizeDetectImageResponseBodyDataElementsBoxes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<double>(boost::any_cast<double>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<double>(boost::any_cast<double>(m["Y"]));
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageResponseBodyDataElementsBoxes() = default;
+};
+class CustomizeDetectImageResponseBodyDataElements : public Darabonba::Model {
+public:
+  shared_ptr<CustomizeDetectImageResponseBodyDataElementsBoxes> boxes{};
+  shared_ptr<string> category{};
+  shared_ptr<double> score{};
+
+  CustomizeDetectImageResponseBodyDataElements() {}
+
+  explicit CustomizeDetectImageResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boxes) {
+      res["Boxes"] = boxes ? boost::any(boxes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Boxes") != m.end() && !m["Boxes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Boxes"].type()) {
+        CustomizeDetectImageResponseBodyDataElementsBoxes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Boxes"]));
+        boxes = make_shared<CustomizeDetectImageResponseBodyDataElementsBoxes>(model1);
+      }
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageResponseBodyDataElements() = default;
+};
+class CustomizeDetectImageResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<CustomizeDetectImageResponseBodyDataElements>> elements{};
+
+  CustomizeDetectImageResponseBodyData() {}
+
+  explicit CustomizeDetectImageResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<CustomizeDetectImageResponseBodyDataElements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CustomizeDetectImageResponseBodyDataElements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<CustomizeDetectImageResponseBodyDataElements>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageResponseBodyData() = default;
+};
+class CustomizeDetectImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CustomizeDetectImageResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CustomizeDetectImageResponseBody() {}
+
+  explicit CustomizeDetectImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CustomizeDetectImageResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CustomizeDetectImageResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageResponseBody() = default;
+};
+class CustomizeDetectImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CustomizeDetectImageResponseBody> body{};
+
+  CustomizeDetectImageResponse() {}
+
+  explicit CustomizeDetectImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CustomizeDetectImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CustomizeDetectImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CustomizeDetectImageResponse() = default;
+};
+class CustomizeInstanceSegmentImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeInstanceSegmentImageRequest() {}
+
+  explicit CustomizeInstanceSegmentImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageRequest() = default;
+};
+class CustomizeInstanceSegmentImageAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
+  shared_ptr<string> serviceId{};
+
+  CustomizeInstanceSegmentImageAdvanceRequest() {}
+
+  explicit CustomizeInstanceSegmentImageAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!imageUrlObject) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageUrlObject) {
+      res["ImageUrlObject"] = boost::any(*imageUrlObject);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageAdvanceRequest() = default;
+};
+class CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes() = default;
+};
+class CustomizeInstanceSegmentImageResponseBodyDataElementsContours : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  CustomizeInstanceSegmentImageResponseBodyDataElementsContours() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBodyDataElementsContours(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBodyDataElementsContours() = default;
+};
+class CustomizeInstanceSegmentImageResponseBodyDataElementsMask : public Darabonba::Model {
+public:
+  shared_ptr<string> counts{};
+  shared_ptr<vector<long>> sizes{};
+
+  CustomizeInstanceSegmentImageResponseBodyDataElementsMask() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBodyDataElementsMask(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (counts) {
+      res["Counts"] = boost::any(*counts);
+    }
+    if (sizes) {
+      res["Sizes"] = boost::any(*sizes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Counts") != m.end() && !m["Counts"].empty()) {
+      counts = make_shared<string>(boost::any_cast<string>(m["Counts"]));
+    }
+    if (m.find("Sizes") != m.end() && !m["Sizes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Sizes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sizes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      sizes = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBodyDataElementsMask() = default;
+};
+class CustomizeInstanceSegmentImageResponseBodyDataElements : public Darabonba::Model {
+public:
+  shared_ptr<CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes> boxes{};
+  shared_ptr<string> category{};
+  shared_ptr<vector<CustomizeInstanceSegmentImageResponseBodyDataElementsContours>> contours{};
+  shared_ptr<CustomizeInstanceSegmentImageResponseBodyDataElementsMask> mask{};
+  shared_ptr<double> score{};
+
+  CustomizeInstanceSegmentImageResponseBodyDataElements() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boxes) {
+      res["Boxes"] = boxes ? boost::any(boxes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (contours) {
+      vector<boost::any> temp1;
+      for(auto item1:*contours){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Contours"] = boost::any(temp1);
+    }
+    if (mask) {
+      res["Mask"] = mask ? boost::any(mask->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Boxes") != m.end() && !m["Boxes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Boxes"].type()) {
+        CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Boxes"]));
+        boxes = make_shared<CustomizeInstanceSegmentImageResponseBodyDataElementsBoxes>(model1);
+      }
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Contours") != m.end() && !m["Contours"].empty()) {
+      if (typeid(vector<boost::any>) == m["Contours"].type()) {
+        vector<CustomizeInstanceSegmentImageResponseBodyDataElementsContours> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Contours"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CustomizeInstanceSegmentImageResponseBodyDataElementsContours model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contours = make_shared<vector<CustomizeInstanceSegmentImageResponseBodyDataElementsContours>>(expect1);
+      }
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Mask"].type()) {
+        CustomizeInstanceSegmentImageResponseBodyDataElementsMask model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Mask"]));
+        mask = make_shared<CustomizeInstanceSegmentImageResponseBodyDataElementsMask>(model1);
+      }
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBodyDataElements() = default;
+};
+class CustomizeInstanceSegmentImageResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<CustomizeInstanceSegmentImageResponseBodyDataElements>> elements{};
+
+  CustomizeInstanceSegmentImageResponseBodyData() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<CustomizeInstanceSegmentImageResponseBodyDataElements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CustomizeInstanceSegmentImageResponseBodyDataElements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<CustomizeInstanceSegmentImageResponseBodyDataElements>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBodyData() = default;
+};
+class CustomizeInstanceSegmentImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CustomizeInstanceSegmentImageResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CustomizeInstanceSegmentImageResponseBody() {}
+
+  explicit CustomizeInstanceSegmentImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CustomizeInstanceSegmentImageResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CustomizeInstanceSegmentImageResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponseBody() = default;
+};
+class CustomizeInstanceSegmentImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CustomizeInstanceSegmentImageResponseBody> body{};
+
+  CustomizeInstanceSegmentImageResponse() {}
+
+  explicit CustomizeInstanceSegmentImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CustomizeInstanceSegmentImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CustomizeInstanceSegmentImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CustomizeInstanceSegmentImageResponse() = default;
+};
 class DebugServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -8699,6 +9660,15 @@ public:
   CreateTrainTaskResponse createTrainTask(shared_ptr<CreateTrainTaskRequest> request);
   CreateWorkspaceResponse createWorkspaceWithOptions(shared_ptr<CreateWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWorkspaceResponse createWorkspace(shared_ptr<CreateWorkspaceRequest> request);
+  CustomizeClassifyImageResponse customizeClassifyImageWithOptions(shared_ptr<CustomizeClassifyImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CustomizeClassifyImageResponse customizeClassifyImage(shared_ptr<CustomizeClassifyImageRequest> request);
+  CustomizeClassifyImageResponse customizeClassifyImageAdvance(shared_ptr<CustomizeClassifyImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CustomizeDetectImageResponse customizeDetectImageWithOptions(shared_ptr<CustomizeDetectImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CustomizeDetectImageResponse customizeDetectImage(shared_ptr<CustomizeDetectImageRequest> request);
+  CustomizeDetectImageResponse customizeDetectImageAdvance(shared_ptr<CustomizeDetectImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CustomizeInstanceSegmentImageResponse customizeInstanceSegmentImageWithOptions(shared_ptr<CustomizeInstanceSegmentImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CustomizeInstanceSegmentImageResponse customizeInstanceSegmentImage(shared_ptr<CustomizeInstanceSegmentImageRequest> request);
+  CustomizeInstanceSegmentImageResponse customizeInstanceSegmentImageAdvance(shared_ptr<CustomizeInstanceSegmentImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DebugServiceResponse debugServiceWithOptions(shared_ptr<DebugServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DebugServiceResponse debugService(shared_ptr<DebugServiceRequest> request);
   DeleteDatasetResponse deleteDatasetWithOptions(shared_ptr<DeleteDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
