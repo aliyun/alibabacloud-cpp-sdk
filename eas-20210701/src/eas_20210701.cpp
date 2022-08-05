@@ -250,13 +250,13 @@ CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceA
   ServiceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->max)) {
-    body->insert(pair<string, long>("Max", *request->max));
+    body->insert(pair<string, long>("max", *request->max));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->min)) {
-    body->insert(pair<string, long>("Min", *request->min));
+    body->insert(pair<string, long>("min", *request->min));
   }
   if (!Darabonba_Util::Client::isUnset<CreateServiceAutoScalerRequestStrategies>(request->strategies)) {
-    body->insert(pair<string, CreateServiceAutoScalerRequestStrategies>("Strategies", *request->strategies));
+    body->insert(pair<string, CreateServiceAutoScalerRequestStrategies>("strategies", *request->strategies));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1549,13 +1549,13 @@ UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceA
   ServiceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->max)) {
-    body->insert(pair<string, long>("Max", *request->max));
+    body->insert(pair<string, long>("max", *request->max));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->min)) {
-    body->insert(pair<string, long>("Min", *request->min));
+    body->insert(pair<string, long>("min", *request->min));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateServiceAutoScalerRequestStrategies>(request->strategies)) {
-    body->insert(pair<string, UpdateServiceAutoScalerRequestStrategies>("Strategies", *request->strategies));
+    body->insert(pair<string, UpdateServiceAutoScalerRequestStrategies>("strategies", *request->strategies));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

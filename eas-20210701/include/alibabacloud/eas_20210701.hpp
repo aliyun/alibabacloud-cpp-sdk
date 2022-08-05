@@ -1486,20 +1486,20 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (cpu) {
-      res["Cpu"] = boost::any(*cpu);
+      res["cpu"] = boost::any(*cpu);
     }
     if (qps) {
-      res["Qps"] = boost::any(*qps);
+      res["qps"] = boost::any(*qps);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
-      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
     }
-    if (m.find("Qps") != m.end() && !m["Qps"].empty()) {
-      qps = make_shared<double>(boost::any_cast<double>(m["Qps"]));
+    if (m.find("qps") != m.end() && !m["qps"].empty()) {
+      qps = make_shared<double>(boost::any_cast<double>(m["qps"]));
     }
   }
 
@@ -1523,28 +1523,28 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (max) {
-      res["Max"] = boost::any(*max);
+      res["max"] = boost::any(*max);
     }
     if (min) {
-      res["Min"] = boost::any(*min);
+      res["min"] = boost::any(*min);
     }
     if (strategies) {
-      res["Strategies"] = strategies ? boost::any(strategies->toMap()) : boost::any(map<string,boost::any>({}));
+      res["strategies"] = strategies ? boost::any(strategies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Max") != m.end() && !m["Max"].empty()) {
-      max = make_shared<long>(boost::any_cast<long>(m["Max"]));
+    if (m.find("max") != m.end() && !m["max"].empty()) {
+      max = make_shared<long>(boost::any_cast<long>(m["max"]));
     }
-    if (m.find("Min") != m.end() && !m["Min"].empty()) {
-      min = make_shared<long>(boost::any_cast<long>(m["Min"]));
+    if (m.find("min") != m.end() && !m["min"].empty()) {
+      min = make_shared<long>(boost::any_cast<long>(m["min"]));
     }
-    if (m.find("Strategies") != m.end() && !m["Strategies"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Strategies"].type()) {
+    if (m.find("strategies") != m.end() && !m["strategies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["strategies"].type()) {
         CreateServiceAutoScalerRequestStrategies model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Strategies"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["strategies"]));
         strategies = make_shared<CreateServiceAutoScalerRequestStrategies>(model1);
       }
     }
@@ -3806,6 +3806,7 @@ public:
 };
 class DescribeServiceAutoScalerResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> behavior{};
   shared_ptr<map<string, boost::any>> currentValues{};
   shared_ptr<long> maxReplica{};
   shared_ptr<long> minReplica{};
@@ -3823,6 +3824,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (behavior) {
+      res["Behavior"] = boost::any(*behavior);
+    }
     if (currentValues) {
       res["CurrentValues"] = boost::any(*currentValues);
     }
@@ -3845,6 +3849,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Behavior") != m.end() && !m["Behavior"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Behavior"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      behavior = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("CurrentValues") != m.end() && !m["CurrentValues"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CurrentValues"]);
       map<string, boost::any> toMap1;
@@ -6763,20 +6775,20 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (cpu) {
-      res["Cpu"] = boost::any(*cpu);
+      res["cpu"] = boost::any(*cpu);
     }
     if (qps) {
-      res["Qps"] = boost::any(*qps);
+      res["qps"] = boost::any(*qps);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
-      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
     }
-    if (m.find("Qps") != m.end() && !m["Qps"].empty()) {
-      qps = make_shared<double>(boost::any_cast<double>(m["Qps"]));
+    if (m.find("qps") != m.end() && !m["qps"].empty()) {
+      qps = make_shared<double>(boost::any_cast<double>(m["qps"]));
     }
   }
 
@@ -6800,28 +6812,28 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (max) {
-      res["Max"] = boost::any(*max);
+      res["max"] = boost::any(*max);
     }
     if (min) {
-      res["Min"] = boost::any(*min);
+      res["min"] = boost::any(*min);
     }
     if (strategies) {
-      res["Strategies"] = strategies ? boost::any(strategies->toMap()) : boost::any(map<string,boost::any>({}));
+      res["strategies"] = strategies ? boost::any(strategies->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Max") != m.end() && !m["Max"].empty()) {
-      max = make_shared<long>(boost::any_cast<long>(m["Max"]));
+    if (m.find("max") != m.end() && !m["max"].empty()) {
+      max = make_shared<long>(boost::any_cast<long>(m["max"]));
     }
-    if (m.find("Min") != m.end() && !m["Min"].empty()) {
-      min = make_shared<long>(boost::any_cast<long>(m["Min"]));
+    if (m.find("min") != m.end() && !m["min"].empty()) {
+      min = make_shared<long>(boost::any_cast<long>(m["min"]));
     }
-    if (m.find("Strategies") != m.end() && !m["Strategies"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Strategies"].type()) {
+    if (m.find("strategies") != m.end() && !m["strategies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["strategies"].type()) {
         UpdateServiceAutoScalerRequestStrategies model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Strategies"]));
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["strategies"]));
         strategies = make_shared<UpdateServiceAutoScalerRequestStrategies>(model1);
       }
     }
