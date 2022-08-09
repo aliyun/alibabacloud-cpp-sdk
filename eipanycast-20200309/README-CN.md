@@ -55,7 +55,7 @@ vcpkg install boost openssl-windows cpprestsdk
 
 ```bash
 git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-sh https://github.com/alibabacloud-sdk-cpp/eipanycast-20200309.git/scripts/install.sh
+sh eipanycast-20200309/scripts/install.sh
 ```
 
 ### Windows
@@ -64,13 +64,13 @@ sh https://github.com/alibabacloud-sdk-cpp/eipanycast-20200309.git/scripts/insta
 
   ```bash
   git clone https://github.com/aliyun/alibabacloud-cpp-sdk.git
-  cd alibabacloud-cpp-sdk/https://github.com/alibabacloud-sdk-cpp/eipanycast-20200309.git
+  cd alibabacloud-cpp-sdk/eipanycast-20200309
   ```
 2. 使用 Visual Studio 进行编译:
   * 安装 [CMake](https://cmake.org/download/) 和 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
   * 在项目根目录下创建 `cmake_build` 文件夹
   * 打开 [CMake](https://cmake.org/download/) 软件, 然后进行以下操作
-    * 选择 `Browse Source` 为 `源代码目录(https://github.com/alibabacloud-sdk-cpp/eipanycast-20200309.git)`
+    * 选择 `Browse Source` 为 `源代码目录(eipanycast-20200309)`
     * 选择 `Browse build` 为 `构建目录(cmake_build)`
     * 点击 `configure`
     * 点击 `generate`, 构建 VS 解决方案。
