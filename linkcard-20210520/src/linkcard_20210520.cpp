@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Linkcard20210520;
 
 Alibabacloud_Linkcard20210520::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("central");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("linkcard"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -36,6 +37,125 @@ string Alibabacloud_Linkcard20210520::Client::getEndpoint(shared_ptr<string> pro
     return (*endpointMap)[regionId];
   }
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+AddDirectionalCardResponse Alibabacloud_Linkcard20210520::Client::addDirectionalCardWithOptions(shared_ptr<AddDirectionalCardRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddDirectionalCardShrinkRequest> request = make_shared<AddDirectionalCardShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->orderList)) {
+    request->orderListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->orderList, make_shared<string>("OrderList"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagList)) {
+    request->tagListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagList, make_shared<string>("TagList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileUri)) {
+    query->insert(pair<string, string>("FileUri", *request->fileUri));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
+    query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderListShrink)) {
+    query->insert(pair<string, string>("OrderList", *request->orderListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagListShrink)) {
+    query->insert(pair<string, string>("TagList", *request->tagListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uploadMethod)) {
+    query->insert(pair<string, string>("UploadMethod", *request->uploadMethod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uploadType)) {
+    query->insert(pair<string, string>("UploadType", *request->uploadType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddDirectionalCard"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddDirectionalCardResponse(callApi(params, req, runtime));
+}
+
+AddDirectionalCardResponse Alibabacloud_Linkcard20210520::Client::addDirectionalCard(shared_ptr<AddDirectionalCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addDirectionalCardWithOptions(request, runtime);
+}
+
+AddDirectionalGroupResponse Alibabacloud_Linkcard20210520::Client::addDirectionalGroupWithOptions(shared_ptr<AddDirectionalGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
+    query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddDirectionalGroup"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddDirectionalGroupResponse(callApi(params, req, runtime));
+}
+
+AddDirectionalGroupResponse Alibabacloud_Linkcard20210520::Client::addDirectionalGroup(shared_ptr<AddDirectionalGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addDirectionalGroupWithOptions(request, runtime);
+}
+
+BatchAddDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::batchAddDirectionalAddressWithOptions(shared_ptr<BatchAddDirectionalAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
+    query->insert(pair<string, string>("AddressType", *request->addressType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
+    query->insert(pair<string, long>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->listAddress)) {
+    query->insert(pair<string, vector<string>>("ListAddress", *request->listAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchAddDirectionalAddress"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchAddDirectionalAddressResponse(callApi(params, req, runtime));
+}
+
+BatchAddDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::batchAddDirectionalAddress(shared_ptr<BatchAddDirectionalAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchAddDirectionalAddressWithOptions(request, runtime);
 }
 
 CardStatisticsResponse Alibabacloud_Linkcard20210520::Client::cardStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -237,6 +357,12 @@ ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfoWithOpti
   if (!Darabonba_Util::Client::isUnset<bool>(request->isAutoRecharge)) {
     query->insert(pair<string, bool>("IsAutoRecharge", *request->isAutoRecharge));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxFlow)) {
+    query->insert(pair<string, string>("MaxFlow", *request->maxFlow));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->minFlow)) {
+    query->insert(pair<string, string>("MinFlow", *request->minFlow));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->msisdn)) {
     query->insert(pair<string, string>("Msisdn", *request->msisdn));
   }
@@ -290,6 +416,74 @@ ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfoWithOpti
 ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfo(shared_ptr<ListCardInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listCardInfoWithOptions(request, runtime);
+}
+
+ListDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::listDirectionalAddressWithOptions(shared_ptr<ListDirectionalAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDirectionalAddress"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDirectionalAddressResponse(callApi(params, req, runtime));
+}
+
+ListDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::listDirectionalAddress(shared_ptr<ListDirectionalAddressRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDirectionalAddressWithOptions(request, runtime);
+}
+
+ListDirectionalDetailResponse Alibabacloud_Linkcard20210520::Client::listDirectionalDetailWithOptions(shared_ptr<ListDirectionalDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iccid)) {
+    query->insert(pair<string, string>("Iccid", *request->iccid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDirectionalDetail"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDirectionalDetailResponse(callApi(params, req, runtime));
+}
+
+ListDirectionalDetailResponse Alibabacloud_Linkcard20210520::Client::listDirectionalDetail(shared_ptr<ListDirectionalDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDirectionalDetailWithOptions(request, runtime);
 }
 
 ListOrderResponse Alibabacloud_Linkcard20210520::Client::listOrderWithOptions(shared_ptr<ListOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -557,5 +751,33 @@ UpdateAutoRechargeSwitchResponse Alibabacloud_Linkcard20210520::Client::updateAu
 UpdateAutoRechargeSwitchResponse Alibabacloud_Linkcard20210520::Client::updateAutoRechargeSwitch(shared_ptr<UpdateAutoRechargeSwitchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAutoRechargeSwitchWithOptions(request, runtime);
+}
+
+VerifyIotCardResponse Alibabacloud_Linkcard20210520::Client::verifyIotCardWithOptions(shared_ptr<VerifyIotCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iccid)) {
+    query->insert(pair<string, string>("Iccid", *request->iccid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VerifyIotCard"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VerifyIotCardResponse(callApi(params, req, runtime));
+}
+
+VerifyIotCardResponse Alibabacloud_Linkcard20210520::Client::verifyIotCard(shared_ptr<VerifyIotCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return verifyIotCardWithOptions(request, runtime);
 }
 
