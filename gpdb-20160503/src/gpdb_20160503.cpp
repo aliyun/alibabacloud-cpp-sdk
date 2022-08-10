@@ -256,6 +256,9 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
   }
@@ -303,6 +306,58 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
 CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstance(shared_ptr<CreateDBInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDBInstanceWithOptions(request, runtime);
+}
+
+CreateDBInstancePlanResponse Alibabacloud_Gpdb20160503::Client::createDBInstancePlanWithOptions(shared_ptr<CreateDBInstancePlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planConfig)) {
+    query->insert(pair<string, string>("PlanConfig", *request->planConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planDesc)) {
+    query->insert(pair<string, string>("PlanDesc", *request->planDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planEndTime)) {
+    query->insert(pair<string, string>("PlanEndTime", *request->planEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planName)) {
+    query->insert(pair<string, string>("PlanName", *request->planName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planScheduleType)) {
+    query->insert(pair<string, string>("PlanScheduleType", *request->planScheduleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planStartTime)) {
+    query->insert(pair<string, string>("PlanStartTime", *request->planStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planType)) {
+    query->insert(pair<string, string>("PlanType", *request->planType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDBInstancePlan"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDBInstancePlanResponse(callApi(params, req, runtime));
+}
+
+CreateDBInstancePlanResponse Alibabacloud_Gpdb20160503::Client::createDBInstancePlan(shared_ptr<CreateDBInstancePlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDBInstancePlanWithOptions(request, runtime);
 }
 
 CreateECSDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createECSDBInstanceWithOptions(shared_ptr<CreateECSDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -355,6 +410,9 @@ CreateECSDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createECSDBInstan
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
@@ -468,6 +526,40 @@ DeleteDBInstanceResponse Alibabacloud_Gpdb20160503::Client::deleteDBInstanceWith
 DeleteDBInstanceResponse Alibabacloud_Gpdb20160503::Client::deleteDBInstance(shared_ptr<DeleteDBInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteDBInstanceWithOptions(request, runtime);
+}
+
+DeleteDBInstancePlanResponse Alibabacloud_Gpdb20160503::Client::deleteDBInstancePlanWithOptions(shared_ptr<DeleteDBInstancePlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planId)) {
+    query->insert(pair<string, string>("PlanId", *request->planId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDBInstancePlan"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDBInstancePlanResponse(callApi(params, req, runtime));
+}
+
+DeleteDBInstancePlanResponse Alibabacloud_Gpdb20160503::Client::deleteDBInstancePlan(shared_ptr<DeleteDBInstancePlanRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDBInstancePlanWithOptions(request, runtime);
 }
 
 DeleteDatabaseResponse Alibabacloud_Gpdb20160503::Client::deleteDatabaseWithOptions(shared_ptr<DeleteDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1023,6 +1115,52 @@ DescribeDBInstancePerformanceResponse Alibabacloud_Gpdb20160503::Client::describ
   return describeDBInstancePerformanceWithOptions(request, runtime);
 }
 
+DescribeDBInstancePlansResponse Alibabacloud_Gpdb20160503::Client::describeDBInstancePlansWithOptions(shared_ptr<DescribeDBInstancePlansRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planCreateDate)) {
+    query->insert(pair<string, string>("PlanCreateDate", *request->planCreateDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planDesc)) {
+    query->insert(pair<string, string>("PlanDesc", *request->planDesc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planId)) {
+    query->insert(pair<string, string>("PlanId", *request->planId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planSchedulerType)) {
+    query->insert(pair<string, string>("PlanSchedulerType", *request->planSchedulerType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planType)) {
+    query->insert(pair<string, string>("PlanType", *request->planType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDBInstancePlans"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDBInstancePlansResponse(callApi(params, req, runtime));
+}
+
+DescribeDBInstancePlansResponse Alibabacloud_Gpdb20160503::Client::describeDBInstancePlans(shared_ptr<DescribeDBInstancePlansRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDBInstancePlansWithOptions(request, runtime);
+}
+
 DescribeDBInstanceSQLPatternsResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceSQLPatternsWithOptions(shared_ptr<DescribeDBInstanceSQLPatternsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1146,6 +1284,9 @@ DescribeDBInstancesResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeDBInstancesShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeDBInstancesShrinkRequestTag>>("Tag", *request->tag));
@@ -2818,6 +2959,37 @@ ModifySecurityIpsResponse Alibabacloud_Gpdb20160503::Client::modifySecurityIps(s
   return modifySecurityIpsWithOptions(request, runtime);
 }
 
+PauseInstanceResponse Alibabacloud_Gpdb20160503::Client::pauseInstanceWithOptions(shared_ptr<PauseInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PauseInstance"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PauseInstanceResponse(callApi(params, req, runtime));
+}
+
+PauseInstanceResponse Alibabacloud_Gpdb20160503::Client::pauseInstance(shared_ptr<PauseInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return pauseInstanceWithOptions(request, runtime);
+}
+
 RebalanceDBInstanceResponse Alibabacloud_Gpdb20160503::Client::rebalanceDBInstanceWithOptions(shared_ptr<RebalanceDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2946,6 +3118,74 @@ RestartDBInstanceResponse Alibabacloud_Gpdb20160503::Client::restartDBInstanceWi
 RestartDBInstanceResponse Alibabacloud_Gpdb20160503::Client::restartDBInstance(shared_ptr<RestartDBInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return restartDBInstanceWithOptions(request, runtime);
+}
+
+ResumeInstanceResponse Alibabacloud_Gpdb20160503::Client::resumeInstanceWithOptions(shared_ptr<ResumeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResumeInstance"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResumeInstanceResponse(callApi(params, req, runtime));
+}
+
+ResumeInstanceResponse Alibabacloud_Gpdb20160503::Client::resumeInstance(shared_ptr<ResumeInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return resumeInstanceWithOptions(request, runtime);
+}
+
+SetDBInstancePlanStatusResponse Alibabacloud_Gpdb20160503::Client::setDBInstancePlanStatusWithOptions(shared_ptr<SetDBInstancePlanStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planId)) {
+    query->insert(pair<string, string>("PlanId", *request->planId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->planStaus)) {
+    query->insert(pair<string, string>("PlanStaus", *request->planStaus));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetDBInstancePlanStatus"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SetDBInstancePlanStatusResponse(callApi(params, req, runtime));
+}
+
+SetDBInstancePlanStatusResponse Alibabacloud_Gpdb20160503::Client::setDBInstancePlanStatus(shared_ptr<SetDBInstancePlanStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return setDBInstancePlanStatusWithOptions(request, runtime);
 }
 
 SetDataShareInstanceResponse Alibabacloud_Gpdb20160503::Client::setDataShareInstanceWithOptions(shared_ptr<SetDataShareInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
