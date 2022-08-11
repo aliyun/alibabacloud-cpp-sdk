@@ -1064,29 +1064,31 @@ SendBatchSmsResponse Alibabacloud_Dysmsapi20170525::Client::sendBatchSmsWithOpti
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumberJson)) {
-    query->insert(pair<string, string>("PhoneNumberJson", *request->phoneNumberJson));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->signNameJson)) {
-    query->insert(pair<string, string>("SignNameJson", *request->signNameJson));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->smsUpExtendCodeJson)) {
-    query->insert(pair<string, string>("SmsUpExtendCodeJson", *request->smsUpExtendCodeJson));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumberJson)) {
+    body->insert(pair<string, string>("PhoneNumberJson", *request->phoneNumberJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signNameJson)) {
+    body->insert(pair<string, string>("SignNameJson", *request->signNameJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smsUpExtendCodeJson)) {
+    body->insert(pair<string, string>("SmsUpExtendCodeJson", *request->smsUpExtendCodeJson));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateParamJson)) {
-    query->insert(pair<string, string>("TemplateParamJson", *request->templateParamJson));
+    body->insert(pair<string, string>("TemplateParamJson", *request->templateParamJson));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SendBatchSms"))},
