@@ -1251,6 +1251,9 @@ ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseServiceWithOptio
   ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
   ServiceName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficState)) {
+    body->insert(pair<string, string>("TrafficState", *request->trafficState));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->weight)) {
     body->insert(pair<string, long>("Weight", *request->weight));
   }

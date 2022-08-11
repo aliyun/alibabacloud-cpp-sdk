@@ -498,6 +498,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<string> createTime{};
   shared_ptr<long> currentVersion{};
+  shared_ptr<string> extraData{};
   shared_ptr<long> gpu{};
   shared_ptr<string> image{};
   shared_ptr<string> internetEndpoint{};
@@ -512,8 +513,10 @@ public:
   shared_ptr<string> region{};
   shared_ptr<string> requestId{};
   shared_ptr<string> resource{};
+  shared_ptr<string> resourceAlias{};
   shared_ptr<long> runningInstance{};
   shared_ptr<string> serviceConfig{};
+  shared_ptr<string> serviceGroup{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> source{};
@@ -546,6 +549,9 @@ public:
     }
     if (currentVersion) {
       res["CurrentVersion"] = boost::any(*currentVersion);
+    }
+    if (extraData) {
+      res["ExtraData"] = boost::any(*extraData);
     }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
@@ -589,11 +595,17 @@ public:
     if (resource) {
       res["Resource"] = boost::any(*resource);
     }
+    if (resourceAlias) {
+      res["ResourceAlias"] = boost::any(*resourceAlias);
+    }
     if (runningInstance) {
       res["RunningInstance"] = boost::any(*runningInstance);
     }
     if (serviceConfig) {
       res["ServiceConfig"] = boost::any(*serviceConfig);
+    }
+    if (serviceGroup) {
+      res["ServiceGroup"] = boost::any(*serviceGroup);
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
@@ -634,6 +646,9 @@ public:
     }
     if (m.find("CurrentVersion") != m.end() && !m["CurrentVersion"].empty()) {
       currentVersion = make_shared<long>(boost::any_cast<long>(m["CurrentVersion"]));
+    }
+    if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
+      extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
@@ -677,11 +692,17 @@ public:
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
     }
+    if (m.find("ResourceAlias") != m.end() && !m["ResourceAlias"].empty()) {
+      resourceAlias = make_shared<string>(boost::any_cast<string>(m["ResourceAlias"]));
+    }
     if (m.find("RunningInstance") != m.end() && !m["RunningInstance"].empty()) {
       runningInstance = make_shared<long>(boost::any_cast<long>(m["RunningInstance"]));
     }
     if (m.find("ServiceConfig") != m.end() && !m["ServiceConfig"].empty()) {
       serviceConfig = make_shared<string>(boost::any_cast<string>(m["ServiceConfig"]));
+    }
+    if (m.find("ServiceGroup") != m.end() && !m["ServiceGroup"].empty()) {
+      serviceGroup = make_shared<string>(boost::any_cast<string>(m["ServiceGroup"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
@@ -5699,6 +5720,7 @@ public:
 };
 class ReleaseServiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> trafficState{};
   shared_ptr<long> weight{};
 
   ReleaseServiceRequest() {}
@@ -5711,6 +5733,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (trafficState) {
+      res["TrafficState"] = boost::any(*trafficState);
+    }
     if (weight) {
       res["Weight"] = boost::any(*weight);
     }
@@ -5718,6 +5743,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TrafficState") != m.end() && !m["TrafficState"].empty()) {
+      trafficState = make_shared<string>(boost::any_cast<string>(m["TrafficState"]));
+    }
     if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
       weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
     }
