@@ -4068,8 +4068,13 @@ GetMetaTableOutputResponse Alibabacloud_Dataworks-public20200518::Client::getMet
   return getMetaTableOutputWithOptions(request, runtime);
 }
 
-GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTablePartitionWithOptions(shared_ptr<GetMetaTablePartitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTablePartitionWithOptions(shared_ptr<GetMetaTablePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetMetaTablePartitionShrinkRequest> request = make_shared<GetMetaTablePartitionShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<GetMetaTablePartitionRequestSortCriterion>(tmpReq->sortCriterion)) {
+    request->sortCriterionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->sortCriterion->toMap()), make_shared<string>("SortCriterion"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
@@ -4085,6 +4090,9 @@ GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::get
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sortCriterionShrink)) {
+    query->insert(pair<string, string>("SortCriterion", *request->sortCriterionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tableGuid)) {
     query->insert(pair<string, string>("TableGuid", *request->tableGuid));

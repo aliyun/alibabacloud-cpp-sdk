@@ -26593,6 +26593,42 @@ public:
 
   virtual ~GetMetaTableOutputResponse() = default;
 };
+class GetMetaTablePartitionRequestSortCriterion : public Darabonba::Model {
+public:
+  shared_ptr<string> order{};
+  shared_ptr<string> sortField{};
+
+  GetMetaTablePartitionRequestSortCriterion() {}
+
+  explicit GetMetaTablePartitionRequestSortCriterion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (sortField) {
+      res["SortField"] = boost::any(*sortField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("SortField") != m.end() && !m["SortField"].empty()) {
+      sortField = make_shared<string>(boost::any_cast<string>(m["SortField"]));
+    }
+  }
+
+
+  virtual ~GetMetaTablePartitionRequestSortCriterion() = default;
+};
 class GetMetaTablePartitionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -26600,6 +26636,7 @@ public:
   shared_ptr<string> databaseName{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<GetMetaTablePartitionRequestSortCriterion> sortCriterion{};
   shared_ptr<string> tableGuid{};
   shared_ptr<string> tableName{};
 
@@ -26628,6 +26665,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (sortCriterion) {
+      res["SortCriterion"] = sortCriterion ? boost::any(sortCriterion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tableGuid) {
       res["TableGuid"] = boost::any(*tableGuid);
     }
@@ -26653,6 +26693,13 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("SortCriterion") != m.end() && !m["SortCriterion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SortCriterion"].type()) {
+        GetMetaTablePartitionRequestSortCriterion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SortCriterion"]));
+        sortCriterion = make_shared<GetMetaTablePartitionRequestSortCriterion>(model1);
+      }
+    }
     if (m.find("TableGuid") != m.end() && !m["TableGuid"].empty()) {
       tableGuid = make_shared<string>(boost::any_cast<string>(m["TableGuid"]));
     }
@@ -26663,6 +26710,84 @@ public:
 
 
   virtual ~GetMetaTablePartitionRequest() = default;
+};
+class GetMetaTablePartitionShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> databaseName{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> sortCriterionShrink{};
+  shared_ptr<string> tableGuid{};
+  shared_ptr<string> tableName{};
+
+  GetMetaTablePartitionShrinkRequest() {}
+
+  explicit GetMetaTablePartitionShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sortCriterionShrink) {
+      res["SortCriterion"] = boost::any(*sortCriterionShrink);
+    }
+    if (tableGuid) {
+      res["TableGuid"] = boost::any(*tableGuid);
+    }
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortCriterion") != m.end() && !m["SortCriterion"].empty()) {
+      sortCriterionShrink = make_shared<string>(boost::any_cast<string>(m["SortCriterion"]));
+    }
+    if (m.find("TableGuid") != m.end() && !m["TableGuid"].empty()) {
+      tableGuid = make_shared<string>(boost::any_cast<string>(m["TableGuid"]));
+    }
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+  }
+
+
+  virtual ~GetMetaTablePartitionShrinkRequest() = default;
 };
 class GetMetaTablePartitionResponseBodyDataDataEntityList : public Darabonba::Model {
 public:
@@ -64632,7 +64757,7 @@ public:
   GetMetaTableListByCategoryResponse getMetaTableListByCategory(shared_ptr<GetMetaTableListByCategoryRequest> request);
   GetMetaTableOutputResponse getMetaTableOutputWithOptions(shared_ptr<GetMetaTableOutputRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMetaTableOutputResponse getMetaTableOutput(shared_ptr<GetMetaTableOutputRequest> request);
-  GetMetaTablePartitionResponse getMetaTablePartitionWithOptions(shared_ptr<GetMetaTablePartitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMetaTablePartitionResponse getMetaTablePartitionWithOptions(shared_ptr<GetMetaTablePartitionRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMetaTablePartitionResponse getMetaTablePartition(shared_ptr<GetMetaTablePartitionRequest> request);
   GetMetaTableThemeLevelResponse getMetaTableThemeLevelWithOptions(shared_ptr<GetMetaTableThemeLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMetaTableThemeLevelResponse getMetaTableThemeLevel(shared_ptr<GetMetaTableThemeLevelRequest> request);
