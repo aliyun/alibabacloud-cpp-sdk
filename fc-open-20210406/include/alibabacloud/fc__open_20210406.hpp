@@ -1267,6 +1267,7 @@ class Layer : public Darabonba::Model {
 public:
   shared_ptr<long> acl{};
   shared_ptr<string> arn{};
+  shared_ptr<string> arnV2{};
   shared_ptr<LayerCode> code{};
   shared_ptr<string> codeChecksum{};
   shared_ptr<long> codeSize{};
@@ -1274,6 +1275,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> layerName{};
+  shared_ptr<string> license{};
   shared_ptr<long> version{};
 
   Layer() {}
@@ -1291,6 +1293,9 @@ public:
     }
     if (arn) {
       res["arn"] = boost::any(*arn);
+    }
+    if (arnV2) {
+      res["arnV2"] = boost::any(*arnV2);
     }
     if (code) {
       res["code"] = code ? boost::any(code->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1313,6 +1318,9 @@ public:
     if (layerName) {
       res["layerName"] = boost::any(*layerName);
     }
+    if (license) {
+      res["license"] = boost::any(*license);
+    }
     if (version) {
       res["version"] = boost::any(*version);
     }
@@ -1325,6 +1333,9 @@ public:
     }
     if (m.find("arn") != m.end() && !m["arn"].empty()) {
       arn = make_shared<string>(boost::any_cast<string>(m["arn"]));
+    }
+    if (m.find("arnV2") != m.end() && !m["arnV2"].empty()) {
+      arnV2 = make_shared<string>(boost::any_cast<string>(m["arnV2"]));
     }
     if (m.find("code") != m.end() && !m["code"].empty()) {
       if (typeid(map<string, boost::any>) == m["code"].type()) {
@@ -1357,6 +1368,9 @@ public:
     }
     if (m.find("layerName") != m.end() && !m["layerName"].empty()) {
       layerName = make_shared<string>(boost::any_cast<string>(m["layerName"]));
+    }
+    if (m.find("license") != m.end() && !m["license"].empty()) {
+      license = make_shared<string>(boost::any_cast<string>(m["license"]));
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<long>(boost::any_cast<long>(m["version"]));
@@ -2025,6 +2039,56 @@ public:
 
   virtual ~PathConfig() = default;
 };
+class PolicyItem : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> key{};
+  shared_ptr<vector<uint8_t>> operator_{};
+  shared_ptr<vector<uint8_t>> type{};
+  shared_ptr<vector<uint8_t>> value{};
+
+  PolicyItem() {}
+
+  explicit PolicyItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (operator_) {
+      res["operator"] = boost::any(*operator_);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["key"]));
+    }
+    if (m.find("operator") != m.end() && !m["operator"].empty()) {
+      operator_ = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["operator"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["type"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["value"]));
+    }
+  }
+
+
+  virtual ~PolicyItem() = default;
+};
 class PreFreeze : public Darabonba::Model {
 public:
   shared_ptr<string> handler{};
@@ -2237,6 +2301,46 @@ public:
 
 
   virtual ~RouteConfig() = default;
+};
+class RoutePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> condition{};
+  shared_ptr<PolicyItem> policyItems{};
+
+  RoutePolicy() {}
+
+  explicit RoutePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (condition) {
+      res["condition"] = boost::any(*condition);
+    }
+    if (policyItems) {
+      res["policyItems"] = policyItems ? boost::any(policyItems->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("condition") != m.end() && !m["condition"].empty()) {
+      condition = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["condition"]));
+    }
+    if (m.find("policyItems") != m.end() && !m["policyItems"].empty()) {
+      if (typeid(map<string, boost::any>) == m["policyItems"].type()) {
+        PolicyItem model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["policyItems"]));
+        policyItems = make_shared<PolicyItem>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RoutePolicy() = default;
 };
 class ScheduledActions : public Darabonba::Model {
 public:
@@ -2834,6 +2938,8 @@ public:
   shared_ptr<map<string, double>> additionalVersionWeight{};
   shared_ptr<string> aliasName{};
   shared_ptr<string> description{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   CreateAliasRequest() {}
@@ -2855,6 +2961,12 @@ public:
     if (description) {
       res["description"] = boost::any(*description);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -2875,6 +2987,16 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -4255,7 +4377,6 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
-  shared_ptr<VendorConfig> vendorConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   CreateServiceResponseBody() {}
@@ -4297,9 +4418,6 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (vendorConfig) {
-      res["vendorConfig"] = vendorConfig ? boost::any(vendorConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4348,13 +4466,6 @@ public:
         TracingConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
-      }
-    }
-    if (m.find("vendorConfig") != m.end() && !m["vendorConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["vendorConfig"].type()) {
-        VendorConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vendorConfig"]));
-        vendorConfig = make_shared<VendorConfig>(model1);
       }
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
@@ -6341,6 +6452,8 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   GetAliasResponseBody() {}
@@ -6368,6 +6481,12 @@ public:
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -6394,6 +6513,16 @@ public:
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -9124,6 +9253,8 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
   shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   ListAliasesResponseBodyAliases() {}
@@ -9151,6 +9282,12 @@ public:
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -9177,6 +9314,16 @@ public:
     }
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -10567,8 +10714,6 @@ class ListInstancesHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
   shared_ptr<string> xFcAccountId{};
-  shared_ptr<string> xFcDate{};
-  shared_ptr<string> xFcTraceId{};
 
   ListInstancesHeaders() {}
 
@@ -10586,12 +10731,6 @@ public:
     if (xFcAccountId) {
       res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
     }
-    if (xFcDate) {
-      res["X-Fc-Date"] = boost::any(*xFcDate);
-    }
-    if (xFcTraceId) {
-      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
-    }
     return res;
   }
 
@@ -10606,12 +10745,6 @@ public:
     }
     if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
       xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
-    }
-    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
-      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
-    }
-    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
-      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
     }
   }
 
@@ -11071,7 +11204,9 @@ class ListLayersRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
+  shared_ptr<bool> official{};
   shared_ptr<string> prefix{};
+  shared_ptr<bool> public_{};
   shared_ptr<string> startKey{};
 
   ListLayersRequest() {}
@@ -11090,8 +11225,14 @@ public:
     if (nextToken) {
       res["nextToken"] = boost::any(*nextToken);
     }
+    if (official) {
+      res["official"] = boost::any(*official);
+    }
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
+    }
+    if (public_) {
+      res["public"] = boost::any(*public_);
     }
     if (startKey) {
       res["startKey"] = boost::any(*startKey);
@@ -11106,8 +11247,14 @@ public:
     if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
     }
+    if (m.find("official") != m.end() && !m["official"].empty()) {
+      official = make_shared<bool>(boost::any_cast<bool>(m["official"]));
+    }
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
+    }
+    if (m.find("public") != m.end() && !m["public"].empty()) {
+      public_ = make_shared<bool>(boost::any_cast<bool>(m["public"]));
     }
     if (m.find("startKey") != m.end() && !m["startKey"].empty()) {
       startKey = make_shared<string>(boost::any_cast<string>(m["startKey"]));
@@ -14399,6 +14546,148 @@ public:
 
   virtual ~PutFunctionOnDemandConfigResponse() = default;
 };
+class PutLayerACLHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
+
+  PutLayerACLHeaders() {}
+
+  explicit PutLayerACLHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xFcAccountId) {
+      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
+    }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
+      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
+    }
+  }
+
+
+  virtual ~PutLayerACLHeaders() = default;
+};
+class PutLayerACLRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> public_{};
+
+  PutLayerACLRequest() {}
+
+  explicit PutLayerACLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (public_) {
+      res["public"] = boost::any(*public_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("public") != m.end() && !m["public"].empty()) {
+      public_ = make_shared<bool>(boost::any_cast<bool>(m["public"]));
+    }
+  }
+
+
+  virtual ~PutLayerACLRequest() = default;
+};
+class PutLayerACLResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<string> body{};
+
+  PutLayerACLResponse() {}
+
+  explicit PutLayerACLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+  }
+
+
+  virtual ~PutLayerACLResponse() = default;
+};
 class PutProvisionConfigHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -15377,6 +15666,8 @@ class UpdateAliasRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, double>> additionalVersionWeight{};
   shared_ptr<string> description{};
+  shared_ptr<string> resolvePolicy{};
+  shared_ptr<RoutePolicy> routePolicy{};
   shared_ptr<string> versionId{};
 
   UpdateAliasRequest() {}
@@ -15395,6 +15686,12 @@ public:
     if (description) {
       res["description"] = boost::any(*description);
     }
+    if (resolvePolicy) {
+      res["resolvePolicy"] = boost::any(*resolvePolicy);
+    }
+    if (routePolicy) {
+      res["routePolicy"] = routePolicy ? boost::any(routePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (versionId) {
       res["versionId"] = boost::any(*versionId);
     }
@@ -15412,6 +15709,16 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("resolvePolicy") != m.end() && !m["resolvePolicy"].empty()) {
+      resolvePolicy = make_shared<string>(boost::any_cast<string>(m["resolvePolicy"]));
+    }
+    if (m.find("routePolicy") != m.end() && !m["routePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["routePolicy"].type()) {
+        RoutePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["routePolicy"]));
+        routePolicy = make_shared<RoutePolicy>(model1);
+      }
     }
     if (m.find("versionId") != m.end() && !m["versionId"].empty()) {
       versionId = make_shared<string>(boost::any_cast<string>(m["versionId"]));
@@ -16504,7 +16811,6 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
-  shared_ptr<VendorConfig> vendorConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
 
   UpdateServiceResponseBody() {}
@@ -16546,9 +16852,6 @@ public:
     }
     if (tracingConfig) {
       res["tracingConfig"] = tracingConfig ? boost::any(tracingConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (vendorConfig) {
-      res["vendorConfig"] = vendorConfig ? boost::any(vendorConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vpcConfig) {
       res["vpcConfig"] = vpcConfig ? boost::any(vpcConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16597,13 +16900,6 @@ public:
         TracingConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tracingConfig"]));
         tracingConfig = make_shared<TracingConfig>(model1);
-      }
-    }
-    if (m.find("vendorConfig") != m.end() && !m["vendorConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["vendorConfig"].type()) {
-        VendorConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["vendorConfig"]));
-        vendorConfig = make_shared<VendorConfig>(model1);
       }
     }
     if (m.find("vpcConfig") != m.end() && !m["vpcConfig"].empty()) {
@@ -17222,6 +17518,11 @@ public:
                                                                          shared_ptr<PutFunctionOnDemandConfigRequest> request,
                                                                          shared_ptr<PutFunctionOnDemandConfigHeaders> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutLayerACLResponse putLayerACL(shared_ptr<string> layerName, shared_ptr<PutLayerACLRequest> request);
+  PutLayerACLResponse putLayerACLWithOptions(shared_ptr<string> layerName,
+                                             shared_ptr<PutLayerACLRequest> request,
+                                             shared_ptr<PutLayerACLHeaders> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PutProvisionConfigResponse putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request);
   PutProvisionConfigResponse putProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                            shared_ptr<string> functionName,
