@@ -760,6 +760,112 @@ public:
 
   virtual ~ApplyAddRequestItineraryList() = default;
 };
+class ApplyAddRequestItinerarySetList : public Darabonba::Model {
+public:
+  shared_ptr<string> arrDate{};
+  shared_ptr<string> cityCodeSet{};
+  shared_ptr<string> citySet{};
+  shared_ptr<long> costCenterId{};
+  shared_ptr<string> depDate{};
+  shared_ptr<long> invoiceId{};
+  shared_ptr<string> itineraryId{};
+  shared_ptr<string> projectCode{};
+  shared_ptr<string> projectTitle{};
+  shared_ptr<string> thirdPartInvoiceId{};
+  shared_ptr<string> thirdpartCostCenterId{};
+  shared_ptr<long> transport{};
+
+  ApplyAddRequestItinerarySetList() {}
+
+  explicit ApplyAddRequestItinerarySetList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arrDate) {
+      res["arr_date"] = boost::any(*arrDate);
+    }
+    if (cityCodeSet) {
+      res["city_code_set"] = boost::any(*cityCodeSet);
+    }
+    if (citySet) {
+      res["city_set"] = boost::any(*citySet);
+    }
+    if (costCenterId) {
+      res["cost_center_id"] = boost::any(*costCenterId);
+    }
+    if (depDate) {
+      res["dep_date"] = boost::any(*depDate);
+    }
+    if (invoiceId) {
+      res["invoice_id"] = boost::any(*invoiceId);
+    }
+    if (itineraryId) {
+      res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (projectCode) {
+      res["project_code"] = boost::any(*projectCode);
+    }
+    if (projectTitle) {
+      res["project_title"] = boost::any(*projectTitle);
+    }
+    if (thirdPartInvoiceId) {
+      res["third_part_invoice_id"] = boost::any(*thirdPartInvoiceId);
+    }
+    if (thirdpartCostCenterId) {
+      res["thirdpart_cost_center_id"] = boost::any(*thirdpartCostCenterId);
+    }
+    if (transport) {
+      res["transport"] = boost::any(*transport);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
+      arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
+    }
+    if (m.find("city_code_set") != m.end() && !m["city_code_set"].empty()) {
+      cityCodeSet = make_shared<string>(boost::any_cast<string>(m["city_code_set"]));
+    }
+    if (m.find("city_set") != m.end() && !m["city_set"].empty()) {
+      citySet = make_shared<string>(boost::any_cast<string>(m["city_set"]));
+    }
+    if (m.find("cost_center_id") != m.end() && !m["cost_center_id"].empty()) {
+      costCenterId = make_shared<long>(boost::any_cast<long>(m["cost_center_id"]));
+    }
+    if (m.find("dep_date") != m.end() && !m["dep_date"].empty()) {
+      depDate = make_shared<string>(boost::any_cast<string>(m["dep_date"]));
+    }
+    if (m.find("invoice_id") != m.end() && !m["invoice_id"].empty()) {
+      invoiceId = make_shared<long>(boost::any_cast<long>(m["invoice_id"]));
+    }
+    if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
+      itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
+    }
+    if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
+      projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
+    }
+    if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
+      projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
+    }
+    if (m.find("third_part_invoice_id") != m.end() && !m["third_part_invoice_id"].empty()) {
+      thirdPartInvoiceId = make_shared<string>(boost::any_cast<string>(m["third_part_invoice_id"]));
+    }
+    if (m.find("thirdpart_cost_center_id") != m.end() && !m["thirdpart_cost_center_id"].empty()) {
+      thirdpartCostCenterId = make_shared<string>(boost::any_cast<string>(m["thirdpart_cost_center_id"]));
+    }
+    if (m.find("transport") != m.end() && !m["transport"].empty()) {
+      transport = make_shared<long>(boost::any_cast<long>(m["transport"]));
+    }
+  }
+
+
+  virtual ~ApplyAddRequestItinerarySetList() = default;
+};
 class ApplyAddRequestTravelerList : public Darabonba::Model {
 public:
   shared_ptr<string> userId{};
@@ -944,6 +1050,8 @@ public:
   shared_ptr<long> hotelBudget{};
   shared_ptr<ApplyAddRequestHotelShare> hotelShare{};
   shared_ptr<vector<ApplyAddRequestItineraryList>> itineraryList{};
+  shared_ptr<long> itineraryRule{};
+  shared_ptr<vector<ApplyAddRequestItinerarySetList>> itinerarySetList{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
@@ -1011,6 +1119,16 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["itinerary_list"] = boost::any(temp1);
+    }
+    if (itineraryRule) {
+      res["itinerary_rule"] = boost::any(*itineraryRule);
+    }
+    if (itinerarySetList) {
+      vector<boost::any> temp1;
+      for(auto item1:*itinerarySetList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["itinerary_set_list"] = boost::any(temp1);
     }
     if (limitTraveler) {
       res["limit_traveler"] = boost::any(*limitTraveler);
@@ -1133,6 +1251,22 @@ public:
         itineraryList = make_shared<vector<ApplyAddRequestItineraryList>>(expect1);
       }
     }
+    if (m.find("itinerary_rule") != m.end() && !m["itinerary_rule"].empty()) {
+      itineraryRule = make_shared<long>(boost::any_cast<long>(m["itinerary_rule"]));
+    }
+    if (m.find("itinerary_set_list") != m.end() && !m["itinerary_set_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["itinerary_set_list"].type()) {
+        vector<ApplyAddRequestItinerarySetList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["itinerary_set_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyAddRequestItinerarySetList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        itinerarySetList = make_shared<vector<ApplyAddRequestItinerarySetList>>(expect1);
+      }
+    }
     if (m.find("limit_traveler") != m.end() && !m["limit_traveler"].empty()) {
       limitTraveler = make_shared<long>(boost::any_cast<long>(m["limit_traveler"]));
     }
@@ -1219,6 +1353,8 @@ public:
   shared_ptr<long> hotelBudget{};
   shared_ptr<string> hotelShareShrink{};
   shared_ptr<string> itineraryListShrink{};
+  shared_ptr<long> itineraryRule{};
+  shared_ptr<string> itinerarySetListShrink{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
@@ -1278,6 +1414,12 @@ public:
     }
     if (itineraryListShrink) {
       res["itinerary_list"] = boost::any(*itineraryListShrink);
+    }
+    if (itineraryRule) {
+      res["itinerary_rule"] = boost::any(*itineraryRule);
+    }
+    if (itinerarySetListShrink) {
+      res["itinerary_set_list"] = boost::any(*itinerarySetListShrink);
     }
     if (limitTraveler) {
       res["limit_traveler"] = boost::any(*limitTraveler);
@@ -1363,6 +1505,12 @@ public:
     }
     if (m.find("itinerary_list") != m.end() && !m["itinerary_list"].empty()) {
       itineraryListShrink = make_shared<string>(boost::any_cast<string>(m["itinerary_list"]));
+    }
+    if (m.find("itinerary_rule") != m.end() && !m["itinerary_rule"].empty()) {
+      itineraryRule = make_shared<long>(boost::any_cast<long>(m["itinerary_rule"]));
+    }
+    if (m.find("itinerary_set_list") != m.end() && !m["itinerary_set_list"].empty()) {
+      itinerarySetListShrink = make_shared<string>(boost::any_cast<string>(m["itinerary_set_list"]));
     }
     if (m.find("limit_traveler") != m.end() && !m["limit_traveler"].empty()) {
       limitTraveler = make_shared<long>(boost::any_cast<long>(m["limit_traveler"]));
@@ -4888,7 +5036,6 @@ public:
 };
 class CarApplyQueryRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> corpId{};
   shared_ptr<string> createdEndAt{};
   shared_ptr<string> createdStartAt{};
   shared_ptr<long> pageNumber{};
@@ -4906,9 +5053,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     if (createdEndAt) {
       res["created_end_at"] = boost::any(*createdEndAt);
     }
@@ -4931,9 +5075,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
-    }
     if (m.find("created_end_at") != m.end() && !m["created_end_at"].empty()) {
       createdEndAt = make_shared<string>(boost::any_cast<string>(m["created_end_at"]));
     }
@@ -6940,7 +7081,6 @@ class CommonApplyQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
   shared_ptr<long> bizCategory{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> userId{};
 
   CommonApplyQueryRequest() {}
@@ -6959,9 +7099,6 @@ public:
     if (bizCategory) {
       res["biz_category"] = boost::any(*bizCategory);
     }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -6974,9 +7111,6 @@ public:
     }
     if (m.find("biz_category") != m.end() && !m["biz_category"].empty()) {
       bizCategory = make_shared<long>(boost::any_cast<long>(m["biz_category"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
@@ -7964,7 +8098,6 @@ public:
 };
 class CostCenterQueryRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> corpId{};
   shared_ptr<bool> needOrgEntity{};
   shared_ptr<string> thirdpartId{};
   shared_ptr<string> title{};
@@ -7980,9 +8113,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     if (needOrgEntity) {
       res["need_org_entity"] = boost::any(*needOrgEntity);
     }
@@ -7999,9 +8129,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
-    }
     if (m.find("need_org_entity") != m.end() && !m["need_org_entity"].empty()) {
       needOrgEntity = make_shared<bool>(boost::any_cast<bool>(m["need_org_entity"]));
     }
@@ -8325,7 +8452,6 @@ public:
 class CostCenterSaveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alipayNo{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> number{};
   shared_ptr<long> scope{};
   shared_ptr<string> thirdpartId{};
@@ -8343,9 +8469,6 @@ public:
     map<string, boost::any> res;
     if (alipayNo) {
       res["alipay_no"] = boost::any(*alipayNo);
-    }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
     }
     if (number) {
       res["number"] = boost::any(*number);
@@ -8365,9 +8488,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_no") != m.end() && !m["alipay_no"].empty()) {
       alipayNo = make_shared<string>(boost::any_cast<string>(m["alipay_no"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("number") != m.end() && !m["number"].empty()) {
       number = make_shared<string>(boost::any_cast<string>(m["number"]));
@@ -9731,7 +9851,6 @@ class ExceedApplySyncRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
   shared_ptr<long> bizCategory{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartyFlowId{};
@@ -9752,9 +9871,6 @@ public:
     }
     if (bizCategory) {
       res["biz_category"] = boost::any(*bizCategory);
-    }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
     }
     if (remark) {
       res["remark"] = boost::any(*remark);
@@ -9777,9 +9893,6 @@ public:
     }
     if (m.find("biz_category") != m.end() && !m["biz_category"].empty()) {
       bizCategory = make_shared<long>(boost::any_cast<long>(m["biz_category"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
@@ -10704,7 +10817,6 @@ public:
 class FlightExceedApplyQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
-  shared_ptr<string> corpId{};
 
   FlightExceedApplyQueryRequest() {}
 
@@ -10719,18 +10831,12 @@ public:
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
     }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<long>(boost::any_cast<long>(m["apply_id"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
   }
 
@@ -13831,7 +13937,6 @@ public:
 class HotelExceedApplyQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> userId{};
 
   HotelExceedApplyQueryRequest() {}
@@ -13847,9 +13952,6 @@ public:
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
     }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -13859,9 +13961,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<long>(boost::any_cast<long>(m["apply_id"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
@@ -16630,7 +16729,6 @@ public:
 class ProjectAddRequest : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> thirdPartCostCenterId{};
   shared_ptr<string> thirdPartId{};
@@ -16648,9 +16746,6 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["code"] = boost::any(*code);
-    }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
     }
     if (projectName) {
       res["project_name"] = boost::any(*projectName);
@@ -16670,9 +16765,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("project_name") != m.end() && !m["project_name"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["project_name"]));
@@ -16982,7 +17074,6 @@ public:
 class ProjectModifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> thirdPartCostCenterId{};
   shared_ptr<string> thirdPartId{};
@@ -17000,9 +17091,6 @@ public:
     map<string, boost::any> res;
     if (code) {
       res["code"] = boost::any(*code);
-    }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
     }
     if (projectName) {
       res["project_name"] = boost::any(*projectName);
@@ -17022,9 +17110,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["code"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("project_name") != m.end() && !m["project_name"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["project_name"]));
@@ -17795,7 +17880,6 @@ public:
 class TrainExceedApplyQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
-  shared_ptr<string> corpId{};
   shared_ptr<string> userId{};
 
   TrainExceedApplyQueryRequest() {}
@@ -17811,9 +17895,6 @@ public:
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
     }
-    if (corpId) {
-      res["corp_id"] = boost::any(*corpId);
-    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -17823,9 +17904,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<long>(boost::any_cast<long>(m["apply_id"]));
-    }
-    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
-      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
@@ -20119,7 +20197,6 @@ public:
 class UserQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> modifiedTimeGreaterOrEqualThan{};
-  shared_ptr<string> thirdPartCorpId{};
   shared_ptr<string> thirdPartJobNo{};
 
   UserQueryRequest() {}
@@ -20135,9 +20212,6 @@ public:
     if (modifiedTimeGreaterOrEqualThan) {
       res["modified_time_greater_or_equal_than"] = boost::any(*modifiedTimeGreaterOrEqualThan);
     }
-    if (thirdPartCorpId) {
-      res["third_part_corp_id"] = boost::any(*thirdPartCorpId);
-    }
     if (thirdPartJobNo) {
       res["third_part_job_no"] = boost::any(*thirdPartJobNo);
     }
@@ -20147,9 +20221,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("modified_time_greater_or_equal_than") != m.end() && !m["modified_time_greater_or_equal_than"].empty()) {
       modifiedTimeGreaterOrEqualThan = make_shared<string>(boost::any_cast<string>(m["modified_time_greater_or_equal_than"]));
-    }
-    if (m.find("third_part_corp_id") != m.end() && !m["third_part_corp_id"].empty()) {
-      thirdPartCorpId = make_shared<string>(boost::any_cast<string>(m["third_part_corp_id"]));
     }
     if (m.find("third_part_job_no") != m.end() && !m["third_part_job_no"].empty()) {
       thirdPartJobNo = make_shared<string>(boost::any_cast<string>(m["third_part_job_no"]));
