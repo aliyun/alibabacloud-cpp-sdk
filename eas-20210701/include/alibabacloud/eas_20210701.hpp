@@ -519,6 +519,7 @@ public:
   shared_ptr<string> serviceGroup{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceUid{};
   shared_ptr<string> source{};
   shared_ptr<string> status{};
   shared_ptr<long> totalInstance{};
@@ -612,6 +613,9 @@ public:
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (serviceUid) {
+      res["ServiceUid"] = boost::any(*serviceUid);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -709,6 +713,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceUid") != m.end() && !m["ServiceUid"].empty()) {
+      serviceUid = make_shared<string>(boost::any_cast<string>(m["ServiceUid"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
