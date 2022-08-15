@@ -930,22 +930,22 @@ CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQuery(
 
 CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->needOrgEntity)) {
-    body->insert(pair<string, bool>("need_org_entity", *request->needOrgEntity));
+    query->insert(pair<string, bool>("need_org_entity", *request->needOrgEntity));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartId)) {
-    body->insert(pair<string, string>("thirdpart_id", *request->thirdpartId));
+    query->insert(pair<string, string>("thirdpart_id", *request->thirdpartId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
-    body->insert(pair<string, string>("title", *request->title));
+    query->insert(pair<string, string>("title", *request->title));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("user_id", *request->userId));
+    query->insert(pair<string, string>("user_id", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CostCenterQuery"))},
@@ -955,7 +955,7 @@ CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryW
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("formData"))},
+    {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
   return CostCenterQueryResponse(callApi(params, req, runtime));
