@@ -161,6 +161,9 @@ AttachDbfsResponse Alibabacloud_DBFS20200418::Client::attachDbfs(shared_ptr<Atta
 CreateDbfsResponse Alibabacloud_DBFS20200418::Client::createDbfsWithOptions(shared_ptr<CreateDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->advancedFeatures)) {
+    query->insert(pair<string, string>("AdvancedFeatures", *request->advancedFeatures));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
     query->insert(pair<string, string>("Category", *request->category));
   }
@@ -816,40 +819,6 @@ RenameDbfsResponse Alibabacloud_DBFS20200418::Client::renameDbfsWithOptions(shar
 RenameDbfsResponse Alibabacloud_DBFS20200418::Client::renameDbfs(shared_ptr<RenameDbfsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return renameDbfsWithOptions(request, runtime);
-}
-
-ResetDbfsResponse Alibabacloud_DBFS20200418::Client::resetDbfsWithOptions(shared_ptr<ResetDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->fsId)) {
-    query->insert(pair<string, string>("FsId", *request->fsId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
-    query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ResetDbfs"))},
-    {"version", boost::any(string("2020-04-18"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ResetDbfsResponse(callApi(params, req, runtime));
-}
-
-ResetDbfsResponse Alibabacloud_DBFS20200418::Client::resetDbfs(shared_ptr<ResetDbfsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return resetDbfsWithOptions(request, runtime);
 }
 
 ResizeDbfsResponse Alibabacloud_DBFS20200418::Client::resizeDbfsWithOptions(shared_ptr<ResizeDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
