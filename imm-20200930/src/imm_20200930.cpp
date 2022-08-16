@@ -732,6 +732,63 @@ CreateImageSplicingTaskResponse Alibabacloud_Imm20200930::Client::createImageSpl
   return createImageSplicingTaskWithOptions(request, runtime);
 }
 
+CreateImageToPDFTaskResponse Alibabacloud_Imm20200930::Client::createImageToPDFTaskWithOptions(shared_ptr<CreateImageToPDFTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateImageToPDFTaskShrinkRequest> request = make_shared<CreateImageToPDFTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateImageToPDFTaskRequestSources>>(tmpReq->sources)) {
+    request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
+    query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
+    query->insert(pair<string, string>("Sources", *request->sourcesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetURI)) {
+    query->insert(pair<string, string>("TargetURI", *request->targetURI));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateImageToPDFTask"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateImageToPDFTaskResponse(callApi(params, req, runtime));
+}
+
+CreateImageToPDFTaskResponse Alibabacloud_Imm20200930::Client::createImageToPDFTask(shared_ptr<CreateImageToPDFTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createImageToPDFTaskWithOptions(request, runtime);
+}
+
 CreateMediaConvertTaskResponse Alibabacloud_Imm20200930::Client::createMediaConvertTaskWithOptions(shared_ptr<CreateMediaConvertTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateMediaConvertTaskShrinkRequest> request = make_shared<CreateMediaConvertTaskShrinkRequest>();
