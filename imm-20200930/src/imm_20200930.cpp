@@ -452,9 +452,6 @@ CreateDetectVideoLabelsTaskResponse Alibabacloud_Imm20200930::Client::createDete
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
     query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->notifyEndpoint)) {
-    query->insert(pair<string, string>("NotifyEndpoint", *request->notifyEndpoint));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
     query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
   }
@@ -502,9 +499,6 @@ CreateFigureClusteringTaskResponse Alibabacloud_Imm20200930::Client::createFigur
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->notifyEndpoint)) {
-    query->insert(pair<string, string>("NotifyEndpoint", *request->notifyEndpoint));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
     query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));

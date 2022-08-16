@@ -5848,7 +5848,6 @@ public:
 class CreateDetectVideoLabelsTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<CredentialConfig> credentialConfig{};
-  shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sourceURI{};
@@ -5867,9 +5866,6 @@ public:
     map<string, boost::any> res;
     if (credentialConfig) {
       res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (notifyEndpoint) {
-      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
     }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
@@ -5896,9 +5892,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
         credentialConfig = make_shared<CredentialConfig>(model1);
       }
-    }
-    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
-      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
     }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
@@ -5928,7 +5921,6 @@ public:
 class CreateDetectVideoLabelsTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> credentialConfigShrink{};
-  shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sourceURI{};
@@ -5947,9 +5939,6 @@ public:
     map<string, boost::any> res;
     if (credentialConfigShrink) {
       res["CredentialConfig"] = boost::any(*credentialConfigShrink);
-    }
-    if (notifyEndpoint) {
-      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
     }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
@@ -5972,9 +5961,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
       credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
-    }
-    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
-      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
     }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
@@ -6104,7 +6090,6 @@ public:
 class CreateFigureClusteringTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
-  shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> projectName{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -6122,9 +6107,6 @@ public:
     map<string, boost::any> res;
     if (datasetName) {
       res["DatasetName"] = boost::any(*datasetName);
-    }
-    if (notifyEndpoint) {
-      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
     }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
@@ -6144,9 +6126,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
       datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
-    }
-    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
-      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
     }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
@@ -6173,7 +6152,6 @@ public:
 class CreateFigureClusteringTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
-  shared_ptr<string> notifyEndpoint{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> tagsShrink{};
@@ -6191,9 +6169,6 @@ public:
     map<string, boost::any> res;
     if (datasetName) {
       res["DatasetName"] = boost::any(*datasetName);
-    }
-    if (notifyEndpoint) {
-      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
     }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
@@ -6213,9 +6188,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
       datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
-    }
-    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
-      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
     }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
