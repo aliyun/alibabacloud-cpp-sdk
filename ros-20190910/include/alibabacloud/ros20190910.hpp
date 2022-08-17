@@ -5799,11 +5799,48 @@ public:
 
   virtual ~GetFeatureDetailsResponseBodyTemplateScratch() = default;
 };
+class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> deleteStack{};
+
+  GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk() {}
+
+  explicit GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleteStack) {
+      res["DeleteStack"] = boost::any(*deleteStack);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeleteStack") != m.end() && !m["DeleteStack"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeleteStack"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeleteStack"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deleteStack = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk() = default;
+};
 class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> customTag{};
   shared_ptr<vector<string>> estimateCost{};
   shared_ptr<vector<string>> resourceGroup{};
+  shared_ptr<GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk> stackOperationRisk{};
   shared_ptr<vector<string>> systemTag{};
 
   GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes() {}
@@ -5824,6 +5861,9 @@ public:
     }
     if (resourceGroup) {
       res["ResourceGroup"] = boost::any(*resourceGroup);
+    }
+    if (stackOperationRisk) {
+      res["StackOperationRisk"] = stackOperationRisk ? boost::any(stackOperationRisk->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (systemTag) {
       res["SystemTag"] = boost::any(*systemTag);
@@ -5861,6 +5901,13 @@ public:
         }
       }
       resourceGroup = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StackOperationRisk") != m.end() && !m["StackOperationRisk"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StackOperationRisk"].type()) {
+        GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StackOperationRisk"]));
+        stackOperationRisk = make_shared<GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk>(model1);
+      }
     }
     if (m.find("SystemTag") != m.end() && !m["SystemTag"].empty()) {
       vector<string> toVec1;
