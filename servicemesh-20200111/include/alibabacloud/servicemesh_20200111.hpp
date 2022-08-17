@@ -8333,8 +8333,10 @@ public:
 };
 class DescribeNodesInstanceTypeResponseBodyInstanceTypes : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
   shared_ptr<bool> multiBufferEnabled{};
   shared_ptr<string> nodeType{};
+  shared_ptr<string> value{};
 
   DescribeNodesInstanceTypeResponseBodyInstanceTypes() {}
 
@@ -8346,21 +8348,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
     if (multiBufferEnabled) {
       res["MultiBufferEnabled"] = boost::any(*multiBufferEnabled);
     }
     if (nodeType) {
       res["NodeType"] = boost::any(*nodeType);
     }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
     if (m.find("MultiBufferEnabled") != m.end() && !m["MultiBufferEnabled"].empty()) {
       multiBufferEnabled = make_shared<bool>(boost::any_cast<bool>(m["MultiBufferEnabled"]));
     }
     if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
       nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
     }
   }
 
@@ -8756,6 +8770,63 @@ public:
 
   virtual ~DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus() = default;
 };
+class DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus : public Darabonba::Model {
+public:
+  shared_ptr<bool> locked{};
+  shared_ptr<string> payType{};
+  shared_ptr<bool> reused{};
+  shared_ptr<string> SLBBackEndServerNumStatus{};
+  shared_ptr<string> SLBExistStatus{};
+
+  DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus() {}
+
+  explicit DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (locked) {
+      res["Locked"] = boost::any(*locked);
+    }
+    if (payType) {
+      res["PayType"] = boost::any(*payType);
+    }
+    if (reused) {
+      res["Reused"] = boost::any(*reused);
+    }
+    if (SLBBackEndServerNumStatus) {
+      res["SLBBackEndServerNumStatus"] = boost::any(*SLBBackEndServerNumStatus);
+    }
+    if (SLBExistStatus) {
+      res["SLBExistStatus"] = boost::any(*SLBExistStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Locked") != m.end() && !m["Locked"].empty()) {
+      locked = make_shared<bool>(boost::any_cast<bool>(m["Locked"]));
+    }
+    if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
+      payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("Reused") != m.end() && !m["Reused"].empty()) {
+      reused = make_shared<bool>(boost::any_cast<bool>(m["Reused"]));
+    }
+    if (m.find("SLBBackEndServerNumStatus") != m.end() && !m["SLBBackEndServerNumStatus"].empty()) {
+      SLBBackEndServerNumStatus = make_shared<string>(boost::any_cast<string>(m["SLBBackEndServerNumStatus"]));
+    }
+    if (m.find("SLBExistStatus") != m.end() && !m["SLBExistStatus"].empty()) {
+      SLBExistStatus = make_shared<string>(boost::any_cast<string>(m["SLBExistStatus"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus() = default;
+};
 class DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusPilotLoadBalancerStatus : public Darabonba::Model {
 public:
   shared_ptr<bool> locked{};
@@ -8819,6 +8890,7 @@ public:
   shared_ptr<string> apiServerEIPStatus{};
   shared_ptr<DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus> apiServerLoadBalancerStatus{};
   shared_ptr<string> auditProjectStatus{};
+  shared_ptr<DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus> canaryPilotLoadBalancerStatus{};
   shared_ptr<string> controlPlaneProjectStatus{};
   shared_ptr<map<string, boost::any>> logtailStatusRecord{};
   shared_ptr<DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusPilotLoadBalancerStatus> pilotLoadBalancerStatus{};
@@ -8845,6 +8917,9 @@ public:
     }
     if (auditProjectStatus) {
       res["AuditProjectStatus"] = boost::any(*auditProjectStatus);
+    }
+    if (canaryPilotLoadBalancerStatus) {
+      res["CanaryPilotLoadBalancerStatus"] = canaryPilotLoadBalancerStatus ? boost::any(canaryPilotLoadBalancerStatus->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (controlPlaneProjectStatus) {
       res["ControlPlaneProjectStatus"] = boost::any(*controlPlaneProjectStatus);
@@ -8877,6 +8952,13 @@ public:
     }
     if (m.find("AuditProjectStatus") != m.end() && !m["AuditProjectStatus"].empty()) {
       auditProjectStatus = make_shared<string>(boost::any_cast<string>(m["AuditProjectStatus"]));
+    }
+    if (m.find("CanaryPilotLoadBalancerStatus") != m.end() && !m["CanaryPilotLoadBalancerStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CanaryPilotLoadBalancerStatus"].type()) {
+        DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CanaryPilotLoadBalancerStatus"]));
+        canaryPilotLoadBalancerStatus = make_shared<DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusCanaryPilotLoadBalancerStatus>(model1);
+      }
     }
     if (m.find("ControlPlaneProjectStatus") != m.end() && !m["ControlPlaneProjectStatus"].empty()) {
       controlPlaneProjectStatus = make_shared<string>(boost::any_cast<string>(m["ControlPlaneProjectStatus"]));
@@ -9172,6 +9254,7 @@ public:
 class DescribeServiceMeshClustersResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeServiceMeshClustersResponseBodyClusters>> clusters{};
+  shared_ptr<long> numberOfClusters{};
   shared_ptr<string> requestId{};
 
   DescribeServiceMeshClustersResponseBody() {}
@@ -9190,6 +9273,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Clusters"] = boost::any(temp1);
+    }
+    if (numberOfClusters) {
+      res["NumberOfClusters"] = boost::any(*numberOfClusters);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -9210,6 +9296,9 @@ public:
         }
         clusters = make_shared<vector<DescribeServiceMeshClustersResponseBodyClusters>>(expect1);
       }
+    }
+    if (m.find("NumberOfClusters") != m.end() && !m["NumberOfClusters"].empty()) {
+      numberOfClusters = make_shared<long>(boost::any_cast<long>(m["NumberOfClusters"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -9652,6 +9741,42 @@ public:
 
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigEdition() = default;
+};
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf : public Darabonba::Model {
+public:
+  shared_ptr<long> gatewayLifecycle{};
+  shared_ptr<long> sidecarLifecycle{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayLifecycle) {
+      res["GatewayLifecycle"] = boost::any(*gatewayLifecycle);
+    }
+    if (sidecarLifecycle) {
+      res["SidecarLifecycle"] = boost::any(*sidecarLifecycle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayLifecycle") != m.end() && !m["GatewayLifecycle"].empty()) {
+      gatewayLifecycle = make_shared<long>(boost::any_cast<long>(m["GatewayLifecycle"]));
+    }
+    if (m.find("SidecarLifecycle") != m.end() && !m["SidecarLifecycle"].empty()) {
+      sidecarLifecycle = make_shared<long>(boost::any_cast<long>(m["SidecarLifecycle"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf() = default;
 };
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationCRAggregationConfiguration : public Darabonba::Model {
 public:
@@ -10413,6 +10538,7 @@ public:
 };
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfiguration : public Darabonba::Model {
 public:
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf> accessLogExtraConf{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationCRAggregationConfiguration> CRAggregationConfiguration{};
   shared_ptr<bool> CRAggregationEnabled{};
   shared_ptr<vector<map<string, boost::any>>> discoverySelectors{};
@@ -10436,6 +10562,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessLogExtraConf) {
+      res["AccessLogExtraConf"] = accessLogExtraConf ? boost::any(accessLogExtraConf->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (CRAggregationConfiguration) {
       res["CRAggregationConfiguration"] = CRAggregationConfiguration ? boost::any(CRAggregationConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -10476,6 +10605,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessLogExtraConf") != m.end() && !m["AccessLogExtraConf"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccessLogExtraConf"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessLogExtraConf"]));
+        accessLogExtraConf = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf>(model1);
+      }
+    }
     if (m.find("CRAggregationConfiguration") != m.end() && !m["CRAggregationConfiguration"].empty()) {
       if (typeid(map<string, boost::any>) == m["CRAggregationConfiguration"].type()) {
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationCRAggregationConfiguration model1;
@@ -18569,10 +18705,12 @@ public:
   shared_ptr<bool> accessLogEnabled{};
   shared_ptr<string> accessLogFile{};
   shared_ptr<string> accessLogFormat{};
+  shared_ptr<long> accessLogGatewayLifecycle{};
   shared_ptr<string> accessLogProject{};
   shared_ptr<bool> accessLogServiceEnabled{};
   shared_ptr<string> accessLogServiceHost{};
   shared_ptr<long> accessLogServicePort{};
+  shared_ptr<long> accessLogSidecarLifecycle{};
   shared_ptr<string> auditProject{};
   shared_ptr<bool> autoInjectionPolicyEnabled{};
   shared_ptr<bool> CRAggregationEnabled{};
@@ -18587,6 +18725,7 @@ public:
   shared_ptr<string> discoverySelectors{};
   shared_ptr<bool> dubboFilterEnabled{};
   shared_ptr<bool> enableAudit{};
+  shared_ptr<bool> enableAutoDiagnosis{};
   shared_ptr<bool> enableCRHistory{};
   shared_ptr<bool> enableNamespacesByDefault{};
   shared_ptr<bool> enableSDSServer{};
@@ -18669,6 +18808,9 @@ public:
     if (accessLogFormat) {
       res["AccessLogFormat"] = boost::any(*accessLogFormat);
     }
+    if (accessLogGatewayLifecycle) {
+      res["AccessLogGatewayLifecycle"] = boost::any(*accessLogGatewayLifecycle);
+    }
     if (accessLogProject) {
       res["AccessLogProject"] = boost::any(*accessLogProject);
     }
@@ -18680,6 +18822,9 @@ public:
     }
     if (accessLogServicePort) {
       res["AccessLogServicePort"] = boost::any(*accessLogServicePort);
+    }
+    if (accessLogSidecarLifecycle) {
+      res["AccessLogSidecarLifecycle"] = boost::any(*accessLogSidecarLifecycle);
     }
     if (auditProject) {
       res["AuditProject"] = boost::any(*auditProject);
@@ -18722,6 +18867,9 @@ public:
     }
     if (enableAudit) {
       res["EnableAudit"] = boost::any(*enableAudit);
+    }
+    if (enableAutoDiagnosis) {
+      res["EnableAutoDiagnosis"] = boost::any(*enableAutoDiagnosis);
     }
     if (enableCRHistory) {
       res["EnableCRHistory"] = boost::any(*enableCRHistory);
@@ -18922,6 +19070,9 @@ public:
     if (m.find("AccessLogFormat") != m.end() && !m["AccessLogFormat"].empty()) {
       accessLogFormat = make_shared<string>(boost::any_cast<string>(m["AccessLogFormat"]));
     }
+    if (m.find("AccessLogGatewayLifecycle") != m.end() && !m["AccessLogGatewayLifecycle"].empty()) {
+      accessLogGatewayLifecycle = make_shared<long>(boost::any_cast<long>(m["AccessLogGatewayLifecycle"]));
+    }
     if (m.find("AccessLogProject") != m.end() && !m["AccessLogProject"].empty()) {
       accessLogProject = make_shared<string>(boost::any_cast<string>(m["AccessLogProject"]));
     }
@@ -18933,6 +19084,9 @@ public:
     }
     if (m.find("AccessLogServicePort") != m.end() && !m["AccessLogServicePort"].empty()) {
       accessLogServicePort = make_shared<long>(boost::any_cast<long>(m["AccessLogServicePort"]));
+    }
+    if (m.find("AccessLogSidecarLifecycle") != m.end() && !m["AccessLogSidecarLifecycle"].empty()) {
+      accessLogSidecarLifecycle = make_shared<long>(boost::any_cast<long>(m["AccessLogSidecarLifecycle"]));
     }
     if (m.find("AuditProject") != m.end() && !m["AuditProject"].empty()) {
       auditProject = make_shared<string>(boost::any_cast<string>(m["AuditProject"]));
@@ -18975,6 +19129,9 @@ public:
     }
     if (m.find("EnableAudit") != m.end() && !m["EnableAudit"].empty()) {
       enableAudit = make_shared<bool>(boost::any_cast<bool>(m["EnableAudit"]));
+    }
+    if (m.find("EnableAutoDiagnosis") != m.end() && !m["EnableAutoDiagnosis"].empty()) {
+      enableAutoDiagnosis = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoDiagnosis"]));
     }
     if (m.find("EnableCRHistory") != m.end() && !m["EnableCRHistory"].empty()) {
       enableCRHistory = make_shared<bool>(boost::any_cast<bool>(m["EnableCRHistory"]));

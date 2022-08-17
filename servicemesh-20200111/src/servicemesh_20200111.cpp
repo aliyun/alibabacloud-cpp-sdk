@@ -2372,6 +2372,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<string>(request->accessLogFormat)) {
     body->insert(pair<string, string>("AccessLogFormat", *request->accessLogFormat));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->accessLogGatewayLifecycle)) {
+    body->insert(pair<string, long>("AccessLogGatewayLifecycle", *request->accessLogGatewayLifecycle));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->accessLogProject)) {
     body->insert(pair<string, string>("AccessLogProject", *request->accessLogProject));
   }
@@ -2383,6 +2386,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->accessLogServicePort)) {
     body->insert(pair<string, long>("AccessLogServicePort", *request->accessLogServicePort));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->accessLogSidecarLifecycle)) {
+    body->insert(pair<string, long>("AccessLogSidecarLifecycle", *request->accessLogSidecarLifecycle));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->auditProject)) {
     body->insert(pair<string, string>("AuditProject", *request->auditProject));
@@ -2425,6 +2431,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableAudit)) {
     body->insert(pair<string, bool>("EnableAudit", *request->enableAudit));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAutoDiagnosis)) {
+    body->insert(pair<string, bool>("EnableAutoDiagnosis", *request->enableAutoDiagnosis));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableCRHistory)) {
     body->insert(pair<string, bool>("EnableCRHistory", *request->enableCRHistory));
