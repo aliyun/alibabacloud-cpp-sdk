@@ -889,3 +889,43 @@ TagDbfsResponse Alibabacloud_DBFS20200418::Client::tagDbfs(shared_ptr<TagDbfsReq
   return tagDbfsWithOptions(request, runtime);
 }
 
+UpdateDbfsResponse Alibabacloud_DBFS20200418::Client::updateDbfsWithOptions(shared_ptr<UpdateDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->advancedFeatures)) {
+    query->insert(pair<string, string>("AdvancedFeatures", *request->advancedFeatures));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fsId)) {
+    query->insert(pair<string, string>("FsId", *request->fsId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usedScene)) {
+    query->insert(pair<string, string>("UsedScene", *request->usedScene));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateDbfs"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateDbfsResponse(callApi(params, req, runtime));
+}
+
+UpdateDbfsResponse Alibabacloud_DBFS20200418::Client::updateDbfs(shared_ptr<UpdateDbfsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateDbfsWithOptions(request, runtime);
+}
+
