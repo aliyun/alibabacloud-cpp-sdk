@@ -155,8 +155,178 @@ public:
 
   virtual ~AddDiskReplicaPairResponse() = default;
 };
+class CreateDedicatedBlockStorageClusterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> azone{};
+  shared_ptr<long> capacity{};
+  shared_ptr<string> dbscId{};
+  shared_ptr<string> dbscName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
+
+  CreateDedicatedBlockStorageClusterRequest() {}
+
+  explicit CreateDedicatedBlockStorageClusterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (azone) {
+      res["Azone"] = boost::any(*azone);
+    }
+    if (capacity) {
+      res["Capacity"] = boost::any(*capacity);
+    }
+    if (dbscId) {
+      res["DbscId"] = boost::any(*dbscId);
+    }
+    if (dbscName) {
+      res["DbscName"] = boost::any(*dbscName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Azone") != m.end() && !m["Azone"].empty()) {
+      azone = make_shared<string>(boost::any_cast<string>(m["Azone"]));
+    }
+    if (m.find("Capacity") != m.end() && !m["Capacity"].empty()) {
+      capacity = make_shared<long>(boost::any_cast<long>(m["Capacity"]));
+    }
+    if (m.find("DbscId") != m.end() && !m["DbscId"].empty()) {
+      dbscId = make_shared<string>(boost::any_cast<string>(m["DbscId"]));
+    }
+    if (m.find("DbscName") != m.end() && !m["DbscName"].empty()) {
+      dbscName = make_shared<string>(boost::any_cast<string>(m["DbscName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateDedicatedBlockStorageClusterRequest() = default;
+};
+class CreateDedicatedBlockStorageClusterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dbscId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+
+  CreateDedicatedBlockStorageClusterResponseBody() {}
+
+  explicit CreateDedicatedBlockStorageClusterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbscId) {
+      res["DbscId"] = boost::any(*dbscId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbscId") != m.end() && !m["DbscId"].empty()) {
+      dbscId = make_shared<string>(boost::any_cast<string>(m["DbscId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDedicatedBlockStorageClusterResponseBody() = default;
+};
+class CreateDedicatedBlockStorageClusterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDedicatedBlockStorageClusterResponseBody> body{};
+
+  CreateDedicatedBlockStorageClusterResponse() {}
+
+  explicit CreateDedicatedBlockStorageClusterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDedicatedBlockStorageClusterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDedicatedBlockStorageClusterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDedicatedBlockStorageClusterResponse() = default;
+};
 class CreateDiskReplicaGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> destinationRegionId{};
@@ -176,6 +346,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -204,6 +377,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -824,6 +1000,875 @@ public:
 
   virtual ~DeleteDiskReplicaPairResponse() = default;
 };
+class DescribeDedicatedBlockStorageClusterDisksRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dbscId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  DescribeDedicatedBlockStorageClusterDisksRequest() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbscId) {
+      res["DbscId"] = boost::any(*dbscId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbscId") != m.end() && !m["DbscId"].empty()) {
+      dbscId = make_shared<string>(boost::any_cast<string>(m["DbscId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksRequest() = default;
+};
+class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags() = default;
+};
+class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk : public Darabonba::Model {
+public:
+  shared_ptr<string> attachedTime{};
+  shared_ptr<string> bdfId{};
+  shared_ptr<string> category{};
+  shared_ptr<bool> deleteAutoSnapshot{};
+  shared_ptr<bool> deleteWithInstance{};
+  shared_ptr<string> description{};
+  shared_ptr<string> detachedTime{};
+  shared_ptr<string> device{};
+  shared_ptr<string> diskChargeType{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> diskName{};
+  shared_ptr<bool> enableAutoSnapshot{};
+  shared_ptr<bool> encrypted{};
+  shared_ptr<long> IOPS{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> KMSKeyId{};
+  shared_ptr<long> mountInstanceNum{};
+  shared_ptr<string> multiAttach{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<bool> portable{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> size{};
+  shared_ptr<string> sourceSnapshotId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> storageClusterId{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
+  shared_ptr<vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags>> tags{};
+  shared_ptr<string> type{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachedTime) {
+      res["AttachedTime"] = boost::any(*attachedTime);
+    }
+    if (bdfId) {
+      res["BdfId"] = boost::any(*bdfId);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (deleteAutoSnapshot) {
+      res["DeleteAutoSnapshot"] = boost::any(*deleteAutoSnapshot);
+    }
+    if (deleteWithInstance) {
+      res["DeleteWithInstance"] = boost::any(*deleteWithInstance);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (detachedTime) {
+      res["DetachedTime"] = boost::any(*detachedTime);
+    }
+    if (device) {
+      res["Device"] = boost::any(*device);
+    }
+    if (diskChargeType) {
+      res["DiskChargeType"] = boost::any(*diskChargeType);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (diskName) {
+      res["DiskName"] = boost::any(*diskName);
+    }
+    if (enableAutoSnapshot) {
+      res["EnableAutoSnapshot"] = boost::any(*enableAutoSnapshot);
+    }
+    if (encrypted) {
+      res["Encrypted"] = boost::any(*encrypted);
+    }
+    if (IOPS) {
+      res["IOPS"] = boost::any(*IOPS);
+    }
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (KMSKeyId) {
+      res["KMSKeyId"] = boost::any(*KMSKeyId);
+    }
+    if (mountInstanceNum) {
+      res["MountInstanceNum"] = boost::any(*mountInstanceNum);
+    }
+    if (multiAttach) {
+      res["MultiAttach"] = boost::any(*multiAttach);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (portable) {
+      res["Portable"] = boost::any(*portable);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (sourceSnapshotId) {
+      res["SourceSnapshotId"] = boost::any(*sourceSnapshotId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (storageClusterId) {
+      res["StorageClusterId"] = boost::any(*storageClusterId);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachedTime") != m.end() && !m["AttachedTime"].empty()) {
+      attachedTime = make_shared<string>(boost::any_cast<string>(m["AttachedTime"]));
+    }
+    if (m.find("BdfId") != m.end() && !m["BdfId"].empty()) {
+      bdfId = make_shared<string>(boost::any_cast<string>(m["BdfId"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("DeleteAutoSnapshot") != m.end() && !m["DeleteAutoSnapshot"].empty()) {
+      deleteAutoSnapshot = make_shared<bool>(boost::any_cast<bool>(m["DeleteAutoSnapshot"]));
+    }
+    if (m.find("DeleteWithInstance") != m.end() && !m["DeleteWithInstance"].empty()) {
+      deleteWithInstance = make_shared<bool>(boost::any_cast<bool>(m["DeleteWithInstance"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DetachedTime") != m.end() && !m["DetachedTime"].empty()) {
+      detachedTime = make_shared<string>(boost::any_cast<string>(m["DetachedTime"]));
+    }
+    if (m.find("Device") != m.end() && !m["Device"].empty()) {
+      device = make_shared<string>(boost::any_cast<string>(m["Device"]));
+    }
+    if (m.find("DiskChargeType") != m.end() && !m["DiskChargeType"].empty()) {
+      diskChargeType = make_shared<string>(boost::any_cast<string>(m["DiskChargeType"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("DiskName") != m.end() && !m["DiskName"].empty()) {
+      diskName = make_shared<string>(boost::any_cast<string>(m["DiskName"]));
+    }
+    if (m.find("EnableAutoSnapshot") != m.end() && !m["EnableAutoSnapshot"].empty()) {
+      enableAutoSnapshot = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoSnapshot"]));
+    }
+    if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
+      encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
+    }
+    if (m.find("IOPS") != m.end() && !m["IOPS"].empty()) {
+      IOPS = make_shared<long>(boost::any_cast<long>(m["IOPS"]));
+    }
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("KMSKeyId") != m.end() && !m["KMSKeyId"].empty()) {
+      KMSKeyId = make_shared<string>(boost::any_cast<string>(m["KMSKeyId"]));
+    }
+    if (m.find("MountInstanceNum") != m.end() && !m["MountInstanceNum"].empty()) {
+      mountInstanceNum = make_shared<long>(boost::any_cast<long>(m["MountInstanceNum"]));
+    }
+    if (m.find("MultiAttach") != m.end() && !m["MultiAttach"].empty()) {
+      multiAttach = make_shared<string>(boost::any_cast<string>(m["MultiAttach"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("Portable") != m.end() && !m["Portable"].empty()) {
+      portable = make_shared<bool>(boost::any_cast<bool>(m["Portable"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("SourceSnapshotId") != m.end() && !m["SourceSnapshotId"].empty()) {
+      sourceSnapshotId = make_shared<string>(boost::any_cast<string>(m["SourceSnapshotId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClusterId") != m.end() && !m["StorageClusterId"].empty()) {
+      storageClusterId = make_shared<string>(boost::any_cast<string>(m["StorageClusterId"]));
+    }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk() = default;
+};
+class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk>> disk{};
+
+  DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disk) {
+      vector<boost::any> temp1;
+      for(auto item1:*disk){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Disk"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Disk") != m.end() && !m["Disk"].empty()) {
+      if (typeid(vector<boost::any>) == m["Disk"].type()) {
+        vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Disk"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        disk = make_shared<vector<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks() = default;
+};
+class DescribeDedicatedBlockStorageClusterDisksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks> disks{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  DescribeDedicatedBlockStorageClusterDisksResponseBody() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disks) {
+      res["Disks"] = disks ? boost::any(disks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Disks") != m.end() && !m["Disks"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Disks"].type()) {
+        DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Disks"]));
+        disks = make_shared<DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks>(model1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksResponseBody() = default;
+};
+class DescribeDedicatedBlockStorageClusterDisksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDedicatedBlockStorageClusterDisksResponseBody> body{};
+
+  DescribeDedicatedBlockStorageClusterDisksResponse() {}
+
+  explicit DescribeDedicatedBlockStorageClusterDisksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDedicatedBlockStorageClusterDisksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDedicatedBlockStorageClusterDisksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClusterDisksResponse() = default;
+};
+class DescribeDedicatedBlockStorageClustersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> azoneId{};
+  shared_ptr<string> category{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> dedicatedBlockStorageClusterId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> status{};
+
+  DescribeDedicatedBlockStorageClustersRequest() {}
+
+  explicit DescribeDedicatedBlockStorageClustersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (azoneId) {
+      res["AzoneId"] = boost::any(*azoneId);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dedicatedBlockStorageClusterId) {
+      res["DedicatedBlockStorageClusterId"] = boost::any(*dedicatedBlockStorageClusterId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AzoneId") != m.end() && !m["AzoneId"].empty()) {
+      azoneId = make_shared<string>(boost::any_cast<string>(m["AzoneId"]));
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DedicatedBlockStorageClusterId") != m.end() && !m["DedicatedBlockStorageClusterId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DedicatedBlockStorageClusterId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DedicatedBlockStorageClusterId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dedicatedBlockStorageClusterId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Status"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Status"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      status = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersRequest() = default;
+};
+class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity : public Darabonba::Model {
+public:
+  shared_ptr<long> availableCapacity{};
+  shared_ptr<long> deliveryCapacity{};
+  shared_ptr<long> totalCapacity{};
+  shared_ptr<long> usedCapacity{};
+
+  DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity() {}
+
+  explicit DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (availableCapacity) {
+      res["AvailableCapacity"] = boost::any(*availableCapacity);
+    }
+    if (deliveryCapacity) {
+      res["DeliveryCapacity"] = boost::any(*deliveryCapacity);
+    }
+    if (totalCapacity) {
+      res["TotalCapacity"] = boost::any(*totalCapacity);
+    }
+    if (usedCapacity) {
+      res["UsedCapacity"] = boost::any(*usedCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableCapacity") != m.end() && !m["AvailableCapacity"].empty()) {
+      availableCapacity = make_shared<long>(boost::any_cast<long>(m["AvailableCapacity"]));
+    }
+    if (m.find("DeliveryCapacity") != m.end() && !m["DeliveryCapacity"].empty()) {
+      deliveryCapacity = make_shared<long>(boost::any_cast<long>(m["DeliveryCapacity"]));
+    }
+    if (m.find("TotalCapacity") != m.end() && !m["TotalCapacity"].empty()) {
+      totalCapacity = make_shared<long>(boost::any_cast<long>(m["TotalCapacity"]));
+    }
+    if (m.find("UsedCapacity") != m.end() && !m["UsedCapacity"].empty()) {
+      usedCapacity = make_shared<long>(boost::any_cast<long>(m["UsedCapacity"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity() = default;
+};
+class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> createTime{};
+  shared_ptr<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity> dedicatedBlockStorageClusterCapacity{};
+  shared_ptr<string> dedicatedBlockStorageClusterId{};
+  shared_ptr<string> dedicatedBlockStorageClusterName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> expiredTime{};
+  shared_ptr<string> performanceLevel{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> supportedCategory{};
+  shared_ptr<string> type{};
+  shared_ptr<string> zoneId{};
+
+  DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters() {}
+
+  explicit DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dedicatedBlockStorageClusterCapacity) {
+      res["DedicatedBlockStorageClusterCapacity"] = dedicatedBlockStorageClusterCapacity ? boost::any(dedicatedBlockStorageClusterCapacity->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (dedicatedBlockStorageClusterId) {
+      res["DedicatedBlockStorageClusterId"] = boost::any(*dedicatedBlockStorageClusterId);
+    }
+    if (dedicatedBlockStorageClusterName) {
+      res["DedicatedBlockStorageClusterName"] = boost::any(*dedicatedBlockStorageClusterName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (expiredTime) {
+      res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (performanceLevel) {
+      res["PerformanceLevel"] = boost::any(*performanceLevel);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (supportedCategory) {
+      res["SupportedCategory"] = boost::any(*supportedCategory);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DedicatedBlockStorageClusterCapacity") != m.end() && !m["DedicatedBlockStorageClusterCapacity"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DedicatedBlockStorageClusterCapacity"].type()) {
+        DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DedicatedBlockStorageClusterCapacity"]));
+        dedicatedBlockStorageClusterCapacity = make_shared<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity>(model1);
+      }
+    }
+    if (m.find("DedicatedBlockStorageClusterId") != m.end() && !m["DedicatedBlockStorageClusterId"].empty()) {
+      dedicatedBlockStorageClusterId = make_shared<string>(boost::any_cast<string>(m["DedicatedBlockStorageClusterId"]));
+    }
+    if (m.find("DedicatedBlockStorageClusterName") != m.end() && !m["DedicatedBlockStorageClusterName"].empty()) {
+      dedicatedBlockStorageClusterName = make_shared<string>(boost::any_cast<string>(m["DedicatedBlockStorageClusterName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
+      expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("PerformanceLevel") != m.end() && !m["PerformanceLevel"].empty()) {
+      performanceLevel = make_shared<string>(boost::any_cast<string>(m["PerformanceLevel"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SupportedCategory") != m.end() && !m["SupportedCategory"].empty()) {
+      supportedCategory = make_shared<string>(boost::any_cast<string>(m["SupportedCategory"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters() = default;
+};
+class DescribeDedicatedBlockStorageClustersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters>> dedicatedBlockStorageClusters{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  DescribeDedicatedBlockStorageClustersResponseBody() {}
+
+  explicit DescribeDedicatedBlockStorageClustersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dedicatedBlockStorageClusters) {
+      vector<boost::any> temp1;
+      for(auto item1:*dedicatedBlockStorageClusters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DedicatedBlockStorageClusters"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DedicatedBlockStorageClusters") != m.end() && !m["DedicatedBlockStorageClusters"].empty()) {
+      if (typeid(vector<boost::any>) == m["DedicatedBlockStorageClusters"].type()) {
+        vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DedicatedBlockStorageClusters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dedicatedBlockStorageClusters = make_shared<vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersResponseBody() = default;
+};
+class DescribeDedicatedBlockStorageClustersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDedicatedBlockStorageClustersResponseBody> body{};
+
+  DescribeDedicatedBlockStorageClustersResponse() {}
+
+  explicit DescribeDedicatedBlockStorageClustersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDedicatedBlockStorageClustersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDedicatedBlockStorageClustersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersResponse() = default;
+};
 class DescribeDiskReplicaGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupIds{};
@@ -883,6 +1928,7 @@ public:
 };
 class DescribeDiskReplicaGroupsResponseBodyReplicaGroups : public Darabonba::Model {
 public:
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> description{};
   shared_ptr<string> destinationRegionId{};
   shared_ptr<string> destinationZoneId{};
@@ -911,6 +1957,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -966,6 +2015,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -2079,8 +3131,157 @@ public:
 
   virtual ~FailoverDiskReplicaPairResponse() = default;
 };
+class ModifyDedicatedBlockStorageClusterAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> dbscId{};
+  shared_ptr<string> dbscName{};
+  shared_ptr<string> description{};
+  shared_ptr<string> regionId{};
+
+  ModifyDedicatedBlockStorageClusterAttributeRequest() {}
+
+  explicit ModifyDedicatedBlockStorageClusterAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dbscId) {
+      res["DbscId"] = boost::any(*dbscId);
+    }
+    if (dbscName) {
+      res["DbscName"] = boost::any(*dbscName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DbscId") != m.end() && !m["DbscId"].empty()) {
+      dbscId = make_shared<string>(boost::any_cast<string>(m["DbscId"]));
+    }
+    if (m.find("DbscName") != m.end() && !m["DbscName"].empty()) {
+      dbscName = make_shared<string>(boost::any_cast<string>(m["DbscName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ModifyDedicatedBlockStorageClusterAttributeRequest() = default;
+};
+class ModifyDedicatedBlockStorageClusterAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyDedicatedBlockStorageClusterAttributeResponseBody() {}
+
+  explicit ModifyDedicatedBlockStorageClusterAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDedicatedBlockStorageClusterAttributeResponseBody() = default;
+};
+class ModifyDedicatedBlockStorageClusterAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDedicatedBlockStorageClusterAttributeResponseBody> body{};
+
+  ModifyDedicatedBlockStorageClusterAttributeResponse() {}
+
+  explicit ModifyDedicatedBlockStorageClusterAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDedicatedBlockStorageClusterAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDedicatedBlockStorageClusterAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDedicatedBlockStorageClusterAttributeResponse() = default;
+};
 class ModifyDiskReplicaGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> groupName{};
@@ -2098,6 +3299,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -2120,6 +3324,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -3367,6 +4574,8 @@ public:
                      shared_ptr<string> endpoint);
   AddDiskReplicaPairResponse addDiskReplicaPairWithOptions(shared_ptr<AddDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddDiskReplicaPairResponse addDiskReplicaPair(shared_ptr<AddDiskReplicaPairRequest> request);
+  CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageClusterWithOptions(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageCluster(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request);
   CreateDiskReplicaGroupResponse createDiskReplicaGroupWithOptions(shared_ptr<CreateDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDiskReplicaGroupResponse createDiskReplicaGroup(shared_ptr<CreateDiskReplicaGroupRequest> request);
   CreateDiskReplicaPairResponse createDiskReplicaPairWithOptions(shared_ptr<CreateDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3375,6 +4584,10 @@ public:
   DeleteDiskReplicaGroupResponse deleteDiskReplicaGroup(shared_ptr<DeleteDiskReplicaGroupRequest> request);
   DeleteDiskReplicaPairResponse deleteDiskReplicaPairWithOptions(shared_ptr<DeleteDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDiskReplicaPairResponse deleteDiskReplicaPair(shared_ptr<DeleteDiskReplicaPairRequest> request);
+  DescribeDedicatedBlockStorageClusterDisksResponse describeDedicatedBlockStorageClusterDisksWithOptions(shared_ptr<DescribeDedicatedBlockStorageClusterDisksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDedicatedBlockStorageClusterDisksResponse describeDedicatedBlockStorageClusterDisks(shared_ptr<DescribeDedicatedBlockStorageClusterDisksRequest> request);
+  DescribeDedicatedBlockStorageClustersResponse describeDedicatedBlockStorageClustersWithOptions(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDedicatedBlockStorageClustersResponse describeDedicatedBlockStorageClusters(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request);
   DescribeDiskReplicaGroupsResponse describeDiskReplicaGroupsWithOptions(shared_ptr<DescribeDiskReplicaGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDiskReplicaGroupsResponse describeDiskReplicaGroups(shared_ptr<DescribeDiskReplicaGroupsRequest> request);
   DescribeDiskReplicaPairsResponse describeDiskReplicaPairsWithOptions(shared_ptr<DescribeDiskReplicaPairsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3385,6 +4598,8 @@ public:
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroup(shared_ptr<FailoverDiskReplicaGroupRequest> request);
   FailoverDiskReplicaPairResponse failoverDiskReplicaPairWithOptions(shared_ptr<FailoverDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FailoverDiskReplicaPairResponse failoverDiskReplicaPair(shared_ptr<FailoverDiskReplicaPairRequest> request);
+  ModifyDedicatedBlockStorageClusterAttributeResponse modifyDedicatedBlockStorageClusterAttributeWithOptions(shared_ptr<ModifyDedicatedBlockStorageClusterAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDedicatedBlockStorageClusterAttributeResponse modifyDedicatedBlockStorageClusterAttribute(shared_ptr<ModifyDedicatedBlockStorageClusterAttributeRequest> request);
   ModifyDiskReplicaGroupResponse modifyDiskReplicaGroupWithOptions(shared_ptr<ModifyDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDiskReplicaGroupResponse modifyDiskReplicaGroup(shared_ptr<ModifyDiskReplicaGroupRequest> request);
   ModifyDiskReplicaPairResponse modifyDiskReplicaPairWithOptions(shared_ptr<ModifyDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
