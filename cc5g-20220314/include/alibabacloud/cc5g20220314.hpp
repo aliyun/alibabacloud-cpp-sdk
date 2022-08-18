@@ -357,10 +357,12 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
   shared_ptr<string> destinationType{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> name{};
   shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
   shared_ptr<string> sourceCidr{};
   shared_ptr<string> wirelessCloudConnectorId{};
 
@@ -383,6 +385,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
@@ -394,6 +399,9 @@ public:
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
     }
     if (sourceCidr) {
       res["SourceCidr"] = boost::any(*sourceCidr);
@@ -414,6 +422,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
@@ -425,6 +436,9 @@ public:
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
       sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));
@@ -2737,12 +2751,14 @@ class ListAuthorizationRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> authorizationRuleIds{};
   shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
   shared_ptr<string> destinationType{};
   shared_ptr<bool> dns{};
   shared_ptr<long> maxResults{};
   shared_ptr<vector<string>> names{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
   shared_ptr<vector<string>> statuses{};
   shared_ptr<string> type{};
   shared_ptr<string> wirelessCloudConnectorId{};
@@ -2763,6 +2779,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
@@ -2780,6 +2799,9 @@ public:
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
     }
     if (statuses) {
       res["Statuses"] = boost::any(*statuses);
@@ -2807,6 +2829,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
@@ -2831,6 +2856,9 @@ public:
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("Statuses") != m.end() && !m["Statuses"].empty()) {
       vector<string> toVec1;
@@ -2859,10 +2887,12 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
   shared_ptr<string> destinationType{};
   shared_ptr<bool> dns{};
   shared_ptr<string> name{};
   shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
   shared_ptr<string> sourceCidr{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -2889,6 +2919,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
@@ -2900,6 +2933,9 @@ public:
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
     }
     if (sourceCidr) {
       res["SourceCidr"] = boost::any(*sourceCidr);
@@ -2926,6 +2962,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
@@ -2937,6 +2976,9 @@ public:
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
       sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));
@@ -6405,9 +6447,11 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> name{};
   shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
   shared_ptr<string> sourceCidr{};
   shared_ptr<string> wirelessCloudConnectorId{};
 
@@ -6433,6 +6477,9 @@ public:
     if (destination) {
       res["Destination"] = boost::any(*destination);
     }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
     }
@@ -6441,6 +6488,9 @@ public:
     }
     if (policy) {
       res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
     }
     if (sourceCidr) {
       res["SourceCidr"] = boost::any(*sourceCidr);
@@ -6464,6 +6514,9 @@ public:
     if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
       destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
     }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
@@ -6472,6 +6525,9 @@ public:
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
     if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
       sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));

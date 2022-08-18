@@ -142,6 +142,9 @@ CreateAuthorizationRuleResponse Alibabacloud_CC5G20220314::Client::createAuthori
   if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
     query->insert(pair<string, string>("Destination", *request->destination));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationPort)) {
+    query->insert(pair<string, string>("DestinationPort", *request->destinationPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
   }
@@ -153,6 +156,9 @@ CreateAuthorizationRuleResponse Alibabacloud_CC5G20220314::Client::createAuthori
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceCidr)) {
     query->insert(pair<string, string>("SourceCidr", *request->sourceCidr));
@@ -1101,6 +1107,9 @@ UpdateAuthorizationRuleResponse Alibabacloud_CC5G20220314::Client::updateAuthori
   if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
     query->insert(pair<string, string>("Destination", *request->destination));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationPort)) {
+    query->insert(pair<string, string>("DestinationPort", *request->destinationPort));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -1109,6 +1118,9 @@ UpdateAuthorizationRuleResponse Alibabacloud_CC5G20220314::Client::updateAuthori
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceCidr)) {
     query->insert(pair<string, string>("SourceCidr", *request->sourceCidr));
