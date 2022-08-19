@@ -1683,6 +1683,8 @@ public:
   shared_ptr<bool> XForwardedForClientCertIssuerDNEnabled{};
   shared_ptr<string> XForwardedForClientCertSubjectDNAlias{};
   shared_ptr<bool> XForwardedForClientCertSubjectDNEnabled{};
+  shared_ptr<bool> XForwardedForClientSourceIpsEnabled{};
+  shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
@@ -1722,6 +1724,12 @@ public:
     }
     if (XForwardedForClientCertSubjectDNEnabled) {
       res["XForwardedForClientCertSubjectDNEnabled"] = boost::any(*XForwardedForClientCertSubjectDNEnabled);
+    }
+    if (XForwardedForClientSourceIpsEnabled) {
+      res["XForwardedForClientSourceIpsEnabled"] = boost::any(*XForwardedForClientSourceIpsEnabled);
+    }
+    if (XForwardedForClientSourceIpsTrusted) {
+      res["XForwardedForClientSourceIpsTrusted"] = boost::any(*XForwardedForClientSourceIpsTrusted);
     }
     if (XForwardedForClientSrcPortEnabled) {
       res["XForwardedForClientSrcPortEnabled"] = boost::any(*XForwardedForClientSrcPortEnabled);
@@ -1765,6 +1773,12 @@ public:
     }
     if (m.find("XForwardedForClientCertSubjectDNEnabled") != m.end() && !m["XForwardedForClientCertSubjectDNEnabled"].empty()) {
       XForwardedForClientCertSubjectDNEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientCertSubjectDNEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsEnabled") != m.end() && !m["XForwardedForClientSourceIpsEnabled"].empty()) {
+      XForwardedForClientSourceIpsEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSourceIpsEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsTrusted") != m.end() && !m["XForwardedForClientSourceIpsTrusted"].empty()) {
+      XForwardedForClientSourceIpsTrusted = make_shared<string>(boost::any_cast<string>(m["XForwardedForClientSourceIpsTrusted"]));
     }
     if (m.find("XForwardedForClientSrcPortEnabled") != m.end() && !m["XForwardedForClientSrcPortEnabled"].empty()) {
       XForwardedForClientSrcPortEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSrcPortEnabled"]));
@@ -2084,6 +2098,7 @@ public:
 };
 class CreateLoadBalancerRequestLoadBalancerBillingConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> bandwidthPackageId{};
   shared_ptr<string> payType{};
 
   CreateLoadBalancerRequestLoadBalancerBillingConfig() {}
@@ -2096,6 +2111,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bandwidthPackageId) {
+      res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
@@ -2103,6 +2121,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
+      bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
@@ -2737,6 +2758,7 @@ public:
 };
 class CreateRuleRequestRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> perIpQps{};
   shared_ptr<long> QPS{};
 
   CreateRuleRequestRuleActionsTrafficLimitConfig() {}
@@ -2749,6 +2771,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (perIpQps) {
+      res["PerIpQps"] = boost::any(*perIpQps);
+    }
     if (QPS) {
       res["QPS"] = boost::any(*QPS);
     }
@@ -2756,6 +2781,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PerIpQps") != m.end() && !m["PerIpQps"].empty()) {
+      perIpQps = make_shared<long>(boost::any_cast<long>(m["PerIpQps"]));
+    }
     if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
       QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
     }
@@ -3965,6 +3993,7 @@ public:
 };
 class CreateRulesRequestRulesRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> perIpQps{};
   shared_ptr<long> QPS{};
 
   CreateRulesRequestRulesRuleActionsTrafficLimitConfig() {}
@@ -3977,6 +4006,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (perIpQps) {
+      res["PerIpQps"] = boost::any(*perIpQps);
+    }
     if (QPS) {
       res["QPS"] = boost::any(*QPS);
     }
@@ -3984,6 +4016,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PerIpQps") != m.end() && !m["PerIpQps"].empty()) {
+      perIpQps = make_shared<long>(boost::any_cast<long>(m["PerIpQps"]));
+    }
     if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
       QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
     }
@@ -8691,6 +8726,8 @@ public:
   shared_ptr<bool> XForwardedForClientCertIssuerDNEnabled{};
   shared_ptr<string> XForwardedForClientCertSubjectDNAlias{};
   shared_ptr<bool> XForwardedForClientCertSubjectDNEnabled{};
+  shared_ptr<bool> XForwardedForClientSourceIpsEnabled{};
+  shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
@@ -8730,6 +8767,12 @@ public:
     }
     if (XForwardedForClientCertSubjectDNEnabled) {
       res["XForwardedForClientCertSubjectDNEnabled"] = boost::any(*XForwardedForClientCertSubjectDNEnabled);
+    }
+    if (XForwardedForClientSourceIpsEnabled) {
+      res["XForwardedForClientSourceIpsEnabled"] = boost::any(*XForwardedForClientSourceIpsEnabled);
+    }
+    if (XForwardedForClientSourceIpsTrusted) {
+      res["XForwardedForClientSourceIpsTrusted"] = boost::any(*XForwardedForClientSourceIpsTrusted);
     }
     if (XForwardedForClientSrcPortEnabled) {
       res["XForwardedForClientSrcPortEnabled"] = boost::any(*XForwardedForClientSrcPortEnabled);
@@ -8773,6 +8816,12 @@ public:
     }
     if (m.find("XForwardedForClientCertSubjectDNEnabled") != m.end() && !m["XForwardedForClientCertSubjectDNEnabled"].empty()) {
       XForwardedForClientCertSubjectDNEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientCertSubjectDNEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsEnabled") != m.end() && !m["XForwardedForClientSourceIpsEnabled"].empty()) {
+      XForwardedForClientSourceIpsEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSourceIpsEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsTrusted") != m.end() && !m["XForwardedForClientSourceIpsTrusted"].empty()) {
+      XForwardedForClientSourceIpsTrusted = make_shared<string>(boost::any_cast<string>(m["XForwardedForClientSourceIpsTrusted"]));
     }
     if (m.find("XForwardedForClientSrcPortEnabled") != m.end() && !m["XForwardedForClientSrcPortEnabled"].empty()) {
       XForwardedForClientSrcPortEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSrcPortEnabled"]));
@@ -12250,6 +12299,8 @@ public:
   shared_ptr<bool> XForwardedForClientCertIssuerDNEnabled{};
   shared_ptr<string> XForwardedForClientCertSubjectDNAlias{};
   shared_ptr<bool> XForwardedForClientCertSubjectDNEnabled{};
+  shared_ptr<bool> XForwardedForClientSourceIpsEnabled{};
+  shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
@@ -12289,6 +12340,12 @@ public:
     }
     if (XForwardedForClientCertSubjectDNEnabled) {
       res["XForwardedForClientCertSubjectDNEnabled"] = boost::any(*XForwardedForClientCertSubjectDNEnabled);
+    }
+    if (XForwardedForClientSourceIpsEnabled) {
+      res["XForwardedForClientSourceIpsEnabled"] = boost::any(*XForwardedForClientSourceIpsEnabled);
+    }
+    if (XForwardedForClientSourceIpsTrusted) {
+      res["XForwardedForClientSourceIpsTrusted"] = boost::any(*XForwardedForClientSourceIpsTrusted);
     }
     if (XForwardedForClientSrcPortEnabled) {
       res["XForwardedForClientSrcPortEnabled"] = boost::any(*XForwardedForClientSrcPortEnabled);
@@ -12332,6 +12389,12 @@ public:
     }
     if (m.find("XForwardedForClientCertSubjectDNEnabled") != m.end() && !m["XForwardedForClientCertSubjectDNEnabled"].empty()) {
       XForwardedForClientCertSubjectDNEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientCertSubjectDNEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsEnabled") != m.end() && !m["XForwardedForClientSourceIpsEnabled"].empty()) {
+      XForwardedForClientSourceIpsEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSourceIpsEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsTrusted") != m.end() && !m["XForwardedForClientSourceIpsTrusted"].empty()) {
+      XForwardedForClientSourceIpsTrusted = make_shared<string>(boost::any_cast<string>(m["XForwardedForClientSourceIpsTrusted"]));
     }
     if (m.find("XForwardedForClientSrcPortEnabled") != m.end() && !m["XForwardedForClientSrcPortEnabled"].empty()) {
       XForwardedForClientSrcPortEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSrcPortEnabled"]));
@@ -13716,6 +13779,7 @@ public:
 };
 class ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> perIpQps{};
   shared_ptr<long> QPS{};
 
   ListRulesResponseBodyRulesRuleActionsTrafficLimitConfig() {}
@@ -13728,6 +13792,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (perIpQps) {
+      res["PerIpQps"] = boost::any(*perIpQps);
+    }
     if (QPS) {
       res["QPS"] = boost::any(*QPS);
     }
@@ -13735,6 +13802,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PerIpQps") != m.end() && !m["PerIpQps"].empty()) {
+      perIpQps = make_shared<long>(boost::any_cast<long>(m["PerIpQps"]));
+    }
     if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
       QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
     }
@@ -19062,6 +19132,8 @@ public:
   shared_ptr<bool> XForwardedForClientCertIssuerDNEnabled{};
   shared_ptr<string> XForwardedForClientCertSubjectDNAlias{};
   shared_ptr<bool> XForwardedForClientCertSubjectDNEnabled{};
+  shared_ptr<bool> XForwardedForClientSourceIpsEnabled{};
+  shared_ptr<string> XForwardedForClientSourceIpsTrusted{};
   shared_ptr<bool> XForwardedForClientSrcPortEnabled{};
   shared_ptr<bool> XForwardedForEnabled{};
   shared_ptr<bool> XForwardedForProtoEnabled{};
@@ -19101,6 +19173,12 @@ public:
     }
     if (XForwardedForClientCertSubjectDNEnabled) {
       res["XForwardedForClientCertSubjectDNEnabled"] = boost::any(*XForwardedForClientCertSubjectDNEnabled);
+    }
+    if (XForwardedForClientSourceIpsEnabled) {
+      res["XForwardedForClientSourceIpsEnabled"] = boost::any(*XForwardedForClientSourceIpsEnabled);
+    }
+    if (XForwardedForClientSourceIpsTrusted) {
+      res["XForwardedForClientSourceIpsTrusted"] = boost::any(*XForwardedForClientSourceIpsTrusted);
     }
     if (XForwardedForClientSrcPortEnabled) {
       res["XForwardedForClientSrcPortEnabled"] = boost::any(*XForwardedForClientSrcPortEnabled);
@@ -19144,6 +19222,12 @@ public:
     }
     if (m.find("XForwardedForClientCertSubjectDNEnabled") != m.end() && !m["XForwardedForClientCertSubjectDNEnabled"].empty()) {
       XForwardedForClientCertSubjectDNEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientCertSubjectDNEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsEnabled") != m.end() && !m["XForwardedForClientSourceIpsEnabled"].empty()) {
+      XForwardedForClientSourceIpsEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSourceIpsEnabled"]));
+    }
+    if (m.find("XForwardedForClientSourceIpsTrusted") != m.end() && !m["XForwardedForClientSourceIpsTrusted"].empty()) {
+      XForwardedForClientSourceIpsTrusted = make_shared<string>(boost::any_cast<string>(m["XForwardedForClientSourceIpsTrusted"]));
     }
     if (m.find("XForwardedForClientSrcPortEnabled") != m.end() && !m["XForwardedForClientSrcPortEnabled"].empty()) {
       XForwardedForClientSrcPortEnabled = make_shared<bool>(boost::any_cast<bool>(m["XForwardedForClientSrcPortEnabled"]));
@@ -20709,6 +20793,7 @@ public:
 };
 class UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> perIpQps{};
   shared_ptr<long> QPS{};
 
   UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig() {}
@@ -20721,6 +20806,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (perIpQps) {
+      res["PerIpQps"] = boost::any(*perIpQps);
+    }
     if (QPS) {
       res["QPS"] = boost::any(*QPS);
     }
@@ -20728,6 +20816,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PerIpQps") != m.end() && !m["PerIpQps"].empty()) {
+      perIpQps = make_shared<long>(boost::any_cast<long>(m["PerIpQps"]));
+    }
     if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
       QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
     }
@@ -21966,6 +22057,7 @@ public:
 };
 class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig : public Darabonba::Model {
 public:
+  shared_ptr<long> perIpQps{};
   shared_ptr<long> QPS{};
 
   UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig() {}
@@ -21978,6 +22070,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (perIpQps) {
+      res["PerIpQps"] = boost::any(*perIpQps);
+    }
     if (QPS) {
       res["QPS"] = boost::any(*QPS);
     }
@@ -21985,6 +22080,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PerIpQps") != m.end() && !m["PerIpQps"].empty()) {
+      perIpQps = make_shared<long>(boost::any_cast<long>(m["PerIpQps"]));
+    }
     if (m.find("QPS") != m.end() && !m["QPS"].empty()) {
       QPS = make_shared<long>(boost::any_cast<long>(m["QPS"]));
     }
