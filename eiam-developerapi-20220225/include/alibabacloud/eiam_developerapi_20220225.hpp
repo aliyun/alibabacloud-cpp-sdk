@@ -1334,6 +1334,181 @@ public:
 
   virtual ~GetOrganizationalUnitResponse() = default;
 };
+class GetOrganizationalUnitIdByExternalIdHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  GetOrganizationalUnitIdByExternalIdHeaders() {}
+
+  explicit GetOrganizationalUnitIdByExternalIdHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~GetOrganizationalUnitIdByExternalIdHeaders() = default;
+};
+class GetOrganizationalUnitIdByExternalIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationalUnitExternalId{};
+  shared_ptr<string> organizationalUnitSourceId{};
+  shared_ptr<string> organizationalUnitSourceType{};
+
+  GetOrganizationalUnitIdByExternalIdRequest() {}
+
+  explicit GetOrganizationalUnitIdByExternalIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationalUnitExternalId) {
+      res["organizationalUnitExternalId"] = boost::any(*organizationalUnitExternalId);
+    }
+    if (organizationalUnitSourceId) {
+      res["organizationalUnitSourceId"] = boost::any(*organizationalUnitSourceId);
+    }
+    if (organizationalUnitSourceType) {
+      res["organizationalUnitSourceType"] = boost::any(*organizationalUnitSourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationalUnitExternalId") != m.end() && !m["organizationalUnitExternalId"].empty()) {
+      organizationalUnitExternalId = make_shared<string>(boost::any_cast<string>(m["organizationalUnitExternalId"]));
+    }
+    if (m.find("organizationalUnitSourceId") != m.end() && !m["organizationalUnitSourceId"].empty()) {
+      organizationalUnitSourceId = make_shared<string>(boost::any_cast<string>(m["organizationalUnitSourceId"]));
+    }
+    if (m.find("organizationalUnitSourceType") != m.end() && !m["organizationalUnitSourceType"].empty()) {
+      organizationalUnitSourceType = make_shared<string>(boost::any_cast<string>(m["organizationalUnitSourceType"]));
+    }
+  }
+
+
+  virtual ~GetOrganizationalUnitIdByExternalIdRequest() = default;
+};
+class GetOrganizationalUnitIdByExternalIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationalUnitId{};
+
+  GetOrganizationalUnitIdByExternalIdResponseBody() {}
+
+  explicit GetOrganizationalUnitIdByExternalIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationalUnitId) {
+      res["organizationalUnitId"] = boost::any(*organizationalUnitId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationalUnitId") != m.end() && !m["organizationalUnitId"].empty()) {
+      organizationalUnitId = make_shared<string>(boost::any_cast<string>(m["organizationalUnitId"]));
+    }
+  }
+
+
+  virtual ~GetOrganizationalUnitIdByExternalIdResponseBody() = default;
+};
+class GetOrganizationalUnitIdByExternalIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOrganizationalUnitIdByExternalIdResponseBody> body{};
+
+  GetOrganizationalUnitIdByExternalIdResponse() {}
+
+  explicit GetOrganizationalUnitIdByExternalIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOrganizationalUnitIdByExternalIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOrganizationalUnitIdByExternalIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrganizationalUnitIdByExternalIdResponse() = default;
+};
 class GetUserHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -1429,7 +1604,6 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> lockExpireTime{};
   shared_ptr<vector<GetUserResponseBodyOrganizationalUnits>> organizationalUnits{};
-  shared_ptr<bool> passwordSet{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> phoneNumberVerified{};
   shared_ptr<string> phoneRegion{};
@@ -1483,9 +1657,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["organizationalUnits"] = boost::any(temp1);
-    }
-    if (passwordSet) {
-      res["passwordSet"] = boost::any(*passwordSet);
     }
     if (phoneNumber) {
       res["phoneNumber"] = boost::any(*phoneNumber);
@@ -1563,9 +1734,6 @@ public:
         }
         organizationalUnits = make_shared<vector<GetUserResponseBodyOrganizationalUnits>>(expect1);
       }
-    }
-    if (m.find("passwordSet") != m.end() && !m["passwordSet"].empty()) {
-      passwordSet = make_shared<bool>(boost::any_cast<bool>(m["passwordSet"]));
     }
     if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
@@ -1670,6 +1838,503 @@ public:
 
   virtual ~GetUserResponse() = default;
 };
+class GetUserIdByEmailHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  GetUserIdByEmailHeaders() {}
+
+  explicit GetUserIdByEmailHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByEmailHeaders() = default;
+};
+class GetUserIdByEmailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> email{};
+
+  GetUserIdByEmailRequest() {}
+
+  explicit GetUserIdByEmailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByEmailRequest() = default;
+};
+class GetUserIdByEmailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  GetUserIdByEmailResponseBody() {}
+
+  explicit GetUserIdByEmailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByEmailResponseBody() = default;
+};
+class GetUserIdByEmailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserIdByEmailResponseBody> body{};
+
+  GetUserIdByEmailResponse() {}
+
+  explicit GetUserIdByEmailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserIdByEmailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserIdByEmailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserIdByEmailResponse() = default;
+};
+class GetUserIdByPhoneNumberHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  GetUserIdByPhoneNumberHeaders() {}
+
+  explicit GetUserIdByPhoneNumberHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByPhoneNumberHeaders() = default;
+};
+class GetUserIdByPhoneNumberRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneNumber{};
+
+  GetUserIdByPhoneNumberRequest() {}
+
+  explicit GetUserIdByPhoneNumberRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneNumber) {
+      res["phoneNumber"] = boost::any(*phoneNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByPhoneNumberRequest() = default;
+};
+class GetUserIdByPhoneNumberResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  GetUserIdByPhoneNumberResponseBody() {}
+
+  explicit GetUserIdByPhoneNumberResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByPhoneNumberResponseBody() = default;
+};
+class GetUserIdByPhoneNumberResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserIdByPhoneNumberResponseBody> body{};
+
+  GetUserIdByPhoneNumberResponse() {}
+
+  explicit GetUserIdByPhoneNumberResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserIdByPhoneNumberResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserIdByPhoneNumberResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserIdByPhoneNumberResponse() = default;
+};
+class GetUserIdByUserExternalIdHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  GetUserIdByUserExternalIdHeaders() {}
+
+  explicit GetUserIdByUserExternalIdHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUserExternalIdHeaders() = default;
+};
+class GetUserIdByUserExternalIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> userExternalId{};
+  shared_ptr<string> userSourceId{};
+  shared_ptr<string> userSourceType{};
+
+  GetUserIdByUserExternalIdRequest() {}
+
+  explicit GetUserIdByUserExternalIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userExternalId) {
+      res["userExternalId"] = boost::any(*userExternalId);
+    }
+    if (userSourceId) {
+      res["userSourceId"] = boost::any(*userSourceId);
+    }
+    if (userSourceType) {
+      res["userSourceType"] = boost::any(*userSourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userExternalId") != m.end() && !m["userExternalId"].empty()) {
+      userExternalId = make_shared<string>(boost::any_cast<string>(m["userExternalId"]));
+    }
+    if (m.find("userSourceId") != m.end() && !m["userSourceId"].empty()) {
+      userSourceId = make_shared<string>(boost::any_cast<string>(m["userSourceId"]));
+    }
+    if (m.find("userSourceType") != m.end() && !m["userSourceType"].empty()) {
+      userSourceType = make_shared<string>(boost::any_cast<string>(m["userSourceType"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUserExternalIdRequest() = default;
+};
+class GetUserIdByUserExternalIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  GetUserIdByUserExternalIdResponseBody() {}
+
+  explicit GetUserIdByUserExternalIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUserExternalIdResponseBody() = default;
+};
+class GetUserIdByUserExternalIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserIdByUserExternalIdResponseBody> body{};
+
+  GetUserIdByUserExternalIdResponse() {}
+
+  explicit GetUserIdByUserExternalIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserIdByUserExternalIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserIdByUserExternalIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserIdByUserExternalIdResponse() = default;
+};
 class GetUserInfoHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -1773,248 +2438,6 @@ public:
 
 
   virtual ~GetUserInfoResponse() = default;
-};
-class GetUserPasswordPolicyHeaders : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> commonHeaders{};
-  shared_ptr<string> authorization{};
-
-  GetUserPasswordPolicyHeaders() {}
-
-  explicit GetUserPasswordPolicyHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (commonHeaders) {
-      res["commonHeaders"] = boost::any(*commonHeaders);
-    }
-    if (authorization) {
-      res["Authorization"] = boost::any(*authorization);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      commonHeaders = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
-      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
-    }
-  }
-
-
-  virtual ~GetUserPasswordPolicyHeaders() = default;
-};
-class GetUserPasswordPolicyResponseBodyPasswordComplexityItem : public Darabonba::Model {
-public:
-  shared_ptr<bool> containLowerCase{};
-  shared_ptr<bool> containNumber{};
-  shared_ptr<bool> containSpecialChar{};
-  shared_ptr<bool> containUpperCase{};
-  shared_ptr<bool> displayNameCheck{};
-  shared_ptr<bool> emailCheck{};
-  shared_ptr<bool> phoneCheck{};
-  shared_ptr<bool> usernameCheck{};
-
-  GetUserPasswordPolicyResponseBodyPasswordComplexityItem() {}
-
-  explicit GetUserPasswordPolicyResponseBodyPasswordComplexityItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (containLowerCase) {
-      res["containLowerCase"] = boost::any(*containLowerCase);
-    }
-    if (containNumber) {
-      res["containNumber"] = boost::any(*containNumber);
-    }
-    if (containSpecialChar) {
-      res["containSpecialChar"] = boost::any(*containSpecialChar);
-    }
-    if (containUpperCase) {
-      res["containUpperCase"] = boost::any(*containUpperCase);
-    }
-    if (displayNameCheck) {
-      res["displayNameCheck"] = boost::any(*displayNameCheck);
-    }
-    if (emailCheck) {
-      res["emailCheck"] = boost::any(*emailCheck);
-    }
-    if (phoneCheck) {
-      res["phoneCheck"] = boost::any(*phoneCheck);
-    }
-    if (usernameCheck) {
-      res["usernameCheck"] = boost::any(*usernameCheck);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("containLowerCase") != m.end() && !m["containLowerCase"].empty()) {
-      containLowerCase = make_shared<bool>(boost::any_cast<bool>(m["containLowerCase"]));
-    }
-    if (m.find("containNumber") != m.end() && !m["containNumber"].empty()) {
-      containNumber = make_shared<bool>(boost::any_cast<bool>(m["containNumber"]));
-    }
-    if (m.find("containSpecialChar") != m.end() && !m["containSpecialChar"].empty()) {
-      containSpecialChar = make_shared<bool>(boost::any_cast<bool>(m["containSpecialChar"]));
-    }
-    if (m.find("containUpperCase") != m.end() && !m["containUpperCase"].empty()) {
-      containUpperCase = make_shared<bool>(boost::any_cast<bool>(m["containUpperCase"]));
-    }
-    if (m.find("displayNameCheck") != m.end() && !m["displayNameCheck"].empty()) {
-      displayNameCheck = make_shared<bool>(boost::any_cast<bool>(m["displayNameCheck"]));
-    }
-    if (m.find("emailCheck") != m.end() && !m["emailCheck"].empty()) {
-      emailCheck = make_shared<bool>(boost::any_cast<bool>(m["emailCheck"]));
-    }
-    if (m.find("phoneCheck") != m.end() && !m["phoneCheck"].empty()) {
-      phoneCheck = make_shared<bool>(boost::any_cast<bool>(m["phoneCheck"]));
-    }
-    if (m.find("usernameCheck") != m.end() && !m["usernameCheck"].empty()) {
-      usernameCheck = make_shared<bool>(boost::any_cast<bool>(m["usernameCheck"]));
-    }
-  }
-
-
-  virtual ~GetUserPasswordPolicyResponseBodyPasswordComplexityItem() = default;
-};
-class GetUserPasswordPolicyResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> activeCycle{};
-  shared_ptr<string> instanceId{};
-  shared_ptr<long> minLength{};
-  shared_ptr<GetUserPasswordPolicyResponseBodyPasswordComplexityItem> passwordComplexityItem{};
-  shared_ptr<long> reservationCount{};
-
-  GetUserPasswordPolicyResponseBody() {}
-
-  explicit GetUserPasswordPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (activeCycle) {
-      res["activeCycle"] = boost::any(*activeCycle);
-    }
-    if (instanceId) {
-      res["instanceId"] = boost::any(*instanceId);
-    }
-    if (minLength) {
-      res["minLength"] = boost::any(*minLength);
-    }
-    if (passwordComplexityItem) {
-      res["passwordComplexityItem"] = passwordComplexityItem ? boost::any(passwordComplexityItem->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (reservationCount) {
-      res["reservationCount"] = boost::any(*reservationCount);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("activeCycle") != m.end() && !m["activeCycle"].empty()) {
-      activeCycle = make_shared<long>(boost::any_cast<long>(m["activeCycle"]));
-    }
-    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
-      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
-    }
-    if (m.find("minLength") != m.end() && !m["minLength"].empty()) {
-      minLength = make_shared<long>(boost::any_cast<long>(m["minLength"]));
-    }
-    if (m.find("passwordComplexityItem") != m.end() && !m["passwordComplexityItem"].empty()) {
-      if (typeid(map<string, boost::any>) == m["passwordComplexityItem"].type()) {
-        GetUserPasswordPolicyResponseBodyPasswordComplexityItem model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["passwordComplexityItem"]));
-        passwordComplexityItem = make_shared<GetUserPasswordPolicyResponseBodyPasswordComplexityItem>(model1);
-      }
-    }
-    if (m.find("reservationCount") != m.end() && !m["reservationCount"].empty()) {
-      reservationCount = make_shared<long>(boost::any_cast<long>(m["reservationCount"]));
-    }
-  }
-
-
-  virtual ~GetUserPasswordPolicyResponseBody() = default;
-};
-class GetUserPasswordPolicyResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetUserPasswordPolicyResponseBody> body{};
-
-  GetUserPasswordPolicyResponse() {}
-
-  explicit GetUserPasswordPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetUserPasswordPolicyResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetUserPasswordPolicyResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetUserPasswordPolicyResponse() = default;
 };
 class ListOrganizationalUnitParentIdsHeaders : public Darabonba::Model {
 public:
@@ -2537,7 +2960,6 @@ public:
   shared_ptr<bool> emailVerified{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> lockExpireTime{};
-  shared_ptr<bool> passwordSet{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> phoneNumberVerified{};
   shared_ptr<string> phoneRegion{};
@@ -2583,9 +3005,6 @@ public:
     }
     if (lockExpireTime) {
       res["lockExpireTime"] = boost::any(*lockExpireTime);
-    }
-    if (passwordSet) {
-      res["passwordSet"] = boost::any(*passwordSet);
     }
     if (phoneNumber) {
       res["phoneNumber"] = boost::any(*phoneNumber);
@@ -2647,9 +3066,6 @@ public:
     }
     if (m.find("lockExpireTime") != m.end() && !m["lockExpireTime"].empty()) {
       lockExpireTime = make_shared<long>(boost::any_cast<long>(m["lockExpireTime"]));
-    }
-    if (m.find("passwordSet") != m.end() && !m["passwordSet"].empty()) {
-      passwordSet = make_shared<bool>(boost::any_cast<bool>(m["passwordSet"]));
     }
     if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
@@ -3256,22 +3672,41 @@ public:
                                                                  shared_ptr<string> organizationalUnitId,
                                                                  shared_ptr<GetOrganizationalUnitHeaders> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request);
+  GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalIdWithOptions(shared_ptr<string> instanceId,
+                                                                                             shared_ptr<string> applicationId,
+                                                                                             shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request,
+                                                                                             shared_ptr<GetOrganizationalUnitIdByExternalIdHeaders> headers,
+                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserResponse getUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
   GetUserResponse getUserWithOptions(shared_ptr<string> instanceId,
                                      shared_ptr<string> applicationId,
                                      shared_ptr<string> userId,
                                      shared_ptr<GetUserHeaders> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserIdByEmailResponse getUserIdByEmail(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByEmailRequest> request);
+  GetUserIdByEmailResponse getUserIdByEmailWithOptions(shared_ptr<string> instanceId,
+                                                       shared_ptr<string> applicationId,
+                                                       shared_ptr<GetUserIdByEmailRequest> request,
+                                                       shared_ptr<GetUserIdByEmailHeaders> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserIdByPhoneNumberResponse getUserIdByPhoneNumber(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByPhoneNumberRequest> request);
+  GetUserIdByPhoneNumberResponse getUserIdByPhoneNumberWithOptions(shared_ptr<string> instanceId,
+                                                                   shared_ptr<string> applicationId,
+                                                                   shared_ptr<GetUserIdByPhoneNumberRequest> request,
+                                                                   shared_ptr<GetUserIdByPhoneNumberHeaders> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserIdByUserExternalIdResponse getUserIdByUserExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUserExternalIdRequest> request);
+  GetUserIdByUserExternalIdResponse getUserIdByUserExternalIdWithOptions(shared_ptr<string> instanceId,
+                                                                         shared_ptr<string> applicationId,
+                                                                         shared_ptr<GetUserIdByUserExternalIdRequest> request,
+                                                                         shared_ptr<GetUserIdByUserExternalIdHeaders> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserInfoResponse getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
   GetUserInfoResponse getUserInfoWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> applicationId,
                                              shared_ptr<GetUserInfoHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserPasswordPolicyResponse getUserPasswordPolicy(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
-  GetUserPasswordPolicyResponse getUserPasswordPolicyWithOptions(shared_ptr<string> instanceId,
-                                                                 shared_ptr<string> applicationId,
-                                                                 shared_ptr<GetUserPasswordPolicyHeaders> headers,
-                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
   ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIdsWithOptions(shared_ptr<string> instanceId,
                                                                                      shared_ptr<string> applicationId,
