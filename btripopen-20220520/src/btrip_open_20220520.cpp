@@ -917,11 +917,11 @@ CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModif
 
 CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQuery(shared_ptr<CostCenterQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  shared_ptr<CostCenterQueryHeaders> headers = make_shared<CostCenterQueryHeaders>();
   return costCenterQueryWithOptions(request, headers, runtime);
 }
 
-CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<CostCenterQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->needOrgEntity)) {
@@ -936,8 +936,15 @@ CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryW
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("user_id", *request->userId));
   }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripSoCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-so-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripSoCorpToken)));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

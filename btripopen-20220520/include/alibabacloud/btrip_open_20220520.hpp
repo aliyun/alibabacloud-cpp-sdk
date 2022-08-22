@@ -7930,6 +7930,47 @@ public:
 
   virtual ~CostCenterModifyResponse() = default;
 };
+class CostCenterQueryHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripSoCorpToken{};
+
+  CostCenterQueryHeaders() {}
+
+  explicit CostCenterQueryHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripSoCorpToken) {
+      res["x-acs-btrip-so-corp-token"] = boost::any(*xAcsBtripSoCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-so-corp-token") != m.end() && !m["x-acs-btrip-so-corp-token"].empty()) {
+      xAcsBtripSoCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-so-corp-token"]));
+    }
+  }
+
+
+  virtual ~CostCenterQueryHeaders() = default;
+};
 class CostCenterQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> needOrgEntity{};
@@ -20260,7 +20301,7 @@ public:
   CostCenterModifyResponse costCenterModify(shared_ptr<CostCenterModifyRequest> request);
   CostCenterModifyResponse costCenterModifyWithOptions(shared_ptr<CostCenterModifyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CostCenterQueryResponse costCenterQuery(shared_ptr<CostCenterQueryRequest> request);
-  CostCenterQueryResponse costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CostCenterQueryResponse costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<CostCenterQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CostCenterSaveResponse costCenterSave(shared_ptr<CostCenterSaveRequest> request);
   CostCenterSaveResponse costCenterSaveWithOptions(shared_ptr<CostCenterSaveRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DepartmentSaveResponse departmentSave(shared_ptr<DepartmentSaveRequest> request);
