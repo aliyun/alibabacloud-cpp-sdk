@@ -362,6 +362,9 @@ CreateFileDetectResponse Alibabacloud_Sas20181203::Client::createFileDetect(shar
 CreateFileDetectUploadUrlResponse Alibabacloud_Sas20181203::Client::createFileDetectUploadUrlWithOptions(shared_ptr<CreateFileDetectUploadUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateFileDetectUploadUrlRequestHashKeyContextList>>(request->hashKeyContextList)) {
+    query->insert(pair<string, vector<CreateFileDetectUploadUrlRequestHashKeyContextList>>("HashKeyContextList", *request->hashKeyContextList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->hashKeyList)) {
     query->insert(pair<string, vector<string>>("HashKeyList", *request->hashKeyList));
   }

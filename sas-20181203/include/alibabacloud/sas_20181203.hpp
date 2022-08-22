@@ -1153,8 +1153,45 @@ public:
 
   virtual ~CreateFileDetectResponse() = default;
 };
+class CreateFileDetectUploadUrlRequestHashKeyContextList : public Darabonba::Model {
+public:
+  shared_ptr<long> fileSize{};
+  shared_ptr<string> hashKey{};
+
+  CreateFileDetectUploadUrlRequestHashKeyContextList() {}
+
+  explicit CreateFileDetectUploadUrlRequestHashKeyContextList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileSize) {
+      res["FileSize"] = boost::any(*fileSize);
+    }
+    if (hashKey) {
+      res["HashKey"] = boost::any(*hashKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileSize") != m.end() && !m["FileSize"].empty()) {
+      fileSize = make_shared<long>(boost::any_cast<long>(m["FileSize"]));
+    }
+    if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
+      hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+  }
+
+
+  virtual ~CreateFileDetectUploadUrlRequestHashKeyContextList() = default;
+};
 class CreateFileDetectUploadUrlRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateFileDetectUploadUrlRequestHashKeyContextList>> hashKeyContextList{};
   shared_ptr<vector<string>> hashKeyList{};
   shared_ptr<long> type{};
 
@@ -1168,6 +1205,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (hashKeyContextList) {
+      vector<boost::any> temp1;
+      for(auto item1:*hashKeyContextList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HashKeyContextList"] = boost::any(temp1);
+    }
     if (hashKeyList) {
       res["HashKeyList"] = boost::any(*hashKeyList);
     }
@@ -1178,6 +1222,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HashKeyContextList") != m.end() && !m["HashKeyContextList"].empty()) {
+      if (typeid(vector<boost::any>) == m["HashKeyContextList"].type()) {
+        vector<CreateFileDetectUploadUrlRequestHashKeyContextList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HashKeyContextList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateFileDetectUploadUrlRequestHashKeyContextList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        hashKeyContextList = make_shared<vector<CreateFileDetectUploadUrlRequestHashKeyContextList>>(expect1);
+      }
+    }
     if (m.find("HashKeyList") != m.end() && !m["HashKeyList"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["HashKeyList"].type()) {
@@ -1248,11 +1305,13 @@ public:
 };
 class CreateFileDetectUploadUrlResponseBodyUploadUrlList : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
   shared_ptr<CreateFileDetectUploadUrlResponseBodyUploadUrlListContext> context{};
   shared_ptr<string> expire{};
   shared_ptr<bool> fileExist{};
   shared_ptr<string> hashKey{};
   shared_ptr<string> internalUrl{};
+  shared_ptr<string> message{};
   shared_ptr<string> publicUrl{};
 
   CreateFileDetectUploadUrlResponseBodyUploadUrlList() {}
@@ -1265,6 +1324,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (context) {
       res["Context"] = context ? boost::any(context->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1280,6 +1342,9 @@ public:
     if (internalUrl) {
       res["InternalUrl"] = boost::any(*internalUrl);
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (publicUrl) {
       res["PublicUrl"] = boost::any(*publicUrl);
     }
@@ -1287,6 +1352,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
     if (m.find("Context") != m.end() && !m["Context"].empty()) {
       if (typeid(map<string, boost::any>) == m["Context"].type()) {
         CreateFileDetectUploadUrlResponseBodyUploadUrlListContext model1;
@@ -1305,6 +1373,9 @@ public:
     }
     if (m.find("InternalUrl") != m.end() && !m["InternalUrl"].empty()) {
       internalUrl = make_shared<string>(boost::any_cast<string>(m["InternalUrl"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("PublicUrl") != m.end() && !m["PublicUrl"].empty()) {
       publicUrl = make_shared<string>(boost::any_cast<string>(m["PublicUrl"]));
@@ -40422,10 +40493,10 @@ public:
 };
 class GetFileDetectResultResponseBodyResultList : public Darabonba::Model {
 public:
-  shared_ptr<string> errorCode{};
-  shared_ptr<string> errorMessage{};
+  shared_ptr<string> code{};
   shared_ptr<string> ext{};
   shared_ptr<string> hashKey{};
+  shared_ptr<string> message{};
   shared_ptr<long> result{};
   shared_ptr<long> score{};
   shared_ptr<string> virusType{};
@@ -40440,17 +40511,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (errorCode) {
-      res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (errorMessage) {
-      res["ErrorMessage"] = boost::any(*errorMessage);
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (ext) {
       res["Ext"] = boost::any(*ext);
     }
     if (hashKey) {
       res["HashKey"] = boost::any(*hashKey);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
     }
     if (result) {
       res["Result"] = boost::any(*result);
@@ -40465,17 +40536,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
-      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
-      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Ext") != m.end() && !m["Ext"].empty()) {
       ext = make_shared<string>(boost::any_cast<string>(m["Ext"]));
     }
     if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
       hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<long>(boost::any_cast<long>(m["Result"]));
@@ -42932,7 +43003,6 @@ class ListHoneypotResponseBodyPageInfo : public Darabonba::Model {
 public:
   shared_ptr<long> count{};
   shared_ptr<long> currentPage{};
-  shared_ptr<string> lastRowKey{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> totalCount{};
 
@@ -42952,9 +43022,6 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
-    if (lastRowKey) {
-      res["LastRowKey"] = boost::any(*lastRowKey);
-    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -42970,9 +43037,6 @@ public:
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
-    }
-    if (m.find("LastRowKey") != m.end() && !m["LastRowKey"].empty()) {
-      lastRowKey = make_shared<string>(boost::any_cast<string>(m["LastRowKey"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
@@ -43738,7 +43802,6 @@ class ListHoneypotNodeResponseBodyPageInfo : public Darabonba::Model {
 public:
   shared_ptr<long> count{};
   shared_ptr<long> currentPage{};
-  shared_ptr<string> lastRowKey{};
   shared_ptr<long> pageSize{};
   shared_ptr<long> totalCount{};
 
@@ -43758,9 +43821,6 @@ public:
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
-    if (lastRowKey) {
-      res["LastRowKey"] = boost::any(*lastRowKey);
-    }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
@@ -43776,9 +43836,6 @@ public:
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
-    }
-    if (m.find("LastRowKey") != m.end() && !m["LastRowKey"].empty()) {
-      lastRowKey = make_shared<string>(boost::any_cast<string>(m["LastRowKey"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
