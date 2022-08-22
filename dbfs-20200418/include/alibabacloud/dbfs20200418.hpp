@@ -2891,6 +2891,8 @@ public:
 };
 class ListDbfsAttachableEcsInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterValue{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -2905,6 +2907,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -2918,6 +2926,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
