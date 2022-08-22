@@ -4110,6 +4110,140 @@ public:
 
   virtual ~DeleteLiveResponse() = default;
 };
+class DeleteLiveFilesByIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> liveId{};
+
+  DeleteLiveFilesByIdRequest() {}
+
+  explicit DeleteLiveFilesByIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (liveId) {
+      res["LiveId"] = boost::any(*liveId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
+      liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+  }
+
+
+  virtual ~DeleteLiveFilesByIdRequest() = default;
+};
+class DeleteLiveFilesByIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+
+  DeleteLiveFilesByIdResponseBody() {}
+
+  explicit DeleteLiveFilesByIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+  }
+
+
+  virtual ~DeleteLiveFilesByIdResponseBody() = default;
+};
+class DeleteLiveFilesByIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteLiveFilesByIdResponseBody> body{};
+
+  DeleteLiveFilesByIdResponse() {}
+
+  explicit DeleteLiveFilesByIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteLiveFilesByIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteLiveFilesByIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteLiveFilesByIdResponse() = default;
+};
 class DeleteLiveRoomRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -8962,6 +9096,223 @@ public:
 
   virtual ~ListConferenceUsersResponse() = default;
 };
+class ListLiveFilesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> liveId{};
+
+  ListLiveFilesRequest() {}
+
+  explicit ListLiveFilesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (liveId) {
+      res["LiveId"] = boost::any(*liveId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("LiveId") != m.end() && !m["LiveId"].empty()) {
+      liveId = make_shared<string>(boost::any_cast<string>(m["LiveId"]));
+    }
+  }
+
+
+  virtual ~ListLiveFilesRequest() = default;
+};
+class ListLiveFilesResponseBodyResultFileList : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> url{};
+
+  ListLiveFilesResponseBodyResultFileList() {}
+
+  explicit ListLiveFilesResponseBodyResultFileList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~ListLiveFilesResponseBodyResultFileList() = default;
+};
+class ListLiveFilesResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListLiveFilesResponseBodyResultFileList>> fileList{};
+
+  ListLiveFilesResponseBodyResult() {}
+
+  explicit ListLiveFilesResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fileList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FileList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileList") != m.end() && !m["FileList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FileList"].type()) {
+        vector<ListLiveFilesResponseBodyResultFileList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FileList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListLiveFilesResponseBodyResultFileList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fileList = make_shared<vector<ListLiveFilesResponseBodyResultFileList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListLiveFilesResponseBodyResult() = default;
+};
+class ListLiveFilesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<ListLiveFilesResponseBodyResult> result{};
+
+  ListLiveFilesResponseBody() {}
+
+  explicit ListLiveFilesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        ListLiveFilesResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<ListLiveFilesResponseBodyResult>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLiveFilesResponseBody() = default;
+};
+class ListLiveFilesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListLiveFilesResponseBody> body{};
+
+  ListLiveFilesResponse() {}
+
+  explicit ListLiveFilesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListLiveFilesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListLiveFilesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListLiveFilesResponse() = default;
+};
 class ListLiveRoomsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -13263,6 +13614,8 @@ public:
   DeleteConferenceResponse deleteConference(shared_ptr<DeleteConferenceRequest> request);
   DeleteLiveResponse deleteLiveWithOptions(shared_ptr<DeleteLiveRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteLiveResponse deleteLive(shared_ptr<DeleteLiveRequest> request);
+  DeleteLiveFilesByIdResponse deleteLiveFilesByIdWithOptions(shared_ptr<DeleteLiveFilesByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteLiveFilesByIdResponse deleteLiveFilesById(shared_ptr<DeleteLiveFilesByIdRequest> request);
   DeleteLiveRoomResponse deleteLiveRoomWithOptions(shared_ptr<DeleteLiveRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteLiveRoomResponse deleteLiveRoom(shared_ptr<DeleteLiveRoomRequest> request);
   DeleteRoomResponse deleteRoomWithOptions(shared_ptr<DeleteRoomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -13303,6 +13656,8 @@ public:
   ListCommentsResponse listComments(shared_ptr<ListCommentsRequest> request);
   ListConferenceUsersResponse listConferenceUsersWithOptions(shared_ptr<ListConferenceUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConferenceUsersResponse listConferenceUsers(shared_ptr<ListConferenceUsersRequest> request);
+  ListLiveFilesResponse listLiveFilesWithOptions(shared_ptr<ListLiveFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListLiveFilesResponse listLiveFiles(shared_ptr<ListLiveFilesRequest> request);
   ListLiveRoomsResponse listLiveRoomsWithOptions(shared_ptr<ListLiveRoomsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLiveRoomsResponse listLiveRooms(shared_ptr<ListLiveRoomsRequest> request);
   ListLiveRoomsByIdResponse listLiveRoomsByIdWithOptions(shared_ptr<ListLiveRoomsByIdRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
