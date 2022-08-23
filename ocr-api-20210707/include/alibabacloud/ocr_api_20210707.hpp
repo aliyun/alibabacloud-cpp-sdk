@@ -958,196 +958,6 @@ public:
 
   virtual ~RecognizeBasicResponse() = default;
 };
-class RecognizeBatchRecognizeRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageName{};
-  shared_ptr<string> imageOp{};
-  shared_ptr<string> imageOssKey{};
-  shared_ptr<bool> needRotate{};
-  shared_ptr<bool> needSortPage{};
-  shared_ptr<bool> outputCharInfo{};
-  shared_ptr<bool> outputTable{};
-  shared_ptr<string> url{};
-
-  RecognizeBatchRecognizeRequest() {}
-
-  explicit RecognizeBatchRecognizeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageName) {
-      res["ImageName"] = boost::any(*imageName);
-    }
-    if (imageOp) {
-      res["ImageOp"] = boost::any(*imageOp);
-    }
-    if (imageOssKey) {
-      res["ImageOssKey"] = boost::any(*imageOssKey);
-    }
-    if (needRotate) {
-      res["NeedRotate"] = boost::any(*needRotate);
-    }
-    if (needSortPage) {
-      res["NeedSortPage"] = boost::any(*needSortPage);
-    }
-    if (outputCharInfo) {
-      res["OutputCharInfo"] = boost::any(*outputCharInfo);
-    }
-    if (outputTable) {
-      res["OutputTable"] = boost::any(*outputTable);
-    }
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
-      imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
-    }
-    if (m.find("ImageOp") != m.end() && !m["ImageOp"].empty()) {
-      imageOp = make_shared<string>(boost::any_cast<string>(m["ImageOp"]));
-    }
-    if (m.find("ImageOssKey") != m.end() && !m["ImageOssKey"].empty()) {
-      imageOssKey = make_shared<string>(boost::any_cast<string>(m["ImageOssKey"]));
-    }
-    if (m.find("NeedRotate") != m.end() && !m["NeedRotate"].empty()) {
-      needRotate = make_shared<bool>(boost::any_cast<bool>(m["NeedRotate"]));
-    }
-    if (m.find("NeedSortPage") != m.end() && !m["NeedSortPage"].empty()) {
-      needSortPage = make_shared<bool>(boost::any_cast<bool>(m["NeedSortPage"]));
-    }
-    if (m.find("OutputCharInfo") != m.end() && !m["OutputCharInfo"].empty()) {
-      outputCharInfo = make_shared<bool>(boost::any_cast<bool>(m["OutputCharInfo"]));
-    }
-    if (m.find("OutputTable") != m.end() && !m["OutputTable"].empty()) {
-      outputTable = make_shared<bool>(boost::any_cast<bool>(m["OutputTable"]));
-    }
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-  }
-
-
-  virtual ~RecognizeBatchRecognizeRequest() = default;
-};
-class RecognizeBatchRecognizeResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-
-  RecognizeBatchRecognizeResponseBody() {}
-
-  explicit RecognizeBatchRecognizeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~RecognizeBatchRecognizeResponseBody() = default;
-};
-class RecognizeBatchRecognizeResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<RecognizeBatchRecognizeResponseBody> body{};
-
-  RecognizeBatchRecognizeResponse() {}
-
-  explicit RecognizeBatchRecognizeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeBatchRecognizeResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeBatchRecognizeResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RecognizeBatchRecognizeResponse() = default;
-};
 class RecognizeBirthCertificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> url{};
@@ -2790,13 +2600,23 @@ public:
 
   virtual ~RecognizeCtwoMedicalDeviceManageLicenseResponse() = default;
 };
-class RecognizeDeleteExcelRecordRequest : public Darabonba::Model {
+class RecognizeDocumentStructureRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> id{};
+  shared_ptr<bool> needRotate{};
+  shared_ptr<bool> needSortPage{};
+  shared_ptr<bool> noStamp{};
+  shared_ptr<bool> outputCharInfo{};
+  shared_ptr<bool> outputTable{};
+  shared_ptr<bool> page{};
+  shared_ptr<bool> paragraph{};
+  shared_ptr<bool> row{};
+  shared_ptr<string> url{};
+  shared_ptr<bool> useNewStyleOutput{};
+  shared_ptr<Darabonba::Stream> body{};
 
-  RecognizeDeleteExcelRecordRequest() {}
+  RecognizeDocumentStructureRequest() {}
 
-  explicit RecognizeDeleteExcelRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeDocumentStructureRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2804,31 +2624,91 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (id) {
-      res["Id"] = boost::any(*id);
+    if (needRotate) {
+      res["NeedRotate"] = boost::any(*needRotate);
+    }
+    if (needSortPage) {
+      res["NeedSortPage"] = boost::any(*needSortPage);
+    }
+    if (noStamp) {
+      res["NoStamp"] = boost::any(*noStamp);
+    }
+    if (outputCharInfo) {
+      res["OutputCharInfo"] = boost::any(*outputCharInfo);
+    }
+    if (outputTable) {
+      res["OutputTable"] = boost::any(*outputTable);
+    }
+    if (page) {
+      res["Page"] = boost::any(*page);
+    }
+    if (paragraph) {
+      res["Paragraph"] = boost::any(*paragraph);
+    }
+    if (row) {
+      res["Row"] = boost::any(*row);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (useNewStyleOutput) {
+      res["UseNewStyleOutput"] = boost::any(*useNewStyleOutput);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    if (m.find("NeedRotate") != m.end() && !m["NeedRotate"].empty()) {
+      needRotate = make_shared<bool>(boost::any_cast<bool>(m["NeedRotate"]));
+    }
+    if (m.find("NeedSortPage") != m.end() && !m["NeedSortPage"].empty()) {
+      needSortPage = make_shared<bool>(boost::any_cast<bool>(m["NeedSortPage"]));
+    }
+    if (m.find("NoStamp") != m.end() && !m["NoStamp"].empty()) {
+      noStamp = make_shared<bool>(boost::any_cast<bool>(m["NoStamp"]));
+    }
+    if (m.find("OutputCharInfo") != m.end() && !m["OutputCharInfo"].empty()) {
+      outputCharInfo = make_shared<bool>(boost::any_cast<bool>(m["OutputCharInfo"]));
+    }
+    if (m.find("OutputTable") != m.end() && !m["OutputTable"].empty()) {
+      outputTable = make_shared<bool>(boost::any_cast<bool>(m["OutputTable"]));
+    }
+    if (m.find("Page") != m.end() && !m["Page"].empty()) {
+      page = make_shared<bool>(boost::any_cast<bool>(m["Page"]));
+    }
+    if (m.find("Paragraph") != m.end() && !m["Paragraph"].empty()) {
+      paragraph = make_shared<bool>(boost::any_cast<bool>(m["Paragraph"]));
+    }
+    if (m.find("Row") != m.end() && !m["Row"].empty()) {
+      row = make_shared<bool>(boost::any_cast<bool>(m["Row"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("UseNewStyleOutput") != m.end() && !m["UseNewStyleOutput"].empty()) {
+      useNewStyleOutput = make_shared<bool>(boost::any_cast<bool>(m["UseNewStyleOutput"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
     }
   }
 
 
-  virtual ~RecognizeDeleteExcelRecordRequest() = default;
+  virtual ~RecognizeDocumentStructureRequest() = default;
 };
-class RecognizeDeleteExcelRecordResponseBody : public Darabonba::Model {
+class RecognizeDocumentStructureResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
-  RecognizeDeleteExcelRecordResponseBody() {}
+  RecognizeDocumentStructureResponseBody() {}
 
-  explicit RecognizeDeleteExcelRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeDocumentStructureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2867,17 +2747,17 @@ public:
   }
 
 
-  virtual ~RecognizeDeleteExcelRecordResponseBody() = default;
+  virtual ~RecognizeDocumentStructureResponseBody() = default;
 };
-class RecognizeDeleteExcelRecordResponse : public Darabonba::Model {
+class RecognizeDocumentStructureResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<RecognizeDeleteExcelRecordResponseBody> body{};
+  shared_ptr<RecognizeDocumentStructureResponseBody> body{};
 
-  RecognizeDeleteExcelRecordResponse() {}
+  RecognizeDocumentStructureResponse() {}
 
-  explicit RecognizeDeleteExcelRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit RecognizeDocumentStructureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2921,15 +2801,15 @@ public:
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeDeleteExcelRecordResponseBody model1;
+        RecognizeDocumentStructureResponseBody model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeDeleteExcelRecordResponseBody>(model1);
+        body = make_shared<RecognizeDocumentStructureResponseBody>(model1);
       }
     }
   }
 
 
-  virtual ~RecognizeDeleteExcelRecordResponse() = default;
+  virtual ~RecognizeDocumentStructureResponse() = default;
 };
 class RecognizeDrivingLicenseRequest : public Darabonba::Model {
 public:
@@ -4339,323 +4219,6 @@ public:
 
 
   virtual ~RecognizeEstateCertificationResponse() = default;
-};
-class RecognizeExcelExportRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> fileName{};
-  shared_ptr<string> imageOp{};
-  shared_ptr<long> ocrImageCount{};
-  shared_ptr<string> ocrResult{};
-  shared_ptr<string> ocrType{};
-
-  RecognizeExcelExportRequest() {}
-
-  explicit RecognizeExcelExportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (fileName) {
-      res["FileName"] = boost::any(*fileName);
-    }
-    if (imageOp) {
-      res["ImageOp"] = boost::any(*imageOp);
-    }
-    if (ocrImageCount) {
-      res["OcrImageCount"] = boost::any(*ocrImageCount);
-    }
-    if (ocrResult) {
-      res["OcrResult"] = boost::any(*ocrResult);
-    }
-    if (ocrType) {
-      res["OcrType"] = boost::any(*ocrType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
-      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
-    }
-    if (m.find("ImageOp") != m.end() && !m["ImageOp"].empty()) {
-      imageOp = make_shared<string>(boost::any_cast<string>(m["ImageOp"]));
-    }
-    if (m.find("OcrImageCount") != m.end() && !m["OcrImageCount"].empty()) {
-      ocrImageCount = make_shared<long>(boost::any_cast<long>(m["OcrImageCount"]));
-    }
-    if (m.find("OcrResult") != m.end() && !m["OcrResult"].empty()) {
-      ocrResult = make_shared<string>(boost::any_cast<string>(m["OcrResult"]));
-    }
-    if (m.find("OcrType") != m.end() && !m["OcrType"].empty()) {
-      ocrType = make_shared<string>(boost::any_cast<string>(m["OcrType"]));
-    }
-  }
-
-
-  virtual ~RecognizeExcelExportRequest() = default;
-};
-class RecognizeExcelExportResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-
-  RecognizeExcelExportResponseBody() {}
-
-  explicit RecognizeExcelExportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~RecognizeExcelExportResponseBody() = default;
-};
-class RecognizeExcelExportResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<RecognizeExcelExportResponseBody> body{};
-
-  RecognizeExcelExportResponse() {}
-
-  explicit RecognizeExcelExportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeExcelExportResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeExcelExportResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RecognizeExcelExportResponse() = default;
-};
-class RecognizeExcelRecordRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> currPage{};
-  shared_ptr<long> pageSize{};
-
-  RecognizeExcelRecordRequest() {}
-
-  explicit RecognizeExcelRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (currPage) {
-      res["CurrPage"] = boost::any(*currPage);
-    }
-    if (pageSize) {
-      res["PageSize"] = boost::any(*pageSize);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CurrPage") != m.end() && !m["CurrPage"].empty()) {
-      currPage = make_shared<long>(boost::any_cast<long>(m["CurrPage"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-  }
-
-
-  virtual ~RecognizeExcelRecordRequest() = default;
-};
-class RecognizeExcelRecordResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-
-  RecognizeExcelRecordResponseBody() {}
-
-  explicit RecognizeExcelRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~RecognizeExcelRecordResponseBody() = default;
-};
-class RecognizeExcelRecordResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<RecognizeExcelRecordResponseBody> body{};
-
-  RecognizeExcelRecordResponse() {}
-
-  explicit RecognizeExcelRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeExcelRecordResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeExcelRecordResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RecognizeExcelRecordResponse() = default;
 };
 class RecognizeExitEntryPermitToHKRequest : public Darabonba::Model {
 public:
@@ -11190,8 +10753,6 @@ public:
   RecognizeBankCardResponse recognizeBankCard(shared_ptr<RecognizeBankCardRequest> request);
   RecognizeBasicResponse recognizeBasicWithOptions(shared_ptr<RecognizeBasicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBasicResponse recognizeBasic(shared_ptr<RecognizeBasicRequest> request);
-  RecognizeBatchRecognizeResponse recognizeBatchRecognizeWithOptions(shared_ptr<RecognizeBatchRecognizeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeBatchRecognizeResponse recognizeBatchRecognize(shared_ptr<RecognizeBatchRecognizeRequest> request);
   RecognizeBirthCertificationResponse recognizeBirthCertificationWithOptions(shared_ptr<RecognizeBirthCertificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBirthCertificationResponse recognizeBirthCertification(shared_ptr<RecognizeBirthCertificationRequest> request);
   RecognizeBusShipTicketResponse recognizeBusShipTicketWithOptions(shared_ptr<RecognizeBusShipTicketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11214,8 +10775,8 @@ public:
   RecognizeCovidTestReportResponse recognizeCovidTestReport(shared_ptr<RecognizeCovidTestReportRequest> request);
   RecognizeCtwoMedicalDeviceManageLicenseResponse recognizeCtwoMedicalDeviceManageLicenseWithOptions(shared_ptr<RecognizeCtwoMedicalDeviceManageLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeCtwoMedicalDeviceManageLicenseResponse recognizeCtwoMedicalDeviceManageLicense(shared_ptr<RecognizeCtwoMedicalDeviceManageLicenseRequest> request);
-  RecognizeDeleteExcelRecordResponse recognizeDeleteExcelRecordWithOptions(shared_ptr<RecognizeDeleteExcelRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeDeleteExcelRecordResponse recognizeDeleteExcelRecord(shared_ptr<RecognizeDeleteExcelRecordRequest> request);
+  RecognizeDocumentStructureResponse recognizeDocumentStructureWithOptions(shared_ptr<RecognizeDocumentStructureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeDocumentStructureResponse recognizeDocumentStructure(shared_ptr<RecognizeDocumentStructureRequest> request);
   RecognizeDrivingLicenseResponse recognizeDrivingLicenseWithOptions(shared_ptr<RecognizeDrivingLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeDrivingLicenseResponse recognizeDrivingLicense(shared_ptr<RecognizeDrivingLicenseRequest> request);
   RecognizeEduFormulaResponse recognizeEduFormulaWithOptions(shared_ptr<RecognizeEduFormulaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11234,10 +10795,6 @@ public:
   RecognizeEnglishResponse recognizeEnglish(shared_ptr<RecognizeEnglishRequest> request);
   RecognizeEstateCertificationResponse recognizeEstateCertificationWithOptions(shared_ptr<RecognizeEstateCertificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeEstateCertificationResponse recognizeEstateCertification(shared_ptr<RecognizeEstateCertificationRequest> request);
-  RecognizeExcelExportResponse recognizeExcelExportWithOptions(shared_ptr<RecognizeExcelExportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeExcelExportResponse recognizeExcelExport(shared_ptr<RecognizeExcelExportRequest> request);
-  RecognizeExcelRecordResponse recognizeExcelRecordWithOptions(shared_ptr<RecognizeExcelRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeExcelRecordResponse recognizeExcelRecord(shared_ptr<RecognizeExcelRecordRequest> request);
   RecognizeExitEntryPermitToHKResponse recognizeExitEntryPermitToHKWithOptions(shared_ptr<RecognizeExitEntryPermitToHKRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeExitEntryPermitToHKResponse recognizeExitEntryPermitToHK(shared_ptr<RecognizeExitEntryPermitToHKRequest> request);
   RecognizeExitEntryPermitToMainlandResponse recognizeExitEntryPermitToMainlandWithOptions(shared_ptr<RecognizeExitEntryPermitToMainlandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

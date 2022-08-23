@@ -242,55 +242,6 @@ RecognizeBasicResponse Alibabacloud_Ocr-api20210707::Client::recognizeBasic(shar
   return recognizeBasicWithOptions(request, runtime);
 }
 
-RecognizeBatchRecognizeResponse Alibabacloud_Ocr-api20210707::Client::recognizeBatchRecognizeWithOptions(shared_ptr<RecognizeBatchRecognizeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
-    query->insert(pair<string, string>("ImageName", *request->imageName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imageOp)) {
-    query->insert(pair<string, string>("ImageOp", *request->imageOp));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imageOssKey)) {
-    query->insert(pair<string, string>("ImageOssKey", *request->imageOssKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->needRotate)) {
-    query->insert(pair<string, bool>("NeedRotate", *request->needRotate));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->needSortPage)) {
-    query->insert(pair<string, bool>("NeedSortPage", *request->needSortPage));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->outputCharInfo)) {
-    query->insert(pair<string, bool>("OutputCharInfo", *request->outputCharInfo));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->outputTable)) {
-    query->insert(pair<string, bool>("OutputTable", *request->outputTable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
-    query->insert(pair<string, string>("Url", *request->url));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RecognizeBatchRecognize"))},
-    {"version", boost::any(string("2021-07-07"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return RecognizeBatchRecognizeResponse(callApi(params, req, runtime));
-}
-
-RecognizeBatchRecognizeResponse Alibabacloud_Ocr-api20210707::Client::recognizeBatchRecognize(shared_ptr<RecognizeBatchRecognizeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return recognizeBatchRecognizeWithOptions(request, runtime);
-}
-
 RecognizeBirthCertificationResponse Alibabacloud_Ocr-api20210707::Client::recognizeBirthCertificationWithOptions(shared_ptr<RecognizeBirthCertificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -627,17 +578,46 @@ RecognizeCtwoMedicalDeviceManageLicenseResponse Alibabacloud_Ocr-api20210707::Cl
   return recognizeCtwoMedicalDeviceManageLicenseWithOptions(request, runtime);
 }
 
-RecognizeDeleteExcelRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizeDeleteExcelRecordWithOptions(shared_ptr<RecognizeDeleteExcelRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+RecognizeDocumentStructureResponse Alibabacloud_Ocr-api20210707::Client::recognizeDocumentStructureWithOptions(shared_ptr<RecognizeDocumentStructureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    query->insert(pair<string, string>("Id", *request->id));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needRotate)) {
+    query->insert(pair<string, bool>("NeedRotate", *request->needRotate));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needSortPage)) {
+    query->insert(pair<string, bool>("NeedSortPage", *request->needSortPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->noStamp)) {
+    query->insert(pair<string, bool>("NoStamp", *request->noStamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputCharInfo)) {
+    query->insert(pair<string, bool>("OutputCharInfo", *request->outputCharInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputTable)) {
+    query->insert(pair<string, bool>("OutputTable", *request->outputTable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->page)) {
+    query->insert(pair<string, bool>("Page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->paragraph)) {
+    query->insert(pair<string, bool>("Paragraph", *request->paragraph));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->row)) {
+    query->insert(pair<string, bool>("Row", *request->row));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useNewStyleOutput)) {
+    query->insert(pair<string, bool>("UseNewStyleOutput", *request->useNewStyleOutput));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !request->body ? boost::any() : boost::any(*request->body)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RecognizeDeleteExcelRecord"))},
+    {"action", boost::any(string("RecognizeDocumentStructure"))},
     {"version", boost::any(string("2021-07-07"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -647,12 +627,12 @@ RecognizeDeleteExcelRecordResponse Alibabacloud_Ocr-api20210707::Client::recogni
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return RecognizeDeleteExcelRecordResponse(callApi(params, req, runtime));
+  return RecognizeDocumentStructureResponse(callApi(params, req, runtime));
 }
 
-RecognizeDeleteExcelRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizeDeleteExcelRecord(shared_ptr<RecognizeDeleteExcelRecordRequest> request) {
+RecognizeDocumentStructureResponse Alibabacloud_Ocr-api20210707::Client::recognizeDocumentStructure(shared_ptr<RecognizeDocumentStructureRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return recognizeDeleteExcelRecordWithOptions(request, runtime);
+  return recognizeDocumentStructureWithOptions(request, runtime);
 }
 
 RecognizeDrivingLicenseResponse Alibabacloud_Ocr-api20210707::Client::recognizeDrivingLicenseWithOptions(shared_ptr<RecognizeDrivingLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -956,77 +936,6 @@ RecognizeEstateCertificationResponse Alibabacloud_Ocr-api20210707::Client::recog
 RecognizeEstateCertificationResponse Alibabacloud_Ocr-api20210707::Client::recognizeEstateCertification(shared_ptr<RecognizeEstateCertificationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return recognizeEstateCertificationWithOptions(request, runtime);
-}
-
-RecognizeExcelExportResponse Alibabacloud_Ocr-api20210707::Client::recognizeExcelExportWithOptions(shared_ptr<RecognizeExcelExportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
-    query->insert(pair<string, string>("FileName", *request->fileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imageOp)) {
-    query->insert(pair<string, string>("ImageOp", *request->imageOp));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ocrImageCount)) {
-    query->insert(pair<string, long>("OcrImageCount", *request->ocrImageCount));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ocrResult)) {
-    query->insert(pair<string, string>("OcrResult", *request->ocrResult));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ocrType)) {
-    query->insert(pair<string, string>("OcrType", *request->ocrType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RecognizeExcelExport"))},
-    {"version", boost::any(string("2021-07-07"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return RecognizeExcelExportResponse(callApi(params, req, runtime));
-}
-
-RecognizeExcelExportResponse Alibabacloud_Ocr-api20210707::Client::recognizeExcelExport(shared_ptr<RecognizeExcelExportRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return recognizeExcelExportWithOptions(request, runtime);
-}
-
-RecognizeExcelRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizeExcelRecordWithOptions(shared_ptr<RecognizeExcelRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->currPage)) {
-    query->insert(pair<string, long>("CurrPage", *request->currPage));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    query->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("RecognizeExcelRecord"))},
-    {"version", boost::any(string("2021-07-07"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return RecognizeExcelRecordResponse(callApi(params, req, runtime));
-}
-
-RecognizeExcelRecordResponse Alibabacloud_Ocr-api20210707::Client::recognizeExcelRecord(shared_ptr<RecognizeExcelRecordRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return recognizeExcelRecordWithOptions(request, runtime);
 }
 
 RecognizeExitEntryPermitToHKResponse Alibabacloud_Ocr-api20210707::Client::recognizeExitEntryPermitToHKWithOptions(shared_ptr<RecognizeExitEntryPermitToHKRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
