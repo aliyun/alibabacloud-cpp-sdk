@@ -136,6 +136,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestItineraryList>>(tmpReq->itineraryList)) {
     request->itineraryListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itineraryList, make_shared<string>("itinerary_list"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestItinerarySetList>>(tmpReq->itinerarySetList)) {
+    request->itinerarySetListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itinerarySetList, make_shared<string>("itinerary_set_list"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestTravelerList>>(tmpReq->travelerList)) {
     request->travelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->travelerList, make_shared<string>("traveler_list"), make_shared<string>("json")));
   }
@@ -179,6 +182,12 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryListShrink)) {
     body->insert(pair<string, string>("itinerary_list", *request->itineraryListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->itineraryRule)) {
+    body->insert(pair<string, long>("itinerary_rule", *request->itineraryRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itinerarySetListShrink)) {
+    body->insert(pair<string, string>("itinerary_set_list", *request->itinerarySetListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->limitTraveler)) {
     body->insert(pair<string, long>("limit_traveler", *request->limitTraveler));
@@ -329,6 +338,9 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<ApplyModifyRequestItineraryList>>(tmpReq->itineraryList)) {
     request->itineraryListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itineraryList, make_shared<string>("itinerary_list"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ApplyModifyRequestItinerarySetList>>(tmpReq->itinerarySetList)) {
+    request->itinerarySetListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itinerarySetList, make_shared<string>("itinerary_set_list"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyModifyRequestTravelerList>>(tmpReq->travelerList)) {
     request->travelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->travelerList, make_shared<string>("traveler_list"), make_shared<string>("json")));
   }
@@ -368,6 +380,12 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryListShrink)) {
     body->insert(pair<string, string>("itinerary_list", *request->itineraryListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->itineraryRule)) {
+    body->insert(pair<string, long>("itinerary_rule", *request->itineraryRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itinerarySetListShrink)) {
+    body->insert(pair<string, string>("itinerary_set_list", *request->itinerarySetListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->limitTraveler)) {
     body->insert(pair<string, long>("limit_traveler", *request->limitTraveler));
