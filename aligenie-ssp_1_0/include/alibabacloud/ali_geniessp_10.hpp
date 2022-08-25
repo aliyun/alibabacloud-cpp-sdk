@@ -25193,6 +25193,236 @@ public:
 
   virtual ~ScgSearchShrinkRequest() = default;
 };
+class ScgSearchResponseBodyResultCover : public Darabonba::Model {
+public:
+  shared_ptr<string> img{};
+  shared_ptr<string> large{};
+  shared_ptr<string> medium{};
+  shared_ptr<string> small{};
+  shared_ptr<bool> canResize{};
+
+  ScgSearchResponseBodyResultCover() {}
+
+  explicit ScgSearchResponseBodyResultCover(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (img) {
+      res["Img"] = boost::any(*img);
+    }
+    if (large) {
+      res["Large"] = boost::any(*large);
+    }
+    if (medium) {
+      res["Medium"] = boost::any(*medium);
+    }
+    if (small) {
+      res["Small"] = boost::any(*small);
+    }
+    if (canResize) {
+      res["canResize"] = boost::any(*canResize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Img") != m.end() && !m["Img"].empty()) {
+      img = make_shared<string>(boost::any_cast<string>(m["Img"]));
+    }
+    if (m.find("Large") != m.end() && !m["Large"].empty()) {
+      large = make_shared<string>(boost::any_cast<string>(m["Large"]));
+    }
+    if (m.find("Medium") != m.end() && !m["Medium"].empty()) {
+      medium = make_shared<string>(boost::any_cast<string>(m["Medium"]));
+    }
+    if (m.find("Small") != m.end() && !m["Small"].empty()) {
+      small = make_shared<string>(boost::any_cast<string>(m["Small"]));
+    }
+    if (m.find("canResize") != m.end() && !m["canResize"].empty()) {
+      canResize = make_shared<bool>(boost::any_cast<bool>(m["canResize"]));
+    }
+  }
+
+
+  virtual ~ScgSearchResponseBodyResultCover() = default;
+};
+class ScgSearchResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<bool> album{};
+  shared_ptr<string> albumRawId{};
+  shared_ptr<long> albumType{};
+  shared_ptr<vector<string>> alias{};
+  shared_ptr<vector<long>> authorIds{};
+  shared_ptr<vector<string>> authorNames{};
+  shared_ptr<string> category{};
+  shared_ptr<string> contentType{};
+  shared_ptr<ScgSearchResponseBodyResultCover> cover{};
+  shared_ptr<bool> isAudition{};
+  shared_ptr<string> isCharge{};
+  shared_ptr<bool> needCharge{};
+  shared_ptr<long> rawId{};
+  shared_ptr<string> singers{};
+  shared_ptr<string> source{};
+  shared_ptr<bool> supportAudition{};
+  shared_ptr<string> title{};
+  shared_ptr<string> type{};
+
+  ScgSearchResponseBodyResult() {}
+
+  explicit ScgSearchResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (album) {
+      res["Album"] = boost::any(*album);
+    }
+    if (albumRawId) {
+      res["AlbumRawId"] = boost::any(*albumRawId);
+    }
+    if (albumType) {
+      res["AlbumType"] = boost::any(*albumType);
+    }
+    if (alias) {
+      res["Alias"] = boost::any(*alias);
+    }
+    if (authorIds) {
+      res["AuthorIds"] = boost::any(*authorIds);
+    }
+    if (authorNames) {
+      res["AuthorNames"] = boost::any(*authorNames);
+    }
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
+    if (cover) {
+      res["Cover"] = cover ? boost::any(cover->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (isAudition) {
+      res["IsAudition"] = boost::any(*isAudition);
+    }
+    if (isCharge) {
+      res["IsCharge"] = boost::any(*isCharge);
+    }
+    if (needCharge) {
+      res["NeedCharge"] = boost::any(*needCharge);
+    }
+    if (rawId) {
+      res["RawId"] = boost::any(*rawId);
+    }
+    if (singers) {
+      res["Singers"] = boost::any(*singers);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (supportAudition) {
+      res["SupportAudition"] = boost::any(*supportAudition);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Album") != m.end() && !m["Album"].empty()) {
+      album = make_shared<bool>(boost::any_cast<bool>(m["Album"]));
+    }
+    if (m.find("AlbumRawId") != m.end() && !m["AlbumRawId"].empty()) {
+      albumRawId = make_shared<string>(boost::any_cast<string>(m["AlbumRawId"]));
+    }
+    if (m.find("AlbumType") != m.end() && !m["AlbumType"].empty()) {
+      albumType = make_shared<long>(boost::any_cast<long>(m["AlbumType"]));
+    }
+    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Alias"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Alias"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      alias = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AuthorIds") != m.end() && !m["AuthorIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      authorIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("AuthorNames") != m.end() && !m["AuthorNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
+    if (m.find("Cover") != m.end() && !m["Cover"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Cover"].type()) {
+        ScgSearchResponseBodyResultCover model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Cover"]));
+        cover = make_shared<ScgSearchResponseBodyResultCover>(model1);
+      }
+    }
+    if (m.find("IsAudition") != m.end() && !m["IsAudition"].empty()) {
+      isAudition = make_shared<bool>(boost::any_cast<bool>(m["IsAudition"]));
+    }
+    if (m.find("IsCharge") != m.end() && !m["IsCharge"].empty()) {
+      isCharge = make_shared<string>(boost::any_cast<string>(m["IsCharge"]));
+    }
+    if (m.find("NeedCharge") != m.end() && !m["NeedCharge"].empty()) {
+      needCharge = make_shared<bool>(boost::any_cast<bool>(m["NeedCharge"]));
+    }
+    if (m.find("RawId") != m.end() && !m["RawId"].empty()) {
+      rawId = make_shared<long>(boost::any_cast<long>(m["RawId"]));
+    }
+    if (m.find("Singers") != m.end() && !m["Singers"].empty()) {
+      singers = make_shared<string>(boost::any_cast<string>(m["Singers"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SupportAudition") != m.end() && !m["SupportAudition"].empty()) {
+      supportAudition = make_shared<bool>(boost::any_cast<bool>(m["SupportAudition"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ScgSearchResponseBodyResult() = default;
+};
 class ScgSearchResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
@@ -25200,7 +25430,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> result{};
+  shared_ptr<vector<ScgSearchResponseBodyResult>> result{};
 
   ScgSearchResponseBody() {}
 
@@ -25228,7 +25458,11 @@ public:
       res["RequestId"] = boost::any(*requestId);
     }
     if (result) {
-      res["Result"] = boost::any(*result);
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
     }
     return res;
   }
@@ -25250,7 +25484,17 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
-      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<ScgSearchResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScgSearchResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ScgSearchResponseBodyResult>>(expect1);
+      }
     }
   }
 
