@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Vod20170321;
 
 Alibabacloud_Vod20170321::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-2-pop", "vod.aliyuncs.com"},
@@ -776,6 +777,46 @@ CreateUploadVideoResponse Alibabacloud_Vod20170321::Client::createUploadVideoWit
 CreateUploadVideoResponse Alibabacloud_Vod20170321::Client::createUploadVideo(shared_ptr<CreateUploadVideoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createUploadVideoWithOptions(request, runtime);
+}
+
+DecryptKMSDataKeyResponse Alibabacloud_Vod20170321::Client::decryptKMSDataKeyWithOptions(shared_ptr<DecryptKMSDataKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cipherText)) {
+    query->insert(pair<string, string>("CipherText", *request->cipherText));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DecryptKMSDataKey"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DecryptKMSDataKeyResponse(callApi(params, req, runtime));
+}
+
+DecryptKMSDataKeyResponse Alibabacloud_Vod20170321::Client::decryptKMSDataKey(shared_ptr<DecryptKMSDataKeyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return decryptKMSDataKeyWithOptions(request, runtime);
 }
 
 DeleteAIImageInfosResponse Alibabacloud_Vod20170321::Client::deleteAIImageInfosWithOptions(shared_ptr<DeleteAIImageInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2142,6 +2183,43 @@ DetachAppPolicyFromIdentityResponse Alibabacloud_Vod20170321::Client::detachAppP
   return detachAppPolicyFromIdentityWithOptions(request, runtime);
 }
 
+GenerateKMSDataKeyResponse Alibabacloud_Vod20170321::Client::generateKMSDataKeyWithOptions(shared_ptr<GenerateKMSDataKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateKMSDataKey"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateKMSDataKeyResponse(callApi(params, req, runtime));
+}
+
+GenerateKMSDataKeyResponse Alibabacloud_Vod20170321::Client::generateKMSDataKey(shared_ptr<GenerateKMSDataKeyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return generateKMSDataKeyWithOptions(request, runtime);
+}
+
 GetAIImageJobsResponse Alibabacloud_Vod20170321::Client::getAIImageJobsWithOptions(shared_ptr<GetAIImageJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2563,6 +2641,40 @@ GetImageInfoResponse Alibabacloud_Vod20170321::Client::getImageInfoWithOptions(s
 GetImageInfoResponse Alibabacloud_Vod20170321::Client::getImageInfo(shared_ptr<GetImageInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getImageInfoWithOptions(request, runtime);
+}
+
+GetImageInfosResponse Alibabacloud_Vod20170321::Client::getImageInfosWithOptions(shared_ptr<GetImageInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authTimeout)) {
+    query->insert(pair<string, long>("AuthTimeout", *request->authTimeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageIds)) {
+    query->insert(pair<string, string>("ImageIds", *request->imageIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outputType)) {
+    query->insert(pair<string, string>("OutputType", *request->outputType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetImageInfos"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetImageInfosResponse(callApi(params, req, runtime));
+}
+
+GetImageInfosResponse Alibabacloud_Vod20170321::Client::getImageInfos(shared_ptr<GetImageInfosRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getImageInfosWithOptions(request, runtime);
 }
 
 GetMediaAuditAudioResultDetailResponse Alibabacloud_Vod20170321::Client::getMediaAuditAudioResultDetailWithOptions(shared_ptr<GetMediaAuditAudioResultDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
