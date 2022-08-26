@@ -87,6 +87,55 @@ ActiveFlowLogResponse Alibabacloud_Cbn20170912::Client::activeFlowLog(shared_ptr
   return activeFlowLogWithOptions(request, runtime);
 }
 
+AddTrafficMatchRuleToTrafficMarkingPolicyResponse Alibabacloud_Cbn20170912::Client::addTrafficMatchRuleToTrafficMarkingPolicyWithOptions(shared_ptr<AddTrafficMatchRuleToTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trafficMarkingPolicyId)) {
+    query->insert(pair<string, string>("TrafficMarkingPolicyId", *request->trafficMarkingPolicyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules>>(request->trafficMatchRules)) {
+    query->insert(pair<string, vector<AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules>>("TrafficMatchRules", *request->trafficMatchRules));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddTrafficMatchRuleToTrafficMarkingPolicy"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddTrafficMatchRuleToTrafficMarkingPolicyResponse(callApi(params, req, runtime));
+}
+
+AddTrafficMatchRuleToTrafficMarkingPolicyResponse Alibabacloud_Cbn20170912::Client::addTrafficMatchRuleToTrafficMarkingPolicy(shared_ptr<AddTrafficMatchRuleToTrafficMarkingPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addTrafficMatchRuleToTrafficMarkingPolicyWithOptions(request, runtime);
+}
+
 AddTraficMatchRuleToTrafficMarkingPolicyResponse Alibabacloud_Cbn20170912::Client::addTraficMatchRuleToTrafficMarkingPolicyWithOptions(shared_ptr<AddTraficMatchRuleToTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -707,6 +756,9 @@ CreateCenRouteMapResponse Alibabacloud_Cbn20170912::Client::createCenRouteMapWit
   if (!Darabonba_Util::Client::isUnset<string>(request->mapResult)) {
     query->insert(pair<string, string>("MapResult", *request->mapResult));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchAddressType)) {
+    query->insert(pair<string, string>("MatchAddressType", *request->matchAddressType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->matchAsns)) {
     query->insert(pair<string, vector<long>>("MatchAsns", *request->matchAsns));
   }
@@ -801,6 +853,9 @@ CreateFlowlogResponse Alibabacloud_Cbn20170912::Client::createFlowlogWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->flowLogName)) {
     query->insert(pair<string, string>("FlowLogName", *request->flowLogName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logStoreName)) {
     query->insert(pair<string, string>("LogStoreName", *request->logStoreName));
   }
@@ -821,6 +876,9 @@ CreateFlowlogResponse Alibabacloud_Cbn20170912::Client::createFlowlogWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1097,6 +1155,70 @@ CreateTransitRouterPeerAttachmentResponse Alibabacloud_Cbn20170912::Client::crea
   return createTransitRouterPeerAttachmentWithOptions(request, runtime);
 }
 
+CreateTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::createTransitRouterPrefixListAssociationWithOptions(shared_ptr<CreateTransitRouterPrefixListAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHop)) {
+    query->insert(pair<string, string>("NextHop", *request->nextHop));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHopType)) {
+    query->insert(pair<string, string>("NextHopType", *request->nextHopType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerUid)) {
+    query->insert(pair<string, long>("OwnerUid", *request->ownerUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prefixListId)) {
+    query->insert(pair<string, string>("PrefixListId", *request->prefixListId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterTableId)) {
+    query->insert(pair<string, string>("TransitRouterTableId", *request->transitRouterTableId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTransitRouterPrefixListAssociation"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTransitRouterPrefixListAssociationResponse(callApi(params, req, runtime));
+}
+
+CreateTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::createTransitRouterPrefixListAssociation(shared_ptr<CreateTransitRouterPrefixListAssociationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createTransitRouterPrefixListAssociationWithOptions(request, runtime);
+}
+
 CreateTransitRouterRouteEntryResponse Alibabacloud_Cbn20170912::Client::createTransitRouterRouteEntryWithOptions(shared_ptr<CreateTransitRouterRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1345,6 +1467,79 @@ CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::creat
 CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpcAttachment(shared_ptr<CreateTransitRouterVpcAttachmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createTransitRouterVpcAttachmentWithOptions(request, runtime);
+}
+
+CreateTransitRouterVpnAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpnAttachmentWithOptions(shared_ptr<CreateTransitRouterVpnAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
+    query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    query->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentDescription)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentDescription", *request->transitRouterAttachmentDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentName)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentName", *request->transitRouterAttachmentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpnId)) {
+    query->insert(pair<string, string>("VpnId", *request->vpnId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->vpnOwnerId)) {
+    query->insert(pair<string, long>("VpnOwnerId", *request->vpnOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTransitRouterVpnAttachmentRequestZone>>(request->zone)) {
+    query->insert(pair<string, vector<CreateTransitRouterVpnAttachmentRequestZone>>("Zone", *request->zone));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateTransitRouterVpnAttachment"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateTransitRouterVpnAttachmentResponse(callApi(params, req, runtime));
+}
+
+CreateTransitRouterVpnAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpnAttachment(shared_ptr<CreateTransitRouterVpnAttachmentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createTransitRouterVpnAttachmentWithOptions(request, runtime);
 }
 
 DeactiveFlowLogResponse Alibabacloud_Cbn20170912::Client::deactiveFlowLogWithOptions(shared_ptr<DeactiveFlowLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2012,6 +2207,64 @@ DeleteTransitRouterPeerAttachmentResponse Alibabacloud_Cbn20170912::Client::dele
   return deleteTransitRouterPeerAttachmentWithOptions(request, runtime);
 }
 
+DeleteTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterPrefixListAssociationWithOptions(shared_ptr<DeleteTransitRouterPrefixListAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHop)) {
+    query->insert(pair<string, string>("NextHop", *request->nextHop));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prefixListId)) {
+    query->insert(pair<string, string>("PrefixListId", *request->prefixListId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterTableId)) {
+    query->insert(pair<string, string>("TransitRouterTableId", *request->transitRouterTableId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTransitRouterPrefixListAssociation"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteTransitRouterPrefixListAssociationResponse(callApi(params, req, runtime));
+}
+
+DeleteTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterPrefixListAssociation(shared_ptr<DeleteTransitRouterPrefixListAssociationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteTransitRouterPrefixListAssociationWithOptions(request, runtime);
+}
+
 DeleteTransitRouterRouteEntryResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterRouteEntryWithOptions(shared_ptr<DeleteTransitRouterRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2206,6 +2459,52 @@ DeleteTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::delet
 DeleteTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterVpcAttachment(shared_ptr<DeleteTransitRouterVpcAttachmentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteTransitRouterVpcAttachmentWithOptions(request, runtime);
+}
+
+DeleteTransitRouterVpnAttachmentResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterVpnAttachmentWithOptions(shared_ptr<DeleteTransitRouterVpnAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteTransitRouterVpnAttachment"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteTransitRouterVpnAttachmentResponse(callApi(params, req, runtime));
+}
+
+DeleteTransitRouterVpnAttachmentResponse Alibabacloud_Cbn20170912::Client::deleteTransitRouterVpnAttachment(shared_ptr<DeleteTransitRouterVpnAttachmentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteTransitRouterVpnAttachmentWithOptions(request, runtime);
 }
 
 DeregisterTransitRouterMulticastGroupMembersResponse Alibabacloud_Cbn20170912::Client::deregisterTransitRouterMulticastGroupMembersWithOptions(shared_ptr<DeregisterTransitRouterMulticastGroupMembersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2881,6 +3180,49 @@ DescribeCenVbrHealthCheckResponse Alibabacloud_Cbn20170912::Client::describeCenV
   return describeCenVbrHealthCheckWithOptions(request, runtime);
 }
 
+DescribeCenVpcFlowStatisticSwitchResponse Alibabacloud_Cbn20170912::Client::describeCenVpcFlowStatisticSwitchWithOptions(shared_ptr<DescribeCenVpcFlowStatisticSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCenVpcFlowStatisticSwitch"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCenVpcFlowStatisticSwitchResponse(callApi(params, req, runtime));
+}
+
+DescribeCenVpcFlowStatisticSwitchResponse Alibabacloud_Cbn20170912::Client::describeCenVpcFlowStatisticSwitch(shared_ptr<DescribeCenVpcFlowStatisticSwitchRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCenVpcFlowStatisticSwitchWithOptions(request, runtime);
+}
+
 DescribeCensResponse Alibabacloud_Cbn20170912::Client::describeCensWithOptions(shared_ptr<DescribeCensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3407,6 +3749,52 @@ DisableCenVbrHealthCheckResponse Alibabacloud_Cbn20170912::Client::disableCenVbr
   return disableCenVbrHealthCheckWithOptions(request, runtime);
 }
 
+DisableCenVpcFlowStatisticResponse Alibabacloud_Cbn20170912::Client::disableCenVpcFlowStatisticWithOptions(shared_ptr<DisableCenVpcFlowStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableCenVpcFlowStatistic"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableCenVpcFlowStatisticResponse(callApi(params, req, runtime));
+}
+
+DisableCenVpcFlowStatisticResponse Alibabacloud_Cbn20170912::Client::disableCenVpcFlowStatistic(shared_ptr<DisableCenVpcFlowStatisticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return disableCenVpcFlowStatisticWithOptions(request, runtime);
+}
+
 DisableTransitRouterRouteTablePropagationResponse Alibabacloud_Cbn20170912::Client::disableTransitRouterRouteTablePropagationWithOptions(shared_ptr<DisableTransitRouterRouteTablePropagationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3619,6 +4007,55 @@ EnableCenVbrHealthCheckResponse Alibabacloud_Cbn20170912::Client::enableCenVbrHe
 EnableCenVbrHealthCheckResponse Alibabacloud_Cbn20170912::Client::enableCenVbrHealthCheck(shared_ptr<EnableCenVbrHealthCheckRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return enableCenVbrHealthCheckWithOptions(request, runtime);
+}
+
+EnableCenVpcFlowStatisticResponse Alibabacloud_Cbn20170912::Client::enableCenVpcFlowStatisticWithOptions(shared_ptr<EnableCenVpcFlowStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
+    query->insert(pair<string, long>("Days", *request->days));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableCenVpcFlowStatistic"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableCenVpcFlowStatisticResponse(callApi(params, req, runtime));
+}
+
+EnableCenVpcFlowStatisticResponse Alibabacloud_Cbn20170912::Client::enableCenVpcFlowStatistic(shared_ptr<EnableCenVpcFlowStatisticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableCenVpcFlowStatisticWithOptions(request, runtime);
 }
 
 EnableTransitRouterRouteTablePropagationResponse Alibabacloud_Cbn20170912::Client::enableTransitRouterRouteTablePropagationWithOptions(shared_ptr<EnableTransitRouterRouteTablePropagationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4098,6 +4535,58 @@ ListTransitRouterMulticastDomainAssociationsResponse Alibabacloud_Cbn20170912::C
   return listTransitRouterMulticastDomainAssociationsWithOptions(request, runtime);
 }
 
+ListTransitRouterMulticastDomainVSwitchesResponse Alibabacloud_Cbn20170912::Client::listTransitRouterMulticastDomainVSwitchesWithOptions(shared_ptr<ListTransitRouterMulticastDomainVSwitchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vSwitchIds)) {
+    query->insert(pair<string, vector<string>>("VSwitchIds", *request->vSwitchIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTransitRouterMulticastDomainVSwitches"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTransitRouterMulticastDomainVSwitchesResponse(callApi(params, req, runtime));
+}
+
+ListTransitRouterMulticastDomainVSwitchesResponse Alibabacloud_Cbn20170912::Client::listTransitRouterMulticastDomainVSwitches(shared_ptr<ListTransitRouterMulticastDomainVSwitchesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTransitRouterMulticastDomainVSwitchesWithOptions(request, runtime);
+}
+
 ListTransitRouterMulticastDomainsResponse Alibabacloud_Cbn20170912::Client::listTransitRouterMulticastDomainsWithOptions(shared_ptr<ListTransitRouterMulticastDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4279,6 +4768,64 @@ ListTransitRouterPeerAttachmentsResponse Alibabacloud_Cbn20170912::Client::listT
 ListTransitRouterPeerAttachmentsResponse Alibabacloud_Cbn20170912::Client::listTransitRouterPeerAttachments(shared_ptr<ListTransitRouterPeerAttachmentsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTransitRouterPeerAttachmentsWithOptions(request, runtime);
+}
+
+ListTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::listTransitRouterPrefixListAssociationWithOptions(shared_ptr<ListTransitRouterPrefixListAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerUid)) {
+    query->insert(pair<string, long>("OwnerUid", *request->ownerUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prefixListId)) {
+    query->insert(pair<string, string>("PrefixListId", *request->prefixListId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterTableId)) {
+    query->insert(pair<string, string>("TransitRouterTableId", *request->transitRouterTableId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTransitRouterPrefixListAssociation"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTransitRouterPrefixListAssociationResponse(callApi(params, req, runtime));
+}
+
+ListTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::listTransitRouterPrefixListAssociation(shared_ptr<ListTransitRouterPrefixListAssociationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTransitRouterPrefixListAssociationWithOptions(request, runtime);
 }
 
 ListTransitRouterRouteEntriesResponse Alibabacloud_Cbn20170912::Client::listTransitRouterRouteEntriesWithOptions(shared_ptr<ListTransitRouterRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4605,6 +5152,61 @@ ListTransitRouterVpcAttachmentsResponse Alibabacloud_Cbn20170912::Client::listTr
   return listTransitRouterVpcAttachmentsWithOptions(request, runtime);
 }
 
+ListTransitRouterVpnAttachmentsResponse Alibabacloud_Cbn20170912::Client::listTransitRouterVpnAttachmentsWithOptions(shared_ptr<ListTransitRouterVpnAttachmentsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
+    query->insert(pair<string, string>("CenId", *request->cenId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
+    query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListTransitRouterVpnAttachments"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListTransitRouterVpnAttachmentsResponse(callApi(params, req, runtime));
+}
+
+ListTransitRouterVpnAttachmentsResponse Alibabacloud_Cbn20170912::Client::listTransitRouterVpnAttachments(shared_ptr<ListTransitRouterVpnAttachmentsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listTransitRouterVpnAttachmentsWithOptions(request, runtime);
+}
+
 ListTransitRoutersResponse Alibabacloud_Cbn20170912::Client::listTransitRoutersWithOptions(shared_ptr<ListTransitRoutersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4836,6 +5438,9 @@ ModifyCenRouteMapResponse Alibabacloud_Cbn20170912::Client::modifyCenRouteMapWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mapResult)) {
     query->insert(pair<string, string>("MapResult", *request->mapResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchAddressType)) {
+    query->insert(pair<string, string>("MatchAddressType", *request->matchAddressType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->matchAsns)) {
     query->insert(pair<string, vector<long>>("MatchAsns", *request->matchAsns));
@@ -5194,6 +5799,9 @@ RegisterTransitRouterMulticastGroupMembersResponse Alibabacloud_Cbn20170912::Cli
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterMulticastDomainId)) {
     query->insert(pair<string, string>("TransitRouterMulticastDomainId", *request->transitRouterMulticastDomainId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5245,6 +5853,9 @@ RegisterTransitRouterMulticastGroupSourcesResponse Alibabacloud_Cbn20170912::Cli
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterMulticastDomainId)) {
     query->insert(pair<string, string>("TransitRouterMulticastDomainId", *request->transitRouterMulticastDomainId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -6291,6 +6902,113 @@ UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Clie
 UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentAttribute(shared_ptr<UpdateTransitRouterVpcAttachmentAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateTransitRouterVpcAttachmentAttributeWithOptions(request, runtime);
+}
+
+UpdateTransitRouterVpcAttachmentZonesResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentZonesWithOptions(shared_ptr<UpdateTransitRouterVpcAttachmentZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateTransitRouterVpcAttachmentZonesRequestAddZoneMappings>>(request->addZoneMappings)) {
+    query->insert(pair<string, vector<UpdateTransitRouterVpcAttachmentZonesRequestAddZoneMappings>>("AddZoneMappings", *request->addZoneMappings));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateTransitRouterVpcAttachmentZonesRequestRemoveZoneMappings>>(request->removeZoneMappings)) {
+    query->insert(pair<string, vector<UpdateTransitRouterVpcAttachmentZonesRequestRemoveZoneMappings>>("RemoveZoneMappings", *request->removeZoneMappings));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTransitRouterVpcAttachmentZones"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTransitRouterVpcAttachmentZonesResponse(callApi(params, req, runtime));
+}
+
+UpdateTransitRouterVpcAttachmentZonesResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentZones(shared_ptr<UpdateTransitRouterVpcAttachmentZonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateTransitRouterVpcAttachmentZonesWithOptions(request, runtime);
+}
+
+UpdateTransitRouterVpnAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpnAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterVpnAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
+    query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentDescription)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentDescription", *request->transitRouterAttachmentDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentName)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentName", *request->transitRouterAttachmentName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateTransitRouterVpnAttachmentAttribute"))},
+    {"version", boost::any(string("2017-09-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateTransitRouterVpnAttachmentAttributeResponse(callApi(params, req, runtime));
+}
+
+UpdateTransitRouterVpnAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpnAttachmentAttribute(shared_ptr<UpdateTransitRouterVpnAttachmentAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateTransitRouterVpnAttachmentAttributeWithOptions(request, runtime);
 }
 
 WithdrawPublishedRouteEntriesResponse Alibabacloud_Cbn20170912::Client::withdrawPublishedRouteEntriesWithOptions(shared_ptr<WithdrawPublishedRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
