@@ -2219,6 +2219,9 @@ DeleteTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Clien
   if (!Darabonba_Util::Client::isUnset<string>(request->nextHop)) {
     query->insert(pair<string, string>("NextHop", *request->nextHop));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHopType)) {
+    query->insert(pair<string, string>("NextHopType", *request->nextHopType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

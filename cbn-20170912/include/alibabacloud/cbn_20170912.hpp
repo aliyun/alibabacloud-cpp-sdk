@@ -7932,6 +7932,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> nextHop{};
+  shared_ptr<string> nextHopType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> prefixListId{};
@@ -7959,6 +7960,9 @@ public:
     }
     if (nextHop) {
       res["NextHop"] = boost::any(*nextHop);
+    }
+    if (nextHopType) {
+      res["NextHopType"] = boost::any(*nextHopType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -7996,6 +8000,9 @@ public:
     }
     if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
       nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("NextHopType") != m.end() && !m["NextHopType"].empty()) {
+      nextHopType = make_shared<string>(boost::any_cast<string>(m["NextHopType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
