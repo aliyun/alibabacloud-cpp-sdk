@@ -2384,8 +2384,14 @@ DescribeApisResponse Alibabacloud_CloudAPI20160714::Client::describeApisWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->apiId)) {
     query->insert(pair<string, string>("ApiId", *request->apiId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiMethod)) {
+    query->insert(pair<string, string>("ApiMethod", *request->apiMethod));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiName)) {
     query->insert(pair<string, string>("ApiName", *request->apiName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiPath)) {
+    query->insert(pair<string, string>("ApiPath", *request->apiPath));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->catalogId)) {
     query->insert(pair<string, string>("CatalogId", *request->catalogId));
@@ -2407,6 +2413,9 @@ DescribeApisResponse Alibabacloud_CloudAPI20160714::Client::describeApisWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeApisRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeApisRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->unDeployed)) {
+    query->insert(pair<string, bool>("UnDeployed", *request->unDeployed));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->visibility)) {
     query->insert(pair<string, string>("Visibility", *request->visibility));
@@ -3030,8 +3039,14 @@ DescribeDeployedApisResponse Alibabacloud_CloudAPI20160714::Client::describeDepl
   if (!Darabonba_Util::Client::isUnset<string>(request->apiId)) {
     query->insert(pair<string, string>("ApiId", *request->apiId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiMethod)) {
+    query->insert(pair<string, string>("ApiMethod", *request->apiMethod));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiName)) {
     query->insert(pair<string, string>("ApiName", *request->apiName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiPath)) {
+    query->insert(pair<string, string>("ApiPath", *request->apiPath));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableTagAuth)) {
     query->insert(pair<string, bool>("EnableTagAuth", *request->enableTagAuth));
@@ -3837,9 +3852,6 @@ DescribeTrafficControlsByApiResponse Alibabacloud_CloudAPI20160714::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
   }
@@ -3871,9 +3883,6 @@ DescribeUpdateBackendTaskResponse Alibabacloud_CloudAPI20160714::Client::describ
   if (!Darabonba_Util::Client::isUnset<string>(request->operationUid)) {
     query->insert(pair<string, string>("OperationUid", *request->operationUid));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3901,9 +3910,6 @@ DescribeUpdateVpcInfoTaskResponse Alibabacloud_CloudAPI20160714::Client::describ
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->operationUid)) {
     query->insert(pair<string, string>("OperationUid", *request->operationUid));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4056,9 +4062,6 @@ DisableInstanceAccessControlResponse Alibabacloud_CloudAPI20160714::Client::disa
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4142,9 +4145,6 @@ EnableInstanceAccessControlResponse Alibabacloud_CloudAPI20160714::Client::enabl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4564,6 +4564,52 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroup(sha
   return modifyApiGroupWithOptions(request, runtime);
 }
 
+ModifyApiGroupNetworkPolicyResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupNetworkPolicyWithOptions(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsPolicy)) {
+    query->insert(pair<string, string>("HttpsPolicy", *request->httpsPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->internetEnable)) {
+    query->insert(pair<string, bool>("InternetEnable", *request->internetEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->internetIPV6Enable)) {
+    query->insert(pair<string, bool>("InternetIPV6Enable", *request->internetIPV6Enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->vpcIntranetEnable)) {
+    query->insert(pair<string, bool>("VpcIntranetEnable", *request->vpcIntranetEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->vpcSlbIntranetEnable)) {
+    query->insert(pair<string, bool>("VpcSlbIntranetEnable", *request->vpcSlbIntranetEnable));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyApiGroupNetworkPolicy"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyApiGroupNetworkPolicyResponse(callApi(params, req, runtime));
+}
+
+ModifyApiGroupNetworkPolicyResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupNetworkPolicy(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyApiGroupNetworkPolicyWithOptions(request, runtime);
+}
+
 ModifyApiGroupVpcWhitelistResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupVpcWhitelistWithOptions(shared_ptr<ModifyApiGroupVpcWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4739,6 +4785,9 @@ ModifyInstanceSpecResponse Alibabacloud_CloudAPI20160714::Client::modifyInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->modifyAction)) {
     query->insert(pair<string, string>("ModifyAction", *request->modifyAction));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->skipWaitSwitch)) {
+    query->insert(pair<string, bool>("SkipWaitSwitch", *request->skipWaitSwitch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
     query->insert(pair<string, string>("Token", *request->token));
   }
@@ -4775,9 +4824,6 @@ ModifyIpControlResponse Alibabacloud_CloudAPI20160714::Client::modifyIpControlWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipControlName)) {
     query->insert(pair<string, string>("IpControlName", *request->ipControlName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4964,9 +5010,6 @@ ModifyPluginResponse Alibabacloud_CloudAPI20160714::Client::modifyPlugin(shared_
 ModifySignatureResponse Alibabacloud_CloudAPI20160714::Client::modifySignatureWithOptions(shared_ptr<ModifySignatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
     query->insert(pair<string, string>("SignatureId", *request->signatureId));
   }
@@ -5012,9 +5055,6 @@ ModifyTrafficControlResponse Alibabacloud_CloudAPI20160714::Client::modifyTraffi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->trafficControlId)) {
     query->insert(pair<string, string>("TrafficControlId", *request->trafficControlId));
@@ -5080,9 +5120,6 @@ ReactivateDomainResponse Alibabacloud_CloudAPI20160714::Client::reactivateDomain
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5113,9 +5150,6 @@ RemoveAccessControlListEntryResponse Alibabacloud_CloudAPI20160714::Client::remo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclId)) {
     query->insert(pair<string, string>("AclId", *request->aclId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5153,9 +5187,6 @@ RemoveApisAuthoritiesResponse Alibabacloud_CloudAPI20160714::Client::removeApisA
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
@@ -5271,9 +5302,6 @@ RemoveIpControlPolicyItemResponse Alibabacloud_CloudAPI20160714::Client::removeI
   if (!Darabonba_Util::Client::isUnset<string>(request->policyItemIds)) {
     query->insert(pair<string, string>("PolicyItemIds", *request->policyItemIds));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5304,9 +5332,6 @@ RemoveSignatureApisResponse Alibabacloud_CloudAPI20160714::Client::removeSignatu
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
     query->insert(pair<string, string>("SignatureId", *request->signatureId));
@@ -5344,9 +5369,6 @@ RemoveTrafficControlApisResponse Alibabacloud_CloudAPI20160714::Client::removeTr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
@@ -5930,9 +5952,6 @@ SetSignatureApisResponse Alibabacloud_CloudAPI20160714::Client::setSignatureApis
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->signatureId)) {
     query->insert(pair<string, string>("SignatureId", *request->signatureId));
   }
@@ -5969,9 +5988,6 @@ SetTrafficControlApisResponse Alibabacloud_CloudAPI20160714::Client::setTrafficC
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
     query->insert(pair<string, string>("StageName", *request->stageName));
@@ -6055,9 +6071,6 @@ SetWildcardDomainPatternsResponse Alibabacloud_CloudAPI20160714::Client::setWild
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
-    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->wildcardDomainPatterns)) {
     query->insert(pair<string, string>("WildcardDomainPatterns", *request->wildcardDomainPatterns));
