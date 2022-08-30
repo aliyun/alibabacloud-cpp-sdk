@@ -13113,6 +13113,204 @@ public:
 
   virtual ~DescribePolicyInstancesStatusResponse() = default;
 };
+class DescribeTaskInfoResponseBodyError : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+
+  DescribeTaskInfoResponseBodyError() {}
+
+  explicit DescribeTaskInfoResponseBodyError(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+  }
+
+
+  virtual ~DescribeTaskInfoResponseBodyError() = default;
+};
+class DescribeTaskInfoResponseBodyEvents : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> level{};
+  shared_ptr<string> message{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> source{};
+  shared_ptr<string> timestamp{};
+
+  DescribeTaskInfoResponseBodyEvents() {}
+
+  explicit DescribeTaskInfoResponseBodyEvents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = boost::any(*action);
+    }
+    if (level) {
+      res["level"] = boost::any(*level);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (reason) {
+      res["reason"] = boost::any(*reason);
+    }
+    if (source) {
+      res["source"] = boost::any(*source);
+    }
+    if (timestamp) {
+      res["timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    }
+    if (m.find("level") != m.end() && !m["level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["level"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("reason") != m.end() && !m["reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["reason"]));
+    }
+    if (m.find("source") != m.end() && !m["source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["source"]));
+    }
+    if (m.find("timestamp") != m.end() && !m["timestamp"].empty()) {
+      timestamp = make_shared<string>(boost::any_cast<string>(m["timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeTaskInfoResponseBodyEvents() = default;
+};
+class DescribeTaskInfoResponseBodyStages : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> message{};
+  shared_ptr<map<string, boost::any>> outputs{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> state{};
+
+  DescribeTaskInfoResponseBodyStages() {}
+
+  explicit DescribeTaskInfoResponseBodyStages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["end_time"] = boost::any(*endTime);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (outputs) {
+      res["outputs"] = boost::any(*outputs);
+    }
+    if (startTime) {
+      res["start_time"] = boost::any(*startTime);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("end_time") != m.end() && !m["end_time"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["end_time"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("outputs") != m.end() && !m["outputs"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["outputs"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      outputs = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["start_time"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~DescribeTaskInfoResponseBodyStages() = default;
+};
+class DescribeTaskInfoResponseBodyTarget : public Darabonba::Model {
+public:
+  shared_ptr<string> id{};
+  shared_ptr<string> type{};
+
+  DescribeTaskInfoResponseBodyTarget() {}
+
+  explicit DescribeTaskInfoResponseBodyTarget(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~DescribeTaskInfoResponseBodyTarget() = default;
+};
 class DescribeTaskInfoResponseBodyTaskResult : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -13153,7 +13351,13 @@ class DescribeTaskInfoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> created{};
+  shared_ptr<string> currentStage{};
+  shared_ptr<DescribeTaskInfoResponseBodyError> error{};
+  shared_ptr<vector<DescribeTaskInfoResponseBodyEvents>> events{};
+  shared_ptr<map<string, boost::any>> parameters{};
+  shared_ptr<vector<DescribeTaskInfoResponseBodyStages>> stages{};
   shared_ptr<string> state{};
+  shared_ptr<DescribeTaskInfoResponseBodyTarget> target{};
   shared_ptr<string> taskId{};
   shared_ptr<vector<DescribeTaskInfoResponseBodyTaskResult>> taskResult{};
   shared_ptr<string> taskType{};
@@ -13175,8 +13379,34 @@ public:
     if (created) {
       res["created"] = boost::any(*created);
     }
+    if (currentStage) {
+      res["current_stage"] = boost::any(*currentStage);
+    }
+    if (error) {
+      res["error"] = error ? boost::any(error->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (events) {
+      vector<boost::any> temp1;
+      for(auto item1:*events){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["events"] = boost::any(temp1);
+    }
+    if (parameters) {
+      res["parameters"] = boost::any(*parameters);
+    }
+    if (stages) {
+      vector<boost::any> temp1;
+      for(auto item1:*stages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["stages"] = boost::any(temp1);
+    }
     if (state) {
       res["state"] = boost::any(*state);
+    }
+    if (target) {
+      res["target"] = target ? boost::any(target->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (taskId) {
       res["task_id"] = boost::any(*taskId);
@@ -13204,8 +13434,59 @@ public:
     if (m.find("created") != m.end() && !m["created"].empty()) {
       created = make_shared<string>(boost::any_cast<string>(m["created"]));
     }
+    if (m.find("current_stage") != m.end() && !m["current_stage"].empty()) {
+      currentStage = make_shared<string>(boost::any_cast<string>(m["current_stage"]));
+    }
+    if (m.find("error") != m.end() && !m["error"].empty()) {
+      if (typeid(map<string, boost::any>) == m["error"].type()) {
+        DescribeTaskInfoResponseBodyError model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["error"]));
+        error = make_shared<DescribeTaskInfoResponseBodyError>(model1);
+      }
+    }
+    if (m.find("events") != m.end() && !m["events"].empty()) {
+      if (typeid(vector<boost::any>) == m["events"].type()) {
+        vector<DescribeTaskInfoResponseBodyEvents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["events"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeTaskInfoResponseBodyEvents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        events = make_shared<vector<DescribeTaskInfoResponseBodyEvents>>(expect1);
+      }
+    }
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["parameters"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("stages") != m.end() && !m["stages"].empty()) {
+      if (typeid(vector<boost::any>) == m["stages"].type()) {
+        vector<DescribeTaskInfoResponseBodyStages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["stages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeTaskInfoResponseBodyStages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stages = make_shared<vector<DescribeTaskInfoResponseBodyStages>>(expect1);
+      }
+    }
     if (m.find("state") != m.end() && !m["state"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("target") != m.end() && !m["target"].empty()) {
+      if (typeid(map<string, boost::any>) == m["target"].type()) {
+        DescribeTaskInfoResponseBodyTarget model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["target"]));
+        target = make_shared<DescribeTaskInfoResponseBodyTarget>(model1);
+      }
     }
     if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
@@ -16535,217 +16816,6 @@ public:
 
   virtual ~ModifyClusterNodePoolRequestManagement() = default;
 };
-class ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration : public Darabonba::Model {
-public:
-  shared_ptr<string> cpuManagerPolicy{};
-  shared_ptr<long> eventBurst{};
-  shared_ptr<long> eventRecordQPS{};
-  shared_ptr<map<string, boost::any>> evictionHard{};
-  shared_ptr<map<string, boost::any>> evictionSoft{};
-  shared_ptr<map<string, boost::any>> evictionSoftGracePeriod{};
-  shared_ptr<long> kubeAPIBurst{};
-  shared_ptr<long> kubeAPIQPS{};
-  shared_ptr<map<string, boost::any>> kubeReserved{};
-  shared_ptr<long> registryBurst{};
-  shared_ptr<long> registryPullQPS{};
-  shared_ptr<bool> serializeImagePulls{};
-  shared_ptr<map<string, boost::any>> systemReserved{};
-
-  ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration() {}
-
-  explicit ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (cpuManagerPolicy) {
-      res["cpuManagerPolicy"] = boost::any(*cpuManagerPolicy);
-    }
-    if (eventBurst) {
-      res["eventBurst"] = boost::any(*eventBurst);
-    }
-    if (eventRecordQPS) {
-      res["eventRecordQPS"] = boost::any(*eventRecordQPS);
-    }
-    if (evictionHard) {
-      res["evictionHard"] = boost::any(*evictionHard);
-    }
-    if (evictionSoft) {
-      res["evictionSoft"] = boost::any(*evictionSoft);
-    }
-    if (evictionSoftGracePeriod) {
-      res["evictionSoftGracePeriod"] = boost::any(*evictionSoftGracePeriod);
-    }
-    if (kubeAPIBurst) {
-      res["kubeAPIBurst"] = boost::any(*kubeAPIBurst);
-    }
-    if (kubeAPIQPS) {
-      res["kubeAPIQPS"] = boost::any(*kubeAPIQPS);
-    }
-    if (kubeReserved) {
-      res["kubeReserved"] = boost::any(*kubeReserved);
-    }
-    if (registryBurst) {
-      res["registryBurst"] = boost::any(*registryBurst);
-    }
-    if (registryPullQPS) {
-      res["registryPullQPS"] = boost::any(*registryPullQPS);
-    }
-    if (serializeImagePulls) {
-      res["serializeImagePulls"] = boost::any(*serializeImagePulls);
-    }
-    if (systemReserved) {
-      res["systemReserved"] = boost::any(*systemReserved);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("cpuManagerPolicy") != m.end() && !m["cpuManagerPolicy"].empty()) {
-      cpuManagerPolicy = make_shared<string>(boost::any_cast<string>(m["cpuManagerPolicy"]));
-    }
-    if (m.find("eventBurst") != m.end() && !m["eventBurst"].empty()) {
-      eventBurst = make_shared<long>(boost::any_cast<long>(m["eventBurst"]));
-    }
-    if (m.find("eventRecordQPS") != m.end() && !m["eventRecordQPS"].empty()) {
-      eventRecordQPS = make_shared<long>(boost::any_cast<long>(m["eventRecordQPS"]));
-    }
-    if (m.find("evictionHard") != m.end() && !m["evictionHard"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionHard"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionHard = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("evictionSoft") != m.end() && !m["evictionSoft"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoft"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionSoft = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("evictionSoftGracePeriod") != m.end() && !m["evictionSoftGracePeriod"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoftGracePeriod"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionSoftGracePeriod = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("kubeAPIBurst") != m.end() && !m["kubeAPIBurst"].empty()) {
-      kubeAPIBurst = make_shared<long>(boost::any_cast<long>(m["kubeAPIBurst"]));
-    }
-    if (m.find("kubeAPIQPS") != m.end() && !m["kubeAPIQPS"].empty()) {
-      kubeAPIQPS = make_shared<long>(boost::any_cast<long>(m["kubeAPIQPS"]));
-    }
-    if (m.find("kubeReserved") != m.end() && !m["kubeReserved"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["kubeReserved"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      kubeReserved = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("registryBurst") != m.end() && !m["registryBurst"].empty()) {
-      registryBurst = make_shared<long>(boost::any_cast<long>(m["registryBurst"]));
-    }
-    if (m.find("registryPullQPS") != m.end() && !m["registryPullQPS"].empty()) {
-      registryPullQPS = make_shared<long>(boost::any_cast<long>(m["registryPullQPS"]));
-    }
-    if (m.find("serializeImagePulls") != m.end() && !m["serializeImagePulls"].empty()) {
-      serializeImagePulls = make_shared<bool>(boost::any_cast<bool>(m["serializeImagePulls"]));
-    }
-    if (m.find("systemReserved") != m.end() && !m["systemReserved"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["systemReserved"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      systemReserved = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration() = default;
-};
-class ModifyClusterNodePoolRequestNodeConfigRolloutPolicy : public Darabonba::Model {
-public:
-  shared_ptr<long> maxUnavailable{};
-
-  ModifyClusterNodePoolRequestNodeConfigRolloutPolicy() {}
-
-  explicit ModifyClusterNodePoolRequestNodeConfigRolloutPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxUnavailable) {
-      res["max_unavailable"] = boost::any(*maxUnavailable);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("max_unavailable") != m.end() && !m["max_unavailable"].empty()) {
-      maxUnavailable = make_shared<long>(boost::any_cast<long>(m["max_unavailable"]));
-    }
-  }
-
-
-  virtual ~ModifyClusterNodePoolRequestNodeConfigRolloutPolicy() = default;
-};
-class ModifyClusterNodePoolRequestNodeConfig : public Darabonba::Model {
-public:
-  shared_ptr<ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration> kubeletConfiguration{};
-  shared_ptr<ModifyClusterNodePoolRequestNodeConfigRolloutPolicy> rolloutPolicy{};
-
-  ModifyClusterNodePoolRequestNodeConfig() {}
-
-  explicit ModifyClusterNodePoolRequestNodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (kubeletConfiguration) {
-      res["kubelet_configuration"] = kubeletConfiguration ? boost::any(kubeletConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (rolloutPolicy) {
-      res["rollout_policy"] = rolloutPolicy ? boost::any(rolloutPolicy->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("kubelet_configuration") != m.end() && !m["kubelet_configuration"].empty()) {
-      if (typeid(map<string, boost::any>) == m["kubelet_configuration"].type()) {
-        ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_configuration"]));
-        kubeletConfiguration = make_shared<ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration>(model1);
-      }
-    }
-    if (m.find("rollout_policy") != m.end() && !m["rollout_policy"].empty()) {
-      if (typeid(map<string, boost::any>) == m["rollout_policy"].type()) {
-        ModifyClusterNodePoolRequestNodeConfigRolloutPolicy model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rollout_policy"]));
-        rolloutPolicy = make_shared<ModifyClusterNodePoolRequestNodeConfigRolloutPolicy>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ModifyClusterNodePoolRequestNodeConfig() = default;
-};
 class ModifyClusterNodePoolRequestNodepoolInfo : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -17140,7 +17210,6 @@ public:
   shared_ptr<ModifyClusterNodePoolRequestAutoScaling> autoScaling{};
   shared_ptr<ModifyClusterNodePoolRequestKubernetesConfig> kubernetesConfig{};
   shared_ptr<ModifyClusterNodePoolRequestManagement> management{};
-  shared_ptr<ModifyClusterNodePoolRequestNodeConfig> nodeConfig{};
   shared_ptr<ModifyClusterNodePoolRequestNodepoolInfo> nodepoolInfo{};
   shared_ptr<ModifyClusterNodePoolRequestScalingGroup> scalingGroup{};
   shared_ptr<ModifyClusterNodePoolRequestTeeConfig> teeConfig{};
@@ -17164,9 +17233,6 @@ public:
     }
     if (management) {
       res["management"] = management ? boost::any(management->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (nodeConfig) {
-      res["node_config"] = nodeConfig ? boost::any(nodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17203,13 +17269,6 @@ public:
         ModifyClusterNodePoolRequestManagement model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["management"]));
         management = make_shared<ModifyClusterNodePoolRequestManagement>(model1);
-      }
-    }
-    if (m.find("node_config") != m.end() && !m["node_config"].empty()) {
-      if (typeid(map<string, boost::any>) == m["node_config"].type()) {
-        ModifyClusterNodePoolRequestNodeConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["node_config"]));
-        nodeConfig = make_shared<ModifyClusterNodePoolRequestNodeConfig>(model1);
       }
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
@@ -17429,6 +17488,322 @@ public:
 
 
   virtual ~ModifyClusterTagsResponse() = default;
+};
+class ModifyNodePoolNodeConfigRequestKubeletConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> cpuManagerPolicy{};
+  shared_ptr<long> eventBurst{};
+  shared_ptr<long> eventRecordQPS{};
+  shared_ptr<map<string, boost::any>> evictionHard{};
+  shared_ptr<map<string, boost::any>> evictionSoft{};
+  shared_ptr<map<string, boost::any>> evictionSoftGracePeriod{};
+  shared_ptr<long> kubeAPIBurst{};
+  shared_ptr<long> kubeAPIQPS{};
+  shared_ptr<map<string, boost::any>> kubeReserved{};
+  shared_ptr<long> registryBurst{};
+  shared_ptr<long> registryPullQPS{};
+  shared_ptr<bool> serializeImagePulls{};
+  shared_ptr<map<string, boost::any>> systemReserved{};
+
+  ModifyNodePoolNodeConfigRequestKubeletConfig() {}
+
+  explicit ModifyNodePoolNodeConfigRequestKubeletConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cpuManagerPolicy) {
+      res["cpuManagerPolicy"] = boost::any(*cpuManagerPolicy);
+    }
+    if (eventBurst) {
+      res["eventBurst"] = boost::any(*eventBurst);
+    }
+    if (eventRecordQPS) {
+      res["eventRecordQPS"] = boost::any(*eventRecordQPS);
+    }
+    if (evictionHard) {
+      res["evictionHard"] = boost::any(*evictionHard);
+    }
+    if (evictionSoft) {
+      res["evictionSoft"] = boost::any(*evictionSoft);
+    }
+    if (evictionSoftGracePeriod) {
+      res["evictionSoftGracePeriod"] = boost::any(*evictionSoftGracePeriod);
+    }
+    if (kubeAPIBurst) {
+      res["kubeAPIBurst"] = boost::any(*kubeAPIBurst);
+    }
+    if (kubeAPIQPS) {
+      res["kubeAPIQPS"] = boost::any(*kubeAPIQPS);
+    }
+    if (kubeReserved) {
+      res["kubeReserved"] = boost::any(*kubeReserved);
+    }
+    if (registryBurst) {
+      res["registryBurst"] = boost::any(*registryBurst);
+    }
+    if (registryPullQPS) {
+      res["registryPullQPS"] = boost::any(*registryPullQPS);
+    }
+    if (serializeImagePulls) {
+      res["serializeImagePulls"] = boost::any(*serializeImagePulls);
+    }
+    if (systemReserved) {
+      res["systemReserved"] = boost::any(*systemReserved);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cpuManagerPolicy") != m.end() && !m["cpuManagerPolicy"].empty()) {
+      cpuManagerPolicy = make_shared<string>(boost::any_cast<string>(m["cpuManagerPolicy"]));
+    }
+    if (m.find("eventBurst") != m.end() && !m["eventBurst"].empty()) {
+      eventBurst = make_shared<long>(boost::any_cast<long>(m["eventBurst"]));
+    }
+    if (m.find("eventRecordQPS") != m.end() && !m["eventRecordQPS"].empty()) {
+      eventRecordQPS = make_shared<long>(boost::any_cast<long>(m["eventRecordQPS"]));
+    }
+    if (m.find("evictionHard") != m.end() && !m["evictionHard"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionHard"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionHard = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("evictionSoft") != m.end() && !m["evictionSoft"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoft"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionSoft = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("evictionSoftGracePeriod") != m.end() && !m["evictionSoftGracePeriod"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoftGracePeriod"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionSoftGracePeriod = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("kubeAPIBurst") != m.end() && !m["kubeAPIBurst"].empty()) {
+      kubeAPIBurst = make_shared<long>(boost::any_cast<long>(m["kubeAPIBurst"]));
+    }
+    if (m.find("kubeAPIQPS") != m.end() && !m["kubeAPIQPS"].empty()) {
+      kubeAPIQPS = make_shared<long>(boost::any_cast<long>(m["kubeAPIQPS"]));
+    }
+    if (m.find("kubeReserved") != m.end() && !m["kubeReserved"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["kubeReserved"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      kubeReserved = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("registryBurst") != m.end() && !m["registryBurst"].empty()) {
+      registryBurst = make_shared<long>(boost::any_cast<long>(m["registryBurst"]));
+    }
+    if (m.find("registryPullQPS") != m.end() && !m["registryPullQPS"].empty()) {
+      registryPullQPS = make_shared<long>(boost::any_cast<long>(m["registryPullQPS"]));
+    }
+    if (m.find("serializeImagePulls") != m.end() && !m["serializeImagePulls"].empty()) {
+      serializeImagePulls = make_shared<bool>(boost::any_cast<bool>(m["serializeImagePulls"]));
+    }
+    if (m.find("systemReserved") != m.end() && !m["systemReserved"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["systemReserved"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      systemReserved = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigRequestKubeletConfig() = default;
+};
+class ModifyNodePoolNodeConfigRequestRollingPolicy : public Darabonba::Model {
+public:
+  shared_ptr<long> maxParallelism{};
+
+  ModifyNodePoolNodeConfigRequestRollingPolicy() {}
+
+  explicit ModifyNodePoolNodeConfigRequestRollingPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxParallelism) {
+      res["max_parallelism"] = boost::any(*maxParallelism);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("max_parallelism") != m.end() && !m["max_parallelism"].empty()) {
+      maxParallelism = make_shared<long>(boost::any_cast<long>(m["max_parallelism"]));
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigRequestRollingPolicy() = default;
+};
+class ModifyNodePoolNodeConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<ModifyNodePoolNodeConfigRequestKubeletConfig> kubeletConfig{};
+  shared_ptr<ModifyNodePoolNodeConfigRequestRollingPolicy> rollingPolicy{};
+
+  ModifyNodePoolNodeConfigRequest() {}
+
+  explicit ModifyNodePoolNodeConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kubeletConfig) {
+      res["kubelet_config"] = kubeletConfig ? boost::any(kubeletConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rollingPolicy) {
+      res["rolling_policy"] = rollingPolicy ? boost::any(rollingPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("kubelet_config") != m.end() && !m["kubelet_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["kubelet_config"].type()) {
+        ModifyNodePoolNodeConfigRequestKubeletConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_config"]));
+        kubeletConfig = make_shared<ModifyNodePoolNodeConfigRequestKubeletConfig>(model1);
+      }
+    }
+    if (m.find("rolling_policy") != m.end() && !m["rolling_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rolling_policy"].type()) {
+        ModifyNodePoolNodeConfigRequestRollingPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rolling_policy"]));
+        rollingPolicy = make_shared<ModifyNodePoolNodeConfigRequestRollingPolicy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigRequest() = default;
+};
+class ModifyNodePoolNodeConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nodepoolId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  ModifyNodePoolNodeConfigResponseBody() {}
+
+  explicit ModifyNodePoolNodeConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nodepoolId) {
+      res["nodepool_id"] = boost::any(*nodepoolId);
+    }
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("nodepool_id") != m.end() && !m["nodepool_id"].empty()) {
+      nodepoolId = make_shared<string>(boost::any_cast<string>(m["nodepool_id"]));
+    }
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigResponseBody() = default;
+};
+class ModifyNodePoolNodeConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyNodePoolNodeConfigResponseBody> body{};
+
+  ModifyNodePoolNodeConfigResponse() {}
+
+  explicit ModifyNodePoolNodeConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyNodePoolNodeConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyNodePoolNodeConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyNodePoolNodeConfigResponse() = default;
 };
 class ModifyPolicyInstanceRequest : public Darabonba::Model {
 public:
@@ -20668,6 +21043,12 @@ public:
                                                          shared_ptr<ModifyClusterTagsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyNodePoolNodeConfigResponse modifyNodePoolNodeConfig(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<ModifyNodePoolNodeConfigRequest> request);
+  ModifyNodePoolNodeConfigResponse modifyNodePoolNodeConfigWithOptions(shared_ptr<string> ClusterId,
+                                                                       shared_ptr<string> NodepoolId,
+                                                                       shared_ptr<ModifyNodePoolNodeConfigRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyPolicyInstanceResponse modifyPolicyInstance(shared_ptr<string> clusterId, shared_ptr<string> policyName, shared_ptr<ModifyPolicyInstanceRequest> request);
   ModifyPolicyInstanceResponse modifyPolicyInstanceWithOptions(shared_ptr<string> clusterId,
                                                                shared_ptr<string> policyName,

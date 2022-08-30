@@ -2864,9 +2864,6 @@ ModifyClusterNodePoolResponse Alibabacloud_CS20151215::Client::modifyClusterNode
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestManagement>(request->management)) {
     body->insert(pair<string, ModifyClusterNodePoolRequestManagement>("management", *request->management));
   }
-  if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestNodeConfig>(request->nodeConfig)) {
-    body->insert(pair<string, ModifyClusterNodePoolRequestNodeConfig>("node_config", *request->nodeConfig));
-  }
   if (!Darabonba_Util::Client::isUnset<ModifyClusterNodePoolRequestNodepoolInfo>(request->nodepoolInfo)) {
     body->insert(pair<string, ModifyClusterNodePoolRequestNodepoolInfo>("nodepool_info", *request->nodepoolInfo));
   }
@@ -2925,6 +2922,45 @@ ModifyClusterTagsResponse Alibabacloud_CS20151215::Client::modifyClusterTagsWith
     {"bodyType", boost::any(string("none"))}
   }));
   return ModifyClusterTagsResponse(callApi(params, req, runtime));
+}
+
+ModifyNodePoolNodeConfigResponse Alibabacloud_CS20151215::Client::modifyNodePoolNodeConfig(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<ModifyNodePoolNodeConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return modifyNodePoolNodeConfigWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+}
+
+ModifyNodePoolNodeConfigResponse Alibabacloud_CS20151215::Client::modifyNodePoolNodeConfigWithOptions(shared_ptr<string> ClusterId,
+                                                                                                      shared_ptr<string> NodepoolId,
+                                                                                                      shared_ptr<ModifyNodePoolNodeConfigRequest> request,
+                                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  ClusterId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId));
+  NodepoolId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(NodepoolId));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestKubeletConfig>(request->kubeletConfig)) {
+    body->insert(pair<string, ModifyNodePoolNodeConfigRequestKubeletConfig>("kubelet_config", *request->kubeletConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestRollingPolicy>(request->rollingPolicy)) {
+    body->insert(pair<string, ModifyNodePoolNodeConfigRequestRollingPolicy>("rolling_policy", *request->rollingPolicy));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyNodePoolNodeConfig"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(*ClusterId) + string("/nodepools/") + string(*NodepoolId) + string("/node_config"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyNodePoolNodeConfigResponse(callApi(params, req, runtime));
 }
 
 ModifyPolicyInstanceResponse Alibabacloud_CS20151215::Client::modifyPolicyInstance(shared_ptr<string> clusterId, shared_ptr<string> policyName, shared_ptr<ModifyPolicyInstanceRequest> request) {
