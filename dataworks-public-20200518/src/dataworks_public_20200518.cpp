@@ -4851,6 +4851,9 @@ ListAlertMessagesResponse Alibabacloud_Dataworks-public20200518::Client::listAle
   if (!Darabonba_Util::Client::isUnset<string>(request->alertUser)) {
     body->insert(pair<string, string>("AlertUser", *request->alertUser));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->baselineId)) {
+    body->insert(pair<string, long>("BaselineId", *request->baselineId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->beginTime)) {
     body->insert(pair<string, string>("BeginTime", *request->beginTime));
   }
@@ -6035,6 +6038,9 @@ ListInstancesResponse Alibabacloud_Dataworks-public20200518::Client::listInstanc
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    body->insert(pair<string, string>("Status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

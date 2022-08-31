@@ -33852,6 +33852,7 @@ public:
   shared_ptr<string> alertMethods{};
   shared_ptr<string> alertRuleTypes{};
   shared_ptr<string> alertUser{};
+  shared_ptr<long> baselineId{};
   shared_ptr<string> beginTime{};
   shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
@@ -33876,6 +33877,9 @@ public:
     }
     if (alertUser) {
       res["AlertUser"] = boost::any(*alertUser);
+    }
+    if (baselineId) {
+      res["BaselineId"] = boost::any(*baselineId);
     }
     if (beginTime) {
       res["BeginTime"] = boost::any(*beginTime);
@@ -33904,6 +33908,9 @@ public:
     }
     if (m.find("AlertUser") != m.end() && !m["AlertUser"].empty()) {
       alertUser = make_shared<string>(boost::any_cast<string>(m["AlertUser"]));
+    }
+    if (m.find("BaselineId") != m.end() && !m["BaselineId"].empty()) {
+      baselineId = make_shared<long>(boost::any_cast<long>(m["BaselineId"]));
     }
     if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
       beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
@@ -45530,6 +45537,7 @@ public:
   shared_ptr<string> programType{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
+  shared_ptr<string> status{};
 
   ListInstancesRequest() {}
 
@@ -45580,6 +45588,9 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -45622,6 +45633,9 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
   }
 
