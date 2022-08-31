@@ -248,6 +248,9 @@ CreatePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::createPostPayO
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
+    query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -302,6 +305,9 @@ CreatePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::createPrePayOrd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
+    query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -1441,6 +1447,9 @@ UpgradePostPayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePostPa
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
+    query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1492,6 +1501,9 @@ UpgradePrePayOrderResponse Alibabacloud_Alikafka20190916::Client::upgradePrePayO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ioMaxSpec)) {
     query->insert(pair<string, string>("IoMaxSpec", *request->ioMaxSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->partitionNum)) {
+    query->insert(pair<string, long>("PartitionNum", *request->partitionNum));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

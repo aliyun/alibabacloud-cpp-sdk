@@ -692,6 +692,7 @@ public:
   shared_ptr<long> eipMax{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> specType{};
@@ -724,6 +725,9 @@ public:
     }
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -758,6 +762,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -903,6 +910,7 @@ public:
   shared_ptr<long> eipMax{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> specType{};
@@ -935,6 +943,9 @@ public:
     }
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
+    }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -969,6 +980,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -4569,6 +4583,7 @@ public:
   shared_ptr<long> expiredTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> ioMax{};
+  shared_ptr<string> kmsKeyId{};
   shared_ptr<long> msgRetain{};
   shared_ptr<string> name{};
   shared_ptr<long> paidType{};
@@ -4632,6 +4647,9 @@ public:
     }
     if (ioMax) {
       res["IoMax"] = boost::any(*ioMax);
+    }
+    if (kmsKeyId) {
+      res["KmsKeyId"] = boost::any(*kmsKeyId);
     }
     if (msgRetain) {
       res["MsgRetain"] = boost::any(*msgRetain);
@@ -4729,6 +4747,9 @@ public:
     }
     if (m.find("IoMax") != m.end() && !m["IoMax"].empty()) {
       ioMax = make_shared<long>(boost::any_cast<long>(m["IoMax"]));
+    }
+    if (m.find("KmsKeyId") != m.end() && !m["KmsKeyId"].empty()) {
+      kmsKeyId = make_shared<string>(boost::any_cast<string>(m["KmsKeyId"]));
     }
     if (m.find("MsgRetain") != m.end() && !m["MsgRetain"].empty()) {
       msgRetain = make_shared<long>(boost::any_cast<long>(m["MsgRetain"]));
@@ -7786,6 +7807,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> specType{};
   shared_ptr<long> topicQuota{};
@@ -7818,6 +7840,9 @@ public:
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
     }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -7848,6 +7873,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -7983,6 +8011,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> ioMax{};
   shared_ptr<string> ioMaxSpec{};
+  shared_ptr<long> partitionNum{};
   shared_ptr<string> regionId{};
   shared_ptr<string> specType{};
   shared_ptr<long> topicQuota{};
@@ -8015,6 +8044,9 @@ public:
     if (ioMaxSpec) {
       res["IoMaxSpec"] = boost::any(*ioMaxSpec);
     }
+    if (partitionNum) {
+      res["PartitionNum"] = boost::any(*partitionNum);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -8045,6 +8077,9 @@ public:
     }
     if (m.find("IoMaxSpec") != m.end() && !m["IoMaxSpec"].empty()) {
       ioMaxSpec = make_shared<string>(boost::any_cast<string>(m["IoMaxSpec"]));
+    }
+    if (m.find("PartitionNum") != m.end() && !m["PartitionNum"].empty()) {
+      partitionNum = make_shared<long>(boost::any_cast<long>(m["PartitionNum"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
