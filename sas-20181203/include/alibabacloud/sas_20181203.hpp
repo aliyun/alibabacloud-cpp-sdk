@@ -565,6 +565,168 @@ public:
 
   virtual ~CheckSecurityEventIdResponse() = default;
 };
+class CheckUserHasEcsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> lang{};
+  shared_ptr<long> pageSize{};
+
+  CheckUserHasEcsRequest() {}
+
+  explicit CheckUserHasEcsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+  }
+
+
+  virtual ~CheckUserHasEcsRequest() = default;
+};
+class CheckUserHasEcsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CheckUserHasEcsResponseBody() {}
+
+  explicit CheckUserHasEcsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CheckUserHasEcsResponseBody() = default;
+};
+class CheckUserHasEcsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckUserHasEcsResponseBody> body{};
+
+  CheckUserHasEcsResponse() {}
+
+  explicit CheckUserHasEcsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckUserHasEcsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckUserHasEcsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckUserHasEcsResponse() = default;
+};
 class CreateAntiBruteForceRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> defaultRule{};
@@ -33490,6 +33652,7 @@ public:
   shared_ptr<string> dataSource{};
   shared_ptr<string> desc{};
   shared_ptr<vector<DescribeSuspEventsResponseBodySuspEventsDetails>> details{};
+  shared_ptr<bool> displaySandboxResult{};
   shared_ptr<vector<DescribeSuspEventsResponseBodySuspEventsEventNotes>> eventNotes{};
   shared_ptr<long> eventStatus{};
   shared_ptr<string> eventSubType{};
@@ -33587,6 +33750,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Details"] = boost::any(temp1);
+    }
+    if (displaySandboxResult) {
+      res["DisplaySandboxResult"] = boost::any(*displaySandboxResult);
     }
     if (eventNotes) {
       vector<boost::any> temp1;
@@ -33756,6 +33922,9 @@ public:
         }
         details = make_shared<vector<DescribeSuspEventsResponseBodySuspEventsDetails>>(expect1);
       }
+    }
+    if (m.find("DisplaySandboxResult") != m.end() && !m["DisplaySandboxResult"].empty()) {
+      displaySandboxResult = make_shared<bool>(boost::any_cast<bool>(m["DisplaySandboxResult"]));
     }
     if (m.find("EventNotes") != m.end() && !m["EventNotes"].empty()) {
       if (typeid(vector<boost::any>) == m["EventNotes"].type()) {
@@ -52606,6 +52775,8 @@ public:
   CheckQuaraFileIdResponse checkQuaraFileId(shared_ptr<CheckQuaraFileIdRequest> request);
   CheckSecurityEventIdResponse checkSecurityEventIdWithOptions(shared_ptr<CheckSecurityEventIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckSecurityEventIdResponse checkSecurityEventId(shared_ptr<CheckSecurityEventIdRequest> request);
+  CheckUserHasEcsResponse checkUserHasEcsWithOptions(shared_ptr<CheckUserHasEcsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckUserHasEcsResponse checkUserHasEcs(shared_ptr<CheckUserHasEcsRequest> request);
   CreateAntiBruteForceRuleResponse createAntiBruteForceRuleWithOptions(shared_ptr<CreateAntiBruteForceRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAntiBruteForceRuleResponse createAntiBruteForceRule(shared_ptr<CreateAntiBruteForceRuleRequest> request);
   CreateBackupPolicyResponse createBackupPolicyWithOptions(shared_ptr<CreateBackupPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
