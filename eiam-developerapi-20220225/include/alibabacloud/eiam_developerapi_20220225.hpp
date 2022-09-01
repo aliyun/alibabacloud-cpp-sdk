@@ -2335,6 +2335,167 @@ public:
 
   virtual ~GetUserIdByUserExternalIdResponse() = default;
 };
+class GetUserIdByUsernameHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  GetUserIdByUsernameHeaders() {}
+
+  explicit GetUserIdByUsernameHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUsernameHeaders() = default;
+};
+class GetUserIdByUsernameRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> username{};
+
+  GetUserIdByUsernameRequest() {}
+
+  explicit GetUserIdByUsernameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUsernameRequest() = default;
+};
+class GetUserIdByUsernameResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  GetUserIdByUsernameResponseBody() {}
+
+  explicit GetUserIdByUsernameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["userId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("userId") != m.end() && !m["userId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["userId"]));
+    }
+  }
+
+
+  virtual ~GetUserIdByUsernameResponseBody() = default;
+};
+class GetUserIdByUsernameResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserIdByUsernameResponseBody> body{};
+
+  GetUserIdByUsernameResponse() {}
+
+  explicit GetUserIdByUsernameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserIdByUsernameResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserIdByUsernameResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserIdByUsernameResponse() = default;
+};
 class GetUserInfoHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -3702,6 +3863,12 @@ public:
                                                                          shared_ptr<GetUserIdByUserExternalIdRequest> request,
                                                                          shared_ptr<GetUserIdByUserExternalIdHeaders> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserIdByUsernameResponse getUserIdByUsername(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUsernameRequest> request);
+  GetUserIdByUsernameResponse getUserIdByUsernameWithOptions(shared_ptr<string> instanceId,
+                                                             shared_ptr<string> applicationId,
+                                                             shared_ptr<GetUserIdByUsernameRequest> request,
+                                                             shared_ptr<GetUserIdByUsernameHeaders> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUserInfoResponse getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
   GetUserInfoResponse getUserInfoWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> applicationId,
