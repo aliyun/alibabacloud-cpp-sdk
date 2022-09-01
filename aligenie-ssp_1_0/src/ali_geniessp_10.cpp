@@ -154,6 +154,186 @@ AddSubResponse Alibabacloud_AliGeniessp10::Client::addSubWithOptions(shared_ptr<
   return AddSubResponse(callApi(params, req, runtime));
 }
 
+AuthLoginWithAligenieUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithAligenieUserInfo(shared_ptr<AuthLoginWithAligenieUserInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AuthLoginWithAligenieUserInfoHeaders> headers = make_shared<AuthLoginWithAligenieUserInfoHeaders>();
+  return authLoginWithAligenieUserInfoWithOptions(request, headers, runtime);
+}
+
+AuthLoginWithAligenieUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithAligenieUserInfoWithOptions(shared_ptr<AuthLoginWithAligenieUserInfoRequest> request, shared_ptr<AuthLoginWithAligenieUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->encryptedAligenieUserIdentifier)) {
+    body->insert(pair<string, string>("EncryptedAligenieUserIdentifier", *request->encryptedAligenieUserIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthLoginWithAligenieUserInfo"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/authLoginWithAligenieUserInfo"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AuthLoginWithAligenieUserInfoResponse(callApi(params, req, runtime));
+}
+
+AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse Alibabacloud_AliGeniessp10::Client::authLoginWithAligenieUserInfoGeneratedByPhoneNumber(shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders> headers = make_shared<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders>();
+  return authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request, headers, runtime);
+}
+
+AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse Alibabacloud_AliGeniessp10::Client::authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest> request, shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthLoginWithAligenieUserInfoGeneratedByPhoneNumber"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/authLoginWithAligenieUserInfoGeneratedByPhoneNumber"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse(callApi(params, req, runtime));
+}
+
+AuthLoginWithTaobaoUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithTaobaoUserInfo(shared_ptr<AuthLoginWithTaobaoUserInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AuthLoginWithTaobaoUserInfoHeaders> headers = make_shared<AuthLoginWithTaobaoUserInfoHeaders>();
+  return authLoginWithTaobaoUserInfoWithOptions(request, headers, runtime);
+}
+
+AuthLoginWithTaobaoUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithTaobaoUserInfoWithOptions(shared_ptr<AuthLoginWithTaobaoUserInfoRequest> request, shared_ptr<AuthLoginWithTaobaoUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->encryptedTaobaoUserIdentifier)) {
+    body->insert(pair<string, string>("EncryptedTaobaoUserIdentifier", *request->encryptedTaobaoUserIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthLoginWithTaobaoUserInfo"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/authLoginWithTaobaoUserInfo"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AuthLoginWithTaobaoUserInfoResponse(callApi(params, req, runtime));
+}
+
+AuthLoginWithThirdUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithThirdUserInfo(shared_ptr<AuthLoginWithThirdUserInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AuthLoginWithThirdUserInfoHeaders> headers = make_shared<AuthLoginWithThirdUserInfoHeaders>();
+  return authLoginWithThirdUserInfoWithOptions(request, headers, runtime);
+}
+
+AuthLoginWithThirdUserInfoResponse Alibabacloud_AliGeniessp10::Client::authLoginWithThirdUserInfoWithOptions(shared_ptr<AuthLoginWithThirdUserInfoRequest> tmpReq, shared_ptr<AuthLoginWithThirdUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AuthLoginWithThirdUserInfoShrinkRequest> request = make_shared<AuthLoginWithThirdUserInfoShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->extInfo)) {
+    request->extInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->extInfo, make_shared<string>("ExtInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->extInfoShrink)) {
+    body->insert(pair<string, string>("ExtInfo", *request->extInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneCode)) {
+    body->insert(pair<string, string>("SceneCode", *request->sceneCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdUserIdentifier)) {
+    body->insert(pair<string, string>("ThirdUserIdentifier", *request->thirdUserIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdUserType)) {
+    body->insert(pair<string, string>("ThirdUserType", *request->thirdUserType));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AuthLoginWithThirdUserInfo"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/authLoginWithThirdUserInfo"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AuthLoginWithThirdUserInfoResponse(callApi(params, req, runtime));
+}
+
 CheckAuthCodeBindForExtResponse Alibabacloud_AliGeniessp10::Client::checkAuthCodeBindForExt(shared_ptr<CheckAuthCodeBindForExtRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CheckAuthCodeBindForExtHeaders> headers = make_shared<CheckAuthCodeBindForExtHeaders>();
@@ -586,6 +766,147 @@ DeviceControlResponse Alibabacloud_AliGeniessp10::Client::deviceControlWithOptio
     {"bodyType", boost::any(string("json"))}
   }));
   return DeviceControlResponse(callApi(params, req, runtime));
+}
+
+EcologyOpennessAuthenticateResponse Alibabacloud_AliGeniessp10::Client::ecologyOpennessAuthenticate(shared_ptr<EcologyOpennessAuthenticateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<EcologyOpennessAuthenticateHeaders> headers = make_shared<EcologyOpennessAuthenticateHeaders>();
+  return ecologyOpennessAuthenticateWithOptions(request, headers, runtime);
+}
+
+EcologyOpennessAuthenticateResponse Alibabacloud_AliGeniessp10::Client::ecologyOpennessAuthenticateWithOptions(shared_ptr<EcologyOpennessAuthenticateRequest> request, shared_ptr<EcologyOpennessAuthenticateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->encodeKey)) {
+    body->insert(pair<string, string>("EncodeKey", *request->encodeKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->encodeType)) {
+    body->insert(pair<string, string>("EncodeType", *request->encodeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loginStateAccessToken)) {
+    body->insert(pair<string, string>("LoginStateAccessToken", *request->loginStateAccessToken));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EcologyOpennessAuthenticate"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/ecologyOpennessAuthenticate"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EcologyOpennessAuthenticateResponse(callApi(params, req, runtime));
+}
+
+EcologyOpennessSendVerificationCodeResponse Alibabacloud_AliGeniessp10::Client::ecologyOpennessSendVerificationCode(shared_ptr<EcologyOpennessSendVerificationCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<EcologyOpennessSendVerificationCodeHeaders> headers = make_shared<EcologyOpennessSendVerificationCodeHeaders>();
+  return ecologyOpennessSendVerificationCodeWithOptions(request, headers, runtime);
+}
+
+EcologyOpennessSendVerificationCodeResponse Alibabacloud_AliGeniessp10::Client::ecologyOpennessSendVerificationCodeWithOptions(shared_ptr<EcologyOpennessSendVerificationCodeRequest> request, shared_ptr<EcologyOpennessSendVerificationCodeHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    body->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    body->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    body->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EcologyOpennessSendVerificationCode"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/ecologyOpennessSendVerificationCode"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EcologyOpennessSendVerificationCodeResponse(callApi(params, req, runtime));
+}
+
+FindUserlistToAuthLoginWithPhoneNumberResponse Alibabacloud_AliGeniessp10::Client::findUserlistToAuthLoginWithPhoneNumber(shared_ptr<FindUserlistToAuthLoginWithPhoneNumberRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<FindUserlistToAuthLoginWithPhoneNumberHeaders> headers = make_shared<FindUserlistToAuthLoginWithPhoneNumberHeaders>();
+  return findUserlistToAuthLoginWithPhoneNumberWithOptions(request, headers, runtime);
+}
+
+FindUserlistToAuthLoginWithPhoneNumberResponse Alibabacloud_AliGeniessp10::Client::findUserlistToAuthLoginWithPhoneNumberWithOptions(shared_ptr<FindUserlistToAuthLoginWithPhoneNumberRequest> request, shared_ptr<FindUserlistToAuthLoginWithPhoneNumberHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->code)) {
+    query->insert(pair<string, string>("Code", *request->code));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsAligenieAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-aligenie-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsAligenieAccessToken)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FindUserlistToAuthLoginWithPhoneNumber"))},
+    {"version", boost::any(string("ssp_1.0"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v1.0/ssp/findUserlistToAuthLoginWithPhoneNumber"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FindUserlistToAuthLoginWithPhoneNumberResponse(callApi(params, req, runtime));
 }
 
 GetAlarmResponse Alibabacloud_AliGeniessp10::Client::getAlarm(shared_ptr<GetAlarmRequest> request) {

@@ -1094,6 +1094,1080 @@ public:
 
   virtual ~AddSubResponse() = default;
 };
+class AuthLoginWithAligenieUserInfoHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  AuthLoginWithAligenieUserInfoHeaders() {}
+
+  explicit AuthLoginWithAligenieUserInfoHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoHeaders() = default;
+};
+class AuthLoginWithAligenieUserInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptedAligenieUserIdentifier{};
+  shared_ptr<string> sessionId{};
+
+  AuthLoginWithAligenieUserInfoRequest() {}
+
+  explicit AuthLoginWithAligenieUserInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptedAligenieUserIdentifier) {
+      res["EncryptedAligenieUserIdentifier"] = boost::any(*encryptedAligenieUserIdentifier);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptedAligenieUserIdentifier") != m.end() && !m["EncryptedAligenieUserIdentifier"].empty()) {
+      encryptedAligenieUserIdentifier = make_shared<string>(boost::any_cast<string>(m["EncryptedAligenieUserIdentifier"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoRequest() = default;
+};
+class AuthLoginWithAligenieUserInfoResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> expiredTimeLong{};
+  shared_ptr<string> loginStateAccessToken{};
+
+  AuthLoginWithAligenieUserInfoResponseBodyResult() {}
+
+  explicit AuthLoginWithAligenieUserInfoResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredTimeLong) {
+      res["ExpiredTimeLong"] = boost::any(*expiredTimeLong);
+    }
+    if (loginStateAccessToken) {
+      res["LoginStateAccessToken"] = boost::any(*loginStateAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredTimeLong") != m.end() && !m["ExpiredTimeLong"].empty()) {
+      expiredTimeLong = make_shared<long>(boost::any_cast<long>(m["ExpiredTimeLong"]));
+    }
+    if (m.find("LoginStateAccessToken") != m.end() && !m["LoginStateAccessToken"].empty()) {
+      loginStateAccessToken = make_shared<string>(boost::any_cast<string>(m["LoginStateAccessToken"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoResponseBodyResult() = default;
+};
+class AuthLoginWithAligenieUserInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AuthLoginWithAligenieUserInfoResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  AuthLoginWithAligenieUserInfoResponseBody() {}
+
+  explicit AuthLoginWithAligenieUserInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        AuthLoginWithAligenieUserInfoResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<AuthLoginWithAligenieUserInfoResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoResponseBody() = default;
+};
+class AuthLoginWithAligenieUserInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AuthLoginWithAligenieUserInfoResponseBody> body{};
+
+  AuthLoginWithAligenieUserInfoResponse() {}
+
+  explicit AuthLoginWithAligenieUserInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AuthLoginWithAligenieUserInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AuthLoginWithAligenieUserInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoResponse() = default;
+};
+class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders() {}
+
+  explicit AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders() = default;
+};
+class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest() {}
+
+  explicit AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest() = default;
+};
+class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> expiredTimeLong{};
+  shared_ptr<string> loginStateAccessToken{};
+
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult() {}
+
+  explicit AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredTimeLong) {
+      res["ExpiredTimeLong"] = boost::any(*expiredTimeLong);
+    }
+    if (loginStateAccessToken) {
+      res["LoginStateAccessToken"] = boost::any(*loginStateAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredTimeLong") != m.end() && !m["ExpiredTimeLong"].empty()) {
+      expiredTimeLong = make_shared<long>(boost::any_cast<long>(m["ExpiredTimeLong"]));
+    }
+    if (m.find("LoginStateAccessToken") != m.end() && !m["LoginStateAccessToken"].empty()) {
+      loginStateAccessToken = make_shared<string>(boost::any_cast<string>(m["LoginStateAccessToken"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult() = default;
+};
+class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody() {}
+
+  explicit AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody() = default;
+};
+class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody> body{};
+
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse() {}
+
+  explicit AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse() = default;
+};
+class AuthLoginWithTaobaoUserInfoHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  AuthLoginWithTaobaoUserInfoHeaders() {}
+
+  explicit AuthLoginWithTaobaoUserInfoHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithTaobaoUserInfoHeaders() = default;
+};
+class AuthLoginWithTaobaoUserInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> encryptedTaobaoUserIdentifier{};
+  shared_ptr<string> sessionId{};
+
+  AuthLoginWithTaobaoUserInfoRequest() {}
+
+  explicit AuthLoginWithTaobaoUserInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encryptedTaobaoUserIdentifier) {
+      res["EncryptedTaobaoUserIdentifier"] = boost::any(*encryptedTaobaoUserIdentifier);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptedTaobaoUserIdentifier") != m.end() && !m["EncryptedTaobaoUserIdentifier"].empty()) {
+      encryptedTaobaoUserIdentifier = make_shared<string>(boost::any_cast<string>(m["EncryptedTaobaoUserIdentifier"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithTaobaoUserInfoRequest() = default;
+};
+class AuthLoginWithTaobaoUserInfoResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> expiredTimeLong{};
+  shared_ptr<string> loginStateAccessToken{};
+
+  AuthLoginWithTaobaoUserInfoResponseBodyResult() {}
+
+  explicit AuthLoginWithTaobaoUserInfoResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredTimeLong) {
+      res["ExpiredTimeLong"] = boost::any(*expiredTimeLong);
+    }
+    if (loginStateAccessToken) {
+      res["LoginStateAccessToken"] = boost::any(*loginStateAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredTimeLong") != m.end() && !m["ExpiredTimeLong"].empty()) {
+      expiredTimeLong = make_shared<long>(boost::any_cast<long>(m["ExpiredTimeLong"]));
+    }
+    if (m.find("LoginStateAccessToken") != m.end() && !m["LoginStateAccessToken"].empty()) {
+      loginStateAccessToken = make_shared<string>(boost::any_cast<string>(m["LoginStateAccessToken"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithTaobaoUserInfoResponseBodyResult() = default;
+};
+class AuthLoginWithTaobaoUserInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AuthLoginWithTaobaoUserInfoResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  AuthLoginWithTaobaoUserInfoResponseBody() {}
+
+  explicit AuthLoginWithTaobaoUserInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        AuthLoginWithTaobaoUserInfoResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<AuthLoginWithTaobaoUserInfoResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithTaobaoUserInfoResponseBody() = default;
+};
+class AuthLoginWithTaobaoUserInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AuthLoginWithTaobaoUserInfoResponseBody> body{};
+
+  AuthLoginWithTaobaoUserInfoResponse() {}
+
+  explicit AuthLoginWithTaobaoUserInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AuthLoginWithTaobaoUserInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AuthLoginWithTaobaoUserInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthLoginWithTaobaoUserInfoResponse() = default;
+};
+class AuthLoginWithThirdUserInfoHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  AuthLoginWithThirdUserInfoHeaders() {}
+
+  explicit AuthLoginWithThirdUserInfoHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoHeaders() = default;
+};
+class AuthLoginWithThirdUserInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> extInfo{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> thirdUserIdentifier{};
+  shared_ptr<string> thirdUserType{};
+
+  AuthLoginWithThirdUserInfoRequest() {}
+
+  explicit AuthLoginWithThirdUserInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extInfo) {
+      res["ExtInfo"] = boost::any(*extInfo);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (thirdUserIdentifier) {
+      res["ThirdUserIdentifier"] = boost::any(*thirdUserIdentifier);
+    }
+    if (thirdUserType) {
+      res["ThirdUserType"] = boost::any(*thirdUserType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtInfo") != m.end() && !m["ExtInfo"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ExtInfo"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      extInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("ThirdUserIdentifier") != m.end() && !m["ThirdUserIdentifier"].empty()) {
+      thirdUserIdentifier = make_shared<string>(boost::any_cast<string>(m["ThirdUserIdentifier"]));
+    }
+    if (m.find("ThirdUserType") != m.end() && !m["ThirdUserType"].empty()) {
+      thirdUserType = make_shared<string>(boost::any_cast<string>(m["ThirdUserType"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoRequest() = default;
+};
+class AuthLoginWithThirdUserInfoShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> extInfoShrink{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> thirdUserIdentifier{};
+  shared_ptr<string> thirdUserType{};
+
+  AuthLoginWithThirdUserInfoShrinkRequest() {}
+
+  explicit AuthLoginWithThirdUserInfoShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extInfoShrink) {
+      res["ExtInfo"] = boost::any(*extInfoShrink);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (thirdUserIdentifier) {
+      res["ThirdUserIdentifier"] = boost::any(*thirdUserIdentifier);
+    }
+    if (thirdUserType) {
+      res["ThirdUserType"] = boost::any(*thirdUserType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtInfo") != m.end() && !m["ExtInfo"].empty()) {
+      extInfoShrink = make_shared<string>(boost::any_cast<string>(m["ExtInfo"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("ThirdUserIdentifier") != m.end() && !m["ThirdUserIdentifier"].empty()) {
+      thirdUserIdentifier = make_shared<string>(boost::any_cast<string>(m["ThirdUserIdentifier"]));
+    }
+    if (m.find("ThirdUserType") != m.end() && !m["ThirdUserType"].empty()) {
+      thirdUserType = make_shared<string>(boost::any_cast<string>(m["ThirdUserType"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoShrinkRequest() = default;
+};
+class AuthLoginWithThirdUserInfoResponseBodyDataObj : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+
+  AuthLoginWithThirdUserInfoResponseBodyDataObj() {}
+
+  explicit AuthLoginWithThirdUserInfoResponseBodyDataObj(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoResponseBodyDataObj() = default;
+};
+class AuthLoginWithThirdUserInfoResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> expiredTimeLong{};
+  shared_ptr<string> loginStateAccessToken{};
+
+  AuthLoginWithThirdUserInfoResponseBodyResult() {}
+
+  explicit AuthLoginWithThirdUserInfoResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiredTimeLong) {
+      res["ExpiredTimeLong"] = boost::any(*expiredTimeLong);
+    }
+    if (loginStateAccessToken) {
+      res["LoginStateAccessToken"] = boost::any(*loginStateAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpiredTimeLong") != m.end() && !m["ExpiredTimeLong"].empty()) {
+      expiredTimeLong = make_shared<long>(boost::any_cast<long>(m["ExpiredTimeLong"]));
+    }
+    if (m.find("LoginStateAccessToken") != m.end() && !m["LoginStateAccessToken"].empty()) {
+      loginStateAccessToken = make_shared<string>(boost::any_cast<string>(m["LoginStateAccessToken"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoResponseBodyResult() = default;
+};
+class AuthLoginWithThirdUserInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<AuthLoginWithThirdUserInfoResponseBodyDataObj> dataObj{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<AuthLoginWithThirdUserInfoResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  AuthLoginWithThirdUserInfoResponseBody() {}
+
+  explicit AuthLoginWithThirdUserInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dataObj) {
+      res["DataObj"] = dataObj ? boost::any(dataObj->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("DataObj") != m.end() && !m["DataObj"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataObj"].type()) {
+        AuthLoginWithThirdUserInfoResponseBodyDataObj model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataObj"]));
+        dataObj = make_shared<AuthLoginWithThirdUserInfoResponseBodyDataObj>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        AuthLoginWithThirdUserInfoResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<AuthLoginWithThirdUserInfoResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoResponseBody() = default;
+};
+class AuthLoginWithThirdUserInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AuthLoginWithThirdUserInfoResponseBody> body{};
+
+  AuthLoginWithThirdUserInfoResponse() {}
+
+  explicit AuthLoginWithThirdUserInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AuthLoginWithThirdUserInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AuthLoginWithThirdUserInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AuthLoginWithThirdUserInfoResponse() = default;
+};
 class CheckAuthCodeBindForExtHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -4989,6 +6063,895 @@ public:
 
 
   virtual ~DeviceControlResponse() = default;
+};
+class EcologyOpennessAuthenticateHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  EcologyOpennessAuthenticateHeaders() {}
+
+  explicit EcologyOpennessAuthenticateHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessAuthenticateHeaders() = default;
+};
+class EcologyOpennessAuthenticateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> encodeKey{};
+  shared_ptr<string> encodeType{};
+  shared_ptr<string> loginStateAccessToken{};
+
+  EcologyOpennessAuthenticateRequest() {}
+
+  explicit EcologyOpennessAuthenticateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encodeKey) {
+      res["EncodeKey"] = boost::any(*encodeKey);
+    }
+    if (encodeType) {
+      res["EncodeType"] = boost::any(*encodeType);
+    }
+    if (loginStateAccessToken) {
+      res["LoginStateAccessToken"] = boost::any(*loginStateAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncodeKey") != m.end() && !m["EncodeKey"].empty()) {
+      encodeKey = make_shared<string>(boost::any_cast<string>(m["EncodeKey"]));
+    }
+    if (m.find("EncodeType") != m.end() && !m["EncodeType"].empty()) {
+      encodeType = make_shared<string>(boost::any_cast<string>(m["EncodeType"]));
+    }
+    if (m.find("LoginStateAccessToken") != m.end() && !m["LoginStateAccessToken"].empty()) {
+      loginStateAccessToken = make_shared<string>(boost::any_cast<string>(m["LoginStateAccessToken"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessAuthenticateRequest() = default;
+};
+class EcologyOpennessAuthenticateResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> encodeKey{};
+  shared_ptr<string> encodeType{};
+  shared_ptr<string> sceneCode{};
+  shared_ptr<string> thirdUserIdentifier{};
+  shared_ptr<string> thirdUserType{};
+  shared_ptr<string> userOpenId{};
+
+  EcologyOpennessAuthenticateResponseBodyResult() {}
+
+  explicit EcologyOpennessAuthenticateResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (encodeKey) {
+      res["EncodeKey"] = boost::any(*encodeKey);
+    }
+    if (encodeType) {
+      res["EncodeType"] = boost::any(*encodeType);
+    }
+    if (sceneCode) {
+      res["SceneCode"] = boost::any(*sceneCode);
+    }
+    if (thirdUserIdentifier) {
+      res["ThirdUserIdentifier"] = boost::any(*thirdUserIdentifier);
+    }
+    if (thirdUserType) {
+      res["ThirdUserType"] = boost::any(*thirdUserType);
+    }
+    if (userOpenId) {
+      res["UserOpenId"] = boost::any(*userOpenId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncodeKey") != m.end() && !m["EncodeKey"].empty()) {
+      encodeKey = make_shared<string>(boost::any_cast<string>(m["EncodeKey"]));
+    }
+    if (m.find("EncodeType") != m.end() && !m["EncodeType"].empty()) {
+      encodeType = make_shared<string>(boost::any_cast<string>(m["EncodeType"]));
+    }
+    if (m.find("SceneCode") != m.end() && !m["SceneCode"].empty()) {
+      sceneCode = make_shared<string>(boost::any_cast<string>(m["SceneCode"]));
+    }
+    if (m.find("ThirdUserIdentifier") != m.end() && !m["ThirdUserIdentifier"].empty()) {
+      thirdUserIdentifier = make_shared<string>(boost::any_cast<string>(m["ThirdUserIdentifier"]));
+    }
+    if (m.find("ThirdUserType") != m.end() && !m["ThirdUserType"].empty()) {
+      thirdUserType = make_shared<string>(boost::any_cast<string>(m["ThirdUserType"]));
+    }
+    if (m.find("UserOpenId") != m.end() && !m["UserOpenId"].empty()) {
+      userOpenId = make_shared<string>(boost::any_cast<string>(m["UserOpenId"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessAuthenticateResponseBodyResult() = default;
+};
+class EcologyOpennessAuthenticateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<EcologyOpennessAuthenticateResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  EcologyOpennessAuthenticateResponseBody() {}
+
+  explicit EcologyOpennessAuthenticateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        EcologyOpennessAuthenticateResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<EcologyOpennessAuthenticateResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessAuthenticateResponseBody() = default;
+};
+class EcologyOpennessAuthenticateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EcologyOpennessAuthenticateResponseBody> body{};
+
+  EcologyOpennessAuthenticateResponse() {}
+
+  explicit EcologyOpennessAuthenticateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EcologyOpennessAuthenticateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EcologyOpennessAuthenticateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EcologyOpennessAuthenticateResponse() = default;
+};
+class EcologyOpennessSendVerificationCodeHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  EcologyOpennessSendVerificationCodeHeaders() {}
+
+  explicit EcologyOpennessSendVerificationCodeHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessSendVerificationCodeHeaders() = default;
+};
+class EcologyOpennessSendVerificationCodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> region{};
+  shared_ptr<string> sessionId{};
+
+  EcologyOpennessSendVerificationCodeRequest() {}
+
+  explicit EcologyOpennessSendVerificationCodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessSendVerificationCodeRequest() = default;
+};
+class EcologyOpennessSendVerificationCodeResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> expireIn{};
+  shared_ptr<long> repeatInterval{};
+
+  EcologyOpennessSendVerificationCodeResponseBodyResult() {}
+
+  explicit EcologyOpennessSendVerificationCodeResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expireIn) {
+      res["ExpireIn"] = boost::any(*expireIn);
+    }
+    if (repeatInterval) {
+      res["RepeatInterval"] = boost::any(*repeatInterval);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpireIn") != m.end() && !m["ExpireIn"].empty()) {
+      expireIn = make_shared<long>(boost::any_cast<long>(m["ExpireIn"]));
+    }
+    if (m.find("RepeatInterval") != m.end() && !m["RepeatInterval"].empty()) {
+      repeatInterval = make_shared<long>(boost::any_cast<long>(m["RepeatInterval"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessSendVerificationCodeResponseBodyResult() = default;
+};
+class EcologyOpennessSendVerificationCodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<EcologyOpennessSendVerificationCodeResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  EcologyOpennessSendVerificationCodeResponseBody() {}
+
+  explicit EcologyOpennessSendVerificationCodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        EcologyOpennessSendVerificationCodeResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<EcologyOpennessSendVerificationCodeResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~EcologyOpennessSendVerificationCodeResponseBody() = default;
+};
+class EcologyOpennessSendVerificationCodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EcologyOpennessSendVerificationCodeResponseBody> body{};
+
+  EcologyOpennessSendVerificationCodeResponse() {}
+
+  explicit EcologyOpennessSendVerificationCodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EcologyOpennessSendVerificationCodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EcologyOpennessSendVerificationCodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EcologyOpennessSendVerificationCodeResponse() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsAligenieAccessToken{};
+  shared_ptr<string> authorization{};
+
+  FindUserlistToAuthLoginWithPhoneNumberHeaders() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsAligenieAccessToken) {
+      res["x-acs-aligenie-access-token"] = boost::any(*xAcsAligenieAccessToken);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-aligenie-access-token") != m.end() && !m["x-acs-aligenie-access-token"].empty()) {
+      xAcsAligenieAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-aligenie-access-token"]));
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberHeaders() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> region{};
+  shared_ptr<string> sessionId{};
+
+  FindUserlistToAuthLoginWithPhoneNumberRequest() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberRequest() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionId{};
+
+  FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin : public Darabonba::Model {
+public:
+  shared_ptr<string> avatar{};
+  shared_ptr<string> encryptedUserIdentifier{};
+  shared_ptr<string> findingType{};
+  shared_ptr<string> nickname{};
+  shared_ptr<string> userType{};
+
+  FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (avatar) {
+      res["Avatar"] = boost::any(*avatar);
+    }
+    if (encryptedUserIdentifier) {
+      res["EncryptedUserIdentifier"] = boost::any(*encryptedUserIdentifier);
+    }
+    if (findingType) {
+      res["FindingType"] = boost::any(*findingType);
+    }
+    if (nickname) {
+      res["Nickname"] = boost::any(*nickname);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Avatar") != m.end() && !m["Avatar"].empty()) {
+      avatar = make_shared<string>(boost::any_cast<string>(m["Avatar"]));
+    }
+    if (m.find("EncryptedUserIdentifier") != m.end() && !m["EncryptedUserIdentifier"].empty()) {
+      encryptedUserIdentifier = make_shared<string>(boost::any_cast<string>(m["EncryptedUserIdentifier"]));
+    }
+    if (m.find("FindingType") != m.end() && !m["FindingType"].empty()) {
+      findingType = make_shared<string>(boost::any_cast<string>(m["FindingType"]));
+    }
+    if (m.find("Nickname") != m.end() && !m["Nickname"].empty()) {
+      nickname = make_shared<string>(boost::any_cast<string>(m["Nickname"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin>> userListToAuthLogin{};
+
+  FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userListToAuthLogin) {
+      vector<boost::any> temp1;
+      for(auto item1:*userListToAuthLogin){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UserListToAuthLogin"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserListToAuthLogin") != m.end() && !m["UserListToAuthLogin"].empty()) {
+      if (typeid(vector<boost::any>) == m["UserListToAuthLogin"].type()) {
+        vector<FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UserListToAuthLogin"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        userListToAuthLogin = make_shared<vector<FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj> dataObj{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  FindUserlistToAuthLoginWithPhoneNumberResponseBody() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (dataObj) {
+      res["DataObj"] = dataObj ? boost::any(dataObj->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("DataObj") != m.end() && !m["DataObj"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataObj"].type()) {
+        FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataObj"]));
+        dataObj = make_shared<FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberResponseBody() = default;
+};
+class FindUserlistToAuthLoginWithPhoneNumberResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FindUserlistToAuthLoginWithPhoneNumberResponseBody> body{};
+
+  FindUserlistToAuthLoginWithPhoneNumberResponse() {}
+
+  explicit FindUserlistToAuthLoginWithPhoneNumberResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FindUserlistToAuthLoginWithPhoneNumberResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FindUserlistToAuthLoginWithPhoneNumberResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FindUserlistToAuthLoginWithPhoneNumberResponse() = default;
 };
 class GetAlarmHeaders : public Darabonba::Model {
 public:
@@ -28077,6 +30040,14 @@ public:
   AddAndRemoveFavoriteContentResponse addAndRemoveFavoriteContentWithOptions(shared_ptr<AddAndRemoveFavoriteContentRequest> tmpReq, shared_ptr<AddAndRemoveFavoriteContentHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddSubResponse addSub(shared_ptr<AddSubRequest> request);
   AddSubResponse addSubWithOptions(shared_ptr<AddSubRequest> tmpReq, shared_ptr<AddSubHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthLoginWithAligenieUserInfoResponse authLoginWithAligenieUserInfo(shared_ptr<AuthLoginWithAligenieUserInfoRequest> request);
+  AuthLoginWithAligenieUserInfoResponse authLoginWithAligenieUserInfoWithOptions(shared_ptr<AuthLoginWithAligenieUserInfoRequest> request, shared_ptr<AuthLoginWithAligenieUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse authLoginWithAligenieUserInfoGeneratedByPhoneNumber(shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest> request);
+  AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest> request, shared_ptr<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthLoginWithTaobaoUserInfoResponse authLoginWithTaobaoUserInfo(shared_ptr<AuthLoginWithTaobaoUserInfoRequest> request);
+  AuthLoginWithTaobaoUserInfoResponse authLoginWithTaobaoUserInfoWithOptions(shared_ptr<AuthLoginWithTaobaoUserInfoRequest> request, shared_ptr<AuthLoginWithTaobaoUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AuthLoginWithThirdUserInfoResponse authLoginWithThirdUserInfo(shared_ptr<AuthLoginWithThirdUserInfoRequest> request);
+  AuthLoginWithThirdUserInfoResponse authLoginWithThirdUserInfoWithOptions(shared_ptr<AuthLoginWithThirdUserInfoRequest> tmpReq, shared_ptr<AuthLoginWithThirdUserInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckAuthCodeBindForExtResponse checkAuthCodeBindForExt(shared_ptr<CheckAuthCodeBindForExtRequest> request);
   CheckAuthCodeBindForExtResponse checkAuthCodeBindForExtWithOptions(shared_ptr<CheckAuthCodeBindForExtRequest> tmpReq, shared_ptr<CheckAuthCodeBindForExtHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAlarmResponse createAlarm(shared_ptr<CreateAlarmRequest> request);
@@ -28093,6 +30064,12 @@ public:
   DeleteSubResponse deleteSubWithOptions(shared_ptr<DeleteSubRequest> request, shared_ptr<DeleteSubHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeviceControlResponse deviceControl(shared_ptr<DeviceControlRequest> request);
   DeviceControlResponse deviceControlWithOptions(shared_ptr<DeviceControlRequest> tmpReq, shared_ptr<DeviceControlHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EcologyOpennessAuthenticateResponse ecologyOpennessAuthenticate(shared_ptr<EcologyOpennessAuthenticateRequest> request);
+  EcologyOpennessAuthenticateResponse ecologyOpennessAuthenticateWithOptions(shared_ptr<EcologyOpennessAuthenticateRequest> request, shared_ptr<EcologyOpennessAuthenticateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EcologyOpennessSendVerificationCodeResponse ecologyOpennessSendVerificationCode(shared_ptr<EcologyOpennessSendVerificationCodeRequest> request);
+  EcologyOpennessSendVerificationCodeResponse ecologyOpennessSendVerificationCodeWithOptions(shared_ptr<EcologyOpennessSendVerificationCodeRequest> request, shared_ptr<EcologyOpennessSendVerificationCodeHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FindUserlistToAuthLoginWithPhoneNumberResponse findUserlistToAuthLoginWithPhoneNumber(shared_ptr<FindUserlistToAuthLoginWithPhoneNumberRequest> request);
+  FindUserlistToAuthLoginWithPhoneNumberResponse findUserlistToAuthLoginWithPhoneNumberWithOptions(shared_ptr<FindUserlistToAuthLoginWithPhoneNumberRequest> request, shared_ptr<FindUserlistToAuthLoginWithPhoneNumberHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAlarmResponse getAlarm(shared_ptr<GetAlarmRequest> request);
   GetAlarmResponse getAlarmWithOptions(shared_ptr<GetAlarmRequest> tmpReq, shared_ptr<GetAlarmHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAlbumResponse getAlbum(shared_ptr<GetAlbumRequest> request);
