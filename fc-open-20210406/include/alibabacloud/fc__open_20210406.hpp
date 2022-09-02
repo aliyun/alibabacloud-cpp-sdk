@@ -495,6 +495,70 @@ public:
 
   virtual ~CustomDNS() = default;
 };
+class CustomHealthCheckConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> failureThreshold{};
+  shared_ptr<string> httpGetUrl{};
+  shared_ptr<long> initialDelaySeconds{};
+  shared_ptr<long> periodSeconds{};
+  shared_ptr<long> successThreshold{};
+  shared_ptr<long> timeoutSeconds{};
+
+  CustomHealthCheckConfig() {}
+
+  explicit CustomHealthCheckConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failureThreshold) {
+      res["failureThreshold"] = boost::any(*failureThreshold);
+    }
+    if (httpGetUrl) {
+      res["httpGetUrl"] = boost::any(*httpGetUrl);
+    }
+    if (initialDelaySeconds) {
+      res["initialDelaySeconds"] = boost::any(*initialDelaySeconds);
+    }
+    if (periodSeconds) {
+      res["periodSeconds"] = boost::any(*periodSeconds);
+    }
+    if (successThreshold) {
+      res["successThreshold"] = boost::any(*successThreshold);
+    }
+    if (timeoutSeconds) {
+      res["timeoutSeconds"] = boost::any(*timeoutSeconds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("failureThreshold") != m.end() && !m["failureThreshold"].empty()) {
+      failureThreshold = make_shared<long>(boost::any_cast<long>(m["failureThreshold"]));
+    }
+    if (m.find("httpGetUrl") != m.end() && !m["httpGetUrl"].empty()) {
+      httpGetUrl = make_shared<string>(boost::any_cast<string>(m["httpGetUrl"]));
+    }
+    if (m.find("initialDelaySeconds") != m.end() && !m["initialDelaySeconds"].empty()) {
+      initialDelaySeconds = make_shared<long>(boost::any_cast<long>(m["initialDelaySeconds"]));
+    }
+    if (m.find("periodSeconds") != m.end() && !m["periodSeconds"].empty()) {
+      periodSeconds = make_shared<long>(boost::any_cast<long>(m["periodSeconds"]));
+    }
+    if (m.find("successThreshold") != m.end() && !m["successThreshold"].empty()) {
+      successThreshold = make_shared<long>(boost::any_cast<long>(m["successThreshold"]));
+    }
+    if (m.find("timeoutSeconds") != m.end() && !m["timeoutSeconds"].empty()) {
+      timeoutSeconds = make_shared<long>(boost::any_cast<long>(m["timeoutSeconds"]));
+    }
+  }
+
+
+  virtual ~CustomHealthCheckConfig() = default;
+};
 class CustomRuntimeConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> args{};
@@ -1723,6 +1787,99 @@ public:
 
   virtual ~NASConfig() = default;
 };
+class OSSMountConfigMountPoints : public Darabonba::Model {
+public:
+  shared_ptr<string> bucketName{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> mountDir{};
+  shared_ptr<bool> readOnly{};
+
+  OSSMountConfigMountPoints() {}
+
+  explicit OSSMountConfigMountPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucketName) {
+      res["bucketName"] = boost::any(*bucketName);
+    }
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (mountDir) {
+      res["mountDir"] = boost::any(*mountDir);
+    }
+    if (readOnly) {
+      res["readOnly"] = boost::any(*readOnly);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bucketName") != m.end() && !m["bucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["bucketName"]));
+    }
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("mountDir") != m.end() && !m["mountDir"].empty()) {
+      mountDir = make_shared<string>(boost::any_cast<string>(m["mountDir"]));
+    }
+    if (m.find("readOnly") != m.end() && !m["readOnly"].empty()) {
+      readOnly = make_shared<bool>(boost::any_cast<bool>(m["readOnly"]));
+    }
+  }
+
+
+  virtual ~OSSMountConfigMountPoints() = default;
+};
+class OSSMountConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<OSSMountConfigMountPoints>> mountPoints{};
+
+  OSSMountConfig() {}
+
+  explicit OSSMountConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mountPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*mountPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["mountPoints"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("mountPoints") != m.end() && !m["mountPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["mountPoints"].type()) {
+        vector<OSSMountConfigMountPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["mountPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OSSMountConfigMountPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mountPoints = make_shared<vector<OSSMountConfigMountPoints>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~OSSMountConfig() = default;
+};
 class OSSTriggerKey : public Darabonba::Model {
 public:
   shared_ptr<string> prefix{};
@@ -2878,6 +3035,265 @@ public:
 
   virtual ~VendorConfig() = default;
 };
+class ClaimGPUInstanceHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
+
+  ClaimGPUInstanceHeaders() {}
+
+  explicit ClaimGPUInstanceHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xFcAccountId) {
+      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
+    }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
+      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
+    }
+  }
+
+
+  virtual ~ClaimGPUInstanceHeaders() = default;
+};
+class ClaimGPUInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskPerformanceLevel{};
+  shared_ptr<string> diskSizeGigabytes{};
+  shared_ptr<string> imageId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> internetBandwidthOut{};
+  shared_ptr<string> password{};
+  shared_ptr<string> sourceCidrIp{};
+  shared_ptr<vector<string>> tcpPortRange{};
+  shared_ptr<vector<string>> udpPortRange{};
+
+  ClaimGPUInstanceRequest() {}
+
+  explicit ClaimGPUInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskPerformanceLevel) {
+      res["diskPerformanceLevel"] = boost::any(*diskPerformanceLevel);
+    }
+    if (diskSizeGigabytes) {
+      res["diskSizeGigabytes"] = boost::any(*diskSizeGigabytes);
+    }
+    if (imageId) {
+      res["imageId"] = boost::any(*imageId);
+    }
+    if (instanceType) {
+      res["instanceType"] = boost::any(*instanceType);
+    }
+    if (internetBandwidthOut) {
+      res["internetBandwidthOut"] = boost::any(*internetBandwidthOut);
+    }
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (sourceCidrIp) {
+      res["sourceCidrIp"] = boost::any(*sourceCidrIp);
+    }
+    if (tcpPortRange) {
+      res["tcpPortRange"] = boost::any(*tcpPortRange);
+    }
+    if (udpPortRange) {
+      res["udpPortRange"] = boost::any(*udpPortRange);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("diskPerformanceLevel") != m.end() && !m["diskPerformanceLevel"].empty()) {
+      diskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["diskPerformanceLevel"]));
+    }
+    if (m.find("diskSizeGigabytes") != m.end() && !m["diskSizeGigabytes"].empty()) {
+      diskSizeGigabytes = make_shared<string>(boost::any_cast<string>(m["diskSizeGigabytes"]));
+    }
+    if (m.find("imageId") != m.end() && !m["imageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["imageId"]));
+    }
+    if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
+    }
+    if (m.find("internetBandwidthOut") != m.end() && !m["internetBandwidthOut"].empty()) {
+      internetBandwidthOut = make_shared<string>(boost::any_cast<string>(m["internetBandwidthOut"]));
+    }
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("sourceCidrIp") != m.end() && !m["sourceCidrIp"].empty()) {
+      sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["sourceCidrIp"]));
+    }
+    if (m.find("tcpPortRange") != m.end() && !m["tcpPortRange"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tcpPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tcpPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tcpPortRange = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("udpPortRange") != m.end() && !m["udpPortRange"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["udpPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["udpPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      udpPortRange = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ClaimGPUInstanceRequest() = default;
+};
+class ClaimGPUInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> publicIp{};
+
+  ClaimGPUInstanceResponseBody() {}
+
+  explicit ClaimGPUInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createdTime) {
+      res["createdTime"] = boost::any(*createdTime);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (publicIp) {
+      res["publicIp"] = boost::any(*publicIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("publicIp") != m.end() && !m["publicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["publicIp"]));
+    }
+  }
+
+
+  virtual ~ClaimGPUInstanceResponseBody() = default;
+};
+class ClaimGPUInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ClaimGPUInstanceResponseBody> body{};
+
+  ClaimGPUInstanceResponse() {}
+
+  explicit ClaimGPUInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ClaimGPUInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ClaimGPUInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ClaimGPUInstanceResponse() = default;
+};
 class CreateAliasHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -3488,6 +3904,7 @@ public:
   shared_ptr<Code> code{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
@@ -3525,6 +3942,9 @@ public:
     }
     if (customDNS) {
       res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3597,6 +4017,13 @@ public:
         CustomDNS model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
         customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -3677,6 +4104,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
@@ -3722,6 +4150,9 @@ public:
     }
     if (customDNS) {
       res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3802,6 +4233,13 @@ public:
         CustomDNS model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
         customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -4277,6 +4715,7 @@ public:
   shared_ptr<bool> internetAccess{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> serviceName{};
   shared_ptr<TracingConfig> tracingConfig{};
@@ -4303,6 +4742,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -4340,6 +4782,13 @@ public:
         nasConfig = make_shared<NASConfig>(model1);
       }
     }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
+      }
+    }
     if (m.find("role") != m.end() && !m["role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["role"]));
     }
@@ -4373,6 +4822,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
@@ -4406,6 +4856,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -4450,6 +4903,13 @@ public:
         NASConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nasConfig"]));
         nasConfig = make_shared<NASConfig>(model1);
+      }
+    }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
@@ -6900,6 +7360,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfigInfo> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
@@ -6945,6 +7406,9 @@ public:
     }
     if (customDNS) {
       res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -7025,6 +7489,13 @@ public:
         CustomDNS model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
         customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -8405,6 +8876,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
@@ -8438,6 +8910,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -8482,6 +8957,13 @@ public:
         NASConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nasConfig"]));
         nasConfig = make_shared<NASConfig>(model1);
+      }
+    }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
@@ -10416,6 +10898,7 @@ public:
   shared_ptr<long> codeSize{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
@@ -10457,6 +10940,9 @@ public:
     }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (description) {
       res["description"] = boost::any(*description);
@@ -10527,6 +11013,13 @@ public:
         CustomContainerConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customContainerConfig"]));
         customContainerConfig = make_shared<CustomContainerConfig>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
@@ -12499,6 +12992,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
@@ -12532,6 +13026,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -12576,6 +13073,13 @@ public:
         NASConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nasConfig"]));
         nasConfig = make_shared<NASConfig>(model1);
+      }
+    }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
@@ -15171,6 +15675,109 @@ public:
 
   virtual ~RegisterEventSourceResponse() = default;
 };
+class ReleaseGPUInstanceHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xFcAccountId{};
+  shared_ptr<string> xFcDate{};
+  shared_ptr<string> xFcTraceId{};
+
+  ReleaseGPUInstanceHeaders() {}
+
+  explicit ReleaseGPUInstanceHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xFcAccountId) {
+      res["X-Fc-Account-Id"] = boost::any(*xFcAccountId);
+    }
+    if (xFcDate) {
+      res["X-Fc-Date"] = boost::any(*xFcDate);
+    }
+    if (xFcTraceId) {
+      res["X-Fc-Trace-Id"] = boost::any(*xFcTraceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("X-Fc-Account-Id") != m.end() && !m["X-Fc-Account-Id"].empty()) {
+      xFcAccountId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Account-Id"]));
+    }
+    if (m.find("X-Fc-Date") != m.end() && !m["X-Fc-Date"].empty()) {
+      xFcDate = make_shared<string>(boost::any_cast<string>(m["X-Fc-Date"]));
+    }
+    if (m.find("X-Fc-Trace-Id") != m.end() && !m["X-Fc-Trace-Id"].empty()) {
+      xFcTraceId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Trace-Id"]));
+    }
+  }
+
+
+  virtual ~ReleaseGPUInstanceHeaders() = default;
+};
+class ReleaseGPUInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  ReleaseGPUInstanceResponse() {}
+
+  explicit ReleaseGPUInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~ReleaseGPUInstanceResponse() = default;
+};
 class StopStatefulAsyncInvocationHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -16211,6 +16818,7 @@ public:
   shared_ptr<Code> code{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
@@ -16249,6 +16857,9 @@ public:
     }
     if (customDNS) {
       res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16318,6 +16929,13 @@ public:
         CustomDNS model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
         customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -16392,6 +17010,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
+  shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
   shared_ptr<map<string, string>> environmentVariables{};
@@ -16436,6 +17055,9 @@ public:
     }
     if (customDNS) {
       res["customDNS"] = customDNS ? boost::any(customDNS->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (customHealthCheckConfig) {
+      res["customHealthCheckConfig"] = customHealthCheckConfig ? boost::any(customHealthCheckConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (customRuntimeConfig) {
       res["customRuntimeConfig"] = customRuntimeConfig ? boost::any(customRuntimeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16513,6 +17135,13 @@ public:
         CustomDNS model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customDNS"]));
         customDNS = make_shared<CustomDNS>(model1);
+      }
+    }
+    if (m.find("customHealthCheckConfig") != m.end() && !m["customHealthCheckConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["customHealthCheckConfig"].type()) {
+        CustomHealthCheckConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["customHealthCheckConfig"]));
+        customHealthCheckConfig = make_shared<CustomHealthCheckConfig>(model1);
       }
     }
     if (m.find("customRuntimeConfig") != m.end() && !m["customRuntimeConfig"].empty()) {
@@ -16718,6 +17347,7 @@ public:
   shared_ptr<bool> internetAccess{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<TracingConfig> tracingConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
@@ -16743,6 +17373,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -16777,6 +17410,13 @@ public:
         nasConfig = make_shared<NASConfig>(model1);
       }
     }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
+      }
+    }
     if (m.find("role") != m.end() && !m["role"].empty()) {
       role = make_shared<string>(boost::any_cast<string>(m["role"]));
     }
@@ -16807,6 +17447,7 @@ public:
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<NASConfig> nasConfig{};
+  shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceName{};
@@ -16840,6 +17481,9 @@ public:
     }
     if (nasConfig) {
       res["nasConfig"] = nasConfig ? boost::any(nasConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ossMountConfig) {
+      res["ossMountConfig"] = ossMountConfig ? boost::any(ossMountConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (role) {
       res["role"] = boost::any(*role);
@@ -16884,6 +17528,13 @@ public:
         NASConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["nasConfig"]));
         nasConfig = make_shared<NASConfig>(model1);
+      }
+    }
+    if (m.find("ossMountConfig") != m.end() && !m["ossMountConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ossMountConfig"].type()) {
+        OSSMountConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ossMountConfig"]));
+        ossMountConfig = make_shared<OSSMountConfig>(model1);
       }
     }
     if (m.find("role") != m.end() && !m["role"].empty()) {
@@ -17273,6 +17924,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  ClaimGPUInstanceResponse claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request);
+  ClaimGPUInstanceResponse claimGPUInstanceWithOptions(shared_ptr<ClaimGPUInstanceRequest> request, shared_ptr<ClaimGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAliasResponse createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request);
   CreateAliasResponse createAliasWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<CreateAliasRequest> request,
@@ -17535,6 +18188,8 @@ public:
                                                              shared_ptr<RegisterEventSourceRequest> request,
                                                              shared_ptr<RegisterEventSourceHeaders> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ReleaseGPUInstanceResponse releaseGPUInstance(shared_ptr<string> instanceId);
+  ReleaseGPUInstanceResponse releaseGPUInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<ReleaseGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopStatefulAsyncInvocationResponse stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
                                                                   shared_ptr<string> functionName,
                                                                   shared_ptr<string> invocationId,

@@ -62,6 +62,73 @@ string Alibabacloud_FC-Open20210406::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ClaimGPUInstanceHeaders> headers = make_shared<ClaimGPUInstanceHeaders>();
+  return claimGPUInstanceWithOptions(request, headers, runtime);
+}
+
+ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstanceWithOptions(shared_ptr<ClaimGPUInstanceRequest> request, shared_ptr<ClaimGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskPerformanceLevel)) {
+    body->insert(pair<string, string>("diskPerformanceLevel", *request->diskPerformanceLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diskSizeGigabytes)) {
+    body->insert(pair<string, string>("diskSizeGigabytes", *request->diskSizeGigabytes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
+    body->insert(pair<string, string>("imageId", *request->imageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    body->insert(pair<string, string>("instanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetBandwidthOut)) {
+    body->insert(pair<string, string>("internetBandwidthOut", *request->internetBandwidthOut));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    body->insert(pair<string, string>("password", *request->password));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceCidrIp)) {
+    body->insert(pair<string, string>("sourceCidrIp", *request->sourceCidrIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tcpPortRange)) {
+    body->insert(pair<string, vector<string>>("tcpPortRange", *request->tcpPortRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->udpPortRange)) {
+    body->insert(pair<string, vector<string>>("udpPortRange", *request->udpPortRange));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Account-Id", Darabonba_Util::Client::toJSONString(headers->xFcAccountId)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Date", Darabonba_Util::Client::toJSONString(headers->xFcDate)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Trace-Id", Darabonba_Util::Client::toJSONString(headers->xFcTraceId)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ClaimGPUInstance"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/gpuInstances"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ClaimGPUInstanceResponse(callApi(params, req, runtime));
+}
+
 CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<CreateAliasHeaders> headers = make_shared<CreateAliasHeaders>();
@@ -203,6 +270,9 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
   }
   if (!Darabonba_Util::Client::isUnset<CustomDNS>(request->customDNS)) {
     body->insert(pair<string, CustomDNS>("customDNS", *request->customDNS));
+  }
+  if (!Darabonba_Util::Client::isUnset<CustomHealthCheckConfig>(request->customHealthCheckConfig)) {
+    body->insert(pair<string, CustomHealthCheckConfig>("customHealthCheckConfig", *request->customHealthCheckConfig));
   }
   if (!Darabonba_Util::Client::isUnset<CustomRuntimeConfig>(request->customRuntimeConfig)) {
     body->insert(pair<string, CustomRuntimeConfig>("customRuntimeConfig", *request->customRuntimeConfig));
@@ -356,6 +426,9 @@ CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<NASConfig>(request->nasConfig)) {
     body->insert(pair<string, NASConfig>("nasConfig", *request->nasConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<OSSMountConfig>(request->ossMountConfig)) {
+    body->insert(pair<string, OSSMountConfig>("ossMountConfig", *request->ossMountConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
     body->insert(pair<string, string>("role", *request->role));
@@ -2971,6 +3044,44 @@ RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventS
   return RegisterEventSourceResponse(callApi(params, req, runtime));
 }
 
+ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInstance(shared_ptr<string> instanceId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ReleaseGPUInstanceHeaders> headers = make_shared<ReleaseGPUInstanceHeaders>();
+  return releaseGPUInstanceWithOptions(instanceId, headers, runtime);
+}
+
+ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<ReleaseGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcAccountId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Account-Id", Darabonba_Util::Client::toJSONString(headers->xFcAccountId)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcDate)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Date", Darabonba_Util::Client::toJSONString(headers->xFcDate)));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcTraceId)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Trace-Id", Darabonba_Util::Client::toJSONString(headers->xFcTraceId)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseGPUInstance"))},
+    {"version", boost::any(string("2021-04-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2021-04-06/gpuInstances/") + string(*instanceId))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return ReleaseGPUInstanceResponse(callApi(params, req, runtime));
+}
+
 StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
                                                                                                       shared_ptr<string> functionName,
                                                                                                       shared_ptr<string> invocationId,
@@ -3270,6 +3381,9 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
   if (!Darabonba_Util::Client::isUnset<CustomDNS>(request->customDNS)) {
     body->insert(pair<string, CustomDNS>("customDNS", *request->customDNS));
   }
+  if (!Darabonba_Util::Client::isUnset<CustomHealthCheckConfig>(request->customHealthCheckConfig)) {
+    body->insert(pair<string, CustomHealthCheckConfig>("customHealthCheckConfig", *request->customHealthCheckConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<CustomRuntimeConfig>(request->customRuntimeConfig)) {
     body->insert(pair<string, CustomRuntimeConfig>("customRuntimeConfig", *request->customRuntimeConfig));
   }
@@ -3370,6 +3484,9 @@ UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateServiceWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<NASConfig>(request->nasConfig)) {
     body->insert(pair<string, NASConfig>("nasConfig", *request->nasConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<OSSMountConfig>(request->ossMountConfig)) {
+    body->insert(pair<string, OSSMountConfig>("ossMountConfig", *request->ossMountConfig));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
     body->insert(pair<string, string>("role", *request->role));
