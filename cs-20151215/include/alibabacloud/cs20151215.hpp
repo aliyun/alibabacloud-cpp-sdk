@@ -11882,6 +11882,7 @@ public:
 class DescribeNodePoolVulsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeNodePoolVulsResponseBodyVulRecords>> vulRecords{};
+  shared_ptr<bool> vulsFixServicePurchased{};
 
   DescribeNodePoolVulsResponseBody() {}
 
@@ -11900,6 +11901,9 @@ public:
       }
       res["vul_records"] = boost::any(temp1);
     }
+    if (vulsFixServicePurchased) {
+      res["vuls_fix_service_purchased"] = boost::any(*vulsFixServicePurchased);
+    }
     return res;
   }
 
@@ -11916,6 +11920,9 @@ public:
         }
         vulRecords = make_shared<vector<DescribeNodePoolVulsResponseBodyVulRecords>>(expect1);
       }
+    }
+    if (m.find("vuls_fix_service_purchased") != m.end() && !m["vuls_fix_service_purchased"].empty()) {
+      vulsFixServicePurchased = make_shared<bool>(boost::any_cast<bool>(m["vuls_fix_service_purchased"]));
     }
   }
 
