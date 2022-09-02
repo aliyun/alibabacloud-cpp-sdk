@@ -23709,7 +23709,6 @@ public:
   shared_ptr<string> aclType{};
   shared_ptr<string> classicEgressAddress{};
   shared_ptr<string> createdTime{};
-  shared_ptr<bool> egressAddressChangeNotify{};
   shared_ptr<bool> egressIpv6Enable{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> httpsPolicies{};
@@ -23761,9 +23760,6 @@ public:
     }
     if (createdTime) {
       res["CreatedTime"] = boost::any(*createdTime);
-    }
-    if (egressAddressChangeNotify) {
-      res["EgressAddressChangeNotify"] = boost::any(*egressAddressChangeNotify);
     }
     if (egressIpv6Enable) {
       res["EgressIpv6Enable"] = boost::any(*egressIpv6Enable);
@@ -23855,9 +23851,6 @@ public:
     }
     if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
-    }
-    if (m.find("EgressAddressChangeNotify") != m.end() && !m["EgressAddressChangeNotify"].empty()) {
-      egressAddressChangeNotify = make_shared<bool>(boost::any_cast<bool>(m["EgressAddressChangeNotify"]));
     }
     if (m.find("EgressIpv6Enable") != m.end() && !m["EgressIpv6Enable"].empty()) {
       egressIpv6Enable = make_shared<bool>(boost::any_cast<bool>(m["EgressIpv6Enable"]));
@@ -28964,6 +28957,7 @@ class DescribeTrafficControlsByApiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   DescribeTrafficControlsByApiRequest() {}
@@ -28982,6 +28976,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -28994,6 +28991,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -29194,6 +29194,7 @@ public:
 class DescribeUpdateBackendTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> operationUid{};
+  shared_ptr<string> securityToken{};
 
   DescribeUpdateBackendTaskRequest() {}
 
@@ -29208,12 +29209,18 @@ public:
     if (operationUid) {
       res["OperationUid"] = boost::any(*operationUid);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OperationUid") != m.end() && !m["OperationUid"].empty()) {
       operationUid = make_shared<string>(boost::any_cast<string>(m["OperationUid"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -29453,6 +29460,7 @@ public:
 class DescribeUpdateVpcInfoTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> operationUid{};
+  shared_ptr<string> securityToken{};
 
   DescribeUpdateVpcInfoTaskRequest() {}
 
@@ -29467,12 +29475,18 @@ public:
     if (operationUid) {
       res["OperationUid"] = boost::any(*operationUid);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OperationUid") != m.end() && !m["OperationUid"].empty()) {
       operationUid = make_shared<string>(boost::any_cast<string>(m["OperationUid"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -30400,6 +30414,7 @@ class DisableInstanceAccessControlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> securityToken{};
 
   DisableInstanceAccessControlRequest() {}
 
@@ -30417,6 +30432,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -30426,6 +30444,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -31168,6 +31189,7 @@ public:
   shared_ptr<string> aclId{};
   shared_ptr<string> aclType{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> securityToken{};
 
   EnableInstanceAccessControlRequest() {}
 
@@ -31188,6 +31210,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -31200,6 +31225,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -33209,168 +33237,6 @@ public:
 
   virtual ~ModifyApiGroupResponse() = default;
 };
-class ModifyApiGroupNetworkPolicyRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> groupId{};
-  shared_ptr<string> httpsPolicy{};
-  shared_ptr<bool> internetEnable{};
-  shared_ptr<bool> internetIPV6Enable{};
-  shared_ptr<string> securityToken{};
-  shared_ptr<bool> vpcIntranetEnable{};
-  shared_ptr<bool> vpcSlbIntranetEnable{};
-
-  ModifyApiGroupNetworkPolicyRequest() {}
-
-  explicit ModifyApiGroupNetworkPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (groupId) {
-      res["GroupId"] = boost::any(*groupId);
-    }
-    if (httpsPolicy) {
-      res["HttpsPolicy"] = boost::any(*httpsPolicy);
-    }
-    if (internetEnable) {
-      res["InternetEnable"] = boost::any(*internetEnable);
-    }
-    if (internetIPV6Enable) {
-      res["InternetIPV6Enable"] = boost::any(*internetIPV6Enable);
-    }
-    if (securityToken) {
-      res["SecurityToken"] = boost::any(*securityToken);
-    }
-    if (vpcIntranetEnable) {
-      res["VpcIntranetEnable"] = boost::any(*vpcIntranetEnable);
-    }
-    if (vpcSlbIntranetEnable) {
-      res["VpcSlbIntranetEnable"] = boost::any(*vpcSlbIntranetEnable);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
-      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
-    }
-    if (m.find("HttpsPolicy") != m.end() && !m["HttpsPolicy"].empty()) {
-      httpsPolicy = make_shared<string>(boost::any_cast<string>(m["HttpsPolicy"]));
-    }
-    if (m.find("InternetEnable") != m.end() && !m["InternetEnable"].empty()) {
-      internetEnable = make_shared<bool>(boost::any_cast<bool>(m["InternetEnable"]));
-    }
-    if (m.find("InternetIPV6Enable") != m.end() && !m["InternetIPV6Enable"].empty()) {
-      internetIPV6Enable = make_shared<bool>(boost::any_cast<bool>(m["InternetIPV6Enable"]));
-    }
-    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
-      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
-    }
-    if (m.find("VpcIntranetEnable") != m.end() && !m["VpcIntranetEnable"].empty()) {
-      vpcIntranetEnable = make_shared<bool>(boost::any_cast<bool>(m["VpcIntranetEnable"]));
-    }
-    if (m.find("VpcSlbIntranetEnable") != m.end() && !m["VpcSlbIntranetEnable"].empty()) {
-      vpcSlbIntranetEnable = make_shared<bool>(boost::any_cast<bool>(m["VpcSlbIntranetEnable"]));
-    }
-  }
-
-
-  virtual ~ModifyApiGroupNetworkPolicyRequest() = default;
-};
-class ModifyApiGroupNetworkPolicyResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  ModifyApiGroupNetworkPolicyResponseBody() {}
-
-  explicit ModifyApiGroupNetworkPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ModifyApiGroupNetworkPolicyResponseBody() = default;
-};
-class ModifyApiGroupNetworkPolicyResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ModifyApiGroupNetworkPolicyResponseBody> body{};
-
-  ModifyApiGroupNetworkPolicyResponse() {}
-
-  explicit ModifyApiGroupNetworkPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ModifyApiGroupNetworkPolicyResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ModifyApiGroupNetworkPolicyResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ModifyApiGroupNetworkPolicyResponse() = default;
-};
 class ModifyApiGroupVpcWhitelistRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
@@ -34180,6 +34046,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> ipControlId{};
   shared_ptr<string> ipControlName{};
+  shared_ptr<string> securityToken{};
 
   ModifyIpControlRequest() {}
 
@@ -34200,6 +34067,9 @@ public:
     if (ipControlName) {
       res["IpControlName"] = boost::any(*ipControlName);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -34212,6 +34082,9 @@ public:
     }
     if (m.find("IpControlName") != m.end() && !m["IpControlName"].empty()) {
       ipControlName = make_shared<string>(boost::any_cast<string>(m["IpControlName"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -34953,6 +34826,7 @@ public:
 };
 class ModifySignatureRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> securityToken{};
   shared_ptr<string> signatureId{};
   shared_ptr<string> signatureKey{};
   shared_ptr<string> signatureName{};
@@ -34968,6 +34842,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
@@ -34984,6 +34861,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
     }
@@ -35111,6 +34991,7 @@ public:
   shared_ptr<long> apiDefault{};
   shared_ptr<long> appDefault{};
   shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> trafficControlId{};
   shared_ptr<string> trafficControlName{};
   shared_ptr<string> trafficControlUnit{};
@@ -35134,6 +35015,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
     }
     if (trafficControlId) {
       res["TrafficControlId"] = boost::any(*trafficControlId);
@@ -35159,6 +35043,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("TrafficControlId") != m.end() && !m["TrafficControlId"].empty()) {
       trafficControlId = make_shared<string>(boost::any_cast<string>(m["TrafficControlId"]));
@@ -35268,6 +35155,189 @@ public:
 
   virtual ~ModifyTrafficControlResponse() = default;
 };
+class ModifyVpcAccessAndUpdateApisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> needBatchWork{};
+  shared_ptr<long> port{};
+  shared_ptr<bool> refresh{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> token{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcTargetHostName{};
+
+  ModifyVpcAccessAndUpdateApisRequest() {}
+
+  explicit ModifyVpcAccessAndUpdateApisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (needBatchWork) {
+      res["NeedBatchWork"] = boost::any(*needBatchWork);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (refresh) {
+      res["Refresh"] = boost::any(*refresh);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    if (vpcTargetHostName) {
+      res["VpcTargetHostName"] = boost::any(*vpcTargetHostName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NeedBatchWork") != m.end() && !m["NeedBatchWork"].empty()) {
+      needBatchWork = make_shared<bool>(boost::any_cast<bool>(m["NeedBatchWork"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("Refresh") != m.end() && !m["Refresh"].empty()) {
+      refresh = make_shared<bool>(boost::any_cast<bool>(m["Refresh"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("VpcTargetHostName") != m.end() && !m["VpcTargetHostName"].empty()) {
+      vpcTargetHostName = make_shared<string>(boost::any_cast<string>(m["VpcTargetHostName"]));
+    }
+  }
+
+
+  virtual ~ModifyVpcAccessAndUpdateApisRequest() = default;
+};
+class ModifyVpcAccessAndUpdateApisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> operationId{};
+  shared_ptr<string> requestId{};
+
+  ModifyVpcAccessAndUpdateApisResponseBody() {}
+
+  explicit ModifyVpcAccessAndUpdateApisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyVpcAccessAndUpdateApisResponseBody() = default;
+};
+class ModifyVpcAccessAndUpdateApisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyVpcAccessAndUpdateApisResponseBody> body{};
+
+  ModifyVpcAccessAndUpdateApisResponse() {}
+
+  explicit ModifyVpcAccessAndUpdateApisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyVpcAccessAndUpdateApisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyVpcAccessAndUpdateApisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyVpcAccessAndUpdateApisResponse() = default;
+};
 class OpenApiGatewayServiceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> orderId{};
@@ -35370,6 +35440,7 @@ class ReactivateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
 
   ReactivateDomainRequest() {}
 
@@ -35387,6 +35458,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -35396,6 +35470,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -35497,6 +35574,7 @@ class RemoveAccessControlListEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclEntrys{};
   shared_ptr<string> aclId{};
+  shared_ptr<string> securityToken{};
 
   RemoveAccessControlListEntryRequest() {}
 
@@ -35514,6 +35592,9 @@ public:
     if (aclId) {
       res["AclId"] = boost::any(*aclId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -35523,6 +35604,9 @@ public:
     }
     if (m.find("AclId") != m.end() && !m["AclId"].empty()) {
       aclId = make_shared<string>(boost::any_cast<string>(m["AclId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -35626,6 +35710,7 @@ public:
   shared_ptr<long> appId{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
 
   RemoveApisAuthoritiesRequest() {}
@@ -35650,6 +35735,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -35668,6 +35756,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -36068,6 +36159,7 @@ class RemoveIpControlPolicyItemRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ipControlId{};
   shared_ptr<string> policyItemIds{};
+  shared_ptr<string> securityToken{};
 
   RemoveIpControlPolicyItemRequest() {}
 
@@ -36085,6 +36177,9 @@ public:
     if (policyItemIds) {
       res["PolicyItemIds"] = boost::any(*policyItemIds);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     return res;
   }
 
@@ -36094,6 +36189,9 @@ public:
     }
     if (m.find("PolicyItemIds") != m.end() && !m["PolicyItemIds"].empty()) {
       policyItemIds = make_shared<string>(boost::any_cast<string>(m["PolicyItemIds"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
   }
 
@@ -36195,6 +36293,7 @@ class RemoveSignatureApisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> signatureId{};
   shared_ptr<string> stageName{};
 
@@ -36214,6 +36313,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
@@ -36229,6 +36331,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
@@ -36336,6 +36441,7 @@ class RemoveTrafficControlApisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
   shared_ptr<string> trafficControlId{};
 
@@ -36355,6 +36461,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -36370,6 +36479,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -38688,6 +38800,7 @@ class SetSignatureApisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> signatureId{};
   shared_ptr<string> stageName{};
 
@@ -38707,6 +38820,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
     }
@@ -38722,6 +38838,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
@@ -38829,6 +38948,7 @@ class SetTrafficControlApisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiIds{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> stageName{};
   shared_ptr<string> trafficControlId{};
 
@@ -38848,6 +38968,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (stageName) {
       res["StageName"] = boost::any(*stageName);
     }
@@ -38863,6 +38986,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
       stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
@@ -39132,6 +39258,7 @@ class SetWildcardDomainPatternsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
   shared_ptr<string> wildcardDomainPatterns{};
 
   SetWildcardDomainPatternsRequest() {}
@@ -39150,6 +39277,9 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
     if (wildcardDomainPatterns) {
       res["WildcardDomainPatterns"] = boost::any(*wildcardDomainPatterns);
     }
@@ -39162,6 +39292,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
     if (m.find("WildcardDomainPatterns") != m.end() && !m["WildcardDomainPatterns"].empty()) {
       wildcardDomainPatterns = make_shared<string>(boost::any_cast<string>(m["WildcardDomainPatterns"]));
@@ -40009,8 +40142,6 @@ public:
   ModifyApiConfigurationResponse modifyApiConfiguration(shared_ptr<ModifyApiConfigurationRequest> request);
   ModifyApiGroupResponse modifyApiGroupWithOptions(shared_ptr<ModifyApiGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiGroupResponse modifyApiGroup(shared_ptr<ModifyApiGroupRequest> request);
-  ModifyApiGroupNetworkPolicyResponse modifyApiGroupNetworkPolicyWithOptions(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyApiGroupNetworkPolicyResponse modifyApiGroupNetworkPolicy(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request);
   ModifyApiGroupVpcWhitelistResponse modifyApiGroupVpcWhitelistWithOptions(shared_ptr<ModifyApiGroupVpcWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiGroupVpcWhitelistResponse modifyApiGroupVpcWhitelist(shared_ptr<ModifyApiGroupVpcWhitelistRequest> request);
   ModifyAppResponse modifyAppWithOptions(shared_ptr<ModifyAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -40035,6 +40166,8 @@ public:
   ModifySignatureResponse modifySignature(shared_ptr<ModifySignatureRequest> request);
   ModifyTrafficControlResponse modifyTrafficControlWithOptions(shared_ptr<ModifyTrafficControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyTrafficControlResponse modifyTrafficControl(shared_ptr<ModifyTrafficControlRequest> request);
+  ModifyVpcAccessAndUpdateApisResponse modifyVpcAccessAndUpdateApisWithOptions(shared_ptr<ModifyVpcAccessAndUpdateApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyVpcAccessAndUpdateApisResponse modifyVpcAccessAndUpdateApis(shared_ptr<ModifyVpcAccessAndUpdateApisRequest> request);
   OpenApiGatewayServiceResponse openApiGatewayServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenApiGatewayServiceResponse openApiGatewayService();
   ReactivateDomainResponse reactivateDomainWithOptions(shared_ptr<ReactivateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
