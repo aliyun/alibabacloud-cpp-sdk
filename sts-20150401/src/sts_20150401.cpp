@@ -16,6 +16,7 @@ using namespace std;
 using namespace Alibabacloud_Sts20150401;
 
 Alibabacloud_Sts20150401::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-northeast-2-pop", "sts.aliyuncs.com"},
