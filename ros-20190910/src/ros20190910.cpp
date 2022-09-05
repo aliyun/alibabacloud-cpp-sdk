@@ -2440,8 +2440,13 @@ MoveResourceGroupResponse Alibabacloud_ROS20190910::Client::moveResourceGroup(sh
   return moveResourceGroupWithOptions(request, runtime);
 }
 
-PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(shared_ptr<PreviewStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(shared_ptr<PreviewStackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<PreviewStackShrinkRequest> request = make_shared<PreviewStackShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackRequestResourceConfigRules>>(tmpReq->resourceConfigRules)) {
+    request->resourceConfigRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceConfigRules, make_shared<string>("ResourceConfigRules"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -2452,11 +2457,14 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   if (!Darabonba_Util::Client::isUnset<long>(request->parallelism)) {
     query->insert(pair<string, long>("Parallelism", *request->parallelism));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackRequestParameters>>(request->parameters)) {
-    query->insert(pair<string, vector<PreviewStackRequestParameters>>("Parameters", *request->parameters));
+  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackShrinkRequestParameters>>(request->parameters)) {
+    query->insert(pair<string, vector<PreviewStackShrinkRequestParameters>>("Parameters", *request->parameters));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceConfigRulesShrink)) {
+    query->insert(pair<string, string>("ResourceConfigRules", *request->resourceConfigRulesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));
