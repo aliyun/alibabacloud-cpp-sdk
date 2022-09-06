@@ -2922,7 +2922,7 @@ PutLayerACLResponse Alibabacloud_FC-Open20210406::Client::putLayerACLWithOptions
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("string"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return PutLayerACLResponse(callApi(params, req, runtime));
 }

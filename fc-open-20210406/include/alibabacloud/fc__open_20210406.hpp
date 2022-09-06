@@ -15138,7 +15138,6 @@ class PutLayerACLResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<string> body{};
 
   PutLayerACLResponse() {}
 
@@ -15153,9 +15152,6 @@ public:
     if (!statusCode) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
     }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
   }
 
   map<string, boost::any> toMap() override {
@@ -15165,9 +15161,6 @@ public:
     }
     if (statusCode) {
       res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = boost::any(*body);
     }
     return res;
   }
@@ -15183,9 +15176,6 @@ public:
     }
     if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
