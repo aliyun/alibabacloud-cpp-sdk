@@ -122,6 +122,43 @@ AddDataForApiSourceResponse Alibabacloud_Iot20180120::Client::addDataForApiSourc
   return addDataForApiSourceWithOptions(request, runtime);
 }
 
+AddShareTaskDeviceResponse Alibabacloud_Iot20180120::Client::addShareTaskDeviceWithOptions(shared_ptr<AddShareTaskDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iotIdList)) {
+    body->insert(pair<string, vector<string>>("IotIdList", *request->iotIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareTaskId)) {
+    body->insert(pair<string, string>("ShareTaskId", *request->shareTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddShareTaskDevice"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddShareTaskDeviceResponse(callApi(params, req, runtime));
+}
+
+AddShareTaskDeviceResponse Alibabacloud_Iot20180120::Client::addShareTaskDevice(shared_ptr<AddShareTaskDeviceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addShareTaskDeviceWithOptions(request, runtime);
+}
+
 AttachDestinationResponse Alibabacloud_Iot20180120::Client::attachDestinationWithOptions(shared_ptr<AttachDestinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1439,9 +1476,6 @@ BindGatewayToEdgeInstanceResponse Alibabacloud_Iot20180120::Client::bindGatewayT
 BindLicenseDeviceResponse Alibabacloud_Iot20180120::Client::bindLicenseDeviceWithOptions(shared_ptr<BindLicenseDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iotIdList)) {
-    query->insert(pair<string, vector<string>>("IotIdList", *request->iotIdList));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
     query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
   }
@@ -1451,8 +1485,16 @@ BindLicenseDeviceResponse Alibabacloud_Iot20180120::Client::bindLicenseDeviceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
     query->insert(pair<string, string>("ProductKey", *request->productKey));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceNameList)) {
+    body->insert(pair<string, vector<string>>("DeviceNameList", *request->deviceNameList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iotIdList)) {
+    body->insert(pair<string, vector<string>>("IotIdList", *request->iotIdList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("BindLicenseDevice"))},
@@ -2319,6 +2361,62 @@ CreateDeviceTunnelResponse Alibabacloud_Iot20180120::Client::createDeviceTunnelW
 CreateDeviceTunnelResponse Alibabacloud_Iot20180120::Client::createDeviceTunnel(shared_ptr<CreateDeviceTunnelRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createDeviceTunnelWithOptions(request, runtime);
+}
+
+CreateDownloadDataJobResponse Alibabacloud_Iot20180120::Client::createDownloadDataJobWithOptions(shared_ptr<CreateDownloadDataJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateDownloadDataJobShrinkRequest> request = make_shared<CreateDownloadDataJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->context)) {
+    request->contextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->context, make_shared<string>("Context"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->fileConfig)) {
+    request->fileConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fileConfig, make_shared<string>("FileConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->downloadDataType)) {
+    query->insert(pair<string, string>("DownloadDataType", *request->downloadDataType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileConfigShrink)) {
+    query->insert(pair<string, string>("FileConfig", *request->fileConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contextShrink)) {
+    body->insert(pair<string, string>("Context", *request->contextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDownloadDataJob"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDownloadDataJobResponse(callApi(params, req, runtime));
+}
+
+CreateDownloadDataJobResponse Alibabacloud_Iot20180120::Client::createDownloadDataJob(shared_ptr<CreateDownloadDataJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDownloadDataJobWithOptions(request, runtime);
 }
 
 CreateEdgeDriverResponse Alibabacloud_Iot20180120::Client::createEdgeDriverWithOptions(shared_ptr<CreateEdgeDriverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4829,6 +4927,40 @@ DeleteSchedulePeriodResponse Alibabacloud_Iot20180120::Client::deleteSchedulePer
   return deleteSchedulePeriodWithOptions(request, runtime);
 }
 
+DeleteShareTaskDeviceResponse Alibabacloud_Iot20180120::Client::deleteShareTaskDeviceWithOptions(shared_ptr<DeleteShareTaskDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iotIdList)) {
+    body->insert(pair<string, vector<string>>("IotIdList", *request->iotIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareTaskId)) {
+    body->insert(pair<string, string>("ShareTaskId", *request->shareTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteShareTaskDevice"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteShareTaskDeviceResponse(callApi(params, req, runtime));
+}
+
+DeleteShareTaskDeviceResponse Alibabacloud_Iot20180120::Client::deleteShareTaskDevice(shared_ptr<DeleteShareTaskDeviceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteShareTaskDeviceWithOptions(request, runtime);
+}
+
 DeleteSoundCodeResponse Alibabacloud_Iot20180120::Client::deleteSoundCodeWithOptions(shared_ptr<DeleteSoundCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5741,6 +5873,47 @@ GetDeviceTunnelStatusResponse Alibabacloud_Iot20180120::Client::getDeviceTunnelS
   return getDeviceTunnelStatusWithOptions(request, runtime);
 }
 
+GetDownloadFileResponse Alibabacloud_Iot20180120::Client::getDownloadFileWithOptions(shared_ptr<GetDownloadFileRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetDownloadFileShrinkRequest> request = make_shared<GetDownloadFileShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->context)) {
+    request->contextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->context, make_shared<string>("Context"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->longJobId)) {
+    query->insert(pair<string, string>("LongJobId", *request->longJobId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contextShrink)) {
+    body->insert(pair<string, string>("Context", *request->contextShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDownloadFile"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDownloadFileResponse(callApi(params, req, runtime));
+}
+
+GetDownloadFileResponse Alibabacloud_Iot20180120::Client::getDownloadFile(shared_ptr<GetDownloadFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDownloadFileWithOptions(request, runtime);
+}
+
 GetEdgeDriverVersionResponse Alibabacloud_Iot20180120::Client::getEdgeDriverVersionWithOptions(shared_ptr<GetEdgeDriverVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -6097,6 +6270,43 @@ GetSceneRuleResponse Alibabacloud_Iot20180120::Client::getSceneRule(shared_ptr<G
   return getSceneRuleWithOptions(request, runtime);
 }
 
+GetShareTaskByDeviceOpenResponse Alibabacloud_Iot20180120::Client::getShareTaskByDeviceOpenWithOptions(shared_ptr<GetShareTaskByDeviceOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    body->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetShareTaskByDeviceOpen"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetShareTaskByDeviceOpenResponse(callApi(params, req, runtime));
+}
+
+GetShareTaskByDeviceOpenResponse Alibabacloud_Iot20180120::Client::getShareTaskByDeviceOpen(shared_ptr<GetShareTaskByDeviceOpenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getShareTaskByDeviceOpenWithOptions(request, runtime);
+}
+
 GetSoundCodeAudioResponse Alibabacloud_Iot20180120::Client::getSoundCodeAudioWithOptions(shared_ptr<GetSoundCodeAudioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -6188,6 +6398,34 @@ GetSpeechDeviceDetailResponse Alibabacloud_Iot20180120::Client::getSpeechDeviceD
 GetSpeechDeviceDetailResponse Alibabacloud_Iot20180120::Client::getSpeechDeviceDetail(shared_ptr<GetSpeechDeviceDetailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getSpeechDeviceDetailWithOptions(request, runtime);
+}
+
+GetSpeechLicenseDeviceStatisticsResponse Alibabacloud_Iot20180120::Client::getSpeechLicenseDeviceStatisticsWithOptions(shared_ptr<GetSpeechLicenseDeviceStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSpeechLicenseDeviceStatistics"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSpeechLicenseDeviceStatisticsResponse(callApi(params, req, runtime));
+}
+
+GetSpeechLicenseDeviceStatisticsResponse Alibabacloud_Iot20180120::Client::getSpeechLicenseDeviceStatistics(shared_ptr<GetSpeechLicenseDeviceStatisticsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSpeechLicenseDeviceStatisticsWithOptions(request, runtime);
 }
 
 GetSpeechVoiceResponse Alibabacloud_Iot20180120::Client::getSpeechVoiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7732,6 +7970,55 @@ PackageSoundCodeLabelBatchAudioResponse Alibabacloud_Iot20180120::Client::packag
 PackageSoundCodeLabelBatchAudioResponse Alibabacloud_Iot20180120::Client::packageSoundCodeLabelBatchAudio(shared_ptr<PackageSoundCodeLabelBatchAudioRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return packageSoundCodeLabelBatchAudioWithOptions(request, runtime);
+}
+
+PageQuerySharedSpeechOpenResponse Alibabacloud_Iot20180120::Client::pageQuerySharedSpeechOpenWithOptions(shared_ptr<PageQuerySharedSpeechOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    body->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageId)) {
+    body->insert(pair<string, long>("PageId", *request->pageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareTaskCode)) {
+    body->insert(pair<string, string>("ShareTaskCode", *request->shareTaskCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    body->insert(pair<string, long>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PageQuerySharedSpeechOpen"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PageQuerySharedSpeechOpenResponse(callApi(params, req, runtime));
+}
+
+PageQuerySharedSpeechOpenResponse Alibabacloud_Iot20180120::Client::pageQuerySharedSpeechOpen(shared_ptr<PageQuerySharedSpeechOpenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return pageQuerySharedSpeechOpenWithOptions(request, runtime);
 }
 
 PrintByTemplateResponse Alibabacloud_Iot20180120::Client::printByTemplateWithOptions(shared_ptr<PrintByTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -9504,6 +9791,40 @@ QueryDeviceStatisticsResponse Alibabacloud_Iot20180120::Client::queryDeviceStati
   return queryDeviceStatisticsWithOptions(request, runtime);
 }
 
+QueryDeviceSubTopicResponse Alibabacloud_Iot20180120::Client::queryDeviceSubTopicWithOptions(shared_ptr<QueryDeviceSubTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryDeviceSubTopic"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryDeviceSubTopicResponse(callApi(params, req, runtime));
+}
+
+QueryDeviceSubTopicResponse Alibabacloud_Iot20180120::Client::queryDeviceSubTopic(shared_ptr<QueryDeviceSubTopicRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryDeviceSubTopicWithOptions(request, runtime);
+}
+
 QueryDeviceTunnelResponse Alibabacloud_Iot20180120::Client::queryDeviceTunnelWithOptions(shared_ptr<QueryDeviceTunnelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -10448,6 +10769,46 @@ QueryProductTopicResponse Alibabacloud_Iot20180120::Client::queryProductTopic(sh
   return queryProductTopicWithOptions(request, runtime);
 }
 
+QueryProjectShareDeviceListResponse Alibabacloud_Iot20180120::Client::queryProjectShareDeviceListWithOptions(shared_ptr<QueryProjectShareDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageId)) {
+    body->insert(pair<string, long>("PageId", *request->pageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryProjectShareDeviceList"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryProjectShareDeviceListResponse(callApi(params, req, runtime));
+}
+
+QueryProjectShareDeviceListResponse Alibabacloud_Iot20180120::Client::queryProjectShareDeviceList(shared_ptr<QueryProjectShareDeviceListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryProjectShareDeviceListWithOptions(request, runtime);
+}
+
 QuerySceneRuleResponse Alibabacloud_Iot20180120::Client::querySceneRuleWithOptions(shared_ptr<QuerySceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -10520,6 +10881,46 @@ QuerySchedulePeriodListResponse Alibabacloud_Iot20180120::Client::queryScheduleP
 QuerySchedulePeriodListResponse Alibabacloud_Iot20180120::Client::querySchedulePeriodList(shared_ptr<QuerySchedulePeriodListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return querySchedulePeriodListWithOptions(request, runtime);
+}
+
+QueryShareTaskDeviceListResponse Alibabacloud_Iot20180120::Client::queryShareTaskDeviceListWithOptions(shared_ptr<QueryShareTaskDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageId)) {
+    body->insert(pair<string, long>("PageId", *request->pageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareTaskId)) {
+    body->insert(pair<string, string>("ShareTaskId", *request->shareTaskId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryShareTaskDeviceList"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryShareTaskDeviceListResponse(callApi(params, req, runtime));
+}
+
+QueryShareTaskDeviceListResponse Alibabacloud_Iot20180120::Client::queryShareTaskDeviceList(shared_ptr<QueryShareTaskDeviceListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryShareTaskDeviceListWithOptions(request, runtime);
 }
 
 QuerySolutionDeviceGroupPageResponse Alibabacloud_Iot20180120::Client::querySolutionDeviceGroupPageWithOptions(shared_ptr<QuerySolutionDeviceGroupPageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -10810,6 +11211,54 @@ QuerySpeechDeviceResponse Alibabacloud_Iot20180120::Client::querySpeechDeviceWit
 QuerySpeechDeviceResponse Alibabacloud_Iot20180120::Client::querySpeechDevice(shared_ptr<QuerySpeechDeviceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return querySpeechDeviceWithOptions(request, runtime);
+}
+
+QuerySpeechLicenseDeviceListResponse Alibabacloud_Iot20180120::Client::querySpeechLicenseDeviceListWithOptions(shared_ptr<QuerySpeechLicenseDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageId)) {
+    query->insert(pair<string, long>("PageId", *request->pageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkGroupId)) {
+    body->insert(pair<string, string>("CheckGroupId", *request->checkGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->licenseStatusList)) {
+    body->insert(pair<string, vector<string>>("LicenseStatusList", *request->licenseStatusList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuerySpeechLicenseDeviceList"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuerySpeechLicenseDeviceListResponse(callApi(params, req, runtime));
+}
+
+QuerySpeechLicenseDeviceListResponse Alibabacloud_Iot20180120::Client::querySpeechLicenseDeviceList(shared_ptr<QuerySpeechLicenseDeviceListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return querySpeechLicenseDeviceListWithOptions(request, runtime);
 }
 
 QuerySpeechListResponse Alibabacloud_Iot20180120::Client::querySpeechListWithOptions(shared_ptr<QuerySpeechListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -11542,6 +11991,45 @@ RRpcResponse Alibabacloud_Iot20180120::Client::rRpcWithOptions(shared_ptr<RRpcRe
 RRpcResponse Alibabacloud_Iot20180120::Client::rRpc(shared_ptr<RRpcRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return rRpcWithOptions(request, runtime);
+}
+
+ReBindLicenseDeviceResponse Alibabacloud_Iot20180120::Client::reBindLicenseDeviceWithOptions(shared_ptr<ReBindLicenseDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseCode)) {
+    query->insert(pair<string, string>("LicenseCode", *request->licenseCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceNameList)) {
+    body->insert(pair<string, vector<string>>("DeviceNameList", *request->deviceNameList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReBindLicenseDevice"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReBindLicenseDeviceResponse(callApi(params, req, runtime));
+}
+
+ReBindLicenseDeviceResponse Alibabacloud_Iot20180120::Client::reBindLicenseDevice(shared_ptr<ReBindLicenseDeviceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return reBindLicenseDeviceWithOptions(request, runtime);
 }
 
 RecognizeCarNumResponse Alibabacloud_Iot20180120::Client::recognizeCarNumWithOptions(shared_ptr<RecognizeCarNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -12393,6 +12881,52 @@ SetupStudioAppAuthModeOpenResponse Alibabacloud_Iot20180120::Client::setupStudio
   return setupStudioAppAuthModeOpenWithOptions(request, runtime);
 }
 
+ShareSpeechByCombinationResponse Alibabacloud_Iot20180120::Client::shareSpeechByCombinationWithOptions(shared_ptr<ShareSpeechByCombinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->audioFormat)) {
+    body->insert(pair<string, string>("AudioFormat", *request->audioFormat));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->combinationList)) {
+    body->insert(pair<string, vector<string>>("CombinationList", *request->combinationList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
+    body->insert(pair<string, string>("IotId", *request->iotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->speechId)) {
+    body->insert(pair<string, string>("SpeechId", *request->speechId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ShareSpeechByCombination"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ShareSpeechByCombinationResponse(callApi(params, req, runtime));
+}
+
+ShareSpeechByCombinationResponse Alibabacloud_Iot20180120::Client::shareSpeechByCombination(shared_ptr<ShareSpeechByCombinationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return shareSpeechByCombinationWithOptions(request, runtime);
+}
+
 SpeechByCombinationResponse Alibabacloud_Iot20180120::Client::speechByCombinationWithOptions(shared_ptr<SpeechByCombinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -12404,6 +12938,9 @@ SpeechByCombinationResponse Alibabacloud_Iot20180120::Client::speechByCombinatio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
     body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enforceFlag)) {
+    body->insert(pair<string, bool>("EnforceFlag", *request->enforceFlag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
     body->insert(pair<string, string>("IotId", *request->iotId));
@@ -12492,40 +13029,6 @@ SpeechBySynthesisResponse Alibabacloud_Iot20180120::Client::speechBySynthesisWit
 SpeechBySynthesisResponse Alibabacloud_Iot20180120::Client::speechBySynthesis(shared_ptr<SpeechBySynthesisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return speechBySynthesisWithOptions(request, runtime);
-}
-
-StartCpuResponse Alibabacloud_Iot20180120::Client::startCpuWithOptions(shared_ptr<StartCpuRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
-    query->insert(pair<string, string>("IotId", *request->iotId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
-    query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->targetValue)) {
-    query->insert(pair<string, string>("TargetValue", *request->targetValue));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("StartCpu"))},
-    {"version", boost::any(string("2018-01-20"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return StartCpuResponse(callApi(params, req, runtime));
-}
-
-StartCpuResponse Alibabacloud_Iot20180120::Client::startCpu(shared_ptr<StartCpuRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return startCpuWithOptions(request, runtime);
 }
 
 StartParserResponse Alibabacloud_Iot20180120::Client::startParserWithOptions(shared_ptr<StartParserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -12700,6 +13203,9 @@ SyncSpeechByCombinationResponse Alibabacloud_Iot20180120::Client::syncSpeechByCo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
     body->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enforceFlag)) {
+    body->insert(pair<string, bool>("EnforceFlag", *request->enforceFlag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotId)) {
     body->insert(pair<string, string>("IotId", *request->iotId));
