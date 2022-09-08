@@ -2338,6 +2338,9 @@ UpdateMeshCRAggregationResponse Alibabacloud_Servicemesh20200111::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->usePublicApiServer)) {
+    body->insert(pair<string, bool>("UsePublicApiServer", *request->usePublicApiServer));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

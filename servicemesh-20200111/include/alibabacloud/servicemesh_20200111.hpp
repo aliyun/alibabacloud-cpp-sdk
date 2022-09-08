@@ -9235,6 +9235,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> forbiddenFlag{};
+  shared_ptr<string> forbiddenInfo{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> serviceMeshId{};
@@ -9271,6 +9272,9 @@ public:
     }
     if (forbiddenFlag) {
       res["ForbiddenFlag"] = boost::any(*forbiddenFlag);
+    }
+    if (forbiddenInfo) {
+      res["ForbiddenInfo"] = boost::any(*forbiddenInfo);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -9317,6 +9321,9 @@ public:
     }
     if (m.find("ForbiddenFlag") != m.end() && !m["ForbiddenFlag"].empty()) {
       forbiddenFlag = make_shared<long>(boost::any_cast<long>(m["ForbiddenFlag"]));
+    }
+    if (m.find("ForbiddenInfo") != m.end() && !m["ForbiddenInfo"].empty()) {
+      forbiddenInfo = make_shared<string>(boost::any_cast<string>(m["ForbiddenInfo"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -18743,6 +18750,7 @@ public:
   shared_ptr<string> memoryLimit{};
   shared_ptr<string> memoryRequirement{};
   shared_ptr<string> serviceMeshId{};
+  shared_ptr<bool> usePublicApiServer{};
 
   UpdateMeshCRAggregationRequest() {}
 
@@ -18772,6 +18780,9 @@ public:
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
     }
+    if (usePublicApiServer) {
+      res["UsePublicApiServer"] = boost::any(*usePublicApiServer);
+    }
     return res;
   }
 
@@ -18793,6 +18804,9 @@ public:
     }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("UsePublicApiServer") != m.end() && !m["UsePublicApiServer"].empty()) {
+      usePublicApiServer = make_shared<bool>(boost::any_cast<bool>(m["UsePublicApiServer"]));
     }
   }
 
