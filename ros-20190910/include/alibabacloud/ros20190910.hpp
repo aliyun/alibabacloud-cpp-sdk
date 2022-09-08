@@ -7235,6 +7235,70 @@ public:
 
   virtual ~GetStackResponseBodyLog() = default;
 };
+class GetStackResponseBodyOperationInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> code{};
+  shared_ptr<string> logicalResourceId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> resourceType{};
+
+  GetStackResponseBodyOperationInfo() {}
+
+  explicit GetStackResponseBodyOperationInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (logicalResourceId) {
+      res["LogicalResourceId"] = boost::any(*logicalResourceId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("LogicalResourceId") != m.end() && !m["LogicalResourceId"].empty()) {
+      logicalResourceId = make_shared<string>(boost::any_cast<string>(m["LogicalResourceId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetStackResponseBodyOperationInfo() = default;
+};
 class GetStackResponseBodyParameters : public Darabonba::Model {
 public:
   shared_ptr<string> parameterKey{};
@@ -7445,6 +7509,7 @@ public:
   shared_ptr<string> interface{};
   shared_ptr<GetStackResponseBodyLog> log{};
   shared_ptr<vector<string>> notificationURLs{};
+  shared_ptr<GetStackResponseBodyOperationInfo> operationInfo{};
   shared_ptr<vector<map<string, boost::any>>> outputs{};
   shared_ptr<vector<GetStackResponseBodyParameters>> parameters{};
   shared_ptr<string> parentStackId{};
@@ -7504,6 +7569,9 @@ public:
     }
     if (notificationURLs) {
       res["NotificationURLs"] = boost::any(*notificationURLs);
+    }
+    if (operationInfo) {
+      res["OperationInfo"] = operationInfo ? boost::any(operationInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (outputs) {
       res["Outputs"] = boost::any(*outputs);
@@ -7626,6 +7694,13 @@ public:
         }
       }
       notificationURLs = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OperationInfo") != m.end() && !m["OperationInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OperationInfo"].type()) {
+        GetStackResponseBodyOperationInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperationInfo"]));
+        operationInfo = make_shared<GetStackResponseBodyOperationInfo>(model1);
+      }
     }
     if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
       vector<map<string, boost::any>> toVec1;
@@ -14572,6 +14647,70 @@ public:
 
   virtual ~ListStacksRequest() = default;
 };
+class ListStacksResponseBodyStacksOperationInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> code{};
+  shared_ptr<string> logicalResourceId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> resourceType{};
+
+  ListStacksResponseBodyStacksOperationInfo() {}
+
+  explicit ListStacksResponseBodyStacksOperationInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (logicalResourceId) {
+      res["LogicalResourceId"] = boost::any(*logicalResourceId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("LogicalResourceId") != m.end() && !m["LogicalResourceId"].empty()) {
+      logicalResourceId = make_shared<string>(boost::any_cast<string>(m["LogicalResourceId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ListStacksResponseBodyStacksOperationInfo() = default;
+};
 class ListStacksResponseBodyStacksTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -14613,6 +14752,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<string> driftDetectionTime{};
+  shared_ptr<ListStacksResponseBodyStacksOperationInfo> operationInfo{};
   shared_ptr<string> parentStackId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -14646,6 +14786,9 @@ public:
     }
     if (driftDetectionTime) {
       res["DriftDetectionTime"] = boost::any(*driftDetectionTime);
+    }
+    if (operationInfo) {
+      res["OperationInfo"] = operationInfo ? boost::any(operationInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (parentStackId) {
       res["ParentStackId"] = boost::any(*parentStackId);
@@ -14705,6 +14848,13 @@ public:
     }
     if (m.find("DriftDetectionTime") != m.end() && !m["DriftDetectionTime"].empty()) {
       driftDetectionTime = make_shared<string>(boost::any_cast<string>(m["DriftDetectionTime"]));
+    }
+    if (m.find("OperationInfo") != m.end() && !m["OperationInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OperationInfo"].type()) {
+        ListStacksResponseBodyStacksOperationInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperationInfo"]));
+        operationInfo = make_shared<ListStacksResponseBodyStacksOperationInfo>(model1);
+      }
     }
     if (m.find("ParentStackId") != m.end() && !m["ParentStackId"].empty()) {
       parentStackId = make_shared<string>(boost::any_cast<string>(m["ParentStackId"]));
