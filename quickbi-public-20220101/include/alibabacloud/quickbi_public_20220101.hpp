@@ -1643,6 +1643,315 @@ public:
 
   virtual ~AuthorizeMenuResponse() = default;
 };
+class BatchAddFeishuUsersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> feishuUsers{};
+  shared_ptr<bool> isAdmin{};
+  shared_ptr<bool> isAuthAdmin{};
+  shared_ptr<string> userGroupIds{};
+  shared_ptr<long> userType{};
+
+  BatchAddFeishuUsersRequest() {}
+
+  explicit BatchAddFeishuUsersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (feishuUsers) {
+      res["FeishuUsers"] = boost::any(*feishuUsers);
+    }
+    if (isAdmin) {
+      res["IsAdmin"] = boost::any(*isAdmin);
+    }
+    if (isAuthAdmin) {
+      res["IsAuthAdmin"] = boost::any(*isAuthAdmin);
+    }
+    if (userGroupIds) {
+      res["UserGroupIds"] = boost::any(*userGroupIds);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FeishuUsers") != m.end() && !m["FeishuUsers"].empty()) {
+      feishuUsers = make_shared<string>(boost::any_cast<string>(m["FeishuUsers"]));
+    }
+    if (m.find("IsAdmin") != m.end() && !m["IsAdmin"].empty()) {
+      isAdmin = make_shared<bool>(boost::any_cast<bool>(m["IsAdmin"]));
+    }
+    if (m.find("IsAuthAdmin") != m.end() && !m["IsAuthAdmin"].empty()) {
+      isAuthAdmin = make_shared<bool>(boost::any_cast<bool>(m["IsAuthAdmin"]));
+    }
+    if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
+      userGroupIds = make_shared<string>(boost::any_cast<string>(m["UserGroupIds"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<long>(boost::any_cast<long>(m["UserType"]));
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersRequest() = default;
+};
+class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> codeDesc{};
+  shared_ptr<string> input{};
+
+  BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos() {}
+
+  explicit BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (codeDesc) {
+      res["CodeDesc"] = boost::any(*codeDesc);
+    }
+    if (input) {
+      res["Input"] = boost::any(*input);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("CodeDesc") != m.end() && !m["CodeDesc"].empty()) {
+      codeDesc = make_shared<string>(boost::any_cast<string>(m["CodeDesc"]));
+    }
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos() = default;
+};
+class BatchAddFeishuUsersResponseBodyResultFailResults : public Darabonba::Model {
+public:
+  shared_ptr<vector<BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos>> failInfos{};
+
+  BatchAddFeishuUsersResponseBodyResultFailResults() {}
+
+  explicit BatchAddFeishuUsersResponseBodyResultFailResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*failInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailInfos") != m.end() && !m["FailInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailInfos"].type()) {
+        vector<BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failInfos = make_shared<vector<BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersResponseBodyResultFailResults() = default;
+};
+class BatchAddFeishuUsersResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> failCount{};
+  shared_ptr<vector<BatchAddFeishuUsersResponseBodyResultFailResults>> failResults{};
+  shared_ptr<long> okCount{};
+
+  BatchAddFeishuUsersResponseBodyResult() {}
+
+  explicit BatchAddFeishuUsersResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failCount) {
+      res["FailCount"] = boost::any(*failCount);
+    }
+    if (failResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*failResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailResults"] = boost::any(temp1);
+    }
+    if (okCount) {
+      res["OkCount"] = boost::any(*okCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
+    }
+    if (m.find("FailResults") != m.end() && !m["FailResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailResults"].type()) {
+        vector<BatchAddFeishuUsersResponseBodyResultFailResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFeishuUsersResponseBodyResultFailResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failResults = make_shared<vector<BatchAddFeishuUsersResponseBodyResultFailResults>>(expect1);
+      }
+    }
+    if (m.find("OkCount") != m.end() && !m["OkCount"].empty()) {
+      okCount = make_shared<long>(boost::any_cast<long>(m["OkCount"]));
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersResponseBodyResult() = default;
+};
+class BatchAddFeishuUsersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<BatchAddFeishuUsersResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  BatchAddFeishuUsersResponseBody() {}
+
+  explicit BatchAddFeishuUsersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        BatchAddFeishuUsersResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<BatchAddFeishuUsersResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersResponseBody() = default;
+};
+class BatchAddFeishuUsersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchAddFeishuUsersResponseBody> body{};
+
+  BatchAddFeishuUsersResponse() {}
+
+  explicit BatchAddFeishuUsersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchAddFeishuUsersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchAddFeishuUsersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchAddFeishuUsersResponse() = default;
+};
 class CancelAuthorizationMenuRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dataPortalId{};
@@ -16133,6 +16442,8 @@ public:
   AddWorkspaceUsersResponse addWorkspaceUsers(shared_ptr<AddWorkspaceUsersRequest> request);
   AuthorizeMenuResponse authorizeMenuWithOptions(shared_ptr<AuthorizeMenuRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AuthorizeMenuResponse authorizeMenu(shared_ptr<AuthorizeMenuRequest> request);
+  BatchAddFeishuUsersResponse batchAddFeishuUsersWithOptions(shared_ptr<BatchAddFeishuUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchAddFeishuUsersResponse batchAddFeishuUsers(shared_ptr<BatchAddFeishuUsersRequest> request);
   CancelAuthorizationMenuResponse cancelAuthorizationMenuWithOptions(shared_ptr<CancelAuthorizationMenuRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelAuthorizationMenuResponse cancelAuthorizationMenu(shared_ptr<CancelAuthorizationMenuRequest> request);
   CancelCollectionResponse cancelCollectionWithOptions(shared_ptr<CancelCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

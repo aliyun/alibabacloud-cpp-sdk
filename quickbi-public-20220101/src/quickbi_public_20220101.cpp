@@ -387,6 +387,46 @@ AuthorizeMenuResponse Alibabacloud_Quickbi-public20220101::Client::authorizeMenu
   return authorizeMenuWithOptions(request, runtime);
 }
 
+BatchAddFeishuUsersResponse Alibabacloud_Quickbi-public20220101::Client::batchAddFeishuUsersWithOptions(shared_ptr<BatchAddFeishuUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->feishuUsers)) {
+    query->insert(pair<string, string>("FeishuUsers", *request->feishuUsers));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isAdmin)) {
+    query->insert(pair<string, bool>("IsAdmin", *request->isAdmin));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isAuthAdmin)) {
+    query->insert(pair<string, bool>("IsAuthAdmin", *request->isAuthAdmin));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userGroupIds)) {
+    query->insert(pair<string, string>("UserGroupIds", *request->userGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->userType)) {
+    query->insert(pair<string, long>("UserType", *request->userType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchAddFeishuUsers"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchAddFeishuUsersResponse(callApi(params, req, runtime));
+}
+
+BatchAddFeishuUsersResponse Alibabacloud_Quickbi-public20220101::Client::batchAddFeishuUsers(shared_ptr<BatchAddFeishuUsersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchAddFeishuUsersWithOptions(request, runtime);
+}
+
 CancelAuthorizationMenuResponse Alibabacloud_Quickbi-public20220101::Client::cancelAuthorizationMenuWithOptions(shared_ptr<CancelAuthorizationMenuRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
