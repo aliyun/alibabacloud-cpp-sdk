@@ -5929,6 +5929,9 @@ SetDomainWebSocketStatusResponse Alibabacloud_CloudAPI20160714::Client::setDomai
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->WSSEnable)) {
+    query->insert(pair<string, string>("WSSEnable", *request->WSSEnable));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

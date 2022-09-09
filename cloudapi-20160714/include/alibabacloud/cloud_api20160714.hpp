@@ -23720,6 +23720,7 @@ public:
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes> instanceSpecAttributes{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> internetEgressAddress{};
+  shared_ptr<string> intranetSegments{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<bool> supportIpv6{};
@@ -23793,6 +23794,9 @@ public:
     }
     if (internetEgressAddress) {
       res["InternetEgressAddress"] = boost::any(*internetEgressAddress);
+    }
+    if (intranetSegments) {
+      res["IntranetSegments"] = boost::any(*intranetSegments);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -23888,6 +23892,9 @@ public:
     }
     if (m.find("InternetEgressAddress") != m.end() && !m["InternetEgressAddress"].empty()) {
       internetEgressAddress = make_shared<string>(boost::any_cast<string>(m["InternetEgressAddress"]));
+    }
+    if (m.find("IntranetSegments") != m.end() && !m["IntranetSegments"].empty()) {
+      intranetSegments = make_shared<string>(boost::any_cast<string>(m["IntranetSegments"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -38513,6 +38520,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> groupId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<string> WSSEnable{};
 
   SetDomainWebSocketStatusRequest() {}
 
@@ -38536,6 +38544,9 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (WSSEnable) {
+      res["WSSEnable"] = boost::any(*WSSEnable);
+    }
     return res;
   }
 
@@ -38551,6 +38562,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("WSSEnable") != m.end() && !m["WSSEnable"].empty()) {
+      WSSEnable = make_shared<string>(boost::any_cast<string>(m["WSSEnable"]));
     }
   }
 
