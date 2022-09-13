@@ -55,7 +55,6 @@ public:
   shared_ptr<CreateConsumerGroupRequestConsumeRetryPolicy> consumeRetryPolicy{};
   shared_ptr<string> deliveryOrderType{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
 
   CreateConsumerGroupRequest() {}
 
@@ -76,9 +75,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -95,9 +91,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 
@@ -248,7 +241,6 @@ class CreateTopicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> messageType{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
 
   CreateTopicRequest() {}
 
@@ -266,9 +258,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -278,9 +267,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 
@@ -892,7 +878,6 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -926,9 +911,6 @@ public:
     }
     if (remark) {
       res["remark"] = boost::any(*remark);
-    }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (status) {
       res["status"] = boost::any(*status);
@@ -964,9 +946,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -1125,7 +1104,6 @@ public:
 };
 class GetInstanceResponseBodyDataAccountInfo : public Darabonba::Model {
 public:
-  shared_ptr<string> password{};
   shared_ptr<string> username{};
 
   GetInstanceResponseBodyDataAccountInfo() {}
@@ -1138,9 +1116,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (password) {
-      res["password"] = boost::any(*password);
-    }
     if (username) {
       res["username"] = boost::any(*username);
     }
@@ -1148,9 +1123,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("password") != m.end() && !m["password"].empty()) {
-      password = make_shared<string>(boost::any_cast<string>(m["password"]));
-    }
     if (m.find("username") != m.end() && !m["username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["username"]));
     }
@@ -1435,6 +1407,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> expireTime{};
   shared_ptr<GetInstanceResponseBodyDataExtConfig> extConfig{};
+  shared_ptr<long> groupCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<vector<GetInstanceResponseBodyDataInstanceQuotas>> instanceQuotas{};
@@ -1443,12 +1416,12 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseTime{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> seriesCode{};
   shared_ptr<string> serviceCode{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> subSeriesCode{};
+  shared_ptr<long> topicCount{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> userId{};
 
@@ -1480,6 +1453,9 @@ public:
     if (extConfig) {
       res["extConfig"] = extConfig ? boost::any(extConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (groupCount) {
+      res["groupCount"] = boost::any(*groupCount);
+    }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
     }
@@ -1508,9 +1484,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     if (seriesCode) {
       res["seriesCode"] = boost::any(*seriesCode);
     }
@@ -1525,6 +1498,9 @@ public:
     }
     if (subSeriesCode) {
       res["subSeriesCode"] = boost::any(*subSeriesCode);
+    }
+    if (topicCount) {
+      res["topicCount"] = boost::any(*topicCount);
     }
     if (updateTime) {
       res["updateTime"] = boost::any(*updateTime);
@@ -1561,6 +1537,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["extConfig"]));
         extConfig = make_shared<GetInstanceResponseBodyDataExtConfig>(model1);
       }
+    }
+    if (m.find("groupCount") != m.end() && !m["groupCount"].empty()) {
+      groupCount = make_shared<long>(boost::any_cast<long>(m["groupCount"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -1600,9 +1579,6 @@ public:
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
     }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
-    }
     if (m.find("seriesCode") != m.end() && !m["seriesCode"].empty()) {
       seriesCode = make_shared<string>(boost::any_cast<string>(m["seriesCode"]));
     }
@@ -1617,6 +1593,9 @@ public:
     }
     if (m.find("subSeriesCode") != m.end() && !m["subSeriesCode"].empty()) {
       subSeriesCode = make_shared<string>(boost::any_cast<string>(m["subSeriesCode"]));
+    }
+    if (m.find("topicCount") != m.end() && !m["topicCount"].empty()) {
+      topicCount = make_shared<long>(boost::any_cast<long>(m["topicCount"]));
     }
     if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
@@ -1780,7 +1759,6 @@ public:
   shared_ptr<string> messageType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> topicName{};
   shared_ptr<string> updateTime{};
@@ -1810,9 +1788,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -1840,9 +1815,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -2007,7 +1979,6 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> resourceGroupId{};
 
   ListConsumerGroupsRequest() {}
 
@@ -2028,9 +1999,6 @@ public:
     if (pageSize) {
       res["pageSize"] = boost::any(*pageSize);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -2044,9 +2012,6 @@ public:
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
     }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
-    }
   }
 
 
@@ -2059,7 +2024,6 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -2088,9 +2052,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -2115,9 +2076,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -2343,7 +2301,6 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> resourceGroupId{};
 
   ListInstancesRequest() {}
 
@@ -2364,9 +2321,6 @@ public:
     if (pageSize) {
       res["pageSize"] = boost::any(*pageSize);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -2379,9 +2333,6 @@ public:
     }
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 
@@ -2400,7 +2351,6 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseTime{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> seriesCode{};
   shared_ptr<string> serviceCode{};
   shared_ptr<string> startTime{};
@@ -2449,9 +2399,6 @@ public:
     }
     if (remark) {
       res["remark"] = boost::any(*remark);
-    }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (seriesCode) {
       res["seriesCode"] = boost::any(*seriesCode);
@@ -2510,9 +2457,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("seriesCode") != m.end() && !m["seriesCode"].empty()) {
       seriesCode = make_shared<string>(boost::any_cast<string>(m["seriesCode"]));
@@ -2756,7 +2700,6 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<string> resourceGroupId{};
 
   ListTopicsRequest() {}
 
@@ -2777,9 +2720,6 @@ public:
     if (pageSize) {
       res["pageSize"] = boost::any(*pageSize);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -2793,9 +2733,6 @@ public:
     if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
     }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
-    }
   }
 
 
@@ -2808,7 +2745,6 @@ public:
   shared_ptr<string> messageType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> topicName{};
   shared_ptr<string> updateTime{};
@@ -2838,9 +2774,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -2868,9 +2801,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -3135,7 +3065,6 @@ public:
   shared_ptr<UpdateConsumerGroupRequestConsumeRetryPolicy> consumeRetryPolicy{};
   shared_ptr<string> deliveryOrderType{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
 
   UpdateConsumerGroupRequest() {}
 
@@ -3156,9 +3085,6 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
@@ -3175,9 +3101,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 
@@ -3452,7 +3375,6 @@ public:
   shared_ptr<string> instanceName{};
   shared_ptr<UpdateInstanceRequestNetworkInfo> networkInfo{};
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
 
   UpdateInstanceRequest() {}
 
@@ -3475,9 +3397,6 @@ public:
     }
     if (remark) {
       res["remark"] = boost::any(*remark);
-    }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
     }
     return res;
   }
@@ -3502,9 +3421,6 @@ public:
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 
@@ -3654,7 +3570,6 @@ public:
 class UpdateTopicRequest : public Darabonba::Model {
 public:
   shared_ptr<string> remark{};
-  shared_ptr<string> resourceGroupId{};
 
   UpdateTopicRequest() {}
 
@@ -3669,18 +3584,12 @@ public:
     if (remark) {
       res["remark"] = boost::any(*remark);
     }
-    if (resourceGroupId) {
-      res["resourceGroupId"] = boost::any(*resourceGroupId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
-    }
-    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
-      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
     }
   }
 

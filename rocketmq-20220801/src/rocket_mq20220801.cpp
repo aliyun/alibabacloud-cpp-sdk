@@ -50,8 +50,6 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
                                                                                                   shared_ptr<map<string, string>> headers,
                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  consumerGroupId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<CreateConsumerGroupRequestConsumeRetryPolicy>(request->consumeRetryPolicy)) {
     body->insert(pair<string, CreateConsumerGroupRequestConsumeRetryPolicy>("consumeRetryPolicy", *request->consumeRetryPolicy));
@@ -62,9 +60,6 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -73,7 +68,7 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
     {"action", boost::any(string("CreateConsumerGroup"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/consumerGroups/") + string(*consumerGroupId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -95,17 +90,12 @@ CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopicWithOption
                                                                                   shared_ptr<map<string, string>> headers,
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  topicName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
     body->insert(pair<string, string>("messageType", *request->messageType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -115,7 +105,7 @@ CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopicWithOption
     {"action", boost::any(string("CreateTopic"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/topics/") + string(*topicName))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/topics/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName)))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -135,8 +125,6 @@ DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsume
                                                                                                   shared_ptr<string> consumerGroupId,
                                                                                                   shared_ptr<map<string, string>> headers,
                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  consumerGroupId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -144,7 +132,7 @@ DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsume
     {"action", boost::any(string("DeleteConsumerGroup"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/consumerGroups/") + string(*consumerGroupId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -161,7 +149,6 @@ DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstance(sha
 }
 
 DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -169,7 +156,7 @@ DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstanceWith
     {"action", boost::any(string("DeleteInstance"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -189,8 +176,6 @@ DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopicWithOption
                                                                                   shared_ptr<string> topicName,
                                                                                   shared_ptr<map<string, string>> headers,
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  topicName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -198,7 +183,7 @@ DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopicWithOption
     {"action", boost::any(string("DeleteTopic"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/topics/") + string(*topicName))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/topics/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -218,8 +203,6 @@ GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroup
                                                                                             shared_ptr<string> consumerGroupId,
                                                                                             shared_ptr<map<string, string>> headers,
                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  consumerGroupId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -227,7 +210,7 @@ GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroup
     {"action", boost::any(string("GetConsumerGroup"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/consumerGroups/") + string(*consumerGroupId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -244,7 +227,6 @@ GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstance(shared_pt
 }
 
 GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -252,7 +234,7 @@ GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstanceWithOption
     {"action", boost::any(string("GetInstance"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -272,8 +254,6 @@ GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopicWithOptions(shar
                                                                             shared_ptr<string> topicName,
                                                                             shared_ptr<map<string, string>> headers,
                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  topicName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -281,7 +261,7 @@ GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopicWithOptions(shar
     {"action", boost::any(string("GetTopic"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/topics/") + string(*topicName))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/topics/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -302,7 +282,6 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
                                                                                                 shared_ptr<map<string, string>> headers,
                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("filter", *request->filter));
@@ -313,9 +292,6 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -324,7 +300,7 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
     {"action", boost::any(string("ListConsumerGroups"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/consumerGroups"))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -351,9 +327,6 @@ ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOp
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -384,7 +357,6 @@ ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopicsWithOptions(
                                                                                 shared_ptr<map<string, string>> headers,
                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("filter", *request->filter));
@@ -395,9 +367,6 @@ ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopicsWithOptions(
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("pageSize", *request->pageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -406,7 +375,7 @@ ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopicsWithOptions(
     {"action", boost::any(string("ListTopics"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/topics"))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/topics"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -428,8 +397,6 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
                                                                                                   shared_ptr<map<string, string>> headers,
                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  consumerGroupId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<UpdateConsumerGroupRequestConsumeRetryPolicy>(request->consumeRetryPolicy)) {
     body->insert(pair<string, UpdateConsumerGroupRequestConsumeRetryPolicy>("consumeRetryPolicy", *request->consumeRetryPolicy));
@@ -440,9 +407,6 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -451,7 +415,7 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
     {"action", boost::any(string("UpdateConsumerGroup"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/consumerGroups/") + string(*consumerGroupId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)))},
     {"method", boost::any(string("PATCH"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -472,7 +436,6 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
                                                                                         shared_ptr<map<string, string>> headers,
                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestExtConfig>(request->extConfig)) {
     body->insert(pair<string, UpdateInstanceRequestExtConfig>("extConfig", *request->extConfig));
@@ -486,9 +449,6 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -497,7 +457,7 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
     {"action", boost::any(string("UpdateInstance"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)))},
     {"method", boost::any(string("PATCH"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -519,14 +479,9 @@ UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopicWithOption
                                                                                   shared_ptr<map<string, string>> headers,
                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  instanceId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId));
-  topicName = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
-    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -536,7 +491,7 @@ UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopicWithOption
     {"action", boost::any(string("UpdateTopic"))},
     {"version", boost::any(string("2022-08-01"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/instances/") + string(*instanceId) + string("/topics/") + string(*topicName))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/topics/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName)))},
     {"method", boost::any(string("PATCH"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
