@@ -1655,7 +1655,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
-  shared_ptr<string> tags{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> value{};
 
@@ -1725,7 +1725,12 @@ public:
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -1737,6 +1742,98 @@ public:
 
 
   virtual ~CreateSecretParameterRequest() = default;
+};
+class CreateSecretParameterShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> constraints{};
+  shared_ptr<string> description{};
+  shared_ptr<string> keyId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  CreateSecretParameterShrinkRequest() {}
+
+  explicit CreateSecretParameterShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (constraints) {
+      res["Constraints"] = boost::any(*constraints);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (keyId) {
+      res["KeyId"] = boost::any(*keyId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      constraints = make_shared<string>(boost::any_cast<string>(m["Constraints"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("KeyId") != m.end() && !m["KeyId"].empty()) {
+      keyId = make_shared<string>(boost::any_cast<string>(m["KeyId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateSecretParameterShrinkRequest() = default;
 };
 class CreateSecretParameterResponseBodyParameter : public Darabonba::Model {
 public:
@@ -1750,7 +1847,7 @@ public:
   shared_ptr<long> parameterVersion{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
-  shared_ptr<string> tags{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
@@ -1842,7 +1939,12 @@ public:
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -2771,6 +2873,7 @@ public:
 };
 class DeleteApplicationRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> force{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
 
@@ -2784,6 +2887,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -2794,6 +2900,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -4675,6 +4784,7 @@ public:
   shared_ptr<string> importTagKey{};
   shared_ptr<string> importTagValue{};
   shared_ptr<string> name{};
+  shared_ptr<string> progress{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
   shared_ptr<string> updateDate{};
@@ -4719,6 +4829,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -4761,6 +4874,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -8151,7 +8267,10 @@ public:
   shared_ptr<string> deployRegionId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> product{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
 
   ListApplicationGroupsRequest() {}
 
@@ -8175,8 +8294,17 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (product) {
+      res["Product"] = boost::any(*product);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     return res;
   }
@@ -8194,8 +8322,17 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("Product") != m.end() && !m["Product"].empty()) {
+      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 
@@ -19743,7 +19880,7 @@ public:
   CreateParameterResponse createParameter(shared_ptr<CreateParameterRequest> request);
   CreatePatchBaselineResponse createPatchBaselineWithOptions(shared_ptr<CreatePatchBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePatchBaselineResponse createPatchBaseline(shared_ptr<CreatePatchBaselineRequest> request);
-  CreateSecretParameterResponse createSecretParameterWithOptions(shared_ptr<CreateSecretParameterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSecretParameterResponse createSecretParameterWithOptions(shared_ptr<CreateSecretParameterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSecretParameterResponse createSecretParameter(shared_ptr<CreateSecretParameterRequest> request);
   CreateStateConfigurationResponse createStateConfigurationWithOptions(shared_ptr<CreateStateConfigurationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateStateConfigurationResponse createStateConfiguration(shared_ptr<CreateStateConfigurationRequest> request);
