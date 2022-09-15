@@ -17,7 +17,6 @@ using namespace std;
 using namespace Alibabacloud_BtripOpen20220520;
 
 Alibabacloud_BtripOpen20220520::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("btripopen"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -64,7 +63,7 @@ AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessTokenWithOptio
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/btrip-open-auth/v1/access-token/action/take"))},
     {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("Anonymous"))},
+    {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}

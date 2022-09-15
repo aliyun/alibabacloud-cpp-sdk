@@ -9364,10 +9364,10 @@ public:
 };
 class CorpTokenResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
   shared_ptr<string> code{};
   shared_ptr<CorpTokenResponseBodyData> data{};
   shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
   shared_ptr<string> traceId{};
 
   CorpTokenResponseBody() {}
@@ -9380,9 +9380,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
     if (code) {
       res["code"] = boost::any(*code);
     }
@@ -9392,6 +9389,9 @@ public:
     if (message) {
       res["message"] = boost::any(*message);
     }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
     if (traceId) {
       res["traceId"] = boost::any(*traceId);
     }
@@ -9399,9 +9399,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
     if (m.find("code") != m.end() && !m["code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
@@ -9414,6 +9411,9 @@ public:
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
       traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
