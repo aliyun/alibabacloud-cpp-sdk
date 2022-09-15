@@ -570,6 +570,7 @@ public:
   shared_ptr<long> authId{};
   shared_ptr<long> domainId{};
   shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> matchType{};
   shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
 
@@ -595,6 +596,9 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
+    if (matchType) {
+      res["MatchType"] = boost::any(*matchType);
+    }
     if (mseSessionId) {
       res["MseSessionId"] = boost::any(*mseSessionId);
     }
@@ -616,6 +620,9 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
+      matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
     }
     if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
       mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));

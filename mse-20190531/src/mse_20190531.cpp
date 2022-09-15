@@ -54,6 +54,9 @@ AddAuthResourceResponse Alibabacloud_Mse20190531::Client::addAuthResourceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchType)) {
+    query->insert(pair<string, string>("MatchType", *request->matchType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
