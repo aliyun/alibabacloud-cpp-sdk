@@ -10728,10 +10728,10 @@ public:
 };
 class DepartmentSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<string> module{};
-  shared_ptr<long> resultCode{};
-  shared_ptr<string> resultMsg{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
   shared_ptr<string> traceId{};
 
@@ -10745,17 +10745,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
     }
     if (module) {
       res["module"] = boost::any(*module);
     }
-    if (resultCode) {
-      res["result_code"] = boost::any(*resultCode);
-    }
-    if (resultMsg) {
-      res["result_msg"] = boost::any(*resultMsg);
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -10767,17 +10767,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("module") != m.end() && !m["module"].empty()) {
       module = make_shared<string>(boost::any_cast<string>(m["module"]));
     }
-    if (m.find("result_code") != m.end() && !m["result_code"].empty()) {
-      resultCode = make_shared<long>(boost::any_cast<long>(m["result_code"]));
-    }
-    if (m.find("result_msg") != m.end() && !m["result_msg"].empty()) {
-      resultMsg = make_shared<string>(boost::any_cast<string>(m["result_msg"]));
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -19767,10 +19767,10 @@ public:
 };
 class IsvUserSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> requestId{};
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<string> module{};
-  shared_ptr<long> resultCode{};
-  shared_ptr<string> resultMsg{};
+  shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
   shared_ptr<string> traceId{};
 
@@ -19784,17 +19784,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
     }
     if (module) {
       res["module"] = boost::any(*module);
     }
-    if (resultCode) {
-      res["result_code"] = boost::any(*resultCode);
-    }
-    if (resultMsg) {
-      res["result_msg"] = boost::any(*resultMsg);
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -19806,17 +19806,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
     }
     if (m.find("module") != m.end() && !m["module"].empty()) {
       module = make_shared<string>(boost::any_cast<string>(m["module"]));
     }
-    if (m.find("result_code") != m.end() && !m["result_code"].empty()) {
-      resultCode = make_shared<long>(boost::any_cast<long>(m["result_code"]));
-    }
-    if (m.find("result_msg") != m.end() && !m["result_msg"].empty()) {
-      resultMsg = make_shared<string>(boost::any_cast<string>(m["result_msg"]));
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
