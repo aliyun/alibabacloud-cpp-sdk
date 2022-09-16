@@ -11144,6 +11144,168 @@ public:
 
   virtual ~CopyThingModelResponse() = default;
 };
+class CountSpeechBroadcastHourRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> queryDateTimeHour{};
+  shared_ptr<string> shareTaskCode{};
+
+  CountSpeechBroadcastHourRequest() {}
+
+  explicit CountSpeechBroadcastHourRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (queryDateTimeHour) {
+      res["QueryDateTimeHour"] = boost::any(*queryDateTimeHour);
+    }
+    if (shareTaskCode) {
+      res["ShareTaskCode"] = boost::any(*shareTaskCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("QueryDateTimeHour") != m.end() && !m["QueryDateTimeHour"].empty()) {
+      queryDateTimeHour = make_shared<string>(boost::any_cast<string>(m["QueryDateTimeHour"]));
+    }
+    if (m.find("ShareTaskCode") != m.end() && !m["ShareTaskCode"].empty()) {
+      shareTaskCode = make_shared<string>(boost::any_cast<string>(m["ShareTaskCode"]));
+    }
+  }
+
+
+  virtual ~CountSpeechBroadcastHourRequest() = default;
+};
+class CountSpeechBroadcastHourResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CountSpeechBroadcastHourResponseBody() {}
+
+  explicit CountSpeechBroadcastHourResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CountSpeechBroadcastHourResponseBody() = default;
+};
+class CountSpeechBroadcastHourResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CountSpeechBroadcastHourResponseBody> body{};
+
+  CountSpeechBroadcastHourResponse() {}
+
+  explicit CountSpeechBroadcastHourResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CountSpeechBroadcastHourResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CountSpeechBroadcastHourResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CountSpeechBroadcastHourResponse() = default;
+};
 class CreateConsumerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupName{};
@@ -30173,6 +30335,7 @@ public:
   shared_ptr<string> destinationId{};
   shared_ptr<bool> isFailover{};
   shared_ptr<string> name{};
+  shared_ptr<string> status{};
   shared_ptr<string> type{};
   shared_ptr<string> utcCreated{};
 
@@ -30198,6 +30361,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -30219,6 +30385,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -40051,6 +40220,7 @@ public:
   shared_ptr<long> destinationId{};
   shared_ptr<bool> isFailover{};
   shared_ptr<string> name{};
+  shared_ptr<string> status{};
   shared_ptr<string> type{};
   shared_ptr<string> utcCreated{};
 
@@ -40079,6 +40249,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -40103,6 +40276,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -46211,6 +46387,7 @@ public:
   shared_ptr<bool> errorActionFlag{};
   shared_ptr<long> id{};
   shared_ptr<long> ruleId{};
+  shared_ptr<string> status{};
   shared_ptr<string> type{};
 
   ListRuleActionsResponseBodyRuleActionListRuleActionInfo() {}
@@ -46235,6 +46412,9 @@ public:
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -46253,6 +46433,9 @@ public:
     }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -48135,6 +48318,368 @@ public:
 
 
   virtual ~PageQuerySharedSpeechOpenResponse() = default;
+};
+class PageQuerySpeechBroadcastHourRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> pageToken{};
+  shared_ptr<string> queryDateTimeHour{};
+  shared_ptr<string> shareTaskCode{};
+
+  PageQuerySpeechBroadcastHourRequest() {}
+
+  explicit PageQuerySpeechBroadcastHourRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pageToken) {
+      res["PageToken"] = boost::any(*pageToken);
+    }
+    if (queryDateTimeHour) {
+      res["QueryDateTimeHour"] = boost::any(*queryDateTimeHour);
+    }
+    if (shareTaskCode) {
+      res["ShareTaskCode"] = boost::any(*shareTaskCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PageToken") != m.end() && !m["PageToken"].empty()) {
+      pageToken = make_shared<string>(boost::any_cast<string>(m["PageToken"]));
+    }
+    if (m.find("QueryDateTimeHour") != m.end() && !m["QueryDateTimeHour"].empty()) {
+      queryDateTimeHour = make_shared<string>(boost::any_cast<string>(m["QueryDateTimeHour"]));
+    }
+    if (m.find("ShareTaskCode") != m.end() && !m["ShareTaskCode"].empty()) {
+      shareTaskCode = make_shared<string>(boost::any_cast<string>(m["ShareTaskCode"]));
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourRequest() = default;
+};
+class PageQuerySpeechBroadcastHourResponseBodyDataResultDataData : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> productKey{};
+  shared_ptr<string> shareTaskCode{};
+  shared_ptr<string> speechId{};
+  shared_ptr<string> speechs{};
+  shared_ptr<long> startTime{};
+
+  PageQuerySpeechBroadcastHourResponseBodyDataResultDataData() {}
+
+  explicit PageQuerySpeechBroadcastHourResponseBodyDataResultDataData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    if (shareTaskCode) {
+      res["ShareTaskCode"] = boost::any(*shareTaskCode);
+    }
+    if (speechId) {
+      res["SpeechId"] = boost::any(*speechId);
+    }
+    if (speechs) {
+      res["Speechs"] = boost::any(*speechs);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("ShareTaskCode") != m.end() && !m["ShareTaskCode"].empty()) {
+      shareTaskCode = make_shared<string>(boost::any_cast<string>(m["ShareTaskCode"]));
+    }
+    if (m.find("SpeechId") != m.end() && !m["SpeechId"].empty()) {
+      speechId = make_shared<string>(boost::any_cast<string>(m["SpeechId"]));
+    }
+    if (m.find("Speechs") != m.end() && !m["Speechs"].empty()) {
+      speechs = make_shared<string>(boost::any_cast<string>(m["Speechs"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourResponseBodyDataResultDataData() = default;
+};
+class PageQuerySpeechBroadcastHourResponseBodyDataResultData : public Darabonba::Model {
+public:
+  shared_ptr<vector<PageQuerySpeechBroadcastHourResponseBodyDataResultDataData>> data{};
+
+  PageQuerySpeechBroadcastHourResponseBodyDataResultData() {}
+
+  explicit PageQuerySpeechBroadcastHourResponseBodyDataResultData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<PageQuerySpeechBroadcastHourResponseBodyDataResultDataData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PageQuerySpeechBroadcastHourResponseBodyDataResultDataData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<PageQuerySpeechBroadcastHourResponseBodyDataResultDataData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourResponseBodyDataResultData() = default;
+};
+class PageQuerySpeechBroadcastHourResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> pageId{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> pageToken{};
+  shared_ptr<PageQuerySpeechBroadcastHourResponseBodyDataResultData> resultData{};
+  shared_ptr<long> total{};
+
+  PageQuerySpeechBroadcastHourResponseBodyData() {}
+
+  explicit PageQuerySpeechBroadcastHourResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pageToken) {
+      res["PageToken"] = boost::any(*pageToken);
+    }
+    if (resultData) {
+      res["ResultData"] = resultData ? boost::any(resultData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PageToken") != m.end() && !m["PageToken"].empty()) {
+      pageToken = make_shared<string>(boost::any_cast<string>(m["PageToken"]));
+    }
+    if (m.find("ResultData") != m.end() && !m["ResultData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResultData"].type()) {
+        PageQuerySpeechBroadcastHourResponseBodyDataResultData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResultData"]));
+        resultData = make_shared<PageQuerySpeechBroadcastHourResponseBodyDataResultData>(model1);
+      }
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourResponseBodyData() = default;
+};
+class PageQuerySpeechBroadcastHourResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<PageQuerySpeechBroadcastHourResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PageQuerySpeechBroadcastHourResponseBody() {}
+
+  explicit PageQuerySpeechBroadcastHourResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        PageQuerySpeechBroadcastHourResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<PageQuerySpeechBroadcastHourResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourResponseBody() = default;
+};
+class PageQuerySpeechBroadcastHourResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PageQuerySpeechBroadcastHourResponseBody> body{};
+
+  PageQuerySpeechBroadcastHourResponse() {}
+
+  explicit PageQuerySpeechBroadcastHourResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PageQuerySpeechBroadcastHourResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PageQuerySpeechBroadcastHourResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PageQuerySpeechBroadcastHourResponse() = default;
 };
 class PrintByTemplateRequest : public Darabonba::Model {
 public:
@@ -91872,6 +92417,8 @@ public:
   ConfirmOTATaskResponse confirmOTATask(shared_ptr<ConfirmOTATaskRequest> request);
   CopyThingModelResponse copyThingModelWithOptions(shared_ptr<CopyThingModelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CopyThingModelResponse copyThingModel(shared_ptr<CopyThingModelRequest> request);
+  CountSpeechBroadcastHourResponse countSpeechBroadcastHourWithOptions(shared_ptr<CountSpeechBroadcastHourRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CountSpeechBroadcastHourResponse countSpeechBroadcastHour(shared_ptr<CountSpeechBroadcastHourRequest> request);
   CreateConsumerGroupResponse createConsumerGroupWithOptions(shared_ptr<CreateConsumerGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateConsumerGroupResponse createConsumerGroup(shared_ptr<CreateConsumerGroupRequest> request);
   CreateConsumerGroupSubscribeRelationResponse createConsumerGroupSubscribeRelationWithOptions(shared_ptr<CreateConsumerGroupSubscribeRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -92190,6 +92737,8 @@ public:
   PackageSoundCodeLabelBatchAudioResponse packageSoundCodeLabelBatchAudio(shared_ptr<PackageSoundCodeLabelBatchAudioRequest> request);
   PageQuerySharedSpeechOpenResponse pageQuerySharedSpeechOpenWithOptions(shared_ptr<PageQuerySharedSpeechOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PageQuerySharedSpeechOpenResponse pageQuerySharedSpeechOpen(shared_ptr<PageQuerySharedSpeechOpenRequest> request);
+  PageQuerySpeechBroadcastHourResponse pageQuerySpeechBroadcastHourWithOptions(shared_ptr<PageQuerySpeechBroadcastHourRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PageQuerySpeechBroadcastHourResponse pageQuerySpeechBroadcastHour(shared_ptr<PageQuerySpeechBroadcastHourRequest> request);
   PrintByTemplateResponse printByTemplateWithOptions(shared_ptr<PrintByTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PrintByTemplateResponse printByTemplate(shared_ptr<PrintByTemplateRequest> request);
   PubResponse pubWithOptions(shared_ptr<PubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
