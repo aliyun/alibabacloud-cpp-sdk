@@ -303,6 +303,154 @@ public:
 
   virtual ~AddUserToDesktopGroupResponse() = default;
 };
+class ApplyCoordinatePrivilegeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> coId{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> userType{};
+  shared_ptr<string> uuid{};
+
+  ApplyCoordinatePrivilegeRequest() {}
+
+  explicit ApplyCoordinatePrivilegeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coId) {
+      res["CoId"] = boost::any(*coId);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoId") != m.end() && !m["CoId"].empty()) {
+      coId = make_shared<string>(boost::any_cast<string>(m["CoId"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~ApplyCoordinatePrivilegeRequest() = default;
+};
+class ApplyCoordinatePrivilegeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ApplyCoordinatePrivilegeResponseBody() {}
+
+  explicit ApplyCoordinatePrivilegeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ApplyCoordinatePrivilegeResponseBody() = default;
+};
+class ApplyCoordinatePrivilegeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyCoordinatePrivilegeResponseBody> body{};
+
+  ApplyCoordinatePrivilegeResponse() {}
+
+  explicit ApplyCoordinatePrivilegeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyCoordinatePrivilegeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyCoordinatePrivilegeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyCoordinatePrivilegeResponse() = default;
+};
 class ApplyCoordinationForMonitoringRequestResourceCandidates : public Darabonba::Model {
 public:
   shared_ptr<long> ownerAliUid{};
@@ -2467,6 +2615,182 @@ public:
 
   virtual ~CreateADConnectorOfficeSiteResponse() = default;
 };
+class CreateAndBindNasFileSystemRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> desktopGroupId{};
+  shared_ptr<long> encryptType{};
+  shared_ptr<vector<string>> endUserIds{};
+  shared_ptr<string> fileSystemName{};
+  shared_ptr<string> officeSiteId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> storageType{};
+
+  CreateAndBindNasFileSystemRequest() {}
+
+  explicit CreateAndBindNasFileSystemRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (desktopGroupId) {
+      res["DesktopGroupId"] = boost::any(*desktopGroupId);
+    }
+    if (encryptType) {
+      res["EncryptType"] = boost::any(*encryptType);
+    }
+    if (endUserIds) {
+      res["EndUserIds"] = boost::any(*endUserIds);
+    }
+    if (fileSystemName) {
+      res["FileSystemName"] = boost::any(*fileSystemName);
+    }
+    if (officeSiteId) {
+      res["OfficeSiteId"] = boost::any(*officeSiteId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DesktopGroupId") != m.end() && !m["DesktopGroupId"].empty()) {
+      desktopGroupId = make_shared<string>(boost::any_cast<string>(m["DesktopGroupId"]));
+    }
+    if (m.find("EncryptType") != m.end() && !m["EncryptType"].empty()) {
+      encryptType = make_shared<long>(boost::any_cast<long>(m["EncryptType"]));
+    }
+    if (m.find("EndUserIds") != m.end() && !m["EndUserIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndUserIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndUserIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endUserIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("FileSystemName") != m.end() && !m["FileSystemName"].empty()) {
+      fileSystemName = make_shared<string>(boost::any_cast<string>(m["FileSystemName"]));
+    }
+    if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
+      officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
+    }
+  }
+
+
+  virtual ~CreateAndBindNasFileSystemRequest() = default;
+};
+class CreateAndBindNasFileSystemResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateAndBindNasFileSystemResponseBody() {}
+
+  explicit CreateAndBindNasFileSystemResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAndBindNasFileSystemResponseBody() = default;
+};
+class CreateAndBindNasFileSystemResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAndBindNasFileSystemResponseBody> body{};
+
+  CreateAndBindNasFileSystemResponse() {}
+
+  explicit CreateAndBindNasFileSystemResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAndBindNasFileSystemResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAndBindNasFileSystemResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAndBindNasFileSystemResponse() = default;
+};
 class CreateBundleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bundleName{};
@@ -2681,6 +3005,7 @@ public:
   shared_ptr<string> desktopGroupName{};
   shared_ptr<string> directoryId{};
   shared_ptr<vector<string>> endUserIds{};
+  shared_ptr<string> fileSystemId{};
   shared_ptr<long> idleDisconnectDuration{};
   shared_ptr<long> keepDuration{};
   shared_ptr<long> loadPolicy{};
@@ -2691,6 +3016,7 @@ public:
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<bool> profileFollowSwitch{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resetType{};
@@ -2755,6 +3081,9 @@ public:
     if (endUserIds) {
       res["EndUserIds"] = boost::any(*endUserIds);
     }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
     if (idleDisconnectDuration) {
       res["IdleDisconnectDuration"] = boost::any(*idleDisconnectDuration);
     }
@@ -2784,6 +3113,9 @@ public:
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (profileFollowSwitch) {
+      res["ProfileFollowSwitch"] = boost::any(*profileFollowSwitch);
     }
     if (ratioThreshold) {
       res["RatioThreshold"] = boost::any(*ratioThreshold);
@@ -2865,6 +3197,9 @@ public:
       }
       endUserIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
     if (m.find("IdleDisconnectDuration") != m.end() && !m["IdleDisconnectDuration"].empty()) {
       idleDisconnectDuration = make_shared<long>(boost::any_cast<long>(m["IdleDisconnectDuration"]));
     }
@@ -2894,6 +3229,9 @@ public:
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("ProfileFollowSwitch") != m.end() && !m["ProfileFollowSwitch"].empty()) {
+      profileFollowSwitch = make_shared<bool>(boost::any_cast<bool>(m["ProfileFollowSwitch"]));
     }
     if (m.find("RatioThreshold") != m.end() && !m["RatioThreshold"].empty()) {
       ratioThreshold = make_shared<double>(boost::any_cast<double>(m["RatioThreshold"]));
@@ -4752,6 +5090,7 @@ public:
   shared_ptr<long> recordingFps{};
   shared_ptr<string> recordingStartTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> remoteCoordinate{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<CreatePolicyGroupRequestUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
   shared_ptr<string> visualQuality{};
@@ -4852,6 +5191,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
     }
     if (usbRedirect) {
       res["UsbRedirect"] = boost::any(*usbRedirect);
@@ -4987,6 +5329,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
     }
     if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
       usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
@@ -7814,6 +8159,7 @@ public:
   shared_ptr<string> imageName{};
   shared_ptr<string> language{};
   shared_ptr<string> osType{};
+  shared_ptr<string> platform{};
   shared_ptr<string> protocolType{};
   shared_ptr<string> sessionType{};
   shared_ptr<string> stockState{};
@@ -7872,6 +8218,9 @@ public:
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
+    }
+    if (platform) {
+      res["Platform"] = boost::any(*platform);
     }
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
@@ -7944,6 +8293,9 @@ public:
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("Platform") != m.end() && !m["Platform"].empty()) {
+      platform = make_shared<string>(boost::any_cast<string>(m["Platform"]));
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
@@ -8447,6 +8799,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> eventType{};
+  shared_ptr<vector<string>> eventTypes{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> officeSiteId{};
@@ -8484,6 +8837,9 @@ public:
     }
     if (eventType) {
       res["EventType"] = boost::any(*eventType);
+    }
+    if (eventTypes) {
+      res["EventTypes"] = boost::any(*eventTypes);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -8527,6 +8883,16 @@ public:
     }
     if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
       eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("EventTypes") != m.end() && !m["EventTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EventTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EventTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eventTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -9036,6 +9402,204 @@ public:
 
 
   virtual ~DescribeCloudDrivePermissionsResponse() = default;
+};
+class DescribeCustomizedListHeadersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> langType{};
+  shared_ptr<string> listType{};
+  shared_ptr<string> regionId{};
+
+  DescribeCustomizedListHeadersRequest() {}
+
+  explicit DescribeCustomizedListHeadersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (langType) {
+      res["LangType"] = boost::any(*langType);
+    }
+    if (listType) {
+      res["ListType"] = boost::any(*listType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LangType") != m.end() && !m["LangType"].empty()) {
+      langType = make_shared<string>(boost::any_cast<string>(m["LangType"]));
+    }
+    if (m.find("ListType") != m.end() && !m["ListType"].empty()) {
+      listType = make_shared<string>(boost::any_cast<string>(m["ListType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomizedListHeadersRequest() = default;
+};
+class DescribeCustomizedListHeadersResponseBodyHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> displayType{};
+  shared_ptr<string> headerKey{};
+  shared_ptr<string> headerName{};
+
+  DescribeCustomizedListHeadersResponseBodyHeaders() {}
+
+  explicit DescribeCustomizedListHeadersResponseBodyHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayType) {
+      res["DisplayType"] = boost::any(*displayType);
+    }
+    if (headerKey) {
+      res["HeaderKey"] = boost::any(*headerKey);
+    }
+    if (headerName) {
+      res["HeaderName"] = boost::any(*headerName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayType") != m.end() && !m["DisplayType"].empty()) {
+      displayType = make_shared<string>(boost::any_cast<string>(m["DisplayType"]));
+    }
+    if (m.find("HeaderKey") != m.end() && !m["HeaderKey"].empty()) {
+      headerKey = make_shared<string>(boost::any_cast<string>(m["HeaderKey"]));
+    }
+    if (m.find("HeaderName") != m.end() && !m["HeaderName"].empty()) {
+      headerName = make_shared<string>(boost::any_cast<string>(m["HeaderName"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomizedListHeadersResponseBodyHeaders() = default;
+};
+class DescribeCustomizedListHeadersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCustomizedListHeadersResponseBodyHeaders>> headers{};
+  shared_ptr<string> requestId{};
+
+  DescribeCustomizedListHeadersResponseBody() {}
+
+  explicit DescribeCustomizedListHeadersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<DescribeCustomizedListHeadersResponseBodyHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomizedListHeadersResponseBodyHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<DescribeCustomizedListHeadersResponseBodyHeaders>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomizedListHeadersResponseBody() = default;
+};
+class DescribeCustomizedListHeadersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomizedListHeadersResponseBody> body{};
+
+  DescribeCustomizedListHeadersResponse() {}
+
+  explicit DescribeCustomizedListHeadersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomizedListHeadersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomizedListHeadersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomizedListHeadersResponse() = default;
 };
 class DescribeDesktopGroupsRequest : public Darabonba::Model {
 public:
@@ -17095,6 +17659,7 @@ public:
   shared_ptr<long> recordingExpires{};
   shared_ptr<long> recordingFps{};
   shared_ptr<string> recordingStartTime{};
+  shared_ptr<string> remoteCoordinate{};
   shared_ptr<string> usbRedirect{};
   shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule>> usbSupplyRedirectRule{};
   shared_ptr<string> visualQuality{};
@@ -17205,6 +17770,9 @@ public:
     }
     if (recordingStartTime) {
       res["RecordingStartTime"] = boost::any(*recordingStartTime);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
     }
     if (usbRedirect) {
       res["UsbRedirect"] = boost::any(*usbRedirect);
@@ -17352,6 +17920,9 @@ public:
     }
     if (m.find("RecordingStartTime") != m.end() && !m["RecordingStartTime"].empty()) {
       recordingStartTime = make_shared<string>(boost::any_cast<string>(m["RecordingStartTime"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
     }
     if (m.find("UsbRedirect") != m.end() && !m["UsbRedirect"].empty()) {
       usbRedirect = make_shared<string>(boost::any_cast<string>(m["UsbRedirect"]));
@@ -19731,6 +20302,7 @@ public:
   shared_ptr<string> filter{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> orgId{};
   shared_ptr<bool> queryUserDetail{};
   shared_ptr<string> regionId{};
 
@@ -19762,6 +20334,9 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
     if (queryUserDetail) {
       res["QueryUserDetail"] = boost::any(*queryUserDetail);
     }
@@ -19789,6 +20364,9 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
     }
     if (m.find("QueryUserDetail") != m.end() && !m["QueryUserDetail"].empty()) {
       queryUserDetail = make_shared<bool>(boost::any_cast<bool>(m["QueryUserDetail"]));
@@ -19956,10 +20534,12 @@ public:
   shared_ptr<string> connectionStatus{};
   shared_ptr<string> desktopId{};
   shared_ptr<string> desktopName{};
+  shared_ptr<string> displayName{};
   shared_ptr<string> endUserEmail{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> endUserName{};
   shared_ptr<string> endUserPhone{};
+  shared_ptr<string> endUserRemark{};
   shared_ptr<string> endUserType{};
   shared_ptr<DescribeUsersInGroupResponseBodyEndUsersExternalInfo> externalInfo{};
   shared_ptr<string> userDesktopId{};
@@ -19984,6 +20564,9 @@ public:
     if (desktopName) {
       res["DesktopName"] = boost::any(*desktopName);
     }
+    if (displayName) {
+      res["DisplayName"] = boost::any(*displayName);
+    }
     if (endUserEmail) {
       res["EndUserEmail"] = boost::any(*endUserEmail);
     }
@@ -19995,6 +20578,9 @@ public:
     }
     if (endUserPhone) {
       res["EndUserPhone"] = boost::any(*endUserPhone);
+    }
+    if (endUserRemark) {
+      res["EndUserRemark"] = boost::any(*endUserRemark);
     }
     if (endUserType) {
       res["EndUserType"] = boost::any(*endUserType);
@@ -20025,6 +20611,9 @@ public:
     if (m.find("DesktopName") != m.end() && !m["DesktopName"].empty()) {
       desktopName = make_shared<string>(boost::any_cast<string>(m["DesktopName"]));
     }
+    if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
     if (m.find("EndUserEmail") != m.end() && !m["EndUserEmail"].empty()) {
       endUserEmail = make_shared<string>(boost::any_cast<string>(m["EndUserEmail"]));
     }
@@ -20036,6 +20625,9 @@ public:
     }
     if (m.find("EndUserPhone") != m.end() && !m["EndUserPhone"].empty()) {
       endUserPhone = make_shared<string>(boost::any_cast<string>(m["EndUserPhone"]));
+    }
+    if (m.find("EndUserRemark") != m.end() && !m["EndUserRemark"].empty()) {
+      endUserRemark = make_shared<string>(boost::any_cast<string>(m["EndUserRemark"]));
     }
     if (m.find("EndUserType") != m.end() && !m["EndUserType"].empty()) {
       endUserType = make_shared<string>(boost::any_cast<string>(m["EndUserType"]));
@@ -22069,6 +22661,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> endUserId{};
   shared_ptr<string> eventType{};
+  shared_ptr<vector<string>> eventTypes{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteName{};
@@ -22099,6 +22692,9 @@ public:
     }
     if (eventType) {
       res["EventType"] = boost::any(*eventType);
+    }
+    if (eventTypes) {
+      res["EventTypes"] = boost::any(*eventTypes);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -22133,6 +22729,16 @@ public:
     }
     if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
       eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
+    }
+    if (m.find("EventTypes") != m.end() && !m["EventTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EventTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EventTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      eventTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -23060,6 +23666,8 @@ public:
   shared_ptr<long> maxDesktopsCount{};
   shared_ptr<long> memory{};
   shared_ptr<long> minDesktopsCount{};
+  shared_ptr<string> nasFileSystemID{};
+  shared_ptr<string> nasFileSystemName{};
   shared_ptr<string> officeSiteId{};
   shared_ptr<string> officeSiteName{};
   shared_ptr<string> officeSiteType{};
@@ -23069,6 +23677,7 @@ public:
   shared_ptr<string> payType{};
   shared_ptr<string> policyGroupId{};
   shared_ptr<string> policyGroupName{};
+  shared_ptr<bool> profileFollowSwitch{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<long> resType{};
   shared_ptr<long> resetType{};
@@ -23158,6 +23767,12 @@ public:
     if (minDesktopsCount) {
       res["MinDesktopsCount"] = boost::any(*minDesktopsCount);
     }
+    if (nasFileSystemID) {
+      res["NasFileSystemID"] = boost::any(*nasFileSystemID);
+    }
+    if (nasFileSystemName) {
+      res["NasFileSystemName"] = boost::any(*nasFileSystemName);
+    }
     if (officeSiteId) {
       res["OfficeSiteId"] = boost::any(*officeSiteId);
     }
@@ -23184,6 +23799,9 @@ public:
     }
     if (policyGroupName) {
       res["PolicyGroupName"] = boost::any(*policyGroupName);
+    }
+    if (profileFollowSwitch) {
+      res["ProfileFollowSwitch"] = boost::any(*profileFollowSwitch);
     }
     if (ratioThreshold) {
       res["RatioThreshold"] = boost::any(*ratioThreshold);
@@ -23289,6 +23907,12 @@ public:
     if (m.find("MinDesktopsCount") != m.end() && !m["MinDesktopsCount"].empty()) {
       minDesktopsCount = make_shared<long>(boost::any_cast<long>(m["MinDesktopsCount"]));
     }
+    if (m.find("NasFileSystemID") != m.end() && !m["NasFileSystemID"].empty()) {
+      nasFileSystemID = make_shared<string>(boost::any_cast<string>(m["NasFileSystemID"]));
+    }
+    if (m.find("NasFileSystemName") != m.end() && !m["NasFileSystemName"].empty()) {
+      nasFileSystemName = make_shared<string>(boost::any_cast<string>(m["NasFileSystemName"]));
+    }
     if (m.find("OfficeSiteId") != m.end() && !m["OfficeSiteId"].empty()) {
       officeSiteId = make_shared<string>(boost::any_cast<string>(m["OfficeSiteId"]));
     }
@@ -23315,6 +23939,9 @@ public:
     }
     if (m.find("PolicyGroupName") != m.end() && !m["PolicyGroupName"].empty()) {
       policyGroupName = make_shared<string>(boost::any_cast<string>(m["PolicyGroupName"]));
+    }
+    if (m.find("ProfileFollowSwitch") != m.end() && !m["ProfileFollowSwitch"].empty()) {
+      profileFollowSwitch = make_shared<bool>(boost::any_cast<bool>(m["ProfileFollowSwitch"]));
     }
     if (m.find("RatioThreshold") != m.end() && !m["RatioThreshold"].empty()) {
       ratioThreshold = make_shared<double>(boost::any_cast<double>(m["RatioThreshold"]));
@@ -26007,6 +26634,190 @@ public:
 
   virtual ~ModifyCloudDrivePermissionResponse() = default;
 };
+class ModifyCustomizedListHeadersRequestHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> displayType{};
+  shared_ptr<string> headerKey{};
+
+  ModifyCustomizedListHeadersRequestHeaders() {}
+
+  explicit ModifyCustomizedListHeadersRequestHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (displayType) {
+      res["DisplayType"] = boost::any(*displayType);
+    }
+    if (headerKey) {
+      res["HeaderKey"] = boost::any(*headerKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisplayType") != m.end() && !m["DisplayType"].empty()) {
+      displayType = make_shared<string>(boost::any_cast<string>(m["DisplayType"]));
+    }
+    if (m.find("HeaderKey") != m.end() && !m["HeaderKey"].empty()) {
+      headerKey = make_shared<string>(boost::any_cast<string>(m["HeaderKey"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomizedListHeadersRequestHeaders() = default;
+};
+class ModifyCustomizedListHeadersRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyCustomizedListHeadersRequestHeaders>> headers{};
+  shared_ptr<string> listType{};
+  shared_ptr<string> regionId{};
+
+  ModifyCustomizedListHeadersRequest() {}
+
+  explicit ModifyCustomizedListHeadersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
+    }
+    if (listType) {
+      res["ListType"] = boost::any(*listType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<ModifyCustomizedListHeadersRequestHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyCustomizedListHeadersRequestHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<ModifyCustomizedListHeadersRequestHeaders>>(expect1);
+      }
+    }
+    if (m.find("ListType") != m.end() && !m["ListType"].empty()) {
+      listType = make_shared<string>(boost::any_cast<string>(m["ListType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomizedListHeadersRequest() = default;
+};
+class ModifyCustomizedListHeadersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyCustomizedListHeadersResponseBody() {}
+
+  explicit ModifyCustomizedListHeadersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyCustomizedListHeadersResponseBody() = default;
+};
+class ModifyCustomizedListHeadersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyCustomizedListHeadersResponseBody> body{};
+
+  ModifyCustomizedListHeadersResponse() {}
+
+  explicit ModifyCustomizedListHeadersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyCustomizedListHeadersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyCustomizedListHeadersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyCustomizedListHeadersResponse() = default;
+};
 class ModifyDesktopChargeTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -26208,6 +27019,7 @@ public:
   shared_ptr<string> desktopGroupId{};
   shared_ptr<string> desktopGroupName{};
   shared_ptr<bool> disableSessionConfig{};
+  shared_ptr<string> fileSystemId{};
   shared_ptr<long> idleDisconnectDuration{};
   shared_ptr<string> imageId{};
   shared_ptr<long> keepDuration{};
@@ -26216,6 +27028,7 @@ public:
   shared_ptr<long> minDesktopsCount{};
   shared_ptr<string> ownBundleId{};
   shared_ptr<string> policyGroupId{};
+  shared_ptr<bool> profileFollowSwitch{};
   shared_ptr<double> ratioThreshold{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resetType{};
@@ -26259,6 +27072,9 @@ public:
     if (disableSessionConfig) {
       res["DisableSessionConfig"] = boost::any(*disableSessionConfig);
     }
+    if (fileSystemId) {
+      res["FileSystemId"] = boost::any(*fileSystemId);
+    }
     if (idleDisconnectDuration) {
       res["IdleDisconnectDuration"] = boost::any(*idleDisconnectDuration);
     }
@@ -26282,6 +27098,9 @@ public:
     }
     if (policyGroupId) {
       res["PolicyGroupId"] = boost::any(*policyGroupId);
+    }
+    if (profileFollowSwitch) {
+      res["ProfileFollowSwitch"] = boost::any(*profileFollowSwitch);
     }
     if (ratioThreshold) {
       res["RatioThreshold"] = boost::any(*ratioThreshold);
@@ -26329,6 +27148,9 @@ public:
     if (m.find("DisableSessionConfig") != m.end() && !m["DisableSessionConfig"].empty()) {
       disableSessionConfig = make_shared<bool>(boost::any_cast<bool>(m["DisableSessionConfig"]));
     }
+    if (m.find("FileSystemId") != m.end() && !m["FileSystemId"].empty()) {
+      fileSystemId = make_shared<string>(boost::any_cast<string>(m["FileSystemId"]));
+    }
     if (m.find("IdleDisconnectDuration") != m.end() && !m["IdleDisconnectDuration"].empty()) {
       idleDisconnectDuration = make_shared<long>(boost::any_cast<long>(m["IdleDisconnectDuration"]));
     }
@@ -26352,6 +27174,9 @@ public:
     }
     if (m.find("PolicyGroupId") != m.end() && !m["PolicyGroupId"].empty()) {
       policyGroupId = make_shared<string>(boost::any_cast<string>(m["PolicyGroupId"]));
+    }
+    if (m.find("ProfileFollowSwitch") != m.end() && !m["ProfileFollowSwitch"].empty()) {
+      profileFollowSwitch = make_shared<bool>(boost::any_cast<bool>(m["ProfileFollowSwitch"]));
     }
     if (m.find("RatioThreshold") != m.end() && !m["RatioThreshold"].empty()) {
       ratioThreshold = make_shared<double>(boost::any_cast<double>(m["RatioThreshold"]));
@@ -29111,6 +29936,7 @@ public:
   shared_ptr<long> recordingFps{};
   shared_ptr<string> recordingStartTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> remoteCoordinate{};
   shared_ptr<vector<ModifyPolicyGroupRequestRevokeAccessPolicyRule>> revokeAccessPolicyRule{};
   shared_ptr<vector<ModifyPolicyGroupRequestRevokeSecurityPolicyRule>> revokeSecurityPolicyRule{};
   shared_ptr<string> usbRedirect{};
@@ -29216,6 +30042,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteCoordinate) {
+      res["RemoteCoordinate"] = boost::any(*remoteCoordinate);
     }
     if (revokeAccessPolicyRule) {
       vector<boost::any> temp1;
@@ -29368,6 +30197,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteCoordinate") != m.end() && !m["RemoteCoordinate"].empty()) {
+      remoteCoordinate = make_shared<string>(boost::any_cast<string>(m["RemoteCoordinate"]));
     }
     if (m.find("RevokeAccessPolicyRule") != m.end() && !m["RevokeAccessPolicyRule"].empty()) {
       if (typeid(vector<boost::any>) == m["RevokeAccessPolicyRule"].type()) {
@@ -31259,6 +32091,154 @@ public:
 
 
   virtual ~ResetSnapshotResponse() = default;
+};
+class RevokeCoordinatePrivilegeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> coId{};
+  shared_ptr<string> endUserId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> userType{};
+  shared_ptr<string> uuid{};
+
+  RevokeCoordinatePrivilegeRequest() {}
+
+  explicit RevokeCoordinatePrivilegeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coId) {
+      res["CoId"] = boost::any(*coId);
+    }
+    if (endUserId) {
+      res["EndUserId"] = boost::any(*endUserId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    if (uuid) {
+      res["Uuid"] = boost::any(*uuid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoId") != m.end() && !m["CoId"].empty()) {
+      coId = make_shared<string>(boost::any_cast<string>(m["CoId"]));
+    }
+    if (m.find("EndUserId") != m.end() && !m["EndUserId"].empty()) {
+      endUserId = make_shared<string>(boost::any_cast<string>(m["EndUserId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+    if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+  }
+
+
+  virtual ~RevokeCoordinatePrivilegeRequest() = default;
+};
+class RevokeCoordinatePrivilegeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RevokeCoordinatePrivilegeResponseBody() {}
+
+  explicit RevokeCoordinatePrivilegeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RevokeCoordinatePrivilegeResponseBody() = default;
+};
+class RevokeCoordinatePrivilegeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RevokeCoordinatePrivilegeResponseBody> body{};
+
+  RevokeCoordinatePrivilegeResponse() {}
+
+  explicit RevokeCoordinatePrivilegeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RevokeCoordinatePrivilegeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RevokeCoordinatePrivilegeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RevokeCoordinatePrivilegeResponse() = default;
 };
 class RollbackSuspEventQuaraFileRequest : public Darabonba::Model {
 public:
@@ -33960,6 +34940,8 @@ public:
   ActivateOfficeSiteResponse activateOfficeSite(shared_ptr<ActivateOfficeSiteRequest> request);
   AddUserToDesktopGroupResponse addUserToDesktopGroupWithOptions(shared_ptr<AddUserToDesktopGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddUserToDesktopGroupResponse addUserToDesktopGroup(shared_ptr<AddUserToDesktopGroupRequest> request);
+  ApplyCoordinatePrivilegeResponse applyCoordinatePrivilegeWithOptions(shared_ptr<ApplyCoordinatePrivilegeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyCoordinatePrivilegeResponse applyCoordinatePrivilege(shared_ptr<ApplyCoordinatePrivilegeRequest> request);
   ApplyCoordinationForMonitoringResponse applyCoordinationForMonitoringWithOptions(shared_ptr<ApplyCoordinationForMonitoringRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyCoordinationForMonitoringResponse applyCoordinationForMonitoring(shared_ptr<ApplyCoordinationForMonitoringRequest> request);
   ApproveFotaUpdateResponse approveFotaUpdateWithOptions(shared_ptr<ApproveFotaUpdateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -33984,6 +34966,8 @@ public:
   CreateADConnectorDirectoryResponse createADConnectorDirectory(shared_ptr<CreateADConnectorDirectoryRequest> request);
   CreateADConnectorOfficeSiteResponse createADConnectorOfficeSiteWithOptions(shared_ptr<CreateADConnectorOfficeSiteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateADConnectorOfficeSiteResponse createADConnectorOfficeSite(shared_ptr<CreateADConnectorOfficeSiteRequest> request);
+  CreateAndBindNasFileSystemResponse createAndBindNasFileSystemWithOptions(shared_ptr<CreateAndBindNasFileSystemRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAndBindNasFileSystemResponse createAndBindNasFileSystem(shared_ptr<CreateAndBindNasFileSystemRequest> request);
   CreateBundleResponse createBundleWithOptions(shared_ptr<CreateBundleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBundleResponse createBundle(shared_ptr<CreateBundleRequest> request);
   CreateDesktopGroupResponse createDesktopGroupWithOptions(shared_ptr<CreateDesktopGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -34044,6 +35028,8 @@ public:
   DescribeClientEventsResponse describeClientEvents(shared_ptr<DescribeClientEventsRequest> request);
   DescribeCloudDrivePermissionsResponse describeCloudDrivePermissionsWithOptions(shared_ptr<DescribeCloudDrivePermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCloudDrivePermissionsResponse describeCloudDrivePermissions(shared_ptr<DescribeCloudDrivePermissionsRequest> request);
+  DescribeCustomizedListHeadersResponse describeCustomizedListHeadersWithOptions(shared_ptr<DescribeCustomizedListHeadersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomizedListHeadersResponse describeCustomizedListHeaders(shared_ptr<DescribeCustomizedListHeadersRequest> request);
   DescribeDesktopGroupsResponse describeDesktopGroupsWithOptions(shared_ptr<DescribeDesktopGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDesktopGroupsResponse describeDesktopGroups(shared_ptr<DescribeDesktopGroupsRequest> request);
   DescribeDesktopIdsByVulNamesResponse describeDesktopIdsByVulNamesWithOptions(shared_ptr<DescribeDesktopIdsByVulNamesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -34162,6 +35148,8 @@ public:
   ModifyBundleResponse modifyBundle(shared_ptr<ModifyBundleRequest> request);
   ModifyCloudDrivePermissionResponse modifyCloudDrivePermissionWithOptions(shared_ptr<ModifyCloudDrivePermissionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyCloudDrivePermissionResponse modifyCloudDrivePermission(shared_ptr<ModifyCloudDrivePermissionRequest> request);
+  ModifyCustomizedListHeadersResponse modifyCustomizedListHeadersWithOptions(shared_ptr<ModifyCustomizedListHeadersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyCustomizedListHeadersResponse modifyCustomizedListHeaders(shared_ptr<ModifyCustomizedListHeadersRequest> request);
   ModifyDesktopChargeTypeResponse modifyDesktopChargeTypeWithOptions(shared_ptr<ModifyDesktopChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDesktopChargeTypeResponse modifyDesktopChargeType(shared_ptr<ModifyDesktopChargeTypeRequest> request);
   ModifyDesktopGroupResponse modifyDesktopGroupWithOptions(shared_ptr<ModifyDesktopGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -34220,6 +35208,8 @@ public:
   ResetNASDefaultMountTargetResponse resetNASDefaultMountTarget(shared_ptr<ResetNASDefaultMountTargetRequest> request);
   ResetSnapshotResponse resetSnapshotWithOptions(shared_ptr<ResetSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetSnapshotResponse resetSnapshot(shared_ptr<ResetSnapshotRequest> request);
+  RevokeCoordinatePrivilegeResponse revokeCoordinatePrivilegeWithOptions(shared_ptr<RevokeCoordinatePrivilegeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeCoordinatePrivilegeResponse revokeCoordinatePrivilege(shared_ptr<RevokeCoordinatePrivilegeRequest> request);
   RollbackSuspEventQuaraFileResponse rollbackSuspEventQuaraFileWithOptions(shared_ptr<RollbackSuspEventQuaraFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RollbackSuspEventQuaraFileResponse rollbackSuspEventQuaraFile(shared_ptr<RollbackSuspEventQuaraFileRequest> request);
   RunCommandResponse runCommandWithOptions(shared_ptr<RunCommandRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
