@@ -216,6 +216,7 @@ class AddServersToServerGroupRequestServers : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<long> port{};
+  shared_ptr<bool> remoteIpEnabled{};
   shared_ptr<string> serverId{};
   shared_ptr<string> serverIp{};
   shared_ptr<string> serverType{};
@@ -236,6 +237,9 @@ public:
     }
     if (port) {
       res["Port"] = boost::any(*port);
+    }
+    if (remoteIpEnabled) {
+      res["RemoteIpEnabled"] = boost::any(*remoteIpEnabled);
     }
     if (serverId) {
       res["ServerId"] = boost::any(*serverId);
@@ -258,6 +262,9 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RemoteIpEnabled") != m.end() && !m["RemoteIpEnabled"].empty()) {
+      remoteIpEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemoteIpEnabled"]));
     }
     if (m.find("ServerId") != m.end() && !m["ServerId"].empty()) {
       serverId = make_shared<string>(boost::any_cast<string>(m["ServerId"]));
@@ -15376,6 +15383,7 @@ class ListServerGroupServersResponseBodyServers : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<long> port{};
+  shared_ptr<bool> remoteIpEnabled{};
   shared_ptr<string> serverGroupId{};
   shared_ptr<string> serverId{};
   shared_ptr<string> serverIp{};
@@ -15398,6 +15406,9 @@ public:
     }
     if (port) {
       res["Port"] = boost::any(*port);
+    }
+    if (remoteIpEnabled) {
+      res["RemoteIpEnabled"] = boost::any(*remoteIpEnabled);
     }
     if (serverGroupId) {
       res["ServerGroupId"] = boost::any(*serverGroupId);
@@ -15426,6 +15437,9 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+    if (m.find("RemoteIpEnabled") != m.end() && !m["RemoteIpEnabled"].empty()) {
+      remoteIpEnabled = make_shared<bool>(boost::any_cast<bool>(m["RemoteIpEnabled"]));
     }
     if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
       serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
