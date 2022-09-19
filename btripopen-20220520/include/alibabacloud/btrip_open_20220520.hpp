@@ -22860,16 +22860,19 @@ public:
   shared_ptr<string> changeSeatNo{};
   shared_ptr<string> changeSeatTypeName{};
   shared_ptr<double> changeServiceFee{};
+  shared_ptr<string> changeTrainNo{};
   shared_ptr<string> changeTrainTypeName{};
   shared_ptr<string> checkInTime{};
   shared_ptr<string> checkOutTime{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> fromStationName{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
   shared_ptr<string> originTicketNo{};
   shared_ptr<string> outTicketStatus{};
   shared_ptr<string> startTime{};
   shared_ptr<string> ticketNo{};
+  shared_ptr<string> toStationName{};
 
   TrainOrderQueryResponseBodyModuleChangeTicketInfoList() {}
 
@@ -22899,6 +22902,9 @@ public:
     if (changeServiceFee) {
       res["change_service_fee"] = boost::any(*changeServiceFee);
     }
+    if (changeTrainNo) {
+      res["change_train_no"] = boost::any(*changeTrainNo);
+    }
     if (changeTrainTypeName) {
       res["change_train_type_name"] = boost::any(*changeTrainTypeName);
     }
@@ -22910,6 +22916,9 @@ public:
     }
     if (endTime) {
       res["end_time"] = boost::any(*endTime);
+    }
+    if (fromStationName) {
+      res["from_station_name"] = boost::any(*fromStationName);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -22928,6 +22937,9 @@ public:
     }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
+    }
+    if (toStationName) {
+      res["to_station_name"] = boost::any(*toStationName);
     }
     return res;
   }
@@ -22951,6 +22963,9 @@ public:
     if (m.find("change_service_fee") != m.end() && !m["change_service_fee"].empty()) {
       changeServiceFee = make_shared<double>(boost::any_cast<double>(m["change_service_fee"]));
     }
+    if (m.find("change_train_no") != m.end() && !m["change_train_no"].empty()) {
+      changeTrainNo = make_shared<string>(boost::any_cast<string>(m["change_train_no"]));
+    }
     if (m.find("change_train_type_name") != m.end() && !m["change_train_type_name"].empty()) {
       changeTrainTypeName = make_shared<string>(boost::any_cast<string>(m["change_train_type_name"]));
     }
@@ -22962,6 +22977,9 @@ public:
     }
     if (m.find("end_time") != m.end() && !m["end_time"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["end_time"]));
+    }
+    if (m.find("from_station_name") != m.end() && !m["from_station_name"].empty()) {
+      fromStationName = make_shared<string>(boost::any_cast<string>(m["from_station_name"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
@@ -22980,6 +22998,9 @@ public:
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
+    }
+    if (m.find("to_station_name") != m.end() && !m["to_station_name"].empty()) {
+      toStationName = make_shared<string>(boost::any_cast<string>(m["to_station_name"]));
     }
   }
 
