@@ -38,48 +38,6 @@ string Alibabacloud_Cams20200606::Client::getEndpoint(shared_ptr<string> product
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CheckChatappContactsResponse Alibabacloud_Cams20200606::Client::checkChatappContactsWithOptions(shared_ptr<CheckChatappContactsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CheckChatappContactsShrinkRequest> request = make_shared<CheckChatappContactsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->contacts)) {
-    request->contactsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contacts, make_shared<string>("Contacts"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
-    body->insert(pair<string, string>("ChannelType", *request->channelType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->contactsShrink)) {
-    body->insert(pair<string, string>("Contacts", *request->contactsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
-    body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
-    body->insert(pair<string, string>("From", *request->from));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CheckChatappContacts"))},
-    {"version", boost::any(string("2020-06-06"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CheckChatappContactsResponse(callApi(params, req, runtime));
-}
-
-CheckChatappContactsResponse Alibabacloud_Cams20200606::Client::checkChatappContacts(shared_ptr<CheckChatappContactsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return checkChatappContactsWithOptions(request, runtime);
-}
-
 CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTemplateWithOptions(shared_ptr<CreateChatappTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateChatappTemplateShrinkRequest> request = make_shared<CreateChatappTemplateShrinkRequest>();
@@ -102,6 +60,9 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->exampleShrink)) {
     body->insert(pair<string, string>("Example", *request->exampleShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    body->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
@@ -140,6 +101,9 @@ DeleteChatappTemplateResponse Alibabacloud_Cams20200606::Client::deleteChatappTe
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
     query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    query->insert(pair<string, string>("IsvCode", *request->isvCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
   }
@@ -170,6 +134,9 @@ GetChatappTemplateDetailResponse Alibabacloud_Cams20200606::Client::getChatappTe
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
     query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    query->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
@@ -212,6 +179,9 @@ ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTempla
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
     query->insert(pair<string, string>("CustWabaId", *request->custWabaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    query->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
@@ -266,6 +236,9 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    body->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
@@ -333,6 +306,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
+    body->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
