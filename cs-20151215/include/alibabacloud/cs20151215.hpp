@@ -280,6 +280,63 @@ public:
 
   virtual ~Taint() = default;
 };
+class StandardComponentsValue : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> version{};
+  shared_ptr<string> description{};
+  shared_ptr<string> required{};
+  shared_ptr<bool> disabled{};
+
+  StandardComponentsValue() {}
+
+  explicit StandardComponentsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (version) {
+      res["version"] = boost::any(*version);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (required) {
+      res["required"] = boost::any(*required);
+    }
+    if (disabled) {
+      res["disabled"] = boost::any(*disabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("version") != m.end() && !m["version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("required") != m.end() && !m["required"].empty()) {
+      required = make_shared<string>(boost::any_cast<string>(m["required"]));
+    }
+    if (m.find("disabled") != m.end() && !m["disabled"].empty()) {
+      disabled = make_shared<bool>(boost::any_cast<bool>(m["disabled"]));
+    }
+  }
+
+
+  virtual ~StandardComponentsValue() = default;
+};
 class AttachInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cpuPolicy{};
@@ -4760,63 +4817,6 @@ public:
 
 
   virtual ~DescribeAddonsResponseBodyComponentGroups() = default;
-};
-class StandardComponentsValue : public Darabonba::Model {
-public:
-  shared_ptr<string> name{};
-  shared_ptr<string> version{};
-  shared_ptr<string> description{};
-  shared_ptr<string> required{};
-  shared_ptr<bool> disabled{};
-
-  StandardComponentsValue() {}
-
-  explicit StandardComponentsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (name) {
-      res["name"] = boost::any(*name);
-    }
-    if (version) {
-      res["version"] = boost::any(*version);
-    }
-    if (description) {
-      res["description"] = boost::any(*description);
-    }
-    if (required) {
-      res["required"] = boost::any(*required);
-    }
-    if (disabled) {
-      res["disabled"] = boost::any(*disabled);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("name") != m.end() && !m["name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["name"]));
-    }
-    if (m.find("version") != m.end() && !m["version"].empty()) {
-      version = make_shared<string>(boost::any_cast<string>(m["version"]));
-    }
-    if (m.find("description") != m.end() && !m["description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["description"]));
-    }
-    if (m.find("required") != m.end() && !m["required"].empty()) {
-      required = make_shared<string>(boost::any_cast<string>(m["required"]));
-    }
-    if (m.find("disabled") != m.end() && !m["disabled"].empty()) {
-      disabled = make_shared<bool>(boost::any_cast<bool>(m["disabled"]));
-    }
-  }
-
-
-  virtual ~StandardComponentsValue() = default;
 };
 class DescribeAddonsResponseBody : public Darabonba::Model {
 public:
@@ -18341,6 +18341,197 @@ public:
 
   virtual ~RemoveClusterNodesResponse() = default;
 };
+class RemoveNodePoolNodesRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> drainNode{};
+  shared_ptr<vector<string>> nodes{};
+  shared_ptr<bool> releaseNode{};
+
+  RemoveNodePoolNodesRequest() {}
+
+  explicit RemoveNodePoolNodesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drainNode) {
+      res["drain_node"] = boost::any(*drainNode);
+    }
+    if (nodes) {
+      res["nodes"] = boost::any(*nodes);
+    }
+    if (releaseNode) {
+      res["release_node"] = boost::any(*releaseNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("drain_node") != m.end() && !m["drain_node"].empty()) {
+      drainNode = make_shared<bool>(boost::any_cast<bool>(m["drain_node"]));
+    }
+    if (m.find("nodes") != m.end() && !m["nodes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["nodes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["nodes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("release_node") != m.end() && !m["release_node"].empty()) {
+      releaseNode = make_shared<bool>(boost::any_cast<bool>(m["release_node"]));
+    }
+  }
+
+
+  virtual ~RemoveNodePoolNodesRequest() = default;
+};
+class RemoveNodePoolNodesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> drainNode{};
+  shared_ptr<string> nodesShrink{};
+  shared_ptr<bool> releaseNode{};
+
+  RemoveNodePoolNodesShrinkRequest() {}
+
+  explicit RemoveNodePoolNodesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drainNode) {
+      res["drain_node"] = boost::any(*drainNode);
+    }
+    if (nodesShrink) {
+      res["nodes"] = boost::any(*nodesShrink);
+    }
+    if (releaseNode) {
+      res["release_node"] = boost::any(*releaseNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("drain_node") != m.end() && !m["drain_node"].empty()) {
+      drainNode = make_shared<bool>(boost::any_cast<bool>(m["drain_node"]));
+    }
+    if (m.find("nodes") != m.end() && !m["nodes"].empty()) {
+      nodesShrink = make_shared<string>(boost::any_cast<string>(m["nodes"]));
+    }
+    if (m.find("release_node") != m.end() && !m["release_node"].empty()) {
+      releaseNode = make_shared<bool>(boost::any_cast<bool>(m["release_node"]));
+    }
+  }
+
+
+  virtual ~RemoveNodePoolNodesShrinkRequest() = default;
+};
+class RemoveNodePoolNodesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  RemoveNodePoolNodesResponseBody() {}
+
+  explicit RemoveNodePoolNodesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["request_id"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("request_id") != m.end() && !m["request_id"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["request_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
+    }
+  }
+
+
+  virtual ~RemoveNodePoolNodesResponseBody() = default;
+};
+class RemoveNodePoolNodesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveNodePoolNodesResponseBody> body{};
+
+  RemoveNodePoolNodesResponse() {}
+
+  explicit RemoveNodePoolNodesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveNodePoolNodesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveNodePoolNodesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveNodePoolNodesResponse() = default;
+};
 class RemoveWorkflowResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -21078,6 +21269,12 @@ public:
                                                            shared_ptr<RemoveClusterNodesRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveNodePoolNodesResponse removeNodePoolNodes(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<RemoveNodePoolNodesRequest> request);
+  RemoveNodePoolNodesResponse removeNodePoolNodesWithOptions(shared_ptr<string> ClusterId,
+                                                             shared_ptr<string> NodepoolId,
+                                                             shared_ptr<RemoveNodePoolNodesRequest> tmpReq,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWorkflowResponse removeWorkflow(shared_ptr<string> workflowName);
   RemoveWorkflowResponse removeWorkflowWithOptions(shared_ptr<string> workflowName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RepairClusterNodePoolResponse repairClusterNodePool(shared_ptr<string> clusterId, shared_ptr<string> nodepoolId, shared_ptr<RepairClusterNodePoolRequest> request);
