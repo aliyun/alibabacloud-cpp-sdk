@@ -1988,6 +1988,7 @@ public:
 };
 class AddGatewayRouteRequestServicesHttpDubboTranscoder : public Darabonba::Model {
 public:
+  shared_ptr<string> dubboServiceGroup{};
   shared_ptr<string> dubboServiceName{};
   shared_ptr<string> dubboServiceVersion{};
   shared_ptr<vector<AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList>> mothedMapList{};
@@ -2002,6 +2003,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dubboServiceGroup) {
+      res["DubboServiceGroup"] = boost::any(*dubboServiceGroup);
+    }
     if (dubboServiceName) {
       res["DubboServiceName"] = boost::any(*dubboServiceName);
     }
@@ -2019,6 +2023,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DubboServiceGroup") != m.end() && !m["DubboServiceGroup"].empty()) {
+      dubboServiceGroup = make_shared<string>(boost::any_cast<string>(m["DubboServiceGroup"]));
+    }
     if (m.find("DubboServiceName") != m.end() && !m["DubboServiceName"].empty()) {
       dubboServiceName = make_shared<string>(boost::any_cast<string>(m["DubboServiceName"]));
     }
@@ -22515,6 +22522,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> connectType{};
   shared_ptr<string> mseSessionId{};
+  shared_ptr<string> mseVersion{};
   shared_ptr<string> regionId{};
 
   ListClusterTypesRequest() {}
@@ -22536,6 +22544,9 @@ public:
     if (mseSessionId) {
       res["MseSessionId"] = boost::any(*mseSessionId);
     }
+    if (mseVersion) {
+      res["MseVersion"] = boost::any(*mseVersion);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -22551,6 +22562,9 @@ public:
     }
     if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
       mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
+    }
+    if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
+      mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -22748,6 +22762,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> mseSessionId{};
+  shared_ptr<string> mseVersion{};
 
   ListClusterVersionsRequest() {}
 
@@ -22768,6 +22783,9 @@ public:
     if (mseSessionId) {
       res["MseSessionId"] = boost::any(*mseSessionId);
     }
+    if (mseVersion) {
+      res["MseVersion"] = boost::any(*mseVersion);
+    }
     return res;
   }
 
@@ -22780,6 +22798,9 @@ public:
     }
     if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
       mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
+    }
+    if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
+      mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
     }
   }
 
@@ -26328,6 +26349,7 @@ public:
 };
 class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder : public Darabonba::Model {
 public:
+  shared_ptr<string> dubboServiceGroup{};
   shared_ptr<string> dubboServiceName{};
   shared_ptr<string> dubboServiceVersion{};
   shared_ptr<vector<ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList>> mothedMapList{};
@@ -26342,6 +26364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dubboServiceGroup) {
+      res["DubboServiceGroup"] = boost::any(*dubboServiceGroup);
+    }
     if (dubboServiceName) {
       res["DubboServiceName"] = boost::any(*dubboServiceName);
     }
@@ -26359,6 +26384,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DubboServiceGroup") != m.end() && !m["DubboServiceGroup"].empty()) {
+      dubboServiceGroup = make_shared<string>(boost::any_cast<string>(m["DubboServiceGroup"]));
+    }
     if (m.find("DubboServiceName") != m.end() && !m["DubboServiceName"].empty()) {
       dubboServiceName = make_shared<string>(boost::any_cast<string>(m["DubboServiceName"]));
     }
@@ -40291,6 +40319,7 @@ public:
 };
 class UpdateGatewayRouteRequestServicesHttpDubboTranscoder : public Darabonba::Model {
 public:
+  shared_ptr<string> dubboServiceGroup{};
   shared_ptr<string> dubboServiceName{};
   shared_ptr<string> dubboServiceVersion{};
   shared_ptr<vector<UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList>> mothedMapList{};
@@ -40305,6 +40334,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dubboServiceGroup) {
+      res["DubboServiceGroup"] = boost::any(*dubboServiceGroup);
+    }
     if (dubboServiceName) {
       res["DubboServiceName"] = boost::any(*dubboServiceName);
     }
@@ -40322,6 +40354,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DubboServiceGroup") != m.end() && !m["DubboServiceGroup"].empty()) {
+      dubboServiceGroup = make_shared<string>(boost::any_cast<string>(m["DubboServiceGroup"]));
+    }
     if (m.find("DubboServiceName") != m.end() && !m["DubboServiceName"].empty()) {
       dubboServiceName = make_shared<string>(boost::any_cast<string>(m["DubboServiceName"]));
     }

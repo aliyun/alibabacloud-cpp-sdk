@@ -3346,6 +3346,9 @@ ListClusterTypesResponse Alibabacloud_Mse20190531::Client::listClusterTypesWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
+    query->insert(pair<string, string>("MseVersion", *request->mseVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -3382,6 +3385,9 @@ ListClusterVersionsResponse Alibabacloud_Mse20190531::Client::listClusterVersion
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
+    query->insert(pair<string, string>("MseVersion", *request->mseVersion));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
