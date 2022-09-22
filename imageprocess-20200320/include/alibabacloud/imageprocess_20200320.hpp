@@ -827,8 +827,8 @@ public:
 };
 class ClassifyFNFAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> dataFormat{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> tracerId{};
@@ -839,19 +839,15 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageUrlObject) {
-      res["ImageUrlObject"] = boost::any(*imageUrlObject);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
     }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
@@ -866,11 +862,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
-      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
     }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
@@ -1446,8 +1442,8 @@ public:
 };
 class DetectHipKeypointXRayAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> dataFormat{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> tracerId{};
@@ -1458,19 +1454,15 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageUrlObject) {
-      res["ImageUrlObject"] = boost::any(*imageUrlObject);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
     }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
@@ -1485,11 +1477,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
-      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
     }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
@@ -1820,8 +1812,8 @@ public:
 };
 class DetectKneeKeypointXRayAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> dataFormat{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> tracerId{};
@@ -1832,19 +1824,15 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageUrlObject) {
-      res["ImageUrlObject"] = boost::any(*imageUrlObject);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
     }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
@@ -1859,11 +1847,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
-      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
     }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
@@ -2187,10 +2175,10 @@ public:
 };
 class DetectKneeXRayAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> urlObject{};
   shared_ptr<string> dataFormat{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
+  shared_ptr<Darabonba::Stream> urlObject{};
 
   DetectKneeXRayAdvanceRequest() {}
 
@@ -2198,17 +2186,10 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!urlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("urlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (urlObject) {
-      res["UrlObject"] = boost::any(*urlObject);
-    }
     if (dataFormat) {
       res["DataFormat"] = boost::any(*dataFormat);
     }
@@ -2218,13 +2199,13 @@ public:
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
+    if (urlObject) {
+      res["Url"] = boost::any(*urlObject);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("UrlObject") != m.end() && !m["UrlObject"].empty()) {
-      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["UrlObject"]));
-    }
     if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
       dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
     }
@@ -2233,6 +2214,9 @@ public:
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["Url"]));
     }
   }
 
@@ -3867,9 +3851,9 @@ public:
 };
 class DetectSkinDiseaseAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> urlObject{};
   shared_ptr<string> orgId{};
   shared_ptr<string> orgName{};
+  shared_ptr<Darabonba::Stream> urlObject{};
 
   DetectSkinDiseaseAdvanceRequest() {}
 
@@ -3877,35 +3861,31 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!urlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("urlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (urlObject) {
-      res["UrlObject"] = boost::any(*urlObject);
-    }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
     }
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
+    if (urlObject) {
+      res["Url"] = boost::any(*urlObject);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("UrlObject") != m.end() && !m["UrlObject"].empty()) {
-      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["UrlObject"]));
-    }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
     }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      urlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["Url"]));
     }
   }
 
@@ -6825,6 +6805,284 @@ public:
 
   virtual ~ScreenChestCTResponse() = default;
 };
+class ScreenECRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<string> URL{};
+
+  ScreenECRequestURLList() {}
+
+  explicit ScreenECRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~ScreenECRequestURLList() = default;
+};
+class ScreenECRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<vector<ScreenECRequestURLList>> URLList{};
+
+  ScreenECRequest() {}
+
+  explicit ScreenECRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<ScreenECRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScreenECRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<ScreenECRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenECRequest() = default;
+};
+class ScreenECResponseBodyDataLesion : public Darabonba::Model {
+public:
+  shared_ptr<string> benignVolume{};
+  shared_ptr<string> ecVolume{};
+  shared_ptr<string> esoVolume{};
+  shared_ptr<string> mask{};
+  shared_ptr<vector<string>> possibilities{};
+
+  ScreenECResponseBodyDataLesion() {}
+
+  explicit ScreenECResponseBodyDataLesion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (benignVolume) {
+      res["BenignVolume"] = boost::any(*benignVolume);
+    }
+    if (ecVolume) {
+      res["EcVolume"] = boost::any(*ecVolume);
+    }
+    if (esoVolume) {
+      res["EsoVolume"] = boost::any(*esoVolume);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (possibilities) {
+      res["Possibilities"] = boost::any(*possibilities);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BenignVolume") != m.end() && !m["BenignVolume"].empty()) {
+      benignVolume = make_shared<string>(boost::any_cast<string>(m["BenignVolume"]));
+    }
+    if (m.find("EcVolume") != m.end() && !m["EcVolume"].empty()) {
+      ecVolume = make_shared<string>(boost::any_cast<string>(m["EcVolume"]));
+    }
+    if (m.find("EsoVolume") != m.end() && !m["EsoVolume"].empty()) {
+      esoVolume = make_shared<string>(boost::any_cast<string>(m["EsoVolume"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<string>(boost::any_cast<string>(m["Mask"]));
+    }
+    if (m.find("Possibilities") != m.end() && !m["Possibilities"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Possibilities"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Possibilities"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      possibilities = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ScreenECResponseBodyDataLesion() = default;
+};
+class ScreenECResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<ScreenECResponseBodyDataLesion> lesion{};
+
+  ScreenECResponseBodyData() {}
+
+  explicit ScreenECResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lesion) {
+      res["Lesion"] = lesion ? boost::any(lesion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lesion") != m.end() && !m["Lesion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Lesion"].type()) {
+        ScreenECResponseBodyDataLesion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Lesion"]));
+        lesion = make_shared<ScreenECResponseBodyDataLesion>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenECResponseBodyData() = default;
+};
+class ScreenECResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ScreenECResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  ScreenECResponseBody() {}
+
+  explicit ScreenECResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ScreenECResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ScreenECResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ScreenECResponseBody() = default;
+};
+class ScreenECResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ScreenECResponseBody> body{};
+
+  ScreenECResponse() {}
+
+  explicit ScreenECResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ScreenECResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ScreenECResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenECResponse() = default;
+};
 class SegmentOARRequestURLList : public Darabonba::Model {
 public:
   shared_ptr<string> URL{};
@@ -7309,6 +7567,8 @@ public:
   RunMedQAResponse runMedQA(shared_ptr<RunMedQARequest> request);
   ScreenChestCTResponse screenChestCTWithOptions(shared_ptr<ScreenChestCTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenChestCTResponse screenChestCT(shared_ptr<ScreenChestCTRequest> request);
+  ScreenECResponse screenECWithOptions(shared_ptr<ScreenECRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ScreenECResponse screenEC(shared_ptr<ScreenECRequest> request);
   SegmentOARResponse segmentOARWithOptions(shared_ptr<SegmentOARRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentOARResponse segmentOAR(shared_ptr<SegmentOARRequest> request);
   TranslateMedResponse translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
