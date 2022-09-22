@@ -2022,11 +2022,62 @@ public:
 
   virtual ~DetailSceneResponseBodyCaptures() = default;
 };
+class DetailSceneResponseBodyFloorPlans : public Darabonba::Model {
+public:
+  shared_ptr<string> colorMapUrl{};
+  shared_ptr<string> floorLabel{};
+  shared_ptr<string> floorName{};
+  shared_ptr<string> miniMapUrl{};
+
+  DetailSceneResponseBodyFloorPlans() {}
+
+  explicit DetailSceneResponseBodyFloorPlans(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (colorMapUrl) {
+      res["ColorMapUrl"] = boost::any(*colorMapUrl);
+    }
+    if (floorLabel) {
+      res["FloorLabel"] = boost::any(*floorLabel);
+    }
+    if (floorName) {
+      res["FloorName"] = boost::any(*floorName);
+    }
+    if (miniMapUrl) {
+      res["MiniMapUrl"] = boost::any(*miniMapUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColorMapUrl") != m.end() && !m["ColorMapUrl"].empty()) {
+      colorMapUrl = make_shared<string>(boost::any_cast<string>(m["ColorMapUrl"]));
+    }
+    if (m.find("FloorLabel") != m.end() && !m["FloorLabel"].empty()) {
+      floorLabel = make_shared<string>(boost::any_cast<string>(m["FloorLabel"]));
+    }
+    if (m.find("FloorName") != m.end() && !m["FloorName"].empty()) {
+      floorName = make_shared<string>(boost::any_cast<string>(m["FloorName"]));
+    }
+    if (m.find("MiniMapUrl") != m.end() && !m["MiniMapUrl"].empty()) {
+      miniMapUrl = make_shared<string>(boost::any_cast<string>(m["MiniMapUrl"]));
+    }
+  }
+
+
+  virtual ~DetailSceneResponseBodyFloorPlans() = default;
+};
 class DetailSceneResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DetailSceneResponseBodyCaptures>> captures{};
   shared_ptr<long> code{};
   shared_ptr<string> coverUrl{};
+  shared_ptr<vector<DetailSceneResponseBodyFloorPlans>> floorPlans{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<string> id{};
@@ -2064,6 +2115,13 @@ public:
     }
     if (coverUrl) {
       res["CoverUrl"] = boost::any(*coverUrl);
+    }
+    if (floorPlans) {
+      vector<boost::any> temp1;
+      for(auto item1:*floorPlans){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FloorPlans"] = boost::any(temp1);
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
@@ -2129,6 +2187,19 @@ public:
     }
     if (m.find("CoverUrl") != m.end() && !m["CoverUrl"].empty()) {
       coverUrl = make_shared<string>(boost::any_cast<string>(m["CoverUrl"]));
+    }
+    if (m.find("FloorPlans") != m.end() && !m["FloorPlans"].empty()) {
+      if (typeid(vector<boost::any>) == m["FloorPlans"].type()) {
+        vector<DetailSceneResponseBodyFloorPlans> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FloorPlans"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetailSceneResponseBodyFloorPlans model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        floorPlans = make_shared<vector<DetailSceneResponseBodyFloorPlans>>(expect1);
+      }
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
