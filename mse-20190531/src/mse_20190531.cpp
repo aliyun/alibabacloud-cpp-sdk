@@ -3735,6 +3735,49 @@ ListGatewaySlbResponse Alibabacloud_Mse20190531::Client::listGatewaySlb(shared_p
   return listGatewaySlbWithOptions(request, runtime);
 }
 
+ListInstanceCountResponse Alibabacloud_Mse20190531::Client::listInstanceCountWithOptions(shared_ptr<ListInstanceCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
+    query->insert(pair<string, string>("ClusterType", *request->clusterType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
+    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
+    query->insert(pair<string, string>("MseVersion", *request->mseVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
+    query->insert(pair<string, string>("RequestPars", *request->requestPars));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListInstanceCount"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListInstanceCountResponse(callApi(params, req, runtime));
+}
+
+ListInstanceCountResponse Alibabacloud_Mse20190531::Client::listInstanceCount(shared_ptr<ListInstanceCountRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listInstanceCountWithOptions(request, runtime);
+}
+
 ListInstancesResponse Alibabacloud_Mse20190531::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -4578,6 +4621,9 @@ QueryClusterSpecificationResponse Alibabacloud_Mse20190531::Client::queryCluster
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
+    query->insert(pair<string, string>("MseVersion", *request->mseVersion));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
