@@ -2659,7 +2659,7 @@ public:
 };
 class VerifyRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> identifier{};
+  shared_ptr<string> certIdentifier{};
   shared_ptr<string> message{};
   shared_ptr<string> messageType{};
   shared_ptr<string> signatureValue{};
@@ -2675,8 +2675,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (identifier) {
-      res["Identifier"] = boost::any(*identifier);
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -2694,8 +2694,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
-      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));

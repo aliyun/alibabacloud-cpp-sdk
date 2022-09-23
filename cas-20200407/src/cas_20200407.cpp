@@ -621,8 +621,8 @@ UploadPCACertResponse Alibabacloud_Cas20200407::Client::uploadPCACert(shared_ptr
 VerifyResponse Alibabacloud_Cas20200407::Client::verifyWithOptions(shared_ptr<VerifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
-    query->insert(pair<string, string>("Identifier", *request->identifier));
+  if (!Darabonba_Util::Client::isUnset<string>(request->certIdentifier)) {
+    query->insert(pair<string, string>("CertIdentifier", *request->certIdentifier));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
     query->insert(pair<string, string>("Message", *request->message));
