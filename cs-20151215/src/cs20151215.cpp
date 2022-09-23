@@ -378,6 +378,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instances)) {
     body->insert(pair<string, vector<string>>("instances", *request->instances));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipStack)) {
+    body->insert(pair<string, string>("ip_stack", *request->ipStack));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isEnterpriseSecurityGroup)) {
     body->insert(pair<string, bool>("is_enterprise_security_group", *request->isEnterpriseSecurityGroup));
   }

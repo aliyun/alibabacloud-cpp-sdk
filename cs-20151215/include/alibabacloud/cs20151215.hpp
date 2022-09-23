@@ -1052,6 +1052,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageType{};
   shared_ptr<vector<string>> instances{};
+  shared_ptr<string> ipStack{};
   shared_ptr<bool> isEnterpriseSecurityGroup{};
   shared_ptr<bool> keepInstanceName{};
   shared_ptr<string> keyPair{};
@@ -1199,6 +1200,9 @@ public:
     }
     if (instances) {
       res["instances"] = boost::any(*instances);
+    }
+    if (ipStack) {
+      res["ip_stack"] = boost::any(*ipStack);
     }
     if (isEnterpriseSecurityGroup) {
       res["is_enterprise_security_group"] = boost::any(*isEnterpriseSecurityGroup);
@@ -1500,6 +1504,9 @@ public:
         }
       }
       instances = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ip_stack") != m.end() && !m["ip_stack"].empty()) {
+      ipStack = make_shared<string>(boost::any_cast<string>(m["ip_stack"]));
     }
     if (m.find("is_enterprise_security_group") != m.end() && !m["is_enterprise_security_group"].empty()) {
       isEnterpriseSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["is_enterprise_security_group"]));
