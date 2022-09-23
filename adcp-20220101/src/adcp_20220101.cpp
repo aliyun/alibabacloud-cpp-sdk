@@ -17,7 +17,34 @@ using namespace std;
 using namespace Alibabacloud_Adcp20220101;
 
 Alibabacloud_Adcp20220101::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("central");
+  _endpointMap = make_shared<map<string, string>>(map<string, string>({
+    {"cn-beijing", "adcp.cn-beijing.aliyuncs.com"},
+    {"cn-zhangjiakou", "adcp.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou", "adcp.cn-hangzhou.aliyuncs.com"},
+    {"cn-shanghai", "adcp.cn-shanghai.aliyuncs.com"},
+    {"cn-shenzhen", "adcp.cn-shenzhen.aliyuncs.com"},
+    {"cn-heyuan", "adcp.cn-heyuan.aliyuncs.com"},
+    {"cn-hongkong", "adcp.cn-hongkong.aliyuncs.com"},
+    {"ap-northeast-1", "adcp.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1", "adcp.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-5", "adcp.ap-southeast-5.aliyuncs.com"},
+    {"ap-south-1", "adcp.ap-south-1.aliyuncs.com"},
+    {"ap-southeast-2", "adcp.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-3", "adcp.ap-southeast-3.aliyuncs.com"},
+    {"cn-chengdu", "adcp-vpc.cn-chengdu.aliyuncs.com"},
+    {"cn-huhehaote", "adcp.cn-huhehaote.aliyuncs.com"},
+    {"cn-qingdao", "adcp.cn-qingdao.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "adcp-vpc.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-wulanchabu", "adcp.cn-wulanchabu.aliyuncs.com"},
+    {"eu-central-1", "adcp.eu-central-1.aliyuncs.com"},
+    {"eu-west-1", "adcp-vpc.eu-west-1.aliyuncs.com"},
+    {"me-east-1", "adcp.me-east-1.aliyuncs.com"},
+    {"us-east-1", "adcp.us-east-1.aliyuncs.com"},
+    {"us-west-1", "adcp.us-west-1.aliyuncs.com"}
+  })
+);
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("adcp"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };
@@ -41,6 +68,9 @@ string Alibabacloud_Adcp20220101::Client::getEndpoint(shared_ptr<string> product
 AttachClusterToHubResponse Alibabacloud_Adcp20220101::Client::attachClusterToHubWithOptions(shared_ptr<AttachClusterToHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->attachToMesh)) {
+    query->insert(pair<string, bool>("AttachToMesh", *request->attachToMesh));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
@@ -80,26 +110,14 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWith
   if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
     body->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->auditLogProject)) {
-    body->insert(pair<string, string>("AuditLogProject", *request->auditLogProject));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->auditLogStoreTTL)) {
-    body->insert(pair<string, string>("AuditLogStoreTTL", *request->auditLogStoreTTL));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->controlPlaneLogEnabled)) {
-    body->insert(pair<string, bool>("ControlPlaneLogEnabled", *request->controlPlaneLogEnabled));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->controlPlaneLogProject)) {
-    body->insert(pair<string, string>("ControlPlaneLogProject", *request->controlPlaneLogProject));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->controlPlaneLogTTL)) {
-    body->insert(pair<string, string>("ControlPlaneLogTTL", *request->controlPlaneLogTTL));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isEnterpriseSecurityGroup)) {
     body->insert(pair<string, bool>("IsEnterpriseSecurityGroup", *request->isEnterpriseSecurityGroup));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
+    body->insert(pair<string, string>("Profile", *request->profile));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
@@ -250,8 +268,15 @@ DescribeHubClusterLogsResponse Alibabacloud_Adcp20220101::Client::describeHubClu
   return describeHubClusterLogsWithOptions(request, runtime);
 }
 
-DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubClustersWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubClustersWithOptions(shared_ptr<DescribeHubClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
+    query->insert(pair<string, string>("Profile", *request->profile));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeHubClusters"))},
     {"version", boost::any(string("2022-01-01"))},
@@ -266,9 +291,9 @@ DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubCluste
   return DescribeHubClustersResponse(callApi(params, req, runtime));
 }
 
-DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubClusters() {
+DescribeHubClustersResponse Alibabacloud_Adcp20220101::Client::describeHubClusters(shared_ptr<DescribeHubClustersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeHubClustersWithOptions(runtime);
+  return describeHubClustersWithOptions(request, runtime);
 }
 
 DescribeManagedClustersResponse Alibabacloud_Adcp20220101::Client::describeManagedClustersWithOptions(shared_ptr<DescribeManagedClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -299,8 +324,12 @@ DescribeManagedClustersResponse Alibabacloud_Adcp20220101::Client::describeManag
   return describeManagedClustersWithOptions(request, runtime);
 }
 
-DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DescribeRegions"))},
     {"version", boost::any(string("2022-01-01"))},
@@ -315,9 +344,9 @@ DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegionsWithOp
   return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
-DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegions() {
+DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegions(shared_ptr<DescribeRegionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeRegionsWithOptions(runtime);
+  return describeRegionsWithOptions(request, runtime);
 }
 
 DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -325,6 +354,9 @@ DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFro
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->detachFromMesh)) {
+    query->insert(pair<string, bool>("DetachFromMesh", *request->detachFromMesh));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterIds)) {
@@ -351,5 +383,54 @@ DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFro
 DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detachClusterFromHubWithOptions(request, runtime);
+}
+
+UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiServerEipId)) {
+    query->insert(pair<string, string>("ApiServerEipId", *request->apiServerEipId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
+    query->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableArgoCD)) {
+    query->insert(pair<string, bool>("EnableArgoCD", *request->enableArgoCD));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableMesh)) {
+    query->insert(pair<string, bool>("EnableMesh", *request->enableMesh));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publicApiServerEnabled)) {
+    query->insert(pair<string, bool>("PublicApiServerEnabled", *request->publicApiServerEnabled));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateHubClusterFeature"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateHubClusterFeatureResponse(callApi(params, req, runtime));
+}
+
+UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClusterFeature(shared_ptr<UpdateHubClusterFeatureRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateHubClusterFeatureWithOptions(request, runtime);
 }
 

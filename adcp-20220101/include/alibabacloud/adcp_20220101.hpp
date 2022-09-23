@@ -16,6 +16,7 @@ using namespace std;
 namespace Alibabacloud_Adcp20220101 {
 class AttachClusterToHubRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> attachToMesh{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterIds{};
 
@@ -29,6 +30,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attachToMesh) {
+      res["AttachToMesh"] = boost::any(*attachToMesh);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -39,6 +43,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachToMesh") != m.end() && !m["AttachToMesh"].empty()) {
+      attachToMesh = make_shared<bool>(boost::any_cast<bool>(m["AttachToMesh"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -55,6 +62,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<vector<string>> managedClusterIds{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   AttachClusterToHubResponseBody() {}
 
@@ -74,6 +82,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     return res;
   }
@@ -95,6 +106,9 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
   }
 
 
@@ -103,6 +117,7 @@ public:
 class AttachClusterToHubResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<AttachClusterToHubResponseBody> body{};
 
   AttachClusterToHubResponse() {}
@@ -115,6 +130,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -124,6 +142,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -139,6 +160,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -156,13 +180,9 @@ class CreateHubClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> apiServerPublicEip{};
   shared_ptr<bool> auditLogEnabled{};
-  shared_ptr<string> auditLogProject{};
-  shared_ptr<string> auditLogStoreTTL{};
-  shared_ptr<bool> controlPlaneLogEnabled{};
-  shared_ptr<string> controlPlaneLogProject{};
-  shared_ptr<string> controlPlaneLogTTL{};
   shared_ptr<bool> isEnterpriseSecurityGroup{};
   shared_ptr<string> name{};
+  shared_ptr<string> profile{};
   shared_ptr<string> regionId{};
   shared_ptr<string> vSwitches{};
   shared_ptr<string> vpcId{};
@@ -183,26 +203,14 @@ public:
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
     }
-    if (auditLogProject) {
-      res["AuditLogProject"] = boost::any(*auditLogProject);
-    }
-    if (auditLogStoreTTL) {
-      res["AuditLogStoreTTL"] = boost::any(*auditLogStoreTTL);
-    }
-    if (controlPlaneLogEnabled) {
-      res["ControlPlaneLogEnabled"] = boost::any(*controlPlaneLogEnabled);
-    }
-    if (controlPlaneLogProject) {
-      res["ControlPlaneLogProject"] = boost::any(*controlPlaneLogProject);
-    }
-    if (controlPlaneLogTTL) {
-      res["ControlPlaneLogTTL"] = boost::any(*controlPlaneLogTTL);
-    }
     if (isEnterpriseSecurityGroup) {
       res["IsEnterpriseSecurityGroup"] = boost::any(*isEnterpriseSecurityGroup);
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (profile) {
+      res["Profile"] = boost::any(*profile);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -223,26 +231,14 @@ public:
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
     }
-    if (m.find("AuditLogProject") != m.end() && !m["AuditLogProject"].empty()) {
-      auditLogProject = make_shared<string>(boost::any_cast<string>(m["AuditLogProject"]));
-    }
-    if (m.find("AuditLogStoreTTL") != m.end() && !m["AuditLogStoreTTL"].empty()) {
-      auditLogStoreTTL = make_shared<string>(boost::any_cast<string>(m["AuditLogStoreTTL"]));
-    }
-    if (m.find("ControlPlaneLogEnabled") != m.end() && !m["ControlPlaneLogEnabled"].empty()) {
-      controlPlaneLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["ControlPlaneLogEnabled"]));
-    }
-    if (m.find("ControlPlaneLogProject") != m.end() && !m["ControlPlaneLogProject"].empty()) {
-      controlPlaneLogProject = make_shared<string>(boost::any_cast<string>(m["ControlPlaneLogProject"]));
-    }
-    if (m.find("ControlPlaneLogTTL") != m.end() && !m["ControlPlaneLogTTL"].empty()) {
-      controlPlaneLogTTL = make_shared<string>(boost::any_cast<string>(m["ControlPlaneLogTTL"]));
-    }
     if (m.find("IsEnterpriseSecurityGroup") != m.end() && !m["IsEnterpriseSecurityGroup"].empty()) {
       isEnterpriseSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["IsEnterpriseSecurityGroup"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
+      profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -304,6 +300,7 @@ public:
 class CreateHubClusterResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<CreateHubClusterResponseBody> body{};
 
   CreateHubClusterResponse() {}
@@ -316,6 +313,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -325,6 +325,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -340,6 +343,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -435,6 +441,7 @@ public:
 class DeleteHubClusterResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DeleteHubClusterResponseBody> body{};
 
   DeleteHubClusterResponse() {}
@@ -447,6 +454,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -456,6 +466,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -471,6 +484,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -515,6 +531,7 @@ public:
 };
 class DescribeHubClusterDetailsResponseBodyClusterApiServer : public Darabonba::Model {
 public:
+  shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> enabledPublic{};
   shared_ptr<string> loadBalancerId{};
 
@@ -528,6 +545,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiServerEipId) {
+      res["ApiServerEipId"] = boost::any(*apiServerEipId);
+    }
     if (enabledPublic) {
       res["EnabledPublic"] = boost::any(*enabledPublic);
     }
@@ -538,6 +558,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
+      apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
+    }
     if (m.find("EnabledPublic") != m.end() && !m["EnabledPublic"].empty()) {
       enabledPublic = make_shared<bool>(boost::any_cast<bool>(m["EnabledPublic"]));
     }
@@ -641,6 +664,56 @@ public:
 
   virtual ~DescribeHubClusterDetailsResponseBodyClusterClusterInfo() = default;
 };
+class DescribeHubClusterDetailsResponseBodyClusterConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  DescribeHubClusterDetailsResponseBodyClusterConditions() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterConditions() = default;
+};
 class DescribeHubClusterDetailsResponseBodyClusterEndpoints : public Darabonba::Model {
 public:
   shared_ptr<string> intranetApiServerEndpoint{};
@@ -676,6 +749,85 @@ public:
 
 
   virtual ~DescribeHubClusterDetailsResponseBodyClusterEndpoints() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterLogConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableLog{};
+  shared_ptr<string> logProject{};
+  shared_ptr<string> logStoreTTL{};
+
+  DescribeHubClusterDetailsResponseBodyClusterLogConfig() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableLog) {
+      res["EnableLog"] = boost::any(*enableLog);
+    }
+    if (logProject) {
+      res["LogProject"] = boost::any(*logProject);
+    }
+    if (logStoreTTL) {
+      res["LogStoreTTL"] = boost::any(*logStoreTTL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableLog") != m.end() && !m["EnableLog"].empty()) {
+      enableLog = make_shared<bool>(boost::any_cast<bool>(m["EnableLog"]));
+    }
+    if (m.find("LogProject") != m.end() && !m["LogProject"].empty()) {
+      logProject = make_shared<string>(boost::any_cast<string>(m["LogProject"]));
+    }
+    if (m.find("LogStoreTTL") != m.end() && !m["LogStoreTTL"].empty()) {
+      logStoreTTL = make_shared<string>(boost::any_cast<string>(m["LogStoreTTL"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterLogConfig() = default;
+};
+class DescribeHubClusterDetailsResponseBodyClusterMeshConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableMesh{};
+  shared_ptr<string> meshId{};
+
+  DescribeHubClusterDetailsResponseBodyClusterMeshConfig() {}
+
+  explicit DescribeHubClusterDetailsResponseBodyClusterMeshConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableMesh) {
+      res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (meshId) {
+      res["MeshId"] = boost::any(*meshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
+      enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
+    }
+    if (m.find("MeshId") != m.end() && !m["MeshId"].empty()) {
+      meshId = make_shared<string>(boost::any_cast<string>(m["MeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClusterDetailsResponseBodyClusterMeshConfig() = default;
 };
 class DescribeHubClusterDetailsResponseBodyClusterNetwork : public Darabonba::Model {
 public:
@@ -752,7 +904,10 @@ class DescribeHubClusterDetailsResponseBodyCluster : public Darabonba::Model {
 public:
   shared_ptr<DescribeHubClusterDetailsResponseBodyClusterApiServer> apiServer{};
   shared_ptr<DescribeHubClusterDetailsResponseBodyClusterClusterInfo> clusterInfo{};
+  shared_ptr<vector<DescribeHubClusterDetailsResponseBodyClusterConditions>> conditions{};
   shared_ptr<DescribeHubClusterDetailsResponseBodyClusterEndpoints> endpoints{};
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterLogConfig> logConfig{};
+  shared_ptr<DescribeHubClusterDetailsResponseBodyClusterMeshConfig> meshConfig{};
   shared_ptr<DescribeHubClusterDetailsResponseBodyClusterNetwork> network{};
 
   DescribeHubClusterDetailsResponseBodyCluster() {}
@@ -771,8 +926,21 @@ public:
     if (clusterInfo) {
       res["ClusterInfo"] = clusterInfo ? boost::any(clusterInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
     if (endpoints) {
       res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logConfig) {
+      res["LogConfig"] = logConfig ? boost::any(logConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (meshConfig) {
+      res["MeshConfig"] = meshConfig ? boost::any(meshConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
@@ -795,11 +963,38 @@ public:
         clusterInfo = make_shared<DescribeHubClusterDetailsResponseBodyClusterClusterInfo>(model1);
       }
     }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeHubClusterDetailsResponseBodyClusterConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeHubClusterDetailsResponseBodyClusterConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeHubClusterDetailsResponseBodyClusterConditions>>(expect1);
+      }
+    }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
         DescribeHubClusterDetailsResponseBodyClusterEndpoints model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
         endpoints = make_shared<DescribeHubClusterDetailsResponseBodyClusterEndpoints>(model1);
+      }
+    }
+    if (m.find("LogConfig") != m.end() && !m["LogConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogConfig"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterLogConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogConfig"]));
+        logConfig = make_shared<DescribeHubClusterDetailsResponseBodyClusterLogConfig>(model1);
+      }
+    }
+    if (m.find("MeshConfig") != m.end() && !m["MeshConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeshConfig"].type()) {
+        DescribeHubClusterDetailsResponseBodyClusterMeshConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeshConfig"]));
+        meshConfig = make_shared<DescribeHubClusterDetailsResponseBodyClusterMeshConfig>(model1);
       }
     }
     if (m.find("Network") != m.end() && !m["Network"].empty()) {
@@ -857,6 +1052,7 @@ public:
 class DescribeHubClusterDetailsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeHubClusterDetailsResponseBody> body{};
 
   DescribeHubClusterDetailsResponse() {}
@@ -869,6 +1065,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -878,6 +1077,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -893,6 +1095,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -981,6 +1186,7 @@ public:
 class DescribeHubClusterKubeconfigResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeHubClusterKubeconfigResponseBody> body{};
 
   DescribeHubClusterKubeconfigResponse() {}
@@ -993,6 +1199,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -1002,6 +1211,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1017,6 +1229,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -1162,6 +1377,7 @@ public:
 class DescribeHubClusterLogsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeHubClusterLogsResponseBody> body{};
 
   DescribeHubClusterLogsResponse() {}
@@ -1174,6 +1390,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -1183,6 +1402,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1199,6 +1421,9 @@ public:
       }
       headers = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
         DescribeHubClusterLogsResponseBody model1;
@@ -1211,8 +1436,38 @@ public:
 
   virtual ~DescribeHubClusterLogsResponse() = default;
 };
+class DescribeHubClustersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> profile{};
+
+  DescribeHubClustersRequest() {}
+
+  explicit DescribeHubClustersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (profile) {
+      res["Profile"] = boost::any(*profile);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
+      profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClustersRequest() = default;
+};
 class DescribeHubClustersResponseBodyClustersApiServer : public Darabonba::Model {
 public:
+  shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> enabledPublic{};
   shared_ptr<string> loadBalancerId{};
 
@@ -1226,6 +1481,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (apiServerEipId) {
+      res["ApiServerEipId"] = boost::any(*apiServerEipId);
+    }
     if (enabledPublic) {
       res["EnabledPublic"] = boost::any(*enabledPublic);
     }
@@ -1236,6 +1494,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
+      apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
+    }
     if (m.find("EnabledPublic") != m.end() && !m["EnabledPublic"].empty()) {
       enabledPublic = make_shared<bool>(boost::any_cast<bool>(m["EnabledPublic"]));
     }
@@ -1339,6 +1600,56 @@ public:
 
   virtual ~DescribeHubClustersResponseBodyClustersClusterInfo() = default;
 };
+class DescribeHubClustersResponseBodyClustersConditions : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> reason{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  DescribeHubClustersResponseBodyClustersConditions() {}
+
+  explicit DescribeHubClustersResponseBodyClustersConditions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClustersResponseBodyClustersConditions() = default;
+};
 class DescribeHubClustersResponseBodyClustersEndpoints : public Darabonba::Model {
 public:
   shared_ptr<string> intranetApiServerEndpoint{};
@@ -1374,6 +1685,85 @@ public:
 
 
   virtual ~DescribeHubClustersResponseBodyClustersEndpoints() = default;
+};
+class DescribeHubClustersResponseBodyClustersLogConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableLog{};
+  shared_ptr<string> logProject{};
+  shared_ptr<string> logStoreTTL{};
+
+  DescribeHubClustersResponseBodyClustersLogConfig() {}
+
+  explicit DescribeHubClustersResponseBodyClustersLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableLog) {
+      res["EnableLog"] = boost::any(*enableLog);
+    }
+    if (logProject) {
+      res["LogProject"] = boost::any(*logProject);
+    }
+    if (logStoreTTL) {
+      res["LogStoreTTL"] = boost::any(*logStoreTTL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableLog") != m.end() && !m["EnableLog"].empty()) {
+      enableLog = make_shared<bool>(boost::any_cast<bool>(m["EnableLog"]));
+    }
+    if (m.find("LogProject") != m.end() && !m["LogProject"].empty()) {
+      logProject = make_shared<string>(boost::any_cast<string>(m["LogProject"]));
+    }
+    if (m.find("LogStoreTTL") != m.end() && !m["LogStoreTTL"].empty()) {
+      logStoreTTL = make_shared<string>(boost::any_cast<string>(m["LogStoreTTL"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClustersResponseBodyClustersLogConfig() = default;
+};
+class DescribeHubClustersResponseBodyClustersMeshConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableMesh{};
+  shared_ptr<string> meshId{};
+
+  DescribeHubClustersResponseBodyClustersMeshConfig() {}
+
+  explicit DescribeHubClustersResponseBodyClustersMeshConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableMesh) {
+      res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (meshId) {
+      res["MeshId"] = boost::any(*meshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
+      enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
+    }
+    if (m.find("MeshId") != m.end() && !m["MeshId"].empty()) {
+      meshId = make_shared<string>(boost::any_cast<string>(m["MeshId"]));
+    }
+  }
+
+
+  virtual ~DescribeHubClustersResponseBodyClustersMeshConfig() = default;
 };
 class DescribeHubClustersResponseBodyClustersNetwork : public Darabonba::Model {
 public:
@@ -1443,7 +1833,10 @@ class DescribeHubClustersResponseBodyClusters : public Darabonba::Model {
 public:
   shared_ptr<DescribeHubClustersResponseBodyClustersApiServer> apiServer{};
   shared_ptr<DescribeHubClustersResponseBodyClustersClusterInfo> clusterInfo{};
+  shared_ptr<vector<DescribeHubClustersResponseBodyClustersConditions>> conditions{};
   shared_ptr<DescribeHubClustersResponseBodyClustersEndpoints> endpoints{};
+  shared_ptr<DescribeHubClustersResponseBodyClustersLogConfig> logConfig{};
+  shared_ptr<DescribeHubClustersResponseBodyClustersMeshConfig> meshConfig{};
   shared_ptr<DescribeHubClustersResponseBodyClustersNetwork> network{};
 
   DescribeHubClustersResponseBodyClusters() {}
@@ -1462,8 +1855,21 @@ public:
     if (clusterInfo) {
       res["ClusterInfo"] = clusterInfo ? boost::any(clusterInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (conditions) {
+      vector<boost::any> temp1;
+      for(auto item1:*conditions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Conditions"] = boost::any(temp1);
+    }
     if (endpoints) {
       res["Endpoints"] = endpoints ? boost::any(endpoints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (logConfig) {
+      res["LogConfig"] = logConfig ? boost::any(logConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (meshConfig) {
+      res["MeshConfig"] = meshConfig ? boost::any(meshConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (network) {
       res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1486,11 +1892,38 @@ public:
         clusterInfo = make_shared<DescribeHubClustersResponseBodyClustersClusterInfo>(model1);
       }
     }
+    if (m.find("Conditions") != m.end() && !m["Conditions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Conditions"].type()) {
+        vector<DescribeHubClustersResponseBodyClustersConditions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Conditions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeHubClustersResponseBodyClustersConditions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        conditions = make_shared<vector<DescribeHubClustersResponseBodyClustersConditions>>(expect1);
+      }
+    }
     if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
       if (typeid(map<string, boost::any>) == m["Endpoints"].type()) {
         DescribeHubClustersResponseBodyClustersEndpoints model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Endpoints"]));
         endpoints = make_shared<DescribeHubClustersResponseBodyClustersEndpoints>(model1);
+      }
+    }
+    if (m.find("LogConfig") != m.end() && !m["LogConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LogConfig"].type()) {
+        DescribeHubClustersResponseBodyClustersLogConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogConfig"]));
+        logConfig = make_shared<DescribeHubClustersResponseBodyClustersLogConfig>(model1);
+      }
+    }
+    if (m.find("MeshConfig") != m.end() && !m["MeshConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeshConfig"].type()) {
+        DescribeHubClustersResponseBodyClustersMeshConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeshConfig"]));
+        meshConfig = make_shared<DescribeHubClustersResponseBodyClustersMeshConfig>(model1);
       }
     }
     if (m.find("Network") != m.end() && !m["Network"].empty()) {
@@ -1558,6 +1991,7 @@ public:
 class DescribeHubClustersResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeHubClustersResponseBody> body{};
 
   DescribeHubClustersResponse() {}
@@ -1570,6 +2004,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -1579,6 +2016,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1594,6 +2034,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -1756,6 +2199,35 @@ public:
 
   virtual ~DescribeManagedClustersResponseBodyClustersCluster() = default;
 };
+class DescribeManagedClustersResponseBodyClustersMeshStatus : public Darabonba::Model {
+public:
+  shared_ptr<bool> inMesh{};
+
+  DescribeManagedClustersResponseBodyClustersMeshStatus() {}
+
+  explicit DescribeManagedClustersResponseBodyClustersMeshStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inMesh) {
+      res["InMesh"] = boost::any(*inMesh);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InMesh") != m.end() && !m["InMesh"].empty()) {
+      inMesh = make_shared<bool>(boost::any_cast<bool>(m["InMesh"]));
+    }
+  }
+
+
+  virtual ~DescribeManagedClustersResponseBodyClustersMeshStatus() = default;
+};
 class DescribeManagedClustersResponseBodyClustersStatus : public Darabonba::Model {
 public:
   shared_ptr<string> message{};
@@ -1795,6 +2267,7 @@ public:
 class DescribeManagedClustersResponseBodyClusters : public Darabonba::Model {
 public:
   shared_ptr<DescribeManagedClustersResponseBodyClustersCluster> cluster{};
+  shared_ptr<DescribeManagedClustersResponseBodyClustersMeshStatus> meshStatus{};
   shared_ptr<DescribeManagedClustersResponseBodyClustersStatus> status{};
 
   DescribeManagedClustersResponseBodyClusters() {}
@@ -1810,6 +2283,9 @@ public:
     if (cluster) {
       res["Cluster"] = cluster ? boost::any(cluster->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (meshStatus) {
+      res["MeshStatus"] = meshStatus ? boost::any(meshStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (status) {
       res["Status"] = status ? boost::any(status->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1822,6 +2298,13 @@ public:
         DescribeManagedClustersResponseBodyClustersCluster model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Cluster"]));
         cluster = make_shared<DescribeManagedClustersResponseBodyClustersCluster>(model1);
+      }
+    }
+    if (m.find("MeshStatus") != m.end() && !m["MeshStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeshStatus"].type()) {
+        DescribeManagedClustersResponseBodyClustersMeshStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeshStatus"]));
+        meshStatus = make_shared<DescribeManagedClustersResponseBodyClustersMeshStatus>(model1);
       }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
@@ -1889,6 +2372,7 @@ public:
 class DescribeManagedClustersResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeManagedClustersResponseBody> body{};
 
   DescribeManagedClustersResponse() {}
@@ -1901,6 +2385,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -1910,6 +2397,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1926,6 +2416,9 @@ public:
       }
       headers = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
         DescribeManagedClustersResponseBody model1;
@@ -1938,12 +2431,39 @@ public:
 
   virtual ~DescribeManagedClustersResponse() = default;
 };
+class DescribeRegionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> language{};
+
+  DescribeRegionsRequest() {}
+
+  explicit DescribeRegionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+  }
+
+
+  virtual ~DescribeRegionsRequest() = default;
+};
 class DescribeRegionsResponseBodyRegions : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
-  shared_ptr<string> regionEndpoint{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> regionVpcEndpoint{};
 
   DescribeRegionsResponseBodyRegions() {}
 
@@ -1958,14 +2478,8 @@ public:
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
-    if (regionEndpoint) {
-      res["RegionEndpoint"] = boost::any(*regionEndpoint);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
-    }
-    if (regionVpcEndpoint) {
-      res["RegionVpcEndpoint"] = boost::any(*regionVpcEndpoint);
     }
     return res;
   }
@@ -1974,14 +2488,8 @@ public:
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
     }
-    if (m.find("RegionEndpoint") != m.end() && !m["RegionEndpoint"].empty()) {
-      regionEndpoint = make_shared<string>(boost::any_cast<string>(m["RegionEndpoint"]));
-    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("RegionVpcEndpoint") != m.end() && !m["RegionVpcEndpoint"].empty()) {
-      regionVpcEndpoint = make_shared<string>(boost::any_cast<string>(m["RegionVpcEndpoint"]));
     }
   }
 
@@ -2041,6 +2549,7 @@ public:
 class DescribeRegionsResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DescribeRegionsResponseBody> body{};
 
   DescribeRegionsResponse() {}
@@ -2053,6 +2562,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -2062,6 +2574,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2077,6 +2592,9 @@ public:
          toMap1[item.first] = item.second;
       }
       headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
@@ -2094,6 +2612,7 @@ class DetachClusterFromHubRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterIds{};
+  shared_ptr<bool> detachFromMesh{};
 
   DetachClusterFromHubRequest() {}
 
@@ -2111,6 +2630,9 @@ public:
     if (clusterIds) {
       res["ClusterIds"] = boost::any(*clusterIds);
     }
+    if (detachFromMesh) {
+      res["DetachFromMesh"] = boost::any(*detachFromMesh);
+    }
     return res;
   }
 
@@ -2120,6 +2642,9 @@ public:
     }
     if (m.find("ClusterIds") != m.end() && !m["ClusterIds"].empty()) {
       clusterIds = make_shared<string>(boost::any_cast<string>(m["ClusterIds"]));
+    }
+    if (m.find("DetachFromMesh") != m.end() && !m["DetachFromMesh"].empty()) {
+      detachFromMesh = make_shared<bool>(boost::any_cast<bool>(m["DetachFromMesh"]));
     }
   }
 
@@ -2131,6 +2656,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<vector<string>> managedClusterIds{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   DetachClusterFromHubResponseBody() {}
 
@@ -2150,6 +2676,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     return res;
   }
@@ -2171,6 +2700,9 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
   }
 
 
@@ -2179,6 +2711,7 @@ public:
 class DetachClusterFromHubResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
   shared_ptr<DetachClusterFromHubResponseBody> body{};
 
   DetachClusterFromHubResponse() {}
@@ -2191,6 +2724,9 @@ public:
     if (!headers) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
     }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
     if (!body) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
     }
@@ -2200,6 +2736,9 @@ public:
     map<string, boost::any> res;
     if (headers) {
       res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
     }
     if (body) {
       res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2216,6 +2755,9 @@ public:
       }
       headers = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       if (typeid(map<string, boost::any>) == m["body"].type()) {
         DetachClusterFromHubResponseBody model1;
@@ -2227,6 +2769,175 @@ public:
 
 
   virtual ~DetachClusterFromHubResponse() = default;
+};
+class UpdateHubClusterFeatureRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiServerEipId{};
+  shared_ptr<bool> auditLogEnabled{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> deletionProtection{};
+  shared_ptr<bool> enableArgoCD{};
+  shared_ptr<bool> enableMesh{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> publicApiServerEnabled{};
+
+  UpdateHubClusterFeatureRequest() {}
+
+  explicit UpdateHubClusterFeatureRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiServerEipId) {
+      res["ApiServerEipId"] = boost::any(*apiServerEipId);
+    }
+    if (auditLogEnabled) {
+      res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
+    }
+    if (enableArgoCD) {
+      res["EnableArgoCD"] = boost::any(*enableArgoCD);
+    }
+    if (enableMesh) {
+      res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (publicApiServerEnabled) {
+      res["PublicApiServerEnabled"] = boost::any(*publicApiServerEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
+      apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
+    }
+    if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
+      auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
+    }
+    if (m.find("EnableArgoCD") != m.end() && !m["EnableArgoCD"].empty()) {
+      enableArgoCD = make_shared<bool>(boost::any_cast<bool>(m["EnableArgoCD"]));
+    }
+    if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
+      enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PublicApiServerEnabled") != m.end() && !m["PublicApiServerEnabled"].empty()) {
+      publicApiServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicApiServerEnabled"]));
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureRequest() = default;
+};
+class UpdateHubClusterFeatureResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateHubClusterFeatureResponseBody() {}
+
+  explicit UpdateHubClusterFeatureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureResponseBody() = default;
+};
+class UpdateHubClusterFeatureResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateHubClusterFeatureResponseBody> body{};
+
+  UpdateHubClusterFeatureResponse() {}
+
+  explicit UpdateHubClusterFeatureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateHubClusterFeatureResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateHubClusterFeatureResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureResponse() = default;
 };
 class Client : Alibabacloud_OpenApi::Client {
 public:
@@ -2250,14 +2961,16 @@ public:
   DescribeHubClusterKubeconfigResponse describeHubClusterKubeconfig(shared_ptr<DescribeHubClusterKubeconfigRequest> request);
   DescribeHubClusterLogsResponse describeHubClusterLogsWithOptions(shared_ptr<DescribeHubClusterLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHubClusterLogsResponse describeHubClusterLogs(shared_ptr<DescribeHubClusterLogsRequest> request);
-  DescribeHubClustersResponse describeHubClustersWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeHubClustersResponse describeHubClusters();
+  DescribeHubClustersResponse describeHubClustersWithOptions(shared_ptr<DescribeHubClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeHubClustersResponse describeHubClusters(shared_ptr<DescribeHubClustersRequest> request);
   DescribeManagedClustersResponse describeManagedClustersWithOptions(shared_ptr<DescribeManagedClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeManagedClustersResponse describeManagedClusters(shared_ptr<DescribeManagedClustersRequest> request);
-  DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeRegionsResponse describeRegions();
+  DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DetachClusterFromHubResponse detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachClusterFromHubResponse detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request);
+  UpdateHubClusterFeatureResponse updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateHubClusterFeatureResponse updateHubClusterFeature(shared_ptr<UpdateHubClusterFeatureRequest> request);
 
   virtual ~Client() = default;
 };
