@@ -389,6 +389,9 @@ SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyri
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     body->insert(pair<string, string>("Output", *request->output));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     body->insert(pair<string, string>("Url", *request->url));
   }
