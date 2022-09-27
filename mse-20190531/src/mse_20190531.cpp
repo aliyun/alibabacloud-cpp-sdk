@@ -892,6 +892,9 @@ CreateClusterResponse Alibabacloud_Mse20190531::Client::createClusterWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateClusterRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateClusterRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
