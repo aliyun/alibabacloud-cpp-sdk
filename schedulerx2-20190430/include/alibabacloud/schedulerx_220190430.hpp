@@ -546,6 +546,7 @@ class CreateAppGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
   shared_ptr<string> appName{};
+  shared_ptr<long> appType{};
   shared_ptr<string> description{};
   shared_ptr<string> groupId{};
   shared_ptr<long> maxJobs{};
@@ -572,6 +573,9 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -612,6 +616,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -892,6 +899,7 @@ public:
   shared_ptr<long> timeout{};
   shared_ptr<bool> timeoutEnable{};
   shared_ptr<bool> timeoutKillEnable{};
+  shared_ptr<string> XAttrs{};
 
   CreateJobRequest() {}
 
@@ -1006,6 +1014,9 @@ public:
     if (timeoutKillEnable) {
       res["TimeoutKillEnable"] = boost::any(*timeoutKillEnable);
     }
+    if (XAttrs) {
+      res["XAttrs"] = boost::any(*XAttrs);
+    }
     return res;
   }
 
@@ -1118,6 +1129,9 @@ public:
     }
     if (m.find("TimeoutKillEnable") != m.end() && !m["TimeoutKillEnable"].empty()) {
       timeoutKillEnable = make_shared<bool>(boost::any_cast<bool>(m["TimeoutKillEnable"]));
+    }
+    if (m.find("XAttrs") != m.end() && !m["XAttrs"].empty()) {
+      XAttrs = make_shared<string>(boost::any_cast<string>(m["XAttrs"]));
     }
   }
 

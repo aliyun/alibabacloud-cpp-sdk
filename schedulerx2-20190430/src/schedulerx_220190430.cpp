@@ -299,6 +299,9 @@ CreateJobResponse Alibabacloud_Schedulerx220190430::Client::createJobWithOptions
   if (!Darabonba_Util::Client::isUnset<bool>(request->timeoutKillEnable)) {
     body->insert(pair<string, bool>("TimeoutKillEnable", *request->timeoutKillEnable));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XAttrs)) {
+    body->insert(pair<string, string>("XAttrs", *request->XAttrs));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
