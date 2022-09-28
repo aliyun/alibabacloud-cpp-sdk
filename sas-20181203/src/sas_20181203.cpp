@@ -4867,9 +4867,6 @@ DescribeSummaryInfoResponse Alibabacloud_Sas20181203::Client::describeSummaryInf
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceDirectoryAccountId)) {
-    query->insert(pair<string, string>("ResourceDirectoryAccountId", *request->resourceDirectoryAccountId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
     query->insert(pair<string, string>("SourceIp", *request->sourceIp));
   }

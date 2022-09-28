@@ -5110,7 +5110,6 @@ public:
   shared_ptr<string> layer{};
   shared_ptr<string> level{};
   shared_ptr<string> maliciousMd5{};
-  shared_ptr<string> maliciousSource{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> pod{};
   shared_ptr<string> repoId{};
@@ -5174,9 +5173,6 @@ public:
     }
     if (maliciousMd5) {
       res["MaliciousMd5"] = boost::any(*maliciousMd5);
-    }
-    if (maliciousSource) {
-      res["MaliciousSource"] = boost::any(*maliciousSource);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -5250,9 +5246,6 @@ public:
     }
     if (m.find("MaliciousMd5") != m.end() && !m["MaliciousMd5"].empty()) {
       maliciousMd5 = make_shared<string>(boost::any_cast<string>(m["MaliciousMd5"]));
-    }
-    if (m.find("MaliciousSource") != m.end() && !m["MaliciousSource"].empty()) {
-      maliciousSource = make_shared<string>(boost::any_cast<string>(m["MaliciousSource"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -18812,7 +18805,6 @@ public:
 };
 class DescribeImageListWithBaselineNameResponseBodyImageInfos : public Darabonba::Model {
 public:
-  shared_ptr<string> baselineType{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> containerId{};
@@ -18849,9 +18841,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (baselineType) {
-      res["BaselineType"] = boost::any(*baselineType);
-    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -18931,9 +18920,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("BaselineType") != m.end() && !m["BaselineType"].empty()) {
-      baselineType = make_shared<string>(boost::any_cast<string>(m["BaselineType"]));
-    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -32942,7 +32928,6 @@ public:
 class DescribeSummaryInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> lang{};
-  shared_ptr<string> resourceDirectoryAccountId{};
   shared_ptr<string> sourceIp{};
 
   DescribeSummaryInfoRequest() {}
@@ -32958,9 +32943,6 @@ public:
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
-    if (resourceDirectoryAccountId) {
-      res["ResourceDirectoryAccountId"] = boost::any(*resourceDirectoryAccountId);
-    }
     if (sourceIp) {
       res["SourceIp"] = boost::any(*sourceIp);
     }
@@ -32970,9 +32952,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
-    }
-    if (m.find("ResourceDirectoryAccountId") != m.end() && !m["ResourceDirectoryAccountId"].empty()) {
-      resourceDirectoryAccountId = make_shared<string>(boost::any_cast<string>(m["ResourceDirectoryAccountId"]));
     }
     if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
       sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
@@ -37602,9 +37581,60 @@ public:
 
   virtual ~DescribeVulFixStatisticsResponseBodyFixStat() = default;
 };
+class DescribeVulFixStatisticsResponseBodyFixTotal : public Darabonba::Model {
+public:
+  shared_ptr<long> fixedTodayNum{};
+  shared_ptr<long> fixedTotalNum{};
+  shared_ptr<long> fixingNum{};
+  shared_ptr<long> needFixNum{};
+
+  DescribeVulFixStatisticsResponseBodyFixTotal() {}
+
+  explicit DescribeVulFixStatisticsResponseBodyFixTotal(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fixedTodayNum) {
+      res["FixedTodayNum"] = boost::any(*fixedTodayNum);
+    }
+    if (fixedTotalNum) {
+      res["FixedTotalNum"] = boost::any(*fixedTotalNum);
+    }
+    if (fixingNum) {
+      res["FixingNum"] = boost::any(*fixingNum);
+    }
+    if (needFixNum) {
+      res["NeedFixNum"] = boost::any(*needFixNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FixedTodayNum") != m.end() && !m["FixedTodayNum"].empty()) {
+      fixedTodayNum = make_shared<long>(boost::any_cast<long>(m["FixedTodayNum"]));
+    }
+    if (m.find("FixedTotalNum") != m.end() && !m["FixedTotalNum"].empty()) {
+      fixedTotalNum = make_shared<long>(boost::any_cast<long>(m["FixedTotalNum"]));
+    }
+    if (m.find("FixingNum") != m.end() && !m["FixingNum"].empty()) {
+      fixingNum = make_shared<long>(boost::any_cast<long>(m["FixingNum"]));
+    }
+    if (m.find("NeedFixNum") != m.end() && !m["NeedFixNum"].empty()) {
+      needFixNum = make_shared<long>(boost::any_cast<long>(m["NeedFixNum"]));
+    }
+  }
+
+
+  virtual ~DescribeVulFixStatisticsResponseBodyFixTotal() = default;
+};
 class DescribeVulFixStatisticsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<DescribeVulFixStatisticsResponseBodyFixStat>> fixStat{};
+  shared_ptr<DescribeVulFixStatisticsResponseBodyFixTotal> fixTotal{};
   shared_ptr<string> requestId{};
 
   DescribeVulFixStatisticsResponseBody() {}
@@ -37624,6 +37654,9 @@ public:
       }
       res["FixStat"] = boost::any(temp1);
     }
+    if (fixTotal) {
+      res["FixTotal"] = fixTotal ? boost::any(fixTotal->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -37642,6 +37675,13 @@ public:
           }
         }
         fixStat = make_shared<vector<DescribeVulFixStatisticsResponseBodyFixStat>>(expect1);
+      }
+    }
+    if (m.find("FixTotal") != m.end() && !m["FixTotal"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FixTotal"].type()) {
+        DescribeVulFixStatisticsResponseBodyFixTotal model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FixTotal"]));
+        fixTotal = make_shared<DescribeVulFixStatisticsResponseBodyFixTotal>(model1);
       }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
