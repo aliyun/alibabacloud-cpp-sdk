@@ -709,10 +709,89 @@ public:
 
   virtual ~CheckMobilesCardSupportRequest() = default;
 };
+class CheckMobilesCardSupportResponseBodyDataQueryResult : public Darabonba::Model {
+public:
+  shared_ptr<string> mobile{};
+  shared_ptr<bool> support{};
+
+  CheckMobilesCardSupportResponseBodyDataQueryResult() {}
+
+  explicit CheckMobilesCardSupportResponseBodyDataQueryResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobile) {
+      res["mobile"] = boost::any(*mobile);
+    }
+    if (support) {
+      res["support"] = boost::any(*support);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("mobile") != m.end() && !m["mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["mobile"]));
+    }
+    if (m.find("support") != m.end() && !m["support"].empty()) {
+      support = make_shared<bool>(boost::any_cast<bool>(m["support"]));
+    }
+  }
+
+
+  virtual ~CheckMobilesCardSupportResponseBodyDataQueryResult() = default;
+};
+class CheckMobilesCardSupportResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<CheckMobilesCardSupportResponseBodyDataQueryResult>> queryResult{};
+
+  CheckMobilesCardSupportResponseBodyData() {}
+
+  explicit CheckMobilesCardSupportResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["queryResult"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("queryResult") != m.end() && !m["queryResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["queryResult"].type()) {
+        vector<CheckMobilesCardSupportResponseBodyDataQueryResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["queryResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CheckMobilesCardSupportResponseBodyDataQueryResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryResult = make_shared<vector<CheckMobilesCardSupportResponseBodyDataQueryResult>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CheckMobilesCardSupportResponseBodyData() = default;
+};
 class CheckMobilesCardSupportResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<vector<map<string, boost::any>>> data{};
+  shared_ptr<CheckMobilesCardSupportResponseBodyData> data{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -730,7 +809,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -746,19 +825,11 @@ public:
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      vector<map<string, boost::any>> toVec1;
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
-        for (auto item:vec1) {
-          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
-          map<string, boost::any> toMap2;
-          for (auto item:map2) {
-             toMap2[item.first] = item.second;
-          }
-           toVec1.push_back(toMap2);
-        }
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CheckMobilesCardSupportResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CheckMobilesCardSupportResponseBodyData>(model1);
       }
-      data = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
