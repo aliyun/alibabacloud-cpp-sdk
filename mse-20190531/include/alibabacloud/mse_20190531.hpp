@@ -768,6 +768,9 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<bool> isWhite{};
   shared_ptr<string> mseSessionId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> note{};
+  shared_ptr<string> resourceIdJsonList{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -797,6 +800,15 @@ public:
     if (mseSessionId) {
       res["MseSessionId"] = boost::any(*mseSessionId);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (note) {
+      res["Note"] = boost::any(*note);
+    }
+    if (resourceIdJsonList) {
+      res["ResourceIdJsonList"] = boost::any(*resourceIdJsonList);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -824,6 +836,15 @@ public:
     }
     if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
       mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Note") != m.end() && !m["Note"].empty()) {
+      note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("ResourceIdJsonList") != m.end() && !m["ResourceIdJsonList"].empty()) {
+      resourceIdJsonList = make_shared<string>(boost::any_cast<string>(m["ResourceIdJsonList"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -965,6 +986,42 @@ public:
 
   virtual ~AddBlackWhiteListResponse() = default;
 };
+class AddGatewayRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  AddGatewayRequestTag() {}
+
+  explicit AddGatewayRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~AddGatewayRequestTag() = default;
+};
 class AddGatewayRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -979,6 +1036,7 @@ public:
   shared_ptr<long> replica{};
   shared_ptr<string> slbSpec{};
   shared_ptr<string> spec{};
+  shared_ptr<vector<AddGatewayRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vSwitchId2{};
   shared_ptr<string> vpc{};
@@ -1029,6 +1087,13 @@ public:
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -1081,6 +1146,19 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<AddGatewayRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddGatewayRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<AddGatewayRequestTag>>(expect1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -13324,6 +13402,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> instanceId{};
   shared_ptr<GetGatewayResponseBodyDataLogConfigDetails> logConfigDetails{};
+  shared_ptr<string> mseTag{};
   shared_ptr<string> name{};
   shared_ptr<string> primaryUser{};
   shared_ptr<string> region{};
@@ -13370,6 +13449,9 @@ public:
     }
     if (logConfigDetails) {
       res["LogConfigDetails"] = logConfigDetails ? boost::any(logConfigDetails->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mseTag) {
+      res["MseTag"] = boost::any(*mseTag);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -13438,6 +13520,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LogConfigDetails"]));
         logConfigDetails = make_shared<GetGatewayResponseBodyDataLogConfigDetails>(model1);
       }
+    }
+    if (m.find("MseTag") != m.end() && !m["MseTag"].empty()) {
+      mseTag = make_shared<string>(boost::any_cast<string>(m["MseTag"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -14316,6 +14401,7 @@ public:
   shared_ptr<long> percent{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> version{};
 
@@ -14350,6 +14436,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -14380,6 +14469,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -14890,6 +14982,7 @@ public:
   shared_ptr<long> percent{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> version{};
 
@@ -14924,6 +15017,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -14954,6 +15050,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -15538,6 +15637,81 @@ public:
 
   virtual ~GetGatewayServiceDetailResponseBodyDataLabelDetails() = default;
 };
+class GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList : public Darabonba::Model {
+public:
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<long> serviceId{};
+  shared_ptr<long> servicePort{};
+  shared_ptr<TrafficPolicy> trafficPolicy{};
+
+  GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList() {}
+
+  explicit GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
+    if (trafficPolicy) {
+      res["TrafficPolicy"] = trafficPolicy ? boost::any(trafficPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
+    }
+    if (m.find("TrafficPolicy") != m.end() && !m["TrafficPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrafficPolicy"].type()) {
+        TrafficPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficPolicy"]));
+        trafficPolicy = make_shared<TrafficPolicy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList() = default;
+};
 class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersionLabels : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -15730,6 +15904,8 @@ public:
   shared_ptr<string> metaInfo{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<vector<GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList>> portTrafficPolicyList{};
+  shared_ptr<vector<long>> ports{};
   shared_ptr<string> serviceNameInRegistry{};
   shared_ptr<string> serviceProtocol{};
   shared_ptr<long> sourceId{};
@@ -15792,6 +15968,16 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (portTrafficPolicyList) {
+      vector<boost::any> temp1;
+      for(auto item1:*portTrafficPolicyList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortTrafficPolicyList"] = boost::any(temp1);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
     }
     if (serviceNameInRegistry) {
       res["ServiceNameInRegistry"] = boost::any(*serviceNameInRegistry);
@@ -15885,6 +16071,29 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PortTrafficPolicyList") != m.end() && !m["PortTrafficPolicyList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortTrafficPolicyList"].type()) {
+        vector<GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortTrafficPolicyList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portTrafficPolicyList = make_shared<vector<GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList>>(expect1);
+      }
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ports"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ports = make_shared<vector<long>>(toVec1);
     }
     if (m.find("ServiceNameInRegistry") != m.end() && !m["ServiceNameInRegistry"].empty()) {
       serviceNameInRegistry = make_shared<string>(boost::any_cast<string>(m["ServiceNameInRegistry"]));
@@ -24436,6 +24645,7 @@ public:
   shared_ptr<string> gatewayType{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mseTag{};
   shared_ptr<string> name{};
   shared_ptr<string> vpc{};
 
@@ -24458,6 +24668,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mseTag) {
+      res["MseTag"] = boost::any(*mseTag);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -24476,6 +24689,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MseTag") != m.end() && !m["MseTag"].empty()) {
+      mseTag = make_shared<string>(boost::any_cast<string>(m["MseTag"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -24851,6 +25067,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<vector<ListGatewayResponseBodyDataResultInternetSlb>> internetSlb{};
   shared_ptr<string> latestVersion{};
+  shared_ptr<string> mseTag{};
   shared_ptr<bool> mustUpgrade{};
   shared_ptr<string> name{};
   shared_ptr<string> primaryUser{};
@@ -24927,6 +25144,9 @@ public:
     }
     if (latestVersion) {
       res["LatestVersion"] = boost::any(*latestVersion);
+    }
+    if (mseTag) {
+      res["MseTag"] = boost::any(*mseTag);
     }
     if (mustUpgrade) {
       res["MustUpgrade"] = boost::any(*mustUpgrade);
@@ -25039,6 +25259,9 @@ public:
     }
     if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
       latestVersion = make_shared<string>(boost::any_cast<string>(m["LatestVersion"]));
+    }
+    if (m.find("MseTag") != m.end() && !m["MseTag"].empty()) {
+      mseTag = make_shared<string>(boost::any_cast<string>(m["MseTag"]));
     }
     if (m.find("MustUpgrade") != m.end() && !m["MustUpgrade"].empty()) {
       mustUpgrade = make_shared<bool>(boost::any_cast<bool>(m["MustUpgrade"]));
@@ -25939,6 +26162,7 @@ public:
   shared_ptr<long> percent{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> version{};
 
@@ -25973,6 +26197,9 @@ public:
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
     }
@@ -26003,6 +26230,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -26478,6 +26708,7 @@ public:
   shared_ptr<long> percent{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<long> servicePort{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> version{};
 
@@ -26514,6 +26745,9 @@ public:
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
@@ -26552,6 +26786,9 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<long>(boost::any_cast<long>(m["ServicePort"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
@@ -27627,6 +27864,7 @@ public:
   shared_ptr<string> metaInfo{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<vector<long>> ports{};
   shared_ptr<string> serviceNameInRegistry{};
   shared_ptr<long> servicePort{};
   shared_ptr<string> serviceProtocol{};
@@ -27689,6 +27927,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (ports) {
+      res["Ports"] = boost::any(*ports);
     }
     if (serviceNameInRegistry) {
       res["ServiceNameInRegistry"] = boost::any(*serviceNameInRegistry);
@@ -27778,6 +28019,16 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Ports") != m.end() && !m["Ports"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ports"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ports"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ports = make_shared<vector<long>>(toVec1);
     }
     if (m.find("ServiceNameInRegistry") != m.end() && !m["ServiceNameInRegistry"].empty()) {
       serviceNameInRegistry = make_shared<string>(boost::any_cast<string>(m["ServiceNameInRegistry"]));
@@ -38318,6 +38569,9 @@ public:
   shared_ptr<long> id{};
   shared_ptr<bool> isWhite{};
   shared_ptr<string> mseSessionId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> note{};
+  shared_ptr<string> resourceIdJsonList{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> type{};
@@ -38350,6 +38604,15 @@ public:
     if (mseSessionId) {
       res["MseSessionId"] = boost::any(*mseSessionId);
     }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (note) {
+      res["Note"] = boost::any(*note);
+    }
+    if (resourceIdJsonList) {
+      res["ResourceIdJsonList"] = boost::any(*resourceIdJsonList);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -38380,6 +38643,15 @@ public:
     }
     if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
       mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Note") != m.end() && !m["Note"].empty()) {
+      note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("ResourceIdJsonList") != m.end() && !m["ResourceIdJsonList"].empty()) {
+      resourceIdJsonList = make_shared<string>(boost::any_cast<string>(m["ResourceIdJsonList"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));

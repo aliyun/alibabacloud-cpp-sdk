@@ -103,6 +103,15 @@ AddBlackWhiteListResponse Alibabacloud_Mse20190531::Client::addBlackWhiteListWit
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->note)) {
+    query->insert(pair<string, string>("Note", *request->note));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdJsonList)) {
+    query->insert(pair<string, string>("ResourceIdJsonList", *request->resourceIdJsonList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
@@ -172,6 +181,9 @@ AddGatewayResponse Alibabacloud_Mse20190531::Client::addGatewayWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     query->insert(pair<string, string>("Spec", *request->spec));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<AddGatewayRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<AddGatewayRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
@@ -5137,6 +5149,15 @@ UpdateBlackWhiteListResponse Alibabacloud_Mse20190531::Client::updateBlackWhiteL
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
     query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->note)) {
+    query->insert(pair<string, string>("Note", *request->note));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIdJsonList)) {
+    query->insert(pair<string, string>("ResourceIdJsonList", *request->resourceIdJsonList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
