@@ -5642,6 +5642,7 @@ public:
 };
 class SendBatchSmsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> phoneNumberJson{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -5661,6 +5662,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -5689,6 +5693,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
