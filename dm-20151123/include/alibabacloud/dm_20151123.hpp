@@ -66,6 +66,7 @@ public:
 };
 class AddIpfilterResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> ipFilterId{};
   shared_ptr<string> requestId{};
 
   AddIpfilterResponseBody() {}
@@ -78,6 +79,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ipFilterId) {
+      res["IpFilterId"] = boost::any(*ipFilterId);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -85,6 +89,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpFilterId") != m.end() && !m["IpFilterId"].empty()) {
+      ipFilterId = make_shared<string>(boost::any_cast<string>(m["IpFilterId"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -7955,154 +7962,6 @@ public:
 
   virtual ~UpdateIpProtectionResponse() = default;
 };
-class UpdateMailAddressMsgCallBackUrlRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> mailFrom{};
-  shared_ptr<string> notifyUrl{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-
-  UpdateMailAddressMsgCallBackUrlRequest() {}
-
-  explicit UpdateMailAddressMsgCallBackUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (mailFrom) {
-      res["MailFrom"] = boost::any(*mailFrom);
-    }
-    if (notifyUrl) {
-      res["NotifyUrl"] = boost::any(*notifyUrl);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("MailFrom") != m.end() && !m["MailFrom"].empty()) {
-      mailFrom = make_shared<string>(boost::any_cast<string>(m["MailFrom"]));
-    }
-    if (m.find("NotifyUrl") != m.end() && !m["NotifyUrl"].empty()) {
-      notifyUrl = make_shared<string>(boost::any_cast<string>(m["NotifyUrl"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-  }
-
-
-  virtual ~UpdateMailAddressMsgCallBackUrlRequest() = default;
-};
-class UpdateMailAddressMsgCallBackUrlResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  UpdateMailAddressMsgCallBackUrlResponseBody() {}
-
-  explicit UpdateMailAddressMsgCallBackUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~UpdateMailAddressMsgCallBackUrlResponseBody() = default;
-};
-class UpdateMailAddressMsgCallBackUrlResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<UpdateMailAddressMsgCallBackUrlResponseBody> body{};
-
-  UpdateMailAddressMsgCallBackUrlResponse() {}
-
-  explicit UpdateMailAddressMsgCallBackUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        UpdateMailAddressMsgCallBackUrlResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<UpdateMailAddressMsgCallBackUrlResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateMailAddressMsgCallBackUrlResponse() = default;
-};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8187,8 +8046,6 @@ public:
   SingleSendMailResponse singleSendMail(shared_ptr<SingleSendMailRequest> request);
   UpdateIpProtectionResponse updateIpProtectionWithOptions(shared_ptr<UpdateIpProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIpProtectionResponse updateIpProtection(shared_ptr<UpdateIpProtectionRequest> request);
-  UpdateMailAddressMsgCallBackUrlResponse updateMailAddressMsgCallBackUrlWithOptions(shared_ptr<UpdateMailAddressMsgCallBackUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateMailAddressMsgCallBackUrlResponse updateMailAddressMsgCallBackUrl(shared_ptr<UpdateMailAddressMsgCallBackUrlRequest> request);
 
   virtual ~Client() = default;
 };
