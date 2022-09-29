@@ -368,10 +368,10 @@ public:
 };
 class AddFaceAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> dbName{};
   shared_ptr<string> entityId{};
   shared_ptr<string> extraData{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<double> qualityScoreThreshold{};
   shared_ptr<double> similarityScoreThresholdBetweenEntity{};
   shared_ptr<double> similarityScoreThresholdInEntity{};
@@ -382,17 +382,10 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageUrlObject) {
-      res["ImageUrlObject"] = boost::any(*imageUrlObject);
-    }
     if (dbName) {
       res["DbName"] = boost::any(*dbName);
     }
@@ -401,6 +394,9 @@ public:
     }
     if (extraData) {
       res["ExtraData"] = boost::any(*extraData);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
     }
     if (qualityScoreThreshold) {
       res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
@@ -415,9 +411,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
-      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
-    }
     if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
       dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
     }
@@ -426,6 +419,9 @@ public:
     }
     if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
       extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
     }
     if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
       qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
@@ -760,16 +756,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
@@ -778,8 +770,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -2042,12 +2034,12 @@ public:
 };
 class BeautifyBodyAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<BeautifyBodyAdvanceRequestAgeRange> ageRange{};
   shared_ptr<vector<BeautifyBodyAdvanceRequestBodyBoxes>> bodyBoxes{};
   shared_ptr<long> custom{};
   shared_ptr<vector<BeautifyBodyAdvanceRequestFaceList>> faceList{};
   shared_ptr<double> femaleLiquifyDegree{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<bool> isPregnant{};
   shared_ptr<double> lengthenDegree{};
   shared_ptr<double> maleLiquifyDegree{};
@@ -2061,17 +2053,10 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (ageRange) {
       res["AgeRange"] = ageRange ? boost::any(ageRange->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2094,6 +2079,9 @@ public:
     }
     if (femaleLiquifyDegree) {
       res["FemaleLiquifyDegree"] = boost::any(*femaleLiquifyDegree);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (isPregnant) {
       res["IsPregnant"] = boost::any(*isPregnant);
@@ -2121,9 +2109,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("AgeRange") != m.end() && !m["AgeRange"].empty()) {
       if (typeid(map<string, boost::any>) == m["AgeRange"].type()) {
         BeautifyBodyAdvanceRequestAgeRange model1;
@@ -2162,6 +2147,9 @@ public:
     }
     if (m.find("FemaleLiquifyDegree") != m.end() && !m["FemaleLiquifyDegree"].empty()) {
       femaleLiquifyDegree = make_shared<double>(boost::any_cast<double>(m["FemaleLiquifyDegree"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("IsPregnant") != m.end() && !m["IsPregnant"].empty()) {
       isPregnant = make_shared<bool>(boost::any_cast<bool>(m["IsPregnant"]));
@@ -2486,23 +2474,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -2679,23 +2663,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -3137,6 +3117,63 @@ public:
 
   virtual ~CompareFaceRequest() = default;
 };
+class CompareFaceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> imageDataA{};
+  shared_ptr<vector<uint8_t>> imageDataB{};
+  shared_ptr<Darabonba::Stream> imageURLAObject{};
+  shared_ptr<Darabonba::Stream> imageURLBObject{};
+  shared_ptr<double> qualityScoreThreshold{};
+
+  CompareFaceAdvanceRequest() {}
+
+  explicit CompareFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageDataA) {
+      res["ImageDataA"] = boost::any(*imageDataA);
+    }
+    if (imageDataB) {
+      res["ImageDataB"] = boost::any(*imageDataB);
+    }
+    if (imageURLAObject) {
+      res["ImageURLA"] = boost::any(*imageURLAObject);
+    }
+    if (imageURLBObject) {
+      res["ImageURLB"] = boost::any(*imageURLBObject);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageDataA") != m.end() && !m["ImageDataA"].empty()) {
+      imageDataA = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataA"]));
+    }
+    if (m.find("ImageDataB") != m.end() && !m["ImageDataB"].empty()) {
+      imageDataB = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataB"]));
+    }
+    if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
+      imageURLAObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLA"]));
+    }
+    if (m.find("ImageURLB") != m.end() && !m["ImageURLB"].empty()) {
+      imageURLBObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLB"]));
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+  }
+
+
+  virtual ~CompareFaceAdvanceRequest() = default;
+};
 class CompareFaceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
@@ -3378,16 +3415,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (isShow) {
       res["IsShow"] = boost::any(*isShow);
@@ -3396,8 +3429,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("IsShow") != m.end() && !m["IsShow"].empty()) {
       isShow = make_shared<bool>(boost::any_cast<bool>(m["IsShow"]));
@@ -4779,23 +4812,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -4972,23 +5001,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -5236,23 +5261,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -5525,16 +5546,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (landmark) {
       res["Landmark"] = boost::any(*landmark);
@@ -5552,8 +5569,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Landmark") != m.end() && !m["Landmark"].empty()) {
       landmark = make_shared<bool>(boost::any_cast<bool>(m["Landmark"]));
@@ -5977,9 +5994,9 @@ public:
 };
 class DetectIPCPedestrianAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<long> height{};
   shared_ptr<string> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<long> width{};
 
   DetectIPCPedestrianAdvanceRequest() {}
@@ -5988,22 +6005,18 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (height) {
       res["Height"] = boost::any(*height);
     }
     if (imageData) {
       res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (width) {
       res["Width"] = boost::any(*width);
@@ -6012,14 +6025,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
     }
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
       imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
       width = make_shared<long>(boost::any_cast<long>(m["Width"]));
@@ -6680,23 +6693,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -7259,8 +7268,8 @@ public:
 };
 class DetectPedestrianIntrusionAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<vector<DetectPedestrianIntrusionAdvanceRequestDetectRegion>> detectRegion{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<string> regionType{};
 
   DetectPedestrianIntrusionAdvanceRequest() {}
@@ -7269,23 +7278,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (detectRegion) {
       vector<boost::any> temp1;
       for(auto item1:*detectRegion){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DetectRegion"] = boost::any(temp1);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (regionType) {
       res["RegionType"] = boost::any(*regionType);
@@ -7294,9 +7299,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("DetectRegion") != m.end() && !m["DetectRegion"].empty()) {
       if (typeid(vector<boost::any>) == m["DetectRegion"].type()) {
         vector<DetectPedestrianIntrusionAdvanceRequestDetectRegion> expect1;
@@ -7309,6 +7311,9 @@ public:
         }
         detectRegion = make_shared<vector<DetectPedestrianIntrusionAdvanceRequestDetectRegion>>(expect1);
       }
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("RegionType") != m.end() && !m["RegionType"].empty()) {
       regionType = make_shared<string>(boost::any_cast<string>(m["RegionType"]));
@@ -7670,23 +7675,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (videoUrlObject) {
-      res["VideoUrlObject"] = boost::any(*videoUrlObject);
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
-      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 
@@ -7927,23 +7928,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -8119,8 +8116,8 @@ public:
 };
 class ExtractFingerPrintAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
 
   ExtractFingerPrintAdvanceRequest() {}
 
@@ -8128,29 +8125,25 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (imageData) {
       res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
       imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -8343,16 +8336,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (mode) {
       res["Mode"] = boost::any(*mode);
@@ -8364,8 +8353,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
       mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
@@ -9210,16 +9199,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (sharp) {
       res["Sharp"] = boost::any(*sharp);
@@ -9234,8 +9219,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Sharp") != m.end() && !m["Sharp"].empty()) {
       sharp = make_shared<double>(boost::any_cast<double>(m["Sharp"]));
@@ -9437,16 +9422,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -9458,8 +9439,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -9666,16 +9647,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (makeupType) {
       res["MakeupType"] = boost::any(*makeupType);
@@ -9690,8 +9667,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("MakeupType") != m.end() && !m["MakeupType"].empty()) {
       makeupType = make_shared<string>(boost::any_cast<string>(m["MakeupType"]));
@@ -9893,16 +9870,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (shapeType) {
       res["ShapeType"] = boost::any(*shapeType);
@@ -9914,8 +9887,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("ShapeType") != m.end() && !m["ShapeType"].empty()) {
       shapeType = make_shared<long>(boost::any_cast<long>(m["ShapeType"]));
@@ -10271,8 +10244,8 @@ public:
 };
 class GenerateHumanAnimeStyleAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<string> algoType{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
 
   GenerateHumanAnimeStyleAdvanceRequest() {}
 
@@ -10280,29 +10253,25 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (algoType) {
       res["AlgoType"] = boost::any(*algoType);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("AlgoType") != m.end() && !m["AlgoType"].empty()) {
       algoType = make_shared<string>(boost::any_cast<string>(m["AlgoType"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -10487,16 +10456,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (returnType) {
       res["ReturnType"] = boost::any(*returnType);
@@ -10505,8 +10470,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("ReturnType") != m.end() && !m["ReturnType"].empty()) {
       returnType = make_shared<string>(boost::any_cast<string>(m["ReturnType"]));
@@ -11343,23 +11308,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -11921,16 +11882,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (slimDegree) {
       res["SlimDegree"] = boost::any(*slimDegree);
@@ -11939,8 +11896,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("SlimDegree") != m.end() && !m["SlimDegree"].empty()) {
       slimDegree = make_shared<double>(boost::any_cast<double>(m["SlimDegree"]));
@@ -13109,16 +13066,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -13130,8 +13083,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -13322,16 +13275,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -13340,8 +13289,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["Type"]));
@@ -13763,23 +13712,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -15252,23 +15197,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -15611,13 +15552,13 @@ public:
 };
 class RecognizeFaceAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<bool> age{};
   shared_ptr<bool> beauty{};
   shared_ptr<bool> expression{};
   shared_ptr<bool> gender{};
   shared_ptr<bool> glass{};
   shared_ptr<bool> hat{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<bool> mask{};
   shared_ptr<long> maxFaceNumber{};
   shared_ptr<bool> quality{};
@@ -15628,17 +15569,10 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (age) {
       res["Age"] = boost::any(*age);
     }
@@ -15657,6 +15591,9 @@ public:
     if (hat) {
       res["Hat"] = boost::any(*hat);
     }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
     if (mask) {
       res["Mask"] = boost::any(*mask);
     }
@@ -15670,9 +15607,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("Age") != m.end() && !m["Age"].empty()) {
       age = make_shared<bool>(boost::any_cast<bool>(m["Age"]));
     }
@@ -15690,6 +15624,9 @@ public:
     }
     if (m.find("Hat") != m.end() && !m["Hat"].empty()) {
       hat = make_shared<bool>(boost::any_cast<bool>(m["Hat"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
       mask = make_shared<bool>(boost::any_cast<bool>(m["Mask"]));
@@ -16222,9 +16159,9 @@ public:
 };
 class RecognizeHandGestureAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<string> appId{};
   shared_ptr<string> gestureType{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
 
   RecognizeHandGestureAdvanceRequest() {}
 
@@ -16232,35 +16169,31 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
-    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
     if (gestureType) {
       res["GestureType"] = boost::any(*gestureType);
     }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
-    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
     if (m.find("GestureType") != m.end() && !m["GestureType"].empty()) {
       gestureType = make_shared<string>(boost::any_cast<string>(m["GestureType"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
   }
 
@@ -16947,16 +16880,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (lengthenDegree) {
       res["LengthenDegree"] = boost::any(*lengthenDegree);
@@ -16968,8 +16897,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("LengthenDegree") != m.end() && !m["LengthenDegree"].empty()) {
       lengthenDegree = make_shared<double>(boost::any_cast<double>(m["LengthenDegree"]));
@@ -17168,16 +17097,12 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (imageURLObject) {
-      res["ImageURLObject"] = boost::any(*imageURLObject);
+      res["ImageURL"] = boost::any(*imageURLObject);
     }
     if (retouchDegree) {
       res["RetouchDegree"] = boost::any(*retouchDegree);
@@ -17189,8 +17114,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURLObject") != m.end() && !m["ImageURLObject"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLObject"]));
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("RetouchDegree") != m.end() && !m["RetouchDegree"].empty()) {
       retouchDegree = make_shared<double>(boost::any_cast<double>(m["RetouchDegree"]));
@@ -17752,9 +17677,9 @@ public:
 };
 class SearchFaceAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<string> dbName{};
   shared_ptr<string> dbNames{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
   shared_ptr<long> limit{};
   shared_ptr<long> maxFaceNum{};
   shared_ptr<double> qualityScoreThreshold{};
@@ -17765,22 +17690,18 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!imageUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("imageUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (imageUrlObject) {
-      res["ImageUrlObject"] = boost::any(*imageUrlObject);
-    }
     if (dbName) {
       res["DbName"] = boost::any(*dbName);
     }
     if (dbNames) {
       res["DbNames"] = boost::any(*dbNames);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
     }
     if (limit) {
       res["Limit"] = boost::any(*limit);
@@ -17795,14 +17716,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageUrlObject") != m.end() && !m["ImageUrlObject"].empty()) {
-      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrlObject"]));
-    }
     if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
       dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
     }
     if (m.find("DbNames") != m.end() && !m["DbNames"].empty()) {
       dbNames = make_shared<string>(boost::any_cast<string>(m["DbNames"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
     }
     if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
       limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
@@ -18195,6 +18116,63 @@ public:
 
   virtual ~SwapFacialFeaturesRequest() = default;
 };
+class SwapFacialFeaturesAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> editPart{};
+  shared_ptr<vector<uint8_t>> sourceImageData{};
+  shared_ptr<Darabonba::Stream> sourceImageURLObject{};
+  shared_ptr<vector<uint8_t>> targetImageData{};
+  shared_ptr<Darabonba::Stream> targetImageURLObject{};
+
+  SwapFacialFeaturesAdvanceRequest() {}
+
+  explicit SwapFacialFeaturesAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (editPart) {
+      res["EditPart"] = boost::any(*editPart);
+    }
+    if (sourceImageData) {
+      res["SourceImageData"] = boost::any(*sourceImageData);
+    }
+    if (sourceImageURLObject) {
+      res["SourceImageURL"] = boost::any(*sourceImageURLObject);
+    }
+    if (targetImageData) {
+      res["TargetImageData"] = boost::any(*targetImageData);
+    }
+    if (targetImageURLObject) {
+      res["TargetImageURL"] = boost::any(*targetImageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EditPart") != m.end() && !m["EditPart"].empty()) {
+      editPart = make_shared<string>(boost::any_cast<string>(m["EditPart"]));
+    }
+    if (m.find("SourceImageData") != m.end() && !m["SourceImageData"].empty()) {
+      sourceImageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["SourceImageData"]));
+    }
+    if (m.find("SourceImageURL") != m.end() && !m["SourceImageURL"].empty()) {
+      sourceImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["SourceImageURL"]));
+    }
+    if (m.find("TargetImageData") != m.end() && !m["TargetImageData"].empty()) {
+      targetImageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["TargetImageData"]));
+    }
+    if (m.find("TargetImageURL") != m.end() && !m["TargetImageURL"].empty()) {
+      targetImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["TargetImageURL"]));
+    }
+  }
+
+
+  virtual ~SwapFacialFeaturesAdvanceRequest() = default;
+};
 class SwapFacialFeaturesResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -18510,6 +18488,56 @@ public:
 
   virtual ~VerifyFaceMaskRequest() = default;
 };
+class VerifyFaceMaskAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<vector<uint8_t>> refData{};
+  shared_ptr<Darabonba::Stream> refUrlObject{};
+
+  VerifyFaceMaskAdvanceRequest() {}
+
+  explicit VerifyFaceMaskAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    if (refData) {
+      res["RefData"] = boost::any(*refData);
+    }
+    if (refUrlObject) {
+      res["RefUrl"] = boost::any(*refUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+    if (m.find("RefData") != m.end() && !m["RefData"].empty()) {
+      refData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["RefData"]));
+    }
+    if (m.find("RefUrl") != m.end() && !m["RefUrl"].empty()) {
+      refUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["RefUrl"]));
+    }
+  }
+
+
+  virtual ~VerifyFaceMaskAdvanceRequest() = default;
+};
 class VerifyFaceMaskResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
@@ -18730,6 +18758,7 @@ public:
   BodyPostureResponse bodyPostureAdvance(shared_ptr<BodyPostureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CompareFaceResponse compareFaceWithOptions(shared_ptr<CompareFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CompareFaceResponse compareFace(shared_ptr<CompareFaceRequest> request);
+  CompareFaceResponse compareFaceAdvance(shared_ptr<CompareFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CountCrowdResponse countCrowdWithOptions(shared_ptr<CountCrowdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CountCrowdResponse countCrowd(shared_ptr<CountCrowdRequest> request);
   CountCrowdResponse countCrowdAdvance(shared_ptr<CountCrowdAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18865,10 +18894,12 @@ public:
   SearchFaceResponse searchFaceAdvance(shared_ptr<SearchFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SwapFacialFeaturesResponse swapFacialFeaturesWithOptions(shared_ptr<SwapFacialFeaturesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SwapFacialFeaturesResponse swapFacialFeatures(shared_ptr<SwapFacialFeaturesRequest> request);
+  SwapFacialFeaturesResponse swapFacialFeaturesAdvance(shared_ptr<SwapFacialFeaturesAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFaceEntityResponse updateFaceEntityWithOptions(shared_ptr<UpdateFaceEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateFaceEntityResponse updateFaceEntity(shared_ptr<UpdateFaceEntityRequest> request);
   VerifyFaceMaskResponse verifyFaceMaskWithOptions(shared_ptr<VerifyFaceMaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   VerifyFaceMaskResponse verifyFaceMask(shared_ptr<VerifyFaceMaskRequest> request);
+  VerifyFaceMaskResponse verifyFaceMaskAdvance(shared_ptr<VerifyFaceMaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
