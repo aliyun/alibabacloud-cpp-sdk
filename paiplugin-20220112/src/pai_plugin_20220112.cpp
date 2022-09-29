@@ -375,7 +375,6 @@ DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaign(sh
 }
 
 DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -383,7 +382,7 @@ DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaignWit
     {"action", boost::any(string("DeleteCampaign"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/campaigns/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/campaigns/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -400,7 +399,6 @@ DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroup(shared_p
 }
 
 DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -408,7 +406,7 @@ DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroupWithOptio
     {"action", boost::any(string("DeleteGroup"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/groups/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -425,7 +423,6 @@ DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferen
 }
 
 DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -433,7 +430,7 @@ DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferen
     {"action", boost::any(string("DeleteInferenceJob"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/inference/jobs/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/inference/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -450,7 +447,6 @@ DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteSchedule(sh
 }
 
 DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -458,7 +454,7 @@ DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteScheduleWit
     {"action", boost::any(string("DeleteSchedule"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/schedules/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/schedules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -475,7 +471,6 @@ DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignature(
 }
 
 DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -483,7 +478,7 @@ DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignatureW
     {"action", boost::any(string("DeleteSignature"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/signatures/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/signatures/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -500,7 +495,6 @@ DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplate(sh
 }
 
 DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -508,7 +502,7 @@ DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplateWit
     {"action", boost::any(string("DeleteTemplate"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/templates/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/templates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -525,7 +519,6 @@ DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTraining
 }
 
 DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -533,7 +526,7 @@ DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTraining
     {"action", boost::any(string("DeleteTrainingJob"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/training/jobs/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/training/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -550,7 +543,6 @@ GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithm(shared
 }
 
 GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithmWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -558,7 +550,7 @@ GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithmWithOpt
     {"action", boost::any(string("GetAlgorithm"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/algorithms/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/algorithms/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -575,7 +567,6 @@ GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaign(shared_p
 }
 
 GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -583,7 +574,7 @@ GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaignWithOptio
     {"action", boost::any(string("GetCampaign"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/campaigns/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/campaigns/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -600,7 +591,6 @@ GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroup(shared_ptr<str
 }
 
 GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -608,7 +598,7 @@ GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroupWithOptions(sha
     {"action", boost::any(string("GetGroup"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/groups/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/groups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -625,7 +615,6 @@ GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJob(
 }
 
 GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -633,7 +622,7 @@ GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJobW
     {"action", boost::any(string("GetInferenceJob"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/inference/jobs/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/inference/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -674,7 +663,6 @@ GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getSchedule(shared_p
 }
 
 GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -682,7 +670,7 @@ GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getScheduleWithOptio
     {"action", boost::any(string("GetSchedule"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/schedules/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/schedules/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -699,7 +687,6 @@ GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignature(shared
 }
 
 GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -707,7 +694,7 @@ GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignatureWithOpt
     {"action", boost::any(string("GetSignature"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/signatures/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/signatures/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -724,7 +711,6 @@ GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplate(shared_p
 }
 
 GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -732,7 +718,7 @@ GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplateWithOptio
     {"action", boost::any(string("GetTemplate"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/templates/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/templates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -749,7 +735,6 @@ GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJob(sh
 }
 
 GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -757,7 +742,7 @@ GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJobWit
     {"action", boost::any(string("GetTrainingJob"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/training/jobs/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/training/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -929,6 +914,9 @@ ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJ
   if (!Darabonba_Util::Client::isUnset<string>(request->campaignId)) {
     query->insert(pair<string, string>("CampaignId", *request->campaignId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->campaignName)) {
+    query->insert(pair<string, string>("CampaignName", *request->campaignName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -943,6 +931,9 @@ ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJ
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trainingJobName)) {
+    query->insert(pair<string, string>("TrainingJobName", *request->trainingJobName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1229,6 +1220,9 @@ ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJob
   if (!Darabonba_Util::Client::isUnset<string>(request->campaignId)) {
     query->insert(pair<string, string>("CampaignId", *request->campaignId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->campaignName)) {
+    query->insert(pair<string, string>("CampaignName", *request->campaignName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -1243,6 +1237,9 @@ ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJob
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trainingScheduleId)) {
+    query->insert(pair<string, string>("TrainingScheduleId", *request->trainingScheduleId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1382,7 +1379,6 @@ UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaignWit
                                                                                          shared_ptr<map<string, string>> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  Id = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
@@ -1398,7 +1394,7 @@ UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaignWit
     {"action", boost::any(string("UpdateCampaign"))},
     {"version", boost::any(string("2022-01-12"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v2/campaigns/") + string(*Id))},
+    {"pathname", boost::any(string("/api/v2/campaigns/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(Id)))},
     {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},

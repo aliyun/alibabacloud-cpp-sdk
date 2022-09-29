@@ -3143,9 +3143,11 @@ class GetGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> algorithm{};
   shared_ptr<long> amount{};
+  shared_ptr<string> campaignId{};
   shared_ptr<string> column{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> filter{};
+  shared_ptr<string> history{};
   shared_ptr<string> id{};
   shared_ptr<string> inferenceJobId{};
   shared_ptr<string> name{};
@@ -3175,6 +3177,9 @@ public:
     if (amount) {
       res["Amount"] = boost::any(*amount);
     }
+    if (campaignId) {
+      res["CampaignId"] = boost::any(*campaignId);
+    }
     if (column) {
       res["Column"] = boost::any(*column);
     }
@@ -3183,6 +3188,9 @@ public:
     }
     if (filter) {
       res["Filter"] = boost::any(*filter);
+    }
+    if (history) {
+      res["History"] = boost::any(*history);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -3230,6 +3238,9 @@ public:
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
     }
+    if (m.find("CampaignId") != m.end() && !m["CampaignId"].empty()) {
+      campaignId = make_shared<string>(boost::any_cast<string>(m["CampaignId"]));
+    }
     if (m.find("Column") != m.end() && !m["Column"].empty()) {
       column = make_shared<string>(boost::any_cast<string>(m["Column"]));
     }
@@ -3238,6 +3249,9 @@ public:
     }
     if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("History") != m.end() && !m["History"].empty()) {
+      history = make_shared<string>(boost::any_cast<string>(m["History"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
@@ -5744,11 +5758,13 @@ public:
 class ListInferenceJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> campaignId{};
+  shared_ptr<string> campaignName{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> trainingJobName{};
 
   ListInferenceJobsRequest() {}
 
@@ -5762,6 +5778,9 @@ public:
     map<string, boost::any> res;
     if (campaignId) {
       res["CampaignId"] = boost::any(*campaignId);
+    }
+    if (campaignName) {
+      res["CampaignName"] = boost::any(*campaignName);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -5778,12 +5797,18 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (trainingJobName) {
+      res["TrainingJobName"] = boost::any(*trainingJobName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CampaignId") != m.end() && !m["CampaignId"].empty()) {
       campaignId = make_shared<string>(boost::any_cast<string>(m["CampaignId"]));
+    }
+    if (m.find("CampaignName") != m.end() && !m["CampaignName"].empty()) {
+      campaignName = make_shared<string>(boost::any_cast<string>(m["CampaignName"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -5799,6 +5824,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TrainingJobName") != m.end() && !m["TrainingJobName"].empty()) {
+      trainingJobName = make_shared<string>(boost::any_cast<string>(m["TrainingJobName"]));
     }
   }
 
@@ -5817,6 +5845,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> targetGroupId{};
   shared_ptr<string> targetPath{};
   shared_ptr<string> trainingJobId{};
   shared_ptr<string> updatedTime{};
@@ -5861,6 +5890,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (targetGroupId) {
+      res["TargetGroupId"] = boost::any(*targetGroupId);
     }
     if (targetPath) {
       res["TargetPath"] = boost::any(*targetPath);
@@ -5907,6 +5939,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TargetGroupId") != m.end() && !m["TargetGroupId"].empty()) {
+      targetGroupId = make_shared<string>(boost::any_cast<string>(m["TargetGroupId"]));
     }
     if (m.find("TargetPath") != m.end() && !m["TargetPath"].empty()) {
       targetPath = make_shared<string>(boost::any_cast<string>(m["TargetPath"]));
@@ -7844,11 +7879,13 @@ public:
 class ListTrainingJobsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> campaignId{};
+  shared_ptr<string> campaignName{};
   shared_ptr<string> name{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> trainingScheduleId{};
 
   ListTrainingJobsRequest() {}
 
@@ -7862,6 +7899,9 @@ public:
     map<string, boost::any> res;
     if (campaignId) {
       res["CampaignId"] = boost::any(*campaignId);
+    }
+    if (campaignName) {
+      res["CampaignName"] = boost::any(*campaignName);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -7878,12 +7918,18 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (trainingScheduleId) {
+      res["TrainingScheduleId"] = boost::any(*trainingScheduleId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CampaignId") != m.end() && !m["CampaignId"].empty()) {
       campaignId = make_shared<string>(boost::any_cast<string>(m["CampaignId"]));
+    }
+    if (m.find("CampaignName") != m.end() && !m["CampaignName"].empty()) {
+      campaignName = make_shared<string>(boost::any_cast<string>(m["CampaignName"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -7899,6 +7945,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TrainingScheduleId") != m.end() && !m["TrainingScheduleId"].empty()) {
+      trainingScheduleId = make_shared<string>(boost::any_cast<string>(m["TrainingScheduleId"]));
     }
   }
 
@@ -7916,6 +7965,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> trainingScheduleId{};
   shared_ptr<string> updatedTime{};
   shared_ptr<string> userConfig{};
 
@@ -7956,6 +8006,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (trainingScheduleId) {
+      res["TrainingScheduleId"] = boost::any(*trainingScheduleId);
+    }
     if (updatedTime) {
       res["UpdatedTime"] = boost::any(*updatedTime);
     }
@@ -7992,6 +8045,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TrainingScheduleId") != m.end() && !m["TrainingScheduleId"].empty()) {
+      trainingScheduleId = make_shared<string>(boost::any_cast<string>(m["TrainingScheduleId"]));
     }
     if (m.find("UpdatedTime") != m.end() && !m["UpdatedTime"].empty()) {
       updatedTime = make_shared<string>(boost::any_cast<string>(m["UpdatedTime"]));
