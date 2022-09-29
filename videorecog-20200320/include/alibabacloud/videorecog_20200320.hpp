@@ -54,23 +54,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (videoUrlObject) {
-      res["VideoUrlObject"] = boost::any(*videoUrlObject);
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
-      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 
@@ -253,8 +249,8 @@ public:
 };
 class GenerateVideoCoverAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> videoUrlObject{};
   shared_ptr<bool> isGif{};
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
 
   GenerateVideoCoverAdvanceRequest() {}
 
@@ -262,29 +258,25 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (videoUrlObject) {
-      res["VideoUrlObject"] = boost::any(*videoUrlObject);
-    }
     if (isGif) {
       res["IsGif"] = boost::any(*isGif);
+    }
+    if (videoUrlObject) {
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
-      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
-    }
     if (m.find("IsGif") != m.end() && !m["IsGif"].empty()) {
       isGif = make_shared<bool>(boost::any_cast<bool>(m["IsGif"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 
@@ -777,9 +769,9 @@ public:
 };
 class RecognizeVideoCastCrewListAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> videoUrlObject{};
   shared_ptr<vector<RecognizeVideoCastCrewListAdvanceRequestParams>> params{};
-  shared_ptr<string> registerUrl{};
+  shared_ptr<Darabonba::Stream> registerUrlObject{};
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
 
   RecognizeVideoCastCrewListAdvanceRequest() {}
 
@@ -787,17 +779,10 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (videoUrlObject) {
-      res["VideoUrlObject"] = boost::any(*videoUrlObject);
-    }
     if (params) {
       vector<boost::any> temp1;
       for(auto item1:*params){
@@ -805,16 +790,16 @@ public:
       }
       res["Params"] = boost::any(temp1);
     }
-    if (registerUrl) {
-      res["RegisterUrl"] = boost::any(*registerUrl);
+    if (registerUrlObject) {
+      res["RegisterUrl"] = boost::any(*registerUrlObject);
+    }
+    if (videoUrlObject) {
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
-      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
-    }
     if (m.find("Params") != m.end() && !m["Params"].empty()) {
       if (typeid(vector<boost::any>) == m["Params"].type()) {
         vector<RecognizeVideoCastCrewListAdvanceRequestParams> expect1;
@@ -829,7 +814,10 @@ public:
       }
     }
     if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
-      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
+      registerUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["RegisterUrl"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 
@@ -1637,23 +1625,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoUrlObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoUrlObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (videoUrlObject) {
-      res["VideoUrlObject"] = boost::any(*videoUrlObject);
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoUrlObject") != m.end() && !m["VideoUrlObject"].empty()) {
-      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrlObject"]));
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 
@@ -1887,23 +1871,19 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!videoURLObject) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("videoURLObject is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (videoURLObject) {
-      res["VideoURLObject"] = boost::any(*videoURLObject);
+      res["VideoURL"] = boost::any(*videoURLObject);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("VideoURLObject") != m.end() && !m["VideoURLObject"].empty()) {
-      videoURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoURLObject"]));
+    if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
+      videoURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoURL"]));
     }
   }
 
