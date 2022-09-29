@@ -10616,6 +10616,8 @@ public:
   shared_ptr<vector<string>> associationParameterNames{};
   shared_ptr<string> behavior{};
   shared_ptr<string> behaviorReason{};
+  shared_ptr<vector<boost::any>> illegalValueByParameterConstraints{};
+  shared_ptr<vector<boost::any>> illegalValueByRules{};
   shared_ptr<string> parameterKey{};
   shared_ptr<string> type{};
 
@@ -10640,6 +10642,12 @@ public:
     }
     if (behaviorReason) {
       res["BehaviorReason"] = boost::any(*behaviorReason);
+    }
+    if (illegalValueByParameterConstraints) {
+      res["IllegalValueByParameterConstraints"] = boost::any(*illegalValueByParameterConstraints);
+    }
+    if (illegalValueByRules) {
+      res["IllegalValueByRules"] = boost::any(*illegalValueByRules);
     }
     if (parameterKey) {
       res["ParameterKey"] = boost::any(*parameterKey);
@@ -10676,6 +10684,26 @@ public:
     }
     if (m.find("BehaviorReason") != m.end() && !m["BehaviorReason"].empty()) {
       behaviorReason = make_shared<string>(boost::any_cast<string>(m["BehaviorReason"]));
+    }
+    if (m.find("IllegalValueByParameterConstraints") != m.end() && !m["IllegalValueByParameterConstraints"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["IllegalValueByParameterConstraints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IllegalValueByParameterConstraints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      illegalValueByParameterConstraints = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("IllegalValueByRules") != m.end() && !m["IllegalValueByRules"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["IllegalValueByRules"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IllegalValueByRules"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      illegalValueByRules = make_shared<vector<boost::any>>(toVec1);
     }
     if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
       parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
@@ -21337,6 +21365,49 @@ public:
 
   virtual ~ValidateTemplateResponseBodyResourceTypes() = default;
 };
+class ValidateTemplateResponseBodyResources : public Darabonba::Model {
+public:
+  shared_ptr<string> logicalResourceIdPattern{};
+  shared_ptr<string> resourcePath{};
+  shared_ptr<string> resourceType{};
+
+  ValidateTemplateResponseBodyResources() {}
+
+  explicit ValidateTemplateResponseBodyResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logicalResourceIdPattern) {
+      res["LogicalResourceIdPattern"] = boost::any(*logicalResourceIdPattern);
+    }
+    if (resourcePath) {
+      res["ResourcePath"] = boost::any(*resourcePath);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LogicalResourceIdPattern") != m.end() && !m["LogicalResourceIdPattern"].empty()) {
+      logicalResourceIdPattern = make_shared<string>(boost::any_cast<string>(m["LogicalResourceIdPattern"]));
+    }
+    if (m.find("ResourcePath") != m.end() && !m["ResourcePath"].empty()) {
+      resourcePath = make_shared<string>(boost::any_cast<string>(m["ResourcePath"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ValidateTemplateResponseBodyResources() = default;
+};
 class ValidateTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -21344,6 +21415,7 @@ public:
   shared_ptr<vector<map<string, boost::any>>> parameters{};
   shared_ptr<string> requestId{};
   shared_ptr<ValidateTemplateResponseBodyResourceTypes> resourceTypes{};
+  shared_ptr<vector<ValidateTemplateResponseBodyResources>> resources{};
 
   ValidateTemplateResponseBody() {}
 
@@ -21373,6 +21445,13 @@ public:
     }
     if (resourceTypes) {
       res["ResourceTypes"] = resourceTypes ? boost::any(resourceTypes->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resources) {
+      vector<boost::any> temp1;
+      for(auto item1:*resources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Resources"] = boost::any(temp1);
     }
     return res;
   }
@@ -21417,6 +21496,19 @@ public:
         ValidateTemplateResponseBodyResourceTypes model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceTypes"]));
         resourceTypes = make_shared<ValidateTemplateResponseBodyResourceTypes>(model1);
+      }
+    }
+    if (m.find("Resources") != m.end() && !m["Resources"].empty()) {
+      if (typeid(vector<boost::any>) == m["Resources"].type()) {
+        vector<ValidateTemplateResponseBodyResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Resources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ValidateTemplateResponseBodyResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resources = make_shared<vector<ValidateTemplateResponseBodyResources>>(expect1);
       }
     }
   }
