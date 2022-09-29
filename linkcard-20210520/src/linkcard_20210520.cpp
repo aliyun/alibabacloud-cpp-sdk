@@ -158,27 +158,6 @@ BatchAddDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::batchA
   return batchAddDirectionalAddressWithOptions(request, runtime);
 }
 
-CardStatisticsResponse Alibabacloud_Linkcard20210520::Client::cardStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CardStatistics"))},
-    {"version", boost::any(string("2021-05-20"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CardStatisticsResponse(callApi(params, req, runtime));
-}
-
-CardStatisticsResponse Alibabacloud_Linkcard20210520::Client::cardStatistics() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return cardStatisticsWithOptions(runtime);
-}
-
 ForceActivationResponse Alibabacloud_Linkcard20210520::Client::forceActivationWithOptions(shared_ptr<ForceActivationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -359,6 +338,9 @@ ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfoWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->maxFlow)) {
     query->insert(pair<string, string>("MaxFlow", *request->maxFlow));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->maxRestFlowPercentage)) {
+    query->insert(pair<string, double>("MaxRestFlowPercentage", *request->maxRestFlowPercentage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minFlow)) {
     query->insert(pair<string, string>("MinFlow", *request->minFlow));
