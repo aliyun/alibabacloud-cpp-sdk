@@ -1036,6 +1036,12 @@ SendBatchCardSmsResponse Alibabacloud_Dysmsapi20170525::Client::sendBatchCardSms
   if (!Darabonba_Util::Client::isUnset<string>(request->smsUpExtendCodeJson)) {
     query->insert(pair<string, string>("SmsUpExtendCodeJson", *request->smsUpExtendCodeJson));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateParamJson)) {
+    query->insert(pair<string, string>("TemplateParamJson", *request->templateParamJson));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1144,6 +1150,12 @@ SendCardSmsResponse Alibabacloud_Dysmsapi20170525::Client::sendCardSmsWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->smsUpExtendCode)) {
     query->insert(pair<string, string>("SmsUpExtendCode", *request->smsUpExtendCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateParam)) {
+    query->insert(pair<string, string>("TemplateParam", *request->templateParam));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

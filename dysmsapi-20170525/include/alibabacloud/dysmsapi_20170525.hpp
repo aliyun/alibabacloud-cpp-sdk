@@ -5374,6 +5374,8 @@ public:
   shared_ptr<string> smsTemplateCode{};
   shared_ptr<string> smsTemplateParamJson{};
   shared_ptr<string> smsUpExtendCodeJson{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateParamJson{};
 
   SendBatchCardSmsRequest() {}
 
@@ -5418,6 +5420,12 @@ public:
     if (smsUpExtendCodeJson) {
       res["SmsUpExtendCodeJson"] = boost::any(*smsUpExtendCodeJson);
     }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateParamJson) {
+      res["TemplateParamJson"] = boost::any(*templateParamJson);
+    }
     return res;
   }
 
@@ -5454,6 +5462,12 @@ public:
     }
     if (m.find("SmsUpExtendCodeJson") != m.end() && !m["SmsUpExtendCodeJson"].empty()) {
       smsUpExtendCodeJson = make_shared<string>(boost::any_cast<string>(m["SmsUpExtendCodeJson"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateParamJson") != m.end() && !m["TemplateParamJson"].empty()) {
+      templateParamJson = make_shared<string>(boost::any_cast<string>(m["TemplateParamJson"]));
     }
   }
 
@@ -5892,6 +5906,8 @@ public:
   shared_ptr<string> smsTemplateCode{};
   shared_ptr<string> smsTemplateParam{};
   shared_ptr<string> smsUpExtendCode{};
+  shared_ptr<string> templateCode{};
+  shared_ptr<string> templateParam{};
 
   SendCardSmsRequest() {}
 
@@ -5937,6 +5953,12 @@ public:
     if (smsUpExtendCode) {
       res["SmsUpExtendCode"] = boost::any(*smsUpExtendCode);
     }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (templateParam) {
+      res["TemplateParam"] = boost::any(*templateParam);
+    }
     return res;
   }
 
@@ -5980,6 +6002,12 @@ public:
     }
     if (m.find("SmsUpExtendCode") != m.end() && !m["SmsUpExtendCode"].empty()) {
       smsUpExtendCode = make_shared<string>(boost::any_cast<string>(m["SmsUpExtendCode"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("TemplateParam") != m.end() && !m["TemplateParam"].empty()) {
+      templateParam = make_shared<string>(boost::any_cast<string>(m["TemplateParam"]));
     }
   }
 
