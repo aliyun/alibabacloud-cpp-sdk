@@ -65,6 +65,120 @@ public:
 
   virtual ~LoginStateInfo() = default;
 };
+class ResultValueDeviceUnionIds : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> deviceUnionId{};
+
+  ResultValueDeviceUnionIds() {}
+
+  explicit ResultValueDeviceUnionIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationId) {
+      res["OrganizationId"] = boost::any(*organizationId);
+    }
+    if (deviceUnionId) {
+      res["DeviceUnionId"] = boost::any(*deviceUnionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrganizationId") != m.end() && !m["OrganizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["OrganizationId"]));
+    }
+    if (m.find("DeviceUnionId") != m.end() && !m["DeviceUnionId"].empty()) {
+      deviceUnionId = make_shared<string>(boost::any_cast<string>(m["DeviceUnionId"]));
+    }
+  }
+
+
+  virtual ~ResultValueDeviceUnionIds() = default;
+};
+class ResultValue : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceOpenId{};
+  shared_ptr<vector<ResultValueDeviceUnionIds>> deviceUnionIds{};
+  shared_ptr<string> name{};
+  shared_ptr<string> firmwareVersion{};
+  shared_ptr<string> mac{};
+  shared_ptr<string> sn{};
+
+  ResultValue() {}
+
+  explicit ResultValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceOpenId) {
+      res["DeviceOpenId"] = boost::any(*deviceOpenId);
+    }
+    if (deviceUnionIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*deviceUnionIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeviceUnionIds"] = boost::any(temp1);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (firmwareVersion) {
+      res["FirmwareVersion"] = boost::any(*firmwareVersion);
+    }
+    if (mac) {
+      res["Mac"] = boost::any(*mac);
+    }
+    if (sn) {
+      res["Sn"] = boost::any(*sn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceOpenId") != m.end() && !m["DeviceOpenId"].empty()) {
+      deviceOpenId = make_shared<string>(boost::any_cast<string>(m["DeviceOpenId"]));
+    }
+    if (m.find("DeviceUnionIds") != m.end() && !m["DeviceUnionIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeviceUnionIds"].type()) {
+        vector<ResultValueDeviceUnionIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceUnionIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ResultValueDeviceUnionIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deviceUnionIds = make_shared<vector<ResultValueDeviceUnionIds>>(expect1);
+      }
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("FirmwareVersion") != m.end() && !m["FirmwareVersion"].empty()) {
+      firmwareVersion = make_shared<string>(boost::any_cast<string>(m["FirmwareVersion"]));
+    }
+    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
+      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
+    }
+    if (m.find("Sn") != m.end() && !m["Sn"].empty()) {
+      sn = make_shared<string>(boost::any_cast<string>(m["Sn"]));
+    }
+  }
+
+
+  virtual ~ResultValue() = default;
+};
 class AddAndRemoveFavoriteContentHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -9368,6 +9482,7 @@ public:
   shared_ptr<long> id{};
   shared_ptr<string> itemType{};
   shared_ptr<string> lyric{};
+  shared_ptr<string> rawId{};
   shared_ptr<string> source{};
   shared_ptr<vector<string>> styles{};
   shared_ptr<string> title{};
@@ -9429,6 +9544,9 @@ public:
     }
     if (lyric) {
       res["Lyric"] = boost::any(*lyric);
+    }
+    if (rawId) {
+      res["RawId"] = boost::any(*rawId);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -9511,6 +9629,9 @@ public:
     }
     if (m.find("Lyric") != m.end() && !m["Lyric"].empty()) {
       lyric = make_shared<string>(boost::any_cast<string>(m["Lyric"]));
+    }
+    if (m.find("RawId") != m.end() && !m["RawId"].empty()) {
+      rawId = make_shared<string>(boost::any_cast<string>(m["RawId"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -19026,120 +19147,6 @@ public:
 
 
   virtual ~ListDeviceBasicInfoShrinkRequest() = default;
-};
-class ResultValueDeviceUnionIds : public Darabonba::Model {
-public:
-  shared_ptr<string> organizationId{};
-  shared_ptr<string> deviceUnionId{};
-
-  ResultValueDeviceUnionIds() {}
-
-  explicit ResultValueDeviceUnionIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (organizationId) {
-      res["OrganizationId"] = boost::any(*organizationId);
-    }
-    if (deviceUnionId) {
-      res["DeviceUnionId"] = boost::any(*deviceUnionId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("OrganizationId") != m.end() && !m["OrganizationId"].empty()) {
-      organizationId = make_shared<string>(boost::any_cast<string>(m["OrganizationId"]));
-    }
-    if (m.find("DeviceUnionId") != m.end() && !m["DeviceUnionId"].empty()) {
-      deviceUnionId = make_shared<string>(boost::any_cast<string>(m["DeviceUnionId"]));
-    }
-  }
-
-
-  virtual ~ResultValueDeviceUnionIds() = default;
-};
-class ResultValue : public Darabonba::Model {
-public:
-  shared_ptr<string> deviceOpenId{};
-  shared_ptr<vector<ResultValueDeviceUnionIds>> deviceUnionIds{};
-  shared_ptr<string> name{};
-  shared_ptr<string> firmwareVersion{};
-  shared_ptr<string> mac{};
-  shared_ptr<string> sn{};
-
-  ResultValue() {}
-
-  explicit ResultValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (deviceOpenId) {
-      res["DeviceOpenId"] = boost::any(*deviceOpenId);
-    }
-    if (deviceUnionIds) {
-      vector<boost::any> temp1;
-      for(auto item1:*deviceUnionIds){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["DeviceUnionIds"] = boost::any(temp1);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (firmwareVersion) {
-      res["FirmwareVersion"] = boost::any(*firmwareVersion);
-    }
-    if (mac) {
-      res["Mac"] = boost::any(*mac);
-    }
-    if (sn) {
-      res["Sn"] = boost::any(*sn);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DeviceOpenId") != m.end() && !m["DeviceOpenId"].empty()) {
-      deviceOpenId = make_shared<string>(boost::any_cast<string>(m["DeviceOpenId"]));
-    }
-    if (m.find("DeviceUnionIds") != m.end() && !m["DeviceUnionIds"].empty()) {
-      if (typeid(vector<boost::any>) == m["DeviceUnionIds"].type()) {
-        vector<ResultValueDeviceUnionIds> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeviceUnionIds"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ResultValueDeviceUnionIds model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        deviceUnionIds = make_shared<vector<ResultValueDeviceUnionIds>>(expect1);
-      }
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("FirmwareVersion") != m.end() && !m["FirmwareVersion"].empty()) {
-      firmwareVersion = make_shared<string>(boost::any_cast<string>(m["FirmwareVersion"]));
-    }
-    if (m.find("Mac") != m.end() && !m["Mac"].empty()) {
-      mac = make_shared<string>(boost::any_cast<string>(m["Mac"]));
-    }
-    if (m.find("Sn") != m.end() && !m["Sn"].empty()) {
-      sn = make_shared<string>(boost::any_cast<string>(m["Sn"]));
-    }
-  }
-
-
-  virtual ~ResultValue() = default;
 };
 class ListDeviceBasicInfoResponseBody : public Darabonba::Model {
 public:
