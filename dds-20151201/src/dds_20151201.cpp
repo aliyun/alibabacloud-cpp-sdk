@@ -331,6 +331,9 @@ CreateDBInstanceResponse Alibabacloud_Dds20151201::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hiddenZoneId)) {
+    query->insert(pair<string, string>("HiddenZoneId", *request->hiddenZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
     query->insert(pair<string, string>("NetworkType", *request->networkType));
   }
@@ -363,6 +366,9 @@ CreateDBInstanceResponse Alibabacloud_Dds20151201::Client::createDBInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->restoreTime)) {
     query->insert(pair<string, string>("RestoreTime", *request->restoreTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->secondaryZoneId)) {
+    query->insert(pair<string, string>("SecondaryZoneId", *request->secondaryZoneId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityIPList)) {
     query->insert(pair<string, string>("SecurityIPList", *request->securityIPList));
@@ -3258,6 +3264,9 @@ ModifyAuditPolicyResponse Alibabacloud_Dds20151201::Client::modifyAuditPolicy(sh
 ModifyBackupPolicyResponse Alibabacloud_Dds20151201::Client::modifyBackupPolicyWithOptions(shared_ptr<ModifyBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->backupInterval)) {
+    query->insert(pair<string, string>("BackupInterval", *request->backupInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->backupRetentionPeriod)) {
     query->insert(pair<string, long>("BackupRetentionPeriod", *request->backupRetentionPeriod));
   }
@@ -3290,6 +3299,9 @@ ModifyBackupPolicyResponse Alibabacloud_Dds20151201::Client::modifyBackupPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->snapshotBackupType)) {
+    query->insert(pair<string, string>("SnapshotBackupType", *request->snapshotBackupType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3621,9 +3633,6 @@ ModifyDBInstanceSSLResponse Alibabacloud_Dds20151201::Client::modifyDBInstanceSS
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->disableTlsProtocol)) {
-    query->insert(pair<string, string>("DisableTlsProtocol", *request->disableTlsProtocol));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
