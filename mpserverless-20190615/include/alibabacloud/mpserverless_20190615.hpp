@@ -3413,6 +3413,7 @@ public:
 class DescribeFileUploadSignedUrlResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
+  shared_ptr<string> ossCallbackUrl{};
   shared_ptr<string> requestId{};
   shared_ptr<string> signUrl{};
 
@@ -3429,6 +3430,9 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
+    if (ossCallbackUrl) {
+      res["OssCallbackUrl"] = boost::any(*ossCallbackUrl);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3441,6 +3445,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("OssCallbackUrl") != m.end() && !m["OssCallbackUrl"].empty()) {
+      ossCallbackUrl = make_shared<string>(boost::any_cast<string>(m["OssCallbackUrl"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -11345,6 +11352,8 @@ public:
 class QuerySpaceConsumptionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<QuerySpaceConsumptionResponseBodyCsUsage> csUsage{};
+  shared_ptr<long> cycleEndTime{};
+  shared_ptr<long> cycleStartTime{};
   shared_ptr<QuerySpaceConsumptionResponseBodyDbUsage> dbUsage{};
   shared_ptr<QuerySpaceConsumptionResponseBodyFcUsage> fcUsage{};
   shared_ptr<string> gmtCreate{};
@@ -11365,6 +11374,12 @@ public:
     map<string, boost::any> res;
     if (csUsage) {
       res["CsUsage"] = csUsage ? boost::any(csUsage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (cycleEndTime) {
+      res["CycleEndTime"] = boost::any(*cycleEndTime);
+    }
+    if (cycleStartTime) {
+      res["CycleStartTime"] = boost::any(*cycleStartTime);
     }
     if (dbUsage) {
       res["DbUsage"] = dbUsage ? boost::any(dbUsage->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11397,6 +11412,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CsUsage"]));
         csUsage = make_shared<QuerySpaceConsumptionResponseBodyCsUsage>(model1);
       }
+    }
+    if (m.find("CycleEndTime") != m.end() && !m["CycleEndTime"].empty()) {
+      cycleEndTime = make_shared<long>(boost::any_cast<long>(m["CycleEndTime"]));
+    }
+    if (m.find("CycleStartTime") != m.end() && !m["CycleStartTime"].empty()) {
+      cycleStartTime = make_shared<long>(boost::any_cast<long>(m["CycleStartTime"]));
     }
     if (m.find("DbUsage") != m.end() && !m["DbUsage"].empty()) {
       if (typeid(map<string, boost::any>) == m["DbUsage"].type()) {
