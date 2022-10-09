@@ -19586,6 +19586,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> jobNo{};
   shared_ptr<long> leaveStatus{};
+  shared_ptr<string> managerUserId{};
   shared_ptr<string> phone{};
   shared_ptr<string> position{};
   shared_ptr<string> positionLevel{};
@@ -19616,6 +19617,9 @@ public:
     }
     if (leaveStatus) {
       res["leave_status"] = boost::any(*leaveStatus);
+    }
+    if (managerUserId) {
+      res["manager_user_id"] = boost::any(*managerUserId);
     }
     if (phone) {
       res["phone"] = boost::any(*phone);
@@ -19656,6 +19660,9 @@ public:
     }
     if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
       leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
+    }
+    if (m.find("manager_user_id") != m.end() && !m["manager_user_id"].empty()) {
+      managerUserId = make_shared<string>(boost::any_cast<string>(m["manager_user_id"]));
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
