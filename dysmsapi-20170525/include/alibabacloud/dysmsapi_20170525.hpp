@@ -3318,10 +3318,51 @@ public:
 
   virtual ~QueryCardSmsTemplateReportRequest() = default;
 };
+class QueryCardSmsTemplateReportResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> model{};
+
+  QueryCardSmsTemplateReportResponseBodyData() {}
+
+  explicit QueryCardSmsTemplateReportResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (model) {
+      res["model"] = boost::any(*model);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("model") != m.end() && !m["model"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["model"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["model"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      model = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryCardSmsTemplateReportResponseBodyData() = default;
+};
 class QueryCardSmsTemplateReportResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<vector<map<string, boost::any>>> data{};
+  shared_ptr<QueryCardSmsTemplateReportResponseBodyData> data{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -3339,7 +3380,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -3355,19 +3396,11 @@ public:
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      vector<map<string, boost::any>> toVec1;
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Data"]);
-        for (auto item:vec1) {
-          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
-          map<string, boost::any> toMap2;
-          for (auto item:map2) {
-             toMap2[item.first] = item.second;
-          }
-           toVec1.push_back(toMap2);
-        }
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryCardSmsTemplateReportResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryCardSmsTemplateReportResponseBodyData>(model1);
       }
-      data = make_shared<vector<map<string, boost::any>>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
