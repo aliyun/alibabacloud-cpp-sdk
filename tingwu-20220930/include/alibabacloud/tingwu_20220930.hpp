@@ -19,11 +19,11 @@ public:
   shared_ptr<string> audioLanguage{};
   shared_ptr<string> audioOssBucket{};
   shared_ptr<string> audioOssPath{};
-  shared_ptr<string> audioOutputEnabled{};
+  shared_ptr<bool> audioOutputEnabled{};
   shared_ptr<string> audioOutputOssBucket{};
   shared_ptr<string> audioOutputOssPath{};
   shared_ptr<string> audioRoleNum{};
-  shared_ptr<string> audioSegmentsEnabled{};
+  shared_ptr<bool> audioSegmentsEnabled{};
   shared_ptr<string> transKey{};
   shared_ptr<string> transResultOssBucket{};
   shared_ptr<string> transResultOssPath{};
@@ -91,7 +91,7 @@ public:
       audioOssPath = make_shared<string>(boost::any_cast<string>(m["AudioOssPath"]));
     }
     if (m.find("AudioOutputEnabled") != m.end() && !m["AudioOutputEnabled"].empty()) {
-      audioOutputEnabled = make_shared<string>(boost::any_cast<string>(m["AudioOutputEnabled"]));
+      audioOutputEnabled = make_shared<bool>(boost::any_cast<bool>(m["AudioOutputEnabled"]));
     }
     if (m.find("AudioOutputOssBucket") != m.end() && !m["AudioOutputOssBucket"].empty()) {
       audioOutputOssBucket = make_shared<string>(boost::any_cast<string>(m["AudioOutputOssBucket"]));
@@ -103,7 +103,7 @@ public:
       audioRoleNum = make_shared<string>(boost::any_cast<string>(m["AudioRoleNum"]));
     }
     if (m.find("AudioSegmentsEnabled") != m.end() && !m["AudioSegmentsEnabled"].empty()) {
-      audioSegmentsEnabled = make_shared<string>(boost::any_cast<string>(m["AudioSegmentsEnabled"]));
+      audioSegmentsEnabled = make_shared<bool>(boost::any_cast<bool>(m["AudioSegmentsEnabled"]));
     }
     if (m.find("TransKey") != m.end() && !m["TransKey"].empty()) {
       transKey = make_shared<string>(boost::any_cast<string>(m["TransKey"]));

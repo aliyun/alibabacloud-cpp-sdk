@@ -58,8 +58,8 @@ CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWith
   if (!Darabonba_Util::Client::isUnset<string>(request->audioOssPath)) {
     body->insert(pair<string, string>("AudioOssPath", *request->audioOssPath));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->audioOutputEnabled)) {
-    body->insert(pair<string, string>("AudioOutputEnabled", *request->audioOutputEnabled));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->audioOutputEnabled)) {
+    body->insert(pair<string, bool>("AudioOutputEnabled", *request->audioOutputEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->audioOutputOssBucket)) {
     body->insert(pair<string, string>("AudioOutputOssBucket", *request->audioOutputOssBucket));
@@ -70,8 +70,8 @@ CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWith
   if (!Darabonba_Util::Client::isUnset<string>(request->audioRoleNum)) {
     body->insert(pair<string, string>("AudioRoleNum", *request->audioRoleNum));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->audioSegmentsEnabled)) {
-    body->insert(pair<string, string>("AudioSegmentsEnabled", *request->audioSegmentsEnabled));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->audioSegmentsEnabled)) {
+    body->insert(pair<string, bool>("AudioSegmentsEnabled", *request->audioSegmentsEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transKey)) {
     body->insert(pair<string, string>("TransKey", *request->transKey));
