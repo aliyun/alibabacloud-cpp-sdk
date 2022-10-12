@@ -46,8 +46,8 @@ BeeBotAssociateResponse Alibabacloud_Cams20200606::Client::beeBotAssociateWithOp
     request->perspectiveShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->perspective, make_shared<string>("Perspective"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->chatBotInstnaceId)) {
-    body->insert(pair<string, string>("ChatBotInstnaceId", *request->chatBotInstnaceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatBotInstanceId)) {
+    body->insert(pair<string, string>("ChatBotInstanceId", *request->chatBotInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     body->insert(pair<string, string>("IsvCode", *request->isvCode));
@@ -97,8 +97,8 @@ BeeBotChatResponse Alibabacloud_Cams20200606::Client::beeBotChatWithOptions(shar
     request->vendorParamShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vendorParam, make_shared<string>("VendorParam"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->chatBotInstnaceId)) {
-    body->insert(pair<string, string>("ChatBotInstnaceId", *request->chatBotInstnaceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatBotInstanceId)) {
+    body->insert(pair<string, string>("ChatBotInstanceId", *request->chatBotInstanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->intentName)) {
     body->insert(pair<string, string>("IntentName", *request->intentName));

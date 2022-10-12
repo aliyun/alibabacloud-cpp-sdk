@@ -17,7 +17,7 @@ using namespace std;
 namespace Alibabacloud_Cams20200606 {
 class BeeBotAssociateRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> chatBotInstnaceId{};
+  shared_ptr<string> chatBotInstanceId{};
   shared_ptr<string> isvCode{};
   shared_ptr<vector<string>> perspective{};
   shared_ptr<long> recommendNum{};
@@ -34,8 +34,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (chatBotInstnaceId) {
-      res["ChatBotInstnaceId"] = boost::any(*chatBotInstnaceId);
+    if (chatBotInstanceId) {
+      res["ChatBotInstanceId"] = boost::any(*chatBotInstanceId);
     }
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
@@ -56,8 +56,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ChatBotInstnaceId") != m.end() && !m["ChatBotInstnaceId"].empty()) {
-      chatBotInstnaceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstnaceId"]));
+    if (m.find("ChatBotInstanceId") != m.end() && !m["ChatBotInstanceId"].empty()) {
+      chatBotInstanceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstanceId"]));
     }
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
@@ -88,7 +88,7 @@ public:
 };
 class BeeBotAssociateShrinkRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> chatBotInstnaceId{};
+  shared_ptr<string> chatBotInstanceId{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> perspectiveShrink{};
   shared_ptr<long> recommendNum{};
@@ -105,8 +105,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (chatBotInstnaceId) {
-      res["ChatBotInstnaceId"] = boost::any(*chatBotInstnaceId);
+    if (chatBotInstanceId) {
+      res["ChatBotInstanceId"] = boost::any(*chatBotInstanceId);
     }
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
@@ -127,8 +127,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ChatBotInstnaceId") != m.end() && !m["ChatBotInstnaceId"].empty()) {
-      chatBotInstnaceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstnaceId"]));
+    if (m.find("ChatBotInstanceId") != m.end() && !m["ChatBotInstanceId"].empty()) {
+      chatBotInstanceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstanceId"]));
     }
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
@@ -361,7 +361,7 @@ public:
 };
 class BeeBotChatRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> chatBotInstnaceId{};
+  shared_ptr<string> chatBotInstanceId{};
   shared_ptr<string> intentName{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> knowledgeId{};
@@ -382,8 +382,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (chatBotInstnaceId) {
-      res["ChatBotInstnaceId"] = boost::any(*chatBotInstnaceId);
+    if (chatBotInstanceId) {
+      res["ChatBotInstanceId"] = boost::any(*chatBotInstanceId);
     }
     if (intentName) {
       res["IntentName"] = boost::any(*intentName);
@@ -416,8 +416,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ChatBotInstnaceId") != m.end() && !m["ChatBotInstnaceId"].empty()) {
-      chatBotInstnaceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstnaceId"]));
+    if (m.find("ChatBotInstanceId") != m.end() && !m["ChatBotInstanceId"].empty()) {
+      chatBotInstanceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstanceId"]));
     }
     if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
       intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
@@ -465,7 +465,7 @@ public:
 };
 class BeeBotChatShrinkRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> chatBotInstnaceId{};
+  shared_ptr<string> chatBotInstanceId{};
   shared_ptr<string> intentName{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> knowledgeId{};
@@ -486,8 +486,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (chatBotInstnaceId) {
-      res["ChatBotInstnaceId"] = boost::any(*chatBotInstnaceId);
+    if (chatBotInstanceId) {
+      res["ChatBotInstanceId"] = boost::any(*chatBotInstanceId);
     }
     if (intentName) {
       res["IntentName"] = boost::any(*intentName);
@@ -520,8 +520,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ChatBotInstnaceId") != m.end() && !m["ChatBotInstnaceId"].empty()) {
-      chatBotInstnaceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstnaceId"]));
+    if (m.find("ChatBotInstanceId") != m.end() && !m["ChatBotInstanceId"].empty()) {
+      chatBotInstanceId = make_shared<string>(boost::any_cast<string>(m["ChatBotInstanceId"]));
     }
     if (m.find("IntentName") != m.end() && !m["IntentName"].empty()) {
       intentName = make_shared<string>(boost::any_cast<string>(m["IntentName"]));
