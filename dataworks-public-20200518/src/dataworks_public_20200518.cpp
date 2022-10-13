@@ -7,7 +7,6 @@
 #include <alibabacloud/open_platform_20191219.hpp>
 #include <alibabacloud/oss.hpp>
 #include <alibabacloud/ossutil.hpp>
-#include <alibabacloud/rpc.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -1046,7 +1045,7 @@ CreateImportMigrationResponse Alibabacloud_Dataworks-public20200518::Client::cre
   if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
     credentialType = make_shared<string>("access_key");
   }
-  shared_ptr<Alibabacloud_RPC::Config> authConfig = make_shared<Alibabacloud_RPC::Config>(map<string, boost::any>({
+  shared_ptr<Alibabacloud_OpenApi::Config> authConfig = make_shared<Alibabacloud_OpenApi::Config>(map<string, boost::any>({
     {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
     {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
     {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
@@ -1077,28 +1076,28 @@ CreateImportMigrationResponse Alibabacloud_Dataworks-public20200518::Client::cre
   Alibabacloud_OpenApiUtil::Client::convert(request, createImportMigrationReq);
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->packageFileObject)) {
     authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->endpoint, authResponse->useAccelerate, _endpointType));
+    ossConfig->accessKeyId = authResponse->body->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
     ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
     fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
       {"content", !request->packageFileObject ? boost::any() : boost::any(*request->packageFileObject)},
       {"contentType", boost::any(string(""))}
     }));
     ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->accessKeyId ? boost::any() : boost::any(*authResponse->accessKeyId)},
-      {"policy", !authResponse->encodedPolicy ? boost::any() : boost::any(*authResponse->encodedPolicy)},
-      {"signature", !authResponse->signature ? boost::any() : boost::any(*authResponse->signature)},
-      {"key", !authResponse->objectKey ? boost::any() : boost::any(*authResponse->objectKey)},
+      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
+      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
+      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
+      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
       {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
       {"successActionStatus", boost::any(string("201"))}
     }));
     uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->bucket ? boost::any() : boost::any(*authResponse->bucket)},
+      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
       {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
     }));
     ossClient->postObject(uploadRequest, ossRuntime);
-    createImportMigrationReq->packageFile = make_shared<string>(string("http://") + string(*authResponse->bucket) + string(".") + string(*authResponse->endpoint) + string("/") + string(*authResponse->objectKey));
+    createImportMigrationReq->packageFile = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
   }
   shared_ptr<CreateImportMigrationResponse> createImportMigrationResp = make_shared<CreateImportMigrationResponse>(createImportMigrationWithOptions(createImportMigrationReq, runtime));
   return *createImportMigrationResp;
@@ -7037,6 +7036,37 @@ ListUsageForResourceGroupResponse Alibabacloud_Dataworks-public20200518::Client:
 ListUsageForResourceGroupResponse Alibabacloud_Dataworks-public20200518::Client::listUsageForResourceGroup(shared_ptr<ListUsageForResourceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listUsageForResourceGroupWithOptions(request, runtime);
+}
+
+OfflineNodeResponse Alibabacloud_Dataworks-public20200518::Client::offlineNodeWithOptions(shared_ptr<OfflineNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->nodeId)) {
+    body->insert(pair<string, long>("NodeId", *request->nodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OfflineNode"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return OfflineNodeResponse(callApi(params, req, runtime));
+}
+
+OfflineNodeResponse Alibabacloud_Dataworks-public20200518::Client::offlineNode(shared_ptr<OfflineNodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return offlineNodeWithOptions(request, runtime);
 }
 
 PublishDataServiceApiResponse Alibabacloud_Dataworks-public20200518::Client::publishDataServiceApiWithOptions(shared_ptr<PublishDataServiceApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
