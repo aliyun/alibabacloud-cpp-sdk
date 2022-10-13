@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_voice_navigator_20180612Targets.cmake")
+check_required_components("alibabacloud_voice_navigator_20180612")
