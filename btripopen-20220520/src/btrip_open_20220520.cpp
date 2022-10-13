@@ -247,6 +247,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartBusinessId)) {
     body->insert(pair<string, string>("thirdpart_business_id", *request->thirdpartBusinessId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartDepartId)) {
+    body->insert(pair<string, string>("thirdpart_depart_id", *request->thirdpartDepartId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->togetherBookRule)) {
     body->insert(pair<string, long>("together_book_rule", *request->togetherBookRule));
   }
@@ -510,6 +513,9 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartBusinessId)) {
     body->insert(pair<string, string>("thirdpart_business_id", *request->thirdpartBusinessId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartDepartId)) {
+    body->insert(pair<string, string>("thirdpart_depart_id", *request->thirdpartDepartId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->togetherBookRule)) {
     body->insert(pair<string, long>("together_book_rule", *request->togetherBookRule));

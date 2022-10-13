@@ -1445,6 +1445,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
+  shared_ptr<string> thirdpartDepartId{};
   shared_ptr<long> togetherBookRule{};
   shared_ptr<long> trainBudget{};
   shared_ptr<vector<ApplyAddRequestTravelerList>> travelerList{};
@@ -1533,6 +1534,9 @@ public:
     }
     if (thirdpartBusinessId) {
       res["thirdpart_business_id"] = boost::any(*thirdpartBusinessId);
+    }
+    if (thirdpartDepartId) {
+      res["thirdpart_depart_id"] = boost::any(*thirdpartDepartId);
     }
     if (togetherBookRule) {
       res["together_book_rule"] = boost::any(*togetherBookRule);
@@ -1674,6 +1678,9 @@ public:
     if (m.find("thirdpart_business_id") != m.end() && !m["thirdpart_business_id"].empty()) {
       thirdpartBusinessId = make_shared<string>(boost::any_cast<string>(m["thirdpart_business_id"]));
     }
+    if (m.find("thirdpart_depart_id") != m.end() && !m["thirdpart_depart_id"].empty()) {
+      thirdpartDepartId = make_shared<string>(boost::any_cast<string>(m["thirdpart_depart_id"]));
+    }
     if (m.find("together_book_rule") != m.end() && !m["together_book_rule"].empty()) {
       togetherBookRule = make_shared<long>(boost::any_cast<long>(m["together_book_rule"]));
     }
@@ -1755,6 +1762,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
+  shared_ptr<string> thirdpartDepartId{};
   shared_ptr<long> togetherBookRule{};
   shared_ptr<long> trainBudget{};
   shared_ptr<string> travelerListShrink{};
@@ -1831,6 +1839,9 @@ public:
     }
     if (thirdpartBusinessId) {
       res["thirdpart_business_id"] = boost::any(*thirdpartBusinessId);
+    }
+    if (thirdpartDepartId) {
+      res["thirdpart_depart_id"] = boost::any(*thirdpartDepartId);
     }
     if (togetherBookRule) {
       res["together_book_rule"] = boost::any(*togetherBookRule);
@@ -1925,6 +1936,9 @@ public:
     }
     if (m.find("thirdpart_business_id") != m.end() && !m["thirdpart_business_id"].empty()) {
       thirdpartBusinessId = make_shared<string>(boost::any_cast<string>(m["thirdpart_business_id"]));
+    }
+    if (m.find("thirdpart_depart_id") != m.end() && !m["thirdpart_depart_id"].empty()) {
+      thirdpartDepartId = make_shared<string>(boost::any_cast<string>(m["thirdpart_depart_id"]));
     }
     if (m.find("together_book_rule") != m.end() && !m["together_book_rule"].empty()) {
       togetherBookRule = make_shared<long>(boost::any_cast<long>(m["together_book_rule"]));
@@ -3923,6 +3937,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
+  shared_ptr<string> thirdpartDepartId{};
   shared_ptr<long> togetherBookRule{};
   shared_ptr<long> trainBudget{};
   shared_ptr<vector<ApplyModifyRequestTravelerList>> travelerList{};
@@ -4007,6 +4022,9 @@ public:
     }
     if (thirdpartBusinessId) {
       res["thirdpart_business_id"] = boost::any(*thirdpartBusinessId);
+    }
+    if (thirdpartDepartId) {
+      res["thirdpart_depart_id"] = boost::any(*thirdpartDepartId);
     }
     if (togetherBookRule) {
       res["together_book_rule"] = boost::any(*togetherBookRule);
@@ -4142,6 +4160,9 @@ public:
     if (m.find("thirdpart_business_id") != m.end() && !m["thirdpart_business_id"].empty()) {
       thirdpartBusinessId = make_shared<string>(boost::any_cast<string>(m["thirdpart_business_id"]));
     }
+    if (m.find("thirdpart_depart_id") != m.end() && !m["thirdpart_depart_id"].empty()) {
+      thirdpartDepartId = make_shared<string>(boost::any_cast<string>(m["thirdpart_depart_id"]));
+    }
     if (m.find("together_book_rule") != m.end() && !m["together_book_rule"].empty()) {
       togetherBookRule = make_shared<long>(boost::any_cast<long>(m["together_book_rule"]));
     }
@@ -4219,6 +4240,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
+  shared_ptr<string> thirdpartDepartId{};
   shared_ptr<long> togetherBookRule{};
   shared_ptr<long> trainBudget{};
   shared_ptr<string> travelerListShrink{};
@@ -4291,6 +4313,9 @@ public:
     }
     if (thirdpartBusinessId) {
       res["thirdpart_business_id"] = boost::any(*thirdpartBusinessId);
+    }
+    if (thirdpartDepartId) {
+      res["thirdpart_depart_id"] = boost::any(*thirdpartDepartId);
     }
     if (togetherBookRule) {
       res["together_book_rule"] = boost::any(*togetherBookRule);
@@ -4379,6 +4404,9 @@ public:
     }
     if (m.find("thirdpart_business_id") != m.end() && !m["thirdpart_business_id"].empty()) {
       thirdpartBusinessId = make_shared<string>(boost::any_cast<string>(m["thirdpart_business_id"]));
+    }
+    if (m.find("thirdpart_depart_id") != m.end() && !m["thirdpart_depart_id"].empty()) {
+      thirdpartDepartId = make_shared<string>(boost::any_cast<string>(m["thirdpart_depart_id"]));
     }
     if (m.find("together_book_rule") != m.end() && !m["together_book_rule"].empty()) {
       togetherBookRule = make_shared<long>(boost::any_cast<long>(m["together_book_rule"]));
