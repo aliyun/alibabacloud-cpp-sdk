@@ -513,6 +513,12 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationChannel)) {
     query->insert(pair<string, string>("AndroidNotificationChannel", *request->androidNotificationChannel));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationGroup)) {
+    query->insert(pair<string, string>("AndroidNotificationGroup", *request->androidNotificationGroup));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationHonorChannel)) {
+    query->insert(pair<string, string>("AndroidNotificationHonorChannel", *request->androidNotificationHonorChannel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidNotificationHuaweiChannel)) {
     query->insert(pair<string, string>("AndroidNotificationHuaweiChannel", *request->androidNotificationHuaweiChannel));
   }
@@ -901,40 +907,6 @@ QueryAliasesResponse Alibabacloud_Push20160801::Client::queryAliasesWithOptions(
 QueryAliasesResponse Alibabacloud_Push20160801::Client::queryAliases(shared_ptr<QueryAliasesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryAliasesWithOptions(request, runtime);
-}
-
-QueryDeviceCountResponse Alibabacloud_Push20160801::Client::queryDeviceCountWithOptions(shared_ptr<QueryDeviceCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->appKey)) {
-    query->insert(pair<string, long>("AppKey", *request->appKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
-    query->insert(pair<string, string>("Target", *request->target));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->targetValue)) {
-    query->insert(pair<string, string>("TargetValue", *request->targetValue));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("QueryDeviceCount"))},
-    {"version", boost::any(string("2016-08-01"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return QueryDeviceCountResponse(callApi(params, req, runtime));
-}
-
-QueryDeviceCountResponse Alibabacloud_Push20160801::Client::queryDeviceCount(shared_ptr<QueryDeviceCountRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return queryDeviceCountWithOptions(request, runtime);
 }
 
 QueryDeviceInfoResponse Alibabacloud_Push20160801::Client::queryDeviceInfoWithOptions(shared_ptr<QueryDeviceInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
