@@ -517,6 +517,43 @@ DetachVpcFromNetLinkResponse Alibabacloud_CC5G20220314::Client::detachVpcFromNet
   return detachVpcFromNetLinkWithOptions(request, runtime);
 }
 
+FailCardsResponse Alibabacloud_CC5G20220314::Client::failCardsWithOptions(shared_ptr<FailCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->iccids)) {
+    query->insert(pair<string, vector<string>>("Iccids", *request->iccids));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FailCards"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FailCardsResponse(callApi(params, req, runtime));
+}
+
+FailCardsResponse Alibabacloud_CC5G20220314::Client::failCards(shared_ptr<FailCardsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return failCardsWithOptions(request, runtime);
+}
+
 GetCardResponse Alibabacloud_CC5G20220314::Client::getCardWithOptions(shared_ptr<GetCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -592,6 +629,37 @@ GetCreateCustomerInformationResponse Alibabacloud_CC5G20220314::Client::getCreat
   return getCreateCustomerInformationWithOptions(request, runtime);
 }
 
+GetDiagnoseResultForSingleCardResponse Alibabacloud_CC5G20220314::Client::getDiagnoseResultForSingleCardWithOptions(shared_ptr<GetDiagnoseResultForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnoseTaskId)) {
+    query->insert(pair<string, string>("DiagnoseTaskId", *request->diagnoseTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionNo)) {
+    query->insert(pair<string, string>("RegionNo", *request->regionNo));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDiagnoseResultForSingleCard"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDiagnoseResultForSingleCardResponse(callApi(params, req, runtime));
+}
+
+GetDiagnoseResultForSingleCardResponse Alibabacloud_CC5G20220314::Client::getDiagnoseResultForSingleCard(shared_ptr<GetDiagnoseResultForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDiagnoseResultForSingleCardWithOptions(request, runtime);
+}
+
 GetWirelessCloudConnectorResponse Alibabacloud_CC5G20220314::Client::getWirelessCloudConnectorWithOptions(shared_ptr<GetWirelessCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -615,6 +683,71 @@ GetWirelessCloudConnectorResponse Alibabacloud_CC5G20220314::Client::getWireless
 GetWirelessCloudConnectorResponse Alibabacloud_CC5G20220314::Client::getWirelessCloudConnector(shared_ptr<GetWirelessCloudConnectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getWirelessCloudConnectorWithOptions(request, runtime);
+}
+
+GrantNetLinkResponse Alibabacloud_CC5G20220314::Client::grantNetLinkWithOptions(shared_ptr<GrantNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->grantAliUid)) {
+    query->insert(pair<string, long>("GrantAliUid", *request->grantAliUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netLinkId)) {
+    query->insert(pair<string, string>("NetLinkId", *request->netLinkId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wirelessCloudConnectorId)) {
+    query->insert(pair<string, string>("WirelessCloudConnectorId", *request->wirelessCloudConnectorId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GrantNetLink"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GrantNetLinkResponse(callApi(params, req, runtime));
+}
+
+GrantNetLinkResponse Alibabacloud_CC5G20220314::Client::grantNetLink(shared_ptr<GrantNetLinkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return grantNetLinkWithOptions(request, runtime);
+}
+
+ListAPNsResponse Alibabacloud_CC5G20220314::Client::listAPNsWithOptions(shared_ptr<ListAPNsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAPNs"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAPNsResponse(callApi(params, req, runtime));
+}
+
+ListAPNsResponse Alibabacloud_CC5G20220314::Client::listAPNs(shared_ptr<ListAPNsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listAPNsWithOptions(request, runtime);
 }
 
 ListAuthorizationRulesResponse Alibabacloud_CC5G20220314::Client::listAuthorizationRulesWithOptions(shared_ptr<ListAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -715,6 +848,52 @@ ListDataPackagesResponse Alibabacloud_CC5G20220314::Client::listDataPackagesWith
 ListDataPackagesResponse Alibabacloud_CC5G20220314::Client::listDataPackages(shared_ptr<ListDataPackagesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listDataPackagesWithOptions(request, runtime);
+}
+
+ListDiagnoseInfoForSingleCardResponse Alibabacloud_CC5G20220314::Client::listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionNo)) {
+    query->insert(pair<string, string>("RegionNo", *request->regionNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wirelessCloudConnectorId)) {
+    query->insert(pair<string, string>("WirelessCloudConnectorId", *request->wirelessCloudConnectorId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDiagnoseInfoForSingleCard"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDiagnoseInfoForSingleCardResponse(callApi(params, req, runtime));
+}
+
+ListDiagnoseInfoForSingleCardResponse Alibabacloud_CC5G20220314::Client::listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDiagnoseInfoForSingleCardWithOptions(request, runtime);
 }
 
 ListIoTCloudConnectorBackhaulRouteResponse Alibabacloud_CC5G20220314::Client::listIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<ListIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -984,6 +1163,43 @@ ResumeCardsResponse Alibabacloud_CC5G20220314::Client::resumeCards(shared_ptr<Re
   return resumeCardsWithOptions(request, runtime);
 }
 
+RevokeNetLinkResponse Alibabacloud_CC5G20220314::Client::revokeNetLinkWithOptions(shared_ptr<RevokeNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->netLinkId)) {
+    query->insert(pair<string, string>("NetLinkId", *request->netLinkId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wirelessCloudConnectorId)) {
+    query->insert(pair<string, string>("WirelessCloudConnectorId", *request->wirelessCloudConnectorId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RevokeNetLink"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RevokeNetLinkResponse(callApi(params, req, runtime));
+}
+
+RevokeNetLinkResponse Alibabacloud_CC5G20220314::Client::revokeNetLink(shared_ptr<RevokeNetLinkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return revokeNetLinkWithOptions(request, runtime);
+}
+
 StopCardsResponse Alibabacloud_CC5G20220314::Client::stopCardsWithOptions(shared_ptr<StopCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1019,6 +1235,52 @@ StopCardsResponse Alibabacloud_CC5G20220314::Client::stopCardsWithOptions(shared
 StopCardsResponse Alibabacloud_CC5G20220314::Client::stopCards(shared_ptr<StopCardsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return stopCardsWithOptions(request, runtime);
+}
+
+SubmitDiagnoseTaskForSingleCardResponse Alibabacloud_CC5G20220314::Client::submitDiagnoseTaskForSingleCardWithOptions(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
+    query->insert(pair<string, long>("BeginTime", *request->beginTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destination)) {
+    query->insert(pair<string, string>("Destination", *request->destination));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionNo)) {
+    query->insert(pair<string, string>("RegionNo", *request->regionNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceUid)) {
+    query->insert(pair<string, long>("ResourceUid", *request->resourceUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->wirelessCloudConnectorId)) {
+    query->insert(pair<string, string>("WirelessCloudConnectorId", *request->wirelessCloudConnectorId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitDiagnoseTaskForSingleCard"))},
+    {"version", boost::any(string("2022-03-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitDiagnoseTaskForSingleCardResponse(callApi(params, req, runtime));
+}
+
+SubmitDiagnoseTaskForSingleCardResponse Alibabacloud_CC5G20220314::Client::submitDiagnoseTaskForSingleCard(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitDiagnoseTaskForSingleCardWithOptions(request, runtime);
 }
 
 SwitchWirelessCloudConnectorToBusinessResponse Alibabacloud_CC5G20220314::Client::switchWirelessCloudConnectorToBusinessWithOptions(shared_ptr<SwitchWirelessCloudConnectorToBusinessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

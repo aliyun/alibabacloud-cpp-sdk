@@ -1860,6 +1860,154 @@ public:
 
   virtual ~DetachVpcFromNetLinkResponse() = default;
 };
+class FailCardsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<string>> iccids{};
+  shared_ptr<string> regionId{};
+
+  FailCardsRequest() {}
+
+  explicit FailCardsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (iccids) {
+      res["Iccids"] = boost::any(*iccids);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Iccids") != m.end() && !m["Iccids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Iccids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Iccids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iccids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~FailCardsRequest() = default;
+};
+class FailCardsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  FailCardsResponseBody() {}
+
+  explicit FailCardsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~FailCardsResponseBody() = default;
+};
+class FailCardsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FailCardsResponseBody> body{};
+
+  FailCardsResponse() {}
+
+  explicit FailCardsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FailCardsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FailCardsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FailCardsResponse() = default;
+};
 class GetCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iccid{};
@@ -2409,6 +2557,317 @@ public:
 
   virtual ~GetCreateCustomerInformationResponse() = default;
 };
+class GetDiagnoseResultForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseTaskId{};
+  shared_ptr<string> regionNo{};
+
+  GetDiagnoseResultForSingleCardRequest() {}
+
+  explicit GetDiagnoseResultForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseTaskId) {
+      res["DiagnoseTaskId"] = boost::any(*diagnoseTaskId);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseTaskId") != m.end() && !m["DiagnoseTaskId"].empty()) {
+      diagnoseTaskId = make_shared<string>(boost::any_cast<string>(m["DiagnoseTaskId"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardRequest() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem : public Darabonba::Model {
+public:
+  shared_ptr<string> part{};
+  shared_ptr<string> status{};
+
+  GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (part) {
+      res["Part"] = boost::any(*part);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Part") != m.end() && !m["Part"].empty()) {
+      part = make_shared<string>(boost::any_cast<string>(m["Part"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBodyErrorResult : public Darabonba::Model {
+public:
+  shared_ptr<string> errorDesc{};
+  shared_ptr<string> errorLevel{};
+  shared_ptr<string> errorPart{};
+  shared_ptr<string> errorSuggestion{};
+
+  GetDiagnoseResultForSingleCardResponseBodyErrorResult() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBodyErrorResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorDesc) {
+      res["ErrorDesc"] = boost::any(*errorDesc);
+    }
+    if (errorLevel) {
+      res["ErrorLevel"] = boost::any(*errorLevel);
+    }
+    if (errorPart) {
+      res["ErrorPart"] = boost::any(*errorPart);
+    }
+    if (errorSuggestion) {
+      res["ErrorSuggestion"] = boost::any(*errorSuggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorDesc") != m.end() && !m["ErrorDesc"].empty()) {
+      errorDesc = make_shared<string>(boost::any_cast<string>(m["ErrorDesc"]));
+    }
+    if (m.find("ErrorLevel") != m.end() && !m["ErrorLevel"].empty()) {
+      errorLevel = make_shared<string>(boost::any_cast<string>(m["ErrorLevel"]));
+    }
+    if (m.find("ErrorPart") != m.end() && !m["ErrorPart"].empty()) {
+      errorPart = make_shared<string>(boost::any_cast<string>(m["ErrorPart"]));
+    }
+    if (m.find("ErrorSuggestion") != m.end() && !m["ErrorSuggestion"].empty()) {
+      errorSuggestion = make_shared<string>(boost::any_cast<string>(m["ErrorSuggestion"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBodyErrorResult() = default;
+};
+class GetDiagnoseResultForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cardIp{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem>> diagnoseItem{};
+  shared_ptr<long> endTime{};
+  shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>> errorResult{};
+  shared_ptr<string> iccId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  GetDiagnoseResultForSingleCardResponseBody() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cardIp) {
+      res["CardIp"] = boost::any(*cardIp);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (diagnoseItem) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnoseItem){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiagnoseItem"] = boost::any(temp1);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (errorResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*errorResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ErrorResult"] = boost::any(temp1);
+    }
+    if (iccId) {
+      res["IccId"] = boost::any(*iccId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CardIp") != m.end() && !m["CardIp"].empty()) {
+      cardIp = make_shared<string>(boost::any_cast<string>(m["CardIp"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DiagnoseItem") != m.end() && !m["DiagnoseItem"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiagnoseItem"].type()) {
+        vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiagnoseItem"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnoseItem = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem>>(expect1);
+      }
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("ErrorResult") != m.end() && !m["ErrorResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["ErrorResult"].type()) {
+        vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ErrorResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDiagnoseResultForSingleCardResponseBodyErrorResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        errorResult = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyErrorResult>>(expect1);
+      }
+    }
+    if (m.find("IccId") != m.end() && !m["IccId"].empty()) {
+      iccId = make_shared<string>(boost::any_cast<string>(m["IccId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBody() = default;
+};
+class GetDiagnoseResultForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDiagnoseResultForSingleCardResponseBody> body{};
+
+  GetDiagnoseResultForSingleCardResponse() {}
+
+  explicit GetDiagnoseResultForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDiagnoseResultForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDiagnoseResultForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponse() = default;
+};
 class GetWirelessCloudConnectorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -2450,6 +2909,7 @@ public:
   shared_ptr<string> APN{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> grantAliUid{};
   shared_ptr<string> ISP{};
   shared_ptr<string> name{};
   shared_ptr<string> netLinkId{};
@@ -2476,6 +2936,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (grantAliUid) {
+      res["GrantAliUid"] = boost::any(*grantAliUid);
     }
     if (ISP) {
       res["ISP"] = boost::any(*ISP);
@@ -2510,6 +2973,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GrantAliUid") != m.end() && !m["GrantAliUid"].empty()) {
+      grantAliUid = make_shared<string>(boost::any_cast<string>(m["GrantAliUid"]));
     }
     if (m.find("ISP") != m.end() && !m["ISP"].empty()) {
       ISP = make_shared<string>(boost::any_cast<string>(m["ISP"]));
@@ -2557,6 +3023,7 @@ public:
   shared_ptr<vector<GetWirelessCloudConnectorResponseBodyNetLinks>> netLinks{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceType{};
   shared_ptr<string> status{};
   shared_ptr<string> useCase{};
   shared_ptr<string> wirelessCloudConnectorId{};
@@ -2607,6 +3074,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -2670,6 +3140,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -2746,6 +3219,408 @@ public:
 
 
   virtual ~GetWirelessCloudConnectorResponse() = default;
+};
+class GrantNetLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<long> grantAliUid{};
+  shared_ptr<string> netLinkId{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  GrantNetLinkRequest() {}
+
+  explicit GrantNetLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (grantAliUid) {
+      res["GrantAliUid"] = boost::any(*grantAliUid);
+    }
+    if (netLinkId) {
+      res["NetLinkId"] = boost::any(*netLinkId);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("GrantAliUid") != m.end() && !m["GrantAliUid"].empty()) {
+      grantAliUid = make_shared<long>(boost::any_cast<long>(m["GrantAliUid"]));
+    }
+    if (m.find("NetLinkId") != m.end() && !m["NetLinkId"].empty()) {
+      netLinkId = make_shared<string>(boost::any_cast<string>(m["NetLinkId"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~GrantNetLinkRequest() = default;
+};
+class GrantNetLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  GrantNetLinkResponseBody() {}
+
+  explicit GrantNetLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GrantNetLinkResponseBody() = default;
+};
+class GrantNetLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GrantNetLinkResponseBody> body{};
+
+  GrantNetLinkResponse() {}
+
+  explicit GrantNetLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GrantNetLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GrantNetLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GrantNetLinkResponse() = default;
+};
+class ListAPNsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> APN{};
+  shared_ptr<string> ISP{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+
+  ListAPNsRequest() {}
+
+  explicit ListAPNsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (APN) {
+      res["APN"] = boost::any(*APN);
+    }
+    if (ISP) {
+      res["ISP"] = boost::any(*ISP);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("APN") != m.end() && !m["APN"].empty()) {
+      APN = make_shared<string>(boost::any_cast<string>(m["APN"]));
+    }
+    if (m.find("ISP") != m.end() && !m["ISP"].empty()) {
+      ISP = make_shared<string>(boost::any_cast<string>(m["ISP"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListAPNsRequest() = default;
+};
+class ListAPNsResponseBodyAPNs : public Darabonba::Model {
+public:
+  shared_ptr<string> APN{};
+  shared_ptr<string> description{};
+  shared_ptr<string> ISP{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<string>> zones{};
+
+  ListAPNsResponseBodyAPNs() {}
+
+  explicit ListAPNsResponseBodyAPNs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (APN) {
+      res["APN"] = boost::any(*APN);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ISP) {
+      res["ISP"] = boost::any(*ISP);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (zones) {
+      res["Zones"] = boost::any(*zones);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("APN") != m.end() && !m["APN"].empty()) {
+      APN = make_shared<string>(boost::any_cast<string>(m["APN"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("ISP") != m.end() && !m["ISP"].empty()) {
+      ISP = make_shared<string>(boost::any_cast<string>(m["ISP"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Zones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Zones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zones = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAPNsResponseBodyAPNs() = default;
+};
+class ListAPNsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAPNsResponseBodyAPNs>> APNs{};
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+
+  ListAPNsResponseBody() {}
+
+  explicit ListAPNsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (APNs) {
+      vector<boost::any> temp1;
+      for(auto item1:*APNs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["APNs"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("APNs") != m.end() && !m["APNs"].empty()) {
+      if (typeid(vector<boost::any>) == m["APNs"].type()) {
+        vector<ListAPNsResponseBodyAPNs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["APNs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAPNsResponseBodyAPNs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        APNs = make_shared<vector<ListAPNsResponseBodyAPNs>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAPNsResponseBody() = default;
+};
+class ListAPNsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAPNsResponseBody> body{};
+
+  ListAPNsResponse() {}
+
+  explicit ListAPNsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAPNsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAPNsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAPNsResponse() = default;
 };
 class ListAuthorizationRulesRequest : public Darabonba::Model {
 public:
@@ -3502,6 +4377,7 @@ public:
   shared_ptr<string> ipAddress{};
   shared_ptr<bool> lock{};
   shared_ptr<long> maxResults{};
+  shared_ptr<string> msisdn{};
   shared_ptr<string> netLinkId{};
   shared_ptr<string> nextToken{};
   shared_ptr<bool> online{};
@@ -3535,6 +4411,9 @@ public:
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (msisdn) {
+      res["Msisdn"] = boost::any(*msisdn);
     }
     if (netLinkId) {
       res["NetLinkId"] = boost::any(*netLinkId);
@@ -3579,6 +4458,9 @@ public:
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Msisdn") != m.end() && !m["Msisdn"].empty()) {
+      msisdn = make_shared<string>(boost::any_cast<string>(m["Msisdn"]));
     }
     if (m.find("NetLinkId") != m.end() && !m["NetLinkId"].empty()) {
       netLinkId = make_shared<string>(boost::any_cast<string>(m["NetLinkId"]));
@@ -4183,6 +5065,316 @@ public:
 
 
   virtual ~ListDataPackagesResponse() = default;
+};
+class ListDiagnoseInfoForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  ListDiagnoseInfoForSingleCardRequest() {}
+
+  explicit ListDiagnoseInfoForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardRequest() = default;
+};
+class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cardIp{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<string> diagnoseTaskId{};
+  shared_ptr<long> diagnoseTime{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> iccId{};
+  shared_ptr<string> source{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cardIp) {
+      res["CardIp"] = boost::any(*cardIp);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (diagnoseTaskId) {
+      res["DiagnoseTaskId"] = boost::any(*diagnoseTaskId);
+    }
+    if (diagnoseTime) {
+      res["DiagnoseTime"] = boost::any(*diagnoseTime);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (iccId) {
+      res["IccId"] = boost::any(*iccId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CardIp") != m.end() && !m["CardIp"].empty()) {
+      cardIp = make_shared<string>(boost::any_cast<string>(m["CardIp"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DiagnoseTaskId") != m.end() && !m["DiagnoseTaskId"].empty()) {
+      diagnoseTaskId = make_shared<string>(boost::any_cast<string>(m["DiagnoseTaskId"]));
+    }
+    if (m.find("DiagnoseTime") != m.end() && !m["DiagnoseTime"].empty()) {
+      diagnoseTime = make_shared<long>(boost::any_cast<long>(m["DiagnoseTime"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("IccId") != m.end() && !m["IccId"].empty()) {
+      iccId = make_shared<string>(boost::any_cast<string>(m["IccId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo() = default;
+};
+class ListDiagnoseInfoForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo>> diagnoseInfo{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListDiagnoseInfoForSingleCardResponseBody() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*diagnoseInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiagnoseInfo"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseInfo") != m.end() && !m["DiagnoseInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiagnoseInfo"].type()) {
+        vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiagnoseInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diagnoseInfo = make_shared<vector<ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponseBody() = default;
+};
+class ListDiagnoseInfoForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDiagnoseInfoForSingleCardResponseBody> body{};
+
+  ListDiagnoseInfoForSingleCardResponse() {}
+
+  explicit ListDiagnoseInfoForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDiagnoseInfoForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDiagnoseInfoForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDiagnoseInfoForSingleCardResponse() = default;
 };
 class ListIoTCloudConnectorBackhaulRouteRequest : public Darabonba::Model {
 public:
@@ -4949,11 +6141,13 @@ public:
 class ListWirelessCloudConnectorsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> businessType{};
+  shared_ptr<string> isInGroup{};
   shared_ptr<long> maxResults{};
   shared_ptr<vector<string>> names{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> statuses{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
   shared_ptr<vector<string>> wirelessCloudConnectorIds{};
 
   ListWirelessCloudConnectorsRequest() {}
@@ -4968,6 +6162,9 @@ public:
     map<string, boost::any> res;
     if (businessType) {
       res["BusinessType"] = boost::any(*businessType);
+    }
+    if (isInGroup) {
+      res["IsInGroup"] = boost::any(*isInGroup);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -4984,6 +6181,9 @@ public:
     if (statuses) {
       res["Statuses"] = boost::any(*statuses);
     }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
     if (wirelessCloudConnectorIds) {
       res["WirelessCloudConnectorIds"] = boost::any(*wirelessCloudConnectorIds);
     }
@@ -4993,6 +6193,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
       businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
+    }
+    if (m.find("IsInGroup") != m.end() && !m["IsInGroup"].empty()) {
+      isInGroup = make_shared<string>(boost::any_cast<string>(m["IsInGroup"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
@@ -5023,6 +6226,9 @@ public:
       }
       statuses = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
     if (m.find("WirelessCloudConnectorIds") != m.end() && !m["WirelessCloudConnectorIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["WirelessCloudConnectorIds"].type()) {
@@ -5048,8 +6254,10 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
   shared_ptr<string> status{};
   shared_ptr<string> useCase{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
   shared_ptr<string> wirelessCloudConnectorId{};
 
   ListWirelessCloudConnectorsResponseBodyWirelessCloudConnectors() {}
@@ -5086,11 +6294,17 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
     if (useCase) {
       res["UseCase"] = boost::any(*useCase);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
     }
     if (wirelessCloudConnectorId) {
       res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
@@ -5123,11 +6337,17 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("UseCase") != m.end() && !m["UseCase"].empty()) {
       useCase = make_shared<string>(boost::any_cast<string>(m["UseCase"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
     }
     if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
       wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
@@ -6011,6 +7231,147 @@ public:
 
   virtual ~ResumeCardsResponse() = default;
 };
+class RevokeNetLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> netLinkId{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  RevokeNetLinkRequest() {}
+
+  explicit RevokeNetLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (netLinkId) {
+      res["NetLinkId"] = boost::any(*netLinkId);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("NetLinkId") != m.end() && !m["NetLinkId"].empty()) {
+      netLinkId = make_shared<string>(boost::any_cast<string>(m["NetLinkId"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~RevokeNetLinkRequest() = default;
+};
+class RevokeNetLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RevokeNetLinkResponseBody() {}
+
+  explicit RevokeNetLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RevokeNetLinkResponseBody() = default;
+};
+class RevokeNetLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RevokeNetLinkResponseBody> body{};
+
+  RevokeNetLinkResponse() {}
+
+  explicit RevokeNetLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RevokeNetLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RevokeNetLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RevokeNetLinkResponse() = default;
+};
 class StopCardsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -6158,6 +7519,175 @@ public:
 
 
   virtual ~StopCardsResponse() = default;
+};
+class SubmitDiagnoseTaskForSingleCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> destination{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<long> resourceUid{};
+  shared_ptr<string> source{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  SubmitDiagnoseTaskForSingleCardRequest() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (resourceUid) {
+      res["ResourceUid"] = boost::any(*resourceUid);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("ResourceUid") != m.end() && !m["ResourceUid"].empty()) {
+      resourceUid = make_shared<long>(boost::any_cast<long>(m["ResourceUid"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardRequest() = default;
+};
+class SubmitDiagnoseTaskForSingleCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> diagnoseTaskId{};
+  shared_ptr<string> requestId{};
+
+  SubmitDiagnoseTaskForSingleCardResponseBody() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diagnoseTaskId) {
+      res["DiagnoseTaskId"] = boost::any(*diagnoseTaskId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiagnoseTaskId") != m.end() && !m["DiagnoseTaskId"].empty()) {
+      diagnoseTaskId = make_shared<string>(boost::any_cast<string>(m["DiagnoseTaskId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardResponseBody() = default;
+};
+class SubmitDiagnoseTaskForSingleCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitDiagnoseTaskForSingleCardResponseBody> body{};
+
+  SubmitDiagnoseTaskForSingleCardResponse() {}
+
+  explicit SubmitDiagnoseTaskForSingleCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitDiagnoseTaskForSingleCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitDiagnoseTaskForSingleCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitDiagnoseTaskForSingleCardResponse() = default;
 };
 class SwitchWirelessCloudConnectorToBusinessRequest : public Darabonba::Model {
 public:
@@ -7346,14 +8876,22 @@ public:
   DeleteWirelessCloudConnectorResponse deleteWirelessCloudConnector(shared_ptr<DeleteWirelessCloudConnectorRequest> request);
   DetachVpcFromNetLinkResponse detachVpcFromNetLinkWithOptions(shared_ptr<DetachVpcFromNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachVpcFromNetLinkResponse detachVpcFromNetLink(shared_ptr<DetachVpcFromNetLinkRequest> request);
+  FailCardsResponse failCardsWithOptions(shared_ptr<FailCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FailCardsResponse failCards(shared_ptr<FailCardsRequest> request);
   GetCardResponse getCardWithOptions(shared_ptr<GetCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCardResponse getCard(shared_ptr<GetCardRequest> request);
   GetCardLockReasonResponse getCardLockReasonWithOptions(shared_ptr<GetCardLockReasonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCardLockReasonResponse getCardLockReason(shared_ptr<GetCardLockReasonRequest> request);
   GetCreateCustomerInformationResponse getCreateCustomerInformationWithOptions(shared_ptr<GetCreateCustomerInformationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCreateCustomerInformationResponse getCreateCustomerInformation(shared_ptr<GetCreateCustomerInformationRequest> request);
+  GetDiagnoseResultForSingleCardResponse getDiagnoseResultForSingleCardWithOptions(shared_ptr<GetDiagnoseResultForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDiagnoseResultForSingleCardResponse getDiagnoseResultForSingleCard(shared_ptr<GetDiagnoseResultForSingleCardRequest> request);
   GetWirelessCloudConnectorResponse getWirelessCloudConnectorWithOptions(shared_ptr<GetWirelessCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWirelessCloudConnectorResponse getWirelessCloudConnector(shared_ptr<GetWirelessCloudConnectorRequest> request);
+  GrantNetLinkResponse grantNetLinkWithOptions(shared_ptr<GrantNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GrantNetLinkResponse grantNetLink(shared_ptr<GrantNetLinkRequest> request);
+  ListAPNsResponse listAPNsWithOptions(shared_ptr<ListAPNsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAPNsResponse listAPNs(shared_ptr<ListAPNsRequest> request);
   ListAuthorizationRulesResponse listAuthorizationRulesWithOptions(shared_ptr<ListAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAuthorizationRulesResponse listAuthorizationRules(shared_ptr<ListAuthorizationRulesRequest> request);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasksWithOptions(shared_ptr<ListBatchOperateCardsTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7362,6 +8900,8 @@ public:
   ListCardsResponse listCards(shared_ptr<ListCardsRequest> request);
   ListDataPackagesResponse listDataPackagesWithOptions(shared_ptr<ListDataPackagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDataPackagesResponse listDataPackages(shared_ptr<ListDataPackagesRequest> request);
+  ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request);
   ListIoTCloudConnectorBackhaulRouteResponse listIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<ListIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIoTCloudConnectorBackhaulRouteResponse listIoTCloudConnectorBackhaulRoute(shared_ptr<ListIoTCloudConnectorBackhaulRouteRequest> request);
   ListOrdersResponse listOrdersWithOptions(shared_ptr<ListOrdersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7380,8 +8920,12 @@ public:
   OpenCc5gServiceResponse openCc5gService(shared_ptr<OpenCc5gServiceRequest> request);
   ResumeCardsResponse resumeCardsWithOptions(shared_ptr<ResumeCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeCardsResponse resumeCards(shared_ptr<ResumeCardsRequest> request);
+  RevokeNetLinkResponse revokeNetLinkWithOptions(shared_ptr<RevokeNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeNetLinkResponse revokeNetLink(shared_ptr<RevokeNetLinkRequest> request);
   StopCardsResponse stopCardsWithOptions(shared_ptr<StopCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopCardsResponse stopCards(shared_ptr<StopCardsRequest> request);
+  SubmitDiagnoseTaskForSingleCardResponse submitDiagnoseTaskForSingleCardWithOptions(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitDiagnoseTaskForSingleCardResponse submitDiagnoseTaskForSingleCard(shared_ptr<SubmitDiagnoseTaskForSingleCardRequest> request);
   SwitchWirelessCloudConnectorToBusinessResponse switchWirelessCloudConnectorToBusinessWithOptions(shared_ptr<SwitchWirelessCloudConnectorToBusinessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SwitchWirelessCloudConnectorToBusinessResponse switchWirelessCloudConnectorToBusiness(shared_ptr<SwitchWirelessCloudConnectorToBusinessRequest> request);
   UnlockCardsResponse unlockCardsWithOptions(shared_ptr<UnlockCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
