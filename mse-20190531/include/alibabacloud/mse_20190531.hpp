@@ -7420,6 +7420,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appIds{};
+  shared_ptr<bool> dbGrayEnable{};
   shared_ptr<bool> enable{};
   shared_ptr<string> entryApp{};
   shared_ptr<string> gmtCreate{};
@@ -7450,6 +7451,9 @@ public:
     }
     if (appIds) {
       res["AppIds"] = boost::any(*appIds);
+    }
+    if (dbGrayEnable) {
+      res["DbGrayEnable"] = boost::any(*dbGrayEnable);
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
@@ -7502,6 +7506,9 @@ public:
     }
     if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
       appIds = make_shared<string>(boost::any_cast<string>(m["AppIds"]));
+    }
+    if (m.find("DbGrayEnable") != m.end() && !m["DbGrayEnable"].empty()) {
+      dbGrayEnable = make_shared<bool>(boost::any_cast<bool>(m["DbGrayEnable"]));
     }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));

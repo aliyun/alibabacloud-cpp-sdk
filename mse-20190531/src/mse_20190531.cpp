@@ -1303,6 +1303,9 @@ CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->appIds)) {
     query->insert(pair<string, string>("AppIds", *request->appIds));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dbGrayEnable)) {
+    query->insert(pair<string, bool>("DbGrayEnable", *request->dbGrayEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
   }
