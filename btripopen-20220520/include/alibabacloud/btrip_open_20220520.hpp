@@ -86,11 +86,55 @@ public:
 
   virtual ~AccessTokenResponseBodyData() = default;
 };
+class AccessTokenResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> expire{};
+  shared_ptr<long> start{};
+  shared_ptr<string> token{};
+
+  AccessTokenResponseBodyModule() {}
+
+  explicit AccessTokenResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expire) {
+      res["expire"] = boost::any(*expire);
+    }
+    if (start) {
+      res["start"] = boost::any(*start);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("expire") != m.end() && !m["expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["expire"]));
+    }
+    if (m.find("start") != m.end() && !m["start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["start"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+  }
+
+
+  virtual ~AccessTokenResponseBodyModule() = default;
+};
 class AccessTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<AccessTokenResponseBodyData> data{};
   shared_ptr<string> message{};
+  shared_ptr<AccessTokenResponseBodyModule> module{};
   shared_ptr<string> requestId{};
   shared_ptr<string> traceId{};
 
@@ -112,6 +156,9 @@ public:
     }
     if (message) {
       res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -135,6 +182,13 @@ public:
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        AccessTokenResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<AccessTokenResponseBodyModule>(model1);
+      }
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -9390,11 +9444,55 @@ public:
 
   virtual ~CorpTokenResponseBodyData() = default;
 };
+class CorpTokenResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> expire{};
+  shared_ptr<long> start{};
+  shared_ptr<string> token{};
+
+  CorpTokenResponseBodyModule() {}
+
+  explicit CorpTokenResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expire) {
+      res["expire"] = boost::any(*expire);
+    }
+    if (start) {
+      res["start"] = boost::any(*start);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("expire") != m.end() && !m["expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["expire"]));
+    }
+    if (m.find("start") != m.end() && !m["start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["start"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+  }
+
+
+  virtual ~CorpTokenResponseBodyModule() = default;
+};
 class CorpTokenResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<CorpTokenResponseBodyData> data{};
   shared_ptr<string> message{};
+  shared_ptr<CorpTokenResponseBodyModule> module{};
   shared_ptr<string> requestId{};
   shared_ptr<string> traceId{};
 
@@ -9416,6 +9514,9 @@ public:
     }
     if (message) {
       res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
@@ -9439,6 +9540,13 @@ public:
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        CorpTokenResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<CorpTokenResponseBodyModule>(model1);
+      }
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
