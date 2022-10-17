@@ -153,6 +153,7 @@ public:
 class AbstractEcommerceVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AbstractEcommerceVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AbstractEcommerceVideoResponseBody() {}
@@ -168,6 +169,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -181,6 +185,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<AbstractEcommerceVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -356,6 +363,7 @@ public:
 class AbstractFilmVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AbstractFilmVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AbstractFilmVideoResponseBody() {}
@@ -371,6 +379,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -384,6 +395,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<AbstractFilmVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -559,6 +573,7 @@ public:
 class AddFaceVideoTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AddFaceVideoTemplateResponseBodyDate> date{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AddFaceVideoTemplateResponseBody() {}
@@ -574,6 +589,9 @@ public:
     if (date) {
       res["Date"] = date ? boost::any(date->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -587,6 +605,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Date"]));
         date = make_shared<AddFaceVideoTemplateResponseBodyDate>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -804,6 +825,7 @@ public:
 class AdjustVideoColorResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AdjustVideoColorResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AdjustVideoColorResponseBody() {}
@@ -819,6 +841,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -832,6 +857,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<AdjustVideoColorResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -1112,6 +1140,7 @@ public:
 class ChangeVideoSizeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ChangeVideoSizeResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ChangeVideoSizeResponseBody() {}
@@ -1127,6 +1156,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1140,6 +1172,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ChangeVideoSizeResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -1343,6 +1378,7 @@ public:
 class ConvertHdrVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ConvertHdrVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ConvertHdrVideoResponseBody() {}
@@ -1358,6 +1394,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1371,6 +1410,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ConvertHdrVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -1743,6 +1785,7 @@ public:
 class EnhanceVideoQualityResponseBody : public Darabonba::Model {
 public:
   shared_ptr<EnhanceVideoQualityResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   EnhanceVideoQualityResponseBody() {}
@@ -1758,6 +1801,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1771,6 +1817,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<EnhanceVideoQualityResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2074,6 +2123,7 @@ public:
 class EraseVideoLogoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<EraseVideoLogoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   EraseVideoLogoResponseBody() {}
@@ -2089,6 +2139,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2102,6 +2155,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<EraseVideoLogoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2319,6 +2375,7 @@ public:
 class EraseVideoSubtitlesResponseBody : public Darabonba::Model {
 public:
   shared_ptr<EraseVideoSubtitlesResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   EraseVideoSubtitlesResponseBody() {}
@@ -2334,6 +2391,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2347,6 +2407,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<EraseVideoSubtitlesResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2613,6 +2676,7 @@ public:
 class GenerateVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GenerateVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   GenerateVideoResponseBody() {}
@@ -2628,6 +2692,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2641,6 +2708,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<GenerateVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3018,6 +3088,7 @@ public:
 class InterpolateVideoFrameResponseBody : public Darabonba::Model {
 public:
   shared_ptr<InterpolateVideoFrameResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   InterpolateVideoFrameResponseBody() {}
@@ -3033,6 +3104,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3046,6 +3120,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<InterpolateVideoFrameResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3235,6 +3312,7 @@ public:
 class MergeVideoFaceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<MergeVideoFaceResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   MergeVideoFaceResponseBody() {}
@@ -3250,6 +3328,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3263,6 +3344,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<MergeVideoFaceResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3452,6 +3536,7 @@ public:
 class MergeVideoModelFaceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<MergeVideoModelFaceResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   MergeVideoModelFaceResponseBody() {}
@@ -3467,6 +3552,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3480,6 +3568,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<MergeVideoModelFaceResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3893,6 +3984,7 @@ public:
 class SuperResolveVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SuperResolveVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   SuperResolveVideoResponseBody() {}
@@ -3908,6 +4000,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3921,6 +4016,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<SuperResolveVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4110,6 +4208,7 @@ public:
 class ToneSdrVideoResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ToneSdrVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ToneSdrVideoResponseBody() {}
@@ -4125,6 +4224,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4138,6 +4240,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ToneSdrVideoResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
