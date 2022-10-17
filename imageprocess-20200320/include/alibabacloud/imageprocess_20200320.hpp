@@ -346,6 +346,7 @@ public:
 class AnalyzeChestVesselResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AnalyzeChestVesselResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   AnalyzeChestVesselResponseBody() {}
@@ -361,6 +362,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -374,6 +378,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<AnalyzeChestVesselResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -669,6 +676,7 @@ public:
 class CalcCACSResponseBody : public Darabonba::Model {
 public:
   shared_ptr<CalcCACSResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   CalcCACSResponseBody() {}
@@ -684,6 +692,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -697,6 +708,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<CalcCACSResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -1284,6 +1298,7 @@ public:
 class DetectCovid19CadResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DetectCovid19CadResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   DetectCovid19CadResponseBody() {}
@@ -1299,6 +1314,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -1312,6 +1330,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DetectCovid19CadResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2755,6 +2776,7 @@ public:
 class DetectLungNoduleResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DetectLungNoduleResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   DetectLungNoduleResponseBody() {}
@@ -2770,6 +2792,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2783,6 +2808,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DetectLungNoduleResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3707,6 +3735,7 @@ public:
 class DetectRibFractureResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DetectRibFractureResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   DetectRibFractureResponseBody() {}
@@ -3722,6 +3751,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3735,6 +3767,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DetectRibFractureResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4891,6 +4926,7 @@ public:
 class RunCTRegistrationResponseBody : public Darabonba::Model {
 public:
   shared_ptr<RunCTRegistrationResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   RunCTRegistrationResponseBody() {}
@@ -4906,6 +4942,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -4919,6 +4958,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<RunCTRegistrationResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -6706,6 +6748,7 @@ public:
 class ScreenChestCTResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ScreenChestCTResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ScreenChestCTResponseBody() {}
@@ -6721,6 +6764,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -6734,6 +6780,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ScreenChestCTResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -6984,6 +7033,7 @@ public:
 class ScreenECResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ScreenECResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   ScreenECResponseBody() {}
@@ -6999,6 +7049,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -7012,6 +7065,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ScreenECResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -7236,6 +7292,7 @@ public:
 class SegmentOARResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SegmentOARResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   SegmentOARResponseBody() {}
@@ -7251,6 +7308,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -7264,6 +7324,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<SegmentOARResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
