@@ -2929,6 +2929,7 @@ public:
 class SegmentHDCommonImageResponseBody : public Darabonba::Model {
 public:
   shared_ptr<SegmentHDCommonImageResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   SegmentHDCommonImageResponseBody() {}
@@ -2944,6 +2945,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2957,6 +2961,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<SegmentHDCommonImageResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
