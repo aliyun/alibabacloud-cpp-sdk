@@ -5190,10 +5190,14 @@ UpdateAdminPasswordResponse Alibabacloud_Elasticsearch20170613::Client::updateAd
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->esAdminPassword)) {
+    body->insert(pair<string, string>("esAdminPassword", *request->esAdminPassword));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateAdminPassword"))},
