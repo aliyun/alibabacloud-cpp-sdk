@@ -1887,6 +1887,7 @@ public:
   shared_ptr<string> securityToken{};
   shared_ptr<string> srcDBInstanceId{};
   shared_ptr<string> storageEngine{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -1990,6 +1991,9 @@ public:
     }
     if (storageEngine) {
       res["StorageEngine"] = boost::any(*storageEngine);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -2111,6 +2115,9 @@ public:
     }
     if (m.find("StorageEngine") != m.end() && !m["StorageEngine"].empty()) {
       storageEngine = make_shared<string>(boost::any_cast<string>(m["StorageEngine"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));

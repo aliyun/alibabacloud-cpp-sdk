@@ -643,6 +643,9 @@ CreateShardingDBInstanceResponse Alibabacloud_Dds20151201::Client::createShardin
   if (!Darabonba_Util::Client::isUnset<string>(request->storageEngine)) {
     query->insert(pair<string, string>("StorageEngine", *request->storageEngine));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageType)) {
+    query->insert(pair<string, string>("StorageType", *request->storageType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
   }
