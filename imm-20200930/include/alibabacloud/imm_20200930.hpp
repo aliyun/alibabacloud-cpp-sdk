@@ -2494,6 +2494,7 @@ public:
   shared_ptr<string> gender{};
   shared_ptr<long> imageCount{};
   shared_ptr<double> maxAge{};
+  shared_ptr<long> metaLockVersion{};
   shared_ptr<double> minAge{};
   shared_ptr<string> name{};
   shared_ptr<string> objectId{};
@@ -2542,6 +2543,9 @@ public:
     }
     if (maxAge) {
       res["MaxAge"] = boost::any(*maxAge);
+    }
+    if (metaLockVersion) {
+      res["MetaLockVersion"] = boost::any(*metaLockVersion);
     }
     if (minAge) {
       res["MinAge"] = boost::any(*minAge);
@@ -2609,6 +2613,9 @@ public:
     }
     if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
       maxAge = make_shared<double>(boost::any_cast<double>(m["MaxAge"]));
+    }
+    if (m.find("MetaLockVersion") != m.end() && !m["MetaLockVersion"].empty()) {
+      metaLockVersion = make_shared<long>(boost::any_cast<long>(m["MetaLockVersion"]));
     }
     if (m.find("MinAge") != m.end() && !m["MinAge"].empty()) {
       minAge = make_shared<double>(boost::any_cast<double>(m["MinAge"]));
@@ -2716,6 +2723,7 @@ public:
   shared_ptr<FigureClusterForReqCover> cover{};
   shared_ptr<string> customId{};
   shared_ptr<map<string, boost::any>> customLabels{};
+  shared_ptr<long> metaLockVersion{};
   shared_ptr<string> name{};
   shared_ptr<string> objectId{};
 
@@ -2737,6 +2745,9 @@ public:
     }
     if (customLabels) {
       res["CustomLabels"] = boost::any(*customLabels);
+    }
+    if (metaLockVersion) {
+      res["MetaLockVersion"] = boost::any(*metaLockVersion);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2765,6 +2776,9 @@ public:
          toMap1[item.first] = item.second;
       }
       customLabels = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("MetaLockVersion") != m.end() && !m["MetaLockVersion"].empty()) {
+      metaLockVersion = make_shared<long>(boost::any_cast<long>(m["MetaLockVersion"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
