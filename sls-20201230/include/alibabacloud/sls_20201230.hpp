@@ -1794,414 +1794,6 @@ public:
 
   virtual ~ApplyConfigToMachineGroupResponse() = default;
 };
-class BatchCreateEtlMetaRequestEtlMetaList : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<map<string, boost::any>> etlMetaValue{};
-
-  BatchCreateEtlMetaRequestEtlMetaList() {}
-
-  explicit BatchCreateEtlMetaRequestEtlMetaList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (etlMetaValue) {
-      res["etlMetaValue"] = boost::any(*etlMetaValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("etlMetaValue") != m.end() && !m["etlMetaValue"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["etlMetaValue"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      etlMetaValue = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~BatchCreateEtlMetaRequestEtlMetaList() = default;
-};
-class BatchCreateEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<vector<BatchCreateEtlMetaRequestEtlMetaList>> etlMetaList{};
-
-  BatchCreateEtlMetaRequest() {}
-
-  explicit BatchCreateEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaList) {
-      vector<boost::any> temp1;
-      for(auto item1:*etlMetaList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["etlMetaList"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaList") != m.end() && !m["etlMetaList"].empty()) {
-      if (typeid(vector<boost::any>) == m["etlMetaList"].type()) {
-        vector<BatchCreateEtlMetaRequestEtlMetaList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["etlMetaList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            BatchCreateEtlMetaRequestEtlMetaList model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        etlMetaList = make_shared<vector<BatchCreateEtlMetaRequestEtlMetaList>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~BatchCreateEtlMetaRequest() = default;
-};
-class BatchCreateEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  BatchCreateEtlMetaResponse() {}
-
-  explicit BatchCreateEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~BatchCreateEtlMetaResponse() = default;
-};
-class BatchModifyEtlMetaStatusRequest : public Darabonba::Model {
-public:
-  shared_ptr<vector<string>> etlMetaKeyList{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<string> range{};
-  shared_ptr<string> type{};
-
-  BatchModifyEtlMetaStatusRequest() {}
-
-  explicit BatchModifyEtlMetaStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaKeyList) {
-      res["etlMetaKeyList"] = boost::any(*etlMetaKeyList);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (range) {
-      res["range"] = boost::any(*range);
-    }
-    if (type) {
-      res["type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaKeyList") != m.end() && !m["etlMetaKeyList"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["etlMetaKeyList"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["etlMetaKeyList"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      etlMetaKeyList = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("range") != m.end() && !m["range"].empty()) {
-      range = make_shared<string>(boost::any_cast<string>(m["range"]));
-    }
-    if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["type"]));
-    }
-  }
-
-
-  virtual ~BatchModifyEtlMetaStatusRequest() = default;
-};
-class BatchModifyEtlMetaStatusResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  BatchModifyEtlMetaStatusResponse() {}
-
-  explicit BatchModifyEtlMetaStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~BatchModifyEtlMetaStatusResponse() = default;
-};
-class BatchUpdateEtlMetaRequestEtlMetaList : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<map<string, boost::any>> etlMetaValue{};
-
-  BatchUpdateEtlMetaRequestEtlMetaList() {}
-
-  explicit BatchUpdateEtlMetaRequestEtlMetaList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (etlMetaValue) {
-      res["etlMetaValue"] = boost::any(*etlMetaValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("etlMetaValue") != m.end() && !m["etlMetaValue"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["etlMetaValue"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      etlMetaValue = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~BatchUpdateEtlMetaRequestEtlMetaList() = default;
-};
-class BatchUpdateEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<BatchUpdateEtlMetaRequestEtlMetaList> etlMetaList{};
-
-  BatchUpdateEtlMetaRequest() {}
-
-  explicit BatchUpdateEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaList) {
-      res["etlMetaList"] = etlMetaList ? boost::any(etlMetaList->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaList") != m.end() && !m["etlMetaList"].empty()) {
-      if (typeid(map<string, boost::any>) == m["etlMetaList"].type()) {
-        BatchUpdateEtlMetaRequestEtlMetaList model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["etlMetaList"]));
-        etlMetaList = make_shared<BatchUpdateEtlMetaRequestEtlMetaList>(model1);
-      }
-    }
-  }
-
-
-  virtual ~BatchUpdateEtlMetaRequest() = default;
-};
-class BatchUpdateEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  BatchUpdateEtlMetaResponse() {}
-
-  explicit BatchUpdateEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~BatchUpdateEtlMetaResponse() = default;
-};
 class CreateConsumerGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> consumerGroup{};
@@ -2369,456 +1961,6 @@ public:
 
 
   virtual ~CreateDomainResponse() = default;
-};
-class CreateEtlJobRequestFunctionConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> accountId{};
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> functionName{};
-  shared_ptr<string> functionProvider{};
-  shared_ptr<string> regionName{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<string> serviceName{};
-
-  CreateEtlJobRequestFunctionConfig() {}
-
-  explicit CreateEtlJobRequestFunctionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (accountId) {
-      res["accountId"] = boost::any(*accountId);
-    }
-    if (endpoint) {
-      res["endpoint"] = boost::any(*endpoint);
-    }
-    if (functionName) {
-      res["functionName"] = boost::any(*functionName);
-    }
-    if (functionProvider) {
-      res["functionProvider"] = boost::any(*functionProvider);
-    }
-    if (regionName) {
-      res["regionName"] = boost::any(*regionName);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (serviceName) {
-      res["serviceName"] = boost::any(*serviceName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
-      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
-    }
-    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
-    }
-    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
-      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
-    }
-    if (m.find("functionProvider") != m.end() && !m["functionProvider"].empty()) {
-      functionProvider = make_shared<string>(boost::any_cast<string>(m["functionProvider"]));
-    }
-    if (m.find("regionName") != m.end() && !m["regionName"].empty()) {
-      regionName = make_shared<string>(boost::any_cast<string>(m["regionName"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
-      serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
-    }
-  }
-
-
-  virtual ~CreateEtlJobRequestFunctionConfig() = default;
-};
-class CreateEtlJobRequestLogConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  CreateEtlJobRequestLogConfig() {}
-
-  explicit CreateEtlJobRequestLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["endpoint"] = boost::any(*endpoint);
-    }
-    if (logstoreName) {
-      res["logstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["projectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
-    }
-    if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
-    }
-    if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
-    }
-  }
-
-
-  virtual ~CreateEtlJobRequestLogConfig() = default;
-};
-class CreateEtlJobRequestSourceConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-
-  CreateEtlJobRequestSourceConfig() {}
-
-  explicit CreateEtlJobRequestSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["logstoreName"] = boost::any(*logstoreName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
-    }
-  }
-
-
-  virtual ~CreateEtlJobRequestSourceConfig() = default;
-};
-class CreateEtlJobRequestTriggerConfig : public Darabonba::Model {
-public:
-  shared_ptr<long> maxRetryTime{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<string> startingPosition{};
-  shared_ptr<long> startingUnixtime{};
-  shared_ptr<long> triggerInterval{};
-
-  CreateEtlJobRequestTriggerConfig() {}
-
-  explicit CreateEtlJobRequestTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxRetryTime) {
-      res["maxRetryTime"] = boost::any(*maxRetryTime);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (startingPosition) {
-      res["startingPosition"] = boost::any(*startingPosition);
-    }
-    if (startingUnixtime) {
-      res["startingUnixtime"] = boost::any(*startingUnixtime);
-    }
-    if (triggerInterval) {
-      res["triggerInterval"] = boost::any(*triggerInterval);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("maxRetryTime") != m.end() && !m["maxRetryTime"].empty()) {
-      maxRetryTime = make_shared<long>(boost::any_cast<long>(m["maxRetryTime"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("startingPosition") != m.end() && !m["startingPosition"].empty()) {
-      startingPosition = make_shared<string>(boost::any_cast<string>(m["startingPosition"]));
-    }
-    if (m.find("startingUnixtime") != m.end() && !m["startingUnixtime"].empty()) {
-      startingUnixtime = make_shared<long>(boost::any_cast<long>(m["startingUnixtime"]));
-    }
-    if (m.find("triggerInterval") != m.end() && !m["triggerInterval"].empty()) {
-      triggerInterval = make_shared<long>(boost::any_cast<long>(m["triggerInterval"]));
-    }
-  }
-
-
-  virtual ~CreateEtlJobRequestTriggerConfig() = default;
-};
-class CreateEtlJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlJobName{};
-  shared_ptr<CreateEtlJobRequestFunctionConfig> functionConfig{};
-  shared_ptr<map<string, boost::any>> functionParameter{};
-  shared_ptr<CreateEtlJobRequestLogConfig> logConfig{};
-  shared_ptr<CreateEtlJobRequestSourceConfig> sourceConfig{};
-  shared_ptr<CreateEtlJobRequestTriggerConfig> triggerConfig{};
-
-  CreateEtlJobRequest() {}
-
-  explicit CreateEtlJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlJobName) {
-      res["etlJobName"] = boost::any(*etlJobName);
-    }
-    if (functionConfig) {
-      res["functionConfig"] = functionConfig ? boost::any(functionConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (functionParameter) {
-      res["functionParameter"] = boost::any(*functionParameter);
-    }
-    if (logConfig) {
-      res["logConfig"] = logConfig ? boost::any(logConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (sourceConfig) {
-      res["sourceConfig"] = sourceConfig ? boost::any(sourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (triggerConfig) {
-      res["triggerConfig"] = triggerConfig ? boost::any(triggerConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlJobName") != m.end() && !m["etlJobName"].empty()) {
-      etlJobName = make_shared<string>(boost::any_cast<string>(m["etlJobName"]));
-    }
-    if (m.find("functionConfig") != m.end() && !m["functionConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["functionConfig"].type()) {
-        CreateEtlJobRequestFunctionConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["functionConfig"]));
-        functionConfig = make_shared<CreateEtlJobRequestFunctionConfig>(model1);
-      }
-    }
-    if (m.find("functionParameter") != m.end() && !m["functionParameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["functionParameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      functionParameter = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("logConfig") != m.end() && !m["logConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["logConfig"].type()) {
-        CreateEtlJobRequestLogConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["logConfig"]));
-        logConfig = make_shared<CreateEtlJobRequestLogConfig>(model1);
-      }
-    }
-    if (m.find("sourceConfig") != m.end() && !m["sourceConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["sourceConfig"].type()) {
-        CreateEtlJobRequestSourceConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceConfig"]));
-        sourceConfig = make_shared<CreateEtlJobRequestSourceConfig>(model1);
-      }
-    }
-    if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["triggerConfig"].type()) {
-        CreateEtlJobRequestTriggerConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["triggerConfig"]));
-        triggerConfig = make_shared<CreateEtlJobRequestTriggerConfig>(model1);
-      }
-    }
-  }
-
-
-  virtual ~CreateEtlJobRequest() = default;
-};
-class CreateEtlJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  CreateEtlJobResponse() {}
-
-  explicit CreateEtlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~CreateEtlJobResponse() = default;
-};
-class CreateEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<map<string, boost::any>> etlMetaValue{};
-
-  CreateEtlMetaRequest() {}
-
-  explicit CreateEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (etlMetaValue) {
-      res["etlMetaValue"] = boost::any(*etlMetaValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("etlMetaValue") != m.end() && !m["etlMetaValue"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["etlMetaValue"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      etlMetaValue = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~CreateEtlMetaRequest() = default;
-};
-class CreateEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  CreateEtlMetaResponse() {}
-
-  explicit CreateEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~CreateEtlMetaResponse() = default;
 };
 class CreateIndexRequestLine : public Darabonba::Model {
 public:
@@ -4586,145 +3728,6 @@ public:
 
   virtual ~DeleteDomainResponse() = default;
 };
-class DeleteEtlJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  DeleteEtlJobResponse() {}
-
-  explicit DeleteEtlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~DeleteEtlJobResponse() = default;
-};
-class DeleteEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-
-  DeleteEtlMetaRequest() {}
-
-  explicit DeleteEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-  }
-
-
-  virtual ~DeleteEtlMetaRequest() = default;
-};
-class DeleteEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  DeleteEtlMetaResponse() {}
-
-  explicit DeleteEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~DeleteEtlMetaResponse() = default;
-};
 class DeleteExternalStoreResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -5012,6 +4015,54 @@ public:
 
 
   virtual ~DeleteProjectResponse() = default;
+};
+class DeleteProjectPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  DeleteProjectPolicyResponse() {}
+
+  explicit DeleteProjectPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~DeleteProjectPolicyResponse() = default;
 };
 class DeleteSavedSearchResponse : public Darabonba::Model {
 public:
@@ -5661,7 +4712,6 @@ public:
 class GetCursorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> from{};
-  shared_ptr<string> type{};
 
   GetCursorRequest() {}
 
@@ -5676,18 +4726,12 @@ public:
     if (from) {
       res["from"] = boost::any(*from);
     }
-    if (type) {
-      res["type"] = boost::any(*type);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("from") != m.end() && !m["from"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["from"]));
-    }
-    if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
   }
 
@@ -5788,7 +4832,6 @@ public:
 class GetCursorTimeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cursor{};
-  shared_ptr<string> type{};
 
   GetCursorTimeRequest() {}
 
@@ -5803,18 +4846,12 @@ public:
     if (cursor) {
       res["cursor"] = boost::any(*cursor);
     }
-    if (type) {
-      res["type"] = boost::any(*type);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("cursor") != m.end() && !m["cursor"].empty()) {
       cursor = make_shared<string>(boost::any_cast<string>(m["cursor"]));
-    }
-    if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
   }
 
@@ -5911,223 +4948,6 @@ public:
 
 
   virtual ~GetCursorTimeResponse() = default;
-};
-class GetEtlJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<EtlJob> body{};
-
-  GetEtlJobResponse() {}
-
-  explicit GetEtlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        EtlJob model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<EtlJob>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetEtlJobResponse() = default;
-};
-class GetEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-
-  GetEtlMetaRequest() {}
-
-  explicit GetEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-  }
-
-
-  virtual ~GetEtlMetaRequest() = default;
-};
-class GetEtlMetaResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<EtlMeta>> etlMetaList{};
-  shared_ptr<long> total{};
-
-  GetEtlMetaResponseBody() {}
-
-  explicit GetEtlMetaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaList) {
-      vector<boost::any> temp1;
-      for(auto item1:*etlMetaList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["etlMetaList"] = boost::any(temp1);
-    }
-    if (total) {
-      res["total"] = boost::any(*total);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaList") != m.end() && !m["etlMetaList"].empty()) {
-      if (typeid(vector<boost::any>) == m["etlMetaList"].type()) {
-        vector<EtlMeta> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["etlMetaList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            EtlMeta model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        etlMetaList = make_shared<vector<EtlMeta>>(expect1);
-      }
-    }
-    if (m.find("total") != m.end() && !m["total"].empty()) {
-      total = make_shared<long>(boost::any_cast<long>(m["total"]));
-    }
-  }
-
-
-  virtual ~GetEtlMetaResponseBody() = default;
-};
-class GetEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetEtlMetaResponseBody> body{};
-
-  GetEtlMetaResponse() {}
-
-  explicit GetEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetEtlMetaResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetEtlMetaResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetEtlMetaResponse() = default;
 };
 class GetExternalStoreResponse : public Darabonba::Model {
 public:
@@ -7129,6 +5949,54 @@ public:
 
   virtual ~GetProjectLogsResponse() = default;
 };
+class GetProjectPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  GetProjectPolicyResponse() {}
+
+  explicit GetProjectPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~GetProjectPolicyResponse() = default;
+};
 class GetSavedSearchResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -7190,130 +6058,6 @@ public:
 
 
   virtual ~GetSavedSearchResponse() = default;
-};
-class GetShipperConfigResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> createTime{};
-  shared_ptr<long> lastModifyTime{};
-  shared_ptr<string> shipperName{};
-  shared_ptr<map<string, boost::any>> targetConfiguration{};
-  shared_ptr<string> targetType{};
-
-  GetShipperConfigResponseBody() {}
-
-  explicit GetShipperConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (createTime) {
-      res["createTime"] = boost::any(*createTime);
-    }
-    if (lastModifyTime) {
-      res["lastModifyTime"] = boost::any(*lastModifyTime);
-    }
-    if (shipperName) {
-      res["shipperName"] = boost::any(*shipperName);
-    }
-    if (targetConfiguration) {
-      res["targetConfiguration"] = boost::any(*targetConfiguration);
-    }
-    if (targetType) {
-      res["targetType"] = boost::any(*targetType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
-      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
-    }
-    if (m.find("lastModifyTime") != m.end() && !m["lastModifyTime"].empty()) {
-      lastModifyTime = make_shared<long>(boost::any_cast<long>(m["lastModifyTime"]));
-    }
-    if (m.find("shipperName") != m.end() && !m["shipperName"].empty()) {
-      shipperName = make_shared<string>(boost::any_cast<string>(m["shipperName"]));
-    }
-    if (m.find("targetConfiguration") != m.end() && !m["targetConfiguration"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["targetConfiguration"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      targetConfiguration = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("targetType") != m.end() && !m["targetType"].empty()) {
-      targetType = make_shared<string>(boost::any_cast<string>(m["targetType"]));
-    }
-  }
-
-
-  virtual ~GetShipperConfigResponseBody() = default;
-};
-class GetShipperConfigResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetShipperConfigResponseBody> body{};
-
-  GetShipperConfigResponse() {}
-
-  explicit GetShipperConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetShipperConfigResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetShipperConfigResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetShipperConfigResponse() = default;
 };
 class GetShipperStatusRequest : public Darabonba::Model {
 public:
@@ -7839,471 +6583,6 @@ public:
 
 
   virtual ~ListDomainsResponse() = default;
-};
-class ListEtlJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> offset{};
-  shared_ptr<long> size{};
-
-  ListEtlJobRequest() {}
-
-  explicit ListEtlJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (offset) {
-      res["offset"] = boost::any(*offset);
-    }
-    if (size) {
-      res["size"] = boost::any(*size);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("offset") != m.end() && !m["offset"].empty()) {
-      offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
-    }
-    if (m.find("size") != m.end() && !m["size"].empty()) {
-      size = make_shared<long>(boost::any_cast<long>(m["size"]));
-    }
-  }
-
-
-  virtual ~ListEtlJobRequest() = default;
-};
-class ListEtlJobResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> count{};
-  shared_ptr<vector<string>> etlJobNameList{};
-  shared_ptr<long> total{};
-
-  ListEtlJobResponseBody() {}
-
-  explicit ListEtlJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (count) {
-      res["count"] = boost::any(*count);
-    }
-    if (etlJobNameList) {
-      res["etlJobNameList"] = boost::any(*etlJobNameList);
-    }
-    if (total) {
-      res["total"] = boost::any(*total);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("count") != m.end() && !m["count"].empty()) {
-      count = make_shared<long>(boost::any_cast<long>(m["count"]));
-    }
-    if (m.find("etlJobNameList") != m.end() && !m["etlJobNameList"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["etlJobNameList"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["etlJobNameList"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      etlJobNameList = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("total") != m.end() && !m["total"].empty()) {
-      total = make_shared<long>(boost::any_cast<long>(m["total"]));
-    }
-  }
-
-
-  virtual ~ListEtlJobResponseBody() = default;
-};
-class ListEtlJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListEtlJobResponseBody> body{};
-
-  ListEtlJobResponse() {}
-
-  explicit ListEtlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListEtlJobResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListEtlJobResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListEtlJobResponse() = default;
-};
-class ListEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<long> offset{};
-  shared_ptr<long> size{};
-
-  ListEtlMetaRequest() {}
-
-  explicit ListEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (offset) {
-      res["offset"] = boost::any(*offset);
-    }
-    if (size) {
-      res["size"] = boost::any(*size);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("offset") != m.end() && !m["offset"].empty()) {
-      offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
-    }
-    if (m.find("size") != m.end() && !m["size"].empty()) {
-      size = make_shared<long>(boost::any_cast<long>(m["size"]));
-    }
-  }
-
-
-  virtual ~ListEtlMetaRequest() = default;
-};
-class ListEtlMetaResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<EtlMeta>> etlMetaList{};
-  shared_ptr<long> total{};
-
-  ListEtlMetaResponseBody() {}
-
-  explicit ListEtlMetaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (etlMetaList) {
-      vector<boost::any> temp1;
-      for(auto item1:*etlMetaList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["etlMetaList"] = boost::any(temp1);
-    }
-    if (total) {
-      res["total"] = boost::any(*total);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("etlMetaList") != m.end() && !m["etlMetaList"].empty()) {
-      if (typeid(vector<boost::any>) == m["etlMetaList"].type()) {
-        vector<EtlMeta> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["etlMetaList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            EtlMeta model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        etlMetaList = make_shared<vector<EtlMeta>>(expect1);
-      }
-    }
-    if (m.find("total") != m.end() && !m["total"].empty()) {
-      total = make_shared<long>(boost::any_cast<long>(m["total"]));
-    }
-  }
-
-
-  virtual ~ListEtlMetaResponseBody() = default;
-};
-class ListEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListEtlMetaResponseBody> body{};
-
-  ListEtlMetaResponse() {}
-
-  explicit ListEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListEtlMetaResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListEtlMetaResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListEtlMetaResponse() = default;
-};
-class ListEtlMetaNameRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> offset{};
-  shared_ptr<long> size{};
-
-  ListEtlMetaNameRequest() {}
-
-  explicit ListEtlMetaNameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (offset) {
-      res["offset"] = boost::any(*offset);
-    }
-    if (size) {
-      res["size"] = boost::any(*size);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("offset") != m.end() && !m["offset"].empty()) {
-      offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
-    }
-    if (m.find("size") != m.end() && !m["size"].empty()) {
-      size = make_shared<long>(boost::any_cast<long>(m["size"]));
-    }
-  }
-
-
-  virtual ~ListEtlMetaNameRequest() = default;
-};
-class ListEtlMetaNameResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<long> count{};
-  shared_ptr<vector<string>> etlMetaNameList{};
-  shared_ptr<long> total{};
-
-  ListEtlMetaNameResponseBody() {}
-
-  explicit ListEtlMetaNameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (count) {
-      res["count"] = boost::any(*count);
-    }
-    if (etlMetaNameList) {
-      res["etlMetaNameList"] = boost::any(*etlMetaNameList);
-    }
-    if (total) {
-      res["total"] = boost::any(*total);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("count") != m.end() && !m["count"].empty()) {
-      count = make_shared<long>(boost::any_cast<long>(m["count"]));
-    }
-    if (m.find("etlMetaNameList") != m.end() && !m["etlMetaNameList"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["etlMetaNameList"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["etlMetaNameList"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      etlMetaNameList = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("total") != m.end() && !m["total"].empty()) {
-      total = make_shared<long>(boost::any_cast<long>(m["total"]));
-    }
-  }
-
-
-  virtual ~ListEtlMetaNameResponseBody() = default;
-};
-class ListEtlMetaNameResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ListEtlMetaNameResponseBody> body{};
-
-  ListEtlMetaNameResponse() {}
-
-  explicit ListEtlMetaNameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ListEtlMetaNameResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ListEtlMetaNameResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ListEtlMetaNameResponse() = default;
 };
 class ListExternalStoreRequest : public Darabonba::Model {
 public:
@@ -9745,13 +8024,15 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
-class MergeShardsRequest : public Darabonba::Model {
+class PullDataRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> action{};
+  shared_ptr<string> count{};
+  shared_ptr<string> cursor{};
+  shared_ptr<string> endCursor{};
 
-  MergeShardsRequest() {}
+  PullDataRequest() {}
 
-  explicit MergeShardsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit PullDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -9759,30 +8040,41 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (action) {
-      res["action"] = boost::any(*action);
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (cursor) {
+      res["cursor"] = boost::any(*cursor);
+    }
+    if (endCursor) {
+      res["endCursor"] = boost::any(*endCursor);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("action") != m.end() && !m["action"].empty()) {
-      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["count"]));
+    }
+    if (m.find("cursor") != m.end() && !m["cursor"].empty()) {
+      cursor = make_shared<string>(boost::any_cast<string>(m["cursor"]));
+    }
+    if (m.find("endCursor") != m.end() && !m["endCursor"].empty()) {
+      endCursor = make_shared<string>(boost::any_cast<string>(m["endCursor"]));
     }
   }
 
 
-  virtual ~MergeShardsRequest() = default;
+  virtual ~PullDataRequest() = default;
 };
-class MergeShardsResponse : public Darabonba::Model {
+class PullDataResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
-  shared_ptr<vector<Shard>> body{};
 
-  MergeShardsResponse() {}
+  PullDataResponse() {}
 
-  explicit MergeShardsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit PullDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -9793,9 +8085,6 @@ public:
     if (!statusCode) {
       BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
     }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
   }
 
   map<string, boost::any> toMap() override {
@@ -9805,13 +8094,6 @@ public:
     }
     if (statusCode) {
       res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      vector<boost::any> temp1;
-      for(auto item1:*body){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["body"] = boost::any(temp1);
     }
     return res;
   }
@@ -9828,23 +8110,202 @@ public:
     if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
       statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
     }
+  }
+
+
+  virtual ~PullDataResponse() = default;
+};
+class PutProjectPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> body{};
+
+  PutProjectPolicyRequest() {}
+
+  explicit PutProjectPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(vector<boost::any>) == m["body"].type()) {
-        vector<Shard> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            Shard model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        body = make_shared<vector<Shard>>(expect1);
-      }
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
 
-  virtual ~MergeShardsResponse() = default;
+  virtual ~PutProjectPolicyRequest() = default;
+};
+class PutProjectPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  PutProjectPolicyResponse() {}
+
+  explicit PutProjectPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~PutProjectPolicyResponse() = default;
+};
+class PutWebtrackingRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, string>>> logs{};
+  shared_ptr<string> source{};
+  shared_ptr<map<string, string>> tags{};
+  shared_ptr<string> topic{};
+
+  PutWebtrackingRequest() {}
+
+  explicit PutWebtrackingRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logs) {
+      res["__logs__"] = boost::any(*logs);
+    }
+    if (source) {
+      res["__source__"] = boost::any(*source);
+    }
+    if (tags) {
+      res["__tags__"] = boost::any(*tags);
+    }
+    if (topic) {
+      res["__topic__"] = boost::any(*topic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("__logs__") != m.end() && !m["__logs__"].empty()) {
+      vector<map<string, string>> toVec1;
+      if (typeid(vector<boost::any>) == m["__logs__"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["__logs__"]);
+        for (auto item:vec1) {
+          map<string, string> map2 = boost::any_cast<map<string, string>>(item);
+          map<string, string> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      logs = make_shared<vector<map<string, string>>>(toVec1);
+    }
+    if (m.find("__source__") != m.end() && !m["__source__"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["__source__"]));
+    }
+    if (m.find("__tags__") != m.end() && !m["__tags__"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["__tags__"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("__topic__") != m.end() && !m["__topic__"].empty()) {
+      topic = make_shared<string>(boost::any_cast<string>(m["__topic__"]));
+    }
+  }
+
+
+  virtual ~PutWebtrackingRequest() = default;
+};
+class PutWebtrackingResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  PutWebtrackingResponse() {}
+
+  explicit PutWebtrackingResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~PutWebtrackingResponse() = default;
 };
 class RemoveConfigFromMachineGroupResponse : public Darabonba::Model {
 public:
@@ -9896,7 +8357,6 @@ public:
 };
 class SplitShardRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> action{};
   shared_ptr<string> key{};
   shared_ptr<long> shardCount{};
 
@@ -9910,9 +8370,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (action) {
-      res["action"] = boost::any(*action);
-    }
     if (key) {
       res["key"] = boost::any(*key);
     }
@@ -9923,9 +8380,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("action") != m.end() && !m["action"].empty()) {
-      action = make_shared<string>(boost::any_cast<string>(m["action"]));
-    }
     if (m.find("key") != m.end() && !m["key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["key"]));
     }
@@ -10157,16 +8611,16 @@ public:
 
   virtual ~TagResourcesResponse() = default;
 };
-class UnTagResourcesRequest : public Darabonba::Model {
+class UntagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
-  shared_ptr<vector<string>> resourceId{};
+  shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<string>> tags{};
 
-  UnTagResourcesRequest() {}
+  UntagResourcesRequest() {}
 
-  explicit UnTagResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit UntagResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10194,14 +8648,7 @@ public:
       all = make_shared<bool>(boost::any_cast<bool>(m["all"]));
     }
     if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["resourceId"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resourceId"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      resourceId = make_shared<vector<string>>(toVec1);
+      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
     }
     if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
@@ -10219,16 +8666,16 @@ public:
   }
 
 
-  virtual ~UnTagResourcesRequest() = default;
+  virtual ~UntagResourcesRequest() = default;
 };
-class UnTagResourcesResponse : public Darabonba::Model {
+class UntagResourcesResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
   shared_ptr<long> statusCode{};
 
-  UnTagResourcesResponse() {}
+  UntagResourcesResponse() {}
 
-  explicit UnTagResourcesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit UntagResourcesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -10267,112 +8714,7 @@ public:
   }
 
 
-  virtual ~UnTagResourcesResponse() = default;
-};
-class UpdateCheckPointRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> checkpoint{};
-  shared_ptr<long> shard{};
-  shared_ptr<string> consumer{};
-  shared_ptr<bool> forceSuccess{};
-  shared_ptr<string> type{};
-
-  UpdateCheckPointRequest() {}
-
-  explicit UpdateCheckPointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (checkpoint) {
-      res["checkpoint"] = boost::any(*checkpoint);
-    }
-    if (shard) {
-      res["shard"] = boost::any(*shard);
-    }
-    if (consumer) {
-      res["consumer"] = boost::any(*consumer);
-    }
-    if (forceSuccess) {
-      res["forceSuccess"] = boost::any(*forceSuccess);
-    }
-    if (type) {
-      res["type"] = boost::any(*type);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("checkpoint") != m.end() && !m["checkpoint"].empty()) {
-      checkpoint = make_shared<string>(boost::any_cast<string>(m["checkpoint"]));
-    }
-    if (m.find("shard") != m.end() && !m["shard"].empty()) {
-      shard = make_shared<long>(boost::any_cast<long>(m["shard"]));
-    }
-    if (m.find("consumer") != m.end() && !m["consumer"].empty()) {
-      consumer = make_shared<string>(boost::any_cast<string>(m["consumer"]));
-    }
-    if (m.find("forceSuccess") != m.end() && !m["forceSuccess"].empty()) {
-      forceSuccess = make_shared<bool>(boost::any_cast<bool>(m["forceSuccess"]));
-    }
-    if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["type"]));
-    }
-  }
-
-
-  virtual ~UpdateCheckPointRequest() = default;
-};
-class UpdateCheckPointResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  UpdateCheckPointResponse() {}
-
-  explicit UpdateCheckPointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~UpdateCheckPointResponse() = default;
+  virtual ~UntagResourcesResponse() = default;
 };
 class UpdateConsumerGroupRequest : public Darabonba::Model {
 public:
@@ -10457,456 +8799,6 @@ public:
 
 
   virtual ~UpdateConsumerGroupResponse() = default;
-};
-class UpdateEtlJobRequestFunctionConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> accountId{};
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> functionName{};
-  shared_ptr<string> functionProvider{};
-  shared_ptr<string> regionName{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<string> serviceName{};
-
-  UpdateEtlJobRequestFunctionConfig() {}
-
-  explicit UpdateEtlJobRequestFunctionConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (accountId) {
-      res["accountId"] = boost::any(*accountId);
-    }
-    if (endpoint) {
-      res["endpoint"] = boost::any(*endpoint);
-    }
-    if (functionName) {
-      res["functionName"] = boost::any(*functionName);
-    }
-    if (functionProvider) {
-      res["functionProvider"] = boost::any(*functionProvider);
-    }
-    if (regionName) {
-      res["regionName"] = boost::any(*regionName);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (serviceName) {
-      res["serviceName"] = boost::any(*serviceName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("accountId") != m.end() && !m["accountId"].empty()) {
-      accountId = make_shared<string>(boost::any_cast<string>(m["accountId"]));
-    }
-    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
-    }
-    if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
-      functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
-    }
-    if (m.find("functionProvider") != m.end() && !m["functionProvider"].empty()) {
-      functionProvider = make_shared<string>(boost::any_cast<string>(m["functionProvider"]));
-    }
-    if (m.find("regionName") != m.end() && !m["regionName"].empty()) {
-      regionName = make_shared<string>(boost::any_cast<string>(m["regionName"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
-      serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlJobRequestFunctionConfig() = default;
-};
-class UpdateEtlJobRequestLogConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> endpoint{};
-  shared_ptr<string> logstoreName{};
-  shared_ptr<string> projectName{};
-
-  UpdateEtlJobRequestLogConfig() {}
-
-  explicit UpdateEtlJobRequestLogConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (endpoint) {
-      res["endpoint"] = boost::any(*endpoint);
-    }
-    if (logstoreName) {
-      res["logstoreName"] = boost::any(*logstoreName);
-    }
-    if (projectName) {
-      res["projectName"] = boost::any(*projectName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
-    }
-    if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
-    }
-    if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlJobRequestLogConfig() = default;
-};
-class UpdateEtlJobRequestSourceConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> logstoreName{};
-
-  UpdateEtlJobRequestSourceConfig() {}
-
-  explicit UpdateEtlJobRequestSourceConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (logstoreName) {
-      res["logstoreName"] = boost::any(*logstoreName);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
-      logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlJobRequestSourceConfig() = default;
-};
-class UpdateEtlJobRequestTriggerConfig : public Darabonba::Model {
-public:
-  shared_ptr<long> maxRetryTime{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<string> startingPosition{};
-  shared_ptr<long> startingUnixtime{};
-  shared_ptr<long> triggerInterval{};
-
-  UpdateEtlJobRequestTriggerConfig() {}
-
-  explicit UpdateEtlJobRequestTriggerConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (maxRetryTime) {
-      res["maxRetryTime"] = boost::any(*maxRetryTime);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (startingPosition) {
-      res["startingPosition"] = boost::any(*startingPosition);
-    }
-    if (startingUnixtime) {
-      res["startingUnixtime"] = boost::any(*startingUnixtime);
-    }
-    if (triggerInterval) {
-      res["triggerInterval"] = boost::any(*triggerInterval);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("maxRetryTime") != m.end() && !m["maxRetryTime"].empty()) {
-      maxRetryTime = make_shared<long>(boost::any_cast<long>(m["maxRetryTime"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("startingPosition") != m.end() && !m["startingPosition"].empty()) {
-      startingPosition = make_shared<string>(boost::any_cast<string>(m["startingPosition"]));
-    }
-    if (m.find("startingUnixtime") != m.end() && !m["startingUnixtime"].empty()) {
-      startingUnixtime = make_shared<long>(boost::any_cast<long>(m["startingUnixtime"]));
-    }
-    if (m.find("triggerInterval") != m.end() && !m["triggerInterval"].empty()) {
-      triggerInterval = make_shared<long>(boost::any_cast<long>(m["triggerInterval"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlJobRequestTriggerConfig() = default;
-};
-class UpdateEtlJobRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlJobName{};
-  shared_ptr<UpdateEtlJobRequestFunctionConfig> functionConfig{};
-  shared_ptr<map<string, boost::any>> functionParameter{};
-  shared_ptr<UpdateEtlJobRequestLogConfig> logConfig{};
-  shared_ptr<UpdateEtlJobRequestSourceConfig> sourceConfig{};
-  shared_ptr<UpdateEtlJobRequestTriggerConfig> triggerConfig{};
-
-  UpdateEtlJobRequest() {}
-
-  explicit UpdateEtlJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlJobName) {
-      res["etlJobName"] = boost::any(*etlJobName);
-    }
-    if (functionConfig) {
-      res["functionConfig"] = functionConfig ? boost::any(functionConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (functionParameter) {
-      res["functionParameter"] = boost::any(*functionParameter);
-    }
-    if (logConfig) {
-      res["logConfig"] = logConfig ? boost::any(logConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (sourceConfig) {
-      res["sourceConfig"] = sourceConfig ? boost::any(sourceConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (triggerConfig) {
-      res["triggerConfig"] = triggerConfig ? boost::any(triggerConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlJobName") != m.end() && !m["etlJobName"].empty()) {
-      etlJobName = make_shared<string>(boost::any_cast<string>(m["etlJobName"]));
-    }
-    if (m.find("functionConfig") != m.end() && !m["functionConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["functionConfig"].type()) {
-        UpdateEtlJobRequestFunctionConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["functionConfig"]));
-        functionConfig = make_shared<UpdateEtlJobRequestFunctionConfig>(model1);
-      }
-    }
-    if (m.find("functionParameter") != m.end() && !m["functionParameter"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["functionParameter"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      functionParameter = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("logConfig") != m.end() && !m["logConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["logConfig"].type()) {
-        UpdateEtlJobRequestLogConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["logConfig"]));
-        logConfig = make_shared<UpdateEtlJobRequestLogConfig>(model1);
-      }
-    }
-    if (m.find("sourceConfig") != m.end() && !m["sourceConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["sourceConfig"].type()) {
-        UpdateEtlJobRequestSourceConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceConfig"]));
-        sourceConfig = make_shared<UpdateEtlJobRequestSourceConfig>(model1);
-      }
-    }
-    if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["triggerConfig"].type()) {
-        UpdateEtlJobRequestTriggerConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["triggerConfig"]));
-        triggerConfig = make_shared<UpdateEtlJobRequestTriggerConfig>(model1);
-      }
-    }
-  }
-
-
-  virtual ~UpdateEtlJobRequest() = default;
-};
-class UpdateEtlJobResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  UpdateEtlJobResponse() {}
-
-  explicit UpdateEtlJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlJobResponse() = default;
-};
-class UpdateEtlMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> enable{};
-  shared_ptr<string> etlMetaKey{};
-  shared_ptr<string> etlMetaName{};
-  shared_ptr<string> etlMetaTag{};
-  shared_ptr<map<string, boost::any>> etlMetaValue{};
-
-  UpdateEtlMetaRequest() {}
-
-  explicit UpdateEtlMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (etlMetaKey) {
-      res["etlMetaKey"] = boost::any(*etlMetaKey);
-    }
-    if (etlMetaName) {
-      res["etlMetaName"] = boost::any(*etlMetaName);
-    }
-    if (etlMetaTag) {
-      res["etlMetaTag"] = boost::any(*etlMetaTag);
-    }
-    if (etlMetaValue) {
-      res["etlMetaValue"] = boost::any(*etlMetaValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("etlMetaKey") != m.end() && !m["etlMetaKey"].empty()) {
-      etlMetaKey = make_shared<string>(boost::any_cast<string>(m["etlMetaKey"]));
-    }
-    if (m.find("etlMetaName") != m.end() && !m["etlMetaName"].empty()) {
-      etlMetaName = make_shared<string>(boost::any_cast<string>(m["etlMetaName"]));
-    }
-    if (m.find("etlMetaTag") != m.end() && !m["etlMetaTag"].empty()) {
-      etlMetaTag = make_shared<string>(boost::any_cast<string>(m["etlMetaTag"]));
-    }
-    if (m.find("etlMetaValue") != m.end() && !m["etlMetaValue"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["etlMetaValue"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      etlMetaValue = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~UpdateEtlMetaRequest() = default;
-};
-class UpdateEtlMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  UpdateEtlMetaResponse() {}
-
-  explicit UpdateEtlMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~UpdateEtlMetaResponse() = default;
 };
 class UpdateIndexRequestLine : public Darabonba::Model {
 public:
@@ -11573,6 +9465,97 @@ public:
 
 
   virtual ~UpdateMachineGroupResponse() = default;
+};
+class UpdateMachineGroupMachineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<vector<string>> body{};
+
+  UpdateMachineGroupMachineRequest() {}
+
+  explicit UpdateMachineGroupMachineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["action"] = boost::any(*action);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("action") != m.end() && !m["action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["action"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["body"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      body = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateMachineGroupMachineRequest() = default;
+};
+class UpdateMachineGroupMachineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  UpdateMachineGroupMachineResponse() {}
+
+  explicit UpdateMachineGroupMachineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~UpdateMachineGroupMachineResponse() = default;
 };
 class UpdateOdpsShipperRequestTargetConfiguration : public Darabonba::Model {
 public:
@@ -12581,21 +10564,6 @@ public:
                                                                          shared_ptr<string> configName,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  BatchCreateEtlMetaResponse batchCreateEtlMeta(shared_ptr<string> project, shared_ptr<BatchCreateEtlMetaRequest> request);
-  BatchCreateEtlMetaResponse batchCreateEtlMetaWithOptions(shared_ptr<string> project,
-                                                           shared_ptr<BatchCreateEtlMetaRequest> request,
-                                                           shared_ptr<map<string, string>> headers,
-                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  BatchModifyEtlMetaStatusResponse batchModifyEtlMetaStatus(shared_ptr<string> project, shared_ptr<BatchModifyEtlMetaStatusRequest> request);
-  BatchModifyEtlMetaStatusResponse batchModifyEtlMetaStatusWithOptions(shared_ptr<string> project,
-                                                                       shared_ptr<BatchModifyEtlMetaStatusRequest> request,
-                                                                       shared_ptr<map<string, string>> headers,
-                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  BatchUpdateEtlMetaResponse batchUpdateEtlMeta(shared_ptr<string> project, shared_ptr<BatchUpdateEtlMetaRequest> request);
-  BatchUpdateEtlMetaResponse batchUpdateEtlMetaWithOptions(shared_ptr<string> project,
-                                                           shared_ptr<BatchUpdateEtlMetaRequest> request,
-                                                           shared_ptr<map<string, string>> headers,
-                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateConsumerGroupResponse createConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateConsumerGroupRequest> request);
   CreateConsumerGroupResponse createConsumerGroupWithOptions(shared_ptr<string> project,
                                                              shared_ptr<string> logstore,
@@ -12607,16 +10575,6 @@ public:
                                                shared_ptr<CreateDomainRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateEtlJobResponse createEtlJob(shared_ptr<string> project, shared_ptr<CreateEtlJobRequest> request);
-  CreateEtlJobResponse createEtlJobWithOptions(shared_ptr<string> project,
-                                               shared_ptr<CreateEtlJobRequest> request,
-                                               shared_ptr<map<string, string>> headers,
-                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateEtlMetaResponse createEtlMeta(shared_ptr<string> project, shared_ptr<CreateEtlMetaRequest> request);
-  CreateEtlMetaResponse createEtlMetaWithOptions(shared_ptr<string> project,
-                                                 shared_ptr<CreateEtlMetaRequest> request,
-                                                 shared_ptr<map<string, string>> headers,
-                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIndexResponse createIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateIndexRequest> request);
   CreateIndexResponse createIndexWithOptions(shared_ptr<string> project,
                                              shared_ptr<string> logstore,
@@ -12678,16 +10636,6 @@ public:
                                                shared_ptr<string> domainName,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteEtlJobResponse deleteEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName);
-  DeleteEtlJobResponse deleteEtlJobWithOptions(shared_ptr<string> project,
-                                               shared_ptr<string> etlJobName,
-                                               shared_ptr<map<string, string>> headers,
-                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteEtlMetaResponse deleteEtlMeta(shared_ptr<string> project, shared_ptr<DeleteEtlMetaRequest> request);
-  DeleteEtlMetaResponse deleteEtlMetaWithOptions(shared_ptr<string> project,
-                                                 shared_ptr<DeleteEtlMetaRequest> request,
-                                                 shared_ptr<map<string, string>> headers,
-                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteExternalStoreResponse deleteExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName);
   DeleteExternalStoreResponse deleteExternalStoreWithOptions(shared_ptr<string> project,
                                                              shared_ptr<string> externalStoreName,
@@ -12712,6 +10660,8 @@ public:
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteProjectResponse deleteProject(shared_ptr<string> project);
   DeleteProjectResponse deleteProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteProjectPolicyResponse deleteProjectPolicy(shared_ptr<string> project);
+  DeleteProjectPolicyResponse deleteProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSavedSearchResponse deleteSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName);
   DeleteSavedSearchResponse deleteSavedSearchWithOptions(shared_ptr<string> project,
                                                          shared_ptr<string> savedsearchName,
@@ -12769,16 +10719,6 @@ public:
                                                  shared_ptr<GetCursorTimeRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetEtlJobResponse getEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName);
-  GetEtlJobResponse getEtlJobWithOptions(shared_ptr<string> project,
-                                         shared_ptr<string> etlJobName,
-                                         shared_ptr<map<string, string>> headers,
-                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetEtlMetaResponse getEtlMeta(shared_ptr<string> project, shared_ptr<GetEtlMetaRequest> request);
-  GetEtlMetaResponse getEtlMetaWithOptions(shared_ptr<string> project,
-                                           shared_ptr<GetEtlMetaRequest> request,
-                                           shared_ptr<map<string, string>> headers,
-                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetExternalStoreResponse getExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName);
   GetExternalStoreResponse getExternalStoreWithOptions(shared_ptr<string> project,
                                                        shared_ptr<string> externalStoreName,
@@ -12820,17 +10760,13 @@ public:
                                                    shared_ptr<GetProjectLogsRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetProjectPolicyResponse getProjectPolicy(shared_ptr<string> project);
+  GetProjectPolicyResponse getProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSavedSearchResponse getSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName);
   GetSavedSearchResponse getSavedSearchWithOptions(shared_ptr<string> project,
                                                    shared_ptr<string> savedsearchName,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetShipperConfigResponse getShipperConfig(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> shipperName);
-  GetShipperConfigResponse getShipperConfigWithOptions(shared_ptr<string> project,
-                                                       shared_ptr<string> logstore,
-                                                       shared_ptr<string> shipperName,
-                                                       shared_ptr<map<string, string>> headers,
-                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetShipperStatusResponse getShipperStatus(shared_ptr<string> project,
                                             shared_ptr<string> logstore,
                                             shared_ptr<string> shipperName,
@@ -12851,21 +10787,6 @@ public:
                                              shared_ptr<ListDomainsRequest> request,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEtlJobResponse listEtlJob(shared_ptr<string> project, shared_ptr<ListEtlJobRequest> request);
-  ListEtlJobResponse listEtlJobWithOptions(shared_ptr<string> project,
-                                           shared_ptr<ListEtlJobRequest> request,
-                                           shared_ptr<map<string, string>> headers,
-                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEtlMetaResponse listEtlMeta(shared_ptr<string> project, shared_ptr<ListEtlMetaRequest> request);
-  ListEtlMetaResponse listEtlMetaWithOptions(shared_ptr<string> project,
-                                             shared_ptr<ListEtlMetaRequest> request,
-                                             shared_ptr<map<string, string>> headers,
-                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEtlMetaNameResponse listEtlMetaName(shared_ptr<string> project, shared_ptr<ListEtlMetaNameRequest> request);
-  ListEtlMetaNameResponse listEtlMetaNameWithOptions(shared_ptr<string> project,
-                                                     shared_ptr<ListEtlMetaNameRequest> request,
-                                                     shared_ptr<map<string, string>> headers,
-                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListExternalStoreResponse listExternalStore(shared_ptr<string> project, shared_ptr<ListExternalStoreRequest> request);
   ListExternalStoreResponse listExternalStoreWithOptions(shared_ptr<string> project,
                                                          shared_ptr<ListExternalStoreRequest> request,
@@ -12906,16 +10827,27 @@ public:
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  MergeShardsResponse mergeShards(shared_ptr<string> project,
-                                  shared_ptr<string> logstore,
-                                  shared_ptr<string> shardID,
-                                  shared_ptr<MergeShardsRequest> request);
-  MergeShardsResponse mergeShardsWithOptions(shared_ptr<string> project,
-                                             shared_ptr<string> logstore,
-                                             shared_ptr<string> shardID,
-                                             shared_ptr<MergeShardsRequest> request,
-                                             shared_ptr<map<string, string>> headers,
-                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PullDataResponse pullData(shared_ptr<string> project,
+                            shared_ptr<string> logstore,
+                            shared_ptr<string> shard,
+                            shared_ptr<PullDataRequest> request);
+  PullDataResponse pullDataWithOptions(shared_ptr<string> project,
+                                       shared_ptr<string> logstore,
+                                       shared_ptr<string> shard,
+                                       shared_ptr<PullDataRequest> request,
+                                       shared_ptr<map<string, string>> headers,
+                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutProjectPolicyResponse putProjectPolicy(shared_ptr<string> project, shared_ptr<PutProjectPolicyRequest> request);
+  PutProjectPolicyResponse putProjectPolicyWithOptions(shared_ptr<string> project,
+                                                       shared_ptr<PutProjectPolicyRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutWebtrackingResponse putWebtracking(shared_ptr<string> project, shared_ptr<string> logstoreName, shared_ptr<PutWebtrackingRequest> request);
+  PutWebtrackingResponse putWebtrackingWithOptions(shared_ptr<string> project,
+                                                   shared_ptr<string> logstoreName,
+                                                   shared_ptr<PutWebtrackingRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveConfigFromMachineGroupResponse removeConfigFromMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName);
   RemoveConfigFromMachineGroupResponse removeConfigFromMachineGroupWithOptions(shared_ptr<string> project,
                                                                                shared_ptr<string> machineGroup,
@@ -12924,28 +10856,18 @@ public:
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SplitShardResponse splitShard(shared_ptr<string> project,
                                 shared_ptr<string> logstore,
-                                shared_ptr<string> shardID,
+                                shared_ptr<string> shard,
                                 shared_ptr<SplitShardRequest> request);
   SplitShardResponse splitShardWithOptions(shared_ptr<string> project,
                                            shared_ptr<string> logstore,
-                                           shared_ptr<string> shardID,
+                                           shared_ptr<string> shard,
                                            shared_ptr<SplitShardRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UnTagResourcesResponse unTagResources(shared_ptr<UnTagResourcesRequest> request);
-  UnTagResourcesResponse unTagResourcesWithOptions(shared_ptr<UnTagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateCheckPointResponse updateCheckPoint(shared_ptr<string> project,
-                                            shared_ptr<string> logstore,
-                                            shared_ptr<string> consumerGroup,
-                                            shared_ptr<UpdateCheckPointRequest> request);
-  UpdateCheckPointResponse updateCheckPointWithOptions(shared_ptr<string> project,
-                                                       shared_ptr<string> logstore,
-                                                       shared_ptr<string> consumerGroup,
-                                                       shared_ptr<UpdateCheckPointRequest> request,
-                                                       shared_ptr<map<string, string>> headers,
-                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateConsumerGroupResponse updateConsumerGroup(shared_ptr<string> project,
                                                   shared_ptr<string> logstore,
                                                   shared_ptr<string> consumerGroup,
@@ -12956,17 +10878,6 @@ public:
                                                              shared_ptr<UpdateConsumerGroupRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateEtlJobResponse updateEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName, shared_ptr<UpdateEtlJobRequest> request);
-  UpdateEtlJobResponse updateEtlJobWithOptions(shared_ptr<string> project,
-                                               shared_ptr<string> etlJobName,
-                                               shared_ptr<UpdateEtlJobRequest> request,
-                                               shared_ptr<map<string, string>> headers,
-                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateEtlMetaResponse updateEtlMeta(shared_ptr<string> project, shared_ptr<UpdateEtlMetaRequest> request);
-  UpdateEtlMetaResponse updateEtlMetaWithOptions(shared_ptr<string> project,
-                                                 shared_ptr<UpdateEtlMetaRequest> request,
-                                                 shared_ptr<map<string, string>> headers,
-                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIndexResponse updateIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateIndexRequest> request);
   UpdateIndexResponse updateIndexWithOptions(shared_ptr<string> project,
                                              shared_ptr<string> logstore,
@@ -12990,6 +10901,12 @@ public:
                                                            shared_ptr<UpdateMachineGroupRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMachineGroupMachineResponse updateMachineGroupMachine(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<UpdateMachineGroupMachineRequest> request);
+  UpdateMachineGroupMachineResponse updateMachineGroupMachineWithOptions(shared_ptr<string> project,
+                                                                         shared_ptr<string> machineGroup,
+                                                                         shared_ptr<UpdateMachineGroupMachineRequest> request,
+                                                                         shared_ptr<map<string, string>> headers,
+                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateOdpsShipperResponse updateOdpsShipper(shared_ptr<string> project,
                                               shared_ptr<string> logstore,
                                               shared_ptr<string> shipperName,

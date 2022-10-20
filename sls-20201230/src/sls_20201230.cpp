@@ -54,128 +54,6 @@ ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigT
   return ApplyConfigToMachineGroupResponse(execute(params, req, runtime));
 }
 
-BatchCreateEtlMetaResponse Alibabacloud_Sls20201230::Client::batchCreateEtlMeta(shared_ptr<string> project, shared_ptr<BatchCreateEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return batchCreateEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-BatchCreateEtlMetaResponse Alibabacloud_Sls20201230::Client::batchCreateEtlMetaWithOptions(shared_ptr<string> project,
-                                                                                           shared_ptr<BatchCreateEtlMetaRequest> request,
-                                                                                           shared_ptr<map<string, string>> headers,
-                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<BatchCreateEtlMetaRequestEtlMetaList>>(request->etlMetaList)) {
-    body->insert(pair<string, vector<BatchCreateEtlMetaRequestEtlMetaList>>("etlMetaList", *request->etlMetaList));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("BatchCreateEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return BatchCreateEtlMetaResponse(execute(params, req, runtime));
-}
-
-BatchModifyEtlMetaStatusResponse Alibabacloud_Sls20201230::Client::batchModifyEtlMetaStatus(shared_ptr<string> project, shared_ptr<BatchModifyEtlMetaStatusRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return batchModifyEtlMetaStatusWithOptions(project, request, headers, runtime);
-}
-
-BatchModifyEtlMetaStatusResponse Alibabacloud_Sls20201230::Client::batchModifyEtlMetaStatusWithOptions(shared_ptr<string> project,
-                                                                                                       shared_ptr<BatchModifyEtlMetaStatusRequest> request,
-                                                                                                       shared_ptr<map<string, string>> headers,
-                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("type", *request->type));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->etlMetaKeyList)) {
-    body->insert(pair<string, vector<string>>("etlMetaKeyList", *request->etlMetaKeyList));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    body->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    body->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->range)) {
-    body->insert(pair<string, string>("range", *request->range));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("BatchModifyEtlMetaStatus"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return BatchModifyEtlMetaStatusResponse(execute(params, req, runtime));
-}
-
-BatchUpdateEtlMetaResponse Alibabacloud_Sls20201230::Client::batchUpdateEtlMeta(shared_ptr<string> project, shared_ptr<BatchUpdateEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return batchUpdateEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-BatchUpdateEtlMetaResponse Alibabacloud_Sls20201230::Client::batchUpdateEtlMetaWithOptions(shared_ptr<string> project,
-                                                                                           shared_ptr<BatchUpdateEtlMetaRequest> request,
-                                                                                           shared_ptr<map<string, string>> headers,
-                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<BatchUpdateEtlMetaRequestEtlMetaList>(request->etlMetaList)) {
-    body->insert(pair<string, BatchUpdateEtlMetaRequestEtlMetaList>("etlMetaList", *request->etlMetaList));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("BatchUpdateEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return BatchUpdateEtlMetaResponse(execute(params, req, runtime));
-}
-
 CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateConsumerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -253,108 +131,6 @@ CreateDomainResponse Alibabacloud_Sls20201230::Client::createDomainWithOptions(s
     {"bodyType", boost::any(string("none"))}
   }));
   return CreateDomainResponse(execute(params, req, runtime));
-}
-
-CreateEtlJobResponse Alibabacloud_Sls20201230::Client::createEtlJob(shared_ptr<string> project, shared_ptr<CreateEtlJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createEtlJobWithOptions(project, request, headers, runtime);
-}
-
-CreateEtlJobResponse Alibabacloud_Sls20201230::Client::createEtlJobWithOptions(shared_ptr<string> project,
-                                                                               shared_ptr<CreateEtlJobRequest> request,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
-    body->insert(pair<string, bool>("enable", *request->enable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlJobName)) {
-    body->insert(pair<string, string>("etlJobName", *request->etlJobName));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateEtlJobRequestFunctionConfig>(request->functionConfig)) {
-    body->insert(pair<string, CreateEtlJobRequestFunctionConfig>("functionConfig", *request->functionConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->functionParameter)) {
-    body->insert(pair<string, map<string, boost::any>>("functionParameter", *request->functionParameter));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateEtlJobRequestLogConfig>(request->logConfig)) {
-    body->insert(pair<string, CreateEtlJobRequestLogConfig>("logConfig", *request->logConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateEtlJobRequestSourceConfig>(request->sourceConfig)) {
-    body->insert(pair<string, CreateEtlJobRequestSourceConfig>("sourceConfig", *request->sourceConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<CreateEtlJobRequestTriggerConfig>(request->triggerConfig)) {
-    body->insert(pair<string, CreateEtlJobRequestTriggerConfig>("triggerConfig", *request->triggerConfig));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateEtlJob"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etljobs"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return CreateEtlJobResponse(execute(params, req, runtime));
-}
-
-CreateEtlMetaResponse Alibabacloud_Sls20201230::Client::createEtlMeta(shared_ptr<string> project, shared_ptr<CreateEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-CreateEtlMetaResponse Alibabacloud_Sls20201230::Client::createEtlMetaWithOptions(shared_ptr<string> project,
-                                                                                 shared_ptr<CreateEtlMetaRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
-                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
-    body->insert(pair<string, bool>("enable", *request->enable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaKey)) {
-    body->insert(pair<string, string>("etlMetaKey", *request->etlMetaKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    body->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    body->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->etlMetaValue)) {
-    body->insert(pair<string, map<string, boost::any>>("etlMetaValue", *request->etlMetaValue));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return CreateEtlMetaResponse(execute(params, req, runtime));
 }
 
 CreateIndexResponse Alibabacloud_Sls20201230::Client::createIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateIndexRequest> request) {
@@ -877,78 +653,6 @@ DeleteDomainResponse Alibabacloud_Sls20201230::Client::deleteDomainWithOptions(s
   return DeleteDomainResponse(execute(params, req, runtime));
 }
 
-DeleteEtlJobResponse Alibabacloud_Sls20201230::Client::deleteEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteEtlJobWithOptions(project, etlJobName, headers, runtime);
-}
-
-DeleteEtlJobResponse Alibabacloud_Sls20201230::Client::deleteEtlJobWithOptions(shared_ptr<string> project,
-                                                                               shared_ptr<string> etlJobName,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteEtlJob"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etljobs/") + string(*etlJobName))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return DeleteEtlJobResponse(execute(params, req, runtime));
-}
-
-DeleteEtlMetaResponse Alibabacloud_Sls20201230::Client::deleteEtlMeta(shared_ptr<string> project, shared_ptr<DeleteEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-DeleteEtlMetaResponse Alibabacloud_Sls20201230::Client::deleteEtlMetaWithOptions(shared_ptr<string> project,
-                                                                                 shared_ptr<DeleteEtlMetaRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
-                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaKey)) {
-    query->insert(pair<string, string>("etlMetaKey", *request->etlMetaKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    query->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    query->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("DELETE"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return DeleteEtlMetaResponse(execute(params, req, runtime));
-}
-
 DeleteExternalStoreResponse Alibabacloud_Sls20201230::Client::deleteExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1121,6 +825,33 @@ DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions
     {"bodyType", boost::any(string("none"))}
   }));
   return DeleteProjectResponse(execute(params, req, runtime));
+}
+
+DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicy(shared_ptr<string> project) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteProjectPolicyWithOptions(project, headers, runtime);
+}
+
+DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteProjectPolicy"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/policy"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteProjectPolicyResponse(execute(params, req, runtime));
 }
 
 DeleteSavedSearchResponse Alibabacloud_Sls20201230::Client::deleteSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
@@ -1356,9 +1087,6 @@ GetCursorResponse Alibabacloud_Sls20201230::Client::getCursorWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     query->insert(pair<string, string>("from", *request->from));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("type", *request->type));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1368,7 +1096,7 @@ GetCursorResponse Alibabacloud_Sls20201230::Client::getCursorWithOptions(shared_
     {"action", boost::any(string("GetCursor"))},
     {"version", boost::any(string("2020-12-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardId))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardId) + string("?type=cursor"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -1400,9 +1128,6 @@ GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTimeWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->cursor)) {
     query->insert(pair<string, string>("cursor", *request->cursor));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("type", *request->type));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1412,7 +1137,7 @@ GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTimeWithOptions
     {"action", boost::any(string("GetCursorTime"))},
     {"version", boost::any(string("2020-12-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardId))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardId) + string("?type=cursor_time"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -1420,78 +1145,6 @@ GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTimeWithOptions
     {"bodyType", boost::any(string("json"))}
   }));
   return GetCursorTimeResponse(execute(params, req, runtime));
-}
-
-GetEtlJobResponse Alibabacloud_Sls20201230::Client::getEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEtlJobWithOptions(project, etlJobName, headers, runtime);
-}
-
-GetEtlJobResponse Alibabacloud_Sls20201230::Client::getEtlJobWithOptions(shared_ptr<string> project,
-                                                                         shared_ptr<string> etlJobName,
-                                                                         shared_ptr<map<string, string>> headers,
-                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetEtlJob"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etljobs/") + string(*etlJobName))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetEtlJobResponse(execute(params, req, runtime));
-}
-
-GetEtlMetaResponse Alibabacloud_Sls20201230::Client::getEtlMeta(shared_ptr<string> project, shared_ptr<GetEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-GetEtlMetaResponse Alibabacloud_Sls20201230::Client::getEtlMetaWithOptions(shared_ptr<string> project,
-                                                                           shared_ptr<GetEtlMetaRequest> request,
-                                                                           shared_ptr<map<string, string>> headers,
-                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaKey)) {
-    query->insert(pair<string, string>("etlMetaKey", *request->etlMetaKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    query->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    query->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetEtlMetaResponse(execute(params, req, runtime));
 }
 
 GetExternalStoreResponse Alibabacloud_Sls20201230::Client::getExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
@@ -1811,6 +1464,33 @@ GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogsWithOptio
   return GetProjectLogsResponse(execute(params, req, runtime));
 }
 
+GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicy(shared_ptr<string> project) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getProjectPolicyWithOptions(project, headers, runtime);
+}
+
+GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetProjectPolicy"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/policy"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetProjectPolicyResponse(execute(params, req, runtime));
+}
+
 GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -1839,37 +1519,6 @@ GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearchWithOptio
     {"bodyType", boost::any(string("json"))}
   }));
   return GetSavedSearchResponse(execute(params, req, runtime));
-}
-
-GetShipperConfigResponse Alibabacloud_Sls20201230::Client::getShipperConfig(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> shipperName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getShipperConfigWithOptions(project, logstore, shipperName, headers, runtime);
-}
-
-GetShipperConfigResponse Alibabacloud_Sls20201230::Client::getShipperConfigWithOptions(shared_ptr<string> project,
-                                                                                       shared_ptr<string> logstore,
-                                                                                       shared_ptr<string> shipperName,
-                                                                                       shared_ptr<map<string, string>> headers,
-                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetShipperConfig"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shipper/") + string(*shipperName))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetShipperConfigResponse(execute(params, req, runtime));
 }
 
 GetShipperStatusResponse Alibabacloud_Sls20201230::Client::getShipperStatus(shared_ptr<string> project,
@@ -1995,132 +1644,6 @@ ListDomainsResponse Alibabacloud_Sls20201230::Client::listDomainsWithOptions(sha
     {"bodyType", boost::any(string("json"))}
   }));
   return ListDomainsResponse(execute(params, req, runtime));
-}
-
-ListEtlJobResponse Alibabacloud_Sls20201230::Client::listEtlJob(shared_ptr<string> project, shared_ptr<ListEtlJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEtlJobWithOptions(project, request, headers, runtime);
-}
-
-ListEtlJobResponse Alibabacloud_Sls20201230::Client::listEtlJobWithOptions(shared_ptr<string> project,
-                                                                           shared_ptr<ListEtlJobRequest> request,
-                                                                           shared_ptr<map<string, string>> headers,
-                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
-    query->insert(pair<string, long>("offset", *request->offset));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
-    query->insert(pair<string, long>("size", *request->size));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListEtlJob"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etljobs"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListEtlJobResponse(execute(params, req, runtime));
-}
-
-ListEtlMetaResponse Alibabacloud_Sls20201230::Client::listEtlMeta(shared_ptr<string> project, shared_ptr<ListEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-ListEtlMetaResponse Alibabacloud_Sls20201230::Client::listEtlMetaWithOptions(shared_ptr<string> project,
-                                                                             shared_ptr<ListEtlMetaRequest> request,
-                                                                             shared_ptr<map<string, string>> headers,
-                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaKey)) {
-    query->insert(pair<string, string>("etlMetaKey", *request->etlMetaKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    query->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    query->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
-    query->insert(pair<string, long>("offset", *request->offset));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
-    query->insert(pair<string, long>("size", *request->size));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListEtlMetaResponse(execute(params, req, runtime));
-}
-
-ListEtlMetaNameResponse Alibabacloud_Sls20201230::Client::listEtlMetaName(shared_ptr<string> project, shared_ptr<ListEtlMetaNameRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEtlMetaNameWithOptions(project, request, headers, runtime);
-}
-
-ListEtlMetaNameResponse Alibabacloud_Sls20201230::Client::listEtlMetaNameWithOptions(shared_ptr<string> project,
-                                                                                     shared_ptr<ListEtlMetaNameRequest> request,
-                                                                                     shared_ptr<map<string, string>> headers,
-                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
-    query->insert(pair<string, long>("offset", *request->offset));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->size)) {
-    query->insert(pair<string, long>("size", *request->size));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListEtlMetaName"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetanames"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListEtlMetaNameResponse(execute(params, req, runtime));
 }
 
 ListExternalStoreResponse Alibabacloud_Sls20201230::Client::listExternalStore(shared_ptr<string> project, shared_ptr<ListExternalStoreRequest> request) {
@@ -2474,27 +1997,33 @@ ListTagResourcesResponse Alibabacloud_Sls20201230::Client::listTagResourcesWithO
   return ListTagResourcesResponse(execute(params, req, runtime));
 }
 
-MergeShardsResponse Alibabacloud_Sls20201230::Client::mergeShards(shared_ptr<string> project,
-                                                                  shared_ptr<string> logstore,
-                                                                  shared_ptr<string> shardID,
-                                                                  shared_ptr<MergeShardsRequest> request) {
+PullDataResponse Alibabacloud_Sls20201230::Client::pullData(shared_ptr<string> project,
+                                                            shared_ptr<string> logstore,
+                                                            shared_ptr<string> shard,
+                                                            shared_ptr<PullDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return mergeShardsWithOptions(project, logstore, shardID, request, headers, runtime);
+  return pullDataWithOptions(project, logstore, shard, request, headers, runtime);
 }
 
-MergeShardsResponse Alibabacloud_Sls20201230::Client::mergeShardsWithOptions(shared_ptr<string> project,
-                                                                             shared_ptr<string> logstore,
-                                                                             shared_ptr<string> shardID,
-                                                                             shared_ptr<MergeShardsRequest> request,
-                                                                             shared_ptr<map<string, string>> headers,
-                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+PullDataResponse Alibabacloud_Sls20201230::Client::pullDataWithOptions(shared_ptr<string> project,
+                                                                       shared_ptr<string> logstore,
+                                                                       shared_ptr<string> shard,
+                                                                       shared_ptr<PullDataRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
   hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    query->insert(pair<string, string>("action", *request->action));
+  if (!Darabonba_Util::Client::isUnset<string>(request->count)) {
+    query->insert(pair<string, string>("count", *request->count));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cursor)) {
+    query->insert(pair<string, string>("cursor", *request->cursor));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endCursor)) {
+    query->insert(pair<string, string>("endCursor", *request->endCursor));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
@@ -2502,17 +2031,95 @@ MergeShardsResponse Alibabacloud_Sls20201230::Client::mergeShardsWithOptions(sha
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("MergeShards"))},
+    {"action", boost::any(string("PullData"))},
     {"version", boost::any(string("2020-12-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardID))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shard) + string("?type=log"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PullDataResponse(execute(params, req, runtime));
+}
+
+PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicy(shared_ptr<string> project, shared_ptr<PutProjectPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putProjectPolicyWithOptions(project, request, headers, runtime);
+}
+
+PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicyWithOptions(shared_ptr<string> project,
+                                                                                       shared_ptr<PutProjectPolicyRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutProjectPolicy"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/policy"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("array"))}
+    {"bodyType", boost::any(string("json"))}
   }));
-  return MergeShardsResponse(execute(params, req, runtime));
+  return PutProjectPolicyResponse(execute(params, req, runtime));
+}
+
+PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtracking(shared_ptr<string> project, shared_ptr<string> logstoreName, shared_ptr<PutWebtrackingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
+}
+
+PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtrackingWithOptions(shared_ptr<string> project,
+                                                                                   shared_ptr<string> logstoreName,
+                                                                                   shared_ptr<PutWebtrackingRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<undefined>>(request->logs)) {
+    body->insert(pair<string, vector<undefined>>("__logs__", *request->logs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    body->insert(pair<string, string>("__source__", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->tags)) {
+    body->insert(pair<string, map<string, string>>("__tags__", *request->tags));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    body->insert(pair<string, string>("__topic__", *request->topic));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutWebtracking"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstoreName) + string("/track"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return PutWebtrackingResponse(execute(params, req, runtime));
 }
 
 RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeConfigFromMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName) {
@@ -2548,16 +2155,16 @@ RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeCon
 
 SplitShardResponse Alibabacloud_Sls20201230::Client::splitShard(shared_ptr<string> project,
                                                                 shared_ptr<string> logstore,
-                                                                shared_ptr<string> shardID,
+                                                                shared_ptr<string> shard,
                                                                 shared_ptr<SplitShardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return splitShardWithOptions(project, logstore, shardID, request, headers, runtime);
+  return splitShardWithOptions(project, logstore, shard, request, headers, runtime);
 }
 
 SplitShardResponse Alibabacloud_Sls20201230::Client::splitShardWithOptions(shared_ptr<string> project,
                                                                            shared_ptr<string> logstore,
-                                                                           shared_ptr<string> shardID,
+                                                                           shared_ptr<string> shard,
                                                                            shared_ptr<SplitShardRequest> request,
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2565,9 +2172,6 @@ SplitShardResponse Alibabacloud_Sls20201230::Client::splitShardWithOptions(share
   shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
   hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
-    query->insert(pair<string, string>("action", *request->action));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
     query->insert(pair<string, string>("key", *request->key));
   }
@@ -2583,7 +2187,7 @@ SplitShardResponse Alibabacloud_Sls20201230::Client::splitShardWithOptions(share
     {"action", boost::any(string("SplitShard"))},
     {"version", boost::any(string("2020-12-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shardID))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/shards/") + string(*shard) + string("?action=split"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -2629,20 +2233,20 @@ TagResourcesResponse Alibabacloud_Sls20201230::Client::tagResourcesWithOptions(s
   return TagResourcesResponse(execute(params, req, runtime));
 }
 
-UnTagResourcesResponse Alibabacloud_Sls20201230::Client::unTagResources(shared_ptr<UnTagResourcesRequest> request) {
+UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return unTagResourcesWithOptions(request, headers, runtime);
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
-UnTagResourcesResponse Alibabacloud_Sls20201230::Client::unTagResourcesWithOptions(shared_ptr<UnTagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
     body->insert(pair<string, bool>("all", *request->all));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceId)) {
-    body->insert(pair<string, vector<string>>("resourceId", *request->resourceId));
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    body->insert(pair<string, string>("resourceId", *request->resourceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("resourceType", *request->resourceType));
@@ -2655,7 +2259,7 @@ UnTagResourcesResponse Alibabacloud_Sls20201230::Client::unTagResourcesWithOptio
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UnTagResources"))},
+    {"action", boost::any(string("UntagResources"))},
     {"version", boost::any(string("2020-12-30"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/untag"))},
@@ -2663,64 +2267,9 @@ UnTagResourcesResponse Alibabacloud_Sls20201230::Client::unTagResourcesWithOptio
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
+    {"bodyType", boost::any(string("json"))}
   }));
-  return UnTagResourcesResponse(execute(params, req, runtime));
-}
-
-UpdateCheckPointResponse Alibabacloud_Sls20201230::Client::updateCheckPoint(shared_ptr<string> project,
-                                                                            shared_ptr<string> logstore,
-                                                                            shared_ptr<string> consumerGroup,
-                                                                            shared_ptr<UpdateCheckPointRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
-}
-
-UpdateCheckPointResponse Alibabacloud_Sls20201230::Client::updateCheckPointWithOptions(shared_ptr<string> project,
-                                                                                       shared_ptr<string> logstore,
-                                                                                       shared_ptr<string> consumerGroup,
-                                                                                       shared_ptr<UpdateCheckPointRequest> request,
-                                                                                       shared_ptr<map<string, string>> headers,
-                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->consumer)) {
-    query->insert(pair<string, string>("consumer", *request->consumer));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->forceSuccess)) {
-    query->insert(pair<string, bool>("forceSuccess", *request->forceSuccess));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
-    query->insert(pair<string, string>("type", *request->type));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->checkpoint)) {
-    body->insert(pair<string, string>("checkpoint", *request->checkpoint));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->shard)) {
-    body->insert(pair<string, long>("shard", *request->shard));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateCheckPoint"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/consumergroups/") + string(*consumerGroup))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return UpdateCheckPointResponse(execute(params, req, runtime));
+  return UntagResourcesResponse(execute(params, req, runtime));
 }
 
 UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGroup(shared_ptr<string> project,
@@ -2765,109 +2314,6 @@ UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGrou
     {"bodyType", boost::any(string("none"))}
   }));
   return UpdateConsumerGroupResponse(execute(params, req, runtime));
-}
-
-UpdateEtlJobResponse Alibabacloud_Sls20201230::Client::updateEtlJob(shared_ptr<string> project, shared_ptr<string> etlJobName, shared_ptr<UpdateEtlJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateEtlJobWithOptions(project, etlJobName, request, headers, runtime);
-}
-
-UpdateEtlJobResponse Alibabacloud_Sls20201230::Client::updateEtlJobWithOptions(shared_ptr<string> project,
-                                                                               shared_ptr<string> etlJobName,
-                                                                               shared_ptr<UpdateEtlJobRequest> request,
-                                                                               shared_ptr<map<string, string>> headers,
-                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
-    body->insert(pair<string, bool>("enable", *request->enable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlJobName)) {
-    body->insert(pair<string, string>("etlJobName", *request->etlJobName));
-  }
-  if (!Darabonba_Util::Client::isUnset<UpdateEtlJobRequestFunctionConfig>(request->functionConfig)) {
-    body->insert(pair<string, UpdateEtlJobRequestFunctionConfig>("functionConfig", *request->functionConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->functionParameter)) {
-    body->insert(pair<string, map<string, boost::any>>("functionParameter", *request->functionParameter));
-  }
-  if (!Darabonba_Util::Client::isUnset<UpdateEtlJobRequestLogConfig>(request->logConfig)) {
-    body->insert(pair<string, UpdateEtlJobRequestLogConfig>("logConfig", *request->logConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<UpdateEtlJobRequestSourceConfig>(request->sourceConfig)) {
-    body->insert(pair<string, UpdateEtlJobRequestSourceConfig>("sourceConfig", *request->sourceConfig));
-  }
-  if (!Darabonba_Util::Client::isUnset<UpdateEtlJobRequestTriggerConfig>(request->triggerConfig)) {
-    body->insert(pair<string, UpdateEtlJobRequestTriggerConfig>("triggerConfig", *request->triggerConfig));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateEtlJob"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etljobs/") + string(*etlJobName))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return UpdateEtlJobResponse(execute(params, req, runtime));
-}
-
-UpdateEtlMetaResponse Alibabacloud_Sls20201230::Client::updateEtlMeta(shared_ptr<string> project, shared_ptr<UpdateEtlMetaRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateEtlMetaWithOptions(project, request, headers, runtime);
-}
-
-UpdateEtlMetaResponse Alibabacloud_Sls20201230::Client::updateEtlMetaWithOptions(shared_ptr<string> project,
-                                                                                 shared_ptr<UpdateEtlMetaRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
-                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
-    body->insert(pair<string, bool>("enable", *request->enable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaKey)) {
-    body->insert(pair<string, string>("etlMetaKey", *request->etlMetaKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaName)) {
-    body->insert(pair<string, string>("etlMetaName", *request->etlMetaName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->etlMetaTag)) {
-    body->insert(pair<string, string>("etlMetaTag", *request->etlMetaTag));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->etlMetaValue)) {
-    body->insert(pair<string, map<string, boost::any>>("etlMetaValue", *request->etlMetaValue));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateEtlMeta"))},
-    {"version", boost::any(string("2020-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/etlmetas"))},
-    {"method", boost::any(string("PUT"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("none"))}
-  }));
-  return UpdateEtlMetaResponse(execute(params, req, runtime));
 }
 
 UpdateIndexResponse Alibabacloud_Sls20201230::Client::updateIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateIndexRequest> request) {
@@ -3078,6 +2524,44 @@ UpdateMachineGroupResponse Alibabacloud_Sls20201230::Client::updateMachineGroupW
     {"bodyType", boost::any(string("none"))}
   }));
   return UpdateMachineGroupResponse(execute(params, req, runtime));
+}
+
+UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachineGroupMachine(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<UpdateMachineGroupMachineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
+}
+
+UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachineGroupMachineWithOptions(shared_ptr<string> project,
+                                                                                                         shared_ptr<string> machineGroup,
+                                                                                                         shared_ptr<UpdateMachineGroupMachineRequest> request,
+                                                                                                         shared_ptr<map<string, string>> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->action)) {
+    query->insert(pair<string, string>("action", *request->action));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMachineGroupMachine"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/machinegroups/") + string(*machineGroup) + string("/machines"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return UpdateMachineGroupMachineResponse(execute(params, req, runtime));
 }
 
 UpdateOdpsShipperResponse Alibabacloud_Sls20201230::Client::updateOdpsShipper(shared_ptr<string> project,
