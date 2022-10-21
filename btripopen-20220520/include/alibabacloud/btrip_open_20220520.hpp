@@ -392,7 +392,7 @@ public:
 };
 class AddressGetResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<AddressGetResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -432,7 +432,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -699,7 +699,7 @@ public:
 };
 class AirportSearchResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<AirportSearchResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -739,7 +739,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -2080,7 +2080,7 @@ public:
 };
 class ApplyAddResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<ApplyAddResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -2120,7 +2120,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -2315,7 +2315,7 @@ public:
 };
 class ApplyApproveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> module{};
   shared_ptr<string> requestId{};
@@ -2355,7 +2355,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -3182,7 +3182,7 @@ public:
 };
 class ApplyListQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<ApplyListQueryResponseBodyModuleList>> moduleList{};
   shared_ptr<string> requestId{};
@@ -3226,7 +3226,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -4545,7 +4545,7 @@ public:
 };
 class ApplyModifyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<ApplyModifyResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -4585,7 +4585,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -5689,7 +5689,7 @@ public:
 };
 class ApplyQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<ApplyQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -5729,7 +5729,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -5987,7 +5987,7 @@ public:
 };
 class CarApplyAddResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<long> module{};
   shared_ptr<string> requestId{};
@@ -6027,7 +6027,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -6211,7 +6211,7 @@ public:
 };
 class CarApplyModifyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<bool> module{};
   shared_ptr<string> requestId{};
@@ -6251,7 +6251,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -6775,7 +6775,7 @@ public:
 class CarApplyQueryResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<CarApplyQueryResponseBodyApplyList>> applyList{};
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -6835,7 +6835,7 @@ public:
       }
     }
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -7511,7 +7511,7 @@ public:
 };
 class CarBillSettlementQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<CarBillSettlementQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -7551,7 +7551,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -8352,7 +8352,7 @@ public:
 };
 class CarOrderListQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<CarOrderListQueryResponseBodyModule>> module{};
   shared_ptr<CarOrderListQueryResponseBodyPageInfo> pageInfo{};
@@ -8400,7 +8400,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -8659,7 +8659,7 @@ public:
 };
 class CitySearchResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<CitySearchResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -8699,7 +8699,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -8972,7 +8972,7 @@ public:
 };
 class CommonApplyQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<CommonApplyQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -9012,7 +9012,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -9207,7 +9207,7 @@ public:
 };
 class CommonApplySyncResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<bool> module{};
   shared_ptr<string> requestId{};
@@ -9247,7 +9247,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -9693,7 +9693,7 @@ public:
 };
 class CostCenterDeleteResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -9729,7 +9729,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -9910,7 +9910,7 @@ public:
 };
 class CostCenterModifyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -9946,7 +9946,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -10276,7 +10276,7 @@ public:
 };
 class CostCenterQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<CostCenterQueryResponseBodyModule>> module{};
   shared_ptr<bool> morePage{};
@@ -10324,7 +10324,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -10550,7 +10550,7 @@ public:
 };
 class CostCenterSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<CostCenterSaveResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -10590,7 +10590,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -10864,7 +10864,7 @@ public:
 };
 class DepartmentSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> module{};
   shared_ptr<string> requestId{};
@@ -10904,7 +10904,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -11189,7 +11189,7 @@ public:
 };
 class EntityAddResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<EntityAddResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -11229,7 +11229,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -11532,7 +11532,7 @@ public:
 };
 class EntityDeleteResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<EntityDeleteResponseBodyModule> module{};
   shared_ptr<bool> morePage{};
@@ -11576,7 +11576,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -11875,7 +11875,7 @@ public:
 };
 class EntitySetResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<EntitySetResponseBodyModule> module{};
   shared_ptr<bool> morePage{};
@@ -11919,7 +11919,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -12117,7 +12117,7 @@ public:
 };
 class ExceedApplySyncResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<bool> module{};
   shared_ptr<string> requestId{};
@@ -12157,7 +12157,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -12931,7 +12931,7 @@ public:
 };
 class FlightBillSettlementQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<FlightBillSettlementQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -12971,7 +12971,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -13354,7 +13354,7 @@ public:
 };
 class FlightExceedApplyQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<FlightExceedApplyQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -13394,7 +13394,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -14276,7 +14276,7 @@ public:
 };
 class FlightOrderListQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<FlightOrderListQueryResponseBodyModule>> module{};
   shared_ptr<FlightOrderListQueryResponseBodyPageInfo> pageInfo{};
@@ -14324,7 +14324,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -15523,7 +15523,7 @@ public:
 };
 class FlightOrderQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<FlightOrderQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -15563,7 +15563,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -16215,7 +16215,7 @@ public:
 };
 class HotelBillSettlementQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<HotelBillSettlementQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -16255,7 +16255,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -16596,7 +16596,7 @@ public:
 };
 class HotelExceedApplyQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<HotelExceedApplyQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -16636,7 +16636,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -17419,7 +17419,7 @@ public:
 };
 class HotelOrderListQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<HotelOrderListQueryResponseBodyModule>> module{};
   shared_ptr<HotelOrderListQueryResponseBodyPageInfo> pageInfo{};
@@ -17467,7 +17467,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -18265,7 +18265,7 @@ public:
 };
 class IeFlightBillSettlementQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<IeFlightBillSettlementQueryResponseBodyModule> module{};
   shared_ptr<bool> morePage{};
@@ -18309,7 +18309,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -18521,7 +18521,7 @@ public:
 };
 class InvoiceAddResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -18557,7 +18557,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -18710,7 +18710,7 @@ public:
 };
 class InvoiceDeleteResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -18746,7 +18746,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -18948,7 +18948,7 @@ public:
 };
 class InvoiceModifyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -18984,7 +18984,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -19287,7 +19287,7 @@ public:
 };
 class InvoiceRuleSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<InvoiceRuleSaveResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -19327,7 +19327,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -19537,7 +19537,7 @@ public:
 };
 class InvoiceSearchResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<InvoiceSearchResponseBodyModule>> module{};
   shared_ptr<string> requestId{};
@@ -19581,7 +19581,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -19910,7 +19910,7 @@ public:
 };
 class IsvUserSaveResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> module{};
   shared_ptr<string> requestId{};
@@ -19950,7 +19950,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -20149,7 +20149,7 @@ public:
 };
 class MonthBillGetResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<MonthBillGetResponseBodyModule>> module{};
   shared_ptr<string> requestId{};
@@ -20193,7 +20193,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -20387,7 +20387,7 @@ public:
 };
 class ProjectAddResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<long> module{};
   shared_ptr<bool> morePage{};
@@ -20431,7 +20431,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -20590,7 +20590,7 @@ public:
 };
 class ProjectDeleteResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<bool> module{};
   shared_ptr<string> requestId{};
@@ -20630,7 +20630,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -20814,7 +20814,7 @@ public:
 };
 class ProjectModifyResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<bool> module{};
   shared_ptr<string> requestId{};
@@ -20854,7 +20854,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -21474,7 +21474,7 @@ public:
 };
 class TrainBillSettlementQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<TrainBillSettlementQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -21514,7 +21514,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -21897,7 +21897,7 @@ public:
 };
 class TrainExceedApplyQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<TrainExceedApplyQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -21937,7 +21937,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -22769,7 +22769,7 @@ public:
 };
 class TrainOrderListQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<TrainOrderListQueryResponseBodyModule>> module{};
   shared_ptr<TrainOrderListQueryResponseBodyPageInfo> pageInfo{};
@@ -22817,7 +22817,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -23921,10 +23921,10 @@ public:
 };
 class TrainOrderQueryResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
   shared_ptr<TrainOrderQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
-  shared_ptr<long> resultCode{};
-  shared_ptr<string> resultMsg{};
   shared_ptr<bool> success{};
   shared_ptr<string> traceId{};
 
@@ -23938,17 +23938,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
     if (module) {
       res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
-    }
-    if (resultCode) {
-      res["result_code"] = boost::any(*resultCode);
-    }
-    if (resultMsg) {
-      res["result_msg"] = boost::any(*resultMsg);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -23960,6 +23960,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
     if (m.find("module") != m.end() && !m["module"].empty()) {
       if (typeid(map<string, boost::any>) == m["module"].type()) {
         TrainOrderQueryResponseBodyModule model1;
@@ -23969,12 +23975,6 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
-    }
-    if (m.find("result_code") != m.end() && !m["result_code"].empty()) {
-      resultCode = make_shared<long>(boost::any_cast<long>(m["result_code"]));
-    }
-    if (m.find("result_msg") != m.end() && !m["result_msg"].empty()) {
-      resultMsg = make_shared<string>(boost::any_cast<string>(m["result_msg"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
@@ -24200,7 +24200,7 @@ public:
 };
 class TrainStationSearchResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<TrainStationSearchResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -24240,7 +24240,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
@@ -24528,7 +24528,7 @@ public:
 };
 class UserQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> code{};
+  shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<UserQueryResponseBodyModule> module{};
   shared_ptr<string> requestId{};
@@ -24568,7 +24568,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("code") != m.end() && !m["code"].empty()) {
-      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
     }
     if (m.find("message") != m.end() && !m["message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["message"]));
