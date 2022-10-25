@@ -571,7 +571,6 @@ public:
   shared_ptr<long> domainId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> matchType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
 
   AddAuthResourceRequest() {}
@@ -599,9 +598,6 @@ public:
     if (matchType) {
       res["MatchType"] = boost::any(*matchType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -623,9 +619,6 @@ public:
     }
     if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
       matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -767,7 +760,6 @@ public:
   shared_ptr<string> content{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<bool> isWhite{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> note{};
   shared_ptr<string> resourceIdJsonList{};
@@ -796,9 +788,6 @@ public:
     }
     if (isWhite) {
       res["IsWhite"] = boost::any(*isWhite);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -833,9 +822,6 @@ public:
     }
     if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
       isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1030,7 +1016,6 @@ public:
   shared_ptr<bool> enableXtrace{};
   shared_ptr<bool> enterpriseSecurityGroup{};
   shared_ptr<string> internetSlbSpec{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
@@ -1069,9 +1054,6 @@ public:
     }
     if (internetSlbSpec) {
       res["InternetSlbSpec"] = boost::any(*internetSlbSpec);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -1128,9 +1110,6 @@ public:
     }
     if (m.find("InternetSlbSpec") != m.end() && !m["InternetSlbSpec"].empty()) {
       internetSlbSpec = make_shared<string>(boost::any_cast<string>(m["InternetSlbSpec"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1342,7 +1321,6 @@ public:
   shared_ptr<string> certIdentifier{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> http2{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> name{};
   shared_ptr<string> protocol{};
@@ -1370,9 +1348,6 @@ public:
     }
     if (http2) {
       res["Http2"] = boost::any(*http2);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (mustHttps) {
       res["MustHttps"] = boost::any(*mustHttps);
@@ -1404,9 +1379,6 @@ public:
     }
     if (m.find("Http2") != m.end() && !m["Http2"].empty()) {
       http2 = make_shared<string>(boost::any_cast<string>(m["Http2"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MustHttps") != m.end() && !m["MustHttps"].empty()) {
       mustHttps = make_shared<bool>(boost::any_cast<bool>(m["MustHttps"]));
@@ -2236,7 +2208,6 @@ public:
   shared_ptr<vector<AddGatewayRouteRequestFallbackServices>> fallbackServices{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<AddGatewayRouteRequestPredicates> predicates{};
   shared_ptr<AddGatewayRouteRequestRedirectJSON> redirectJSON{};
@@ -2286,9 +2257,6 @@ public:
     }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2357,9 +2325,6 @@ public:
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -2410,7 +2375,6 @@ public:
   shared_ptr<string> fallbackServicesShrink{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> predicatesShrink{};
   shared_ptr<string> redirectJSONShrink{};
@@ -2456,9 +2420,6 @@ public:
     }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2508,9 +2469,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -2662,7 +2620,6 @@ class AddGatewayServiceVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceVersion{};
 
@@ -2682,9 +2639,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -2700,9 +2654,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
@@ -2848,7 +2799,6 @@ public:
   shared_ptr<long> httpPort{};
   shared_ptr<long> httpsPort{};
   shared_ptr<string> httpsVServerGroupId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceWeight{};
   shared_ptr<string> slbId{};
   shared_ptr<string> type{};
@@ -2878,9 +2828,6 @@ public:
     }
     if (httpsVServerGroupId) {
       res["HttpsVServerGroupId"] = boost::any(*httpsVServerGroupId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (serviceWeight) {
       res["ServiceWeight"] = boost::any(*serviceWeight);
@@ -2912,9 +2859,6 @@ public:
     }
     if (m.find("HttpsVServerGroupId") != m.end() && !m["HttpsVServerGroupId"].empty()) {
       httpsVServerGroupId = make_shared<string>(boost::any_cast<string>(m["HttpsVServerGroupId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceWeight") != m.end() && !m["ServiceWeight"].empty()) {
       serviceWeight = make_shared<long>(boost::any_cast<long>(m["ServiceWeight"]));
@@ -3067,7 +3011,6 @@ public:
   shared_ptr<bool> enable{};
   shared_ptr<string> extraJson{};
   shared_ptr<long> mockType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> providerAppId{};
   shared_ptr<string> providerAppName{};
@@ -3102,9 +3045,6 @@ public:
     }
     if (mockType) {
       res["MockType"] = boost::any(*mockType);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -3145,9 +3085,6 @@ public:
     }
     if (m.find("MockType") != m.end() && !m["MockType"].empty()) {
       mockType = make_shared<long>(boost::any_cast<long>(m["MockType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3428,7 +3365,6 @@ public:
   shared_ptr<string> certIdentifier{};
   shared_ptr<long> domainId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   AddSSLCertRequest() {}
 
@@ -3452,9 +3388,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -3470,9 +3403,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -3610,7 +3540,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> description{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> portRange{};
   shared_ptr<string> securityGroupId{};
 
@@ -3633,9 +3562,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (portRange) {
       res["PortRange"] = boost::any(*portRange);
     }
@@ -3654,9 +3580,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
       portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
@@ -3798,6 +3721,7 @@ public:
 class AddServiceSourceRequestIngressOptionsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableIngress{};
+  shared_ptr<bool> enableStatus{};
   shared_ptr<string> ingressClass{};
   shared_ptr<string> watchNamespace{};
 
@@ -3814,6 +3738,9 @@ public:
     if (enableIngress) {
       res["EnableIngress"] = boost::any(*enableIngress);
     }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
     if (ingressClass) {
       res["IngressClass"] = boost::any(*ingressClass);
     }
@@ -3826,6 +3753,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EnableIngress") != m.end() && !m["EnableIngress"].empty()) {
       enableIngress = make_shared<bool>(boost::any_cast<bool>(m["EnableIngress"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<bool>(boost::any_cast<bool>(m["EnableStatus"]));
     }
     if (m.find("IngressClass") != m.end() && !m["IngressClass"].empty()) {
       ingressClass = make_shared<string>(boost::any_cast<string>(m["IngressClass"]));
@@ -3845,8 +3775,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<vector<string>> groupList{};
   shared_ptr<AddServiceSourceRequestIngressOptionsRequest> ingressOptionsRequest{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
+  shared_ptr<vector<string>> pathList{};
   shared_ptr<string> source{};
   shared_ptr<string> type{};
 
@@ -3875,11 +3805,11 @@ public:
     if (ingressOptionsRequest) {
       res["IngressOptionsRequest"] = ingressOptionsRequest ? boost::any(ingressOptionsRequest->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (pathList) {
+      res["PathList"] = boost::any(*pathList);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -3917,11 +3847,18 @@ public:
         ingressOptionsRequest = make_shared<AddServiceSourceRequestIngressOptionsRequest>(model1);
       }
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PathList") != m.end() && !m["PathList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PathList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PathList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pathList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -3941,8 +3878,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> groupListShrink{};
   shared_ptr<string> ingressOptionsRequestShrink{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
+  shared_ptr<string> pathListShrink{};
   shared_ptr<string> source{};
   shared_ptr<string> type{};
 
@@ -3971,11 +3908,11 @@ public:
     if (ingressOptionsRequestShrink) {
       res["IngressOptionsRequest"] = boost::any(*ingressOptionsRequestShrink);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (pathListShrink) {
+      res["PathList"] = boost::any(*pathListShrink);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -4002,11 +3939,11 @@ public:
     if (m.find("IngressOptionsRequest") != m.end() && !m["IngressOptionsRequest"].empty()) {
       ingressOptionsRequestShrink = make_shared<string>(boost::any_cast<string>(m["IngressOptionsRequest"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PathList") != m.end() && !m["PathList"].empty()) {
+      pathListShrink = make_shared<string>(boost::any_cast<string>(m["PathList"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -4149,7 +4086,6 @@ class ApplyGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> routeId{};
 
   ApplyGatewayRouteRequest() {}
@@ -4168,9 +4104,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (routeId) {
       res["RouteId"] = boost::any(*routeId);
     }
@@ -4183,9 +4116,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
       routeId = make_shared<string>(boost::any_cast<string>(m["RouteId"]));
@@ -4326,7 +4256,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
   shared_ptr<bool> enable{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> region{};
   shared_ptr<string> rules{};
@@ -4350,9 +4279,6 @@ public:
     }
     if (enable) {
       res["Enable"] = boost::any(*enable);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -4378,9 +4304,6 @@ public:
     }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -4636,7 +4559,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> ids{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> originNamespaceId{};
   shared_ptr<string> policy{};
   shared_ptr<string> targetNamespaceId{};
@@ -4660,9 +4582,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (originNamespaceId) {
       res["OriginNamespaceId"] = boost::any(*originNamespaceId);
     }
@@ -4684,9 +4603,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("OriginNamespaceId") != m.end() && !m["OriginNamespaceId"].empty()) {
       originNamespaceId = make_shared<string>(boost::any_cast<string>(m["OriginNamespaceId"]));
@@ -5002,7 +4918,6 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> extraInfo{};
   shared_ptr<string> language{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> sentinelEnable{};
   shared_ptr<string> source{};
@@ -5029,9 +4944,6 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -5060,9 +4972,6 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -5356,7 +5265,6 @@ public:
   shared_ptr<string> diskType{};
   shared_ptr<long> instanceCount{};
   shared_ptr<string> instanceName{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> netType{};
   shared_ptr<string> privateSlbSpecification{};
@@ -5402,9 +5310,6 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
@@ -5470,9 +5375,6 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -5655,7 +5557,6 @@ public:
   shared_ptr<string> desc{};
   shared_ptr<string> id{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<long> serviceCount{};
 
@@ -5684,9 +5585,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -5711,9 +5609,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -5933,7 +5828,6 @@ public:
   shared_ptr<string> appName{};
   shared_ptr<string> extraInfo{};
   shared_ptr<string> language{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> region{};
   shared_ptr<string> sentinelEnable{};
@@ -5961,9 +5855,6 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
@@ -5995,9 +5886,6 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -6265,7 +6153,6 @@ public:
   shared_ptr<string> desc{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> tags{};
   shared_ptr<string> type{};
@@ -6304,9 +6191,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -6343,9 +6227,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -6497,7 +6378,6 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> ip{};
   shared_ptr<string> metadata{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> port{};
   shared_ptr<string> serviceName{};
@@ -6536,9 +6416,6 @@ public:
     }
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -6579,9 +6456,6 @@ public:
     }
     if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
       metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -6733,7 +6607,6 @@ public:
   shared_ptr<bool> ephemeral{};
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> protectThreshold{};
   shared_ptr<string> serviceName{};
@@ -6763,9 +6636,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -6793,9 +6663,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -7133,7 +7000,6 @@ public:
   shared_ptr<long> groupId{};
   shared_ptr<long> id{};
   shared_ptr<string> licenseKey{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
@@ -7184,9 +7050,6 @@ public:
     }
     if (licenseKey) {
       res["LicenseKey"] = boost::any(*licenseKey);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -7249,9 +7112,6 @@ public:
     }
     if (m.find("LicenseKey") != m.end() && !m["LicenseKey"].empty()) {
       licenseKey = make_shared<string>(boost::any_cast<string>(m["LicenseKey"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -7429,7 +7289,6 @@ public:
   shared_ptr<string> licenseKey{};
   shared_ptr<string> messageQueueFilterSide{};
   shared_ptr<bool> messageQueueGrayEnable{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<string> source{};
@@ -7478,9 +7337,6 @@ public:
     }
     if (messageQueueGrayEnable) {
       res["MessageQueueGrayEnable"] = boost::any(*messageQueueGrayEnable);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -7533,9 +7389,6 @@ public:
     }
     if (m.find("MessageQueueGrayEnable") != m.end() && !m["MessageQueueGrayEnable"].empty()) {
       messageQueueGrayEnable = make_shared<bool>(boost::any_cast<bool>(m["MessageQueueGrayEnable"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -7702,7 +7555,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> data{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
 
   CreateZnodeRequest() {}
@@ -7724,9 +7576,6 @@ public:
     if (data) {
       res["Data"] = boost::any(*data);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -7742,9 +7591,6 @@ public:
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -7939,7 +7785,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteAuthResourceRequest() {}
 
@@ -7960,9 +7805,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -7975,9 +7817,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -8210,7 +8049,6 @@ class DeleteClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteClusterRequest() {}
 
@@ -8228,9 +8066,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -8240,9 +8075,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -8374,7 +8206,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> id{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteEngineNamespaceRequest() {}
 
@@ -8398,9 +8229,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -8416,9 +8244,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -8549,7 +8374,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> deleteSlb{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteGatewayRequest() {}
 
@@ -8570,9 +8394,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -8585,9 +8406,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -8842,7 +8660,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> id{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteGatewayDomainRequest() {}
 
@@ -8863,9 +8680,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -8878,9 +8692,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -9106,7 +8917,6 @@ class DeleteGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> routeId{};
 
   DeleteGatewayRouteRequest() {}
@@ -9125,9 +8935,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (routeId) {
       res["RouteId"] = boost::any(*routeId);
     }
@@ -9140,9 +8947,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
       routeId = make_shared<string>(boost::any_cast<string>(m["RouteId"]));
@@ -9379,7 +9183,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> serviceId{};
 
   DeleteGatewayServiceRequest() {}
@@ -9401,9 +9204,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -9419,9 +9219,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
@@ -9685,7 +9482,6 @@ class DeleteGatewayServiceVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceVersion{};
 
@@ -9705,9 +9501,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -9723,9 +9516,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
@@ -9870,7 +9660,6 @@ public:
   shared_ptr<bool> deleteSlb{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> id{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteGatewaySlbRequest() {}
 
@@ -9894,9 +9683,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -9912,9 +9698,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -10054,7 +9837,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
 
   DeleteNacosConfigRequest() {}
@@ -10082,9 +9864,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -10106,9 +9885,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -10249,7 +10025,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> ids{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
 
   DeleteNacosConfigsRequest() {}
@@ -10271,9 +10046,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -10289,9 +10061,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -10435,7 +10204,6 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ip{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> port{};
   shared_ptr<string> serviceName{};
@@ -10468,9 +10236,6 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -10501,9 +10266,6 @@ public:
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -10664,7 +10426,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> serviceName{};
 
@@ -10687,9 +10448,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -10708,9 +10466,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -10854,7 +10609,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteSecurityGroupRuleRequest() {}
 
@@ -10875,9 +10629,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -10890,9 +10641,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -11118,7 +10866,6 @@ class DeleteServiceSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> sourceId{};
 
   DeleteServiceSourceRequest() {}
@@ -11137,9 +10884,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
     }
@@ -11152,9 +10896,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<long>(boost::any_cast<long>(m["SourceId"]));
@@ -11287,7 +11028,6 @@ class DeleteSwimmingLaneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> laneId{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteSwimmingLaneRequest() {}
 
@@ -11305,9 +11045,6 @@ public:
     if (laneId) {
       res["LaneId"] = boost::any(*laneId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -11317,9 +11054,6 @@ public:
     }
     if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
       laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -11470,7 +11204,6 @@ class DeleteSwimmingLaneGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> groupId{};
-  shared_ptr<string> mseSessionId{};
 
   DeleteSwimmingLaneGroupRequest() {}
 
@@ -11488,9 +11221,6 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -11500,9 +11230,6 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -11653,7 +11380,6 @@ class DeleteZnodeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
   shared_ptr<string> requestPars{};
 
@@ -11673,9 +11399,6 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -11691,9 +11414,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -11894,7 +11614,6 @@ public:
   shared_ptr<string> group{};
   shared_ptr<string> ids{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
 
   ExportNacosConfigRequest() {}
@@ -11925,9 +11644,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -11952,9 +11668,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -12141,7 +11854,6 @@ class GetAppMessageQueueRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
 
   GetAppMessageQueueRouteRequest() {}
@@ -12160,9 +11872,6 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -12175,9 +11884,6 @@ public:
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -12387,7 +12093,6 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> language{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
@@ -12416,9 +12121,6 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -12453,9 +12155,6 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -12771,7 +12470,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<bool> isWhite{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> type{};
 
@@ -12794,9 +12492,6 @@ public:
     if (isWhite) {
       res["IsWhite"] = boost::any(*isWhite);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
@@ -12815,9 +12510,6 @@ public:
     }
     if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
       isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -13065,7 +12757,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> id{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   GetEngineNamepaceRequest() {}
 
@@ -13089,9 +12780,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -13107,9 +12795,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -13281,7 +12966,6 @@ class GetGatewayRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   GetGatewayRequest() {}
 
@@ -13299,9 +12983,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -13311,9 +12992,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -13711,7 +13389,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> id{};
-  shared_ptr<string> mseSessionId{};
 
   GetGatewayDomainDetailRequest() {}
 
@@ -13732,9 +13409,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -13747,9 +13421,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -14060,7 +13731,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   GetGatewayOptionRequest() {}
 
@@ -14081,9 +13751,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -14096,9 +13763,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -14239,7 +13903,6 @@ class GetGatewayRouteDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> routeId{};
 
   GetGatewayRouteDetailRequest() {}
@@ -14258,9 +13921,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (routeId) {
       res["RouteId"] = boost::any(*routeId);
     }
@@ -14273,9 +13933,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
       routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
@@ -15555,7 +15212,6 @@ class GetGatewayServiceDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
 
   GetGatewayServiceDetailRequest() {}
@@ -15574,9 +15230,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -15589,9 +15242,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
@@ -16279,7 +15929,6 @@ class GetGovernanceKubernetesClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> regionId{};
 
   GetGovernanceKubernetesClusterRequest() {}
@@ -16298,9 +15947,6 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -16313,9 +15959,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -16586,7 +16229,6 @@ public:
 class GetImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> versionCode{};
 
   GetImageRequest() {}
@@ -16602,9 +16244,6 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (versionCode) {
       res["VersionCode"] = boost::any(*versionCode);
     }
@@ -16614,9 +16253,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
       versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
@@ -16811,7 +16447,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> contentType{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
 
   GetImportFileUrlRequest() {}
@@ -16833,9 +16468,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -16851,9 +16483,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -17040,7 +16669,6 @@ class GetKubernetesSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   GetKubernetesSourceRequest() {}
 
@@ -17058,9 +16686,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -17070,9 +16695,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -17258,7 +16880,6 @@ public:
 class GetMseFeatureSwitchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   GetMseFeatureSwitchRequest() {}
 
@@ -17273,18 +16894,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -17419,7 +17034,6 @@ class GetMseSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> type{};
 
   GetMseSourceRequest() {}
@@ -17438,9 +17052,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -17453,9 +17064,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -17669,7 +17277,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
 
   GetNacosConfigRequest() {}
@@ -17697,9 +17304,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -17721,9 +17325,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -17954,7 +17555,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> nid{};
 
@@ -17980,9 +17580,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -18004,9 +17601,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -18216,7 +17810,6 @@ public:
 class GetOverviewRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> period{};
   shared_ptr<string> region{};
 
@@ -18233,9 +17826,6 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (period) {
       res["Period"] = boost::any(*period);
     }
@@ -18248,9 +17838,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
@@ -18393,7 +17980,6 @@ class GetPluginConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pluginId{};
 
   GetPluginConfigRequest() {}
@@ -18412,9 +17998,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (pluginId) {
       res["PluginId"] = boost::any(*pluginId);
     }
@@ -18427,9 +18010,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
       pluginId = make_shared<long>(boost::any_cast<long>(m["PluginId"]));
@@ -18843,7 +18423,6 @@ public:
   shared_ptr<long> category{};
   shared_ptr<bool> enableOnly{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
 
   GetPluginsRequest() {}
@@ -18868,9 +18447,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -18889,9 +18465,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -19180,7 +18753,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
   shared_ptr<string> ip{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceType{};
@@ -19204,9 +18776,6 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -19228,9 +18797,6 @@ public:
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -19590,7 +19156,6 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> hasIpCount{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -19625,9 +19190,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -19668,9 +19230,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -19938,7 +19497,6 @@ class GetTagsBySwimmingLaneGroupIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> groupId{};
-  shared_ptr<string> mseSessionId{};
 
   GetTagsBySwimmingLaneGroupIdRequest() {}
 
@@ -19956,9 +19514,6 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -19968,9 +19523,6 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -20122,7 +19674,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> fileUrl{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> policy{};
 
@@ -20145,9 +19696,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -20166,9 +19714,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -20550,7 +20095,6 @@ class ImportServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<vector<ImportServicesRequestServiceList>> serviceList{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> tlsSetting{};
@@ -20570,9 +20114,6 @@ public:
     }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (serviceList) {
       vector<boost::any> temp1;
@@ -20596,9 +20137,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceList") != m.end() && !m["ServiceList"].empty()) {
       if (typeid(vector<boost::any>) == m["ServiceList"].type()) {
@@ -20628,7 +20166,6 @@ class ImportServicesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> serviceListShrink{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> tlsSetting{};
@@ -20649,9 +20186,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceListShrink) {
       res["ServiceList"] = boost::any(*serviceListShrink);
     }
@@ -20670,9 +20204,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceList") != m.end() && !m["ServiceList"].empty()) {
       serviceListShrink = make_shared<string>(boost::any_cast<string>(m["ServiceList"]));
@@ -20821,7 +20352,6 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -20852,9 +20382,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -20889,9 +20416,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -21248,7 +20772,6 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -21279,9 +20802,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -21316,9 +20836,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -21636,7 +21153,6 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> hasIpCount{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -21667,9 +21183,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -21704,9 +21217,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -21950,7 +21460,6 @@ class ListAppBySwimmingLaneGroupTagRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> groupId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> tag{};
 
   ListAppBySwimmingLaneGroupTagRequest() {}
@@ -21969,9 +21478,6 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (tag) {
       res["Tag"] = boost::any(*tag);
     }
@@ -21984,9 +21490,6 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -22141,7 +21644,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
@@ -22165,9 +21667,6 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -22193,9 +21692,6 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -22574,7 +22070,6 @@ public:
 class ListClusterConnectionTypesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   ListClusterConnectionTypesRequest() {}
 
@@ -22589,18 +22084,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -22794,7 +22283,6 @@ class ListClusterTypesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> connectType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> regionId{};
 
@@ -22814,9 +22302,6 @@ public:
     if (connectType) {
       res["ConnectType"] = boost::any(*connectType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
     }
@@ -22832,9 +22317,6 @@ public:
     }
     if (m.find("ConnectType") != m.end() && !m["ConnectType"].empty()) {
       connectType = make_shared<string>(boost::any_cast<string>(m["ConnectType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -23034,7 +22516,6 @@ class ListClusterVersionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
 
   ListClusterVersionsRequest() {}
@@ -23053,9 +22534,6 @@ public:
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
     }
@@ -23068,9 +22546,6 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -23317,7 +22792,6 @@ class ListClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterAliasName{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -23340,9 +22814,6 @@ public:
     }
     if (clusterAliasName) {
       res["ClusterAliasName"] = boost::any(*clusterAliasName);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
@@ -23375,9 +22846,6 @@ public:
     }
     if (m.find("ClusterAliasName") != m.end() && !m["ClusterAliasName"].empty()) {
       clusterAliasName = make_shared<string>(boost::any_cast<string>(m["ClusterAliasName"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
@@ -23737,7 +23205,6 @@ class ListEngineNamespacesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   ListEngineNamespacesRequest() {}
 
@@ -23755,9 +23222,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -23767,9 +23231,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -24012,7 +23473,6 @@ class ListEurekaInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestPars{};
@@ -24033,9 +23493,6 @@ public:
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
@@ -24058,9 +23515,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
@@ -24369,7 +23823,6 @@ class ListEurekaServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -24390,9 +23843,6 @@ public:
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (pageNum) {
       res["PageNum"] = boost::any(*pageNum);
@@ -24415,9 +23865,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
       pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
@@ -24716,7 +24163,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<ListGatewayRequestFilterParams> filterParams{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -24739,9 +24185,6 @@ public:
     }
     if (filterParams) {
       res["FilterParams"] = filterParams ? boost::any(filterParams->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
@@ -24769,9 +24212,6 @@ public:
         filterParams = make_shared<ListGatewayRequestFilterParams>(model1);
       }
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
     }
@@ -24791,7 +24231,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<string> filterParamsShrink{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -24815,9 +24254,6 @@ public:
     if (filterParamsShrink) {
       res["FilterParams"] = boost::any(*filterParamsShrink);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
     }
@@ -24839,9 +24275,6 @@ public:
     }
     if (m.find("FilterParams") != m.end() && !m["FilterParams"].empty()) {
       filterParamsShrink = make_shared<string>(boost::any_cast<string>(m["FilterParams"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
@@ -25525,7 +24958,6 @@ class ListGatewayDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> type{};
 
   ListGatewayDomainRequest() {}
@@ -25544,9 +24976,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -25559,9 +24988,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -25954,7 +25380,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<ListGatewayRouteRequestFilterParams> filterParams{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -25977,9 +25402,6 @@ public:
     }
     if (filterParams) {
       res["FilterParams"] = filterParams ? boost::any(filterParams->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
@@ -26007,9 +25429,6 @@ public:
         filterParams = make_shared<ListGatewayRouteRequestFilterParams>(model1);
       }
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
     }
@@ -26029,7 +25448,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<string> filterParamsShrink{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -26053,9 +25471,6 @@ public:
     if (filterParamsShrink) {
       res["FilterParams"] = boost::any(*filterParamsShrink);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
     }
@@ -26077,9 +25492,6 @@ public:
     }
     if (m.find("FilterParams") != m.end() && !m["FilterParams"].empty()) {
       filterParamsShrink = make_shared<string>(boost::any_cast<string>(m["FilterParams"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
@@ -27333,7 +26745,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<ListGatewayServiceRequestFilterParams> filterParams{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -27356,9 +26767,6 @@ public:
     }
     if (filterParams) {
       res["FilterParams"] = filterParams ? boost::any(filterParams->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
@@ -27386,9 +26794,6 @@ public:
         filterParams = make_shared<ListGatewayServiceRequestFilterParams>(model1);
       }
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
     }
@@ -27408,7 +26813,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> descSort{};
   shared_ptr<string> filterParamsShrink{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderItem{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -27432,9 +26836,6 @@ public:
     if (filterParamsShrink) {
       res["FilterParams"] = boost::any(*filterParamsShrink);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (orderItem) {
       res["OrderItem"] = boost::any(*orderItem);
     }
@@ -27456,9 +26857,6 @@ public:
     }
     if (m.find("FilterParams") != m.end() && !m["FilterParams"].empty()) {
       filterParamsShrink = make_shared<string>(boost::any_cast<string>(m["FilterParams"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("OrderItem") != m.end() && !m["OrderItem"].empty()) {
       orderItem = make_shared<string>(boost::any_cast<string>(m["OrderItem"]));
@@ -28278,7 +27676,6 @@ class ListGatewaySlbRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   ListGatewaySlbRequest() {}
 
@@ -28296,9 +27693,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -28308,9 +27702,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -28595,7 +27986,6 @@ class ListInstanceCountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestPars{};
@@ -28616,9 +28006,6 @@ public:
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
     }
@@ -28637,9 +28024,6 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -28812,7 +28196,6 @@ public:
 class ListInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> userId{};
 
@@ -28829,9 +28212,6 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -28844,9 +28224,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -29258,7 +28635,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> requestPars{};
 
@@ -29284,9 +28660,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -29308,9 +28681,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -29532,7 +28902,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ip{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> requestPars{};
 
@@ -29555,9 +28924,6 @@ public:
     if (ip) {
       res["Ip"] = boost::any(*ip);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -29576,9 +28942,6 @@ public:
     }
     if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
       ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -29802,7 +29165,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -29834,9 +29196,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -29874,9 +29233,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -30125,7 +29481,6 @@ public:
   shared_ptr<string> dataId{};
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
@@ -30153,9 +29508,6 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -30187,9 +29539,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -30440,7 +29789,6 @@ class ListSSLCertRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   ListSSLCertRequest() {}
 
@@ -30458,9 +29806,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -30470,9 +29815,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -30715,7 +30057,6 @@ class ListSecurityGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   ListSecurityGroupRequest() {}
 
@@ -30733,9 +30074,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -30745,9 +30083,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -30948,7 +30283,6 @@ class ListSecurityGroupRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   ListSecurityGroupRuleRequest() {}
 
@@ -30966,9 +30300,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -30978,9 +30309,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -31216,7 +30544,6 @@ class ListServiceSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   ListServiceSourceRequest() {}
 
@@ -31234,9 +30561,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -31247,9 +30571,6 @@ public:
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
   }
 
 
@@ -31258,6 +30579,7 @@ public:
 class ListServiceSourceResponseBodyDataIngressOptions : public Darabonba::Model {
 public:
   shared_ptr<bool> enableIngress{};
+  shared_ptr<bool> enableStatus{};
   shared_ptr<string> ingressClass{};
   shared_ptr<string> watchNamespace{};
 
@@ -31274,6 +30596,9 @@ public:
     if (enableIngress) {
       res["EnableIngress"] = boost::any(*enableIngress);
     }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
     if (ingressClass) {
       res["IngressClass"] = boost::any(*ingressClass);
     }
@@ -31286,6 +30611,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EnableIngress") != m.end() && !m["EnableIngress"].empty()) {
       enableIngress = make_shared<bool>(boost::any_cast<bool>(m["EnableIngress"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<bool>(boost::any_cast<bool>(m["EnableStatus"]));
     }
     if (m.find("IngressClass") != m.end() && !m["IngressClass"].empty()) {
       ingressClass = make_shared<string>(boost::any_cast<string>(m["IngressClass"]));
@@ -31303,11 +30631,14 @@ public:
   shared_ptr<string> address{};
   shared_ptr<long> bindingWithGateway{};
   shared_ptr<long> gatewayId{};
+  shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<vector<string>> groupList{};
   shared_ptr<long> id{};
   shared_ptr<ListServiceSourceResponseBodyDataIngressOptions> ingressOptions{};
   shared_ptr<string> name{};
+  shared_ptr<vector<string>> pathList{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceUniqueId{};
   shared_ptr<string> type{};
@@ -31331,11 +30662,17 @@ public:
     if (gatewayId) {
       res["GatewayId"] = boost::any(*gatewayId);
     }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (groupList) {
+      res["GroupList"] = boost::any(*groupList);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -31345,6 +30682,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (pathList) {
+      res["PathList"] = boost::any(*pathList);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -31368,11 +30708,24 @@ public:
     if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
       gatewayId = make_shared<long>(boost::any_cast<long>(m["GatewayId"]));
     }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("GroupList") != m.end() && !m["GroupList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["GroupList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["GroupList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      groupList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
@@ -31386,6 +30739,16 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PathList") != m.end() && !m["PathList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PathList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PathList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pathList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -31580,7 +30943,6 @@ public:
 class ListTagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> resourceId{};
@@ -31599,9 +30961,6 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
@@ -31628,9 +30987,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
@@ -31895,7 +31251,6 @@ public:
 class ListUserInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> userId{};
 
@@ -31912,9 +31267,6 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -31927,9 +31279,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -32324,7 +31673,6 @@ public:
 class ListVgroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> userId{};
 
@@ -32341,9 +31689,6 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -32356,9 +31701,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -32593,7 +31935,6 @@ class ListZnodeChildrenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
 
   ListZnodeChildrenRequest() {}
@@ -32612,9 +31953,6 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -32627,9 +31965,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -32826,7 +32161,6 @@ class ModifyGovernanceKubernetesClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceInfos{};
   shared_ptr<string> regionId{};
 
@@ -32846,9 +32180,6 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceInfos) {
       res["NamespaceInfos"] = boost::any(*namespaceInfos);
     }
@@ -32864,9 +32195,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceInfos") != m.end() && !m["NamespaceInfos"].empty()) {
       namespaceInfos = make_shared<string>(boost::any_cast<string>(m["NamespaceInfos"]));
@@ -33014,7 +32342,6 @@ public:
   shared_ptr<long> delayTime{};
   shared_ptr<bool> enable{};
   shared_ptr<long> funcType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> related{};
   shared_ptr<long> shutdownWaitSeconds{};
@@ -33051,9 +32378,6 @@ public:
     }
     if (funcType) {
       res["FuncType"] = boost::any(*funcType);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -33094,9 +32418,6 @@ public:
     }
     if (m.find("FuncType") != m.end() && !m["FuncType"].empty()) {
       funcType = make_shared<long>(boost::any_cast<long>(m["FuncType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -33241,7 +32562,6 @@ class OfflineGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> routeId{};
 
   OfflineGatewayRouteRequest() {}
@@ -33260,9 +32580,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (routeId) {
       res["RouteId"] = boost::any(*routeId);
     }
@@ -33275,9 +32592,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
       routeId = make_shared<string>(boost::any_cast<string>(m["RouteId"]));
@@ -33417,7 +32731,6 @@ class PullServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> sourceType{};
 
@@ -33437,9 +32750,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -33455,9 +32765,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -33735,7 +33042,6 @@ class QueryAllSwimmingLaneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> groupId{};
-  shared_ptr<string> mseSessionId{};
 
   QueryAllSwimmingLaneRequest() {}
 
@@ -33753,9 +33059,6 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -33765,9 +33068,6 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -33917,7 +33217,6 @@ public:
 class QueryAllSwimmingLaneGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   QueryAllSwimmingLaneGroupRequest() {}
 
@@ -33932,18 +33231,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -34093,7 +33386,6 @@ public:
 class QueryBusinessLocationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   QueryBusinessLocationsRequest() {}
 
@@ -34108,18 +33400,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -34377,7 +33663,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> aclSwitch{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> orderId{};
 
   QueryClusterDetailRequest() {}
@@ -34399,9 +33684,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
@@ -34417,9 +33699,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
@@ -34934,7 +34213,6 @@ class QueryClusterDiskSpecificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterType{};
-  shared_ptr<string> mseSessionId{};
 
   QueryClusterDiskSpecificationRequest() {}
 
@@ -34952,9 +34230,6 @@ public:
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -34964,9 +34239,6 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -35164,7 +34436,6 @@ class QueryClusterSpecificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> connectType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> mseVersion{};
 
   QueryClusterSpecificationRequest() {}
@@ -35183,9 +34454,6 @@ public:
     if (connectType) {
       res["ConnectType"] = boost::any(*connectType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
     }
@@ -35198,9 +34466,6 @@ public:
     }
     if (m.find("ConnectType") != m.end() && !m["ConnectType"].empty()) {
       connectType = make_shared<string>(boost::any_cast<string>(m["ConnectType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -35434,7 +34699,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> configType{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> requestPars{};
 
   QueryConfigRequest() {}
@@ -35459,9 +34723,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -35480,9 +34741,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
@@ -35822,7 +35080,6 @@ public:
 class QueryGatewayRegionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   QueryGatewayRegionRequest() {}
 
@@ -35837,18 +35094,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -35991,7 +35242,6 @@ public:
 class QueryGatewayTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   QueryGatewayTypeRequest() {}
 
@@ -36006,18 +35256,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -36162,7 +35406,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -36185,9 +35428,6 @@ public:
     if (clusterName) {
       res["ClusterName"] = boost::any(*clusterName);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -36206,9 +35446,6 @@ public:
     }
     if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -36485,7 +35722,6 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> monitorType{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> requestPars{};
   shared_ptr<long> startTime{};
   shared_ptr<long> step{};
@@ -36512,9 +35748,6 @@ public:
     if (monitorType) {
       res["MonitorType"] = boost::any(*monitorType);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -36539,9 +35772,6 @@ public:
     }
     if (m.find("MonitorType") != m.end() && !m["MonitorType"].empty()) {
       monitorType = make_shared<string>(boost::any_cast<string>(m["MonitorType"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
@@ -36748,7 +35978,6 @@ public:
 class QuerySlbSpecRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
 
   QuerySlbSpecRequest() {}
 
@@ -36763,18 +35992,12 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -36989,7 +36212,6 @@ class QuerySwimmingLaneByIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> laneId{};
-  shared_ptr<string> mseSessionId{};
 
   QuerySwimmingLaneByIdRequest() {}
 
@@ -37007,9 +36229,6 @@ public:
     if (laneId) {
       res["LaneId"] = boost::any(*laneId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -37019,9 +36238,6 @@ public:
     }
     if (m.find("LaneId") != m.end() && !m["LaneId"].empty()) {
       laneId = make_shared<long>(boost::any_cast<long>(m["LaneId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -37173,7 +36389,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
   shared_ptr<string> requestPars{};
 
@@ -37196,9 +36411,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -37217,9 +36429,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -37410,7 +36619,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> podNameList{};
   shared_ptr<string> requestPars{};
 
@@ -37433,9 +36641,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (podNameList) {
       res["PodNameList"] = boost::any(*podNameList);
     }
@@ -37454,9 +36659,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PodNameList") != m.end() && !m["PodNameList"].empty()) {
       podNameList = make_shared<string>(boost::any_cast<string>(m["PodNameList"]));
@@ -37585,7 +36787,6 @@ class RetryClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> requestPars{};
 
   RetryClusterRequest() {}
@@ -37604,9 +36805,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -37619,9 +36817,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
@@ -37747,7 +36942,6 @@ class SelectGatewaySlbRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> type{};
 
@@ -37767,9 +36961,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -37785,9 +36976,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -38015,7 +37203,6 @@ public:
 class TagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
@@ -38033,9 +37220,6 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -38059,9 +37243,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -38213,7 +37394,6 @@ class UntagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> all{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
@@ -38234,9 +37414,6 @@ public:
     }
     if (all) {
       res["All"] = boost::any(*all);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -38259,9 +37436,6 @@ public:
     }
     if (m.find("All") != m.end() && !m["All"].empty()) {
       all = make_shared<bool>(boost::any_cast<bool>(m["All"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -38411,7 +37585,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> aclEntryList{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateAclRequest() {}
 
@@ -38432,9 +37605,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -38447,9 +37617,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -38575,7 +37742,6 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
   shared_ptr<bool> isWhite{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> note{};
   shared_ptr<string> resourceIdJsonList{};
@@ -38607,9 +37773,6 @@ public:
     }
     if (isWhite) {
       res["IsWhite"] = boost::any(*isWhite);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -38647,9 +37810,6 @@ public:
     }
     if (m.find("IsWhite") != m.end() && !m["IsWhite"].empty()) {
       isWhite = make_shared<bool>(boost::any_cast<bool>(m["IsWhite"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -38805,7 +37965,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterAliasName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> requestPars{};
 
   UpdateClusterRequest() {}
@@ -38827,9 +37986,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -38845,9 +38001,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
@@ -38983,7 +38136,6 @@ public:
   shared_ptr<string> clusterSpecification{};
   shared_ptr<long> instanceCount{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateClusterSpecRequest() {}
 
@@ -39010,9 +38162,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -39031,9 +38180,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -39182,7 +38328,6 @@ public:
   shared_ptr<string> maxClientCnxns{};
   shared_ptr<string> maxSessionTimeout{};
   shared_ptr<string> minSessionTimeout{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<bool> namingAuthEnabled{};
   shared_ptr<string> openSuperAcl{};
   shared_ptr<string> passWord{};
@@ -39243,9 +38388,6 @@ public:
     }
     if (minSessionTimeout) {
       res["MinSessionTimeout"] = boost::any(*minSessionTimeout);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namingAuthEnabled) {
       res["NamingAuthEnabled"] = boost::any(*namingAuthEnabled);
@@ -39316,9 +38458,6 @@ public:
     }
     if (m.find("MinSessionTimeout") != m.end() && !m["MinSessionTimeout"].empty()) {
       minSessionTimeout = make_shared<string>(boost::any_cast<string>(m["MinSessionTimeout"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamingAuthEnabled") != m.end() && !m["NamingAuthEnabled"].empty()) {
       namingAuthEnabled = make_shared<bool>(boost::any_cast<bool>(m["NamingAuthEnabled"]));
@@ -39475,7 +38614,6 @@ public:
   shared_ptr<string> desc{};
   shared_ptr<string> id{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<long> serviceCount{};
 
@@ -39504,9 +38642,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -39531,9 +38666,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -39740,7 +38872,6 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> http2{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<bool> mustHttps{};
   shared_ptr<string> protocol{};
   shared_ptr<string> tlsMax{};
@@ -39770,9 +38901,6 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (mustHttps) {
       res["MustHttps"] = boost::any(*mustHttps);
@@ -39804,9 +38932,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("MustHttps") != m.end() && !m["MustHttps"].empty()) {
       mustHttps = make_shared<bool>(boost::any_cast<bool>(m["MustHttps"]));
@@ -39955,7 +39080,6 @@ class UpdateGatewayNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
 
   UpdateGatewayNameRequest() {}
@@ -39974,9 +39098,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -39989,9 +39110,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -40133,7 +39251,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<GatewayOption> gatewayOption{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayOptionRequest() {}
 
@@ -40157,9 +39274,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -40180,9 +39294,6 @@ public:
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
   }
 
 
@@ -40194,7 +39305,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayOptionShrink{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayOptionShrinkRequest() {}
 
@@ -40218,9 +39328,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -40236,9 +39343,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -41057,7 +40161,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<UpdateGatewayRouteRequestPredicates> predicates{};
   shared_ptr<UpdateGatewayRouteRequestRedirectJSON> redirectJSON{};
@@ -41107,9 +40210,6 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -41178,9 +40278,6 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -41231,7 +40328,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
   shared_ptr<string> predicatesShrink{};
   shared_ptr<string> redirectJSONShrink{};
@@ -41277,9 +40373,6 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -41329,9 +40422,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -41564,7 +40654,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayRouteCORSRequest() {}
 
@@ -41591,9 +40680,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -41617,9 +40703,6 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
   }
 
 
@@ -41632,7 +40715,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayRouteCORSShrinkRequest() {}
 
@@ -41659,9 +40741,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -41680,9 +40759,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -41822,7 +40898,6 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> httpRewriteJSON{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayRouteHTTPRewriteRequest() {}
 
@@ -41849,9 +40924,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -41870,9 +40942,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -42012,7 +41081,6 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> headerOpJSON{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateGatewayRouteHeaderOpRequest() {}
 
@@ -42039,9 +41107,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -42060,9 +41125,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -42265,7 +41327,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<UpdateGatewayRouteRetryRequestRetryJSON> retryJSON{};
 
   UpdateGatewayRouteRetryRequest() {}
@@ -42290,9 +41351,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (retryJSON) {
       res["RetryJSON"] = retryJSON ? boost::any(retryJSON->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -42312,9 +41370,6 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("RetryJSON") != m.end() && !m["RetryJSON"].empty()) {
       if (typeid(map<string, boost::any>) == m["RetryJSON"].type()) {
         UpdateGatewayRouteRetryRequestRetryJSON model1;
@@ -42333,7 +41388,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> retryJSONShrink{};
 
   UpdateGatewayRouteRetryShrinkRequest() {}
@@ -42358,9 +41412,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (retryJSONShrink) {
       res["RetryJSON"] = boost::any(*retryJSONShrink);
     }
@@ -42379,9 +41430,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RetryJSON") != m.end() && !m["RetryJSON"].empty()) {
       retryJSONShrink = make_shared<string>(boost::any_cast<string>(m["RetryJSON"]));
@@ -42566,7 +41614,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<UpdateGatewayRouteTimeoutRequestTimeoutJSON> timeoutJSON{};
 
   UpdateGatewayRouteTimeoutRequest() {}
@@ -42591,9 +41638,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (timeoutJSON) {
       res["TimeoutJSON"] = timeoutJSON ? boost::any(timeoutJSON->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -42613,9 +41657,6 @@ public:
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("TimeoutJSON") != m.end() && !m["TimeoutJSON"].empty()) {
       if (typeid(map<string, boost::any>) == m["TimeoutJSON"].type()) {
         UpdateGatewayRouteTimeoutRequestTimeoutJSON model1;
@@ -42634,7 +41675,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> timeoutJSONShrink{};
 
   UpdateGatewayRouteTimeoutShrinkRequest() {}
@@ -42659,9 +41699,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (timeoutJSONShrink) {
       res["TimeoutJSON"] = boost::any(*timeoutJSONShrink);
     }
@@ -42680,9 +41717,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("TimeoutJSON") != m.end() && !m["TimeoutJSON"].empty()) {
       timeoutJSONShrink = make_shared<string>(boost::any_cast<string>(m["TimeoutJSON"]));
@@ -42823,7 +41857,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<bool> enableWaf{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> routeId{};
 
   UpdateGatewayRouteWafStatusRequest() {}
@@ -42845,9 +41878,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (routeId) {
       res["RouteId"] = boost::any(*routeId);
     }
@@ -42863,9 +41893,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RouteId") != m.end() && !m["RouteId"].empty()) {
       routeId = make_shared<long>(boost::any_cast<long>(m["RouteId"]));
@@ -44006,7 +43033,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<TrafficPolicy> gatewayTrafficPolicy{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
 
   UpdateGatewayServiceTrafficPolicyRequest() {}
@@ -44031,9 +43057,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -44057,9 +43080,6 @@ public:
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
     }
@@ -44074,7 +43094,6 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayTrafficPolicyShrink{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
 
   UpdateGatewayServiceTrafficPolicyShrinkRequest() {}
@@ -44099,9 +43118,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -44120,9 +43136,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
@@ -44266,7 +43279,6 @@ class UpdateGatewayServiceVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceVersion{};
 
@@ -44286,9 +43298,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
     }
@@ -44304,9 +43313,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
@@ -44449,7 +43455,6 @@ class UpdateGatewaySpecRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> replica{};
   shared_ptr<string> spec{};
 
@@ -44469,9 +43474,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (replica) {
       res["Replica"] = boost::any(*replica);
     }
@@ -44487,9 +43489,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Replica") != m.end() && !m["Replica"].empty()) {
       replica = make_shared<long>(boost::any_cast<long>(m["Replica"]));
@@ -44632,7 +43631,6 @@ class UpdateImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> versionCode{};
 
   UpdateImageRequest() {}
@@ -44651,9 +43649,6 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (versionCode) {
       res["VersionCode"] = boost::any(*versionCode);
     }
@@ -44666,9 +43661,6 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
       versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
@@ -44796,7 +43788,6 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<bool> enable{};
   shared_ptr<string> filterSide{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<vector<string>> tags{};
 
@@ -44822,9 +43813,6 @@ public:
     if (filterSide) {
       res["FilterSide"] = boost::any(*filterSide);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -44846,9 +43834,6 @@ public:
     }
     if (m.find("FilterSide") != m.end() && !m["FilterSide"].empty()) {
       filterSide = make_shared<string>(boost::any_cast<string>(m["FilterSide"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -44874,7 +43859,6 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<bool> enable{};
   shared_ptr<string> filterSide{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> region{};
   shared_ptr<string> tagsShrink{};
 
@@ -44900,9 +43884,6 @@ public:
     if (filterSide) {
       res["FilterSide"] = boost::any(*filterSide);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -44924,9 +43905,6 @@ public:
     }
     if (m.find("FilterSide") != m.end() && !m["FilterSide"].empty()) {
       filterSide = make_shared<string>(boost::any_cast<string>(m["FilterSide"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -45073,7 +44051,6 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> healthChecker{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<bool> useInstancePortForCheck{};
@@ -45106,9 +44083,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -45139,9 +44113,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -45295,7 +44266,6 @@ public:
   shared_ptr<string> group{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> md5{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> tags{};
   shared_ptr<string> type{};
@@ -45340,9 +44310,6 @@ public:
     if (md5) {
       res["Md5"] = boost::any(*md5);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -45385,9 +44352,6 @@ public:
     }
     if (m.find("Md5") != m.end() && !m["Md5"].empty()) {
       md5 = make_shared<string>(boost::any_cast<string>(m["Md5"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -45532,7 +44496,6 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> ip{};
   shared_ptr<string> metadata{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<long> port{};
   shared_ptr<string> serviceName{};
@@ -45571,9 +44534,6 @@ public:
     }
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
-    }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
     }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
@@ -45614,9 +44574,6 @@ public:
     }
     if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
       metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -45767,7 +44724,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> namespaceId{};
   shared_ptr<string> protectThreshold{};
   shared_ptr<string> serviceName{};
@@ -45794,9 +44750,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (namespaceId) {
       res["NamespaceId"] = boost::any(*namespaceId);
     }
@@ -45821,9 +44774,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("NamespaceId") != m.end() && !m["NamespaceId"].empty()) {
       namespaceId = make_shared<string>(boost::any_cast<string>(m["NamespaceId"]));
@@ -45976,7 +44926,6 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<long> id{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<long> pluginId{};
 
   UpdatePluginConfigRequest() {}
@@ -46016,9 +44965,6 @@ public:
     if (id) {
       res["Id"] = boost::any(*id);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (pluginId) {
       res["PluginId"] = boost::any(*pluginId);
     }
@@ -46052,9 +44998,6 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("PluginId") != m.end() && !m["PluginId"].empty()) {
       pluginId = make_shared<long>(boost::any_cast<long>(m["PluginId"]));
@@ -46210,7 +45153,6 @@ public:
   shared_ptr<string> certIdentifier{};
   shared_ptr<long> domainId{};
   shared_ptr<string> gatewayUniqueId{};
-  shared_ptr<string> mseSessionId{};
 
   UpdateSSLCertRequest() {}
 
@@ -46234,9 +45176,6 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     return res;
   }
 
@@ -46252,9 +45191,6 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
   }
 
@@ -46390,6 +45326,7 @@ public:
 class UpdateServiceSourceRequestIngressOptionsRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> enableIngress{};
+  shared_ptr<bool> enableStatus{};
   shared_ptr<string> ingressClass{};
   shared_ptr<string> watchNamespace{};
 
@@ -46406,6 +45343,9 @@ public:
     if (enableIngress) {
       res["EnableIngress"] = boost::any(*enableIngress);
     }
+    if (enableStatus) {
+      res["EnableStatus"] = boost::any(*enableStatus);
+    }
     if (ingressClass) {
       res["IngressClass"] = boost::any(*ingressClass);
     }
@@ -46418,6 +45358,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EnableIngress") != m.end() && !m["EnableIngress"].empty()) {
       enableIngress = make_shared<bool>(boost::any_cast<bool>(m["EnableIngress"]));
+    }
+    if (m.find("EnableStatus") != m.end() && !m["EnableStatus"].empty()) {
+      enableStatus = make_shared<bool>(boost::any_cast<bool>(m["EnableStatus"]));
     }
     if (m.find("IngressClass") != m.end() && !m["IngressClass"].empty()) {
       ingressClass = make_shared<string>(boost::any_cast<string>(m["IngressClass"]));
@@ -46438,8 +45381,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
   shared_ptr<UpdateServiceSourceRequestIngressOptionsRequest> ingressOptionsRequest{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
+  shared_ptr<vector<string>> pathList{};
   shared_ptr<string> source{};
   shared_ptr<string> type{};
 
@@ -46471,11 +45414,11 @@ public:
     if (ingressOptionsRequest) {
       res["IngressOptionsRequest"] = ingressOptionsRequest ? boost::any(ingressOptionsRequest->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (pathList) {
+      res["PathList"] = boost::any(*pathList);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -46509,11 +45452,18 @@ public:
         ingressOptionsRequest = make_shared<UpdateServiceSourceRequestIngressOptionsRequest>(model1);
       }
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PathList") != m.end() && !m["PathList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PathList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PathList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pathList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -46534,8 +45484,8 @@ public:
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
   shared_ptr<string> ingressOptionsRequestShrink{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> name{};
+  shared_ptr<string> pathListShrink{};
   shared_ptr<string> source{};
   shared_ptr<string> type{};
 
@@ -46567,11 +45517,11 @@ public:
     if (ingressOptionsRequestShrink) {
       res["IngressOptionsRequest"] = boost::any(*ingressOptionsRequestShrink);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (pathListShrink) {
+      res["PathList"] = boost::any(*pathListShrink);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -46601,11 +45551,11 @@ public:
     if (m.find("IngressOptionsRequest") != m.end() && !m["IngressOptionsRequest"].empty()) {
       ingressOptionsRequestShrink = make_shared<string>(boost::any_cast<string>(m["IngressOptionsRequest"]));
     }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
-    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PathList") != m.end() && !m["PathList"].empty()) {
+      pathListShrink = make_shared<string>(boost::any_cast<string>(m["PathList"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -46749,7 +45699,6 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> data{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> path{};
   shared_ptr<string> requestPars{};
 
@@ -46772,9 +45721,6 @@ public:
     if (data) {
       res["Data"] = boost::any(*data);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (path) {
       res["Path"] = boost::any(*path);
     }
@@ -46793,9 +45739,6 @@ public:
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("Path") != m.end() && !m["Path"].empty()) {
       path = make_shared<string>(boost::any_cast<string>(m["Path"]));
@@ -46924,7 +45867,6 @@ class UpgradeClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> mseSessionId{};
   shared_ptr<string> requestPars{};
   shared_ptr<string> upgradeVersion{};
 
@@ -46944,9 +45886,6 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (mseSessionId) {
-      res["MseSessionId"] = boost::any(*mseSessionId);
-    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -46962,9 +45901,6 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
-    }
-    if (m.find("MseSessionId") != m.end() && !m["MseSessionId"].empty()) {
-      mseSessionId = make_shared<string>(boost::any_cast<string>(m["MseSessionId"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));

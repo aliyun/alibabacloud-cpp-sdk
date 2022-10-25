@@ -57,9 +57,6 @@ AddAuthResourceResponse Alibabacloud_Mse20190531::Client::addAuthResourceWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->matchType)) {
     query->insert(pair<string, string>("MatchType", *request->matchType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     query->insert(pair<string, string>("Path", *request->path));
   }
@@ -99,9 +96,6 @@ AddBlackWhiteListResponse Alibabacloud_Mse20190531::Client::addBlackWhiteListWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isWhite)) {
     query->insert(pair<string, bool>("IsWhite", *request->isWhite));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -163,9 +157,6 @@ AddGatewayResponse Alibabacloud_Mse20190531::Client::addGatewayWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->internetSlbSpec)) {
     query->insert(pair<string, string>("InternetSlbSpec", *request->internetSlbSpec));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -233,9 +224,6 @@ AddGatewayDomainResponse Alibabacloud_Mse20190531::Client::addGatewayDomainWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->http2)) {
     query->insert(pair<string, string>("Http2", *request->http2));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->mustHttps)) {
     query->insert(pair<string, bool>("MustHttps", *request->mustHttps));
@@ -324,9 +312,6 @@ AddGatewayRouteResponse Alibabacloud_Mse20190531::Client::addGatewayRouteWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -373,9 +358,6 @@ AddGatewayServiceVersionResponse Alibabacloud_Mse20190531::Client::addGatewaySer
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     query->insert(pair<string, long>("ServiceId", *request->serviceId));
   }
@@ -421,9 +403,6 @@ AddGatewaySlbResponse Alibabacloud_Mse20190531::Client::addGatewaySlbWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->httpsVServerGroupId)) {
     query->insert(pair<string, string>("HttpsVServerGroupId", *request->httpsVServerGroupId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceWeight)) {
     query->insert(pair<string, long>("ServiceWeight", *request->serviceWeight));
@@ -480,9 +459,6 @@ AddMockRuleResponse Alibabacloud_Mse20190531::Client::addMockRuleWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<long>(request->mockType)) {
     query->insert(pair<string, long>("MockType", *request->mockType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -538,9 +514,6 @@ AddSSLCertResponse Alibabacloud_Mse20190531::Client::addSSLCertWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -574,9 +547,6 @@ AddSecurityGroupRuleResponse Alibabacloud_Mse20190531::Client::addSecurityGroupR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->portRange)) {
     query->insert(pair<string, string>("PortRange", *request->portRange));
@@ -616,6 +586,9 @@ AddServiceSourceResponse Alibabacloud_Mse20190531::Client::addServiceSourceWithO
   if (!Darabonba_Util::Client::isUnset<AddServiceSourceRequestIngressOptionsRequest>(tmpReq->ingressOptionsRequest)) {
     request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ingressOptionsRequest->toMap()), make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pathList)) {
+    request->pathListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pathList, make_shared<string>("PathList"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -632,11 +605,11 @@ AddServiceSourceResponse Alibabacloud_Mse20190531::Client::addServiceSourceWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressOptionsRequestShrink)) {
     query->insert(pair<string, string>("IngressOptionsRequest", *request->ingressOptionsRequestShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pathListShrink)) {
+    query->insert(pair<string, string>("PathList", *request->pathListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
@@ -675,9 +648,6 @@ ApplyGatewayRouteResponse Alibabacloud_Mse20190531::Client::applyGatewayRouteWit
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->routeId)) {
     query->insert(pair<string, string>("RouteId", *request->routeId));
   }
@@ -714,9 +684,6 @@ ApplyTagPoliciesResponse Alibabacloud_Mse20190531::Client::applyTagPoliciesWithO
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -764,9 +731,6 @@ CloneNacosConfigResponse Alibabacloud_Mse20190531::Client::cloneNacosConfigWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originNamespaceId)) {
     query->insert(pair<string, string>("OriginNamespaceId", *request->originNamespaceId));
   }
@@ -812,9 +776,6 @@ CreateApplicationResponse Alibabacloud_Mse20190531::Client::createApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -876,9 +837,6 @@ CreateClusterResponse Alibabacloud_Mse20190531::Client::createClusterWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -953,9 +911,6 @@ CreateEngineNamespaceResponse Alibabacloud_Mse20190531::Client::createEngineName
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -998,9 +953,6 @@ CreateMseServiceApplicationResponse Alibabacloud_Mse20190531::Client::createMseS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -1066,9 +1018,6 @@ CreateNacosConfigResponse Alibabacloud_Mse20190531::Client::createNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -1123,9 +1072,6 @@ CreateNacosInstanceResponse Alibabacloud_Mse20190531::Client::createNacosInstanc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -1183,9 +1129,6 @@ CreateNacosServiceResponse Alibabacloud_Mse20190531::Client::createNacosServiceW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -1250,9 +1193,6 @@ CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpd
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->licenseKey)) {
     query->insert(pair<string, string>("LicenseKey", *request->licenseKey));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -1330,9 +1270,6 @@ CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::create
   if (!Darabonba_Util::Client::isUnset<bool>(request->messageQueueGrayEnable)) {
     query->insert(pair<string, bool>("MessageQueueGrayEnable", *request->messageQueueGrayEnable));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -1382,9 +1319,6 @@ CreateZnodeResponse Alibabacloud_Mse20190531::Client::createZnodeWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
     query->insert(pair<string, string>("Data", *request->data));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     query->insert(pair<string, string>("Path", *request->path));
   }
@@ -1422,9 +1356,6 @@ DeleteAuthResourceResponse Alibabacloud_Mse20190531::Client::deleteAuthResourceW
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1455,9 +1386,6 @@ DeleteClusterResponse Alibabacloud_Mse20190531::Client::deleteClusterWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1496,9 +1424,6 @@ DeleteEngineNamespaceResponse Alibabacloud_Mse20190531::Client::deleteEngineName
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1532,9 +1457,6 @@ DeleteGatewayResponse Alibabacloud_Mse20190531::Client::deleteGatewayWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1570,9 +1492,6 @@ DeleteGatewayDomainResponse Alibabacloud_Mse20190531::Client::deleteGatewayDomai
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1603,9 +1522,6 @@ DeleteGatewayRouteResponse Alibabacloud_Mse20190531::Client::deleteGatewayRouteW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->routeId)) {
     query->insert(pair<string, string>("RouteId", *request->routeId));
@@ -1644,9 +1560,6 @@ DeleteGatewayServiceResponse Alibabacloud_Mse20190531::Client::deleteGatewayServ
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     query->insert(pair<string, string>("ServiceId", *request->serviceId));
   }
@@ -1680,9 +1593,6 @@ DeleteGatewayServiceVersionResponse Alibabacloud_Mse20190531::Client::deleteGate
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     query->insert(pair<string, long>("ServiceId", *request->serviceId));
@@ -1727,9 +1637,6 @@ DeleteGatewaySlbResponse Alibabacloud_Mse20190531::Client::deleteGatewaySlbWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1770,9 +1677,6 @@ DeleteNacosConfigResponse Alibabacloud_Mse20190531::Client::deleteNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -1809,9 +1713,6 @@ DeleteNacosConfigsResponse Alibabacloud_Mse20190531::Client::deleteNacosConfigsW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -1859,9 +1760,6 @@ DeleteNacosInstanceResponse Alibabacloud_Mse20190531::Client::deleteNacosInstanc
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -1905,9 +1803,6 @@ DeleteNacosServiceResponse Alibabacloud_Mse20190531::Client::deleteNacosServiceW
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -1948,9 +1843,6 @@ DeleteSecurityGroupRuleResponse Alibabacloud_Mse20190531::Client::deleteSecurity
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1981,9 +1873,6 @@ DeleteServiceSourceResponse Alibabacloud_Mse20190531::Client::deleteServiceSourc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->sourceId)) {
     query->insert(pair<string, long>("SourceId", *request->sourceId));
@@ -2019,9 +1908,6 @@ DeleteSwimmingLaneResponse Alibabacloud_Mse20190531::Client::deleteSwimmingLaneW
   if (!Darabonba_Util::Client::isUnset<long>(request->laneId)) {
     query->insert(pair<string, long>("LaneId", *request->laneId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2053,9 +1939,6 @@ DeleteSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::deleteSwimming
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     query->insert(pair<string, long>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2086,9 +1969,6 @@ DeleteZnodeResponse Alibabacloud_Mse20190531::Client::deleteZnodeWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     query->insert(pair<string, string>("Path", *request->path));
@@ -2139,9 +2019,6 @@ ExportNacosConfigResponse Alibabacloud_Mse20190531::Client::exportNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -2175,9 +2052,6 @@ GetAppMessageQueueRouteResponse Alibabacloud_Mse20190531::Client::getAppMessageQ
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -2218,9 +2092,6 @@ GetApplicationListResponse Alibabacloud_Mse20190531::Client::getApplicationListW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -2274,9 +2145,6 @@ GetBlackWhiteListResponse Alibabacloud_Mse20190531::Client::getBlackWhiteListWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->isWhite)) {
     query->insert(pair<string, bool>("IsWhite", *request->isWhite));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
@@ -2320,9 +2188,6 @@ GetEngineNamepaceResponse Alibabacloud_Mse20190531::Client::getEngineNamepaceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2353,9 +2218,6 @@ GetGatewayResponse Alibabacloud_Mse20190531::Client::getGatewayWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2391,9 +2253,6 @@ GetGatewayDomainDetailResponse Alibabacloud_Mse20190531::Client::getGatewayDomai
   if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
     query->insert(pair<string, string>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2428,9 +2287,6 @@ GetGatewayOptionResponse Alibabacloud_Mse20190531::Client::getGatewayOptionWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2461,9 +2317,6 @@ GetGatewayRouteDetailResponse Alibabacloud_Mse20190531::Client::getGatewayRouteD
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
     query->insert(pair<string, long>("RouteId", *request->routeId));
@@ -2499,9 +2352,6 @@ GetGatewayServiceDetailResponse Alibabacloud_Mse20190531::Client::getGatewayServ
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     query->insert(pair<string, long>("ServiceId", *request->serviceId));
   }
@@ -2536,9 +2386,6 @@ GetGovernanceKubernetesClusterResponse Alibabacloud_Mse20190531::Client::getGove
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2569,9 +2416,6 @@ GetImageResponse Alibabacloud_Mse20190531::Client::getImageWithOptions(shared_pt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->versionCode)) {
     query->insert(pair<string, string>("VersionCode", *request->versionCode));
@@ -2610,9 +2454,6 @@ GetImportFileUrlResponse Alibabacloud_Mse20190531::Client::getImportFileUrlWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -2647,9 +2488,6 @@ GetKubernetesSourceResponse Alibabacloud_Mse20190531::Client::getKubernetesSourc
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2677,9 +2515,6 @@ GetMseFeatureSwitchResponse Alibabacloud_Mse20190531::Client::getMseFeatureSwitc
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2711,9 +2546,6 @@ GetMseSourceResponse Alibabacloud_Mse20190531::Client::getMseSourceWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
@@ -2758,9 +2590,6 @@ GetNacosConfigResponse Alibabacloud_Mse20190531::Client::getNacosConfigWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -2801,9 +2630,6 @@ GetNacosHistoryConfigResponse Alibabacloud_Mse20190531::Client::getNacosHistoryC
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -2837,9 +2663,6 @@ GetOverviewResponse Alibabacloud_Mse20190531::Client::getOverviewWithOptions(sha
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
@@ -2877,9 +2700,6 @@ GetPluginConfigResponse Alibabacloud_Mse20190531::Client::getPluginConfigWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pluginId)) {
     query->insert(pair<string, long>("PluginId", *request->pluginId));
@@ -2921,9 +2741,6 @@ GetPluginsResponse Alibabacloud_Mse20190531::Client::getPluginsWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -2960,9 +2777,6 @@ GetServiceListResponse Alibabacloud_Mse20190531::Client::getServiceListWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -3016,9 +2830,6 @@ GetServiceListenersResponse Alibabacloud_Mse20190531::Client::getServiceListener
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -3068,9 +2879,6 @@ GetTagsBySwimmingLaneGroupIdResponse Alibabacloud_Mse20190531::Client::getTagsBy
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     query->insert(pair<string, long>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3104,9 +2912,6 @@ ImportNacosConfigResponse Alibabacloud_Mse20190531::Client::importNacosConfigWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -3149,9 +2954,6 @@ ImportServicesResponse Alibabacloud_Mse20190531::Client::importServicesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceListShrink)) {
     query->insert(pair<string, string>("ServiceList", *request->serviceListShrink));
@@ -3268,9 +3070,6 @@ ListAppBySwimmingLaneGroupTagResponse Alibabacloud_Mse20190531::Client::listAppB
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     query->insert(pair<string, long>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
     query->insert(pair<string, string>("Tag", *request->tag));
   }
@@ -3327,9 +3126,6 @@ ListClusterConnectionTypesResponse Alibabacloud_Mse20190531::Client::listCluster
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3360,9 +3156,6 @@ ListClusterTypesResponse Alibabacloud_Mse20190531::Client::listClusterTypesWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectType)) {
     query->insert(pair<string, string>("ConnectType", *request->connectType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -3400,9 +3193,6 @@ ListClusterVersionsResponse Alibabacloud_Mse20190531::Client::listClusterVersion
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -3546,9 +3336,6 @@ ListGatewayResponse Alibabacloud_Mse20190531::Client::listGatewayWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->filterParamsShrink)) {
     query->insert(pair<string, string>("FilterParams", *request->filterParamsShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderItem)) {
     query->insert(pair<string, string>("OrderItem", *request->orderItem));
   }
@@ -3588,9 +3375,6 @@ ListGatewayDomainResponse Alibabacloud_Mse20190531::Client::listGatewayDomainWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
@@ -3633,9 +3417,6 @@ ListGatewayRouteResponse Alibabacloud_Mse20190531::Client::listGatewayRouteWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filterParamsShrink)) {
     query->insert(pair<string, string>("FilterParams", *request->filterParamsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderItem)) {
     query->insert(pair<string, string>("OrderItem", *request->orderItem));
@@ -3685,9 +3466,6 @@ ListGatewayServiceResponse Alibabacloud_Mse20190531::Client::listGatewayServiceW
   if (!Darabonba_Util::Client::isUnset<string>(request->filterParamsShrink)) {
     query->insert(pair<string, string>("FilterParams", *request->filterParamsShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderItem)) {
     query->insert(pair<string, string>("OrderItem", *request->orderItem));
   }
@@ -3728,9 +3506,6 @@ ListGatewaySlbResponse Alibabacloud_Mse20190531::Client::listGatewaySlbWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3761,9 +3536,6 @@ ListInstanceCountResponse Alibabacloud_Mse20190531::Client::listInstanceCountWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -3836,9 +3608,6 @@ ListListenersByConfigResponse Alibabacloud_Mse20190531::Client::listListenersByC
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -3878,9 +3647,6 @@ ListListenersByIpResponse Alibabacloud_Mse20190531::Client::listListenersByIpWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -3927,9 +3693,6 @@ ListNacosConfigsResponse Alibabacloud_Mse20190531::Client::listNacosConfigsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -3986,9 +3749,6 @@ ListNacosHistoryConfigsResponse Alibabacloud_Mse20190531::Client::listNacosHisto
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -4035,9 +3795,6 @@ ListSSLCertResponse Alibabacloud_Mse20190531::Client::listSSLCertWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4068,9 +3825,6 @@ ListSecurityGroupResponse Alibabacloud_Mse20190531::Client::listSecurityGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4103,9 +3857,6 @@ ListSecurityGroupRuleResponse Alibabacloud_Mse20190531::Client::listSecurityGrou
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4137,9 +3888,6 @@ ListServiceSourceResponse Alibabacloud_Mse20190531::Client::listServiceSourceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4167,9 +3915,6 @@ ListTagResourcesResponse Alibabacloud_Mse20190531::Client::listTagResourcesWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
@@ -4292,9 +4037,6 @@ ModifyGovernanceKubernetesClusterResponse Alibabacloud_Mse20190531::Client::modi
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceInfos)) {
     query->insert(pair<string, string>("NamespaceInfos", *request->namespaceInfos));
   }
@@ -4347,9 +4089,6 @@ ModifyLosslessRuleResponse Alibabacloud_Mse20190531::Client::modifyLosslessRuleW
   if (!Darabonba_Util::Client::isUnset<long>(request->funcType)) {
     query->insert(pair<string, long>("FuncType", *request->funcType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -4396,9 +4135,6 @@ OfflineGatewayRouteResponse Alibabacloud_Mse20190531::Client::offlineGatewayRout
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->routeId)) {
     query->insert(pair<string, string>("RouteId", *request->routeId));
   }
@@ -4432,9 +4168,6 @@ PullServicesResponse Alibabacloud_Mse20190531::Client::pullServicesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
@@ -4473,9 +4206,6 @@ QueryAllSwimmingLaneResponse Alibabacloud_Mse20190531::Client::queryAllSwimmingL
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     query->insert(pair<string, long>("GroupId", *request->groupId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4503,9 +4233,6 @@ QueryAllSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::queryAllSwim
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4566,9 +4293,6 @@ QueryClusterDetailResponse Alibabacloud_Mse20190531::Client::queryClusterDetailW
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("OrderId", *request->orderId));
   }
@@ -4603,9 +4327,6 @@ QueryClusterDiskSpecificationResponse Alibabacloud_Mse20190531::Client::queryClu
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4636,9 +4357,6 @@ QueryClusterSpecificationResponse Alibabacloud_Mse20190531::Client::queryCluster
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectType)) {
     query->insert(pair<string, string>("ConnectType", *request->connectType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mseVersion)) {
     query->insert(pair<string, string>("MseVersion", *request->mseVersion));
@@ -4696,9 +4414,6 @@ QueryGatewayRegionResponse Alibabacloud_Mse20190531::Client::queryGatewayRegionW
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4726,9 +4441,6 @@ QueryGatewayTypeResponse Alibabacloud_Mse20190531::Client::queryGatewayTypeWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4836,9 +4548,6 @@ QuerySwimmingLaneByIdResponse Alibabacloud_Mse20190531::Client::querySwimmingLan
   if (!Darabonba_Util::Client::isUnset<long>(request->laneId)) {
     query->insert(pair<string, long>("LaneId", *request->laneId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4898,9 +4607,6 @@ RestartClusterResponse Alibabacloud_Mse20190531::Client::restartClusterWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->podNameList)) {
     query->insert(pair<string, string>("PodNameList", *request->podNameList));
   }
@@ -4938,9 +4644,6 @@ RetryClusterResponse Alibabacloud_Mse20190531::Client::retryClusterWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
   }
@@ -4975,9 +4678,6 @@ SelectGatewaySlbResponse Alibabacloud_Mse20190531::Client::selectGatewaySlbWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -5011,9 +4711,6 @@ TagResourcesResponse Alibabacloud_Mse20190531::Client::tagResourcesWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -5057,9 +4754,6 @@ UntagResourcesResponse Alibabacloud_Mse20190531::Client::untagResourcesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->all)) {
     query->insert(pair<string, bool>("All", *request->all));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -5107,9 +4801,6 @@ UpdateAclResponse Alibabacloud_Mse20190531::Client::updateAclWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5149,9 +4840,6 @@ UpdateBlackWhiteListResponse Alibabacloud_Mse20190531::Client::updateBlackWhiteL
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isWhite)) {
     query->insert(pair<string, bool>("IsWhite", *request->isWhite));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -5205,9 +4893,6 @@ UpdateClusterResponse Alibabacloud_Mse20190531::Client::updateClusterWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
   }
@@ -5250,9 +4935,6 @@ UpdateClusterSpecResponse Alibabacloud_Mse20190531::Client::updateClusterSpecWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5321,9 +5003,6 @@ UpdateConfigResponse Alibabacloud_Mse20190531::Client::updateConfigWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->minSessionTimeout)) {
     query->insert(pair<string, string>("MinSessionTimeout", *request->minSessionTimeout));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->namingAuthEnabled)) {
     query->insert(pair<string, bool>("NamingAuthEnabled", *request->namingAuthEnabled));
   }
@@ -5390,9 +5069,6 @@ UpdateEngineNamespaceResponse Alibabacloud_Mse20190531::Client::updateEngineName
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -5439,9 +5115,6 @@ UpdateGatewayDomainResponse Alibabacloud_Mse20190531::Client::updateGatewayDomai
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->mustHttps)) {
     query->insert(pair<string, bool>("MustHttps", *request->mustHttps));
   }
@@ -5484,9 +5157,6 @@ UpdateGatewayNameResponse Alibabacloud_Mse20190531::Client::updateGatewayNameWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -5532,9 +5202,6 @@ UpdateGatewayOptionResponse Alibabacloud_Mse20190531::Client::updateGatewayOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5608,9 +5275,6 @@ UpdateGatewayRouteResponse Alibabacloud_Mse20190531::Client::updateGatewayRouteW
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -5671,9 +5335,6 @@ UpdateGatewayRouteCORSResponse Alibabacloud_Mse20190531::Client::updateGatewayRo
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5714,9 +5375,6 @@ UpdateGatewayRouteHTTPRewriteResponse Alibabacloud_Mse20190531::Client::updateGa
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5756,9 +5414,6 @@ UpdateGatewayRouteHeaderOpResponse Alibabacloud_Mse20190531::Client::updateGatew
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5801,9 +5456,6 @@ UpdateGatewayRouteRetryResponse Alibabacloud_Mse20190531::Client::updateGatewayR
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->retryJSONShrink)) {
     query->insert(pair<string, string>("RetryJSON", *request->retryJSONShrink));
@@ -5850,9 +5502,6 @@ UpdateGatewayRouteTimeoutResponse Alibabacloud_Mse20190531::Client::updateGatewa
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeoutJSONShrink)) {
     query->insert(pair<string, string>("TimeoutJSON", *request->timeoutJSONShrink));
   }
@@ -5889,9 +5538,6 @@ UpdateGatewayRouteWafStatusResponse Alibabacloud_Mse20190531::Client::updateGate
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->routeId)) {
     query->insert(pair<string, long>("RouteId", *request->routeId));
@@ -5938,9 +5584,6 @@ UpdateGatewayServiceTrafficPolicyResponse Alibabacloud_Mse20190531::Client::upda
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     query->insert(pair<string, long>("ServiceId", *request->serviceId));
   }
@@ -5974,9 +5617,6 @@ UpdateGatewayServiceVersionResponse Alibabacloud_Mse20190531::Client::updateGate
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     query->insert(pair<string, long>("ServiceId", *request->serviceId));
@@ -6015,9 +5655,6 @@ UpdateGatewaySpecResponse Alibabacloud_Mse20190531::Client::updateGatewaySpecWit
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->replica)) {
     query->insert(pair<string, long>("Replica", *request->replica));
   }
@@ -6054,9 +5691,6 @@ UpdateImageResponse Alibabacloud_Mse20190531::Client::updateImageWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->versionCode)) {
     query->insert(pair<string, string>("VersionCode", *request->versionCode));
@@ -6102,9 +5736,6 @@ UpdateMessageQueueRouteResponse Alibabacloud_Mse20190531::Client::updateMessageQ
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filterSide)) {
     query->insert(pair<string, string>("FilterSide", *request->filterSide));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -6154,9 +5785,6 @@ UpdateNacosClusterResponse Alibabacloud_Mse20190531::Client::updateNacosClusterW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -6222,9 +5850,6 @@ UpdateNacosConfigResponse Alibabacloud_Mse20190531::Client::updateNacosConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->md5)) {
     query->insert(pair<string, string>("Md5", *request->md5));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -6280,9 +5905,6 @@ UpdateNacosInstanceResponse Alibabacloud_Mse20190531::Client::updateNacosInstanc
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
   }
@@ -6336,9 +5958,6 @@ UpdateNacosServiceResponse Alibabacloud_Mse20190531::Client::updateNacosServiceW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespaceId)) {
     query->insert(pair<string, string>("NamespaceId", *request->namespaceId));
@@ -6401,9 +6020,6 @@ UpdatePluginConfigResponse Alibabacloud_Mse20190531::Client::updatePluginConfigW
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pluginId)) {
     query->insert(pair<string, long>("PluginId", *request->pluginId));
   }
@@ -6444,9 +6060,6 @@ UpdateSSLCertResponse Alibabacloud_Mse20190531::Client::updateSSLCertWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -6476,6 +6089,9 @@ UpdateServiceSourceResponse Alibabacloud_Mse20190531::Client::updateServiceSourc
   if (!Darabonba_Util::Client::isUnset<UpdateServiceSourceRequestIngressOptionsRequest>(tmpReq->ingressOptionsRequest)) {
     request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ingressOptionsRequest->toMap()), make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pathList)) {
+    request->pathListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pathList, make_shared<string>("PathList"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -6495,11 +6111,11 @@ UpdateServiceSourceResponse Alibabacloud_Mse20190531::Client::updateServiceSourc
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressOptionsRequestShrink)) {
     query->insert(pair<string, string>("IngressOptionsRequest", *request->ingressOptionsRequestShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pathListShrink)) {
+    query->insert(pair<string, string>("PathList", *request->pathListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
@@ -6541,9 +6157,6 @@ UpdateZnodeResponse Alibabacloud_Mse20190531::Client::updateZnodeWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
     query->insert(pair<string, string>("Data", *request->data));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
     query->insert(pair<string, string>("Path", *request->path));
   }
@@ -6580,9 +6193,6 @@ UpgradeClusterResponse Alibabacloud_Mse20190531::Client::upgradeClusterWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mseSessionId)) {
-    query->insert(pair<string, string>("MseSessionId", *request->mseSessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
