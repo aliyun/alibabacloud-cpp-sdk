@@ -556,10 +556,47 @@ public:
 
   virtual ~CreateEaiAllResponse() = default;
 };
+class CreateEaiJupyterRequestEnvironmentVar : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateEaiJupyterRequestEnvironmentVar() {}
+
+  explicit CreateEaiJupyterRequestEnvironmentVar(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEaiJupyterRequestEnvironmentVar() = default;
+};
 class CreateEaiJupyterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> eaisType{};
+  shared_ptr<vector<CreateEaiJupyterRequestEnvironmentVar>> environmentVar{};
   shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
@@ -580,6 +617,13 @@ public:
     if (eaisType) {
       res["EaisType"] = boost::any(*eaisType);
     }
+    if (environmentVar) {
+      vector<boost::any> temp1;
+      for(auto item1:*environmentVar){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EnvironmentVar"] = boost::any(temp1);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -599,6 +643,19 @@ public:
     if (m.find("EaisType") != m.end() && !m["EaisType"].empty()) {
       eaisType = make_shared<string>(boost::any_cast<string>(m["EaisType"]));
     }
+    if (m.find("EnvironmentVar") != m.end() && !m["EnvironmentVar"].empty()) {
+      if (typeid(vector<boost::any>) == m["EnvironmentVar"].type()) {
+        vector<CreateEaiJupyterRequestEnvironmentVar> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EnvironmentVar"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEaiJupyterRequestEnvironmentVar model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        environmentVar = make_shared<vector<CreateEaiJupyterRequestEnvironmentVar>>(expect1);
+      }
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -612,6 +669,70 @@ public:
 
 
   virtual ~CreateEaiJupyterRequest() = default;
+};
+class CreateEaiJupyterShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> eaisType{};
+  shared_ptr<string> environmentVarShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
+
+  CreateEaiJupyterShrinkRequest() {}
+
+  explicit CreateEaiJupyterShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (eaisType) {
+      res["EaisType"] = boost::any(*eaisType);
+    }
+    if (environmentVarShrink) {
+      res["EnvironmentVar"] = boost::any(*environmentVarShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EaisType") != m.end() && !m["EaisType"].empty()) {
+      eaisType = make_shared<string>(boost::any_cast<string>(m["EaisType"]));
+    }
+    if (m.find("EnvironmentVar") != m.end() && !m["EnvironmentVar"].empty()) {
+      environmentVarShrink = make_shared<string>(boost::any_cast<string>(m["EnvironmentVar"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~CreateEaiJupyterShrinkRequest() = default;
 };
 class CreateEaiJupyterResponseBody : public Darabonba::Model {
 public:
@@ -1764,7 +1885,7 @@ public:
   CreateEaiResponse createEai(shared_ptr<CreateEaiRequest> request);
   CreateEaiAllResponse createEaiAllWithOptions(shared_ptr<CreateEaiAllRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEaiAllResponse createEaiAll(shared_ptr<CreateEaiAllRequest> request);
-  CreateEaiJupyterResponse createEaiJupyterWithOptions(shared_ptr<CreateEaiJupyterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEaiJupyterResponse createEaiJupyterWithOptions(shared_ptr<CreateEaiJupyterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEaiJupyterResponse createEaiJupyter(shared_ptr<CreateEaiJupyterRequest> request);
   DeleteEaiResponse deleteEaiWithOptions(shared_ptr<DeleteEaiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEaiResponse deleteEai(shared_ptr<DeleteEaiRequest> request);

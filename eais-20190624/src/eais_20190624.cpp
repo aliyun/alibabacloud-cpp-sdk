@@ -239,14 +239,22 @@ CreateEaiAllResponse Alibabacloud_Eais20190624::Client::createEaiAll(shared_ptr<
   return createEaiAllWithOptions(request, runtime);
 }
 
-CreateEaiJupyterResponse Alibabacloud_Eais20190624::Client::createEaiJupyterWithOptions(shared_ptr<CreateEaiJupyterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateEaiJupyterResponse Alibabacloud_Eais20190624::Client::createEaiJupyterWithOptions(shared_ptr<CreateEaiJupyterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateEaiJupyterShrinkRequest> request = make_shared<CreateEaiJupyterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEaiJupyterRequestEnvironmentVar>>(tmpReq->environmentVar)) {
+    request->environmentVarShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->environmentVar, make_shared<string>("EnvironmentVar"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->eaisType)) {
     query->insert(pair<string, string>("EaisType", *request->eaisType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->environmentVarShrink)) {
+    query->insert(pair<string, string>("EnvironmentVar", *request->environmentVarShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
