@@ -1418,6 +1418,7 @@ public:
   shared_ptr<long> level{};
   shared_ptr<string> message{};
   shared_ptr<string> output{};
+  shared_ptr<string> params{};
   shared_ptr<long> startTime{};
   shared_ptr<long> totalTime{};
   shared_ptr<string> url{};
@@ -1451,6 +1452,9 @@ public:
     }
     if (output) {
       res["Output"] = boost::any(*output);
+    }
+    if (params) {
+      res["Params"] = boost::any(*params);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -1488,6 +1492,9 @@ public:
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -1656,12 +1663,10 @@ public:
 };
 class SubmitImageCopyrightRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> input{};
   shared_ptr<long> level{};
   shared_ptr<string> message{};
   shared_ptr<string> output{};
   shared_ptr<string> params{};
-  shared_ptr<string> url{};
 
   SubmitImageCopyrightRequest() {}
 
@@ -1673,9 +1678,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (input) {
-      res["Input"] = boost::any(*input);
-    }
     if (level) {
       res["Level"] = boost::any(*level);
     }
@@ -1688,16 +1690,10 @@ public:
     if (params) {
       res["Params"] = boost::any(*params);
     }
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Input") != m.end() && !m["Input"].empty()) {
-      input = make_shared<string>(boost::any_cast<string>(m["Input"]));
-    }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<long>(boost::any_cast<long>(m["Level"]));
     }
@@ -1709,9 +1705,6 @@ public:
     }
     if (m.find("Params") != m.end() && !m["Params"].empty()) {
       params = make_shared<string>(boost::any_cast<string>(m["Params"]));
-    }
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
   }
 

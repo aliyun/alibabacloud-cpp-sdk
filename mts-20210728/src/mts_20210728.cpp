@@ -335,6 +335,9 @@ SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJobW
   if (!Darabonba_Util::Client::isUnset<string>(request->output)) {
     body->insert(pair<string, string>("Output", *request->output));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -377,9 +380,6 @@ SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyri
 SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyrightWithOptions(shared_ptr<SubmitImageCopyrightRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
-    body->insert(pair<string, string>("Input", *request->input));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->level)) {
     body->insert(pair<string, long>("Level", *request->level));
   }
@@ -391,9 +391,6 @@ SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyri
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
     body->insert(pair<string, string>("Params", *request->params));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
-    body->insert(pair<string, string>("Url", *request->url));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
