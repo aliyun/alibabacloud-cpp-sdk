@@ -6784,6 +6784,40 @@ GisSearchDeviceTraceResponse Alibabacloud_Iot20180120::Client::gisSearchDeviceTr
   return gisSearchDeviceTraceWithOptions(request, runtime);
 }
 
+ImportDTDataResponse Alibabacloud_Iot20180120::Client::importDTDataWithOptions(shared_ptr<ImportDTDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
+    body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ImportDTDataRequestItems>>(request->items)) {
+    body->insert(pair<string, vector<ImportDTDataRequestItems>>("Items", *request->items));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ImportDTData"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ImportDTDataResponse(callApi(params, req, runtime));
+}
+
+ImportDTDataResponse Alibabacloud_Iot20180120::Client::importDTData(shared_ptr<ImportDTDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return importDTDataWithOptions(request, runtime);
+}
+
 ImportDeviceResponse Alibabacloud_Iot20180120::Client::importDeviceWithOptions(shared_ptr<ImportDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
