@@ -684,6 +684,9 @@ CreateUploadImageResponse Alibabacloud_Vod20170321::Client::createUploadImageWit
   if (!Darabonba_Util::Client::isUnset<string>(request->imageType)) {
     query->insert(pair<string, string>("ImageType", *request->imageType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originalFileName)) {
+    query->insert(pair<string, string>("OriginalFileName", *request->originalFileName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageLocation)) {
     query->insert(pair<string, string>("StorageLocation", *request->storageLocation));
   }

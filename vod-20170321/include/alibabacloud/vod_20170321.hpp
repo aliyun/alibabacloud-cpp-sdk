@@ -2529,6 +2529,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> imageExt{};
   shared_ptr<string> imageType{};
+  shared_ptr<string> originalFileName{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
@@ -2558,6 +2559,9 @@ public:
     }
     if (imageType) {
       res["ImageType"] = boost::any(*imageType);
+    }
+    if (originalFileName) {
+      res["OriginalFileName"] = boost::any(*originalFileName);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -2589,6 +2593,9 @@ public:
     }
     if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
       imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("OriginalFileName") != m.end() && !m["OriginalFileName"].empty()) {
+      originalFileName = make_shared<string>(boost::any_cast<string>(m["OriginalFileName"]));
     }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
