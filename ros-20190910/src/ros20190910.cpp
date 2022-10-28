@@ -90,6 +90,9 @@ ContinueCreateStackResponse Alibabacloud_ROS20190910::Client::continueCreateStac
   if (!Darabonba_Util::Client::isUnset<string>(request->ramRoleName)) {
     query->insert(pair<string, string>("RamRoleName", *request->ramRoleName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recreatingOptions)) {
+    query->insert(pair<string, vector<string>>("RecreatingOptions", *request->recreatingOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->recreatingResources)) {
     query->insert(pair<string, vector<string>>("RecreatingResources", *request->recreatingResources));
   }
@@ -359,6 +362,9 @@ CreateStackGroupResponse Alibabacloud_ROS20190910::Client::createStackGroupWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->stackGroupName)) {
     query->insert(pair<string, string>("StackGroupName", *request->stackGroupName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateStackGroupShrinkRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateStackGroupShrinkRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
     query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   }
@@ -473,6 +479,9 @@ CreateTemplateResponse Alibabacloud_ROS20190910::Client::createTemplateWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTemplateRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateTemplateRequestTags>>("Tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
     query->insert(pair<string, string>("TemplateBody", *request->templateBody));
@@ -2017,6 +2026,18 @@ ListStackOperationRisksResponse Alibabacloud_ROS20190910::Client::listStackOpera
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
+    query->insert(pair<string, string>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
+    query->insert(pair<string, string>("TemplateURL", *request->templateURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
+    query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
