@@ -2686,9 +2686,20 @@ MergeFigureClustersResponse Alibabacloud_Imm20200930::Client::mergeFigureCluster
   return mergeFigureClustersWithOptions(request, runtime);
 }
 
-QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureClustersWithOptions(shared_ptr<QueryFigureClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureClustersWithOptions(shared_ptr<QueryFigureClustersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryFigureClustersShrinkRequest> request = make_shared<QueryFigureClustersShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->createTimeRange)) {
+    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->createTimeRange->toMap()), make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->updateTimeRange)) {
+    request->updateTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->updateTimeRange->toMap()), make_shared<string>("UpdateTimeRange"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->createTimeRangeShrink)) {
+    query->insert(pair<string, string>("CreateTimeRange", *request->createTimeRangeShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customLabels)) {
     query->insert(pair<string, string>("CustomLabels", *request->customLabels));
   }
@@ -2709,6 +2720,9 @@ QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureCluster
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateTimeRangeShrink)) {
+    query->insert(pair<string, string>("UpdateTimeRange", *request->updateTimeRangeShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

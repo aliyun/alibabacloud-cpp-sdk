@@ -18917,6 +18917,7 @@ public:
 };
 class QueryFigureClustersRequest : public Darabonba::Model {
 public:
+  shared_ptr<TimeRange> createTimeRange{};
   shared_ptr<string> customLabels{};
   shared_ptr<string> datasetName{};
   shared_ptr<long> maxResults{};
@@ -18924,6 +18925,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sort{};
+  shared_ptr<TimeRange> updateTimeRange{};
 
   QueryFigureClustersRequest() {}
 
@@ -18935,6 +18937,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTimeRange) {
+      res["CreateTimeRange"] = createTimeRange ? boost::any(createTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (customLabels) {
       res["CustomLabels"] = boost::any(*customLabels);
     }
@@ -18956,10 +18961,20 @@ public:
     if (sort) {
       res["Sort"] = boost::any(*sort);
     }
+    if (updateTimeRange) {
+      res["UpdateTimeRange"] = updateTimeRange ? boost::any(updateTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimeRange") != m.end() && !m["CreateTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CreateTimeRange"].type()) {
+        TimeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CreateTimeRange"]));
+        createTimeRange = make_shared<TimeRange>(model1);
+      }
+    }
     if (m.find("CustomLabels") != m.end() && !m["CustomLabels"].empty()) {
       customLabels = make_shared<string>(boost::any_cast<string>(m["CustomLabels"]));
     }
@@ -18981,10 +18996,102 @@ public:
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
+    if (m.find("UpdateTimeRange") != m.end() && !m["UpdateTimeRange"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UpdateTimeRange"].type()) {
+        TimeRange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UpdateTimeRange"]));
+        updateTimeRange = make_shared<TimeRange>(model1);
+      }
+    }
   }
 
 
   virtual ~QueryFigureClustersRequest() = default;
+};
+class QueryFigureClustersShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> createTimeRangeShrink{};
+  shared_ptr<string> customLabels{};
+  shared_ptr<string> datasetName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> order{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sort{};
+  shared_ptr<string> updateTimeRangeShrink{};
+
+  QueryFigureClustersShrinkRequest() {}
+
+  explicit QueryFigureClustersShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTimeRangeShrink) {
+      res["CreateTimeRange"] = boost::any(*createTimeRangeShrink);
+    }
+    if (customLabels) {
+      res["CustomLabels"] = boost::any(*customLabels);
+    }
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (updateTimeRangeShrink) {
+      res["UpdateTimeRange"] = boost::any(*updateTimeRangeShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimeRange") != m.end() && !m["CreateTimeRange"].empty()) {
+      createTimeRangeShrink = make_shared<string>(boost::any_cast<string>(m["CreateTimeRange"]));
+    }
+    if (m.find("CustomLabels") != m.end() && !m["CustomLabels"].empty()) {
+      customLabels = make_shared<string>(boost::any_cast<string>(m["CustomLabels"]));
+    }
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("UpdateTimeRange") != m.end() && !m["UpdateTimeRange"].empty()) {
+      updateTimeRangeShrink = make_shared<string>(boost::any_cast<string>(m["UpdateTimeRange"]));
+    }
+  }
+
+
+  virtual ~QueryFigureClustersShrinkRequest() = default;
 };
 class QueryFigureClustersResponseBody : public Darabonba::Model {
 public:
@@ -21290,6 +21397,7 @@ public:
 };
 class UpdateFigureClusterResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<FigureCluster> figureCluster{};
   shared_ptr<string> requestId{};
 
   UpdateFigureClusterResponseBody() {}
@@ -21302,6 +21410,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (figureCluster) {
+      res["FigureCluster"] = figureCluster ? boost::any(figureCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -21309,6 +21420,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FigureCluster") != m.end() && !m["FigureCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FigureCluster"].type()) {
+        FigureCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FigureCluster"]));
+        figureCluster = make_shared<FigureCluster>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -22163,7 +22281,7 @@ public:
   LiveTranscodingResponse liveTranscoding(shared_ptr<LiveTranscodingRequest> request);
   MergeFigureClustersResponse mergeFigureClustersWithOptions(shared_ptr<MergeFigureClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MergeFigureClustersResponse mergeFigureClusters(shared_ptr<MergeFigureClustersRequest> request);
-  QueryFigureClustersResponse queryFigureClustersWithOptions(shared_ptr<QueryFigureClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryFigureClustersResponse queryFigureClustersWithOptions(shared_ptr<QueryFigureClustersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryFigureClustersResponse queryFigureClusters(shared_ptr<QueryFigureClustersRequest> request);
   QueryStoriesResponse queryStoriesWithOptions(shared_ptr<QueryStoriesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryStoriesResponse queryStories(shared_ptr<QueryStoriesRequest> request);
