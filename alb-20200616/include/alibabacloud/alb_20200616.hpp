@@ -2444,6 +2444,98 @@ public:
 
   virtual ~CreateLoadBalancerResponse() = default;
 };
+class CreateRuleRequestRuleActionsCorsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCredentials{};
+  shared_ptr<vector<string>> allowHeaders{};
+  shared_ptr<vector<string>> allowMethods{};
+  shared_ptr<vector<string>> allowOrigin{};
+  shared_ptr<vector<string>> exposeHeaders{};
+  shared_ptr<long> maxAge{};
+
+  CreateRuleRequestRuleActionsCorsConfig() {}
+
+  explicit CreateRuleRequestRuleActionsCorsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCredentials) {
+      res["AllowCredentials"] = boost::any(*allowCredentials);
+    }
+    if (allowHeaders) {
+      res["AllowHeaders"] = boost::any(*allowHeaders);
+    }
+    if (allowMethods) {
+      res["AllowMethods"] = boost::any(*allowMethods);
+    }
+    if (allowOrigin) {
+      res["AllowOrigin"] = boost::any(*allowOrigin);
+    }
+    if (exposeHeaders) {
+      res["ExposeHeaders"] = boost::any(*exposeHeaders);
+    }
+    if (maxAge) {
+      res["MaxAge"] = boost::any(*maxAge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCredentials") != m.end() && !m["AllowCredentials"].empty()) {
+      allowCredentials = make_shared<string>(boost::any_cast<string>(m["AllowCredentials"]));
+    }
+    if (m.find("AllowHeaders") != m.end() && !m["AllowHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowMethods") != m.end() && !m["AllowMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowOrigin") != m.end() && !m["AllowOrigin"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowOrigin"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowOrigin"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowOrigin = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExposeHeaders") != m.end() && !m["ExposeHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExposeHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExposeHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exposeHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
+      maxAge = make_shared<long>(boost::any_cast<long>(m["MaxAge"]));
+    }
+  }
+
+
+  virtual ~CreateRuleRequestRuleActionsCorsConfig() = default;
+};
 class CreateRuleRequestRuleActionsFixedResponseConfig : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -2913,6 +3005,7 @@ public:
 };
 class CreateRuleRequestRuleActions : public Darabonba::Model {
 public:
+  shared_ptr<CreateRuleRequestRuleActionsCorsConfig> corsConfig{};
   shared_ptr<CreateRuleRequestRuleActionsFixedResponseConfig> fixedResponseConfig{};
   shared_ptr<CreateRuleRequestRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<CreateRuleRequestRuleActionsInsertHeaderConfig> insertHeaderConfig{};
@@ -2933,6 +3026,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corsConfig) {
+      res["CorsConfig"] = corsConfig ? boost::any(corsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fixedResponseConfig) {
       res["FixedResponseConfig"] = fixedResponseConfig ? boost::any(fixedResponseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2964,6 +3060,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorsConfig") != m.end() && !m["CorsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CorsConfig"].type()) {
+        CreateRuleRequestRuleActionsCorsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CorsConfig"]));
+        corsConfig = make_shared<CreateRuleRequestRuleActionsCorsConfig>(model1);
+      }
+    }
     if (m.find("FixedResponseConfig") != m.end() && !m["FixedResponseConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FixedResponseConfig"].type()) {
         CreateRuleRequestRuleActionsFixedResponseConfig model1;
@@ -3679,6 +3782,98 @@ public:
 
   virtual ~CreateRuleResponse() = default;
 };
+class CreateRulesRequestRulesRuleActionsCorsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCredentials{};
+  shared_ptr<vector<string>> allowHeaders{};
+  shared_ptr<vector<string>> allowMethods{};
+  shared_ptr<vector<string>> allowOrigin{};
+  shared_ptr<vector<string>> exposeHeaders{};
+  shared_ptr<long> maxAge{};
+
+  CreateRulesRequestRulesRuleActionsCorsConfig() {}
+
+  explicit CreateRulesRequestRulesRuleActionsCorsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCredentials) {
+      res["AllowCredentials"] = boost::any(*allowCredentials);
+    }
+    if (allowHeaders) {
+      res["AllowHeaders"] = boost::any(*allowHeaders);
+    }
+    if (allowMethods) {
+      res["AllowMethods"] = boost::any(*allowMethods);
+    }
+    if (allowOrigin) {
+      res["AllowOrigin"] = boost::any(*allowOrigin);
+    }
+    if (exposeHeaders) {
+      res["ExposeHeaders"] = boost::any(*exposeHeaders);
+    }
+    if (maxAge) {
+      res["MaxAge"] = boost::any(*maxAge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCredentials") != m.end() && !m["AllowCredentials"].empty()) {
+      allowCredentials = make_shared<string>(boost::any_cast<string>(m["AllowCredentials"]));
+    }
+    if (m.find("AllowHeaders") != m.end() && !m["AllowHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowMethods") != m.end() && !m["AllowMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowOrigin") != m.end() && !m["AllowOrigin"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowOrigin"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowOrigin"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowOrigin = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExposeHeaders") != m.end() && !m["ExposeHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExposeHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExposeHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exposeHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
+      maxAge = make_shared<long>(boost::any_cast<long>(m["MaxAge"]));
+    }
+  }
+
+
+  virtual ~CreateRulesRequestRulesRuleActionsCorsConfig() = default;
+};
 class CreateRulesRequestRulesRuleActionsFixedResponseConfig : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -4148,6 +4343,7 @@ public:
 };
 class CreateRulesRequestRulesRuleActions : public Darabonba::Model {
 public:
+  shared_ptr<CreateRulesRequestRulesRuleActionsCorsConfig> corsConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsFixedResponseConfig> fixedResponseConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsInsertHeaderConfig> insertHeaderConfig{};
@@ -4168,6 +4364,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corsConfig) {
+      res["CorsConfig"] = corsConfig ? boost::any(corsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fixedResponseConfig) {
       res["FixedResponseConfig"] = fixedResponseConfig ? boost::any(fixedResponseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -4199,6 +4398,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorsConfig") != m.end() && !m["CorsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CorsConfig"].type()) {
+        CreateRulesRequestRulesRuleActionsCorsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CorsConfig"]));
+        corsConfig = make_shared<CreateRulesRequestRulesRuleActionsCorsConfig>(model1);
+      }
+    }
     if (m.find("FixedResponseConfig") != m.end() && !m["FixedResponseConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FixedResponseConfig"].type()) {
         CreateRulesRequestRulesRuleActionsFixedResponseConfig model1;
@@ -13512,6 +13718,98 @@ public:
 
   virtual ~ListRulesRequest() = default;
 };
+class ListRulesResponseBodyRulesRuleActionsCorsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCredentials{};
+  shared_ptr<vector<string>> allowHeaders{};
+  shared_ptr<vector<string>> allowMethods{};
+  shared_ptr<vector<string>> allowOrigin{};
+  shared_ptr<vector<string>> exposeHeaders{};
+  shared_ptr<long> maxAge{};
+
+  ListRulesResponseBodyRulesRuleActionsCorsConfig() {}
+
+  explicit ListRulesResponseBodyRulesRuleActionsCorsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCredentials) {
+      res["AllowCredentials"] = boost::any(*allowCredentials);
+    }
+    if (allowHeaders) {
+      res["AllowHeaders"] = boost::any(*allowHeaders);
+    }
+    if (allowMethods) {
+      res["AllowMethods"] = boost::any(*allowMethods);
+    }
+    if (allowOrigin) {
+      res["AllowOrigin"] = boost::any(*allowOrigin);
+    }
+    if (exposeHeaders) {
+      res["ExposeHeaders"] = boost::any(*exposeHeaders);
+    }
+    if (maxAge) {
+      res["MaxAge"] = boost::any(*maxAge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCredentials") != m.end() && !m["AllowCredentials"].empty()) {
+      allowCredentials = make_shared<string>(boost::any_cast<string>(m["AllowCredentials"]));
+    }
+    if (m.find("AllowHeaders") != m.end() && !m["AllowHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowMethods") != m.end() && !m["AllowMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowOrigin") != m.end() && !m["AllowOrigin"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowOrigin"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowOrigin"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowOrigin = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExposeHeaders") != m.end() && !m["ExposeHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExposeHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExposeHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exposeHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
+      maxAge = make_shared<long>(boost::any_cast<long>(m["MaxAge"]));
+    }
+  }
+
+
+  virtual ~ListRulesResponseBodyRulesRuleActionsCorsConfig() = default;
+};
 class ListRulesResponseBodyRulesRuleActionsFixedResponseConfig : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -13934,6 +14232,7 @@ public:
 };
 class ListRulesResponseBodyRulesRuleActions : public Darabonba::Model {
 public:
+  shared_ptr<ListRulesResponseBodyRulesRuleActionsCorsConfig> corsConfig{};
   shared_ptr<ListRulesResponseBodyRulesRuleActionsFixedResponseConfig> fixedResponseConfig{};
   shared_ptr<ListRulesResponseBodyRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<ListRulesResponseBodyRulesRuleActionsInsertHeaderConfig> insertHeaderConfig{};
@@ -13954,6 +14253,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corsConfig) {
+      res["CorsConfig"] = corsConfig ? boost::any(corsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fixedResponseConfig) {
       res["FixedResponseConfig"] = fixedResponseConfig ? boost::any(fixedResponseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -13985,6 +14287,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorsConfig") != m.end() && !m["CorsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CorsConfig"].type()) {
+        ListRulesResponseBodyRulesRuleActionsCorsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CorsConfig"]));
+        corsConfig = make_shared<ListRulesResponseBodyRulesRuleActionsCorsConfig>(model1);
+      }
+    }
     if (m.find("FixedResponseConfig") != m.end() && !m["FixedResponseConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FixedResponseConfig"].type()) {
         ListRulesResponseBodyRulesRuleActionsFixedResponseConfig model1;
@@ -20486,6 +20795,98 @@ public:
 
   virtual ~UpdateLoadBalancerZonesResponse() = default;
 };
+class UpdateRuleAttributeRequestRuleActionsCorsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCredentials{};
+  shared_ptr<vector<string>> allowHeaders{};
+  shared_ptr<vector<string>> allowMethods{};
+  shared_ptr<vector<string>> allowOrigin{};
+  shared_ptr<vector<string>> exposeHeaders{};
+  shared_ptr<long> maxAge{};
+
+  UpdateRuleAttributeRequestRuleActionsCorsConfig() {}
+
+  explicit UpdateRuleAttributeRequestRuleActionsCorsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCredentials) {
+      res["AllowCredentials"] = boost::any(*allowCredentials);
+    }
+    if (allowHeaders) {
+      res["AllowHeaders"] = boost::any(*allowHeaders);
+    }
+    if (allowMethods) {
+      res["AllowMethods"] = boost::any(*allowMethods);
+    }
+    if (allowOrigin) {
+      res["AllowOrigin"] = boost::any(*allowOrigin);
+    }
+    if (exposeHeaders) {
+      res["ExposeHeaders"] = boost::any(*exposeHeaders);
+    }
+    if (maxAge) {
+      res["MaxAge"] = boost::any(*maxAge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCredentials") != m.end() && !m["AllowCredentials"].empty()) {
+      allowCredentials = make_shared<string>(boost::any_cast<string>(m["AllowCredentials"]));
+    }
+    if (m.find("AllowHeaders") != m.end() && !m["AllowHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowMethods") != m.end() && !m["AllowMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowOrigin") != m.end() && !m["AllowOrigin"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowOrigin"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowOrigin"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowOrigin = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExposeHeaders") != m.end() && !m["ExposeHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExposeHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExposeHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exposeHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
+      maxAge = make_shared<long>(boost::any_cast<long>(m["MaxAge"]));
+    }
+  }
+
+
+  virtual ~UpdateRuleAttributeRequestRuleActionsCorsConfig() = default;
+};
 class UpdateRuleAttributeRequestRuleActionsFixedResponseConfig : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -20955,6 +21356,7 @@ public:
 };
 class UpdateRuleAttributeRequestRuleActions : public Darabonba::Model {
 public:
+  shared_ptr<UpdateRuleAttributeRequestRuleActionsCorsConfig> corsConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsFixedResponseConfig> fixedResponseConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig> insertHeaderConfig{};
@@ -20975,6 +21377,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corsConfig) {
+      res["CorsConfig"] = corsConfig ? boost::any(corsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fixedResponseConfig) {
       res["FixedResponseConfig"] = fixedResponseConfig ? boost::any(fixedResponseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -21006,6 +21411,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorsConfig") != m.end() && !m["CorsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CorsConfig"].type()) {
+        UpdateRuleAttributeRequestRuleActionsCorsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CorsConfig"]));
+        corsConfig = make_shared<UpdateRuleAttributeRequestRuleActionsCorsConfig>(model1);
+      }
+    }
     if (m.find("FixedResponseConfig") != m.end() && !m["FixedResponseConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FixedResponseConfig"].type()) {
         UpdateRuleAttributeRequestRuleActionsFixedResponseConfig model1;
@@ -21714,6 +22126,98 @@ public:
 
   virtual ~UpdateRuleAttributeResponse() = default;
 };
+class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> allowCredentials{};
+  shared_ptr<vector<string>> allowHeaders{};
+  shared_ptr<vector<string>> allowMethods{};
+  shared_ptr<vector<string>> allowOrigin{};
+  shared_ptr<vector<string>> exposeHeaders{};
+  shared_ptr<long> maxAge{};
+
+  UpdateRulesAttributeRequestRulesRuleActionsCorsConfig() {}
+
+  explicit UpdateRulesAttributeRequestRulesRuleActionsCorsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowCredentials) {
+      res["AllowCredentials"] = boost::any(*allowCredentials);
+    }
+    if (allowHeaders) {
+      res["AllowHeaders"] = boost::any(*allowHeaders);
+    }
+    if (allowMethods) {
+      res["AllowMethods"] = boost::any(*allowMethods);
+    }
+    if (allowOrigin) {
+      res["AllowOrigin"] = boost::any(*allowOrigin);
+    }
+    if (exposeHeaders) {
+      res["ExposeHeaders"] = boost::any(*exposeHeaders);
+    }
+    if (maxAge) {
+      res["MaxAge"] = boost::any(*maxAge);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCredentials") != m.end() && !m["AllowCredentials"].empty()) {
+      allowCredentials = make_shared<string>(boost::any_cast<string>(m["AllowCredentials"]));
+    }
+    if (m.find("AllowHeaders") != m.end() && !m["AllowHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowMethods") != m.end() && !m["AllowMethods"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowMethods"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowMethods"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowMethods = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AllowOrigin") != m.end() && !m["AllowOrigin"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowOrigin"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowOrigin"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowOrigin = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ExposeHeaders") != m.end() && !m["ExposeHeaders"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExposeHeaders"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExposeHeaders"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exposeHeaders = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("MaxAge") != m.end() && !m["MaxAge"].empty()) {
+      maxAge = make_shared<long>(boost::any_cast<long>(m["MaxAge"]));
+    }
+  }
+
+
+  virtual ~UpdateRulesAttributeRequestRulesRuleActionsCorsConfig() = default;
+};
 class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -22219,6 +22723,7 @@ public:
 };
 class UpdateRulesAttributeRequestRulesRuleActions : public Darabonba::Model {
 public:
+  shared_ptr<UpdateRulesAttributeRequestRulesRuleActionsCorsConfig> corsConfig{};
   shared_ptr<UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig> fixedResponseConfig{};
   shared_ptr<UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig> forwardGroupConfig{};
   shared_ptr<UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig> insertHeaderConfig{};
@@ -22240,6 +22745,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (corsConfig) {
+      res["CorsConfig"] = corsConfig ? boost::any(corsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (fixedResponseConfig) {
       res["FixedResponseConfig"] = fixedResponseConfig ? boost::any(fixedResponseConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -22274,6 +22782,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CorsConfig") != m.end() && !m["CorsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CorsConfig"].type()) {
+        UpdateRulesAttributeRequestRulesRuleActionsCorsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CorsConfig"]));
+        corsConfig = make_shared<UpdateRulesAttributeRequestRulesRuleActionsCorsConfig>(model1);
+      }
+    }
     if (m.find("FixedResponseConfig") != m.end() && !m["FixedResponseConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["FixedResponseConfig"].type()) {
         UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig model1;
