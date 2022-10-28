@@ -716,9 +716,6 @@ CreateFileCompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileCo
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
     query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->manifestURI)) {
-    query->insert(pair<string, string>("ManifestURI", *request->manifestURI));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
     query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
   }
@@ -727,6 +724,9 @@ CreateFileCompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileCo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceManifestURI)) {
+    query->insert(pair<string, string>("SourceManifestURI", *request->sourceManifestURI));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
     query->insert(pair<string, string>("Sources", *request->sourcesShrink));

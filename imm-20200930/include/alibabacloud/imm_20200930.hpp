@@ -7328,10 +7328,10 @@ class CreateFileCompressionTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> compressedFormat{};
   shared_ptr<CredentialConfig> credentialConfig{};
-  shared_ptr<string> manifestURI{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> password{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> sourceManifestURI{};
   shared_ptr<vector<CreateFileCompressionTaskRequestSources>> sources{};
   shared_ptr<string> targetURI{};
   shared_ptr<string> userData{};
@@ -7352,9 +7352,6 @@ public:
     if (credentialConfig) {
       res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (manifestURI) {
-      res["ManifestURI"] = boost::any(*manifestURI);
-    }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
     }
@@ -7363,6 +7360,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceManifestURI) {
+      res["SourceManifestURI"] = boost::any(*sourceManifestURI);
     }
     if (sources) {
       vector<boost::any> temp1;
@@ -7391,9 +7391,6 @@ public:
         credentialConfig = make_shared<CredentialConfig>(model1);
       }
     }
-    if (m.find("ManifestURI") != m.end() && !m["ManifestURI"].empty()) {
-      manifestURI = make_shared<string>(boost::any_cast<string>(m["ManifestURI"]));
-    }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
     }
@@ -7402,6 +7399,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceManifestURI") != m.end() && !m["SourceManifestURI"].empty()) {
+      sourceManifestURI = make_shared<string>(boost::any_cast<string>(m["SourceManifestURI"]));
     }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       if (typeid(vector<boost::any>) == m["Sources"].type()) {
@@ -7431,10 +7431,10 @@ class CreateFileCompressionTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> compressedFormat{};
   shared_ptr<string> credentialConfigShrink{};
-  shared_ptr<string> manifestURI{};
   shared_ptr<string> notifyTopicName{};
   shared_ptr<string> password{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> sourceManifestURI{};
   shared_ptr<string> sourcesShrink{};
   shared_ptr<string> targetURI{};
   shared_ptr<string> userData{};
@@ -7455,9 +7455,6 @@ public:
     if (credentialConfigShrink) {
       res["CredentialConfig"] = boost::any(*credentialConfigShrink);
     }
-    if (manifestURI) {
-      res["ManifestURI"] = boost::any(*manifestURI);
-    }
     if (notifyTopicName) {
       res["NotifyTopicName"] = boost::any(*notifyTopicName);
     }
@@ -7466,6 +7463,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceManifestURI) {
+      res["SourceManifestURI"] = boost::any(*sourceManifestURI);
     }
     if (sourcesShrink) {
       res["Sources"] = boost::any(*sourcesShrink);
@@ -7486,9 +7486,6 @@ public:
     if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
       credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
     }
-    if (m.find("ManifestURI") != m.end() && !m["ManifestURI"].empty()) {
-      manifestURI = make_shared<string>(boost::any_cast<string>(m["ManifestURI"]));
-    }
     if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
       notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
     }
@@ -7497,6 +7494,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceManifestURI") != m.end() && !m["SourceManifestURI"].empty()) {
+      sourceManifestURI = make_shared<string>(boost::any_cast<string>(m["SourceManifestURI"]));
     }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
