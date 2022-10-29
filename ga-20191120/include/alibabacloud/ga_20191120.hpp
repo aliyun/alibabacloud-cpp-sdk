@@ -1452,6 +1452,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewDuration{};
   shared_ptr<string> autoUseCoupon{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<string> clientToken{};
   shared_ptr<long> duration{};
   shared_ptr<CreateAcceleratorRequestIpSetConfig> ipSetConfig{};
@@ -1481,6 +1482,9 @@ public:
     }
     if (autoUseCoupon) {
       res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -1518,6 +1522,9 @@ public:
     }
     if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
       autoUseCoupon = make_shared<string>(boost::any_cast<string>(m["AutoUseCoupon"]));
+    }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -2308,6 +2315,7 @@ public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewDuration{};
   shared_ptr<string> autoUseCoupon{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<string> clientToken{};
   shared_ptr<long> duration{};
   shared_ptr<string> pricingCycle{};
@@ -2334,6 +2342,9 @@ public:
     }
     if (autoUseCoupon) {
       res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -2362,6 +2373,9 @@ public:
     }
     if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
       autoUseCoupon = make_shared<string>(boost::any_cast<string>(m["AutoUseCoupon"]));
+    }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -2492,6 +2506,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> endpointAddress{};
   shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointSubAddress{};
   shared_ptr<string> endpointType{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
@@ -2521,6 +2536,9 @@ public:
     if (endpointGroupRegion) {
       res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
     }
+    if (endpointSubAddress) {
+      res["EndpointSubAddress"] = boost::any(*endpointSubAddress);
+    }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
     }
@@ -2548,6 +2566,9 @@ public:
     }
     if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
       endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointSubAddress") != m.end() && !m["EndpointSubAddress"].empty()) {
+      endpointSubAddress = make_shared<string>(boost::any_cast<string>(m["EndpointSubAddress"]));
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
@@ -2665,6 +2686,7 @@ class CreateBasicIpSetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accelerateRegionId{};
   shared_ptr<string> acceleratorId{};
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> ispType{};
   shared_ptr<string> regionId{};
@@ -2685,6 +2707,9 @@ public:
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
     }
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -2703,6 +2728,9 @@ public:
     }
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -2815,6 +2843,1274 @@ public:
 
 
   virtual ~CreateBasicIpSetResponse() = default;
+};
+class CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<long> toPort{};
+
+  CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations() = default;
+};
+class CreateCustomRoutingEndpointGroupDestinationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>> destinationConfigurations{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  CreateCustomRoutingEndpointGroupDestinationsRequest() {}
+
+  explicit CreateCustomRoutingEndpointGroupDestinationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destinationConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinationConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DestinationConfigurations"] = boost::any(temp1);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DestinationConfigurations") != m.end() && !m["DestinationConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["DestinationConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DestinationConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinationConfigurations = make_shared<vector<CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>(expect1);
+      }
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupDestinationsRequest() = default;
+};
+class CreateCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> destinationIds{};
+  shared_ptr<string> requestId{};
+
+  CreateCustomRoutingEndpointGroupDestinationsResponseBody() {}
+
+  explicit CreateCustomRoutingEndpointGroupDestinationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationIds) {
+      res["DestinationIds"] = boost::any(*destinationIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationIds") != m.end() && !m["DestinationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupDestinationsResponseBody() = default;
+};
+class CreateCustomRoutingEndpointGroupDestinationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCustomRoutingEndpointGroupDestinationsResponseBody> body{};
+
+  CreateCustomRoutingEndpointGroupDestinationsResponse() {}
+
+  explicit CreateCustomRoutingEndpointGroupDestinationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCustomRoutingEndpointGroupDestinationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomRoutingEndpointGroupDestinationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupDestinationsResponse() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<long> toPort{};
+
+  CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges>> portRanges{};
+
+  CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+  shared_ptr<string> type{};
+
+  CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations>> destinationConfigurations{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations>> endpointConfigurations{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> name{};
+
+  CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destinationConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinationConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DestinationConfigurations"] = boost::any(temp1);
+    }
+    if (endpointConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointConfigurations"] = boost::any(temp1);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationConfigurations") != m.end() && !m["DestinationConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["DestinationConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DestinationConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinationConfigurations = make_shared<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointConfigurations") != m.end() && !m["EndpointConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointConfigurations = make_shared<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations() = default;
+};
+class CreateCustomRoutingEndpointGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations>> endpointGroupConfigurations{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> regionId{};
+
+  CreateCustomRoutingEndpointGroupsRequest() {}
+
+  explicit CreateCustomRoutingEndpointGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointGroupConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointGroupConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointGroupConfigurations"] = boost::any(temp1);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointGroupConfigurations") != m.end() && !m["EndpointGroupConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointGroupConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointGroupConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointGroupConfigurations = make_shared<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations>>(expect1);
+      }
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsRequest() = default;
+};
+class CreateCustomRoutingEndpointGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> endpointGroupIds{};
+  shared_ptr<string> requestId{};
+
+  CreateCustomRoutingEndpointGroupsResponseBody() {}
+
+  explicit CreateCustomRoutingEndpointGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointGroupIds) {
+      res["EndpointGroupIds"] = boost::any(*endpointGroupIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointGroupIds") != m.end() && !m["EndpointGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsResponseBody() = default;
+};
+class CreateCustomRoutingEndpointGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCustomRoutingEndpointGroupsResponseBody> body{};
+
+  CreateCustomRoutingEndpointGroupsResponse() {}
+
+  explicit CreateCustomRoutingEndpointGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCustomRoutingEndpointGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomRoutingEndpointGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointGroupsResponse() = default;
+};
+class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges() {}
+
+  explicit CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges() = default;
+};
+class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges>> portRanges{};
+
+  CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations() = default;
+};
+class CreateCustomRoutingEndpointTrafficPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> regionId{};
+
+  CreateCustomRoutingEndpointTrafficPoliciesRequest() {}
+
+  explicit CreateCustomRoutingEndpointTrafficPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointTrafficPoliciesRequest() = default;
+};
+class CreateCustomRoutingEndpointTrafficPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> requestId{};
+
+  CreateCustomRoutingEndpointTrafficPoliciesResponseBody() {}
+
+  explicit CreateCustomRoutingEndpointTrafficPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointTrafficPoliciesResponseBody() = default;
+};
+class CreateCustomRoutingEndpointTrafficPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCustomRoutingEndpointTrafficPoliciesResponseBody> body{};
+
+  CreateCustomRoutingEndpointTrafficPoliciesResponse() {}
+
+  explicit CreateCustomRoutingEndpointTrafficPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCustomRoutingEndpointTrafficPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomRoutingEndpointTrafficPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointTrafficPoliciesResponse() = default;
+};
+class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges() {}
+
+  explicit CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges() = default;
+};
+class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges>> portRanges{};
+
+  CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations() = default;
+};
+class CreateCustomRoutingEndpointsRequestEndpointConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+  shared_ptr<string> type{};
+
+  CreateCustomRoutingEndpointsRequestEndpointConfigurations() {}
+
+  explicit CreateCustomRoutingEndpointsRequestEndpointConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsRequestEndpointConfigurations() = default;
+};
+class CreateCustomRoutingEndpointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurations>> endpointConfigurations{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  CreateCustomRoutingEndpointsRequest() {}
+
+  explicit CreateCustomRoutingEndpointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointConfigurations"] = boost::any(temp1);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointConfigurations") != m.end() && !m["EndpointConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointConfigurations"].type()) {
+        vector<CreateCustomRoutingEndpointsRequestEndpointConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomRoutingEndpointsRequestEndpointConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointConfigurations = make_shared<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsRequest() = default;
+};
+class CreateCustomRoutingEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> endpointIds{};
+  shared_ptr<string> requestId{};
+
+  CreateCustomRoutingEndpointsResponseBody() {}
+
+  explicit CreateCustomRoutingEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointIds) {
+      res["EndpointIds"] = boost::any(*endpointIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointIds") != m.end() && !m["EndpointIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsResponseBody() = default;
+};
+class CreateCustomRoutingEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCustomRoutingEndpointsResponseBody> body{};
+
+  CreateCustomRoutingEndpointsResponse() {}
+
+  explicit CreateCustomRoutingEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCustomRoutingEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomRoutingEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomRoutingEndpointsResponse() = default;
 };
 class CreateEndpointGroupRequestEndpointConfigurations : public Darabonba::Model {
 public:
@@ -4158,6 +5454,7 @@ public:
   shared_ptr<string> accelerateRegionId{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<string> ispType{};
 
   CreateIpSetsRequestAccelerateRegion() {}
 
@@ -4178,6 +5475,9 @@ public:
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
     }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
+    }
     return res;
   }
 
@@ -4190,6 +5490,9 @@ public:
     }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
   }
 
@@ -4265,6 +5568,7 @@ public:
   shared_ptr<string> accelerateRegionId{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> ipSetId{};
+  shared_ptr<string> ispType{};
 
   CreateIpSetsResponseBodyIpSets() {}
 
@@ -4285,6 +5589,9 @@ public:
     if (ipSetId) {
       res["IpSetId"] = boost::any(*ipSetId);
     }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
+    }
     return res;
   }
 
@@ -4297,6 +5604,9 @@ public:
     }
     if (m.find("IpSetId") != m.end() && !m["IpSetId"].empty()) {
       ipSetId = make_shared<string>(boost::any_cast<string>(m["IpSetId"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
   }
 
@@ -4451,6 +5761,532 @@ public:
 
   virtual ~CreateListenerRequestCertificates() = default;
 };
+class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<long> toPort{};
+
+  CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations() {}
+
+  explicit CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations() = default;
+};
+class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges() {}
+
+  explicit CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges() = default;
+};
+class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges>> portRanges{};
+
+  CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations() {}
+
+  explicit CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations() = default;
+};
+class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+  shared_ptr<string> type{};
+
+  CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations() {}
+
+  explicit CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations() = default;
+};
+class CreateListenerRequestCustomRoutingEndpointGroupConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations>> destinationConfigurations{};
+  shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations>> endpointConfigurations{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> name{};
+
+  CreateListenerRequestCustomRoutingEndpointGroupConfigurations() {}
+
+  explicit CreateListenerRequestCustomRoutingEndpointGroupConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destinationConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinationConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DestinationConfigurations"] = boost::any(temp1);
+    }
+    if (endpointConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointConfigurations"] = boost::any(temp1);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationConfigurations") != m.end() && !m["DestinationConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["DestinationConfigurations"].type()) {
+        vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DestinationConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinationConfigurations = make_shared<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointConfigurations") != m.end() && !m["EndpointConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointConfigurations"].type()) {
+        vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointConfigurations = make_shared<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestCustomRoutingEndpointGroupConfigurations() = default;
+};
+class CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> type{};
+  shared_ptr<long> weight{};
+
+  CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations() {}
+
+  explicit CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (weight) {
+      res["Weight"] = boost::any(*weight);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Weight") != m.end() && !m["Weight"].empty()) {
+      weight = make_shared<long>(boost::any_cast<long>(m["Weight"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations() = default;
+};
+class CreateListenerRequestEndpointGroupConfigurationsPortOverrides : public Darabonba::Model {
+public:
+  shared_ptr<long> endpointPort{};
+  shared_ptr<long> listenerPort{};
+
+  CreateListenerRequestEndpointGroupConfigurationsPortOverrides() {}
+
+  explicit CreateListenerRequestEndpointGroupConfigurationsPortOverrides(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointPort) {
+      res["EndpointPort"] = boost::any(*endpointPort);
+    }
+    if (listenerPort) {
+      res["ListenerPort"] = boost::any(*listenerPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointPort") != m.end() && !m["EndpointPort"].empty()) {
+      endpointPort = make_shared<long>(boost::any_cast<long>(m["EndpointPort"]));
+    }
+    if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
+      listenerPort = make_shared<long>(boost::any_cast<long>(m["ListenerPort"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestEndpointGroupConfigurationsPortOverrides() = default;
+};
+class CreateListenerRequestEndpointGroupConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableClientIPPreservationProxyProtocol{};
+  shared_ptr<bool> enableClientIPPreservationToa{};
+  shared_ptr<vector<CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations>> endpointConfigurations{};
+  shared_ptr<string> endpointGroupDescription{};
+  shared_ptr<string> endpointGroupName{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointGroupType{};
+  shared_ptr<string> endpointRequestProtocol{};
+  shared_ptr<bool> healthCheckEnabled{};
+  shared_ptr<long> healthCheckIntervalSeconds{};
+  shared_ptr<string> healthCheckPath{};
+  shared_ptr<long> healthCheckPort{};
+  shared_ptr<string> healthCheckProtocol{};
+  shared_ptr<vector<CreateListenerRequestEndpointGroupConfigurationsPortOverrides>> portOverrides{};
+  shared_ptr<long> thresholdCount{};
+  shared_ptr<long> trafficPercentage{};
+
+  CreateListenerRequestEndpointGroupConfigurations() {}
+
+  explicit CreateListenerRequestEndpointGroupConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableClientIPPreservationProxyProtocol) {
+      res["EnableClientIPPreservationProxyProtocol"] = boost::any(*enableClientIPPreservationProxyProtocol);
+    }
+    if (enableClientIPPreservationToa) {
+      res["EnableClientIPPreservationToa"] = boost::any(*enableClientIPPreservationToa);
+    }
+    if (endpointConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointConfigurations"] = boost::any(temp1);
+    }
+    if (endpointGroupDescription) {
+      res["EndpointGroupDescription"] = boost::any(*endpointGroupDescription);
+    }
+    if (endpointGroupName) {
+      res["EndpointGroupName"] = boost::any(*endpointGroupName);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointGroupType) {
+      res["EndpointGroupType"] = boost::any(*endpointGroupType);
+    }
+    if (endpointRequestProtocol) {
+      res["EndpointRequestProtocol"] = boost::any(*endpointRequestProtocol);
+    }
+    if (healthCheckEnabled) {
+      res["HealthCheckEnabled"] = boost::any(*healthCheckEnabled);
+    }
+    if (healthCheckIntervalSeconds) {
+      res["HealthCheckIntervalSeconds"] = boost::any(*healthCheckIntervalSeconds);
+    }
+    if (healthCheckPath) {
+      res["HealthCheckPath"] = boost::any(*healthCheckPath);
+    }
+    if (healthCheckPort) {
+      res["HealthCheckPort"] = boost::any(*healthCheckPort);
+    }
+    if (healthCheckProtocol) {
+      res["HealthCheckProtocol"] = boost::any(*healthCheckProtocol);
+    }
+    if (portOverrides) {
+      vector<boost::any> temp1;
+      for(auto item1:*portOverrides){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortOverrides"] = boost::any(temp1);
+    }
+    if (thresholdCount) {
+      res["ThresholdCount"] = boost::any(*thresholdCount);
+    }
+    if (trafficPercentage) {
+      res["TrafficPercentage"] = boost::any(*trafficPercentage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableClientIPPreservationProxyProtocol") != m.end() && !m["EnableClientIPPreservationProxyProtocol"].empty()) {
+      enableClientIPPreservationProxyProtocol = make_shared<bool>(boost::any_cast<bool>(m["EnableClientIPPreservationProxyProtocol"]));
+    }
+    if (m.find("EnableClientIPPreservationToa") != m.end() && !m["EnableClientIPPreservationToa"].empty()) {
+      enableClientIPPreservationToa = make_shared<bool>(boost::any_cast<bool>(m["EnableClientIPPreservationToa"]));
+    }
+    if (m.find("EndpointConfigurations") != m.end() && !m["EndpointConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointConfigurations"].type()) {
+        vector<CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointConfigurations = make_shared<vector<CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointGroupDescription") != m.end() && !m["EndpointGroupDescription"].empty()) {
+      endpointGroupDescription = make_shared<string>(boost::any_cast<string>(m["EndpointGroupDescription"]));
+    }
+    if (m.find("EndpointGroupName") != m.end() && !m["EndpointGroupName"].empty()) {
+      endpointGroupName = make_shared<string>(boost::any_cast<string>(m["EndpointGroupName"]));
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointGroupType") != m.end() && !m["EndpointGroupType"].empty()) {
+      endpointGroupType = make_shared<string>(boost::any_cast<string>(m["EndpointGroupType"]));
+    }
+    if (m.find("EndpointRequestProtocol") != m.end() && !m["EndpointRequestProtocol"].empty()) {
+      endpointRequestProtocol = make_shared<string>(boost::any_cast<string>(m["EndpointRequestProtocol"]));
+    }
+    if (m.find("HealthCheckEnabled") != m.end() && !m["HealthCheckEnabled"].empty()) {
+      healthCheckEnabled = make_shared<bool>(boost::any_cast<bool>(m["HealthCheckEnabled"]));
+    }
+    if (m.find("HealthCheckIntervalSeconds") != m.end() && !m["HealthCheckIntervalSeconds"].empty()) {
+      healthCheckIntervalSeconds = make_shared<long>(boost::any_cast<long>(m["HealthCheckIntervalSeconds"]));
+    }
+    if (m.find("HealthCheckPath") != m.end() && !m["HealthCheckPath"].empty()) {
+      healthCheckPath = make_shared<string>(boost::any_cast<string>(m["HealthCheckPath"]));
+    }
+    if (m.find("HealthCheckPort") != m.end() && !m["HealthCheckPort"].empty()) {
+      healthCheckPort = make_shared<long>(boost::any_cast<long>(m["HealthCheckPort"]));
+    }
+    if (m.find("HealthCheckProtocol") != m.end() && !m["HealthCheckProtocol"].empty()) {
+      healthCheckProtocol = make_shared<string>(boost::any_cast<string>(m["HealthCheckProtocol"]));
+    }
+    if (m.find("PortOverrides") != m.end() && !m["PortOverrides"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortOverrides"].type()) {
+        vector<CreateListenerRequestEndpointGroupConfigurationsPortOverrides> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortOverrides"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestEndpointGroupConfigurationsPortOverrides model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portOverrides = make_shared<vector<CreateListenerRequestEndpointGroupConfigurationsPortOverrides>>(expect1);
+      }
+    }
+    if (m.find("ThresholdCount") != m.end() && !m["ThresholdCount"].empty()) {
+      thresholdCount = make_shared<long>(boost::any_cast<long>(m["ThresholdCount"]));
+    }
+    if (m.find("TrafficPercentage") != m.end() && !m["TrafficPercentage"].empty()) {
+      trafficPercentage = make_shared<long>(boost::any_cast<long>(m["TrafficPercentage"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestEndpointGroupConfigurations() = default;
+};
 class CreateListenerRequestPortRanges : public Darabonba::Model {
 public:
   shared_ptr<long> fromPort{};
@@ -4550,13 +6386,16 @@ public:
   shared_ptr<vector<CreateListenerRequestCertificates>> certificates{};
   shared_ptr<string> clientAffinity{};
   shared_ptr<string> clientToken{};
+  shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations>> customRoutingEndpointGroupConfigurations{};
   shared_ptr<string> description{};
+  shared_ptr<vector<CreateListenerRequestEndpointGroupConfigurations>> endpointGroupConfigurations{};
   shared_ptr<string> name{};
   shared_ptr<vector<CreateListenerRequestPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
   shared_ptr<bool> proxyProtocol{};
   shared_ptr<string> regionId{};
   shared_ptr<string> securityPolicyId{};
+  shared_ptr<string> type{};
   shared_ptr<CreateListenerRequestXForwardedForConfig> XForwardedForConfig{};
 
   CreateListenerRequest() {}
@@ -4585,8 +6424,22 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (customRoutingEndpointGroupConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*customRoutingEndpointGroupConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomRoutingEndpointGroupConfigurations"] = boost::any(temp1);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (endpointGroupConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointGroupConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointGroupConfigurations"] = boost::any(temp1);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -4609,6 +6462,9 @@ public:
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     if (XForwardedForConfig) {
       res["XForwardedForConfig"] = XForwardedForConfig ? boost::any(XForwardedForConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4639,8 +6495,34 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("CustomRoutingEndpointGroupConfigurations") != m.end() && !m["CustomRoutingEndpointGroupConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomRoutingEndpointGroupConfigurations"].type()) {
+        vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomRoutingEndpointGroupConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestCustomRoutingEndpointGroupConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customRoutingEndpointGroupConfigurations = make_shared<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations>>(expect1);
+      }
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndpointGroupConfigurations") != m.end() && !m["EndpointGroupConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointGroupConfigurations"].type()) {
+        vector<CreateListenerRequestEndpointGroupConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointGroupConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerRequestEndpointGroupConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointGroupConfigurations = make_shared<vector<CreateListenerRequestEndpointGroupConfigurations>>(expect1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -4669,6 +6551,9 @@ public:
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("XForwardedForConfig") != m.end() && !m["XForwardedForConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["XForwardedForConfig"].type()) {
@@ -5887,6 +7772,612 @@ public:
 
   virtual ~DeleteBasicIpSetResponse() = default;
 };
+class DeleteCustomRoutingEndpointGroupDestinationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> destinationIds{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  DeleteCustomRoutingEndpointGroupDestinationsRequest() {}
+
+  explicit DeleteCustomRoutingEndpointGroupDestinationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destinationIds) {
+      res["DestinationIds"] = boost::any(*destinationIds);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DestinationIds") != m.end() && !m["DestinationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DestinationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DestinationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      destinationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupDestinationsRequest() = default;
+};
+class DeleteCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCustomRoutingEndpointGroupDestinationsResponseBody() {}
+
+  explicit DeleteCustomRoutingEndpointGroupDestinationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupDestinationsResponseBody() = default;
+};
+class DeleteCustomRoutingEndpointGroupDestinationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomRoutingEndpointGroupDestinationsResponseBody> body{};
+
+  DeleteCustomRoutingEndpointGroupDestinationsResponse() {}
+
+  explicit DeleteCustomRoutingEndpointGroupDestinationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomRoutingEndpointGroupDestinationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomRoutingEndpointGroupDestinationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupDestinationsResponse() = default;
+};
+class DeleteCustomRoutingEndpointGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<string>> endpointGroupIds{};
+  shared_ptr<string> regionId{};
+
+  DeleteCustomRoutingEndpointGroupsRequest() {}
+
+  explicit DeleteCustomRoutingEndpointGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointGroupIds) {
+      res["EndpointGroupIds"] = boost::any(*endpointGroupIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointGroupIds") != m.end() && !m["EndpointGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupsRequest() = default;
+};
+class DeleteCustomRoutingEndpointGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCustomRoutingEndpointGroupsResponseBody() {}
+
+  explicit DeleteCustomRoutingEndpointGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupsResponseBody() = default;
+};
+class DeleteCustomRoutingEndpointGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomRoutingEndpointGroupsResponseBody> body{};
+
+  DeleteCustomRoutingEndpointGroupsResponse() {}
+
+  explicit DeleteCustomRoutingEndpointGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomRoutingEndpointGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomRoutingEndpointGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointGroupsResponse() = default;
+};
+class DeleteCustomRoutingEndpointTrafficPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> regionId{};
+
+  DeleteCustomRoutingEndpointTrafficPoliciesRequest() {}
+
+  explicit DeleteCustomRoutingEndpointTrafficPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointTrafficPoliciesRequest() = default;
+};
+class DeleteCustomRoutingEndpointTrafficPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCustomRoutingEndpointTrafficPoliciesResponseBody() {}
+
+  explicit DeleteCustomRoutingEndpointTrafficPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointTrafficPoliciesResponseBody() = default;
+};
+class DeleteCustomRoutingEndpointTrafficPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomRoutingEndpointTrafficPoliciesResponseBody> body{};
+
+  DeleteCustomRoutingEndpointTrafficPoliciesResponse() {}
+
+  explicit DeleteCustomRoutingEndpointTrafficPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomRoutingEndpointTrafficPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomRoutingEndpointTrafficPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointTrafficPoliciesResponse() = default;
+};
+class DeleteCustomRoutingEndpointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<vector<string>> endpointIds{};
+  shared_ptr<string> regionId{};
+
+  DeleteCustomRoutingEndpointsRequest() {}
+
+  explicit DeleteCustomRoutingEndpointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointIds) {
+      res["EndpointIds"] = boost::any(*endpointIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointIds") != m.end() && !m["EndpointIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointsRequest() = default;
+};
+class DeleteCustomRoutingEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteCustomRoutingEndpointsResponseBody() {}
+
+  explicit DeleteCustomRoutingEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointsResponseBody() = default;
+};
+class DeleteCustomRoutingEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteCustomRoutingEndpointsResponseBody> body{};
+
+  DeleteCustomRoutingEndpointsResponse() {}
+
+  explicit DeleteCustomRoutingEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteCustomRoutingEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteCustomRoutingEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteCustomRoutingEndpointsResponse() = default;
+};
 class DeleteEndpointGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -7085,10 +9576,12 @@ public:
 class DescribeAcceleratorResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<DescribeAcceleratorResponseBodyBasicBandwidthPackage> basicBandwidthPackage{};
   shared_ptr<string> cenId{};
   shared_ptr<long> createTime{};
   shared_ptr<DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage> crossDomainBandwidthPackage{};
+  shared_ptr<string> crossPrivateState{};
   shared_ptr<string> ddosId{};
   shared_ptr<string> description{};
   shared_ptr<string> dnsName{};
@@ -7115,6 +9608,9 @@ public:
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
     }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
+    }
     if (basicBandwidthPackage) {
       res["BasicBandwidthPackage"] = basicBandwidthPackage ? boost::any(basicBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -7126,6 +9622,9 @@ public:
     }
     if (crossDomainBandwidthPackage) {
       res["CrossDomainBandwidthPackage"] = crossDomainBandwidthPackage ? boost::any(crossDomainBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (crossPrivateState) {
+      res["CrossPrivateState"] = boost::any(*crossPrivateState);
     }
     if (ddosId) {
       res["DdosId"] = boost::any(*ddosId);
@@ -7170,6 +9669,9 @@ public:
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
     }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
+    }
     if (m.find("BasicBandwidthPackage") != m.end() && !m["BasicBandwidthPackage"].empty()) {
       if (typeid(map<string, boost::any>) == m["BasicBandwidthPackage"].type()) {
         DescribeAcceleratorResponseBodyBasicBandwidthPackage model1;
@@ -7189,6 +9691,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CrossDomainBandwidthPackage"]));
         crossDomainBandwidthPackage = make_shared<DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage>(model1);
       }
+    }
+    if (m.find("CrossPrivateState") != m.end() && !m["CrossPrivateState"].empty()) {
+      crossPrivateState = make_shared<string>(boost::any_cast<string>(m["CrossPrivateState"]));
     }
     if (m.find("DdosId") != m.end() && !m["DdosId"].empty()) {
       ddosId = make_shared<string>(boost::any_cast<string>(m["DdosId"]));
@@ -8135,6 +10640,837 @@ public:
 
   virtual ~DescribeBandwidthPackageAutoRenewAttributeResponse() = default;
 };
+class DescribeCustomRoutingEndPointTrafficPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  DescribeCustomRoutingEndPointTrafficPolicyRequest() {}
+
+  explicit DescribeCustomRoutingEndPointTrafficPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndPointTrafficPolicyRequest() = default;
+};
+class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges() {}
+
+  explicit DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges() = default;
+};
+class DescribeCustomRoutingEndPointTrafficPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> address{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> policyId{};
+  shared_ptr<vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges>> portRanges{};
+  shared_ptr<string> requestId{};
+
+  DescribeCustomRoutingEndPointTrafficPolicyResponseBody() {}
+
+  explicit DescribeCustomRoutingEndPointTrafficPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndPointTrafficPolicyResponseBody() = default;
+};
+class DescribeCustomRoutingEndPointTrafficPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomRoutingEndPointTrafficPolicyResponseBody> body{};
+
+  DescribeCustomRoutingEndPointTrafficPolicyResponse() {}
+
+  explicit DescribeCustomRoutingEndPointTrafficPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomRoutingEndPointTrafficPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomRoutingEndPointTrafficPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndPointTrafficPolicyResponse() = default;
+};
+class DescribeCustomRoutingEndpointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> regionId{};
+
+  DescribeCustomRoutingEndpointRequest() {}
+
+  explicit DescribeCustomRoutingEndpointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointRequest() = default;
+};
+class DescribeCustomRoutingEndpointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+  shared_ptr<string> type{};
+
+  DescribeCustomRoutingEndpointResponseBody() {}
+
+  explicit DescribeCustomRoutingEndpointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointResponseBody() = default;
+};
+class DescribeCustomRoutingEndpointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomRoutingEndpointResponseBody> body{};
+
+  DescribeCustomRoutingEndpointResponse() {}
+
+  explicit DescribeCustomRoutingEndpointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomRoutingEndpointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomRoutingEndpointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointResponse() = default;
+};
+class DescribeCustomRoutingEndpointGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  DescribeCustomRoutingEndpointGroupRequest() {}
+
+  explicit DescribeCustomRoutingEndpointGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupRequest() = default;
+};
+class DescribeCustomRoutingEndpointGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> accessLogSwitch{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> enableAccessLog{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<vector<string>> endpointGroupIpList{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<vector<string>> endpointGroupUnconfirmedIpList{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> slsLogStoreName{};
+  shared_ptr<string> slsProjectName{};
+  shared_ptr<string> slsRegion{};
+  shared_ptr<string> state{};
+
+  DescribeCustomRoutingEndpointGroupResponseBody() {}
+
+  explicit DescribeCustomRoutingEndpointGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (accessLogSwitch) {
+      res["AccessLogSwitch"] = boost::any(*accessLogSwitch);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (enableAccessLog) {
+      res["EnableAccessLog"] = boost::any(*enableAccessLog);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointGroupIpList) {
+      res["EndpointGroupIpList"] = boost::any(*endpointGroupIpList);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointGroupUnconfirmedIpList) {
+      res["EndpointGroupUnconfirmedIpList"] = boost::any(*endpointGroupUnconfirmedIpList);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (slsLogStoreName) {
+      res["SlsLogStoreName"] = boost::any(*slsLogStoreName);
+    }
+    if (slsProjectName) {
+      res["SlsProjectName"] = boost::any(*slsProjectName);
+    }
+    if (slsRegion) {
+      res["SlsRegion"] = boost::any(*slsRegion);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AccessLogSwitch") != m.end() && !m["AccessLogSwitch"].empty()) {
+      accessLogSwitch = make_shared<string>(boost::any_cast<string>(m["AccessLogSwitch"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EnableAccessLog") != m.end() && !m["EnableAccessLog"].empty()) {
+      enableAccessLog = make_shared<bool>(boost::any_cast<bool>(m["EnableAccessLog"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointGroupIpList") != m.end() && !m["EndpointGroupIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointGroupUnconfirmedIpList") != m.end() && !m["EndpointGroupUnconfirmedIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupUnconfirmedIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupUnconfirmedIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupUnconfirmedIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SlsLogStoreName") != m.end() && !m["SlsLogStoreName"].empty()) {
+      slsLogStoreName = make_shared<string>(boost::any_cast<string>(m["SlsLogStoreName"]));
+    }
+    if (m.find("SlsProjectName") != m.end() && !m["SlsProjectName"].empty()) {
+      slsProjectName = make_shared<string>(boost::any_cast<string>(m["SlsProjectName"]));
+    }
+    if (m.find("SlsRegion") != m.end() && !m["SlsRegion"].empty()) {
+      slsRegion = make_shared<string>(boost::any_cast<string>(m["SlsRegion"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupResponseBody() = default;
+};
+class DescribeCustomRoutingEndpointGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomRoutingEndpointGroupResponseBody> body{};
+
+  DescribeCustomRoutingEndpointGroupResponse() {}
+
+  explicit DescribeCustomRoutingEndpointGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomRoutingEndpointGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomRoutingEndpointGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupResponse() = default;
+};
+class DescribeCustomRoutingEndpointGroupDestinationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationId{};
+  shared_ptr<string> regionId{};
+
+  DescribeCustomRoutingEndpointGroupDestinationsRequest() {}
+
+  explicit DescribeCustomRoutingEndpointGroupDestinationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupDestinationsRequest() = default;
+};
+class DescribeCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> destinationId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<long> fromPort{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> toPort{};
+
+  DescribeCustomRoutingEndpointGroupDestinationsResponseBody() {}
+
+  explicit DescribeCustomRoutingEndpointGroupDestinationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupDestinationsResponseBody() = default;
+};
+class DescribeCustomRoutingEndpointGroupDestinationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeCustomRoutingEndpointGroupDestinationsResponseBody> body{};
+
+  DescribeCustomRoutingEndpointGroupDestinationsResponse() {}
+
+  explicit DescribeCustomRoutingEndpointGroupDestinationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeCustomRoutingEndpointGroupDestinationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeCustomRoutingEndpointGroupDestinationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupDestinationsResponse() = default;
+};
 class DescribeEndpointGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endpointGroupId{};
@@ -8644,6 +11980,7 @@ public:
   shared_ptr<vector<string>> ipAddressList{};
   shared_ptr<string> ipSetId{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<string> ispType{};
   shared_ptr<string> requestId{};
   shared_ptr<string> state{};
 
@@ -8674,6 +12011,9 @@ public:
     }
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
+    }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -8709,6 +12049,9 @@ public:
     }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -9038,6 +12381,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> state{};
+  shared_ptr<string> type{};
   shared_ptr<DescribeListenerResponseBodyXForwardedForConfig> XForwardedForConfig{};
 
   DescribeListenerResponseBody() {}
@@ -9113,6 +12457,9 @@ public:
     }
     if (state) {
       res["State"] = boost::any(*state);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     if (XForwardedForConfig) {
       res["XForwardedForConfig"] = XForwardedForConfig ? boost::any(XForwardedForConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9208,6 +12555,9 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("XForwardedForConfig") != m.end() && !m["XForwardedForConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["XForwardedForConfig"].type()) {
@@ -10876,12 +14226,14 @@ public:
 class GetBasicAcceleratorResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<GetBasicAcceleratorResponseBodyBasicBandwidthPackage> basicBandwidthPackage{};
   shared_ptr<string> basicEndpointGroupId{};
   shared_ptr<string> basicIpSetId{};
   shared_ptr<string> cenId{};
   shared_ptr<long> createTime{};
   shared_ptr<GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage> crossDomainBandwidthPackage{};
+  shared_ptr<string> crossPrivateState{};
   shared_ptr<string> description{};
   shared_ptr<long> expiredTime{};
   shared_ptr<string> instanceChargeType{};
@@ -10903,6 +14255,9 @@ public:
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
     }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
+    }
     if (basicBandwidthPackage) {
       res["BasicBandwidthPackage"] = basicBandwidthPackage ? boost::any(basicBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -10920,6 +14275,9 @@ public:
     }
     if (crossDomainBandwidthPackage) {
       res["CrossDomainBandwidthPackage"] = crossDomainBandwidthPackage ? boost::any(crossDomainBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (crossPrivateState) {
+      res["CrossPrivateState"] = boost::any(*crossPrivateState);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -10949,6 +14307,9 @@ public:
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
     }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
+    }
     if (m.find("BasicBandwidthPackage") != m.end() && !m["BasicBandwidthPackage"].empty()) {
       if (typeid(map<string, boost::any>) == m["BasicBandwidthPackage"].type()) {
         GetBasicAcceleratorResponseBodyBasicBandwidthPackage model1;
@@ -10974,6 +14335,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CrossDomainBandwidthPackage"]));
         crossDomainBandwidthPackage = make_shared<GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage>(model1);
       }
+    }
+    if (m.find("CrossPrivateState") != m.end() && !m["CrossPrivateState"].empty()) {
+      crossPrivateState = make_shared<string>(boost::any_cast<string>(m["CrossPrivateState"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -11113,6 +14477,7 @@ public:
   shared_ptr<string> endpointAddress{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointSubAddress{};
   shared_ptr<string> endpointType{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
@@ -11142,6 +14507,9 @@ public:
     }
     if (endpointGroupRegion) {
       res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointSubAddress) {
+      res["EndpointSubAddress"] = boost::any(*endpointSubAddress);
     }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
@@ -11173,6 +14541,9 @@ public:
     }
     if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
       endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointSubAddress") != m.end() && !m["EndpointSubAddress"].empty()) {
+      endpointSubAddress = make_shared<string>(boost::any_cast<string>(m["EndpointSubAddress"]));
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
@@ -12326,6 +15697,7 @@ class ListAcceleratorsResponseBodyAccelerators : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<long> bandwidth{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage> basicBandwidthPackage{};
   shared_ptr<string> cenId{};
   shared_ptr<long> createTime{};
@@ -12358,6 +15730,9 @@ public:
     }
     if (bandwidth) {
       res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
     }
     if (basicBandwidthPackage) {
       res["BasicBandwidthPackage"] = basicBandwidthPackage ? boost::any(basicBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12416,6 +15791,9 @@ public:
     }
     if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
       bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
     }
     if (m.find("BasicBandwidthPackage") != m.end() && !m["BasicBandwidthPackage"].empty()) {
       if (typeid(map<string, boost::any>) == m["BasicBandwidthPackage"].type()) {
@@ -14624,6 +18002,7 @@ public:
 class ListBasicAcceleratorsResponseBodyAccelerators : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
+  shared_ptr<string> bandwidthBillingType{};
   shared_ptr<ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage> basicBandwidthPackage{};
   shared_ptr<string> basicEndpointGroupId{};
   shared_ptr<string> basicIpSetId{};
@@ -14649,6 +18028,9 @@ public:
     map<string, boost::any> res;
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (bandwidthBillingType) {
+      res["BandwidthBillingType"] = boost::any(*bandwidthBillingType);
     }
     if (basicBandwidthPackage) {
       res["BasicBandwidthPackage"] = basicBandwidthPackage ? boost::any(basicBandwidthPackage->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14692,6 +18074,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("BandwidthBillingType") != m.end() && !m["BandwidthBillingType"].empty()) {
+      bandwidthBillingType = make_shared<string>(boost::any_cast<string>(m["BandwidthBillingType"]));
     }
     if (m.find("BasicBandwidthPackage") != m.end() && !m["BasicBandwidthPackage"].empty()) {
       if (typeid(map<string, boost::any>) == m["BasicBandwidthPackage"].type()) {
@@ -15051,6 +18436,1870 @@ public:
 
 
   virtual ~ListBusiRegionsResponse() = default;
+};
+class ListCustomRoutingEndpointGroupDestinationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<long> fromPort{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> toPort{};
+
+  ListCustomRoutingEndpointGroupDestinationsRequest() {}
+
+  explicit ListCustomRoutingEndpointGroupDestinationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupDestinationsRequest() = default;
+};
+class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> destinationId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<long> fromPort{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<long> toPort{};
+
+  ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations() {}
+
+  explicit ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations() = default;
+};
+class ListCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations>> destinations{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingEndpointGroupDestinationsResponseBody() {}
+
+  explicit ListCustomRoutingEndpointGroupDestinationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Destinations"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Destinations") != m.end() && !m["Destinations"].empty()) {
+      if (typeid(vector<boost::any>) == m["Destinations"].type()) {
+        vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Destinations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinations = make_shared<vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupDestinationsResponseBody() = default;
+};
+class ListCustomRoutingEndpointGroupDestinationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingEndpointGroupDestinationsResponseBody> body{};
+
+  ListCustomRoutingEndpointGroupDestinationsResponse() {}
+
+  explicit ListCustomRoutingEndpointGroupDestinationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingEndpointGroupDestinationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingEndpointGroupDestinationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupDestinationsResponse() = default;
+};
+class ListCustomRoutingEndpointGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListCustomRoutingEndpointGroupsRequest() {}
+
+  explicit ListCustomRoutingEndpointGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupsRequest() = default;
+};
+class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<vector<string>> endpointGroupIpList{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<vector<string>> endpointGroupUnconfirmedIpList{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+
+  ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups() {}
+
+  explicit ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointGroupIpList) {
+      res["EndpointGroupIpList"] = boost::any(*endpointGroupIpList);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointGroupUnconfirmedIpList) {
+      res["EndpointGroupUnconfirmedIpList"] = boost::any(*endpointGroupUnconfirmedIpList);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointGroupIpList") != m.end() && !m["EndpointGroupIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointGroupUnconfirmedIpList") != m.end() && !m["EndpointGroupUnconfirmedIpList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointGroupUnconfirmedIpList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointGroupUnconfirmedIpList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointGroupUnconfirmedIpList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups() = default;
+};
+class ListCustomRoutingEndpointGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups>> endpointGroups{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingEndpointGroupsResponseBody() {}
+
+  explicit ListCustomRoutingEndpointGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointGroups"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointGroups") != m.end() && !m["EndpointGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointGroups"].type()) {
+        vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointGroups = make_shared<vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupsResponseBody() = default;
+};
+class ListCustomRoutingEndpointGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingEndpointGroupsResponseBody> body{};
+
+  ListCustomRoutingEndpointGroupsResponse() {}
+
+  explicit ListCustomRoutingEndpointGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingEndpointGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingEndpointGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupsResponse() = default;
+};
+class ListCustomRoutingEndpointTrafficPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> address{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListCustomRoutingEndpointTrafficPoliciesRequest() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesRequest() = default;
+};
+class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges() = default;
+};
+class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> address{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> policyId{};
+  shared_ptr<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges>> portRanges{};
+
+  ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies() = default;
+};
+class ListCustomRoutingEndpointTrafficPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies>> policies{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingEndpointTrafficPoliciesResponseBody() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (policies) {
+      vector<boost::any> temp1;
+      for(auto item1:*policies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Policies"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Policies") != m.end() && !m["Policies"].empty()) {
+      if (typeid(vector<boost::any>) == m["Policies"].type()) {
+        vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Policies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policies = make_shared<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesResponseBody() = default;
+};
+class ListCustomRoutingEndpointTrafficPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingEndpointTrafficPoliciesResponseBody> body{};
+
+  ListCustomRoutingEndpointTrafficPoliciesResponse() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingEndpointTrafficPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingEndpointTrafficPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesResponse() = default;
+};
+class ListCustomRoutingEndpointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListCustomRoutingEndpointsRequest() {}
+
+  explicit ListCustomRoutingEndpointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointsRequest() = default;
+};
+class ListCustomRoutingEndpointsResponseBodyEndpoints : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+  shared_ptr<string> type{};
+
+  ListCustomRoutingEndpointsResponseBodyEndpoints() {}
+
+  explicit ListCustomRoutingEndpointsResponseBodyEndpoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointsResponseBodyEndpoints() = default;
+};
+class ListCustomRoutingEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCustomRoutingEndpointsResponseBodyEndpoints>> endpoints{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingEndpointsResponseBody() {}
+
+  explicit ListCustomRoutingEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Endpoints"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoints") != m.end() && !m["Endpoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["Endpoints"].type()) {
+        vector<ListCustomRoutingEndpointsResponseBodyEndpoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Endpoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointsResponseBodyEndpoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpoints = make_shared<vector<ListCustomRoutingEndpointsResponseBodyEndpoints>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointsResponseBody() = default;
+};
+class ListCustomRoutingEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingEndpointsResponseBody> body{};
+
+  ListCustomRoutingEndpointsResponse() {}
+
+  explicit ListCustomRoutingEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointsResponse() = default;
+};
+class ListCustomRoutingPortMappingsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListCustomRoutingPortMappingsRequest() {}
+
+  explicit ListCustomRoutingPortMappingsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsRequest() = default;
+};
+class ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress : public Darabonba::Model {
+public:
+  shared_ptr<string> ipAddress{};
+  shared_ptr<long> port{};
+
+  ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress() {}
+
+  explicit ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress() = default;
+};
+class ListCustomRoutingPortMappingsResponseBodyPortMappings : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<long> acceleratorPort{};
+  shared_ptr<ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress> destinationSocketAddress{};
+  shared_ptr<string> destinationTrafficState{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> vswitch{};
+
+  ListCustomRoutingPortMappingsResponseBodyPortMappings() {}
+
+  explicit ListCustomRoutingPortMappingsResponseBodyPortMappings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (acceleratorPort) {
+      res["AcceleratorPort"] = boost::any(*acceleratorPort);
+    }
+    if (destinationSocketAddress) {
+      res["DestinationSocketAddress"] = destinationSocketAddress ? boost::any(destinationSocketAddress->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (destinationTrafficState) {
+      res["DestinationTrafficState"] = boost::any(*destinationTrafficState);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (vswitch) {
+      res["Vswitch"] = boost::any(*vswitch);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AcceleratorPort") != m.end() && !m["AcceleratorPort"].empty()) {
+      acceleratorPort = make_shared<long>(boost::any_cast<long>(m["AcceleratorPort"]));
+    }
+    if (m.find("DestinationSocketAddress") != m.end() && !m["DestinationSocketAddress"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DestinationSocketAddress"].type()) {
+        ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DestinationSocketAddress"]));
+        destinationSocketAddress = make_shared<ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress>(model1);
+      }
+    }
+    if (m.find("DestinationTrafficState") != m.end() && !m["DestinationTrafficState"].empty()) {
+      destinationTrafficState = make_shared<string>(boost::any_cast<string>(m["DestinationTrafficState"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Vswitch") != m.end() && !m["Vswitch"].empty()) {
+      vswitch = make_shared<string>(boost::any_cast<string>(m["Vswitch"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsResponseBodyPortMappings() = default;
+};
+class ListCustomRoutingPortMappingsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListCustomRoutingPortMappingsResponseBodyPortMappings>> portMappings{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingPortMappingsResponseBody() {}
+
+  explicit ListCustomRoutingPortMappingsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (portMappings) {
+      vector<boost::any> temp1;
+      for(auto item1:*portMappings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortMappings"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PortMappings") != m.end() && !m["PortMappings"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortMappings"].type()) {
+        vector<ListCustomRoutingPortMappingsResponseBodyPortMappings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortMappings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingPortMappingsResponseBodyPortMappings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portMappings = make_shared<vector<ListCustomRoutingPortMappingsResponseBodyPortMappings>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsResponseBody() = default;
+};
+class ListCustomRoutingPortMappingsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingPortMappingsResponseBody> body{};
+
+  ListCustomRoutingPortMappingsResponse() {}
+
+  explicit ListCustomRoutingPortMappingsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingPortMappingsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingPortMappingsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsResponse() = default;
+};
+class ListCustomRoutingPortMappingsByDestinationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationAddress{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> pageNumber{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListCustomRoutingPortMappingsByDestinationRequest() {}
+
+  explicit ListCustomRoutingPortMappingsByDestinationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationAddress) {
+      res["DestinationAddress"] = boost::any(*destinationAddress);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationAddress") != m.end() && !m["DestinationAddress"].empty()) {
+      destinationAddress = make_shared<string>(boost::any_cast<string>(m["DestinationAddress"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsByDestinationRequest() = default;
+};
+class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress : public Darabonba::Model {
+public:
+  shared_ptr<string> ipAddress{};
+  shared_ptr<long> port{};
+
+  ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress() {}
+
+  explicit ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<long>(boost::any_cast<long>(m["Port"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress() = default;
+};
+class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<long> acceleratorPort{};
+  shared_ptr<ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress> destinationSocketAddress{};
+  shared_ptr<string> destinationTrafficState{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointGroupRegion{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> vswitch{};
+
+  ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings() {}
+
+  explicit ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (acceleratorPort) {
+      res["AcceleratorPort"] = boost::any(*acceleratorPort);
+    }
+    if (destinationSocketAddress) {
+      res["DestinationSocketAddress"] = destinationSocketAddress ? boost::any(destinationSocketAddress->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (destinationTrafficState) {
+      res["DestinationTrafficState"] = boost::any(*destinationTrafficState);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (endpointGroupRegion) {
+      res["EndpointGroupRegion"] = boost::any(*endpointGroupRegion);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (vswitch) {
+      res["Vswitch"] = boost::any(*vswitch);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AcceleratorPort") != m.end() && !m["AcceleratorPort"].empty()) {
+      acceleratorPort = make_shared<long>(boost::any_cast<long>(m["AcceleratorPort"]));
+    }
+    if (m.find("DestinationSocketAddress") != m.end() && !m["DestinationSocketAddress"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DestinationSocketAddress"].type()) {
+        ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DestinationSocketAddress"]));
+        destinationSocketAddress = make_shared<ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress>(model1);
+      }
+    }
+    if (m.find("DestinationTrafficState") != m.end() && !m["DestinationTrafficState"].empty()) {
+      destinationTrafficState = make_shared<string>(boost::any_cast<string>(m["DestinationTrafficState"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointGroupRegion") != m.end() && !m["EndpointGroupRegion"].empty()) {
+      endpointGroupRegion = make_shared<string>(boost::any_cast<string>(m["EndpointGroupRegion"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Vswitch") != m.end() && !m["Vswitch"].empty()) {
+      vswitch = make_shared<string>(boost::any_cast<string>(m["Vswitch"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings() = default;
+};
+class ListCustomRoutingPortMappingsByDestinationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings>> portMappings{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListCustomRoutingPortMappingsByDestinationResponseBody() {}
+
+  explicit ListCustomRoutingPortMappingsByDestinationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (portMappings) {
+      vector<boost::any> temp1;
+      for(auto item1:*portMappings){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortMappings"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PortMappings") != m.end() && !m["PortMappings"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortMappings"].type()) {
+        vector<ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortMappings"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portMappings = make_shared<vector<ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsByDestinationResponseBody() = default;
+};
+class ListCustomRoutingPortMappingsByDestinationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCustomRoutingPortMappingsByDestinationResponseBody> body{};
+
+  ListCustomRoutingPortMappingsByDestinationResponse() {}
+
+  explicit ListCustomRoutingPortMappingsByDestinationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCustomRoutingPortMappingsByDestinationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCustomRoutingPortMappingsByDestinationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCustomRoutingPortMappingsByDestinationResponse() = default;
 };
 class ListEndpointGroupsRequest : public Darabonba::Model {
 public:
@@ -16211,6 +21460,7 @@ public:
   shared_ptr<vector<string>> ipAddressList{};
   shared_ptr<string> ipSetId{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<string> ispType{};
   shared_ptr<string> state{};
 
   ListIpSetsResponseBodyIpSets() {}
@@ -16237,6 +21487,9 @@ public:
     }
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
+    }
+    if (ispType) {
+      res["IspType"] = boost::any(*ispType);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -16266,6 +21519,9 @@ public:
     }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
+      ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -16878,6 +22134,7 @@ public:
   shared_ptr<bool> proxyProtocol{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> state{};
+  shared_ptr<string> type{};
   shared_ptr<ListListenersResponseBodyListenersXForwardedForConfig> XForwardedForConfig{};
 
   ListListenersResponseBodyListeners() {}
@@ -16940,6 +22197,9 @@ public:
     }
     if (state) {
       res["State"] = boost::any(*state);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
     }
     if (XForwardedForConfig) {
       res["XForwardedForConfig"] = XForwardedForConfig ? boost::any(XForwardedForConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17016,6 +22276,9 @@ public:
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("XForwardedForConfig") != m.end() && !m["XForwardedForConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["XForwardedForConfig"].type()) {
@@ -19248,6 +24511,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> endpointAddress{};
   shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> endpointSubAddress{};
   shared_ptr<string> endpointType{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
@@ -19274,6 +24538,9 @@ public:
     if (endpointGroupId) {
       res["EndpointGroupId"] = boost::any(*endpointGroupId);
     }
+    if (endpointSubAddress) {
+      res["EndpointSubAddress"] = boost::any(*endpointSubAddress);
+    }
     if (endpointType) {
       res["EndpointType"] = boost::any(*endpointType);
     }
@@ -19298,6 +24565,9 @@ public:
     }
     if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
       endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("EndpointSubAddress") != m.end() && !m["EndpointSubAddress"].empty()) {
+      endpointSubAddress = make_shared<string>(boost::any_cast<string>(m["EndpointSubAddress"]));
     }
     if (m.find("EndpointType") != m.end() && !m["EndpointType"].empty()) {
       endpointType = make_shared<string>(boost::any_cast<string>(m["EndpointType"]));
@@ -19403,6 +24673,1088 @@ public:
 
 
   virtual ~UpdateBasicEndpointGroupResponse() = default;
+};
+class UpdateBasicIpSetRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ipSetId{};
+  shared_ptr<string> regionId{};
+
+  UpdateBasicIpSetRequest() {}
+
+  explicit UpdateBasicIpSetRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ipSetId) {
+      res["IpSetId"] = boost::any(*ipSetId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("IpSetId") != m.end() && !m["IpSetId"].empty()) {
+      ipSetId = make_shared<string>(boost::any_cast<string>(m["IpSetId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateBasicIpSetRequest() = default;
+};
+class UpdateBasicIpSetResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateBasicIpSetResponseBody() {}
+
+  explicit UpdateBasicIpSetResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateBasicIpSetResponseBody() = default;
+};
+class UpdateBasicIpSetResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateBasicIpSetResponseBody> body{};
+
+  UpdateBasicIpSetResponse() {}
+
+  explicit UpdateBasicIpSetResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateBasicIpSetResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateBasicIpSetResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateBasicIpSetResponse() = default;
+};
+class UpdateCustomRoutingEndpointGroupAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+
+  UpdateCustomRoutingEndpointGroupAttributeRequest() {}
+
+  explicit UpdateCustomRoutingEndpointGroupAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupAttributeRequest() = default;
+};
+class UpdateCustomRoutingEndpointGroupAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateCustomRoutingEndpointGroupAttributeResponseBody() {}
+
+  explicit UpdateCustomRoutingEndpointGroupAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupAttributeResponseBody() = default;
+};
+class UpdateCustomRoutingEndpointGroupAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomRoutingEndpointGroupAttributeResponseBody> body{};
+
+  UpdateCustomRoutingEndpointGroupAttributeResponse() {}
+
+  explicit UpdateCustomRoutingEndpointGroupAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomRoutingEndpointGroupAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomRoutingEndpointGroupAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupAttributeResponse() = default;
+};
+class UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> destinationId{};
+  shared_ptr<long> fromPort{};
+  shared_ptr<vector<string>> protocols{};
+  shared_ptr<long> toPort{};
+
+  UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations() {}
+
+  explicit UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (destinationId) {
+      res["DestinationId"] = boost::any(*destinationId);
+    }
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (protocols) {
+      res["Protocols"] = boost::any(*protocols);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DestinationId") != m.end() && !m["DestinationId"].empty()) {
+      destinationId = make_shared<string>(boost::any_cast<string>(m["DestinationId"]));
+    }
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Protocols"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Protocols"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations() = default;
+};
+class UpdateCustomRoutingEndpointGroupDestinationsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>> destinationConfigurations{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  UpdateCustomRoutingEndpointGroupDestinationsRequest() {}
+
+  explicit UpdateCustomRoutingEndpointGroupDestinationsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (destinationConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*destinationConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DestinationConfigurations"] = boost::any(temp1);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DestinationConfigurations") != m.end() && !m["DestinationConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["DestinationConfigurations"].type()) {
+        vector<UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DestinationConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        destinationConfigurations = make_shared<vector<UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>(expect1);
+      }
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupDestinationsRequest() = default;
+};
+class UpdateCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateCustomRoutingEndpointGroupDestinationsResponseBody() {}
+
+  explicit UpdateCustomRoutingEndpointGroupDestinationsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupDestinationsResponseBody() = default;
+};
+class UpdateCustomRoutingEndpointGroupDestinationsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomRoutingEndpointGroupDestinationsResponseBody> body{};
+
+  UpdateCustomRoutingEndpointGroupDestinationsResponse() {}
+
+  explicit UpdateCustomRoutingEndpointGroupDestinationsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomRoutingEndpointGroupDestinationsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomRoutingEndpointGroupDestinationsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointGroupDestinationsResponse() = default;
+};
+class UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> fromPort{};
+  shared_ptr<long> toPort{};
+
+  UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges() {}
+
+  explicit UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<long>(boost::any_cast<long>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges() = default;
+};
+class UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<string> policyId{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges>> portRanges{};
+
+  UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations() {}
+
+  explicit UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations() = default;
+};
+class UpdateCustomRoutingEndpointTrafficPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> endpointId{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> regionId{};
+
+  UpdateCustomRoutingEndpointTrafficPoliciesRequest() {}
+
+  explicit UpdateCustomRoutingEndpointTrafficPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointTrafficPoliciesRequest() = default;
+};
+class UpdateCustomRoutingEndpointTrafficPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> policyIds{};
+  shared_ptr<string> requestId{};
+
+  UpdateCustomRoutingEndpointTrafficPoliciesResponseBody() {}
+
+  explicit UpdateCustomRoutingEndpointTrafficPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyIds) {
+      res["PolicyIds"] = boost::any(*policyIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyIds") != m.end() && !m["PolicyIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PolicyIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PolicyIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointTrafficPoliciesResponseBody() = default;
+};
+class UpdateCustomRoutingEndpointTrafficPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomRoutingEndpointTrafficPoliciesResponseBody> body{};
+
+  UpdateCustomRoutingEndpointTrafficPoliciesResponse() {}
+
+  explicit UpdateCustomRoutingEndpointTrafficPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomRoutingEndpointTrafficPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomRoutingEndpointTrafficPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointTrafficPoliciesResponse() = default;
+};
+class UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<string> fromPort{};
+  shared_ptr<string> toPort{};
+
+  UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges() {}
+
+  explicit UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fromPort) {
+      res["FromPort"] = boost::any(*fromPort);
+    }
+    if (toPort) {
+      res["ToPort"] = boost::any(*toPort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FromPort") != m.end() && !m["FromPort"].empty()) {
+      fromPort = make_shared<string>(boost::any_cast<string>(m["FromPort"]));
+    }
+    if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
+      toPort = make_shared<string>(boost::any_cast<string>(m["ToPort"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges() = default;
+};
+class UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> address{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges>> portRanges{};
+
+  UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations() {}
+
+  explicit UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (address) {
+      res["Address"] = boost::any(*address);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Address") != m.end() && !m["Address"].empty()) {
+      address = make_shared<string>(boost::any_cast<string>(m["Address"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations() = default;
+};
+class UpdateCustomRoutingEndpointsRequestEndpointConfigurations : public Darabonba::Model {
+public:
+  shared_ptr<string> endpointId{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations>> policyConfigurations{};
+  shared_ptr<string> trafficToEndpointPolicy{};
+
+  UpdateCustomRoutingEndpointsRequestEndpointConfigurations() {}
+
+  explicit UpdateCustomRoutingEndpointsRequestEndpointConfigurations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointId) {
+      res["EndpointId"] = boost::any(*endpointId);
+    }
+    if (policyConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*policyConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PolicyConfigurations"] = boost::any(temp1);
+    }
+    if (trafficToEndpointPolicy) {
+      res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointId") != m.end() && !m["EndpointId"].empty()) {
+      endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
+    }
+    if (m.find("PolicyConfigurations") != m.end() && !m["PolicyConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["PolicyConfigurations"].type()) {
+        vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PolicyConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyConfigurations = make_shared<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations>>(expect1);
+      }
+    }
+    if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
+      trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsRequestEndpointConfigurations() = default;
+};
+class UpdateCustomRoutingEndpointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurations>> endpointConfigurations{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> regionId{};
+
+  UpdateCustomRoutingEndpointsRequest() {}
+
+  explicit UpdateCustomRoutingEndpointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (endpointConfigurations) {
+      vector<boost::any> temp1;
+      for(auto item1:*endpointConfigurations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EndpointConfigurations"] = boost::any(temp1);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EndpointConfigurations") != m.end() && !m["EndpointConfigurations"].empty()) {
+      if (typeid(vector<boost::any>) == m["EndpointConfigurations"].type()) {
+        vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EndpointConfigurations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateCustomRoutingEndpointsRequestEndpointConfigurations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        endpointConfigurations = make_shared<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurations>>(expect1);
+      }
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsRequest() = default;
+};
+class UpdateCustomRoutingEndpointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> endpointIds{};
+  shared_ptr<string> requestId{};
+
+  UpdateCustomRoutingEndpointsResponseBody() {}
+
+  explicit UpdateCustomRoutingEndpointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpointIds) {
+      res["EndpointIds"] = boost::any(*endpointIds);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndpointIds") != m.end() && !m["EndpointIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["EndpointIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EndpointIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      endpointIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsResponseBody() = default;
+};
+class UpdateCustomRoutingEndpointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateCustomRoutingEndpointsResponseBody> body{};
+
+  UpdateCustomRoutingEndpointsResponse() {}
+
+  explicit UpdateCustomRoutingEndpointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateCustomRoutingEndpointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomRoutingEndpointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateCustomRoutingEndpointsResponse() = default;
 };
 class UpdateEndpointGroupRequestEndpointConfigurations : public Darabonba::Model {
 public:
@@ -21627,6 +27979,14 @@ public:
   CreateBasicEndpointGroupResponse createBasicEndpointGroup(shared_ptr<CreateBasicEndpointGroupRequest> request);
   CreateBasicIpSetResponse createBasicIpSetWithOptions(shared_ptr<CreateBasicIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBasicIpSetResponse createBasicIpSet(shared_ptr<CreateBasicIpSetRequest> request);
+  CreateCustomRoutingEndpointGroupDestinationsResponse createCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<CreateCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCustomRoutingEndpointGroupDestinationsResponse createCustomRoutingEndpointGroupDestinations(shared_ptr<CreateCustomRoutingEndpointGroupDestinationsRequest> request);
+  CreateCustomRoutingEndpointGroupsResponse createCustomRoutingEndpointGroupsWithOptions(shared_ptr<CreateCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCustomRoutingEndpointGroupsResponse createCustomRoutingEndpointGroups(shared_ptr<CreateCustomRoutingEndpointGroupsRequest> request);
+  CreateCustomRoutingEndpointTrafficPoliciesResponse createCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<CreateCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCustomRoutingEndpointTrafficPoliciesResponse createCustomRoutingEndpointTrafficPolicies(shared_ptr<CreateCustomRoutingEndpointTrafficPoliciesRequest> request);
+  CreateCustomRoutingEndpointsResponse createCustomRoutingEndpointsWithOptions(shared_ptr<CreateCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCustomRoutingEndpointsResponse createCustomRoutingEndpoints(shared_ptr<CreateCustomRoutingEndpointsRequest> request);
   CreateEndpointGroupResponse createEndpointGroupWithOptions(shared_ptr<CreateEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEndpointGroupResponse createEndpointGroup(shared_ptr<CreateEndpointGroupRequest> request);
   CreateEndpointGroupsResponse createEndpointGroupsWithOptions(shared_ptr<CreateEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21653,6 +28013,14 @@ public:
   DeleteBasicEndpointGroupResponse deleteBasicEndpointGroup(shared_ptr<DeleteBasicEndpointGroupRequest> request);
   DeleteBasicIpSetResponse deleteBasicIpSetWithOptions(shared_ptr<DeleteBasicIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBasicIpSetResponse deleteBasicIpSet(shared_ptr<DeleteBasicIpSetRequest> request);
+  DeleteCustomRoutingEndpointGroupDestinationsResponse deleteCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<DeleteCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomRoutingEndpointGroupDestinationsResponse deleteCustomRoutingEndpointGroupDestinations(shared_ptr<DeleteCustomRoutingEndpointGroupDestinationsRequest> request);
+  DeleteCustomRoutingEndpointGroupsResponse deleteCustomRoutingEndpointGroupsWithOptions(shared_ptr<DeleteCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomRoutingEndpointGroupsResponse deleteCustomRoutingEndpointGroups(shared_ptr<DeleteCustomRoutingEndpointGroupsRequest> request);
+  DeleteCustomRoutingEndpointTrafficPoliciesResponse deleteCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<DeleteCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomRoutingEndpointTrafficPoliciesResponse deleteCustomRoutingEndpointTrafficPolicies(shared_ptr<DeleteCustomRoutingEndpointTrafficPoliciesRequest> request);
+  DeleteCustomRoutingEndpointsResponse deleteCustomRoutingEndpointsWithOptions(shared_ptr<DeleteCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteCustomRoutingEndpointsResponse deleteCustomRoutingEndpoints(shared_ptr<DeleteCustomRoutingEndpointsRequest> request);
   DeleteEndpointGroupResponse deleteEndpointGroupWithOptions(shared_ptr<DeleteEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEndpointGroupResponse deleteEndpointGroup(shared_ptr<DeleteEndpointGroupRequest> request);
   DeleteEndpointGroupsResponse deleteEndpointGroupsWithOptions(shared_ptr<DeleteEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21677,6 +28045,14 @@ public:
   DescribeBandwidthPackageResponse describeBandwidthPackage(shared_ptr<DescribeBandwidthPackageRequest> request);
   DescribeBandwidthPackageAutoRenewAttributeResponse describeBandwidthPackageAutoRenewAttributeWithOptions(shared_ptr<DescribeBandwidthPackageAutoRenewAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeBandwidthPackageAutoRenewAttributeResponse describeBandwidthPackageAutoRenewAttribute(shared_ptr<DescribeBandwidthPackageAutoRenewAttributeRequest> request);
+  DescribeCustomRoutingEndPointTrafficPolicyResponse describeCustomRoutingEndPointTrafficPolicyWithOptions(shared_ptr<DescribeCustomRoutingEndPointTrafficPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomRoutingEndPointTrafficPolicyResponse describeCustomRoutingEndPointTrafficPolicy(shared_ptr<DescribeCustomRoutingEndPointTrafficPolicyRequest> request);
+  DescribeCustomRoutingEndpointResponse describeCustomRoutingEndpointWithOptions(shared_ptr<DescribeCustomRoutingEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomRoutingEndpointResponse describeCustomRoutingEndpoint(shared_ptr<DescribeCustomRoutingEndpointRequest> request);
+  DescribeCustomRoutingEndpointGroupResponse describeCustomRoutingEndpointGroupWithOptions(shared_ptr<DescribeCustomRoutingEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomRoutingEndpointGroupResponse describeCustomRoutingEndpointGroup(shared_ptr<DescribeCustomRoutingEndpointGroupRequest> request);
+  DescribeCustomRoutingEndpointGroupDestinationsResponse describeCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<DescribeCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeCustomRoutingEndpointGroupDestinationsResponse describeCustomRoutingEndpointGroupDestinations(shared_ptr<DescribeCustomRoutingEndpointGroupDestinationsRequest> request);
   DescribeEndpointGroupResponse describeEndpointGroupWithOptions(shared_ptr<DescribeEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEndpointGroupResponse describeEndpointGroup(shared_ptr<DescribeEndpointGroupRequest> request);
   DescribeIpSetResponse describeIpSetWithOptions(shared_ptr<DescribeIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21733,6 +28109,18 @@ public:
   ListBasicAcceleratorsResponse listBasicAccelerators(shared_ptr<ListBasicAcceleratorsRequest> request);
   ListBusiRegionsResponse listBusiRegionsWithOptions(shared_ptr<ListBusiRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListBusiRegionsResponse listBusiRegions(shared_ptr<ListBusiRegionsRequest> request);
+  ListCustomRoutingEndpointGroupDestinationsResponse listCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<ListCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingEndpointGroupDestinationsResponse listCustomRoutingEndpointGroupDestinations(shared_ptr<ListCustomRoutingEndpointGroupDestinationsRequest> request);
+  ListCustomRoutingEndpointGroupsResponse listCustomRoutingEndpointGroupsWithOptions(shared_ptr<ListCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingEndpointGroupsResponse listCustomRoutingEndpointGroups(shared_ptr<ListCustomRoutingEndpointGroupsRequest> request);
+  ListCustomRoutingEndpointTrafficPoliciesResponse listCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<ListCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingEndpointTrafficPoliciesResponse listCustomRoutingEndpointTrafficPolicies(shared_ptr<ListCustomRoutingEndpointTrafficPoliciesRequest> request);
+  ListCustomRoutingEndpointsResponse listCustomRoutingEndpointsWithOptions(shared_ptr<ListCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingEndpointsResponse listCustomRoutingEndpoints(shared_ptr<ListCustomRoutingEndpointsRequest> request);
+  ListCustomRoutingPortMappingsResponse listCustomRoutingPortMappingsWithOptions(shared_ptr<ListCustomRoutingPortMappingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingPortMappingsResponse listCustomRoutingPortMappings(shared_ptr<ListCustomRoutingPortMappingsRequest> request);
+  ListCustomRoutingPortMappingsByDestinationResponse listCustomRoutingPortMappingsByDestinationWithOptions(shared_ptr<ListCustomRoutingPortMappingsByDestinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCustomRoutingPortMappingsByDestinationResponse listCustomRoutingPortMappingsByDestination(shared_ptr<ListCustomRoutingPortMappingsByDestinationRequest> request);
   ListEndpointGroupsResponse listEndpointGroupsWithOptions(shared_ptr<ListEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListEndpointGroupsResponse listEndpointGroups(shared_ptr<ListEndpointGroupsRequest> request);
   ListForwardingRulesResponse listForwardingRulesWithOptions(shared_ptr<ListForwardingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -21769,6 +28157,16 @@ public:
   UpdateBasicAcceleratorResponse updateBasicAccelerator(shared_ptr<UpdateBasicAcceleratorRequest> request);
   UpdateBasicEndpointGroupResponse updateBasicEndpointGroupWithOptions(shared_ptr<UpdateBasicEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateBasicEndpointGroupResponse updateBasicEndpointGroup(shared_ptr<UpdateBasicEndpointGroupRequest> request);
+  UpdateBasicIpSetResponse updateBasicIpSetWithOptions(shared_ptr<UpdateBasicIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateBasicIpSetResponse updateBasicIpSet(shared_ptr<UpdateBasicIpSetRequest> request);
+  UpdateCustomRoutingEndpointGroupAttributeResponse updateCustomRoutingEndpointGroupAttributeWithOptions(shared_ptr<UpdateCustomRoutingEndpointGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomRoutingEndpointGroupAttributeResponse updateCustomRoutingEndpointGroupAttribute(shared_ptr<UpdateCustomRoutingEndpointGroupAttributeRequest> request);
+  UpdateCustomRoutingEndpointGroupDestinationsResponse updateCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<UpdateCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomRoutingEndpointGroupDestinationsResponse updateCustomRoutingEndpointGroupDestinations(shared_ptr<UpdateCustomRoutingEndpointGroupDestinationsRequest> request);
+  UpdateCustomRoutingEndpointTrafficPoliciesResponse updateCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<UpdateCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomRoutingEndpointTrafficPoliciesResponse updateCustomRoutingEndpointTrafficPolicies(shared_ptr<UpdateCustomRoutingEndpointTrafficPoliciesRequest> request);
+  UpdateCustomRoutingEndpointsResponse updateCustomRoutingEndpointsWithOptions(shared_ptr<UpdateCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateCustomRoutingEndpointsResponse updateCustomRoutingEndpoints(shared_ptr<UpdateCustomRoutingEndpointsRequest> request);
   UpdateEndpointGroupResponse updateEndpointGroupWithOptions(shared_ptr<UpdateEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateEndpointGroupResponse updateEndpointGroup(shared_ptr<UpdateEndpointGroupRequest> request);
   UpdateEndpointGroupAttributeResponse updateEndpointGroupAttributeWithOptions(shared_ptr<UpdateEndpointGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

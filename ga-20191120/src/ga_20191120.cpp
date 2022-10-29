@@ -379,6 +379,9 @@ CreateAcceleratorResponse Alibabacloud_Ga20191120::Client::createAcceleratorWith
   if (!Darabonba_Util::Client::isUnset<string>(request->autoUseCoupon)) {
     query->insert(pair<string, string>("AutoUseCoupon", *request->autoUseCoupon));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthBillingType)) {
+    query->insert(pair<string, string>("BandwidthBillingType", *request->bandwidthBillingType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -611,6 +614,9 @@ CreateBasicAcceleratorResponse Alibabacloud_Ga20191120::Client::createBasicAccel
   if (!Darabonba_Util::Client::isUnset<string>(request->autoUseCoupon)) {
     query->insert(pair<string, string>("AutoUseCoupon", *request->autoUseCoupon));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthBillingType)) {
+    query->insert(pair<string, string>("BandwidthBillingType", *request->bandwidthBillingType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -663,6 +669,9 @@ CreateBasicEndpointGroupResponse Alibabacloud_Ga20191120::Client::createBasicEnd
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupRegion)) {
     query->insert(pair<string, string>("EndpointGroupRegion", *request->endpointGroupRegion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointSubAddress)) {
+    query->insert(pair<string, string>("EndpointSubAddress", *request->endpointSubAddress));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointType)) {
     query->insert(pair<string, string>("EndpointType", *request->endpointType));
   }
@@ -703,6 +712,9 @@ CreateBasicIpSetResponse Alibabacloud_Ga20191120::Client::createBasicIpSetWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
     query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -732,6 +744,163 @@ CreateBasicIpSetResponse Alibabacloud_Ga20191120::Client::createBasicIpSetWithOp
 CreateBasicIpSetResponse Alibabacloud_Ga20191120::Client::createBasicIpSet(shared_ptr<CreateBasicIpSetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createBasicIpSetWithOptions(request, runtime);
+}
+
+CreateCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<CreateCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>(request->destinationConfigurations)) {
+    query->insert(pair<string, vector<CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>("DestinationConfigurations", *request->destinationConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomRoutingEndpointGroupDestinations"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomRoutingEndpointGroupDestinationsResponse(callApi(params, req, runtime));
+}
+
+CreateCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointGroupDestinations(shared_ptr<CreateCustomRoutingEndpointGroupDestinationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+}
+
+CreateCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointGroupsWithOptions(shared_ptr<CreateCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
+    query->insert(pair<string, vector<CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomRoutingEndpointGroups"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomRoutingEndpointGroupsResponse(callApi(params, req, runtime));
+}
+
+CreateCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointGroups(shared_ptr<CreateCustomRoutingEndpointGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCustomRoutingEndpointGroupsWithOptions(request, runtime);
+}
+
+CreateCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<CreateCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>(request->policyConfigurations)) {
+    query->insert(pair<string, vector<CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>("PolicyConfigurations", *request->policyConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomRoutingEndpointTrafficPolicies"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomRoutingEndpointTrafficPoliciesResponse(callApi(params, req, runtime));
+}
+
+CreateCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointTrafficPolicies(shared_ptr<CreateCustomRoutingEndpointTrafficPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+}
+
+CreateCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpointsWithOptions(shared_ptr<CreateCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCustomRoutingEndpointsRequestEndpointConfigurations>>(request->endpointConfigurations)) {
+    query->insert(pair<string, vector<CreateCustomRoutingEndpointsRequestEndpointConfigurations>>("EndpointConfigurations", *request->endpointConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomRoutingEndpoints"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomRoutingEndpointsResponse(callApi(params, req, runtime));
+}
+
+CreateCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::createCustomRoutingEndpoints(shared_ptr<CreateCustomRoutingEndpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCustomRoutingEndpointsWithOptions(request, runtime);
 }
 
 CreateEndpointGroupResponse Alibabacloud_Ga20191120::Client::createEndpointGroupWithOptions(shared_ptr<CreateEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -948,8 +1117,14 @@ CreateListenerResponse Alibabacloud_Ga20191120::Client::createListenerWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations>>(request->customRoutingEndpointGroupConfigurations)) {
+    query->insert(pair<string, vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations>>("CustomRoutingEndpointGroupConfigurations", *request->customRoutingEndpointGroupConfigurations));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
+    query->insert(pair<string, vector<CreateListenerRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -968,6 +1143,9 @@ CreateListenerResponse Alibabacloud_Ga20191120::Client::createListenerWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
     query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
   }
   if (!Darabonba_Util::Client::isUnset<CreateListenerRequestXForwardedForConfig>(request->XForwardedForConfig)) {
     query->insert(pair<string, CreateListenerRequestXForwardedForConfig>("XForwardedForConfig", *request->XForwardedForConfig));
@@ -1264,6 +1442,160 @@ DeleteBasicIpSetResponse Alibabacloud_Ga20191120::Client::deleteBasicIpSetWithOp
 DeleteBasicIpSetResponse Alibabacloud_Ga20191120::Client::deleteBasicIpSet(shared_ptr<DeleteBasicIpSetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteBasicIpSetWithOptions(request, runtime);
+}
+
+DeleteCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<DeleteCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->destinationIds)) {
+    query->insert(pair<string, vector<string>>("DestinationIds", *request->destinationIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomRoutingEndpointGroupDestinations"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomRoutingEndpointGroupDestinationsResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointGroupDestinations(shared_ptr<DeleteCustomRoutingEndpointGroupDestinationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+}
+
+DeleteCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointGroupsWithOptions(shared_ptr<DeleteCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endpointGroupIds)) {
+    query->insert(pair<string, vector<string>>("EndpointGroupIds", *request->endpointGroupIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomRoutingEndpointGroups"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomRoutingEndpointGroupsResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointGroups(shared_ptr<DeleteCustomRoutingEndpointGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomRoutingEndpointGroupsWithOptions(request, runtime);
+}
+
+DeleteCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<DeleteCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->policyIds)) {
+    query->insert(pair<string, vector<string>>("PolicyIds", *request->policyIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomRoutingEndpointTrafficPolicies"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomRoutingEndpointTrafficPoliciesResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointTrafficPolicies(shared_ptr<DeleteCustomRoutingEndpointTrafficPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+}
+
+DeleteCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpointsWithOptions(shared_ptr<DeleteCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endpointIds)) {
+    query->insert(pair<string, vector<string>>("EndpointIds", *request->endpointIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteCustomRoutingEndpoints"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteCustomRoutingEndpointsResponse(callApi(params, req, runtime));
+}
+
+DeleteCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::deleteCustomRoutingEndpoints(shared_ptr<DeleteCustomRoutingEndpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteCustomRoutingEndpointsWithOptions(request, runtime);
 }
 
 DeleteEndpointGroupResponse Alibabacloud_Ga20191120::Client::deleteEndpointGroupWithOptions(shared_ptr<DeleteEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1675,6 +2007,130 @@ DescribeBandwidthPackageAutoRenewAttributeResponse Alibabacloud_Ga20191120::Clie
 DescribeBandwidthPackageAutoRenewAttributeResponse Alibabacloud_Ga20191120::Client::describeBandwidthPackageAutoRenewAttribute(shared_ptr<DescribeBandwidthPackageAutoRenewAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeBandwidthPackageAutoRenewAttributeWithOptions(request, runtime);
+}
+
+DescribeCustomRoutingEndPointTrafficPolicyResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndPointTrafficPolicyWithOptions(shared_ptr<DescribeCustomRoutingEndPointTrafficPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->policyId)) {
+    query->insert(pair<string, string>("PolicyId", *request->policyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCustomRoutingEndPointTrafficPolicy"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCustomRoutingEndPointTrafficPolicyResponse(callApi(params, req, runtime));
+}
+
+DescribeCustomRoutingEndPointTrafficPolicyResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndPointTrafficPolicy(shared_ptr<DescribeCustomRoutingEndPointTrafficPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCustomRoutingEndPointTrafficPolicyWithOptions(request, runtime);
+}
+
+DescribeCustomRoutingEndpointResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpointWithOptions(shared_ptr<DescribeCustomRoutingEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCustomRoutingEndpoint"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCustomRoutingEndpointResponse(callApi(params, req, runtime));
+}
+
+DescribeCustomRoutingEndpointResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpoint(shared_ptr<DescribeCustomRoutingEndpointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCustomRoutingEndpointWithOptions(request, runtime);
+}
+
+DescribeCustomRoutingEndpointGroupResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpointGroupWithOptions(shared_ptr<DescribeCustomRoutingEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCustomRoutingEndpointGroup"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCustomRoutingEndpointGroupResponse(callApi(params, req, runtime));
+}
+
+DescribeCustomRoutingEndpointGroupResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpointGroup(shared_ptr<DescribeCustomRoutingEndpointGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCustomRoutingEndpointGroupWithOptions(request, runtime);
+}
+
+DescribeCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<DescribeCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationId)) {
+    query->insert(pair<string, string>("DestinationId", *request->destinationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCustomRoutingEndpointGroupDestinations"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCustomRoutingEndpointGroupDestinationsResponse(callApi(params, req, runtime));
+}
+
+DescribeCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::describeCustomRoutingEndpointGroupDestinations(shared_ptr<DescribeCustomRoutingEndpointGroupDestinationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
 }
 
 DescribeEndpointGroupResponse Alibabacloud_Ga20191120::Client::describeEndpointGroupWithOptions(shared_ptr<DescribeEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2659,6 +3115,276 @@ ListBusiRegionsResponse Alibabacloud_Ga20191120::Client::listBusiRegions(shared_
   return listBusiRegionsWithOptions(request, runtime);
 }
 
+ListCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<ListCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fromPort)) {
+    query->insert(pair<string, long>("FromPort", *request->fromPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->protocols)) {
+    query->insert(pair<string, vector<string>>("Protocols", *request->protocols));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->toPort)) {
+    query->insert(pair<string, long>("ToPort", *request->toPort));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingEndpointGroupDestinations"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingEndpointGroupDestinationsResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointGroupDestinations(shared_ptr<ListCustomRoutingEndpointGroupDestinationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+}
+
+ListCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointGroupsWithOptions(shared_ptr<ListCustomRoutingEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingEndpointGroups"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingEndpointGroupsResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointGroups(shared_ptr<ListCustomRoutingEndpointGroupsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingEndpointGroupsWithOptions(request, runtime);
+}
+
+ListCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<ListCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->address)) {
+    query->insert(pair<string, string>("Address", *request->address));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingEndpointTrafficPolicies"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingEndpointTrafficPoliciesResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointTrafficPolicies(shared_ptr<ListCustomRoutingEndpointTrafficPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+}
+
+ListCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpointsWithOptions(shared_ptr<ListCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingEndpoints"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingEndpointsResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingEndpoints(shared_ptr<ListCustomRoutingEndpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingEndpointsWithOptions(request, runtime);
+}
+
+ListCustomRoutingPortMappingsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingPortMappingsWithOptions(shared_ptr<ListCustomRoutingPortMappingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
+    query->insert(pair<string, string>("ListenerId", *request->listenerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingPortMappings"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingPortMappingsResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingPortMappingsResponse Alibabacloud_Ga20191120::Client::listCustomRoutingPortMappings(shared_ptr<ListCustomRoutingPortMappingsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingPortMappingsWithOptions(request, runtime);
+}
+
+ListCustomRoutingPortMappingsByDestinationResponse Alibabacloud_Ga20191120::Client::listCustomRoutingPortMappingsByDestinationWithOptions(shared_ptr<ListCustomRoutingPortMappingsByDestinationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationAddress)) {
+    query->insert(pair<string, string>("DestinationAddress", *request->destinationAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
+    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCustomRoutingPortMappingsByDestination"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCustomRoutingPortMappingsByDestinationResponse(callApi(params, req, runtime));
+}
+
+ListCustomRoutingPortMappingsByDestinationResponse Alibabacloud_Ga20191120::Client::listCustomRoutingPortMappingsByDestination(shared_ptr<ListCustomRoutingPortMappingsByDestinationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCustomRoutingPortMappingsByDestinationWithOptions(request, runtime);
+}
+
 ListEndpointGroupsResponse Alibabacloud_Ga20191120::Client::listEndpointGroupsWithOptions(shared_ptr<ListEndpointGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3390,6 +4116,9 @@ UpdateBasicEndpointGroupResponse Alibabacloud_Ga20191120::Client::updateBasicEnd
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
     query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointSubAddress)) {
+    query->insert(pair<string, string>("EndpointSubAddress", *request->endpointSubAddress));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointType)) {
     query->insert(pair<string, string>("EndpointType", *request->endpointType));
   }
@@ -3419,6 +4148,197 @@ UpdateBasicEndpointGroupResponse Alibabacloud_Ga20191120::Client::updateBasicEnd
 UpdateBasicEndpointGroupResponse Alibabacloud_Ga20191120::Client::updateBasicEndpointGroup(shared_ptr<UpdateBasicEndpointGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateBasicEndpointGroupWithOptions(request, runtime);
+}
+
+UpdateBasicIpSetResponse Alibabacloud_Ga20191120::Client::updateBasicIpSetWithOptions(shared_ptr<UpdateBasicIpSetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    query->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipSetId)) {
+    query->insert(pair<string, string>("IpSetId", *request->ipSetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateBasicIpSet"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateBasicIpSetResponse(callApi(params, req, runtime));
+}
+
+UpdateBasicIpSetResponse Alibabacloud_Ga20191120::Client::updateBasicIpSet(shared_ptr<UpdateBasicIpSetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateBasicIpSetWithOptions(request, runtime);
+}
+
+UpdateCustomRoutingEndpointGroupAttributeResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointGroupAttributeWithOptions(shared_ptr<UpdateCustomRoutingEndpointGroupAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomRoutingEndpointGroupAttribute"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomRoutingEndpointGroupAttributeResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomRoutingEndpointGroupAttributeResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointGroupAttribute(shared_ptr<UpdateCustomRoutingEndpointGroupAttributeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomRoutingEndpointGroupAttributeWithOptions(request, runtime);
+}
+
+UpdateCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointGroupDestinationsWithOptions(shared_ptr<UpdateCustomRoutingEndpointGroupDestinationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>(request->destinationConfigurations)) {
+    query->insert(pair<string, vector<UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations>>("DestinationConfigurations", *request->destinationConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomRoutingEndpointGroupDestinations"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomRoutingEndpointGroupDestinationsResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomRoutingEndpointGroupDestinationsResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointGroupDestinations(shared_ptr<UpdateCustomRoutingEndpointGroupDestinationsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+}
+
+UpdateCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointTrafficPoliciesWithOptions(shared_ptr<UpdateCustomRoutingEndpointTrafficPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointId)) {
+    query->insert(pair<string, string>("EndpointId", *request->endpointId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>(request->policyConfigurations)) {
+    query->insert(pair<string, vector<UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations>>("PolicyConfigurations", *request->policyConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomRoutingEndpointTrafficPolicies"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomRoutingEndpointTrafficPoliciesResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomRoutingEndpointTrafficPoliciesResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointTrafficPolicies(shared_ptr<UpdateCustomRoutingEndpointTrafficPoliciesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+}
+
+UpdateCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpointsWithOptions(shared_ptr<UpdateCustomRoutingEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurations>>(request->endpointConfigurations)) {
+    query->insert(pair<string, vector<UpdateCustomRoutingEndpointsRequestEndpointConfigurations>>("EndpointConfigurations", *request->endpointConfigurations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
+    query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateCustomRoutingEndpoints"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateCustomRoutingEndpointsResponse(callApi(params, req, runtime));
+}
+
+UpdateCustomRoutingEndpointsResponse Alibabacloud_Ga20191120::Client::updateCustomRoutingEndpoints(shared_ptr<UpdateCustomRoutingEndpointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateCustomRoutingEndpointsWithOptions(request, runtime);
 }
 
 UpdateEndpointGroupResponse Alibabacloud_Ga20191120::Client::updateEndpointGroupWithOptions(shared_ptr<UpdateEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
