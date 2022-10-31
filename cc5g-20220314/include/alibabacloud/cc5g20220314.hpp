@@ -183,6 +183,330 @@ public:
 
   virtual ~AddDNSAuthorizationRuleResponse() = default;
 };
+class AddGroupDnsAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destinationIp{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sourceDNSIp{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  AddGroupDnsAuthorizationRuleRequest() {}
+
+  explicit AddGroupDnsAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destinationIp) {
+      res["DestinationIp"] = boost::any(*destinationIp);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sourceDNSIp) {
+      res["SourceDNSIp"] = boost::any(*sourceDNSIp);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationIp") != m.end() && !m["DestinationIp"].empty()) {
+      destinationIp = make_shared<string>(boost::any_cast<string>(m["DestinationIp"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SourceDNSIp") != m.end() && !m["SourceDNSIp"].empty()) {
+      sourceDNSIp = make_shared<string>(boost::any_cast<string>(m["SourceDNSIp"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~AddGroupDnsAuthorizationRuleRequest() = default;
+};
+class AddGroupDnsAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> requestId{};
+
+  AddGroupDnsAuthorizationRuleResponseBody() {}
+
+  explicit AddGroupDnsAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddGroupDnsAuthorizationRuleResponseBody() = default;
+};
+class AddGroupDnsAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddGroupDnsAuthorizationRuleResponseBody> body{};
+
+  AddGroupDnsAuthorizationRuleResponse() {}
+
+  explicit AddGroupDnsAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddGroupDnsAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddGroupDnsAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddGroupDnsAuthorizationRuleResponse() = default;
+};
+class AddWirelessCloudConnectorToGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+  shared_ptr<vector<string>> wirelessCloudConnectorIds{};
+
+  AddWirelessCloudConnectorToGroupRequest() {}
+
+  explicit AddWirelessCloudConnectorToGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    if (wirelessCloudConnectorIds) {
+      res["WirelessCloudConnectorIds"] = boost::any(*wirelessCloudConnectorIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+    if (m.find("WirelessCloudConnectorIds") != m.end() && !m["WirelessCloudConnectorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      wirelessCloudConnectorIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddWirelessCloudConnectorToGroupRequest() = default;
+};
+class AddWirelessCloudConnectorToGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AddWirelessCloudConnectorToGroupResponseBody() {}
+
+  explicit AddWirelessCloudConnectorToGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AddWirelessCloudConnectorToGroupResponseBody() = default;
+};
+class AddWirelessCloudConnectorToGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddWirelessCloudConnectorToGroupResponseBody> body{};
+
+  AddWirelessCloudConnectorToGroupResponse() {}
+
+  explicit AddWirelessCloudConnectorToGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddWirelessCloudConnectorToGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddWirelessCloudConnectorToGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddWirelessCloudConnectorToGroupResponse() = default;
+};
 class AttachVpcToNetLinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -767,6 +1091,203 @@ public:
 
   virtual ~CreateBatchOperateCardsTaskResponse() = default;
 };
+class CreateGroupAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> sourceCidr{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  CreateGroupAuthorizationRuleRequest() {}
+
+  explicit CreateGroupAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (sourceCidr) {
+      res["SourceCidr"] = boost::any(*sourceCidr);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
+      sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleRequest() = default;
+};
+class CreateGroupAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> requestId{};
+
+  CreateGroupAuthorizationRuleResponseBody() {}
+
+  explicit CreateGroupAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleResponseBody() = default;
+};
+class CreateGroupAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateGroupAuthorizationRuleResponseBody> body{};
+
+  CreateGroupAuthorizationRuleResponse() {}
+
+  explicit CreateGroupAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGroupAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGroupAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGroupAuthorizationRuleResponse() = default;
+};
 class CreateIoTCloudConnectorBackhaulRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -1162,6 +1683,161 @@ public:
 
   virtual ~CreateWirelessCloudConnectorResponse() = default;
 };
+class CreateWirelessCloudConnectorGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+
+  CreateWirelessCloudConnectorGroupRequest() {}
+
+  explicit CreateWirelessCloudConnectorGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateWirelessCloudConnectorGroupRequest() = default;
+};
+class CreateWirelessCloudConnectorGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  CreateWirelessCloudConnectorGroupResponseBody() {}
+
+  explicit CreateWirelessCloudConnectorGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~CreateWirelessCloudConnectorGroupResponseBody() = default;
+};
+class CreateWirelessCloudConnectorGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWirelessCloudConnectorGroupResponseBody> body{};
+
+  CreateWirelessCloudConnectorGroupResponse() {}
+
+  explicit CreateWirelessCloudConnectorGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWirelessCloudConnectorGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWirelessCloudConnectorGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWirelessCloudConnectorGroupResponse() = default;
+};
 class DeleteAuthorizationRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authorizationRuleId{};
@@ -1444,6 +2120,147 @@ public:
 
   virtual ~DeleteBatchOperateCardsTaskResponse() = default;
 };
+class DeleteGroupAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  DeleteGroupAuthorizationRuleRequest() {}
+
+  explicit DeleteGroupAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleRequest() = default;
+};
+class DeleteGroupAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteGroupAuthorizationRuleResponseBody() {}
+
+  explicit DeleteGroupAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleResponseBody() = default;
+};
+class DeleteGroupAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGroupAuthorizationRuleResponseBody> body{};
+
+  DeleteGroupAuthorizationRuleResponse() {}
+
+  explicit DeleteGroupAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGroupAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGroupAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGroupAuthorizationRuleResponse() = default;
+};
 class DeleteIoTCloudConnectorBackhaulRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -1718,6 +2535,140 @@ public:
 
 
   virtual ~DeleteWirelessCloudConnectorResponse() = default;
+};
+class DeleteWirelessCloudConnectorGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  DeleteWirelessCloudConnectorGroupRequest() {}
+
+  explicit DeleteWirelessCloudConnectorGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~DeleteWirelessCloudConnectorGroupRequest() = default;
+};
+class DeleteWirelessCloudConnectorGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteWirelessCloudConnectorGroupResponseBody() {}
+
+  explicit DeleteWirelessCloudConnectorGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteWirelessCloudConnectorGroupResponseBody() = default;
+};
+class DeleteWirelessCloudConnectorGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteWirelessCloudConnectorGroupResponseBody> body{};
+
+  DeleteWirelessCloudConnectorGroupResponse() {}
+
+  explicit DeleteWirelessCloudConnectorGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteWirelessCloudConnectorGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteWirelessCloudConnectorGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteWirelessCloudConnectorGroupResponse() = default;
 };
 class DetachVpcFromNetLinkRequest : public Darabonba::Model {
 public:
@@ -3026,6 +3977,7 @@ public:
   shared_ptr<string> serviceType{};
   shared_ptr<string> status{};
   shared_ptr<string> useCase{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
   shared_ptr<string> wirelessCloudConnectorId{};
 
   GetWirelessCloudConnectorResponseBody() {}
@@ -3083,6 +4035,9 @@ public:
     }
     if (useCase) {
       res["UseCase"] = boost::any(*useCase);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
     }
     if (wirelessCloudConnectorId) {
       res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
@@ -3149,6 +4104,9 @@ public:
     }
     if (m.find("UseCase") != m.end() && !m["UseCase"].empty()) {
       useCase = make_shared<string>(boost::any_cast<string>(m["UseCase"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
     }
     if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
       wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
@@ -5376,6 +6334,386 @@ public:
 
   virtual ~ListDiagnoseInfoForSingleCardResponse() = default;
 };
+class ListGroupAuthorizationRulesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> authorizationRuleIds{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<bool> dns{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<vector<string>> names{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
+  shared_ptr<vector<string>> statuses{};
+  shared_ptr<string> type{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  ListGroupAuthorizationRulesRequest() {}
+
+  explicit ListGroupAuthorizationRulesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleIds) {
+      res["AuthorizationRuleIds"] = boost::any(*authorizationRuleIds);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (dns) {
+      res["Dns"] = boost::any(*dns);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (names) {
+      res["Names"] = boost::any(*names);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (statuses) {
+      res["Statuses"] = boost::any(*statuses);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleIds") != m.end() && !m["AuthorizationRuleIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthorizationRuleIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthorizationRuleIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authorizationRuleIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("Dns") != m.end() && !m["Dns"].empty()) {
+      dns = make_shared<bool>(boost::any_cast<bool>(m["Dns"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Names") != m.end() && !m["Names"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Names"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Names"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      names = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Statuses") != m.end() && !m["Statuses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Statuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Statuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      statuses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesRequest() = default;
+};
+class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
+  shared_ptr<string> destinationType{};
+  shared_ptr<bool> dns{};
+  shared_ptr<string> name{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> sourceCidr{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules() {}
+
+  explicit ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
+    if (destinationType) {
+      res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (dns) {
+      res["Dns"] = boost::any(*dns);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (sourceCidr) {
+      res["SourceCidr"] = boost::any(*sourceCidr);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
+    if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
+      destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("Dns") != m.end() && !m["Dns"].empty()) {
+      dns = make_shared<bool>(boost::any_cast<bool>(m["Dns"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
+      sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules() = default;
+};
+class ListGroupAuthorizationRulesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules>> groupAuthorizationRules{};
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+
+  ListGroupAuthorizationRulesResponseBody() {}
+
+  explicit ListGroupAuthorizationRulesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupAuthorizationRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*groupAuthorizationRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GroupAuthorizationRules"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupAuthorizationRules") != m.end() && !m["GroupAuthorizationRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["GroupAuthorizationRules"].type()) {
+        vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GroupAuthorizationRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        groupAuthorizationRules = make_shared<vector<ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponseBody() = default;
+};
+class ListGroupAuthorizationRulesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListGroupAuthorizationRulesResponseBody> body{};
+
+  ListGroupAuthorizationRulesResponse() {}
+
+  explicit ListGroupAuthorizationRulesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListGroupAuthorizationRulesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListGroupAuthorizationRulesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListGroupAuthorizationRulesResponse() = default;
+};
 class ListIoTCloudConnectorBackhaulRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> netLinkId{};
@@ -6137,6 +7475,415 @@ public:
 
 
   virtual ~ListRegionsResponse() = default;
+};
+class ListWirelessCloudConnectorGroupsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> wirelessCloudConnectorGroupIds{};
+  shared_ptr<vector<string>> wirelessCloudConnectorGroupNames{};
+  shared_ptr<vector<string>> wirelessCloudConnectorGroupStatus{};
+
+  ListWirelessCloudConnectorGroupsRequest() {}
+
+  explicit ListWirelessCloudConnectorGroupsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (wirelessCloudConnectorGroupIds) {
+      res["WirelessCloudConnectorGroupIds"] = boost::any(*wirelessCloudConnectorGroupIds);
+    }
+    if (wirelessCloudConnectorGroupNames) {
+      res["WirelessCloudConnectorGroupNames"] = boost::any(*wirelessCloudConnectorGroupNames);
+    }
+    if (wirelessCloudConnectorGroupStatus) {
+      res["WirelessCloudConnectorGroupStatus"] = boost::any(*wirelessCloudConnectorGroupStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupIds") != m.end() && !m["WirelessCloudConnectorGroupIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorGroupIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorGroupIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      wirelessCloudConnectorGroupIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WirelessCloudConnectorGroupNames") != m.end() && !m["WirelessCloudConnectorGroupNames"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorGroupNames"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorGroupNames"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      wirelessCloudConnectorGroupNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WirelessCloudConnectorGroupStatus") != m.end() && !m["WirelessCloudConnectorGroupStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorGroupStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorGroupStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      wirelessCloudConnectorGroupStatus = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListWirelessCloudConnectorGroupsRequest() = default;
+};
+class ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors : public Darabonba::Model {
+public:
+  shared_ptr<string> businessType{};
+  shared_ptr<string> cardCount{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> dataPackageId{};
+  shared_ptr<string> dataPackageType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> useCase{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors() {}
+
+  explicit ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessType) {
+      res["BusinessType"] = boost::any(*businessType);
+    }
+    if (cardCount) {
+      res["CardCount"] = boost::any(*cardCount);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (dataPackageId) {
+      res["DataPackageId"] = boost::any(*dataPackageId);
+    }
+    if (dataPackageType) {
+      res["DataPackageType"] = boost::any(*dataPackageType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (useCase) {
+      res["UseCase"] = boost::any(*useCase);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessType") != m.end() && !m["BusinessType"].empty()) {
+      businessType = make_shared<string>(boost::any_cast<string>(m["BusinessType"]));
+    }
+    if (m.find("CardCount") != m.end() && !m["CardCount"].empty()) {
+      cardCount = make_shared<string>(boost::any_cast<string>(m["CardCount"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DataPackageId") != m.end() && !m["DataPackageId"].empty()) {
+      dataPackageId = make_shared<string>(boost::any_cast<string>(m["DataPackageId"]));
+    }
+    if (m.find("DataPackageType") != m.end() && !m["DataPackageType"].empty()) {
+      dataPackageType = make_shared<string>(boost::any_cast<string>(m["DataPackageType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UseCase") != m.end() && !m["UseCase"].empty()) {
+      useCase = make_shared<string>(boost::any_cast<string>(m["UseCase"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors() = default;
+};
+class ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+  shared_ptr<vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors>> wirelessCloudConnectors{};
+
+  ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups() {}
+
+  explicit ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    if (wirelessCloudConnectors) {
+      vector<boost::any> temp1;
+      for(auto item1:*wirelessCloudConnectors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WirelessCloudConnectors"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+    if (m.find("WirelessCloudConnectors") != m.end() && !m["WirelessCloudConnectors"].empty()) {
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectors"].type()) {
+        vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wirelessCloudConnectors = make_shared<vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups() = default;
+};
+class ListWirelessCloudConnectorGroupsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+  shared_ptr<vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups>> wirelessCloudConnectorGroups{};
+
+  ListWirelessCloudConnectorGroupsResponseBody() {}
+
+  explicit ListWirelessCloudConnectorGroupsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (wirelessCloudConnectorGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*wirelessCloudConnectorGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WirelessCloudConnectorGroups"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+    if (m.find("WirelessCloudConnectorGroups") != m.end() && !m["WirelessCloudConnectorGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorGroups"].type()) {
+        vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wirelessCloudConnectorGroups = make_shared<vector<ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListWirelessCloudConnectorGroupsResponseBody() = default;
+};
+class ListWirelessCloudConnectorGroupsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListWirelessCloudConnectorGroupsResponseBody> body{};
+
+  ListWirelessCloudConnectorGroupsResponse() {}
+
+  explicit ListWirelessCloudConnectorGroupsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListWirelessCloudConnectorGroupsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListWirelessCloudConnectorGroupsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListWirelessCloudConnectorGroupsResponse() = default;
 };
 class ListWirelessCloudConnectorsRequest : public Darabonba::Model {
 public:
@@ -7082,6 +8829,161 @@ public:
 
 
   virtual ~OpenCc5gServiceResponse() = default;
+};
+class RemoveWirelessCloudConnectorFromGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+  shared_ptr<vector<string>> wirelessCloudConnectorIds{};
+
+  RemoveWirelessCloudConnectorFromGroupRequest() {}
+
+  explicit RemoveWirelessCloudConnectorFromGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    if (wirelessCloudConnectorIds) {
+      res["WirelessCloudConnectorIds"] = boost::any(*wirelessCloudConnectorIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+    if (m.find("WirelessCloudConnectorIds") != m.end() && !m["WirelessCloudConnectorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WirelessCloudConnectorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WirelessCloudConnectorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      wirelessCloudConnectorIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RemoveWirelessCloudConnectorFromGroupRequest() = default;
+};
+class RemoveWirelessCloudConnectorFromGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RemoveWirelessCloudConnectorFromGroupResponseBody() {}
+
+  explicit RemoveWirelessCloudConnectorFromGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RemoveWirelessCloudConnectorFromGroupResponseBody() = default;
+};
+class RemoveWirelessCloudConnectorFromGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RemoveWirelessCloudConnectorFromGroupResponseBody> body{};
+
+  RemoveWirelessCloudConnectorFromGroupResponse() {}
+
+  explicit RemoveWirelessCloudConnectorFromGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RemoveWirelessCloudConnectorFromGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RemoveWirelessCloudConnectorFromGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RemoveWirelessCloudConnectorFromGroupResponse() = default;
 };
 class ResumeCardsRequest : public Darabonba::Model {
 public:
@@ -8696,6 +10598,365 @@ public:
 
   virtual ~UpdateDNSAuthorizationRuleResponse() = default;
 };
+class UpdateGroupAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destination{};
+  shared_ptr<string> destinationPort{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> policy{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> sourceCidr{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  UpdateGroupAuthorizationRuleRequest() {}
+
+  explicit UpdateGroupAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destination) {
+      res["Destination"] = boost::any(*destination);
+    }
+    if (destinationPort) {
+      res["DestinationPort"] = boost::any(*destinationPort);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (sourceCidr) {
+      res["SourceCidr"] = boost::any(*sourceCidr);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Destination") != m.end() && !m["Destination"].empty()) {
+      destination = make_shared<string>(boost::any_cast<string>(m["Destination"]));
+    }
+    if (m.find("DestinationPort") != m.end() && !m["DestinationPort"].empty()) {
+      destinationPort = make_shared<string>(boost::any_cast<string>(m["DestinationPort"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SourceCidr") != m.end() && !m["SourceCidr"].empty()) {
+      sourceCidr = make_shared<string>(boost::any_cast<string>(m["SourceCidr"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleRequest() = default;
+};
+class UpdateGroupAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGroupAuthorizationRuleResponseBody() {}
+
+  explicit UpdateGroupAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleResponseBody() = default;
+};
+class UpdateGroupAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGroupAuthorizationRuleResponseBody> body{};
+
+  UpdateGroupAuthorizationRuleResponse() {}
+
+  explicit UpdateGroupAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGroupAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGroupAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGroupAuthorizationRuleResponse() = default;
+};
+class UpdateGroupDnsAuthorizationRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authorizationRuleId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> destinationIp{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> sourceDNSIp{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  UpdateGroupDnsAuthorizationRuleRequest() {}
+
+  explicit UpdateGroupDnsAuthorizationRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizationRuleId) {
+      res["AuthorizationRuleId"] = boost::any(*authorizationRuleId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (destinationIp) {
+      res["DestinationIp"] = boost::any(*destinationIp);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (sourceDNSIp) {
+      res["SourceDNSIp"] = boost::any(*sourceDNSIp);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizationRuleId") != m.end() && !m["AuthorizationRuleId"].empty()) {
+      authorizationRuleId = make_shared<string>(boost::any_cast<string>(m["AuthorizationRuleId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DestinationIp") != m.end() && !m["DestinationIp"].empty()) {
+      destinationIp = make_shared<string>(boost::any_cast<string>(m["DestinationIp"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SourceDNSIp") != m.end() && !m["SourceDNSIp"].empty()) {
+      sourceDNSIp = make_shared<string>(boost::any_cast<string>(m["SourceDNSIp"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupDnsAuthorizationRuleRequest() = default;
+};
+class UpdateGroupDnsAuthorizationRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGroupDnsAuthorizationRuleResponseBody() {}
+
+  explicit UpdateGroupDnsAuthorizationRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGroupDnsAuthorizationRuleResponseBody() = default;
+};
+class UpdateGroupDnsAuthorizationRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGroupDnsAuthorizationRuleResponseBody> body{};
+
+  UpdateGroupDnsAuthorizationRuleResponse() {}
+
+  explicit UpdateGroupDnsAuthorizationRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGroupDnsAuthorizationRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGroupDnsAuthorizationRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGroupDnsAuthorizationRuleResponse() = default;
+};
 class UpdateWirelessCloudConnectorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -8844,6 +11105,154 @@ public:
 
   virtual ~UpdateWirelessCloudConnectorResponse() = default;
 };
+class UpdateWirelessCloudConnectorGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> name{};
+  shared_ptr<string> wirelessCloudConnectorGroupId{};
+
+  UpdateWirelessCloudConnectorGroupRequest() {}
+
+  explicit UpdateWirelessCloudConnectorGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (wirelessCloudConnectorGroupId) {
+      res["WirelessCloudConnectorGroupId"] = boost::any(*wirelessCloudConnectorGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("WirelessCloudConnectorGroupId") != m.end() && !m["WirelessCloudConnectorGroupId"].empty()) {
+      wirelessCloudConnectorGroupId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorGroupId"]));
+    }
+  }
+
+
+  virtual ~UpdateWirelessCloudConnectorGroupRequest() = default;
+};
+class UpdateWirelessCloudConnectorGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateWirelessCloudConnectorGroupResponseBody() {}
+
+  explicit UpdateWirelessCloudConnectorGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateWirelessCloudConnectorGroupResponseBody() = default;
+};
+class UpdateWirelessCloudConnectorGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateWirelessCloudConnectorGroupResponseBody> body{};
+
+  UpdateWirelessCloudConnectorGroupResponse() {}
+
+  explicit UpdateWirelessCloudConnectorGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateWirelessCloudConnectorGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateWirelessCloudConnectorGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateWirelessCloudConnectorGroupResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8856,24 +11265,36 @@ public:
                      shared_ptr<string> endpoint);
   AddDNSAuthorizationRuleResponse addDNSAuthorizationRuleWithOptions(shared_ptr<AddDNSAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddDNSAuthorizationRuleResponse addDNSAuthorizationRule(shared_ptr<AddDNSAuthorizationRuleRequest> request);
+  AddGroupDnsAuthorizationRuleResponse addGroupDnsAuthorizationRuleWithOptions(shared_ptr<AddGroupDnsAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddGroupDnsAuthorizationRuleResponse addGroupDnsAuthorizationRule(shared_ptr<AddGroupDnsAuthorizationRuleRequest> request);
+  AddWirelessCloudConnectorToGroupResponse addWirelessCloudConnectorToGroupWithOptions(shared_ptr<AddWirelessCloudConnectorToGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddWirelessCloudConnectorToGroupResponse addWirelessCloudConnectorToGroup(shared_ptr<AddWirelessCloudConnectorToGroupRequest> request);
   AttachVpcToNetLinkResponse attachVpcToNetLinkWithOptions(shared_ptr<AttachVpcToNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachVpcToNetLinkResponse attachVpcToNetLink(shared_ptr<AttachVpcToNetLinkRequest> request);
   CreateAuthorizationRuleResponse createAuthorizationRuleWithOptions(shared_ptr<CreateAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAuthorizationRuleResponse createAuthorizationRule(shared_ptr<CreateAuthorizationRuleRequest> request);
   CreateBatchOperateCardsTaskResponse createBatchOperateCardsTaskWithOptions(shared_ptr<CreateBatchOperateCardsTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBatchOperateCardsTaskResponse createBatchOperateCardsTask(shared_ptr<CreateBatchOperateCardsTaskRequest> request);
+  CreateGroupAuthorizationRuleResponse createGroupAuthorizationRuleWithOptions(shared_ptr<CreateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGroupAuthorizationRuleResponse createGroupAuthorizationRule(shared_ptr<CreateGroupAuthorizationRuleRequest> request);
   CreateIoTCloudConnectorBackhaulRouteResponse createIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<CreateIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIoTCloudConnectorBackhaulRouteResponse createIoTCloudConnectorBackhaulRoute(shared_ptr<CreateIoTCloudConnectorBackhaulRouteRequest> request);
   CreateWirelessCloudConnectorResponse createWirelessCloudConnectorWithOptions(shared_ptr<CreateWirelessCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWirelessCloudConnectorResponse createWirelessCloudConnector(shared_ptr<CreateWirelessCloudConnectorRequest> request);
+  CreateWirelessCloudConnectorGroupResponse createWirelessCloudConnectorGroupWithOptions(shared_ptr<CreateWirelessCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWirelessCloudConnectorGroupResponse createWirelessCloudConnectorGroup(shared_ptr<CreateWirelessCloudConnectorGroupRequest> request);
   DeleteAuthorizationRuleResponse deleteAuthorizationRuleWithOptions(shared_ptr<DeleteAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAuthorizationRuleResponse deleteAuthorizationRule(shared_ptr<DeleteAuthorizationRuleRequest> request);
   DeleteBatchOperateCardsTaskResponse deleteBatchOperateCardsTaskWithOptions(shared_ptr<DeleteBatchOperateCardsTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteBatchOperateCardsTaskResponse deleteBatchOperateCardsTask(shared_ptr<DeleteBatchOperateCardsTaskRequest> request);
+  DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRuleWithOptions(shared_ptr<DeleteGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGroupAuthorizationRuleResponse deleteGroupAuthorizationRule(shared_ptr<DeleteGroupAuthorizationRuleRequest> request);
   DeleteIoTCloudConnectorBackhaulRouteResponse deleteIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<DeleteIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIoTCloudConnectorBackhaulRouteResponse deleteIoTCloudConnectorBackhaulRoute(shared_ptr<DeleteIoTCloudConnectorBackhaulRouteRequest> request);
   DeleteWirelessCloudConnectorResponse deleteWirelessCloudConnectorWithOptions(shared_ptr<DeleteWirelessCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWirelessCloudConnectorResponse deleteWirelessCloudConnector(shared_ptr<DeleteWirelessCloudConnectorRequest> request);
+  DeleteWirelessCloudConnectorGroupResponse deleteWirelessCloudConnectorGroupWithOptions(shared_ptr<DeleteWirelessCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteWirelessCloudConnectorGroupResponse deleteWirelessCloudConnectorGroup(shared_ptr<DeleteWirelessCloudConnectorGroupRequest> request);
   DetachVpcFromNetLinkResponse detachVpcFromNetLinkWithOptions(shared_ptr<DetachVpcFromNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachVpcFromNetLinkResponse detachVpcFromNetLink(shared_ptr<DetachVpcFromNetLinkRequest> request);
   FailCardsResponse failCardsWithOptions(shared_ptr<FailCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8902,12 +11323,16 @@ public:
   ListDataPackagesResponse listDataPackages(shared_ptr<ListDataPackagesRequest> request);
   ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCardWithOptions(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDiagnoseInfoForSingleCardResponse listDiagnoseInfoForSingleCard(shared_ptr<ListDiagnoseInfoForSingleCardRequest> request);
+  ListGroupAuthorizationRulesResponse listGroupAuthorizationRulesWithOptions(shared_ptr<ListGroupAuthorizationRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListGroupAuthorizationRulesResponse listGroupAuthorizationRules(shared_ptr<ListGroupAuthorizationRulesRequest> request);
   ListIoTCloudConnectorBackhaulRouteResponse listIoTCloudConnectorBackhaulRouteWithOptions(shared_ptr<ListIoTCloudConnectorBackhaulRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListIoTCloudConnectorBackhaulRouteResponse listIoTCloudConnectorBackhaulRoute(shared_ptr<ListIoTCloudConnectorBackhaulRouteRequest> request);
   ListOrdersResponse listOrdersWithOptions(shared_ptr<ListOrdersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListOrdersResponse listOrders(shared_ptr<ListOrdersRequest> request);
   ListRegionsResponse listRegionsWithOptions(shared_ptr<ListRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListRegionsResponse listRegions(shared_ptr<ListRegionsRequest> request);
+  ListWirelessCloudConnectorGroupsResponse listWirelessCloudConnectorGroupsWithOptions(shared_ptr<ListWirelessCloudConnectorGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListWirelessCloudConnectorGroupsResponse listWirelessCloudConnectorGroups(shared_ptr<ListWirelessCloudConnectorGroupsRequest> request);
   ListWirelessCloudConnectorsResponse listWirelessCloudConnectorsWithOptions(shared_ptr<ListWirelessCloudConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWirelessCloudConnectorsResponse listWirelessCloudConnectors(shared_ptr<ListWirelessCloudConnectorsRequest> request);
   ListZonesResponse listZonesWithOptions(shared_ptr<ListZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8918,6 +11343,8 @@ public:
   ModifyWirelessCloudConnectorFeatureResponse modifyWirelessCloudConnectorFeature(shared_ptr<ModifyWirelessCloudConnectorFeatureRequest> request);
   OpenCc5gServiceResponse openCc5gServiceWithOptions(shared_ptr<OpenCc5gServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenCc5gServiceResponse openCc5gService(shared_ptr<OpenCc5gServiceRequest> request);
+  RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroupWithOptions(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroup(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request);
   ResumeCardsResponse resumeCardsWithOptions(shared_ptr<ResumeCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeCardsResponse resumeCards(shared_ptr<ResumeCardsRequest> request);
   RevokeNetLinkResponse revokeNetLinkWithOptions(shared_ptr<RevokeNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8938,8 +11365,14 @@ public:
   UpdateCardResponse updateCard(shared_ptr<UpdateCardRequest> request);
   UpdateDNSAuthorizationRuleResponse updateDNSAuthorizationRuleWithOptions(shared_ptr<UpdateDNSAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDNSAuthorizationRuleResponse updateDNSAuthorizationRule(shared_ptr<UpdateDNSAuthorizationRuleRequest> request);
+  UpdateGroupAuthorizationRuleResponse updateGroupAuthorizationRuleWithOptions(shared_ptr<UpdateGroupAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGroupAuthorizationRuleResponse updateGroupAuthorizationRule(shared_ptr<UpdateGroupAuthorizationRuleRequest> request);
+  UpdateGroupDnsAuthorizationRuleResponse updateGroupDnsAuthorizationRuleWithOptions(shared_ptr<UpdateGroupDnsAuthorizationRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGroupDnsAuthorizationRuleResponse updateGroupDnsAuthorizationRule(shared_ptr<UpdateGroupDnsAuthorizationRuleRequest> request);
   UpdateWirelessCloudConnectorResponse updateWirelessCloudConnectorWithOptions(shared_ptr<UpdateWirelessCloudConnectorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWirelessCloudConnectorResponse updateWirelessCloudConnector(shared_ptr<UpdateWirelessCloudConnectorRequest> request);
+  UpdateWirelessCloudConnectorGroupResponse updateWirelessCloudConnectorGroupWithOptions(shared_ptr<UpdateWirelessCloudConnectorGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateWirelessCloudConnectorGroupResponse updateWirelessCloudConnectorGroup(shared_ptr<UpdateWirelessCloudConnectorGroupRequest> request);
 
   virtual ~Client() = default;
 };
