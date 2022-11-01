@@ -1102,7 +1102,6 @@ public:
 };
 class SegmentBodyRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<string> imageURL{};
   shared_ptr<string> returnForm{};
 
@@ -1116,9 +1115,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -1129,9 +1125,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -1145,7 +1138,6 @@ public:
 };
 class SegmentBodyAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<bool> async{};
   shared_ptr<Darabonba::Stream> imageURLObject{};
   shared_ptr<string> returnForm{};
 
@@ -1159,9 +1151,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (async) {
-      res["Async"] = boost::any(*async);
-    }
     if (imageURLObject) {
       res["ImageURL"] = boost::any(*imageURLObject);
     }
@@ -1172,9 +1161,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Async") != m.end() && !m["Async"].empty()) {
-      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
-    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }

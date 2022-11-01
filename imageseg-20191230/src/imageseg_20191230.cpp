@@ -509,13 +509,8 @@ SegmentBodyResponse Alibabacloud_Imageseg20191230::Client::segmentBodyWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->returnForm)) {
     query->insert(pair<string, string>("ReturnForm", *request->returnForm));
   }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<bool>(request->async)) {
-    body->insert(pair<string, bool>("Async", *request->async));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("SegmentBody"))},
