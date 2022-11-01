@@ -1070,6 +1070,7 @@ public:
 class HTTPTriggerConfig : public Darabonba::Model {
 public:
   shared_ptr<string> authType{};
+  shared_ptr<bool> disableURLInternet{};
   shared_ptr<vector<string>> methods{};
 
   HTTPTriggerConfig() {}
@@ -1085,6 +1086,9 @@ public:
     if (authType) {
       res["authType"] = boost::any(*authType);
     }
+    if (disableURLInternet) {
+      res["disableURLInternet"] = boost::any(*disableURLInternet);
+    }
     if (methods) {
       res["methods"] = boost::any(*methods);
     }
@@ -1094,6 +1098,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
+    }
+    if (m.find("disableURLInternet") != m.end() && !m["disableURLInternet"].empty()) {
+      disableURLInternet = make_shared<bool>(boost::any_cast<bool>(m["disableURLInternet"]));
     }
     if (m.find("methods") != m.end() && !m["methods"].empty()) {
       vector<string> toVec1;
@@ -2945,6 +2952,126 @@ public:
 
   virtual ~TracingConfig() = default;
 };
+class Trigger : public Darabonba::Model {
+public:
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> invocationRole{};
+  shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> qualifier{};
+  shared_ptr<string> sourceArn{};
+  shared_ptr<string> status{};
+  shared_ptr<string> targetArn{};
+  shared_ptr<string> triggerConfig{};
+  shared_ptr<string> triggerId{};
+  shared_ptr<string> triggerName{};
+  shared_ptr<string> triggerType{};
+  shared_ptr<string> urlInternet{};
+  shared_ptr<string> urlIntranet{};
+
+  Trigger() {}
+
+  explicit Trigger(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createdTime) {
+      res["createdTime"] = boost::any(*createdTime);
+    }
+    if (domainName) {
+      res["domainName"] = boost::any(*domainName);
+    }
+    if (invocationRole) {
+      res["invocationRole"] = boost::any(*invocationRole);
+    }
+    if (lastModifiedTime) {
+      res["lastModifiedTime"] = boost::any(*lastModifiedTime);
+    }
+    if (qualifier) {
+      res["qualifier"] = boost::any(*qualifier);
+    }
+    if (sourceArn) {
+      res["sourceArn"] = boost::any(*sourceArn);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (targetArn) {
+      res["targetArn"] = boost::any(*targetArn);
+    }
+    if (triggerConfig) {
+      res["triggerConfig"] = boost::any(*triggerConfig);
+    }
+    if (triggerId) {
+      res["triggerId"] = boost::any(*triggerId);
+    }
+    if (triggerName) {
+      res["triggerName"] = boost::any(*triggerName);
+    }
+    if (triggerType) {
+      res["triggerType"] = boost::any(*triggerType);
+    }
+    if (urlInternet) {
+      res["urlInternet"] = boost::any(*urlInternet);
+    }
+    if (urlIntranet) {
+      res["urlIntranet"] = boost::any(*urlIntranet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
+    }
+    if (m.find("domainName") != m.end() && !m["domainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["domainName"]));
+    }
+    if (m.find("invocationRole") != m.end() && !m["invocationRole"].empty()) {
+      invocationRole = make_shared<string>(boost::any_cast<string>(m["invocationRole"]));
+    }
+    if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
+    }
+    if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
+      qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("sourceArn") != m.end() && !m["sourceArn"].empty()) {
+      sourceArn = make_shared<string>(boost::any_cast<string>(m["sourceArn"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("targetArn") != m.end() && !m["targetArn"].empty()) {
+      targetArn = make_shared<string>(boost::any_cast<string>(m["targetArn"]));
+    }
+    if (m.find("triggerConfig") != m.end() && !m["triggerConfig"].empty()) {
+      triggerConfig = make_shared<string>(boost::any_cast<string>(m["triggerConfig"]));
+    }
+    if (m.find("triggerId") != m.end() && !m["triggerId"].empty()) {
+      triggerId = make_shared<string>(boost::any_cast<string>(m["triggerId"]));
+    }
+    if (m.find("triggerName") != m.end() && !m["triggerName"].empty()) {
+      triggerName = make_shared<string>(boost::any_cast<string>(m["triggerName"]));
+    }
+    if (m.find("triggerType") != m.end() && !m["triggerType"].empty()) {
+      triggerType = make_shared<string>(boost::any_cast<string>(m["triggerType"]));
+    }
+    if (m.find("urlInternet") != m.end() && !m["urlInternet"].empty()) {
+      urlInternet = make_shared<string>(boost::any_cast<string>(m["urlInternet"]));
+    }
+    if (m.find("urlIntranet") != m.end() && !m["urlIntranet"].empty()) {
+      urlIntranet = make_shared<string>(boost::any_cast<string>(m["urlIntranet"]));
+    }
+  }
+
+
+  virtual ~Trigger() = default;
+};
 class VPCConfig : public Darabonba::Model {
 public:
   shared_ptr<string> role{};
@@ -3902,11 +4029,13 @@ class CreateFunctionRequest : public Darabonba::Model {
 public:
   shared_ptr<long> caPort{};
   shared_ptr<Code> code{};
+  shared_ptr<double> cpu{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionName{};
   shared_ptr<string> handler{};
@@ -3937,6 +4066,9 @@ public:
     if (code) {
       res["code"] = code ? boost::any(code->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3951,6 +4083,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -4005,6 +4140,9 @@ public:
         code = make_shared<Code>(model1);
       }
     }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
+    }
     if (m.find("customContainerConfig") != m.end() && !m["customContainerConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["customContainerConfig"].type()) {
         CustomContainerConfig model1;
@@ -4035,6 +4173,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -4101,12 +4242,14 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<string> codeChecksum{};
   shared_ptr<long> codeSize{};
+  shared_ptr<double> cpu{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
@@ -4142,6 +4285,9 @@ public:
     if (codeSize) {
       res["codeSize"] = boost::any(*codeSize);
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (createdTime) {
       res["createdTime"] = boost::any(*createdTime);
     }
@@ -4159,6 +4305,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -4218,6 +4367,9 @@ public:
     if (m.find("codeSize") != m.end() && !m["codeSize"].empty()) {
       codeSize = make_shared<long>(boost::any_cast<long>(m["codeSize"]));
     }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
+    }
     if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
     }
@@ -4251,6 +4403,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -7357,12 +7512,14 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<string> codeChecksum{};
   shared_ptr<long> codeSize{};
+  shared_ptr<double> cpu{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfigInfo> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
@@ -7375,6 +7532,7 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> lastModifiedTime{};
   shared_ptr<vector<string>> layers{};
+  shared_ptr<vector<string>> layersArnV2{};
   shared_ptr<long> memorySize{};
   shared_ptr<string> runtime{};
   shared_ptr<long> timeout{};
@@ -7398,6 +7556,9 @@ public:
     if (codeSize) {
       res["codeSize"] = boost::any(*codeSize);
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (createdTime) {
       res["createdTime"] = boost::any(*createdTime);
     }
@@ -7415,6 +7576,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -7452,6 +7616,9 @@ public:
     if (layers) {
       res["layers"] = boost::any(*layers);
     }
+    if (layersArnV2) {
+      res["layersArnV2"] = boost::any(*layersArnV2);
+    }
     if (memorySize) {
       res["memorySize"] = boost::any(*memorySize);
     }
@@ -7473,6 +7640,9 @@ public:
     }
     if (m.find("codeSize") != m.end() && !m["codeSize"].empty()) {
       codeSize = make_shared<long>(boost::any_cast<long>(m["codeSize"]));
+    }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
     }
     if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
@@ -7507,6 +7677,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -7559,6 +7732,16 @@ public:
         }
       }
       layers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("layersArnV2") != m.end() && !m["layersArnV2"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["layersArnV2"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["layersArnV2"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      layersArnV2 = make_shared<vector<string>>(toVec1);
     }
     if (m.find("memorySize") != m.end() && !m["memorySize"].empty()) {
       memorySize = make_shared<long>(boost::any_cast<long>(m["memorySize"]));
@@ -10896,10 +11079,12 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<string> codeChecksum{};
   shared_ptr<long> codeSize{};
+  shared_ptr<double> cpu{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
@@ -10935,6 +11120,9 @@ public:
     if (codeSize) {
       res["codeSize"] = boost::any(*codeSize);
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (createdTime) {
       res["createdTime"] = boost::any(*createdTime);
     }
@@ -10946,6 +11134,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -11005,6 +11196,9 @@ public:
     if (m.find("codeSize") != m.end() && !m["codeSize"].empty()) {
       codeSize = make_shared<long>(boost::any_cast<long>(m["codeSize"]));
     }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
+    }
     if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
     }
@@ -11024,6 +11218,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -16806,11 +17003,13 @@ public:
   shared_ptr<long> instanceConcurrency{};
   shared_ptr<long> caPort{};
   shared_ptr<Code> code{};
+  shared_ptr<double> cpu{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
@@ -16842,6 +17041,9 @@ public:
     if (code) {
       res["code"] = code ? boost::any(code->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (customContainerConfig) {
       res["customContainerConfig"] = customContainerConfig ? boost::any(customContainerConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -16856,6 +17058,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -16907,6 +17112,9 @@ public:
         code = make_shared<Code>(model1);
       }
     }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
+    }
     if (m.find("customContainerConfig") != m.end() && !m["customContainerConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["customContainerConfig"].type()) {
         CustomContainerConfig model1;
@@ -16937,6 +17145,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
@@ -16997,12 +17208,14 @@ public:
   shared_ptr<long> caPort{};
   shared_ptr<string> codeChecksum{};
   shared_ptr<long> codeSize{};
+  shared_ptr<double> cpu{};
   shared_ptr<string> createdTime{};
   shared_ptr<CustomContainerConfig> customContainerConfig{};
   shared_ptr<CustomDNS> customDNS{};
   shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig{};
   shared_ptr<CustomRuntimeConfig> customRuntimeConfig{};
   shared_ptr<string> description{};
+  shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
@@ -17037,6 +17250,9 @@ public:
     if (codeSize) {
       res["codeSize"] = boost::any(*codeSize);
     }
+    if (cpu) {
+      res["cpu"] = boost::any(*cpu);
+    }
     if (createdTime) {
       res["createdTime"] = boost::any(*createdTime);
     }
@@ -17054,6 +17270,9 @@ public:
     }
     if (description) {
       res["description"] = boost::any(*description);
+    }
+    if (diskSize) {
+      res["diskSize"] = boost::any(*diskSize);
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
@@ -17110,6 +17329,9 @@ public:
     if (m.find("codeSize") != m.end() && !m["codeSize"].empty()) {
       codeSize = make_shared<long>(boost::any_cast<long>(m["codeSize"]));
     }
+    if (m.find("cpu") != m.end() && !m["cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["cpu"]));
+    }
     if (m.find("createdTime") != m.end() && !m["createdTime"].empty()) {
       createdTime = make_shared<string>(boost::any_cast<string>(m["createdTime"]));
     }
@@ -17143,6 +17365,9 @@ public:
     }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("diskSize") != m.end() && !m["diskSize"].empty()) {
+      diskSize = make_shared<long>(boost::any_cast<long>(m["diskSize"]));
     }
     if (m.find("environmentVariables") != m.end() && !m["environmentVariables"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["environmentVariables"]);
