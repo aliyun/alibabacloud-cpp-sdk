@@ -521,6 +521,9 @@ CreateCenBandwidthPackageResponse Alibabacloud_Cbn20170912::Client::createCenBan
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4767,6 +4770,9 @@ ListTransitRouterMulticastGroupsResponse Alibabacloud_Cbn20170912::Client::listT
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->connectPeerIds)) {
+    query->insert(pair<string, vector<string>>("ConnectPeerIds", *request->connectPeerIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupIpAddress)) {
     query->insert(pair<string, string>("GroupIpAddress", *request->groupIpAddress));
   }
@@ -4886,6 +4892,12 @@ ListTransitRouterPeerAttachmentsResponse Alibabacloud_Cbn20170912::Client::listT
 ListTransitRouterPrefixListAssociationResponse Alibabacloud_Cbn20170912::Client::listTransitRouterPrefixListAssociationWithOptions(shared_ptr<ListTransitRouterPrefixListAssociationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHop)) {
+    query->insert(pair<string, string>("NextHop", *request->nextHop));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextHopType)) {
+    query->insert(pair<string, string>("NextHopType", *request->nextHopType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -5487,6 +5499,9 @@ ModifyCenBandwidthPackageSpecResponse Alibabacloud_Cbn20170912::Client::modifyCe
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
