@@ -668,6 +668,7 @@ public:
   shared_ptr<string> DBInstanceMode{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<long> idleTime{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> instanceSpec{};
   shared_ptr<string> masterNodeNum{};
@@ -680,6 +681,8 @@ public:
   shared_ptr<string> securityIPList{};
   shared_ptr<string> segNodeNum{};
   shared_ptr<string> segStorageType{};
+  shared_ptr<string> serverlessMode{};
+  shared_ptr<long> serverlessResource{};
   shared_ptr<long> storageSize{};
   shared_ptr<string> storageType{};
   shared_ptr<vector<CreateDBInstanceRequestTag>> tag{};
@@ -725,6 +728,9 @@ public:
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
     }
+    if (idleTime) {
+      res["IdleTime"] = boost::any(*idleTime);
+    }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
     }
@@ -760,6 +766,12 @@ public:
     }
     if (segStorageType) {
       res["SegStorageType"] = boost::any(*segStorageType);
+    }
+    if (serverlessMode) {
+      res["ServerlessMode"] = boost::any(*serverlessMode);
+    }
+    if (serverlessResource) {
+      res["ServerlessResource"] = boost::any(*serverlessResource);
     }
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
@@ -817,6 +829,9 @@ public:
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
     }
+    if (m.find("IdleTime") != m.end() && !m["IdleTime"].empty()) {
+      idleTime = make_shared<long>(boost::any_cast<long>(m["IdleTime"]));
+    }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
     }
@@ -852,6 +867,12 @@ public:
     }
     if (m.find("SegStorageType") != m.end() && !m["SegStorageType"].empty()) {
       segStorageType = make_shared<string>(boost::any_cast<string>(m["SegStorageType"]));
+    }
+    if (m.find("ServerlessMode") != m.end() && !m["ServerlessMode"].empty()) {
+      serverlessMode = make_shared<string>(boost::any_cast<string>(m["ServerlessMode"]));
+    }
+    if (m.find("ServerlessResource") != m.end() && !m["ServerlessResource"].empty()) {
+      serverlessResource = make_shared<long>(boost::any_cast<long>(m["ServerlessResource"]));
     }
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<long>(boost::any_cast<long>(m["StorageSize"]));
@@ -3798,6 +3819,7 @@ public:
   shared_ptr<string> engineVersion{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> hostType{};
+  shared_ptr<long> idleTime{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<string> lockMode{};
   shared_ptr<string> lockReason{};
@@ -3818,6 +3840,8 @@ public:
   shared_ptr<string> securityIPList{};
   shared_ptr<long> segNodeNum{};
   shared_ptr<long> segmentCounts{};
+  shared_ptr<string> serverlessMode{};
+  shared_ptr<long> serverlessResource{};
   shared_ptr<string> startTime{};
   shared_ptr<long> storagePerNode{};
   shared_ptr<long> storageSize{};
@@ -3917,6 +3941,9 @@ public:
     if (hostType) {
       res["HostType"] = boost::any(*hostType);
     }
+    if (idleTime) {
+      res["IdleTime"] = boost::any(*idleTime);
+    }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
     }
@@ -3976,6 +4003,12 @@ public:
     }
     if (segmentCounts) {
       res["SegmentCounts"] = boost::any(*segmentCounts);
+    }
+    if (serverlessMode) {
+      res["ServerlessMode"] = boost::any(*serverlessMode);
+    }
+    if (serverlessResource) {
+      res["ServerlessResource"] = boost::any(*serverlessResource);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -4089,6 +4122,9 @@ public:
     if (m.find("HostType") != m.end() && !m["HostType"].empty()) {
       hostType = make_shared<string>(boost::any_cast<string>(m["HostType"]));
     }
+    if (m.find("IdleTime") != m.end() && !m["IdleTime"].empty()) {
+      idleTime = make_shared<long>(boost::any_cast<long>(m["IdleTime"]));
+    }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));
     }
@@ -4148,6 +4184,12 @@ public:
     }
     if (m.find("SegmentCounts") != m.end() && !m["SegmentCounts"].empty()) {
       segmentCounts = make_shared<long>(boost::any_cast<long>(m["SegmentCounts"]));
+    }
+    if (m.find("ServerlessMode") != m.end() && !m["ServerlessMode"].empty()) {
+      serverlessMode = make_shared<string>(boost::any_cast<string>(m["ServerlessMode"]));
+    }
+    if (m.find("ServerlessResource") != m.end() && !m["ServerlessResource"].empty()) {
+      serverlessResource = make_shared<long>(boost::any_cast<long>(m["ServerlessResource"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -8218,6 +8260,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> segNodeNum{};
+  shared_ptr<string> serverlessMode{};
   shared_ptr<string> storageSize{};
   shared_ptr<string> storageType{};
   shared_ptr<DescribeDBInstancesResponseBodyItemsDBInstanceTags> tags{};
@@ -8294,6 +8337,9 @@ public:
     }
     if (segNodeNum) {
       res["SegNodeNum"] = boost::any(*segNodeNum);
+    }
+    if (serverlessMode) {
+      res["ServerlessMode"] = boost::any(*serverlessMode);
     }
     if (storageSize) {
       res["StorageSize"] = boost::any(*storageSize);
@@ -8376,6 +8422,9 @@ public:
     }
     if (m.find("SegNodeNum") != m.end() && !m["SegNodeNum"].empty()) {
       segNodeNum = make_shared<string>(boost::any_cast<string>(m["SegNodeNum"]));
+    }
+    if (m.find("ServerlessMode") != m.end() && !m["ServerlessMode"].empty()) {
+      serverlessMode = make_shared<string>(boost::any_cast<string>(m["ServerlessMode"]));
     }
     if (m.find("StorageSize") != m.end() && !m["StorageSize"].empty()) {
       storageSize = make_shared<string>(boost::any_cast<string>(m["StorageSize"]));
@@ -17263,6 +17312,556 @@ public:
 
   virtual ~DescribeUserEncryptionKeyListResponse() = default;
 };
+class DescribeWaitingSQLInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> database{};
+  shared_ptr<string> PID{};
+
+  DescribeWaitingSQLInfoRequest() {}
+
+  explicit DescribeWaitingSQLInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (PID) {
+      res["PID"] = boost::any(*PID);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("PID") != m.end() && !m["PID"].empty()) {
+      PID = make_shared<string>(boost::any_cast<string>(m["PID"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLInfoRequest() = default;
+};
+class DescribeWaitingSQLInfoResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<string> application{};
+  shared_ptr<string> blockedByApplication{};
+  shared_ptr<string> blockedByPID{};
+  shared_ptr<string> blockedBySQLStmt{};
+  shared_ptr<string> blockedByUser{};
+  shared_ptr<string> grantLocks{};
+  shared_ptr<string> notGrantLocks{};
+  shared_ptr<string> PID{};
+  shared_ptr<string> SQLStmt{};
+  shared_ptr<string> user{};
+
+  DescribeWaitingSQLInfoResponseBodyItems() {}
+
+  explicit DescribeWaitingSQLInfoResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (application) {
+      res["Application"] = boost::any(*application);
+    }
+    if (blockedByApplication) {
+      res["BlockedByApplication"] = boost::any(*blockedByApplication);
+    }
+    if (blockedByPID) {
+      res["BlockedByPID"] = boost::any(*blockedByPID);
+    }
+    if (blockedBySQLStmt) {
+      res["BlockedBySQLStmt"] = boost::any(*blockedBySQLStmt);
+    }
+    if (blockedByUser) {
+      res["BlockedByUser"] = boost::any(*blockedByUser);
+    }
+    if (grantLocks) {
+      res["GrantLocks"] = boost::any(*grantLocks);
+    }
+    if (notGrantLocks) {
+      res["NotGrantLocks"] = boost::any(*notGrantLocks);
+    }
+    if (PID) {
+      res["PID"] = boost::any(*PID);
+    }
+    if (SQLStmt) {
+      res["SQLStmt"] = boost::any(*SQLStmt);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Application") != m.end() && !m["Application"].empty()) {
+      application = make_shared<string>(boost::any_cast<string>(m["Application"]));
+    }
+    if (m.find("BlockedByApplication") != m.end() && !m["BlockedByApplication"].empty()) {
+      blockedByApplication = make_shared<string>(boost::any_cast<string>(m["BlockedByApplication"]));
+    }
+    if (m.find("BlockedByPID") != m.end() && !m["BlockedByPID"].empty()) {
+      blockedByPID = make_shared<string>(boost::any_cast<string>(m["BlockedByPID"]));
+    }
+    if (m.find("BlockedBySQLStmt") != m.end() && !m["BlockedBySQLStmt"].empty()) {
+      blockedBySQLStmt = make_shared<string>(boost::any_cast<string>(m["BlockedBySQLStmt"]));
+    }
+    if (m.find("BlockedByUser") != m.end() && !m["BlockedByUser"].empty()) {
+      blockedByUser = make_shared<string>(boost::any_cast<string>(m["BlockedByUser"]));
+    }
+    if (m.find("GrantLocks") != m.end() && !m["GrantLocks"].empty()) {
+      grantLocks = make_shared<string>(boost::any_cast<string>(m["GrantLocks"]));
+    }
+    if (m.find("NotGrantLocks") != m.end() && !m["NotGrantLocks"].empty()) {
+      notGrantLocks = make_shared<string>(boost::any_cast<string>(m["NotGrantLocks"]));
+    }
+    if (m.find("PID") != m.end() && !m["PID"].empty()) {
+      PID = make_shared<string>(boost::any_cast<string>(m["PID"]));
+    }
+    if (m.find("SQLStmt") != m.end() && !m["SQLStmt"].empty()) {
+      SQLStmt = make_shared<string>(boost::any_cast<string>(m["SQLStmt"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLInfoResponseBodyItems() = default;
+};
+class DescribeWaitingSQLInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> database{};
+  shared_ptr<vector<DescribeWaitingSQLInfoResponseBodyItems>> items{};
+  shared_ptr<string> requestId{};
+
+  DescribeWaitingSQLInfoResponseBody() {}
+
+  explicit DescribeWaitingSQLInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeWaitingSQLInfoResponseBodyItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeWaitingSQLInfoResponseBodyItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeWaitingSQLInfoResponseBodyItems>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLInfoResponseBody() = default;
+};
+class DescribeWaitingSQLInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWaitingSQLInfoResponseBody> body{};
+
+  DescribeWaitingSQLInfoResponse() {}
+
+  explicit DescribeWaitingSQLInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWaitingSQLInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWaitingSQLInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLInfoResponse() = default;
+};
+class DescribeWaitingSQLRecordsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> database{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> queryCondition{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> user{};
+
+  DescribeWaitingSQLRecordsRequest() {}
+
+  explicit DescribeWaitingSQLRecordsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryCondition) {
+      res["QueryCondition"] = boost::any(*queryCondition);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryCondition") != m.end() && !m["QueryCondition"].empty()) {
+      queryCondition = make_shared<string>(boost::any_cast<string>(m["QueryCondition"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLRecordsRequest() = default;
+};
+class DescribeWaitingSQLRecordsResponseBodyItems : public Darabonba::Model {
+public:
+  shared_ptr<string> database{};
+  shared_ptr<string> PID{};
+  shared_ptr<string> SQLStmt{};
+  shared_ptr<string> sessionID{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> user{};
+  shared_ptr<long> waitingTime{};
+
+  DescribeWaitingSQLRecordsResponseBodyItems() {}
+
+  explicit DescribeWaitingSQLRecordsResponseBodyItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (PID) {
+      res["PID"] = boost::any(*PID);
+    }
+    if (SQLStmt) {
+      res["SQLStmt"] = boost::any(*SQLStmt);
+    }
+    if (sessionID) {
+      res["SessionID"] = boost::any(*sessionID);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
+    if (waitingTime) {
+      res["WaitingTime"] = boost::any(*waitingTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("PID") != m.end() && !m["PID"].empty()) {
+      PID = make_shared<string>(boost::any_cast<string>(m["PID"]));
+    }
+    if (m.find("SQLStmt") != m.end() && !m["SQLStmt"].empty()) {
+      SQLStmt = make_shared<string>(boost::any_cast<string>(m["SQLStmt"]));
+    }
+    if (m.find("SessionID") != m.end() && !m["SessionID"].empty()) {
+      sessionID = make_shared<string>(boost::any_cast<string>(m["SessionID"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
+    }
+    if (m.find("WaitingTime") != m.end() && !m["WaitingTime"].empty()) {
+      waitingTime = make_shared<long>(boost::any_cast<long>(m["WaitingTime"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLRecordsResponseBodyItems() = default;
+};
+class DescribeWaitingSQLRecordsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeWaitingSQLRecordsResponseBodyItems>> items{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeWaitingSQLRecordsResponseBody() {}
+
+  explicit DescribeWaitingSQLRecordsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (items) {
+      vector<boost::any> temp1;
+      for(auto item1:*items){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Items"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Items") != m.end() && !m["Items"].empty()) {
+      if (typeid(vector<boost::any>) == m["Items"].type()) {
+        vector<DescribeWaitingSQLRecordsResponseBodyItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeWaitingSQLRecordsResponseBodyItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        items = make_shared<vector<DescribeWaitingSQLRecordsResponseBodyItems>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLRecordsResponseBody() = default;
+};
+class DescribeWaitingSQLRecordsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWaitingSQLRecordsResponseBody> body{};
+
+  DescribeWaitingSQLRecordsResponse() {}
+
+  explicit DescribeWaitingSQLRecordsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWaitingSQLRecordsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWaitingSQLRecordsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWaitingSQLRecordsResponse() = default;
+};
 class DownloadDiagnosisRecordsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -22088,6 +22687,10 @@ public:
   DescribeTagsResponse describeTags(shared_ptr<DescribeTagsRequest> request);
   DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyListWithOptions(shared_ptr<DescribeUserEncryptionKeyListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyList(shared_ptr<DescribeUserEncryptionKeyListRequest> request);
+  DescribeWaitingSQLInfoResponse describeWaitingSQLInfoWithOptions(shared_ptr<DescribeWaitingSQLInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWaitingSQLInfoResponse describeWaitingSQLInfo(shared_ptr<DescribeWaitingSQLInfoRequest> request);
+  DescribeWaitingSQLRecordsResponse describeWaitingSQLRecordsWithOptions(shared_ptr<DescribeWaitingSQLRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWaitingSQLRecordsResponse describeWaitingSQLRecords(shared_ptr<DescribeWaitingSQLRecordsRequest> request);
   DownloadDiagnosisRecordsResponse downloadDiagnosisRecordsWithOptions(shared_ptr<DownloadDiagnosisRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DownloadDiagnosisRecordsResponse downloadDiagnosisRecords(shared_ptr<DownloadDiagnosisRecordsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
