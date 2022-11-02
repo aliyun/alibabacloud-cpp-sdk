@@ -270,6 +270,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<string> image{};
   shared_ptr<string> instanceID{};
+  shared_ptr<bool> webServerMode{};
 
   CustomContainerConfig() {}
 
@@ -296,6 +297,9 @@ public:
     if (instanceID) {
       res["instanceID"] = boost::any(*instanceID);
     }
+    if (webServerMode) {
+      res["webServerMode"] = boost::any(*webServerMode);
+    }
     return res;
   }
 
@@ -315,6 +319,9 @@ public:
     if (m.find("instanceID") != m.end() && !m["instanceID"].empty()) {
       instanceID = make_shared<string>(boost::any_cast<string>(m["instanceID"]));
     }
+    if (m.find("webServerMode") != m.end() && !m["webServerMode"].empty()) {
+      webServerMode = make_shared<bool>(boost::any_cast<bool>(m["webServerMode"]));
+    }
   }
 
 
@@ -328,6 +335,7 @@ public:
   shared_ptr<string> command{};
   shared_ptr<string> image{};
   shared_ptr<string> instanceID{};
+  shared_ptr<bool> webServerMode{};
 
   CustomContainerConfigInfo() {}
 
@@ -357,6 +365,9 @@ public:
     if (instanceID) {
       res["instanceID"] = boost::any(*instanceID);
     }
+    if (webServerMode) {
+      res["webServerMode"] = boost::any(*webServerMode);
+    }
     return res;
   }
 
@@ -382,6 +393,9 @@ public:
     }
     if (m.find("instanceID") != m.end() && !m["instanceID"].empty()) {
       instanceID = make_shared<string>(boost::any_cast<string>(m["instanceID"]));
+    }
+    if (m.find("webServerMode") != m.end() && !m["webServerMode"].empty()) {
+      webServerMode = make_shared<bool>(boost::any_cast<bool>(m["webServerMode"]));
     }
   }
 
