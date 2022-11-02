@@ -8761,6 +8761,54 @@ public:
 
   virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyResourceRequest() = default;
 };
+class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> customTags{};
+  shared_ptr<long> maxPathTagLength{};
+  shared_ptr<double> sampling{};
+
+  DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing() {}
+
+  explicit DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customTags) {
+      res["CustomTags"] = boost::any(*customTags);
+    }
+    if (maxPathTagLength) {
+      res["MaxPathTagLength"] = boost::any(*maxPathTagLength);
+    }
+    if (sampling) {
+      res["Sampling"] = boost::any(*sampling);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomTags") != m.end() && !m["CustomTags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CustomTags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      customTags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("MaxPathTagLength") != m.end() && !m["MaxPathTagLength"].empty()) {
+      maxPathTagLength = make_shared<long>(boost::any_cast<long>(m["MaxPathTagLength"]));
+    }
+    if (m.find("Sampling") != m.end() && !m["Sampling"].empty()) {
+      sampling = make_shared<double>(boost::any_cast<double>(m["Sampling"]));
+    }
+  }
+
+
+  virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing() = default;
+};
 class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches : public Darabonba::Model {
 public:
   shared_ptr<long> concurrency{};
@@ -8780,6 +8828,7 @@ public:
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyResourceLimit> sidecarProxyResourceLimit{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyResourceRequest> sidecarProxyResourceRequest{};
   shared_ptr<string> terminationDrainDuration{};
+  shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing> tracing{};
 
   DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches() {}
 
@@ -8841,6 +8890,9 @@ public:
     }
     if (terminationDrainDuration) {
       res["TerminationDrainDuration"] = boost::any(*terminationDrainDuration);
+    }
+    if (tracing) {
+      res["Tracing"] = tracing ? boost::any(tracing->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -8916,6 +8968,13 @@ public:
     }
     if (m.find("TerminationDrainDuration") != m.end() && !m["TerminationDrainDuration"].empty()) {
       terminationDrainDuration = make_shared<string>(boost::any_cast<string>(m["TerminationDrainDuration"]));
+    }
+    if (m.find("Tracing") != m.end() && !m["Tracing"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tracing"].type()) {
+        DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tracing"]));
+        tracing = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesTracing>(model1);
+      }
     }
   }
 
@@ -20519,6 +20578,7 @@ public:
   shared_ptr<string> clusterSpec{};
   shared_ptr<bool> cniEnabled{};
   shared_ptr<string> cniExcludeNamespaces{};
+  shared_ptr<long> concurrency{};
   shared_ptr<bool> configSourceEnabled{};
   shared_ptr<string> configSourceNacosID{};
   shared_ptr<bool> customizedPrometheus{};
@@ -20537,14 +20597,17 @@ public:
   shared_ptr<bool> filterGatewayClusterConfig{};
   shared_ptr<bool> gatewayAPIEnabled{};
   shared_ptr<bool> globalRateLimitEnabled{};
+  shared_ptr<bool> holdApplicationUntilProxyStarts{};
   shared_ptr<bool> http10Enabled{};
   shared_ptr<string> includeIPRanges{};
   shared_ptr<string> includeInboundPorts{};
+  shared_ptr<string> includeOutboundPorts{};
   shared_ptr<bool> integrateKiali{};
   shared_ptr<bool> kialiEnabled{};
   shared_ptr<string> lifecycle{};
   shared_ptr<string> localityLBConf{};
   shared_ptr<bool> localityLoadBalancing{};
+  shared_ptr<string> logLevel{};
   shared_ptr<bool> MSEEnabled{};
   shared_ptr<bool> multiBufferEnabled{};
   shared_ptr<string> multiBufferPollDelay{};
@@ -20573,6 +20636,7 @@ public:
   shared_ptr<string> proxyLimitMemory{};
   shared_ptr<string> proxyRequestCPU{};
   shared_ptr<string> proxyRequestMemory{};
+  shared_ptr<string> proxyStatsMatcher{};
   shared_ptr<bool> redisFilterEnabled{};
   shared_ptr<string> serviceMeshId{};
   shared_ptr<string> sidecarInjectorLimitCPU{};
@@ -20583,6 +20647,8 @@ public:
   shared_ptr<bool> telemetry{};
   shared_ptr<string> terminationDrainDuration{};
   shared_ptr<bool> thriftFilterEnabled{};
+  shared_ptr<string> traceCustomTags{};
+  shared_ptr<string> traceMaxPathTagLength{};
   shared_ptr<double> traceSampling{};
   shared_ptr<bool> tracing{};
   shared_ptr<string> tracingOnExtZipkinLimitCPU{};
@@ -20646,6 +20712,9 @@ public:
     if (cniExcludeNamespaces) {
       res["CniExcludeNamespaces"] = boost::any(*cniExcludeNamespaces);
     }
+    if (concurrency) {
+      res["Concurrency"] = boost::any(*concurrency);
+    }
     if (configSourceEnabled) {
       res["ConfigSourceEnabled"] = boost::any(*configSourceEnabled);
     }
@@ -20700,6 +20769,9 @@ public:
     if (globalRateLimitEnabled) {
       res["GlobalRateLimitEnabled"] = boost::any(*globalRateLimitEnabled);
     }
+    if (holdApplicationUntilProxyStarts) {
+      res["HoldApplicationUntilProxyStarts"] = boost::any(*holdApplicationUntilProxyStarts);
+    }
     if (http10Enabled) {
       res["Http10Enabled"] = boost::any(*http10Enabled);
     }
@@ -20708,6 +20780,9 @@ public:
     }
     if (includeInboundPorts) {
       res["IncludeInboundPorts"] = boost::any(*includeInboundPorts);
+    }
+    if (includeOutboundPorts) {
+      res["IncludeOutboundPorts"] = boost::any(*includeOutboundPorts);
     }
     if (integrateKiali) {
       res["IntegrateKiali"] = boost::any(*integrateKiali);
@@ -20723,6 +20798,9 @@ public:
     }
     if (localityLoadBalancing) {
       res["LocalityLoadBalancing"] = boost::any(*localityLoadBalancing);
+    }
+    if (logLevel) {
+      res["LogLevel"] = boost::any(*logLevel);
     }
     if (MSEEnabled) {
       res["MSEEnabled"] = boost::any(*MSEEnabled);
@@ -20808,6 +20886,9 @@ public:
     if (proxyRequestMemory) {
       res["ProxyRequestMemory"] = boost::any(*proxyRequestMemory);
     }
+    if (proxyStatsMatcher) {
+      res["ProxyStatsMatcher"] = boost::any(*proxyStatsMatcher);
+    }
     if (redisFilterEnabled) {
       res["RedisFilterEnabled"] = boost::any(*redisFilterEnabled);
     }
@@ -20837,6 +20918,12 @@ public:
     }
     if (thriftFilterEnabled) {
       res["ThriftFilterEnabled"] = boost::any(*thriftFilterEnabled);
+    }
+    if (traceCustomTags) {
+      res["TraceCustomTags"] = boost::any(*traceCustomTags);
+    }
+    if (traceMaxPathTagLength) {
+      res["TraceMaxPathTagLength"] = boost::any(*traceMaxPathTagLength);
     }
     if (traceSampling) {
       res["TraceSampling"] = boost::any(*traceSampling);
@@ -20908,6 +20995,9 @@ public:
     if (m.find("CniExcludeNamespaces") != m.end() && !m["CniExcludeNamespaces"].empty()) {
       cniExcludeNamespaces = make_shared<string>(boost::any_cast<string>(m["CniExcludeNamespaces"]));
     }
+    if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
+      concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
     if (m.find("ConfigSourceEnabled") != m.end() && !m["ConfigSourceEnabled"].empty()) {
       configSourceEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConfigSourceEnabled"]));
     }
@@ -20962,6 +21052,9 @@ public:
     if (m.find("GlobalRateLimitEnabled") != m.end() && !m["GlobalRateLimitEnabled"].empty()) {
       globalRateLimitEnabled = make_shared<bool>(boost::any_cast<bool>(m["GlobalRateLimitEnabled"]));
     }
+    if (m.find("HoldApplicationUntilProxyStarts") != m.end() && !m["HoldApplicationUntilProxyStarts"].empty()) {
+      holdApplicationUntilProxyStarts = make_shared<bool>(boost::any_cast<bool>(m["HoldApplicationUntilProxyStarts"]));
+    }
     if (m.find("Http10Enabled") != m.end() && !m["Http10Enabled"].empty()) {
       http10Enabled = make_shared<bool>(boost::any_cast<bool>(m["Http10Enabled"]));
     }
@@ -20970,6 +21063,9 @@ public:
     }
     if (m.find("IncludeInboundPorts") != m.end() && !m["IncludeInboundPorts"].empty()) {
       includeInboundPorts = make_shared<string>(boost::any_cast<string>(m["IncludeInboundPorts"]));
+    }
+    if (m.find("IncludeOutboundPorts") != m.end() && !m["IncludeOutboundPorts"].empty()) {
+      includeOutboundPorts = make_shared<string>(boost::any_cast<string>(m["IncludeOutboundPorts"]));
     }
     if (m.find("IntegrateKiali") != m.end() && !m["IntegrateKiali"].empty()) {
       integrateKiali = make_shared<bool>(boost::any_cast<bool>(m["IntegrateKiali"]));
@@ -20985,6 +21081,9 @@ public:
     }
     if (m.find("LocalityLoadBalancing") != m.end() && !m["LocalityLoadBalancing"].empty()) {
       localityLoadBalancing = make_shared<bool>(boost::any_cast<bool>(m["LocalityLoadBalancing"]));
+    }
+    if (m.find("LogLevel") != m.end() && !m["LogLevel"].empty()) {
+      logLevel = make_shared<string>(boost::any_cast<string>(m["LogLevel"]));
     }
     if (m.find("MSEEnabled") != m.end() && !m["MSEEnabled"].empty()) {
       MSEEnabled = make_shared<bool>(boost::any_cast<bool>(m["MSEEnabled"]));
@@ -21070,6 +21169,9 @@ public:
     if (m.find("ProxyRequestMemory") != m.end() && !m["ProxyRequestMemory"].empty()) {
       proxyRequestMemory = make_shared<string>(boost::any_cast<string>(m["ProxyRequestMemory"]));
     }
+    if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
+      proxyStatsMatcher = make_shared<string>(boost::any_cast<string>(m["ProxyStatsMatcher"]));
+    }
     if (m.find("RedisFilterEnabled") != m.end() && !m["RedisFilterEnabled"].empty()) {
       redisFilterEnabled = make_shared<bool>(boost::any_cast<bool>(m["RedisFilterEnabled"]));
     }
@@ -21099,6 +21201,12 @@ public:
     }
     if (m.find("ThriftFilterEnabled") != m.end() && !m["ThriftFilterEnabled"].empty()) {
       thriftFilterEnabled = make_shared<bool>(boost::any_cast<bool>(m["ThriftFilterEnabled"]));
+    }
+    if (m.find("TraceCustomTags") != m.end() && !m["TraceCustomTags"].empty()) {
+      traceCustomTags = make_shared<string>(boost::any_cast<string>(m["TraceCustomTags"]));
+    }
+    if (m.find("TraceMaxPathTagLength") != m.end() && !m["TraceMaxPathTagLength"].empty()) {
+      traceMaxPathTagLength = make_shared<string>(boost::any_cast<string>(m["TraceMaxPathTagLength"]));
     }
     if (m.find("TraceSampling") != m.end() && !m["TraceSampling"].empty()) {
       traceSampling = make_shared<double>(boost::any_cast<double>(m["TraceSampling"]));
@@ -21244,6 +21352,7 @@ public:
   shared_ptr<string> sidecarProxyMemoryResourceLimit{};
   shared_ptr<string> sidecarProxyMemoryResourceRequest{};
   shared_ptr<string> terminationDrainDuration{};
+  shared_ptr<string> tracing{};
 
   UpdateNamespaceScopeSidecarConfigRequest() {}
 
@@ -21330,6 +21439,9 @@ public:
     if (terminationDrainDuration) {
       res["TerminationDrainDuration"] = boost::any(*terminationDrainDuration);
     }
+    if (tracing) {
+      res["Tracing"] = boost::any(*tracing);
+    }
     return res;
   }
 
@@ -21408,6 +21520,9 @@ public:
     }
     if (m.find("TerminationDrainDuration") != m.end() && !m["TerminationDrainDuration"].empty()) {
       terminationDrainDuration = make_shared<string>(boost::any_cast<string>(m["TerminationDrainDuration"]));
+    }
+    if (m.find("Tracing") != m.end() && !m["Tracing"].empty()) {
+      tracing = make_shared<string>(boost::any_cast<string>(m["Tracing"]));
     }
   }
 

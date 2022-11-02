@@ -2737,6 +2737,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<string>(request->cniExcludeNamespaces)) {
     body->insert(pair<string, string>("CniExcludeNamespaces", *request->cniExcludeNamespaces));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->concurrency)) {
+    body->insert(pair<string, long>("Concurrency", *request->concurrency));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->configSourceEnabled)) {
     body->insert(pair<string, bool>("ConfigSourceEnabled", *request->configSourceEnabled));
   }
@@ -2791,6 +2794,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<bool>(request->globalRateLimitEnabled)) {
     body->insert(pair<string, bool>("GlobalRateLimitEnabled", *request->globalRateLimitEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->holdApplicationUntilProxyStarts)) {
+    body->insert(pair<string, bool>("HoldApplicationUntilProxyStarts", *request->holdApplicationUntilProxyStarts));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->http10Enabled)) {
     body->insert(pair<string, bool>("Http10Enabled", *request->http10Enabled));
   }
@@ -2799,6 +2805,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeInboundPorts)) {
     body->insert(pair<string, string>("IncludeInboundPorts", *request->includeInboundPorts));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->includeOutboundPorts)) {
+    body->insert(pair<string, string>("IncludeOutboundPorts", *request->includeOutboundPorts));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->integrateKiali)) {
     body->insert(pair<string, bool>("IntegrateKiali", *request->integrateKiali));
@@ -2814,6 +2823,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->localityLoadBalancing)) {
     body->insert(pair<string, bool>("LocalityLoadBalancing", *request->localityLoadBalancing));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logLevel)) {
+    body->insert(pair<string, string>("LogLevel", *request->logLevel));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->MSEEnabled)) {
     body->insert(pair<string, bool>("MSEEnabled", *request->MSEEnabled));
@@ -2899,6 +2911,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyRequestMemory)) {
     body->insert(pair<string, string>("ProxyRequestMemory", *request->proxyRequestMemory));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyStatsMatcher)) {
+    body->insert(pair<string, string>("ProxyStatsMatcher", *request->proxyStatsMatcher));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->redisFilterEnabled)) {
     body->insert(pair<string, bool>("RedisFilterEnabled", *request->redisFilterEnabled));
   }
@@ -2928,6 +2943,12 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->thriftFilterEnabled)) {
     body->insert(pair<string, bool>("ThriftFilterEnabled", *request->thriftFilterEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->traceCustomTags)) {
+    body->insert(pair<string, string>("TraceCustomTags", *request->traceCustomTags));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->traceMaxPathTagLength)) {
+    body->insert(pair<string, string>("TraceMaxPathTagLength", *request->traceMaxPathTagLength));
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->traceSampling)) {
     body->insert(pair<string, double>("TraceSampling", *request->traceSampling));
@@ -3049,6 +3070,9 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->terminationDrainDuration)) {
     body->insert(pair<string, string>("TerminationDrainDuration", *request->terminationDrainDuration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tracing)) {
+    body->insert(pair<string, string>("Tracing", *request->tracing));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
