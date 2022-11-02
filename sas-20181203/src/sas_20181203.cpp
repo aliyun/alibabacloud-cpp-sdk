@@ -277,14 +277,8 @@ CheckSecurityEventIdResponse Alibabacloud_Sas20181203::Client::checkSecurityEven
 CheckUserHasEcsResponse Alibabacloud_Sas20181203::Client::checkUserHasEcsWithOptions(shared_ptr<CheckUserHasEcsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
-    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -5004,6 +4998,9 @@ DescribeSuspEventsResponse Alibabacloud_Sas20181203::Client::describeSuspEventsW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->alarmUniqueInfo)) {
     query->insert(pair<string, string>("AlarmUniqueInfo", *request->alarmUniqueInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->assetsTypeList)) {
+    query->insert(pair<string, vector<string>>("AssetsTypeList", *request->assetsTypeList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));

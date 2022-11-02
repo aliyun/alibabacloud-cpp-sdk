@@ -15,6 +15,49 @@
 using namespace std;
 
 namespace Alibabacloud_Sas20181203 {
+class QueryIncidentTracingSubNodesCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<vector<string>>> vertexIdAndTypeList{};
+
+  QueryIncidentTracingSubNodesCountRequest() {}
+
+  explicit QueryIncidentTracingSubNodesCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vertexIdAndTypeList) {
+      res["VertexIdAndTypeList"] = boost::any(*vertexIdAndTypeList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VertexIdAndTypeList") != m.end() && !m["VertexIdAndTypeList"].empty()) {
+      vector<vector<string>> toVec1;
+      if (typeid(vector<boost::any>) == m["VertexIdAndTypeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VertexIdAndTypeList"]);
+        for (auto item:vec1) {
+          vector<string> toVec2;
+          if (typeid(vector<boost::any>) == item.type()) {
+            vector<boost::any> vec2 = boost::any_cast<vector<boost::any>>(item);
+            for (auto item:vec2) {
+               toVec2.push_back(boost::any_cast<string>(item));
+            }
+          }
+           toVec1 = toVec2;
+        }
+      }
+      vertexIdAndTypeList = make_shared<vector<vector<string>>>(toVec1);
+    }
+  }
+
+
+  virtual ~QueryIncidentTracingSubNodesCountRequest() = default;
+};
 class AddInstallCodeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> expiredDate{};
@@ -785,9 +828,7 @@ public:
 };
 class CheckUserHasEcsRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> currentPage{};
   shared_ptr<string> lang{};
-  shared_ptr<long> pageSize{};
 
   CheckUserHasEcsRequest() {}
 
@@ -799,27 +840,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (currentPage) {
-      res["CurrentPage"] = boost::any(*currentPage);
-    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
-    }
-    if (pageSize) {
-      res["PageSize"] = boost::any(*pageSize);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
-      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
-    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
   }
 
@@ -21555,6 +21584,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<long> ttl{};
   shared_ptr<long> used{};
+  shared_ptr<string> userProject{};
 
   DescribeLogstoreStorageResponseBody() {}
 
@@ -21581,6 +21611,9 @@ public:
     if (used) {
       res["Used"] = boost::any(*used);
     }
+    if (userProject) {
+      res["UserProject"] = boost::any(*userProject);
+    }
     return res;
   }
 
@@ -21599,6 +21632,9 @@ public:
     }
     if (m.find("Used") != m.end() && !m["Used"].empty()) {
       used = make_shared<long>(boost::any_cast<long>(m["Used"]));
+    }
+    if (m.find("UserProject") != m.end() && !m["UserProject"].empty()) {
+      userProject = make_shared<string>(boost::any_cast<string>(m["UserProject"]));
     }
   }
 
@@ -33843,6 +33879,7 @@ public:
 class DescribeSuspEventsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alarmUniqueInfo{};
+  shared_ptr<vector<string>> assetsTypeList{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> containerFieldName{};
   shared_ptr<string> containerFieldValue{};
@@ -33883,6 +33920,9 @@ public:
     map<string, boost::any> res;
     if (alarmUniqueInfo) {
       res["AlarmUniqueInfo"] = boost::any(*alarmUniqueInfo);
+    }
+    if (assetsTypeList) {
+      res["AssetsTypeList"] = boost::any(*assetsTypeList);
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
@@ -33971,6 +34011,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AlarmUniqueInfo") != m.end() && !m["AlarmUniqueInfo"].empty()) {
       alarmUniqueInfo = make_shared<string>(boost::any_cast<string>(m["AlarmUniqueInfo"]));
+    }
+    if (m.find("AssetsTypeList") != m.end() && !m["AssetsTypeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AssetsTypeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AssetsTypeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      assetsTypeList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
@@ -34246,6 +34296,7 @@ public:
   shared_ptr<vector<DescribeSuspEventsResponseBodySuspEventsTacticItems>> tacticItems{};
   shared_ptr<string> uniqueInfo{};
   shared_ptr<string> uuid{};
+  shared_ptr<string> clusterId{};
 
   DescribeSuspEventsResponseBodySuspEvents() {}
 
@@ -34418,6 +34469,9 @@ public:
     }
     if (uuid) {
       res["Uuid"] = boost::any(*uuid);
+    }
+    if (clusterId) {
+      res["clusterId"] = boost::any(*clusterId);
     }
     return res;
   }
@@ -34602,6 +34656,9 @@ public:
     }
     if (m.find("Uuid") != m.end() && !m["Uuid"].empty()) {
       uuid = make_shared<string>(boost::any_cast<string>(m["Uuid"]));
+    }
+    if (m.find("clusterId") != m.end() && !m["clusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["clusterId"]));
     }
   }
 
@@ -36006,6 +36063,7 @@ public:
   shared_ptr<long> sasLog{};
   shared_ptr<long> sasScreen{};
   shared_ptr<long> slsCapacity{};
+  shared_ptr<long> threatAnalysisCapacity{};
   shared_ptr<long> userDefinedAlarms{};
   shared_ptr<long> version{};
   shared_ptr<long> vmCores{};
@@ -36081,6 +36139,9 @@ public:
     }
     if (slsCapacity) {
       res["SlsCapacity"] = boost::any(*slsCapacity);
+    }
+    if (threatAnalysisCapacity) {
+      res["ThreatAnalysisCapacity"] = boost::any(*threatAnalysisCapacity);
     }
     if (userDefinedAlarms) {
       res["UserDefinedAlarms"] = boost::any(*userDefinedAlarms);
@@ -36160,6 +36221,9 @@ public:
     }
     if (m.find("SlsCapacity") != m.end() && !m["SlsCapacity"].empty()) {
       slsCapacity = make_shared<long>(boost::any_cast<long>(m["SlsCapacity"]));
+    }
+    if (m.find("ThreatAnalysisCapacity") != m.end() && !m["ThreatAnalysisCapacity"].empty()) {
+      threatAnalysisCapacity = make_shared<long>(boost::any_cast<long>(m["ThreatAnalysisCapacity"]));
     }
     if (m.find("UserDefinedAlarms") != m.end() && !m["UserDefinedAlarms"].empty()) {
       userDefinedAlarms = make_shared<long>(boost::any_cast<long>(m["UserDefinedAlarms"]));
