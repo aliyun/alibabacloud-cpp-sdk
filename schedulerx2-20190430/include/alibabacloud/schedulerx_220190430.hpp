@@ -3688,6 +3688,7 @@ public:
   shared_ptr<string> jarUrl{};
   shared_ptr<long> jobId{};
   shared_ptr<GetJobInfoResponseBodyDataJobConfigInfoJobMonitorInfo> jobMonitorInfo{};
+  shared_ptr<string> jobType{};
   shared_ptr<GetJobInfoResponseBodyDataJobConfigInfoMapTaskXAttrs> mapTaskXAttrs{};
   shared_ptr<long> maxAttempt{};
   shared_ptr<string> maxConcurrency{};
@@ -3695,6 +3696,7 @@ public:
   shared_ptr<string> parameters{};
   shared_ptr<long> status{};
   shared_ptr<GetJobInfoResponseBodyDataJobConfigInfoTimeConfig> timeConfig{};
+  shared_ptr<string> XAttrs{};
 
   GetJobInfoResponseBodyDataJobConfigInfo() {}
 
@@ -3730,6 +3732,9 @@ public:
     if (jobMonitorInfo) {
       res["JobMonitorInfo"] = jobMonitorInfo ? boost::any(jobMonitorInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
     if (mapTaskXAttrs) {
       res["MapTaskXAttrs"] = mapTaskXAttrs ? boost::any(mapTaskXAttrs->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3750,6 +3755,9 @@ public:
     }
     if (timeConfig) {
       res["TimeConfig"] = timeConfig ? boost::any(timeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (XAttrs) {
+      res["XAttrs"] = boost::any(*XAttrs);
     }
     return res;
   }
@@ -3783,6 +3791,9 @@ public:
         jobMonitorInfo = make_shared<GetJobInfoResponseBodyDataJobConfigInfoJobMonitorInfo>(model1);
       }
     }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
     if (m.find("MapTaskXAttrs") != m.end() && !m["MapTaskXAttrs"].empty()) {
       if (typeid(map<string, boost::any>) == m["MapTaskXAttrs"].type()) {
         GetJobInfoResponseBodyDataJobConfigInfoMapTaskXAttrs model1;
@@ -3811,6 +3822,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TimeConfig"]));
         timeConfig = make_shared<GetJobInfoResponseBodyDataJobConfigInfoTimeConfig>(model1);
       }
+    }
+    if (m.find("XAttrs") != m.end() && !m["XAttrs"].empty()) {
+      XAttrs = make_shared<string>(boost::any_cast<string>(m["XAttrs"]));
     }
   }
 
@@ -6144,6 +6158,7 @@ public:
   shared_ptr<string> jarUrl{};
   shared_ptr<long> jobId{};
   shared_ptr<ListJobsResponseBodyDataJobsJobMonitorInfo> jobMonitorInfo{};
+  shared_ptr<string> jobType{};
   shared_ptr<ListJobsResponseBodyDataJobsMapTaskXAttrs> mapTaskXAttrs{};
   shared_ptr<long> maxAttempt{};
   shared_ptr<string> maxConcurrency{};
@@ -6151,6 +6166,7 @@ public:
   shared_ptr<string> parameters{};
   shared_ptr<long> status{};
   shared_ptr<ListJobsResponseBodyDataJobsTimeConfig> timeConfig{};
+  shared_ptr<string> XAttrs{};
 
   ListJobsResponseBodyDataJobs() {}
 
@@ -6186,6 +6202,9 @@ public:
     if (jobMonitorInfo) {
       res["JobMonitorInfo"] = jobMonitorInfo ? boost::any(jobMonitorInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
+    }
     if (mapTaskXAttrs) {
       res["MapTaskXAttrs"] = mapTaskXAttrs ? boost::any(mapTaskXAttrs->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6206,6 +6225,9 @@ public:
     }
     if (timeConfig) {
       res["TimeConfig"] = timeConfig ? boost::any(timeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (XAttrs) {
+      res["XAttrs"] = boost::any(*XAttrs);
     }
     return res;
   }
@@ -6239,6 +6261,9 @@ public:
         jobMonitorInfo = make_shared<ListJobsResponseBodyDataJobsJobMonitorInfo>(model1);
       }
     }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
+    }
     if (m.find("MapTaskXAttrs") != m.end() && !m["MapTaskXAttrs"].empty()) {
       if (typeid(map<string, boost::any>) == m["MapTaskXAttrs"].type()) {
         ListJobsResponseBodyDataJobsMapTaskXAttrs model1;
@@ -6267,6 +6292,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TimeConfig"]));
         timeConfig = make_shared<ListJobsResponseBodyDataJobsTimeConfig>(model1);
       }
+    }
+    if (m.find("XAttrs") != m.end() && !m["XAttrs"].empty()) {
+      XAttrs = make_shared<string>(boost::any_cast<string>(m["XAttrs"]));
     }
   }
 
