@@ -754,6 +754,618 @@ public:
 
   virtual ~CreateCertificateWithCsrRequestResponse() = default;
 };
+class CreateWHCertificateWithExtensionRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> afterTime{};
+  shared_ptr<string> algorithmKeySize{};
+  shared_ptr<string> aliasName{};
+  shared_ptr<bool> appendCrl{};
+  shared_ptr<bool> basicConstraintsCritical{};
+  shared_ptr<long> beforeTime{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> commonName{};
+  shared_ptr<string> countryCode{};
+  shared_ptr<string> csrPemString{};
+  shared_ptr<string> locality{};
+  shared_ptr<string> organization{};
+  shared_ptr<string> organizationUnit{};
+  shared_ptr<string> parentIdentifier{};
+  shared_ptr<string> sans{};
+  shared_ptr<string> state{};
+
+  CreateWHCertificateWithExtensionRequest() {}
+
+  explicit CreateWHCertificateWithExtensionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (afterTime) {
+      res["AfterTime"] = boost::any(*afterTime);
+    }
+    if (algorithmKeySize) {
+      res["AlgorithmKeySize"] = boost::any(*algorithmKeySize);
+    }
+    if (aliasName) {
+      res["AliasName"] = boost::any(*aliasName);
+    }
+    if (appendCrl) {
+      res["AppendCrl"] = boost::any(*appendCrl);
+    }
+    if (basicConstraintsCritical) {
+      res["BasicConstraintsCritical"] = boost::any(*basicConstraintsCritical);
+    }
+    if (beforeTime) {
+      res["BeforeTime"] = boost::any(*beforeTime);
+    }
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
+    }
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (countryCode) {
+      res["CountryCode"] = boost::any(*countryCode);
+    }
+    if (csrPemString) {
+      res["CsrPemString"] = boost::any(*csrPemString);
+    }
+    if (locality) {
+      res["Locality"] = boost::any(*locality);
+    }
+    if (organization) {
+      res["Organization"] = boost::any(*organization);
+    }
+    if (organizationUnit) {
+      res["OrganizationUnit"] = boost::any(*organizationUnit);
+    }
+    if (parentIdentifier) {
+      res["ParentIdentifier"] = boost::any(*parentIdentifier);
+    }
+    if (sans) {
+      res["Sans"] = boost::any(*sans);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterTime") != m.end() && !m["AfterTime"].empty()) {
+      afterTime = make_shared<long>(boost::any_cast<long>(m["AfterTime"]));
+    }
+    if (m.find("AlgorithmKeySize") != m.end() && !m["AlgorithmKeySize"].empty()) {
+      algorithmKeySize = make_shared<string>(boost::any_cast<string>(m["AlgorithmKeySize"]));
+    }
+    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
+      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
+    }
+    if (m.find("AppendCrl") != m.end() && !m["AppendCrl"].empty()) {
+      appendCrl = make_shared<bool>(boost::any_cast<bool>(m["AppendCrl"]));
+    }
+    if (m.find("BasicConstraintsCritical") != m.end() && !m["BasicConstraintsCritical"].empty()) {
+      basicConstraintsCritical = make_shared<bool>(boost::any_cast<bool>(m["BasicConstraintsCritical"]));
+    }
+    if (m.find("BeforeTime") != m.end() && !m["BeforeTime"].empty()) {
+      beforeTime = make_shared<long>(boost::any_cast<long>(m["BeforeTime"]));
+    }
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
+      countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
+    }
+    if (m.find("CsrPemString") != m.end() && !m["CsrPemString"].empty()) {
+      csrPemString = make_shared<string>(boost::any_cast<string>(m["CsrPemString"]));
+    }
+    if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
+      locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
+    }
+    if (m.find("Organization") != m.end() && !m["Organization"].empty()) {
+      organization = make_shared<string>(boost::any_cast<string>(m["Organization"]));
+    }
+    if (m.find("OrganizationUnit") != m.end() && !m["OrganizationUnit"].empty()) {
+      organizationUnit = make_shared<string>(boost::any_cast<string>(m["OrganizationUnit"]));
+    }
+    if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
+      parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
+    }
+    if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
+      sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~CreateWHCertificateWithExtensionRequest() = default;
+};
+class CreateWHCertificateWithExtensionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certificate{};
+  shared_ptr<string> certificateChain{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> requestId{};
+
+  CreateWHCertificateWithExtensionResponseBody() {}
+
+  explicit CreateWHCertificateWithExtensionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificate) {
+      res["Certificate"] = boost::any(*certificate);
+    }
+    if (certificateChain) {
+      res["CertificateChain"] = boost::any(*certificateChain);
+    }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
+      certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
+    }
+    if (m.find("CertificateChain") != m.end() && !m["CertificateChain"].empty()) {
+      certificateChain = make_shared<string>(boost::any_cast<string>(m["CertificateChain"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWHCertificateWithExtensionResponseBody() = default;
+};
+class CreateWHCertificateWithExtensionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWHCertificateWithExtensionResponseBody> body{};
+
+  CreateWHCertificateWithExtensionResponse() {}
+
+  explicit CreateWHCertificateWithExtensionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWHCertificateWithExtensionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWHCertificateWithExtensionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWHCertificateWithExtensionResponse() = default;
+};
+class CreateWHClientCertificateRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> afterTime{};
+  shared_ptr<string> algorithm{};
+  shared_ptr<long> beforeTime{};
+  shared_ptr<string> commonName{};
+  shared_ptr<string> csr{};
+  shared_ptr<long> days{};
+  shared_ptr<string> parentIdentifier{};
+  shared_ptr<long> sanType{};
+  shared_ptr<string> sanValue{};
+
+  CreateWHClientCertificateRequest() {}
+
+  explicit CreateWHClientCertificateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (afterTime) {
+      res["AfterTime"] = boost::any(*afterTime);
+    }
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (beforeTime) {
+      res["BeforeTime"] = boost::any(*beforeTime);
+    }
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (csr) {
+      res["Csr"] = boost::any(*csr);
+    }
+    if (days) {
+      res["Days"] = boost::any(*days);
+    }
+    if (parentIdentifier) {
+      res["ParentIdentifier"] = boost::any(*parentIdentifier);
+    }
+    if (sanType) {
+      res["SanType"] = boost::any(*sanType);
+    }
+    if (sanValue) {
+      res["SanValue"] = boost::any(*sanValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AfterTime") != m.end() && !m["AfterTime"].empty()) {
+      afterTime = make_shared<long>(boost::any_cast<long>(m["AfterTime"]));
+    }
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("BeforeTime") != m.end() && !m["BeforeTime"].empty()) {
+      beforeTime = make_shared<long>(boost::any_cast<long>(m["BeforeTime"]));
+    }
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
+      csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
+    }
+    if (m.find("Days") != m.end() && !m["Days"].empty()) {
+      days = make_shared<long>(boost::any_cast<long>(m["Days"]));
+    }
+    if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
+      parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
+    }
+    if (m.find("SanType") != m.end() && !m["SanType"].empty()) {
+      sanType = make_shared<long>(boost::any_cast<long>(m["SanType"]));
+    }
+    if (m.find("SanValue") != m.end() && !m["SanValue"].empty()) {
+      sanValue = make_shared<string>(boost::any_cast<string>(m["SanValue"]));
+    }
+  }
+
+
+  virtual ~CreateWHClientCertificateRequest() = default;
+};
+class CreateWHClientCertificateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certificateChain{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> parentX509Certificate{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> rootX509Certificate{};
+  shared_ptr<string> x509Certificate{};
+
+  CreateWHClientCertificateResponseBody() {}
+
+  explicit CreateWHClientCertificateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificateChain) {
+      res["CertificateChain"] = boost::any(*certificateChain);
+    }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    if (parentX509Certificate) {
+      res["ParentX509Certificate"] = boost::any(*parentX509Certificate);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (rootX509Certificate) {
+      res["RootX509Certificate"] = boost::any(*rootX509Certificate);
+    }
+    if (x509Certificate) {
+      res["X509Certificate"] = boost::any(*x509Certificate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateChain") != m.end() && !m["CertificateChain"].empty()) {
+      certificateChain = make_shared<string>(boost::any_cast<string>(m["CertificateChain"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("ParentX509Certificate") != m.end() && !m["ParentX509Certificate"].empty()) {
+      parentX509Certificate = make_shared<string>(boost::any_cast<string>(m["ParentX509Certificate"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RootX509Certificate") != m.end() && !m["RootX509Certificate"].empty()) {
+      rootX509Certificate = make_shared<string>(boost::any_cast<string>(m["RootX509Certificate"]));
+    }
+    if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
+      x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
+    }
+  }
+
+
+  virtual ~CreateWHClientCertificateResponseBody() = default;
+};
+class CreateWHClientCertificateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWHClientCertificateResponseBody> body{};
+
+  CreateWHClientCertificateResponse() {}
+
+  explicit CreateWHClientCertificateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWHClientCertificateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWHClientCertificateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWHClientCertificateResponse() = default;
+};
+class DecryptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> ciphertextBlob{};
+  shared_ptr<string> messageType{};
+
+  DecryptRequest() {}
+
+  explicit DecryptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (ciphertextBlob) {
+      res["CiphertextBlob"] = boost::any(*ciphertextBlob);
+    }
+    if (messageType) {
+      res["MessageType"] = boost::any(*messageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("CiphertextBlob") != m.end() && !m["CiphertextBlob"].empty()) {
+      ciphertextBlob = make_shared<string>(boost::any_cast<string>(m["CiphertextBlob"]));
+    }
+    if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
+      messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
+    }
+  }
+
+
+  virtual ~DecryptRequest() = default;
+};
+class DecryptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> plaintext{};
+  shared_ptr<string> requestId{};
+
+  DecryptResponseBody() {}
+
+  explicit DecryptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (plaintext) {
+      res["Plaintext"] = boost::any(*plaintext);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("Plaintext") != m.end() && !m["Plaintext"].empty()) {
+      plaintext = make_shared<string>(boost::any_cast<string>(m["Plaintext"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DecryptResponseBody() = default;
+};
+class DecryptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DecryptResponseBody> body{};
+
+  DecryptResponse() {}
+
+  explicit DecryptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DecryptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DecryptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DecryptResponse() = default;
+};
 class DeleteCertificateRequestRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -1331,6 +1943,161 @@ public:
 
 
   virtual ~DescribePackageStateResponse() = default;
+};
+class EncryptRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> algorithm{};
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> messageType{};
+  shared_ptr<string> plaintext{};
+
+  EncryptRequest() {}
+
+  explicit EncryptRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (messageType) {
+      res["MessageType"] = boost::any(*messageType);
+    }
+    if (plaintext) {
+      res["Plaintext"] = boost::any(*plaintext);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("MessageType") != m.end() && !m["MessageType"].empty()) {
+      messageType = make_shared<string>(boost::any_cast<string>(m["MessageType"]));
+    }
+    if (m.find("Plaintext") != m.end() && !m["Plaintext"].empty()) {
+      plaintext = make_shared<string>(boost::any_cast<string>(m["Plaintext"]));
+    }
+  }
+
+
+  virtual ~EncryptRequest() = default;
+};
+class EncryptResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certIdentifier{};
+  shared_ptr<string> ciphertextBlob{};
+  shared_ptr<string> requestId{};
+
+  EncryptResponseBody() {}
+
+  explicit EncryptResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certIdentifier) {
+      res["CertIdentifier"] = boost::any(*certIdentifier);
+    }
+    if (ciphertextBlob) {
+      res["CiphertextBlob"] = boost::any(*ciphertextBlob);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertIdentifier") != m.end() && !m["CertIdentifier"].empty()) {
+      certIdentifier = make_shared<string>(boost::any_cast<string>(m["CertIdentifier"]));
+    }
+    if (m.find("CiphertextBlob") != m.end() && !m["CiphertextBlob"].empty()) {
+      ciphertextBlob = make_shared<string>(boost::any_cast<string>(m["CiphertextBlob"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EncryptResponseBody() = default;
+};
+class EncryptResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EncryptResponseBody> body{};
+
+  EncryptResponse() {}
+
+  explicit EncryptResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EncryptResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EncryptResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EncryptResponse() = default;
 };
 class ListCertRequest : public Darabonba::Model {
 public:
@@ -2368,6 +3135,126 @@ public:
 
   virtual ~RenewCertificateOrderForPackageRequestResponse() = default;
 };
+class RevokeWHClientCertificateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifier{};
+
+  RevokeWHClientCertificateRequest() {}
+
+  explicit RevokeWHClientCertificateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+  }
+
+
+  virtual ~RevokeWHClientCertificateRequest() = default;
+};
+class RevokeWHClientCertificateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RevokeWHClientCertificateResponseBody() {}
+
+  explicit RevokeWHClientCertificateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RevokeWHClientCertificateResponseBody() = default;
+};
+class RevokeWHClientCertificateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RevokeWHClientCertificateResponseBody> body{};
+
+  RevokeWHClientCertificateResponse() {}
+
+  explicit RevokeWHClientCertificateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RevokeWHClientCertificateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RevokeWHClientCertificateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RevokeWHClientCertificateResponse() = default;
+};
 class SignRequest : public Darabonba::Model {
 public:
   shared_ptr<string> certIdentifier{};
@@ -2832,6 +3719,12 @@ public:
   CreateCertificateRequestResponse createCertificateRequest(shared_ptr<CreateCertificateRequestRequest> request);
   CreateCertificateWithCsrRequestResponse createCertificateWithCsrRequestWithOptions(shared_ptr<CreateCertificateWithCsrRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCertificateWithCsrRequestResponse createCertificateWithCsrRequest(shared_ptr<CreateCertificateWithCsrRequestRequest> request);
+  CreateWHCertificateWithExtensionResponse createWHCertificateWithExtensionWithOptions(shared_ptr<CreateWHCertificateWithExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWHCertificateWithExtensionResponse createWHCertificateWithExtension(shared_ptr<CreateWHCertificateWithExtensionRequest> request);
+  CreateWHClientCertificateResponse createWHClientCertificateWithOptions(shared_ptr<CreateWHClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWHClientCertificateResponse createWHClientCertificate(shared_ptr<CreateWHClientCertificateRequest> request);
+  DecryptResponse decryptWithOptions(shared_ptr<DecryptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DecryptResponse decrypt(shared_ptr<DecryptRequest> request);
   DeleteCertificateRequestResponse deleteCertificateRequestWithOptions(shared_ptr<DeleteCertificateRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCertificateRequestResponse deleteCertificateRequest(shared_ptr<DeleteCertificateRequestRequest> request);
   DeletePCACertResponse deletePCACertWithOptions(shared_ptr<DeletePCACertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -2840,6 +3733,8 @@ public:
   DescribeCertificateStateResponse describeCertificateState(shared_ptr<DescribeCertificateStateRequest> request);
   DescribePackageStateResponse describePackageStateWithOptions(shared_ptr<DescribePackageStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePackageStateResponse describePackageState(shared_ptr<DescribePackageStateRequest> request);
+  EncryptResponse encryptWithOptions(shared_ptr<EncryptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EncryptResponse encrypt(shared_ptr<EncryptRequest> request);
   ListCertResponse listCertWithOptions(shared_ptr<ListCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCertResponse listCert(shared_ptr<ListCertRequest> request);
   ListCertWarehouseResponse listCertWarehouseWithOptions(shared_ptr<ListCertWarehouseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -2848,6 +3743,8 @@ public:
   ListUserCertificateOrderResponse listUserCertificateOrder(shared_ptr<ListUserCertificateOrderRequest> request);
   RenewCertificateOrderForPackageRequestResponse renewCertificateOrderForPackageRequestWithOptions(shared_ptr<RenewCertificateOrderForPackageRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenewCertificateOrderForPackageRequestResponse renewCertificateOrderForPackageRequest(shared_ptr<RenewCertificateOrderForPackageRequestRequest> request);
+  RevokeWHClientCertificateResponse revokeWHClientCertificateWithOptions(shared_ptr<RevokeWHClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeWHClientCertificateResponse revokeWHClientCertificate(shared_ptr<RevokeWHClientCertificateRequest> request);
   SignResponse signWithOptions(shared_ptr<SignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SignResponse sign(shared_ptr<SignRequest> request);
   UploadPCACertResponse uploadPCACertWithOptions(shared_ptr<UploadPCACertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
