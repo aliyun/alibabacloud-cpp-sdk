@@ -1055,6 +1055,9 @@ CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpToken(shared_ptr<C
 CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpTokenWithOptions(shared_ptr<CorpTokenRequest> request, shared_ptr<CorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSecret)) {
+    query->insert(pair<string, string>("app_secret", *request->appSecret));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
     query->insert(pair<string, string>("corp_id", *request->corpId));
   }

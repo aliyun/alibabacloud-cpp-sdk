@@ -9374,6 +9374,7 @@ public:
 };
 class CorpTokenRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appSecret{};
   shared_ptr<string> corpId{};
   shared_ptr<long> type{};
 
@@ -9387,6 +9388,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appSecret) {
+      res["app_secret"] = boost::any(*appSecret);
+    }
     if (corpId) {
       res["corp_id"] = boost::any(*corpId);
     }
@@ -9397,6 +9401,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("app_secret") != m.end() && !m["app_secret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["app_secret"]));
+    }
     if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
       corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
