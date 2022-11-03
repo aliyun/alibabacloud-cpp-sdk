@@ -37312,6 +37312,454 @@ public:
 
   virtual ~OpenApiGatewayServiceResponse() = default;
 };
+class QueryRequestLogsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> requestLogId{};
+  shared_ptr<string> securityToken{};
+
+  QueryRequestLogsRequest() {}
+
+  explicit QueryRequestLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestLogId) {
+      res["RequestLogId"] = boost::any(*requestLogId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestLogId") != m.end() && !m["RequestLogId"].empty()) {
+      requestLogId = make_shared<string>(boost::any_cast<string>(m["RequestLogId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~QueryRequestLogsRequest() = default;
+};
+class QueryRequestLogsResponseBodyRequestLogsRequestLog : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<string> apiName{};
+  shared_ptr<long> clientIp{};
+  shared_ptr<string> clientNonce{};
+  shared_ptr<string> consumerAppId{};
+  shared_ptr<string> consumerAppKey{};
+  shared_ptr<string> customTraceId{};
+  shared_ptr<string> domain{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> exception{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> httpMethod{};
+  shared_ptr<string> httpPath{};
+  shared_ptr<string> initialRequestId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jwtClaims{};
+  shared_ptr<string> region{};
+  shared_ptr<string> requestBody{};
+  shared_ptr<string> requestHeaders{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> requestProtocol{};
+  shared_ptr<string> requestQueryString{};
+  shared_ptr<string> requestSize{};
+  shared_ptr<string> requestTime{};
+  shared_ptr<string> responseBody{};
+  shared_ptr<string> responseHeaders{};
+  shared_ptr<string> responseSize{};
+  shared_ptr<string> serviceLatency{};
+  shared_ptr<string> stageId{};
+  shared_ptr<string> stageName{};
+  shared_ptr<string> statusCode{};
+  shared_ptr<string> totalLatency{};
+  shared_ptr<string> plugin{};
+
+  QueryRequestLogsResponseBodyRequestLogsRequestLog() {}
+
+  explicit QueryRequestLogsResponseBodyRequestLogsRequestLog(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (apiName) {
+      res["ApiName"] = boost::any(*apiName);
+    }
+    if (clientIp) {
+      res["ClientIp"] = boost::any(*clientIp);
+    }
+    if (clientNonce) {
+      res["ClientNonce"] = boost::any(*clientNonce);
+    }
+    if (consumerAppId) {
+      res["ConsumerAppId"] = boost::any(*consumerAppId);
+    }
+    if (consumerAppKey) {
+      res["ConsumerAppKey"] = boost::any(*consumerAppKey);
+    }
+    if (customTraceId) {
+      res["CustomTraceId"] = boost::any(*customTraceId);
+    }
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (exception) {
+      res["Exception"] = boost::any(*exception);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (httpMethod) {
+      res["HttpMethod"] = boost::any(*httpMethod);
+    }
+    if (httpPath) {
+      res["HttpPath"] = boost::any(*httpPath);
+    }
+    if (initialRequestId) {
+      res["InitialRequestId"] = boost::any(*initialRequestId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jwtClaims) {
+      res["JwtClaims"] = boost::any(*jwtClaims);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (requestBody) {
+      res["RequestBody"] = boost::any(*requestBody);
+    }
+    if (requestHeaders) {
+      res["RequestHeaders"] = boost::any(*requestHeaders);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (requestProtocol) {
+      res["RequestProtocol"] = boost::any(*requestProtocol);
+    }
+    if (requestQueryString) {
+      res["RequestQueryString"] = boost::any(*requestQueryString);
+    }
+    if (requestSize) {
+      res["RequestSize"] = boost::any(*requestSize);
+    }
+    if (requestTime) {
+      res["RequestTime"] = boost::any(*requestTime);
+    }
+    if (responseBody) {
+      res["ResponseBody"] = boost::any(*responseBody);
+    }
+    if (responseHeaders) {
+      res["ResponseHeaders"] = boost::any(*responseHeaders);
+    }
+    if (responseSize) {
+      res["ResponseSize"] = boost::any(*responseSize);
+    }
+    if (serviceLatency) {
+      res["ServiceLatency"] = boost::any(*serviceLatency);
+    }
+    if (stageId) {
+      res["StageId"] = boost::any(*stageId);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (statusCode) {
+      res["StatusCode"] = boost::any(*statusCode);
+    }
+    if (totalLatency) {
+      res["TotalLatency"] = boost::any(*totalLatency);
+    }
+    if (plugin) {
+      res["plugin"] = boost::any(*plugin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("ApiName") != m.end() && !m["ApiName"].empty()) {
+      apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
+    }
+    if (m.find("ClientIp") != m.end() && !m["ClientIp"].empty()) {
+      clientIp = make_shared<long>(boost::any_cast<long>(m["ClientIp"]));
+    }
+    if (m.find("ClientNonce") != m.end() && !m["ClientNonce"].empty()) {
+      clientNonce = make_shared<string>(boost::any_cast<string>(m["ClientNonce"]));
+    }
+    if (m.find("ConsumerAppId") != m.end() && !m["ConsumerAppId"].empty()) {
+      consumerAppId = make_shared<string>(boost::any_cast<string>(m["ConsumerAppId"]));
+    }
+    if (m.find("ConsumerAppKey") != m.end() && !m["ConsumerAppKey"].empty()) {
+      consumerAppKey = make_shared<string>(boost::any_cast<string>(m["ConsumerAppKey"]));
+    }
+    if (m.find("CustomTraceId") != m.end() && !m["CustomTraceId"].empty()) {
+      customTraceId = make_shared<string>(boost::any_cast<string>(m["CustomTraceId"]));
+    }
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Exception") != m.end() && !m["Exception"].empty()) {
+      exception = make_shared<string>(boost::any_cast<string>(m["Exception"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("HttpMethod") != m.end() && !m["HttpMethod"].empty()) {
+      httpMethod = make_shared<string>(boost::any_cast<string>(m["HttpMethod"]));
+    }
+    if (m.find("HttpPath") != m.end() && !m["HttpPath"].empty()) {
+      httpPath = make_shared<string>(boost::any_cast<string>(m["HttpPath"]));
+    }
+    if (m.find("InitialRequestId") != m.end() && !m["InitialRequestId"].empty()) {
+      initialRequestId = make_shared<string>(boost::any_cast<string>(m["InitialRequestId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JwtClaims") != m.end() && !m["JwtClaims"].empty()) {
+      jwtClaims = make_shared<string>(boost::any_cast<string>(m["JwtClaims"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("RequestBody") != m.end() && !m["RequestBody"].empty()) {
+      requestBody = make_shared<string>(boost::any_cast<string>(m["RequestBody"]));
+    }
+    if (m.find("RequestHeaders") != m.end() && !m["RequestHeaders"].empty()) {
+      requestHeaders = make_shared<string>(boost::any_cast<string>(m["RequestHeaders"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RequestProtocol") != m.end() && !m["RequestProtocol"].empty()) {
+      requestProtocol = make_shared<string>(boost::any_cast<string>(m["RequestProtocol"]));
+    }
+    if (m.find("RequestQueryString") != m.end() && !m["RequestQueryString"].empty()) {
+      requestQueryString = make_shared<string>(boost::any_cast<string>(m["RequestQueryString"]));
+    }
+    if (m.find("RequestSize") != m.end() && !m["RequestSize"].empty()) {
+      requestSize = make_shared<string>(boost::any_cast<string>(m["RequestSize"]));
+    }
+    if (m.find("RequestTime") != m.end() && !m["RequestTime"].empty()) {
+      requestTime = make_shared<string>(boost::any_cast<string>(m["RequestTime"]));
+    }
+    if (m.find("ResponseBody") != m.end() && !m["ResponseBody"].empty()) {
+      responseBody = make_shared<string>(boost::any_cast<string>(m["ResponseBody"]));
+    }
+    if (m.find("ResponseHeaders") != m.end() && !m["ResponseHeaders"].empty()) {
+      responseHeaders = make_shared<string>(boost::any_cast<string>(m["ResponseHeaders"]));
+    }
+    if (m.find("ResponseSize") != m.end() && !m["ResponseSize"].empty()) {
+      responseSize = make_shared<string>(boost::any_cast<string>(m["ResponseSize"]));
+    }
+    if (m.find("ServiceLatency") != m.end() && !m["ServiceLatency"].empty()) {
+      serviceLatency = make_shared<string>(boost::any_cast<string>(m["ServiceLatency"]));
+    }
+    if (m.find("StageId") != m.end() && !m["StageId"].empty()) {
+      stageId = make_shared<string>(boost::any_cast<string>(m["StageId"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("StatusCode") != m.end() && !m["StatusCode"].empty()) {
+      statusCode = make_shared<string>(boost::any_cast<string>(m["StatusCode"]));
+    }
+    if (m.find("TotalLatency") != m.end() && !m["TotalLatency"].empty()) {
+      totalLatency = make_shared<string>(boost::any_cast<string>(m["TotalLatency"]));
+    }
+    if (m.find("plugin") != m.end() && !m["plugin"].empty()) {
+      plugin = make_shared<string>(boost::any_cast<string>(m["plugin"]));
+    }
+  }
+
+
+  virtual ~QueryRequestLogsResponseBodyRequestLogsRequestLog() = default;
+};
+class QueryRequestLogsResponseBodyRequestLogs : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryRequestLogsResponseBodyRequestLogsRequestLog>> requestLog{};
+
+  QueryRequestLogsResponseBodyRequestLogs() {}
+
+  explicit QueryRequestLogsResponseBodyRequestLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestLog) {
+      vector<boost::any> temp1;
+      for(auto item1:*requestLog){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RequestLog"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestLog") != m.end() && !m["RequestLog"].empty()) {
+      if (typeid(vector<boost::any>) == m["RequestLog"].type()) {
+        vector<QueryRequestLogsResponseBodyRequestLogsRequestLog> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RequestLog"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryRequestLogsResponseBodyRequestLogsRequestLog model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        requestLog = make_shared<vector<QueryRequestLogsResponseBodyRequestLogsRequestLog>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRequestLogsResponseBodyRequestLogs() = default;
+};
+class QueryRequestLogsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<QueryRequestLogsResponseBodyRequestLogs> requestLogs{};
+
+  QueryRequestLogsResponseBody() {}
+
+  explicit QueryRequestLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (requestLogs) {
+      res["RequestLogs"] = requestLogs ? boost::any(requestLogs->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RequestLogs") != m.end() && !m["RequestLogs"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RequestLogs"].type()) {
+        QueryRequestLogsResponseBodyRequestLogs model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RequestLogs"]));
+        requestLogs = make_shared<QueryRequestLogsResponseBodyRequestLogs>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRequestLogsResponseBody() = default;
+};
+class QueryRequestLogsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryRequestLogsResponseBody> body{};
+
+  QueryRequestLogsResponse() {}
+
+  explicit QueryRequestLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryRequestLogsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryRequestLogsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryRequestLogsResponse() = default;
+};
 class ReactivateDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -42073,6 +42521,8 @@ public:
   ModifyVpcAccessAndUpdateApisResponse modifyVpcAccessAndUpdateApis(shared_ptr<ModifyVpcAccessAndUpdateApisRequest> request);
   OpenApiGatewayServiceResponse openApiGatewayServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenApiGatewayServiceResponse openApiGatewayService();
+  QueryRequestLogsResponse queryRequestLogsWithOptions(shared_ptr<QueryRequestLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryRequestLogsResponse queryRequestLogs(shared_ptr<QueryRequestLogsRequest> request);
   ReactivateDomainResponse reactivateDomainWithOptions(shared_ptr<ReactivateDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReactivateDomainResponse reactivateDomain(shared_ptr<ReactivateDomainRequest> request);
   RemoveAccessControlListEntryResponse removeAccessControlListEntryWithOptions(shared_ptr<RemoveAccessControlListEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
