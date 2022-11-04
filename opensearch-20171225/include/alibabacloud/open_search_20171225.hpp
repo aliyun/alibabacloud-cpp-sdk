@@ -12182,6 +12182,42 @@ public:
 
   virtual ~ListAppGroupMetricsResponse() = default;
 };
+class ListAppGroupsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListAppGroupsRequestTags() {}
+
+  explicit ListAppGroupsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~ListAppGroupsRequestTags() = default;
+};
 class ListAppGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -12190,6 +12226,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> sortBy{};
+  shared_ptr<vector<ListAppGroupsRequestTags>> tags{};
   shared_ptr<string> type{};
 
   ListAppGroupsRequest() {}
@@ -12220,6 +12257,13 @@ public:
     if (sortBy) {
       res["sortBy"] = boost::any(*sortBy);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -12245,6 +12289,19 @@ public:
     if (m.find("sortBy") != m.end() && !m["sortBy"].empty()) {
       sortBy = make_shared<long>(boost::any_cast<long>(m["sortBy"]));
     }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<ListAppGroupsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAppGroupsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListAppGroupsRequestTags>>(expect1);
+      }
+    }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
@@ -12252,6 +12309,84 @@ public:
 
 
   virtual ~ListAppGroupsRequest() = default;
+};
+class ListAppGroupsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> name{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<long> sortBy{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> type{};
+
+  ListAppGroupsShrinkRequest() {}
+
+  explicit ListAppGroupsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (resourceGroupId) {
+      res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (sortBy) {
+      res["sortBy"] = boost::any(*sortBy);
+    }
+    if (tagsShrink) {
+      res["tags"] = boost::any(*tagsShrink);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("sortBy") != m.end() && !m["sortBy"].empty()) {
+      sortBy = make_shared<long>(boost::any_cast<long>(m["sortBy"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["tags"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListAppGroupsShrinkRequest() = default;
 };
 class ListAppGroupsResponseBodyResultQuota : public Darabonba::Model {
 public:
@@ -25670,7 +25805,7 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAppGroupsResponse listAppGroups(shared_ptr<ListAppGroupsRequest> request);
-  ListAppGroupsResponse listAppGroupsWithOptions(shared_ptr<ListAppGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAppGroupsResponse listAppGroupsWithOptions(shared_ptr<ListAppGroupsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAppsResponse listApps(shared_ptr<ListAppsRequest> request);
   ListAppsResponse listAppsWithOptions(shared_ptr<ListAppsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDataCollectionsResponse listDataCollections(shared_ptr<string> appGroupIdentity, shared_ptr<ListDataCollectionsRequest> request);

@@ -2131,8 +2131,13 @@ ListAppGroupsResponse Alibabacloud_OpenSearch20171225::Client::listAppGroups(sha
   return listAppGroupsWithOptions(request, headers, runtime);
 }
 
-ListAppGroupsResponse Alibabacloud_OpenSearch20171225::Client::listAppGroupsWithOptions(shared_ptr<ListAppGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListAppGroupsResponse Alibabacloud_OpenSearch20171225::Client::listAppGroupsWithOptions(shared_ptr<ListAppGroupsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListAppGroupsShrinkRequest> request = make_shared<ListAppGroupsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ListAppGroupsRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("instanceId", *request->instanceId));
@@ -2151,6 +2156,9 @@ ListAppGroupsResponse Alibabacloud_OpenSearch20171225::Client::listAppGroupsWith
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->sortBy)) {
     query->insert(pair<string, long>("sortBy", *request->sortBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("tags", *request->tagsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("type", *request->type));
