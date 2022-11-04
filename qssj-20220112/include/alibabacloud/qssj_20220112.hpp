@@ -2035,6 +2035,7 @@ public:
 class GetStyleTopRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cateIds{};
+  shared_ptr<long> pageIndex{};
   shared_ptr<long> sortOrder{};
   shared_ptr<long> timeDisplay{};
 
@@ -2051,6 +2052,9 @@ public:
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
     }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
     if (sortOrder) {
       res["SortOrder"] = boost::any(*sortOrder);
     }
@@ -2063,6 +2067,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
     }
     if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
       sortOrder = make_shared<long>(boost::any_cast<long>(m["SortOrder"]));
@@ -2077,6 +2084,7 @@ public:
 };
 class GetStyleTopResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> buyerTags{};
   shared_ptr<string> cateName{};
   shared_ptr<string> color{};
   shared_ptr<vector<string>> images{};
@@ -2097,6 +2105,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (buyerTags) {
+      res["BuyerTags"] = boost::any(*buyerTags);
+    }
     if (cateName) {
       res["CateName"] = boost::any(*cateName);
     }
@@ -2128,6 +2139,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuyerTags") != m.end() && !m["BuyerTags"].empty()) {
+      buyerTags = make_shared<string>(boost::any_cast<string>(m["BuyerTags"]));
+    }
     if (m.find("CateName") != m.end() && !m["CateName"].empty()) {
       cateName = make_shared<string>(boost::any_cast<string>(m["CateName"]));
     }

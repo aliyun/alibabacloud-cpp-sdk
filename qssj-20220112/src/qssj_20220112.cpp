@@ -292,6 +292,9 @@ GetStyleTopResponse Alibabacloud_Qssj20220112::Client::getStyleTopWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->sortOrder)) {
     body->insert(pair<string, long>("SortOrder", *request->sortOrder));
   }
