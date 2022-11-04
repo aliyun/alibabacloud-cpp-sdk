@@ -3929,7 +3929,11 @@ public:
 };
 class DetectSkinDiseaseResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> bodyPart{};
+  shared_ptr<double> imageQuality{};
+  shared_ptr<string> imageType{};
   shared_ptr<map<string, boost::any>> results{};
+  shared_ptr<map<string, boost::any>> resultsEnglish{};
 
   DetectSkinDiseaseResponseBodyData() {}
 
@@ -3941,13 +3945,34 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bodyPart) {
+      res["BodyPart"] = boost::any(*bodyPart);
+    }
+    if (imageQuality) {
+      res["ImageQuality"] = boost::any(*imageQuality);
+    }
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
     if (results) {
       res["Results"] = boost::any(*results);
+    }
+    if (resultsEnglish) {
+      res["ResultsEnglish"] = boost::any(*resultsEnglish);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyPart") != m.end() && !m["BodyPart"].empty()) {
+      bodyPart = make_shared<string>(boost::any_cast<string>(m["BodyPart"]));
+    }
+    if (m.find("ImageQuality") != m.end() && !m["ImageQuality"].empty()) {
+      imageQuality = make_shared<double>(boost::any_cast<double>(m["ImageQuality"]));
+    }
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
     if (m.find("Results") != m.end() && !m["Results"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Results"]);
       map<string, boost::any> toMap1;
@@ -3955,6 +3980,14 @@ public:
          toMap1[item.first] = item.second;
       }
       results = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ResultsEnglish") != m.end() && !m["ResultsEnglish"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ResultsEnglish"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      resultsEnglish = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
