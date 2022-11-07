@@ -1164,6 +1164,152 @@ CreateNacosServiceResponse Alibabacloud_Mse20190531::Client::createNacosService(
   return createNacosServiceWithOptions(request, runtime);
 }
 
+CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    query->insert(pair<string, bool>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableRules)) {
+    query->insert(pair<string, bool>("EnableRules", *request->enableRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entryRule)) {
+    query->insert(pair<string, string>("EntryRule", *request->entryRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateOrUpdateSwimmingLaneRequestEntryRules>>(request->entryRules)) {
+    query->insert(pair<string, vector<CreateOrUpdateSwimmingLaneRequestEntryRules>>("EntryRules", *request->entryRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gmtCreate)) {
+    query->insert(pair<string, string>("GmtCreate", *request->gmtCreate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gmtModified)) {
+    query->insert(pair<string, string>("GmtModified", *request->gmtModified));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
+    query->insert(pair<string, long>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseKey)) {
+    query->insert(pair<string, string>("LicenseKey", *request->licenseKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    query->insert(pair<string, string>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateOrUpdateSwimmingLane"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateOrUpdateSwimmingLaneResponse(callApi(params, req, runtime));
+}
+
+CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLane(shared_ptr<CreateOrUpdateSwimmingLaneRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createOrUpdateSwimmingLaneWithOptions(request, runtime);
+}
+
+CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneGroupWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appIds)) {
+    query->insert(pair<string, string>("AppIds", *request->appIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dbGrayEnable)) {
+    query->insert(pair<string, bool>("DbGrayEnable", *request->dbGrayEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
+    query->insert(pair<string, bool>("Enable", *request->enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entryApp)) {
+    query->insert(pair<string, string>("EntryApp", *request->entryApp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gmtCreate)) {
+    query->insert(pair<string, string>("GmtCreate", *request->gmtCreate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gmtModified)) {
+    query->insert(pair<string, string>("GmtModified", *request->gmtModified));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->licenseKey)) {
+    query->insert(pair<string, string>("LicenseKey", *request->licenseKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageQueueFilterSide)) {
+    query->insert(pair<string, string>("MessageQueueFilterSide", *request->messageQueueFilterSide));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->messageQueueGrayEnable)) {
+    query->insert(pair<string, bool>("MessageQueueGrayEnable", *request->messageQueueGrayEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
+    query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateOrUpdateSwimmingLaneGroup"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateOrUpdateSwimmingLaneGroupResponse(callApi(params, req, runtime));
+}
+
+CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneGroup(shared_ptr<CreateOrUpdateSwimmingLaneGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createOrUpdateSwimmingLaneGroupWithOptions(request, runtime);
+}
+
 CreateZnodeResponse Alibabacloud_Mse20190531::Client::createZnodeWithOptions(shared_ptr<CreateZnodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
