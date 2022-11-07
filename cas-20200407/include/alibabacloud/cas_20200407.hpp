@@ -766,6 +766,7 @@ public:
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
   shared_ptr<string> csrPemString{};
+  shared_ptr<long> immediately{};
   shared_ptr<string> locality{};
   shared_ptr<string> organization{};
   shared_ptr<string> organizationUnit{};
@@ -812,6 +813,9 @@ public:
     }
     if (csrPemString) {
       res["CsrPemString"] = boost::any(*csrPemString);
+    }
+    if (immediately) {
+      res["Immediately"] = boost::any(*immediately);
     }
     if (locality) {
       res["Locality"] = boost::any(*locality);
@@ -864,6 +868,9 @@ public:
     }
     if (m.find("CsrPemString") != m.end() && !m["CsrPemString"].empty()) {
       csrPemString = make_shared<string>(boost::any_cast<string>(m["CsrPemString"]));
+    }
+    if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
+      immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
     }
     if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
       locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
@@ -1006,11 +1013,19 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<long> beforeTime{};
   shared_ptr<string> commonName{};
+  shared_ptr<string> country{};
   shared_ptr<string> csr{};
   shared_ptr<long> days{};
+  shared_ptr<long> immediately{};
+  shared_ptr<string> locality{};
+  shared_ptr<long> months{};
+  shared_ptr<string> organization{};
+  shared_ptr<string> organizationUnit{};
   shared_ptr<string> parentIdentifier{};
   shared_ptr<long> sanType{};
   shared_ptr<string> sanValue{};
+  shared_ptr<string> state{};
+  shared_ptr<long> years{};
 
   CreateWHClientCertificateRequest() {}
 
@@ -1034,11 +1049,29 @@ public:
     if (commonName) {
       res["CommonName"] = boost::any(*commonName);
     }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
     if (csr) {
       res["Csr"] = boost::any(*csr);
     }
     if (days) {
       res["Days"] = boost::any(*days);
+    }
+    if (immediately) {
+      res["Immediately"] = boost::any(*immediately);
+    }
+    if (locality) {
+      res["Locality"] = boost::any(*locality);
+    }
+    if (months) {
+      res["Months"] = boost::any(*months);
+    }
+    if (organization) {
+      res["Organization"] = boost::any(*organization);
+    }
+    if (organizationUnit) {
+      res["OrganizationUnit"] = boost::any(*organizationUnit);
     }
     if (parentIdentifier) {
       res["ParentIdentifier"] = boost::any(*parentIdentifier);
@@ -1048,6 +1081,12 @@ public:
     }
     if (sanValue) {
       res["SanValue"] = boost::any(*sanValue);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (years) {
+      res["Years"] = boost::any(*years);
     }
     return res;
   }
@@ -1065,11 +1104,29 @@ public:
     if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
       commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
     }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
     if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
       csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
     }
     if (m.find("Days") != m.end() && !m["Days"].empty()) {
       days = make_shared<long>(boost::any_cast<long>(m["Days"]));
+    }
+    if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
+      immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
+    }
+    if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
+      locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
+    }
+    if (m.find("Months") != m.end() && !m["Months"].empty()) {
+      months = make_shared<long>(boost::any_cast<long>(m["Months"]));
+    }
+    if (m.find("Organization") != m.end() && !m["Organization"].empty()) {
+      organization = make_shared<string>(boost::any_cast<string>(m["Organization"]));
+    }
+    if (m.find("OrganizationUnit") != m.end() && !m["OrganizationUnit"].empty()) {
+      organizationUnit = make_shared<string>(boost::any_cast<string>(m["OrganizationUnit"]));
     }
     if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
       parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
@@ -1079,6 +1136,12 @@ public:
     }
     if (m.find("SanValue") != m.end() && !m["SanValue"].empty()) {
       sanValue = make_shared<string>(boost::any_cast<string>(m["SanValue"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Years") != m.end() && !m["Years"].empty()) {
+      years = make_shared<long>(boost::any_cast<long>(m["Years"]));
     }
   }
 

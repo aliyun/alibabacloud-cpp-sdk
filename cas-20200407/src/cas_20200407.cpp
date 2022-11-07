@@ -314,6 +314,9 @@ CreateWHCertificateWithExtensionResponse Alibabacloud_Cas20200407::Client::creat
   if (!Darabonba_Util::Client::isUnset<string>(request->csrPemString)) {
     query->insert(pair<string, string>("CsrPemString", *request->csrPemString));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
+    query->insert(pair<string, long>("Immediately", *request->immediately));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->locality)) {
     query->insert(pair<string, string>("Locality", *request->locality));
   }
@@ -369,11 +372,29 @@ CreateWHClientCertificateResponse Alibabacloud_Cas20200407::Client::createWHClie
   if (!Darabonba_Util::Client::isUnset<string>(request->commonName)) {
     query->insert(pair<string, string>("CommonName", *request->commonName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->country)) {
+    query->insert(pair<string, string>("Country", *request->country));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
     query->insert(pair<string, string>("Csr", *request->csr));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->days)) {
     query->insert(pair<string, long>("Days", *request->days));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
+    query->insert(pair<string, long>("Immediately", *request->immediately));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locality)) {
+    query->insert(pair<string, string>("Locality", *request->locality));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->months)) {
+    query->insert(pair<string, long>("Months", *request->months));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organization)) {
+    query->insert(pair<string, string>("Organization", *request->organization));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationUnit)) {
+    query->insert(pair<string, string>("OrganizationUnit", *request->organizationUnit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parentIdentifier)) {
     query->insert(pair<string, string>("ParentIdentifier", *request->parentIdentifier));
@@ -383,6 +404,12 @@ CreateWHClientCertificateResponse Alibabacloud_Cas20200407::Client::createWHClie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sanValue)) {
     query->insert(pair<string, string>("SanValue", *request->sanValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->years)) {
+    query->insert(pair<string, long>("Years", *request->years));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
