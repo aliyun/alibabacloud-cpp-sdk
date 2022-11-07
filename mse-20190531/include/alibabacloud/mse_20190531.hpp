@@ -1019,6 +1019,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> slbSpec{};
   shared_ptr<string> spec{};
   shared_ptr<vector<AddGatewayRequestTag>> tag{};
@@ -1063,6 +1064,9 @@ public:
     }
     if (replica) {
       res["Replica"] = boost::any(*replica);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (slbSpec) {
       res["SlbSpec"] = boost::any(*slbSpec);
@@ -1119,6 +1123,9 @@ public:
     }
     if (m.find("Replica") != m.end() && !m["Replica"].empty()) {
       replica = make_shared<long>(boost::any_cast<long>(m["Replica"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SlbSpec") != m.end() && !m["SlbSpec"].empty()) {
       slbSpec = make_shared<string>(boost::any_cast<string>(m["SlbSpec"]));
@@ -12346,6 +12353,7 @@ public:
   shared_ptr<string> primaryUser{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroup{};
   shared_ptr<string> spec{};
   shared_ptr<long> status{};
@@ -12403,6 +12411,9 @@ public:
     }
     if (replica) {
       res["Replica"] = boost::any(*replica);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (securityGroup) {
       res["SecurityGroup"] = boost::any(*securityGroup);
@@ -12474,6 +12485,9 @@ public:
     }
     if (m.find("Replica") != m.end() && !m["Replica"].empty()) {
       replica = make_shared<long>(boost::any_cast<long>(m["Replica"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SecurityGroup") != m.end() && !m["SecurityGroup"].empty()) {
       securityGroup = make_shared<string>(boost::any_cast<string>(m["SecurityGroup"]));
@@ -23355,6 +23369,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> mseTag{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> vpc{};
 
   ListGatewayRequestFilterParams() {}
@@ -23382,6 +23397,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (vpc) {
       res["Vpc"] = boost::any(*vpc);
     }
@@ -23403,6 +23421,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Vpc") != m.end() && !m["Vpc"].empty()) {
       vpc = make_shared<string>(boost::any_cast<string>(m["Vpc"]));
@@ -23767,6 +23788,7 @@ public:
   shared_ptr<string> primaryUser{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> rollBack{};
   shared_ptr<vector<ListGatewayResponseBodyDataResultSlb>> slb{};
   shared_ptr<string> spec{};
@@ -23856,6 +23878,9 @@ public:
     }
     if (replica) {
       res["Replica"] = boost::any(*replica);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (rollBack) {
       res["RollBack"] = boost::any(*rollBack);
@@ -23971,6 +23996,9 @@ public:
     }
     if (m.find("Replica") != m.end() && !m["Replica"].empty()) {
       replica = make_shared<long>(boost::any_cast<long>(m["Replica"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RollBack") != m.end() && !m["RollBack"].empty()) {
       rollBack = make_shared<bool>(boost::any_cast<bool>(m["RollBack"]));
