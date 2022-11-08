@@ -1,7 +1,6 @@
 message(STATUS "Install libraries")
 add_subdirectory(darabonba_util)
 add_subdirectory(alibabacloud_oss)
-add_subdirectory(alibabacloud_rpc)
 add_subdirectory(alibabacloud_open_platform_20191219)
 add_subdirectory(alibabacloud_ossutil)
 add_subdirectory(darabonba_file_form)
