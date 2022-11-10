@@ -6352,6 +6352,85 @@ public:
 
   virtual ~DetectLivingFaceRequest() = default;
 };
+class DetectLivingFaceAdvanceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  DetectLivingFaceAdvanceRequestTasks() {}
+
+  explicit DetectLivingFaceAdvanceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~DetectLivingFaceAdvanceRequestTasks() = default;
+};
+class DetectLivingFaceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DetectLivingFaceAdvanceRequestTasks>> tasks{};
+
+  DetectLivingFaceAdvanceRequest() {}
+
+  explicit DetectLivingFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<DetectLivingFaceAdvanceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectLivingFaceAdvanceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<DetectLivingFaceAdvanceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectLivingFaceAdvanceRequest() = default;
+};
 class DetectLivingFaceResponseBodyDataElementsResultsFrames : public Darabonba::Model {
 public:
   shared_ptr<double> rate{};
@@ -11090,7 +11169,6 @@ public:
 };
 class GetRealPersonVerificationResultRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> materialHash{};
   shared_ptr<string> verificationToken{};
 
   GetRealPersonVerificationResultRequest() {}
@@ -11103,9 +11181,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (materialHash) {
-      res["MaterialHash"] = boost::any(*materialHash);
-    }
     if (verificationToken) {
       res["VerificationToken"] = boost::any(*verificationToken);
     }
@@ -11113,9 +11188,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaterialHash") != m.end() && !m["MaterialHash"].empty()) {
-      materialHash = make_shared<string>(boost::any_cast<string>(m["MaterialHash"]));
-    }
     if (m.find("VerificationToken") != m.end() && !m["VerificationToken"].empty()) {
       verificationToken = make_shared<string>(boost::any_cast<string>(m["VerificationToken"]));
     }
@@ -11126,8 +11198,6 @@ public:
 };
 class GetRealPersonVerificationResultResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<string> identityInfo{};
-  shared_ptr<string> materialMatch{};
   shared_ptr<bool> passed{};
 
   GetRealPersonVerificationResultResponseBodyData() {}
@@ -11140,12 +11210,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (identityInfo) {
-      res["IdentityInfo"] = boost::any(*identityInfo);
-    }
-    if (materialMatch) {
-      res["MaterialMatch"] = boost::any(*materialMatch);
-    }
     if (passed) {
       res["Passed"] = boost::any(*passed);
     }
@@ -11153,12 +11217,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("IdentityInfo") != m.end() && !m["IdentityInfo"].empty()) {
-      identityInfo = make_shared<string>(boost::any_cast<string>(m["IdentityInfo"]));
-    }
-    if (m.find("MaterialMatch") != m.end() && !m["MaterialMatch"].empty()) {
-      materialMatch = make_shared<string>(boost::any_cast<string>(m["MaterialMatch"]));
-    }
     if (m.find("Passed") != m.end() && !m["Passed"].empty()) {
       passed = make_shared<bool>(boost::any_cast<bool>(m["Passed"]));
     }
@@ -14899,6 +14957,106 @@ public:
 
   virtual ~RecognizeActionRequest() = default;
 };
+class RecognizeActionAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+  shared_ptr<vector<uint8_t>> imageData{};
+
+  RecognizeActionAdvanceRequestURLList() {}
+
+  explicit RecognizeActionAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    if (imageData) {
+      res["imageData"] = boost::any(*imageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+    if (m.find("imageData") != m.end() && !m["imageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["imageData"]));
+    }
+  }
+
+
+  virtual ~RecognizeActionAdvanceRequestURLList() = default;
+};
+class RecognizeActionAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> type{};
+  shared_ptr<vector<RecognizeActionAdvanceRequestURLList>> URLList{};
+  shared_ptr<vector<uint8_t>> videoData{};
+  shared_ptr<string> videoUrl{};
+
+  RecognizeActionAdvanceRequest() {}
+
+  explicit RecognizeActionAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    if (videoData) {
+      res["VideoData"] = boost::any(*videoData);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["Type"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<RecognizeActionAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeActionAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<RecognizeActionAdvanceRequestURLList>>(expect1);
+      }
+    }
+    if (m.find("VideoData") != m.end() && !m["VideoData"].empty()) {
+      videoData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["VideoData"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~RecognizeActionAdvanceRequest() = default;
+};
 class RecognizeActionResponseBodyDataElementsBoxes : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> box{};
@@ -16445,6 +16603,85 @@ public:
 
   virtual ~RecognizePublicFaceRequest() = default;
 };
+class RecognizePublicFaceAdvanceRequestTask : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  RecognizePublicFaceAdvanceRequestTask() {}
+
+  explicit RecognizePublicFaceAdvanceRequestTask(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~RecognizePublicFaceAdvanceRequestTask() = default;
+};
+class RecognizePublicFaceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizePublicFaceAdvanceRequestTask>> task{};
+
+  RecognizePublicFaceAdvanceRequest() {}
+
+  explicit RecognizePublicFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (task) {
+      vector<boost::any> temp1;
+      for(auto item1:*task){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Task"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Task") != m.end() && !m["Task"].empty()) {
+      if (typeid(vector<boost::any>) == m["Task"].type()) {
+        vector<RecognizePublicFaceAdvanceRequestTask> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Task"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizePublicFaceAdvanceRequestTask model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        task = make_shared<vector<RecognizePublicFaceAdvanceRequestTask>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizePublicFaceAdvanceRequest() = default;
+};
 class RecognizePublicFaceResponseBodyDataElementsResultsSubResultsFaces : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -17358,6 +17595,106 @@ public:
 
 
   virtual ~SearchBodyTraceRequest() = default;
+};
+class SearchBodyTraceAdvanceRequestImages : public Darabonba::Model {
+public:
+  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  SearchBodyTraceAdvanceRequestImages() {}
+
+  explicit SearchBodyTraceAdvanceRequestImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~SearchBodyTraceAdvanceRequestImages() = default;
+};
+class SearchBodyTraceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> dbId{};
+  shared_ptr<vector<SearchBodyTraceAdvanceRequestImages>> images{};
+  shared_ptr<long> limit{};
+  shared_ptr<double> minScore{};
+
+  SearchBodyTraceAdvanceRequest() {}
+
+  explicit SearchBodyTraceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbId) {
+      res["DbId"] = boost::any(*dbId);
+    }
+    if (images) {
+      vector<boost::any> temp1;
+      for(auto item1:*images){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Images"] = boost::any(temp1);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (minScore) {
+      res["MinScore"] = boost::any(*minScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
+      dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<SearchBodyTraceAdvanceRequestImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Images"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchBodyTraceAdvanceRequestImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        images = make_shared<vector<SearchBodyTraceAdvanceRequestImages>>(expect1);
+      }
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("MinScore") != m.end() && !m["MinScore"].empty()) {
+      minScore = make_shared<double>(boost::any_cast<double>(m["MinScore"]));
+    }
+  }
+
+
+  virtual ~SearchBodyTraceAdvanceRequest() = default;
 };
 class SearchBodyTraceShrinkRequest : public Darabonba::Model {
 public:
@@ -18797,6 +19134,7 @@ public:
   DetectIPCPedestrianResponse detectIPCPedestrianAdvance(shared_ptr<DetectIPCPedestrianAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLivingFaceResponse detectLivingFaceWithOptions(shared_ptr<DetectLivingFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLivingFaceResponse detectLivingFace(shared_ptr<DetectLivingFaceRequest> request);
+  DetectLivingFaceResponse detectLivingFaceAdvance(shared_ptr<DetectLivingFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectPedestrianResponse detectPedestrianWithOptions(shared_ptr<DetectPedestrianRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectPedestrianResponse detectPedestrian(shared_ptr<DetectPedestrianRequest> request);
   DetectPedestrianResponse detectPedestrianAdvance(shared_ptr<DetectPedestrianAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18870,6 +19208,7 @@ public:
   QueryFaceImageTemplateResponse queryFaceImageTemplate(shared_ptr<QueryFaceImageTemplateRequest> request);
   RecognizeActionResponse recognizeActionWithOptions(shared_ptr<RecognizeActionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeActionResponse recognizeAction(shared_ptr<RecognizeActionRequest> request);
+  RecognizeActionResponse recognizeActionAdvance(shared_ptr<RecognizeActionAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeExpressionResponse recognizeExpressionWithOptions(shared_ptr<RecognizeExpressionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeExpressionResponse recognizeExpression(shared_ptr<RecognizeExpressionRequest> request);
   RecognizeExpressionResponse recognizeExpressionAdvance(shared_ptr<RecognizeExpressionAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18881,6 +19220,7 @@ public:
   RecognizeHandGestureResponse recognizeHandGestureAdvance(shared_ptr<RecognizeHandGestureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizePublicFaceResponse recognizePublicFaceWithOptions(shared_ptr<RecognizePublicFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizePublicFaceResponse recognizePublicFace(shared_ptr<RecognizePublicFaceRequest> request);
+  RecognizePublicFaceResponse recognizePublicFaceAdvance(shared_ptr<RecognizePublicFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RetouchBodyResponse retouchBodyWithOptions(shared_ptr<RetouchBodyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RetouchBodyResponse retouchBody(shared_ptr<RetouchBodyRequest> request);
   RetouchBodyResponse retouchBodyAdvance(shared_ptr<RetouchBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18889,6 +19229,7 @@ public:
   RetouchSkinResponse retouchSkinAdvance(shared_ptr<RetouchSkinAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchBodyTraceResponse searchBodyTraceWithOptions(shared_ptr<SearchBodyTraceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchBodyTraceResponse searchBodyTrace(shared_ptr<SearchBodyTraceRequest> request);
+  SearchBodyTraceResponse searchBodyTraceAdvance(shared_ptr<SearchBodyTraceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchFaceResponse searchFaceWithOptions(shared_ptr<SearchFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchFaceResponse searchFace(shared_ptr<SearchFaceRequest> request);
   SearchFaceResponse searchFaceAdvance(shared_ptr<SearchFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
