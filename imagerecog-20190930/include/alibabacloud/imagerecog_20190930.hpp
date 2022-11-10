@@ -2017,6 +2017,78 @@ public:
 
   virtual ~RecognizeLogoRequest() = default;
 };
+class RecognizeLogoAdvanceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  RecognizeLogoAdvanceRequestTasks() {}
+
+  explicit RecognizeLogoAdvanceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~RecognizeLogoAdvanceRequestTasks() = default;
+};
+class RecognizeLogoAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeLogoAdvanceRequestTasks>> tasks{};
+
+  RecognizeLogoAdvanceRequest() {}
+
+  explicit RecognizeLogoAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<RecognizeLogoAdvanceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeLogoAdvanceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<RecognizeLogoAdvanceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeLogoAdvanceRequest() = default;
+};
 class RecognizeLogoResponseBodyDataElementsResultsLogosData : public Darabonba::Model {
 public:
   shared_ptr<double> h{};
@@ -3307,6 +3379,7 @@ public:
   RecognizeImageStyleResponse recognizeImageStyleAdvance(shared_ptr<RecognizeImageStyleAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeLogoResponse recognizeLogoWithOptions(shared_ptr<RecognizeLogoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeLogoResponse recognizeLogo(shared_ptr<RecognizeLogoRequest> request);
+  RecognizeLogoResponse recognizeLogoAdvance(shared_ptr<RecognizeLogoAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeSceneResponse recognizeSceneWithOptions(shared_ptr<RecognizeSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeSceneResponse recognizeScene(shared_ptr<RecognizeSceneRequest> request);
   RecognizeSceneResponse recognizeSceneAdvance(shared_ptr<RecognizeSceneAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
