@@ -9706,6 +9706,78 @@ public:
 
   virtual ~RecognizeQrCodeRequest() = default;
 };
+class RecognizeQrCodeAdvanceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  RecognizeQrCodeAdvanceRequestTasks() {}
+
+  explicit RecognizeQrCodeAdvanceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~RecognizeQrCodeAdvanceRequestTasks() = default;
+};
+class RecognizeQrCodeAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeQrCodeAdvanceRequestTasks>> tasks{};
+
+  RecognizeQrCodeAdvanceRequest() {}
+
+  explicit RecognizeQrCodeAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<RecognizeQrCodeAdvanceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeQrCodeAdvanceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<RecognizeQrCodeAdvanceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeQrCodeAdvanceRequest() = default;
+};
 class RecognizeQrCodeResponseBodyDataElementsResults : public Darabonba::Model {
 public:
   shared_ptr<string> label{};
@@ -24873,6 +24945,7 @@ public:
   RecognizePoiNameResponse recognizePoiNameAdvance(shared_ptr<RecognizePoiNameAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeQrCodeResponse recognizeQrCodeWithOptions(shared_ptr<RecognizeQrCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeQrCodeResponse recognizeQrCode(shared_ptr<RecognizeQrCodeRequest> request);
+  RecognizeQrCodeResponse recognizeQrCodeAdvance(shared_ptr<RecognizeQrCodeAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeQuotaInvoiceResponse recognizeQuotaInvoiceWithOptions(shared_ptr<RecognizeQuotaInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeQuotaInvoiceResponse recognizeQuotaInvoice(shared_ptr<RecognizeQuotaInvoiceRequest> request);
   RecognizeQuotaInvoiceResponse recognizeQuotaInvoiceAdvance(shared_ptr<RecognizeQuotaInvoiceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
