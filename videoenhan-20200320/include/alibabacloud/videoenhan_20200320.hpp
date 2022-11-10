@@ -2637,6 +2637,162 @@ public:
 
   virtual ~GenerateVideoRequest() = default;
 };
+class GenerateVideoAdvanceRequestFileList : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> type{};
+
+  GenerateVideoAdvanceRequestFileList() {}
+
+  explicit GenerateVideoAdvanceRequestFileList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoAdvanceRequestFileList() = default;
+};
+class GenerateVideoAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<double> duration{};
+  shared_ptr<bool> durationAdaption{};
+  shared_ptr<vector<GenerateVideoAdvanceRequestFileList>> fileList{};
+  shared_ptr<long> height{};
+  shared_ptr<bool> mute{};
+  shared_ptr<bool> puzzleEffect{};
+  shared_ptr<string> scene{};
+  shared_ptr<bool> smartEffect{};
+  shared_ptr<string> style{};
+  shared_ptr<string> transitionStyle{};
+  shared_ptr<long> width{};
+
+  GenerateVideoAdvanceRequest() {}
+
+  explicit GenerateVideoAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (durationAdaption) {
+      res["DurationAdaption"] = boost::any(*durationAdaption);
+    }
+    if (fileList) {
+      vector<boost::any> temp1;
+      for(auto item1:*fileList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FileList"] = boost::any(temp1);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (mute) {
+      res["Mute"] = boost::any(*mute);
+    }
+    if (puzzleEffect) {
+      res["PuzzleEffect"] = boost::any(*puzzleEffect);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (smartEffect) {
+      res["SmartEffect"] = boost::any(*smartEffect);
+    }
+    if (style) {
+      res["Style"] = boost::any(*style);
+    }
+    if (transitionStyle) {
+      res["TransitionStyle"] = boost::any(*transitionStyle);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("DurationAdaption") != m.end() && !m["DurationAdaption"].empty()) {
+      durationAdaption = make_shared<bool>(boost::any_cast<bool>(m["DurationAdaption"]));
+    }
+    if (m.find("FileList") != m.end() && !m["FileList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FileList"].type()) {
+        vector<GenerateVideoAdvanceRequestFileList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FileList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateVideoAdvanceRequestFileList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        fileList = make_shared<vector<GenerateVideoAdvanceRequestFileList>>(expect1);
+      }
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Mute") != m.end() && !m["Mute"].empty()) {
+      mute = make_shared<bool>(boost::any_cast<bool>(m["Mute"]));
+    }
+    if (m.find("PuzzleEffect") != m.end() && !m["PuzzleEffect"].empty()) {
+      puzzleEffect = make_shared<bool>(boost::any_cast<bool>(m["PuzzleEffect"]));
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("SmartEffect") != m.end() && !m["SmartEffect"].empty()) {
+      smartEffect = make_shared<bool>(boost::any_cast<bool>(m["SmartEffect"]));
+    }
+    if (m.find("Style") != m.end() && !m["Style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["Style"]));
+    }
+    if (m.find("TransitionStyle") != m.end() && !m["TransitionStyle"].empty()) {
+      transitionStyle = make_shared<string>(boost::any_cast<string>(m["TransitionStyle"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoAdvanceRequest() = default;
+};
 class GenerateVideoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> videoCoverUrl{};
@@ -4355,6 +4511,7 @@ public:
   EraseVideoSubtitlesResponse eraseVideoSubtitlesAdvance(shared_ptr<EraseVideoSubtitlesAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoResponse generateVideoWithOptions(shared_ptr<GenerateVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoResponse generateVideo(shared_ptr<GenerateVideoRequest> request);
+  GenerateVideoResponse generateVideoAdvance(shared_ptr<GenerateVideoAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncJobResultResponse getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncJobResultResponse getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request);
   InterpolateVideoFrameResponse interpolateVideoFrameWithOptions(shared_ptr<InterpolateVideoFrameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
