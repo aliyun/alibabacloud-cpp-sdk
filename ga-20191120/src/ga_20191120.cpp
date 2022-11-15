@@ -315,6 +315,46 @@ BandwidthPackageRemoveAcceleratorResponse Alibabacloud_Ga20191120::Client::bandw
   return bandwidthPackageRemoveAcceleratorWithOptions(request, runtime);
 }
 
+ChangeResourceGroupResponse Alibabacloud_Ga20191120::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newResourceGroupId)) {
+    query->insert(pair<string, string>("NewResourceGroupId", *request->newResourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    query->insert(pair<string, string>("ResourceId", *request->resourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeResourceGroup"))},
+    {"version", boost::any(string("2019-11-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeResourceGroupResponse(callApi(params, req, runtime));
+}
+
+ChangeResourceGroupResponse Alibabacloud_Ga20191120::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeResourceGroupWithOptions(request, runtime);
+}
+
 ConfigEndpointProbeResponse Alibabacloud_Ga20191120::Client::configEndpointProbeWithOptions(shared_ptr<ConfigEndpointProbeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -400,6 +440,9 @@ CreateAcceleratorResponse Alibabacloud_Ga20191120::Client::createAcceleratorWith
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     query->insert(pair<string, string>("Spec", *request->spec));
   }
@@ -445,6 +488,9 @@ CreateAclResponse Alibabacloud_Ga20191120::Client::createAclWithOptions(shared_p
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -574,6 +620,9 @@ CreateBandwidthPackageResponse Alibabacloud_Ga20191120::Client::createBandwidthP
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
   }
@@ -628,6 +677,9 @@ CreateBasicAcceleratorResponse Alibabacloud_Ga20191120::Client::createBasicAccel
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2760,8 +2812,14 @@ ListAcceleratorsResponse Alibabacloud_Ga20191120::Client::listAcceleratorsWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListAcceleratorsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListAcceleratorsRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2805,6 +2863,12 @@ ListAclsResponse Alibabacloud_Ga20191120::Client::listAclsWithOptions(shared_ptr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListAclsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListAclsRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2985,8 +3049,14 @@ ListBandwidthPackagesResponse Alibabacloud_Ga20191120::Client::listBandwidthPack
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListBandwidthPackagesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListBandwidthPackagesRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
@@ -3062,8 +3132,14 @@ ListBasicAcceleratorsResponse Alibabacloud_Ga20191120::Client::listBasicAccelera
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListBasicAcceleratorsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListBasicAcceleratorsRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3711,6 +3787,9 @@ RemoveEntriesFromAclResponse Alibabacloud_Ga20191120::Client::removeEntriesFromA
 ReplaceBandwidthPackageResponse Alibabacloud_Ga20191120::Client::replaceBandwidthPackageWithOptions(shared_ptr<ReplaceBandwidthPackageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
+    query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bandwidthPackageId)) {
     query->insert(pair<string, string>("BandwidthPackageId", *request->bandwidthPackageId));
   }
