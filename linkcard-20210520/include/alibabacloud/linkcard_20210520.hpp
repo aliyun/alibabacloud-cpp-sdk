@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_LINKCARD20210520_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -3812,6 +3811,8 @@ public:
 class ListOrderResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> aliFee{};
+  shared_ptr<string> apnName{};
+  shared_ptr<string> apnRegion{};
   shared_ptr<string> billingCycle{};
   shared_ptr<long> buyNum{};
   shared_ptr<long> cardPayCount{};
@@ -3832,6 +3833,7 @@ public:
   shared_ptr<string> poolCapacity{};
   shared_ptr<string> poolCapacityUnit{};
   shared_ptr<string> poolNo{};
+  shared_ptr<long> resourceQuantity{};
   shared_ptr<string> vendor{};
 
   ListOrderResponseBodyDataList() {}
@@ -3846,6 +3848,12 @@ public:
     map<string, boost::any> res;
     if (aliFee) {
       res["AliFee"] = boost::any(*aliFee);
+    }
+    if (apnName) {
+      res["ApnName"] = boost::any(*apnName);
+    }
+    if (apnRegion) {
+      res["ApnRegion"] = boost::any(*apnRegion);
     }
     if (billingCycle) {
       res["BillingCycle"] = boost::any(*billingCycle);
@@ -3907,6 +3915,9 @@ public:
     if (poolNo) {
       res["PoolNo"] = boost::any(*poolNo);
     }
+    if (resourceQuantity) {
+      res["ResourceQuantity"] = boost::any(*resourceQuantity);
+    }
     if (vendor) {
       res["Vendor"] = boost::any(*vendor);
     }
@@ -3916,6 +3927,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliFee") != m.end() && !m["AliFee"].empty()) {
       aliFee = make_shared<string>(boost::any_cast<string>(m["AliFee"]));
+    }
+    if (m.find("ApnName") != m.end() && !m["ApnName"].empty()) {
+      apnName = make_shared<string>(boost::any_cast<string>(m["ApnName"]));
+    }
+    if (m.find("ApnRegion") != m.end() && !m["ApnRegion"].empty()) {
+      apnRegion = make_shared<string>(boost::any_cast<string>(m["ApnRegion"]));
     }
     if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
       billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
@@ -3987,6 +4004,9 @@ public:
     }
     if (m.find("PoolNo") != m.end() && !m["PoolNo"].empty()) {
       poolNo = make_shared<string>(boost::any_cast<string>(m["PoolNo"]));
+    }
+    if (m.find("ResourceQuantity") != m.end() && !m["ResourceQuantity"].empty()) {
+      resourceQuantity = make_shared<long>(boost::any_cast<long>(m["ResourceQuantity"]));
     }
     if (m.find("Vendor") != m.end() && !m["Vendor"].empty()) {
       vendor = make_shared<string>(boost::any_cast<string>(m["Vendor"]));
@@ -4200,7 +4220,7 @@ public:
 class RebindResumeSingleCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iccid{};
-  shared_ptr<map<string, boost::any>> optMsisdns{};
+  shared_ptr<vector<string>> optMsisdns{};
 
   RebindResumeSingleCardRequest() {}
 
@@ -4226,12 +4246,14 @@ public:
       iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
     }
     if (m.find("OptMsisdns") != m.end() && !m["OptMsisdns"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["OptMsisdns"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OptMsisdns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptMsisdns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      optMsisdns = make_shared<map<string, boost::any>>(toMap1);
+      optMsisdns = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -4640,7 +4662,7 @@ public:
 class ResumeSingleCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iccid{};
-  shared_ptr<map<string, boost::any>> optMsisdns{};
+  shared_ptr<vector<string>> optMsisdns{};
 
   ResumeSingleCardRequest() {}
 
@@ -4666,12 +4688,14 @@ public:
       iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
     }
     if (m.find("OptMsisdns") != m.end() && !m["OptMsisdns"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["OptMsisdns"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OptMsisdns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptMsisdns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      optMsisdns = make_shared<map<string, boost::any>>(toMap1);
+      optMsisdns = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -5012,7 +5036,7 @@ public:
 class StopSingleCardRequest : public Darabonba::Model {
 public:
   shared_ptr<string> iccid{};
-  shared_ptr<map<string, boost::any>> optMsisdns{};
+  shared_ptr<vector<string>> optMsisdns{};
 
   StopSingleCardRequest() {}
 
@@ -5038,12 +5062,14 @@ public:
       iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
     }
     if (m.find("OptMsisdns") != m.end() && !m["OptMsisdns"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["OptMsisdns"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OptMsisdns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OptMsisdns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      optMsisdns = make_shared<map<string, boost::any>>(toMap1);
+      optMsisdns = make_shared<vector<string>>(toVec1);
     }
   }
 

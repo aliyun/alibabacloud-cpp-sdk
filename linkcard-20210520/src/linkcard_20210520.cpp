@@ -518,7 +518,7 @@ RebindResumeSingleCardResponse Alibabacloud_Linkcard20210520::Client::rebindResu
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<RebindResumeSingleCardShrinkRequest> request = make_shared<RebindResumeSingleCardShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->optMsisdns)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->optMsisdns)) {
     request->optMsisdnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->optMsisdns, make_shared<string>("OptMsisdns"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -602,7 +602,7 @@ ResumeSingleCardResponse Alibabacloud_Linkcard20210520::Client::resumeSingleCard
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ResumeSingleCardShrinkRequest> request = make_shared<ResumeSingleCardShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->optMsisdns)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->optMsisdns)) {
     request->optMsisdnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->optMsisdns, make_shared<string>("OptMsisdns"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -672,7 +672,7 @@ StopSingleCardResponse Alibabacloud_Linkcard20210520::Client::stopSingleCardWith
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<StopSingleCardShrinkRequest> request = make_shared<StopSingleCardShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->optMsisdns)) {
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->optMsisdns)) {
     request->optMsisdnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->optMsisdns, make_shared<string>("OptMsisdns"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
