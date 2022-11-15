@@ -270,16 +270,16 @@ AddGatewayRouteResponse Alibabacloud_Mse20190531::Client::addGatewayRouteWithOpt
   shared_ptr<AddGatewayRouteShrinkRequest> request = make_shared<AddGatewayRouteShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<AddGatewayRouteRequestDirectResponseJSON>(tmpReq->directResponseJSON)) {
-    request->directResponseJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->directResponseJSON->toMap()), make_shared<string>("DirectResponseJSON"), make_shared<string>("json")));
+    request->directResponseJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->directResponseJSON, make_shared<string>("DirectResponseJSON"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<AddGatewayRouteRequestFallbackServices>>(tmpReq->fallbackServices)) {
     request->fallbackServicesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fallbackServices, make_shared<string>("FallbackServices"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<AddGatewayRouteRequestPredicates>(tmpReq->predicates)) {
-    request->predicatesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->predicates->toMap()), make_shared<string>("Predicates"), make_shared<string>("json")));
+    request->predicatesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->predicates, make_shared<string>("Predicates"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<AddGatewayRouteRequestRedirectJSON>(tmpReq->redirectJSON)) {
-    request->redirectJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->redirectJSON->toMap()), make_shared<string>("RedirectJSON"), make_shared<string>("json")));
+    request->redirectJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->redirectJSON, make_shared<string>("RedirectJSON"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<AddGatewayRouteRequestServices>>(tmpReq->services)) {
     request->servicesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->services, make_shared<string>("Services"), make_shared<string>("json")));
@@ -587,7 +587,7 @@ AddServiceSourceResponse Alibabacloud_Mse20190531::Client::addServiceSourceWithO
     request->groupListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->groupList, make_shared<string>("GroupList"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<AddServiceSourceRequestIngressOptionsRequest>(tmpReq->ingressOptionsRequest)) {
-    request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ingressOptionsRequest->toMap()), make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
+    request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ingressOptionsRequest, make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pathList)) {
     request->pathListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pathList, make_shared<string>("PathList"), make_shared<string>("json")));
@@ -2136,6 +2136,52 @@ GetApplicationListResponse Alibabacloud_Mse20190531::Client::getApplicationList(
   return getApplicationListWithOptions(request, runtime);
 }
 
+GetApplicationListWithMetircsResponse Alibabacloud_Mse20190531::Client::getApplicationListWithMetircsWithOptions(shared_ptr<GetApplicationListWithMetircsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetApplicationListWithMetircs"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetApplicationListWithMetircsResponse(callApi(params, req, runtime));
+}
+
+GetApplicationListWithMetircsResponse Alibabacloud_Mse20190531::Client::getApplicationListWithMetircs(shared_ptr<GetApplicationListWithMetircsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getApplicationListWithMetircsWithOptions(request, runtime);
+}
+
 GetBlackWhiteListResponse Alibabacloud_Mse20190531::Client::getBlackWhiteListWithOptions(shared_ptr<GetBlackWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3327,7 +3373,7 @@ ListGatewayResponse Alibabacloud_Mse20190531::Client::listGatewayWithOptions(sha
   shared_ptr<ListGatewayShrinkRequest> request = make_shared<ListGatewayShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ListGatewayRequestFilterParams>(tmpReq->filterParams)) {
-    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->filterParams->toMap()), make_shared<string>("FilterParams"), make_shared<string>("json")));
+    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterParams, make_shared<string>("FilterParams"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -3409,7 +3455,7 @@ ListGatewayRouteResponse Alibabacloud_Mse20190531::Client::listGatewayRouteWithO
   shared_ptr<ListGatewayRouteShrinkRequest> request = make_shared<ListGatewayRouteShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ListGatewayRouteRequestFilterParams>(tmpReq->filterParams)) {
-    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->filterParams->toMap()), make_shared<string>("FilterParams"), make_shared<string>("json")));
+    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterParams, make_shared<string>("FilterParams"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -3457,7 +3503,7 @@ ListGatewayServiceResponse Alibabacloud_Mse20190531::Client::listGatewayServiceW
   shared_ptr<ListGatewayServiceShrinkRequest> request = make_shared<ListGatewayServiceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ListGatewayServiceRequestFilterParams>(tmpReq->filterParams)) {
-    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->filterParams->toMap()), make_shared<string>("FilterParams"), make_shared<string>("json")));
+    request->filterParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filterParams, make_shared<string>("FilterParams"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -5116,7 +5162,7 @@ UpdateGatewayOptionResponse Alibabacloud_Mse20190531::Client::updateGatewayOptio
   shared_ptr<UpdateGatewayOptionShrinkRequest> request = make_shared<UpdateGatewayOptionShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<GatewayOption>(tmpReq->gatewayOption)) {
-    request->gatewayOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->gatewayOption->toMap()), make_shared<string>("GatewayOption"), make_shared<string>("json")));
+    request->gatewayOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->gatewayOption, make_shared<string>("GatewayOption"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -5158,16 +5204,16 @@ UpdateGatewayRouteResponse Alibabacloud_Mse20190531::Client::updateGatewayRouteW
   shared_ptr<UpdateGatewayRouteShrinkRequest> request = make_shared<UpdateGatewayRouteShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteRequestDirectResponseJSON>(tmpReq->directResponseJSON)) {
-    request->directResponseJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->directResponseJSON->toMap()), make_shared<string>("DirectResponseJSON"), make_shared<string>("json")));
+    request->directResponseJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->directResponseJSON, make_shared<string>("DirectResponseJSON"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateGatewayRouteRequestFallbackServices>>(tmpReq->fallbackServices)) {
     request->fallbackServicesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fallbackServices, make_shared<string>("FallbackServices"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteRequestPredicates>(tmpReq->predicates)) {
-    request->predicatesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->predicates->toMap()), make_shared<string>("Predicates"), make_shared<string>("json")));
+    request->predicatesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->predicates, make_shared<string>("Predicates"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteRequestRedirectJSON>(tmpReq->redirectJSON)) {
-    request->redirectJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->redirectJSON->toMap()), make_shared<string>("RedirectJSON"), make_shared<string>("json")));
+    request->redirectJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->redirectJSON, make_shared<string>("RedirectJSON"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateGatewayRouteRequestServices>>(tmpReq->services)) {
     request->servicesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->services, make_shared<string>("Services"), make_shared<string>("json")));
@@ -5245,7 +5291,7 @@ UpdateGatewayRouteCORSResponse Alibabacloud_Mse20190531::Client::updateGatewayRo
   shared_ptr<UpdateGatewayRouteCORSShrinkRequest> request = make_shared<UpdateGatewayRouteCORSShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteCORSRequestCorsJSON>(tmpReq->corsJSON)) {
-    request->corsJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->corsJSON->toMap()), make_shared<string>("CorsJSON"), make_shared<string>("json")));
+    request->corsJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->corsJSON, make_shared<string>("CorsJSON"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -5370,7 +5416,7 @@ UpdateGatewayRouteRetryResponse Alibabacloud_Mse20190531::Client::updateGatewayR
   shared_ptr<UpdateGatewayRouteRetryShrinkRequest> request = make_shared<UpdateGatewayRouteRetryShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteRetryRequestRetryJSON>(tmpReq->retryJSON)) {
-    request->retryJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->retryJSON->toMap()), make_shared<string>("RetryJSON"), make_shared<string>("json")));
+    request->retryJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retryJSON, make_shared<string>("RetryJSON"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -5415,7 +5461,7 @@ UpdateGatewayRouteTimeoutResponse Alibabacloud_Mse20190531::Client::updateGatewa
   shared_ptr<UpdateGatewayRouteTimeoutShrinkRequest> request = make_shared<UpdateGatewayRouteTimeoutShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateGatewayRouteTimeoutRequestTimeoutJSON>(tmpReq->timeoutJSON)) {
-    request->timeoutJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->timeoutJSON->toMap()), make_shared<string>("TimeoutJSON"), make_shared<string>("json")));
+    request->timeoutJSONShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->timeoutJSON, make_shared<string>("TimeoutJSON"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -5497,7 +5543,7 @@ UpdateGatewayServiceTrafficPolicyResponse Alibabacloud_Mse20190531::Client::upda
   shared_ptr<UpdateGatewayServiceTrafficPolicyShrinkRequest> request = make_shared<UpdateGatewayServiceTrafficPolicyShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<TrafficPolicy>(tmpReq->gatewayTrafficPolicy)) {
-    request->gatewayTrafficPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->gatewayTrafficPolicy->toMap()), make_shared<string>("GatewayTrafficPolicy"), make_shared<string>("json")));
+    request->gatewayTrafficPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->gatewayTrafficPolicy, make_shared<string>("GatewayTrafficPolicy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
@@ -6015,7 +6061,7 @@ UpdateServiceSourceResponse Alibabacloud_Mse20190531::Client::updateServiceSourc
   shared_ptr<UpdateServiceSourceShrinkRequest> request = make_shared<UpdateServiceSourceShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateServiceSourceRequestIngressOptionsRequest>(tmpReq->ingressOptionsRequest)) {
-    request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ingressOptionsRequest->toMap()), make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
+    request->ingressOptionsRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ingressOptionsRequest, make_shared<string>("IngressOptionsRequest"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pathList)) {
     request->pathListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pathList, make_shared<string>("PathList"), make_shared<string>("json")));
