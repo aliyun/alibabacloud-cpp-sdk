@@ -33933,10 +33933,6 @@ class QueryClusterSpecificationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> clusterSpecificationName{};
   shared_ptr<string> cpuCapacity{};
-  shared_ptr<string> diskCapacity{};
-  shared_ptr<string> instanceCount{};
-  shared_ptr<string> maxCon{};
-  shared_ptr<string> maxTps{};
   shared_ptr<string> memoryCapacity{};
 
   QueryClusterSpecificationResponseBodyData() {}
@@ -33955,18 +33951,6 @@ public:
     if (cpuCapacity) {
       res["CpuCapacity"] = boost::any(*cpuCapacity);
     }
-    if (diskCapacity) {
-      res["DiskCapacity"] = boost::any(*diskCapacity);
-    }
-    if (instanceCount) {
-      res["InstanceCount"] = boost::any(*instanceCount);
-    }
-    if (maxCon) {
-      res["MaxCon"] = boost::any(*maxCon);
-    }
-    if (maxTps) {
-      res["MaxTps"] = boost::any(*maxTps);
-    }
     if (memoryCapacity) {
       res["MemoryCapacity"] = boost::any(*memoryCapacity);
     }
@@ -33979,18 +33963,6 @@ public:
     }
     if (m.find("CpuCapacity") != m.end() && !m["CpuCapacity"].empty()) {
       cpuCapacity = make_shared<string>(boost::any_cast<string>(m["CpuCapacity"]));
-    }
-    if (m.find("DiskCapacity") != m.end() && !m["DiskCapacity"].empty()) {
-      diskCapacity = make_shared<string>(boost::any_cast<string>(m["DiskCapacity"]));
-    }
-    if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
-      instanceCount = make_shared<string>(boost::any_cast<string>(m["InstanceCount"]));
-    }
-    if (m.find("MaxCon") != m.end() && !m["MaxCon"].empty()) {
-      maxCon = make_shared<string>(boost::any_cast<string>(m["MaxCon"]));
-    }
-    if (m.find("MaxTps") != m.end() && !m["MaxTps"].empty()) {
-      maxTps = make_shared<string>(boost::any_cast<string>(m["MaxTps"]));
     }
     if (m.find("MemoryCapacity") != m.end() && !m["MemoryCapacity"].empty()) {
       memoryCapacity = make_shared<string>(boost::any_cast<string>(m["MemoryCapacity"]));
