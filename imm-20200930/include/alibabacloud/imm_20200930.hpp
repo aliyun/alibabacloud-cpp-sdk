@@ -7010,6 +7010,248 @@ public:
 
   virtual ~CreateDatasetResponse() = default;
 };
+class CreateDetectVideoLabelsTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<string> userData{};
+
+  CreateDetectVideoLabelsTaskRequest() {}
+
+  explicit CreateDetectVideoLabelsTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateDetectVideoLabelsTaskRequest() = default;
+};
+class CreateDetectVideoLabelsTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+
+  CreateDetectVideoLabelsTaskShrinkRequest() {}
+
+  explicit CreateDetectVideoLabelsTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateDetectVideoLabelsTaskShrinkRequest() = default;
+};
+class CreateDetectVideoLabelsTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateDetectVideoLabelsTaskResponseBody() {}
+
+  explicit CreateDetectVideoLabelsTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateDetectVideoLabelsTaskResponseBody() = default;
+};
+class CreateDetectVideoLabelsTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDetectVideoLabelsTaskResponseBody> body{};
+
+  CreateDetectVideoLabelsTaskResponse() {}
+
+  explicit CreateDetectVideoLabelsTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDetectVideoLabelsTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDetectVideoLabelsTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDetectVideoLabelsTaskResponse() = default;
+};
 class CreateFigureClusteringTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
@@ -9155,6 +9397,345 @@ public:
 
 
   virtual ~CreateImageToPDFTaskResponse() = default;
+};
+class CreateLocationDateClusteringTaskRequestDateOptions : public Darabonba::Model {
+public:
+  shared_ptr<long> gapDays{};
+  shared_ptr<long> maxDays{};
+  shared_ptr<long> minDays{};
+
+  CreateLocationDateClusteringTaskRequestDateOptions() {}
+
+  explicit CreateLocationDateClusteringTaskRequestDateOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gapDays) {
+      res["GapDays"] = boost::any(*gapDays);
+    }
+    if (maxDays) {
+      res["MaxDays"] = boost::any(*maxDays);
+    }
+    if (minDays) {
+      res["MinDays"] = boost::any(*minDays);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GapDays") != m.end() && !m["GapDays"].empty()) {
+      gapDays = make_shared<long>(boost::any_cast<long>(m["GapDays"]));
+    }
+    if (m.find("MaxDays") != m.end() && !m["MaxDays"].empty()) {
+      maxDays = make_shared<long>(boost::any_cast<long>(m["MaxDays"]));
+    }
+    if (m.find("MinDays") != m.end() && !m["MinDays"].empty()) {
+      minDays = make_shared<long>(boost::any_cast<long>(m["MinDays"]));
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskRequestDateOptions() = default;
+};
+class CreateLocationDateClusteringTaskRequestLocationOptions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> locationDateClusterLevels{};
+
+  CreateLocationDateClusteringTaskRequestLocationOptions() {}
+
+  explicit CreateLocationDateClusteringTaskRequestLocationOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (locationDateClusterLevels) {
+      res["LocationDateClusterLevels"] = boost::any(*locationDateClusterLevels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocationDateClusterLevels") != m.end() && !m["LocationDateClusterLevels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LocationDateClusterLevels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LocationDateClusterLevels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      locationDateClusterLevels = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskRequestLocationOptions() = default;
+};
+class CreateLocationDateClusteringTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> datasetName{};
+  shared_ptr<CreateLocationDateClusteringTaskRequestDateOptions> dateOptions{};
+  shared_ptr<CreateLocationDateClusteringTaskRequestLocationOptions> locationOptions{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<string> userData{};
+
+  CreateLocationDateClusteringTaskRequest() {}
+
+  explicit CreateLocationDateClusteringTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (dateOptions) {
+      res["DateOptions"] = dateOptions ? boost::any(dateOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (locationOptions) {
+      res["LocationOptions"] = locationOptions ? boost::any(locationOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DateOptions") != m.end() && !m["DateOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DateOptions"].type()) {
+        CreateLocationDateClusteringTaskRequestDateOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DateOptions"]));
+        dateOptions = make_shared<CreateLocationDateClusteringTaskRequestDateOptions>(model1);
+      }
+    }
+    if (m.find("LocationOptions") != m.end() && !m["LocationOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LocationOptions"].type()) {
+        CreateLocationDateClusteringTaskRequestLocationOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LocationOptions"]));
+        locationOptions = make_shared<CreateLocationDateClusteringTaskRequestLocationOptions>(model1);
+      }
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskRequest() = default;
+};
+class CreateLocationDateClusteringTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> datasetName{};
+  shared_ptr<string> dateOptionsShrink{};
+  shared_ptr<string> locationOptionsShrink{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+
+  CreateLocationDateClusteringTaskShrinkRequest() {}
+
+  explicit CreateLocationDateClusteringTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (dateOptionsShrink) {
+      res["DateOptions"] = boost::any(*dateOptionsShrink);
+    }
+    if (locationOptionsShrink) {
+      res["LocationOptions"] = boost::any(*locationOptionsShrink);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("DateOptions") != m.end() && !m["DateOptions"].empty()) {
+      dateOptionsShrink = make_shared<string>(boost::any_cast<string>(m["DateOptions"]));
+    }
+    if (m.find("LocationOptions") != m.end() && !m["LocationOptions"].empty()) {
+      locationOptionsShrink = make_shared<string>(boost::any_cast<string>(m["LocationOptions"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskShrinkRequest() = default;
+};
+class CreateLocationDateClusteringTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateLocationDateClusteringTaskResponseBody() {}
+
+  explicit CreateLocationDateClusteringTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskResponseBody() = default;
+};
+class CreateLocationDateClusteringTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateLocationDateClusteringTaskResponseBody> body{};
+
+  CreateLocationDateClusteringTaskResponse() {}
+
+  explicit CreateLocationDateClusteringTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateLocationDateClusteringTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateLocationDateClusteringTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateLocationDateClusteringTaskResponse() = default;
 };
 class CreateMediaConvertTaskRequestSourcesSubtitles : public Darabonba::Model {
 public:
@@ -11825,6 +12406,248 @@ public:
 
 
   virtual ~CreateStoryResponse() = default;
+};
+class CreateVideoLabelClassificationTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<string> userData{};
+
+  CreateVideoLabelClassificationTaskRequest() {}
+
+  explicit CreateVideoLabelClassificationTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateVideoLabelClassificationTaskRequest() = default;
+};
+class CreateVideoLabelClassificationTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+
+  CreateVideoLabelClassificationTaskShrinkRequest() {}
+
+  explicit CreateVideoLabelClassificationTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~CreateVideoLabelClassificationTaskShrinkRequest() = default;
+};
+class CreateVideoLabelClassificationTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eventId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
+
+  CreateVideoLabelClassificationTaskResponseBody() {}
+
+  explicit CreateVideoLabelClassificationTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~CreateVideoLabelClassificationTaskResponseBody() = default;
+};
+class CreateVideoLabelClassificationTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateVideoLabelClassificationTaskResponseBody> body{};
+
+  CreateVideoLabelClassificationTaskResponse() {}
+
+  explicit CreateVideoLabelClassificationTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateVideoLabelClassificationTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateVideoLabelClassificationTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVideoLabelClassificationTaskResponse() = default;
 };
 class CreateVideoModerationTaskRequest : public Darabonba::Model {
 public:
@@ -16462,6 +17285,231 @@ public:
 
 
   virtual ~GetTaskResponse() = default;
+};
+class GetVideoLabelClassificationResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> projectName{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskType{};
+
+  GetVideoLabelClassificationResultRequest() {}
+
+  explicit GetVideoLabelClassificationResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+  }
+
+
+  virtual ~GetVideoLabelClassificationResultRequest() = default;
+};
+class GetVideoLabelClassificationResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> eventId{};
+  shared_ptr<vector<Label>> labels{};
+  shared_ptr<string> message{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> taskId{};
+  shared_ptr<string> taskType{};
+  shared_ptr<string> userData{};
+
+  GetVideoLabelClassificationResultResponseBody() {}
+
+  explicit GetVideoLabelClassificationResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (eventId) {
+      res["EventId"] = boost::any(*eventId);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
+      eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<Label> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Label model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<Label>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+  }
+
+
+  virtual ~GetVideoLabelClassificationResultResponseBody() = default;
+};
+class GetVideoLabelClassificationResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetVideoLabelClassificationResultResponseBody> body{};
+
+  GetVideoLabelClassificationResultResponse() {}
+
+  explicit GetVideoLabelClassificationResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetVideoLabelClassificationResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetVideoLabelClassificationResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetVideoLabelClassificationResultResponse() = default;
 };
 class GetVideoPlaylistRequestSourceSubtitles : public Darabonba::Model {
 public:
@@ -23477,6 +24525,8 @@ public:
   CreateCustomizedStoryResponse createCustomizedStory(shared_ptr<CreateCustomizedStoryRequest> request);
   CreateDatasetResponse createDatasetWithOptions(shared_ptr<CreateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDatasetResponse createDataset(shared_ptr<CreateDatasetRequest> request);
+  CreateDetectVideoLabelsTaskResponse createDetectVideoLabelsTaskWithOptions(shared_ptr<CreateDetectVideoLabelsTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDetectVideoLabelsTaskResponse createDetectVideoLabelsTask(shared_ptr<CreateDetectVideoLabelsTaskRequest> request);
   CreateFigureClusteringTaskResponse createFigureClusteringTaskWithOptions(shared_ptr<CreateFigureClusteringTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFigureClusteringTaskResponse createFigureClusteringTask(shared_ptr<CreateFigureClusteringTaskRequest> request);
   CreateFigureClustersMergingTaskResponse createFigureClustersMergingTaskWithOptions(shared_ptr<CreateFigureClustersMergingTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23491,6 +24541,8 @@ public:
   CreateImageSplicingTaskResponse createImageSplicingTask(shared_ptr<CreateImageSplicingTaskRequest> request);
   CreateImageToPDFTaskResponse createImageToPDFTaskWithOptions(shared_ptr<CreateImageToPDFTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageToPDFTaskResponse createImageToPDFTask(shared_ptr<CreateImageToPDFTaskRequest> request);
+  CreateLocationDateClusteringTaskResponse createLocationDateClusteringTaskWithOptions(shared_ptr<CreateLocationDateClusteringTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateLocationDateClusteringTaskResponse createLocationDateClusteringTask(shared_ptr<CreateLocationDateClusteringTaskRequest> request);
   CreateMediaConvertTaskResponse createMediaConvertTaskWithOptions(shared_ptr<CreateMediaConvertTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMediaConvertTaskResponse createMediaConvertTask(shared_ptr<CreateMediaConvertTaskRequest> request);
   CreateOfficeConversionTaskResponse createOfficeConversionTaskWithOptions(shared_ptr<CreateOfficeConversionTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23499,6 +24551,8 @@ public:
   CreateProjectResponse createProject(shared_ptr<CreateProjectRequest> request);
   CreateStoryResponse createStoryWithOptions(shared_ptr<CreateStoryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateStoryResponse createStory(shared_ptr<CreateStoryRequest> request);
+  CreateVideoLabelClassificationTaskResponse createVideoLabelClassificationTaskWithOptions(shared_ptr<CreateVideoLabelClassificationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateVideoLabelClassificationTaskResponse createVideoLabelClassificationTask(shared_ptr<CreateVideoLabelClassificationTaskRequest> request);
   CreateVideoModerationTaskResponse createVideoModerationTaskWithOptions(shared_ptr<CreateVideoModerationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVideoModerationTaskResponse createVideoModerationTask(shared_ptr<CreateVideoModerationTaskRequest> request);
   DeleteBindingResponse deleteBindingWithOptions(shared_ptr<DeleteBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -23551,6 +24605,8 @@ public:
   GetStoryResponse getStory(shared_ptr<GetStoryRequest> request);
   GetTaskResponse getTaskWithOptions(shared_ptr<GetTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTaskResponse getTask(shared_ptr<GetTaskRequest> request);
+  GetVideoLabelClassificationResultResponse getVideoLabelClassificationResultWithOptions(shared_ptr<GetVideoLabelClassificationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetVideoLabelClassificationResultResponse getVideoLabelClassificationResult(shared_ptr<GetVideoLabelClassificationResultRequest> request);
   GetVideoPlaylistResponse getVideoPlaylistWithOptions(shared_ptr<GetVideoPlaylistRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVideoPlaylistResponse getVideoPlaylist(shared_ptr<GetVideoPlaylistRequest> request);
   GetWebofficeURLResponse getWebofficeURLWithOptions(shared_ptr<GetWebofficeURLRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
