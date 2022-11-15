@@ -91,8 +91,20 @@ string Alibabacloud_Hitsdb20200615::Client::getEndpoint(shared_ptr<string> produ
 CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindormInstanceWithOptions(shared_ptr<CreateLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->arbiterVSwitchId)) {
+    query->insert(pair<string, string>("ArbiterVSwitchId", *request->arbiterVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->arbiterZoneId)) {
+    query->insert(pair<string, string>("ArbiterZoneId", *request->arbiterZoneId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->archVersion)) {
+    query->insert(pair<string, string>("ArchVersion", *request->archVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->coldStorage)) {
     query->insert(pair<string, long>("ColdStorage", *request->coldStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->coreSingleStorage)) {
+    query->insert(pair<string, long>("CoreSingleStorage", *request->coreSingleStorage));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->coreSpec)) {
     query->insert(pair<string, string>("CoreSpec", *request->coreSpec));
@@ -121,6 +133,21 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   if (!Darabonba_Util::Client::isUnset<string>(request->lindormSpec)) {
     query->insert(pair<string, string>("LindormSpec", *request->lindormSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logDiskCategory)) {
+    query->insert(pair<string, string>("LogDiskCategory", *request->logDiskCategory));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->logNum)) {
+    query->insert(pair<string, long>("LogNum", *request->logNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->logSingleStorage)) {
+    query->insert(pair<string, long>("LogSingleStorage", *request->logSingleStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logSpec)) {
+    query->insert(pair<string, string>("LogSpec", *request->logSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->multiZoneCombination)) {
+    query->insert(pair<string, string>("MultiZoneCombination", *request->multiZoneCombination));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -132,6 +159,12 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
     query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryVSwitchId)) {
+    query->insert(pair<string, string>("PrimaryVSwitchId", *request->primaryVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryZoneId)) {
+    query->insert(pair<string, string>("PrimaryZoneId", *request->primaryZoneId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -153,6 +186,12 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->solrSpec)) {
     query->insert(pair<string, string>("SolrSpec", *request->solrSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbyVSwitchId)) {
+    query->insert(pair<string, string>("StandbyVSwitchId", *request->standbyVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbyZoneId)) {
+    query->insert(pair<string, string>("StandbyZoneId", *request->standbyZoneId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tsdbNum)) {
     query->insert(pair<string, long>("TsdbNum", *request->tsdbNum));
@@ -488,6 +527,58 @@ ListTagResourcesResponse Alibabacloud_Hitsdb20200615::Client::listTagResources(s
   return listTagResourcesWithOptions(request, runtime);
 }
 
+ModifyInstancePayTypeResponse Alibabacloud_Hitsdb20200615::Client::modifyInstancePayTypeWithOptions(shared_ptr<ModifyInstancePayTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    query->insert(pair<string, long>("Duration", *request->duration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
+    query->insert(pair<string, string>("PayType", *request->payType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
+    query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyInstancePayType"))},
+    {"version", boost::any(string("2020-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyInstancePayTypeResponse(callApi(params, req, runtime));
+}
+
+ModifyInstancePayTypeResponse Alibabacloud_Hitsdb20200615::Client::modifyInstancePayType(shared_ptr<ModifyInstancePayTypeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyInstancePayTypeWithOptions(request, runtime);
+}
+
 ReleaseLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::releaseLindormInstanceWithOptions(shared_ptr<ReleaseLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -529,6 +620,58 @@ ReleaseLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::releaseLindo
 ReleaseLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::releaseLindormInstance(shared_ptr<ReleaseLindormInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return releaseLindormInstanceWithOptions(request, runtime);
+}
+
+RenewLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::renewLindormInstanceWithOptions(shared_ptr<RenewLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
+    query->insert(pair<string, long>("Duration", *request->duration));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
+    query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RenewLindormInstance"))},
+    {"version", boost::any(string("2020-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RenewLindormInstanceResponse(callApi(params, req, runtime));
+}
+
+RenewLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::renewLindormInstance(shared_ptr<RenewLindormInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return renewLindormInstanceWithOptions(request, runtime);
 }
 
 TagResourcesResponse Alibabacloud_Hitsdb20200615::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -693,11 +836,8 @@ UpgradeLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::upgradeLindo
   if (!Darabonba_Util::Client::isUnset<long>(request->coldStorage)) {
     query->insert(pair<string, long>("ColdStorage", *request->coldStorage));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->coreNum)) {
-    query->insert(pair<string, long>("CoreNum", *request->coreNum));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->coreSpec)) {
-    query->insert(pair<string, string>("CoreSpec", *request->coreSpec));
+  if (!Darabonba_Util::Client::isUnset<long>(request->coreSingleStorage)) {
+    query->insert(pair<string, long>("CoreSingleStorage", *request->coreSingleStorage));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->filestoreNum)) {
     query->insert(pair<string, long>("FilestoreNum", *request->filestoreNum));
@@ -713,6 +853,15 @@ UpgradeLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::upgradeLindo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lindormSpec)) {
     query->insert(pair<string, string>("LindormSpec", *request->lindormSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->logNum)) {
+    query->insert(pair<string, long>("LogNum", *request->logNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->logSingleStorage)) {
+    query->insert(pair<string, long>("LogSingleStorage", *request->logSingleStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->logSpec)) {
+    query->insert(pair<string, string>("LogSpec", *request->logSpec));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ltsCoreNum)) {
     query->insert(pair<string, long>("LtsCoreNum", *request->ltsCoreNum));
