@@ -47,7 +47,7 @@ AddImageMosaicResponse Alibabacloud_Imm20200930::Client::addImageMosaicWithOptio
   shared_ptr<AddImageMosaicShrinkRequest> request = make_shared<AddImageMosaicShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<AddImageMosaicRequestTargets>>(tmpReq->targets)) {
     request->targetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->targets, make_shared<string>("Targets"), make_shared<string>("json")));
@@ -328,6 +328,57 @@ BatchUpdateFileMetaResponse Alibabacloud_Imm20200930::Client::batchUpdateFileMet
   return batchUpdateFileMetaWithOptions(request, runtime);
 }
 
+CreateArchiveFileInspectionTaskResponse Alibabacloud_Imm20200930::Client::createArchiveFileInspectionTaskWithOptions(shared_ptr<CreateArchiveFileInspectionTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateArchiveFileInspectionTaskShrinkRequest> request = make_shared<CreateArchiveFileInspectionTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
+    query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    query->insert(pair<string, string>("Password", *request->password));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
+    query->insert(pair<string, string>("SourceURI", *request->sourceURI));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetURI)) {
+    query->insert(pair<string, string>("TargetURI", *request->targetURI));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateArchiveFileInspectionTask"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateArchiveFileInspectionTaskResponse(callApi(params, req, runtime));
+}
+
+CreateArchiveFileInspectionTaskResponse Alibabacloud_Imm20200930::Client::createArchiveFileInspectionTask(shared_ptr<CreateArchiveFileInspectionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createArchiveFileInspectionTaskWithOptions(request, runtime);
+}
+
 CreateBindingResponse Alibabacloud_Imm20200930::Client::createBindingWithOptions(shared_ptr<CreateBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -367,13 +418,13 @@ CreateCompressPointCloudTaskResponse Alibabacloud_Imm20200930::Client::createCom
   shared_ptr<CreateCompressPointCloudTaskShrinkRequest> request = make_shared<CreateCompressPointCloudTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<KdtreeOption>(tmpReq->kdtreeOption)) {
-    request->kdtreeOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->kdtreeOption->toMap()), make_shared<string>("KdtreeOption"), make_shared<string>("json")));
+    request->kdtreeOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->kdtreeOption, make_shared<string>("KdtreeOption"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<OctreeOption>(tmpReq->octreeOption)) {
-    request->octreeOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->octreeOption->toMap()), make_shared<string>("OctreeOption"), make_shared<string>("json")));
+    request->octreeOptionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->octreeOption, make_shared<string>("OctreeOption"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pointCloudFields)) {
     request->pointCloudFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pointCloudFields, make_shared<string>("PointCloudFields"), make_shared<string>("json")));
@@ -445,7 +496,7 @@ CreateCustomizedStoryResponse Alibabacloud_Imm20200930::Client::createCustomized
   shared_ptr<CreateCustomizedStoryShrinkRequest> request = make_shared<CreateCustomizedStoryShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateCustomizedStoryRequestCover>(tmpReq->cover)) {
-    request->coverShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->cover->toMap()), make_shared<string>("Cover"), make_shared<string>("json")));
+    request->coverShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cover, make_shared<string>("Cover"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->customLabels)) {
     request->customLabelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customLabels, make_shared<string>("CustomLabels"), make_shared<string>("json")));
@@ -552,57 +603,6 @@ CreateDatasetResponse Alibabacloud_Imm20200930::Client::createDataset(shared_ptr
   return createDatasetWithOptions(request, runtime);
 }
 
-CreateDetectVideoLabelsTaskResponse Alibabacloud_Imm20200930::Client::createDetectVideoLabelsTaskWithOptions(shared_ptr<CreateDetectVideoLabelsTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreateDetectVideoLabelsTaskShrinkRequest> request = make_shared<CreateDetectVideoLabelsTaskShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
-    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
-    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
-    query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
-    query->insert(pair<string, string>("ProjectName", *request->projectName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
-    query->insert(pair<string, string>("SourceURI", *request->sourceURI));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
-    query->insert(pair<string, string>("Tags", *request->tagsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
-    query->insert(pair<string, string>("UserData", *request->userData));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateDetectVideoLabelsTask"))},
-    {"version", boost::any(string("2020-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateDetectVideoLabelsTaskResponse(callApi(params, req, runtime));
-}
-
-CreateDetectVideoLabelsTaskResponse Alibabacloud_Imm20200930::Client::createDetectVideoLabelsTask(shared_ptr<CreateDetectVideoLabelsTaskRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createDetectVideoLabelsTaskWithOptions(request, runtime);
-}
-
 CreateFigureClusteringTaskResponse Alibabacloud_Imm20200930::Client::createFigureClusteringTaskWithOptions(shared_ptr<CreateFigureClusteringTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateFigureClusteringTaskShrinkRequest> request = make_shared<CreateFigureClusteringTaskShrinkRequest>();
@@ -704,7 +704,7 @@ CreateFileCompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileCo
   shared_ptr<CreateFileCompressionTaskShrinkRequest> request = make_shared<CreateFileCompressionTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateFileCompressionTaskRequestSources>>(tmpReq->sources)) {
     request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
@@ -759,12 +759,72 @@ CreateFileCompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileCo
   return createFileCompressionTaskWithOptions(request, runtime);
 }
 
+CreateFileUncompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileUncompressionTaskWithOptions(shared_ptr<CreateFileUncompressionTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateFileUncompressionTaskShrinkRequest> request = make_shared<CreateFileUncompressionTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->selectedFiles)) {
+    request->selectedFilesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->selectedFiles, make_shared<string>("SelectedFiles"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateFileUncompressionTaskRequestTarget>(tmpReq->target)) {
+    request->targetShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->target, make_shared<string>("Target"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
+    query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyTopicName)) {
+    query->insert(pair<string, string>("NotifyTopicName", *request->notifyTopicName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    query->insert(pair<string, string>("Password", *request->password));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->selectedFilesShrink)) {
+    query->insert(pair<string, string>("SelectedFiles", *request->selectedFilesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
+    query->insert(pair<string, string>("SourceURI", *request->sourceURI));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetShrink)) {
+    query->insert(pair<string, string>("Target", *request->targetShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFileUncompressionTask"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateFileUncompressionTaskResponse(callApi(params, req, runtime));
+}
+
+CreateFileUncompressionTaskResponse Alibabacloud_Imm20200930::Client::createFileUncompressionTask(shared_ptr<CreateFileUncompressionTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFileUncompressionTaskWithOptions(request, runtime);
+}
+
 CreateImageModerationTaskResponse Alibabacloud_Imm20200930::Client::createImageModerationTaskWithOptions(shared_ptr<CreateImageModerationTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateImageModerationTaskShrinkRequest> request = make_shared<CreateImageModerationTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->scenes)) {
     request->scenesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scenes, make_shared<string>("Scenes"), make_shared<string>("json")));
@@ -830,7 +890,7 @@ CreateImageSplicingTaskResponse Alibabacloud_Imm20200930::Client::createImageSpl
   shared_ptr<CreateImageSplicingTaskShrinkRequest> request = make_shared<CreateImageSplicingTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateImageSplicingTaskRequestSources>>(tmpReq->sources)) {
     request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
@@ -911,7 +971,7 @@ CreateImageToPDFTaskResponse Alibabacloud_Imm20200930::Client::createImageToPDFT
   shared_ptr<CreateImageToPDFTaskShrinkRequest> request = make_shared<CreateImageToPDFTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateImageToPDFTaskRequestSources>>(tmpReq->sources)) {
     request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
@@ -968,7 +1028,7 @@ CreateMediaConvertTaskResponse Alibabacloud_Imm20200930::Client::createMediaConv
   shared_ptr<CreateMediaConvertTaskShrinkRequest> request = make_shared<CreateMediaConvertTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateMediaConvertTaskRequestSources>>(tmpReq->sources)) {
     request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
@@ -1028,13 +1088,13 @@ CreateOfficeConversionTaskResponse Alibabacloud_Imm20200930::Client::createOffic
   shared_ptr<CreateOfficeConversionTaskShrinkRequest> request = make_shared<CreateOfficeConversionTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<TrimPolicy>(tmpReq->trimPolicy)) {
-    request->trimPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->trimPolicy->toMap()), make_shared<string>("TrimPolicy"), make_shared<string>("json")));
+    request->trimPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->trimPolicy, make_shared<string>("TrimPolicy"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -1217,6 +1277,9 @@ CreateStoryResponse Alibabacloud_Imm20200930::Client::createStoryWithOptions(sha
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateStoryShrinkRequest> request = make_shared<CreateStoryShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<AddressForStory>(tmpReq->address)) {
+    request->addressShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->address, make_shared<string>("Address"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->customLabels)) {
     request->customLabelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customLabels, make_shared<string>("CustomLabels"), make_shared<string>("json")));
   }
@@ -1231,6 +1294,9 @@ CreateStoryResponse Alibabacloud_Imm20200930::Client::createStoryWithOptions(sha
     query->insert(pair<string, string>("UserData", *request->userData));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressShrink)) {
+    body->insert(pair<string, string>("Address", *request->addressShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->customId)) {
     body->insert(pair<string, string>("CustomId", *request->customId));
   }
@@ -1298,7 +1364,7 @@ CreateVideoModerationTaskResponse Alibabacloud_Imm20200930::Client::createVideoM
   shared_ptr<CreateVideoModerationTaskShrinkRequest> request = make_shared<CreateVideoModerationTaskShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->scenes)) {
     request->scenesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scenes, make_shared<string>("Scenes"), make_shared<string>("json")));
@@ -1461,6 +1527,42 @@ DeleteFileMetaResponse Alibabacloud_Imm20200930::Client::deleteFileMeta(shared_p
   return deleteFileMetaWithOptions(request, runtime);
 }
 
+DeleteLocationDateClusterResponse Alibabacloud_Imm20200930::Client::deleteLocationDateClusterWithOptions(shared_ptr<DeleteLocationDateClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
+    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->objectId)) {
+    body->insert(pair<string, string>("ObjectId", *request->objectId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteLocationDateCluster"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteLocationDateClusterResponse(callApi(params, req, runtime));
+}
+
+DeleteLocationDateClusterResponse Alibabacloud_Imm20200930::Client::deleteLocationDateCluster(shared_ptr<DeleteLocationDateClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteLocationDateClusterWithOptions(request, runtime);
+}
+
 DeleteProjectResponse Alibabacloud_Imm20200930::Client::deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1556,7 +1658,7 @@ DetectImageBodiesResponse Alibabacloud_Imm20200930::Client::detectImageBodiesWit
   shared_ptr<DetectImageBodiesShrinkRequest> request = make_shared<DetectImageBodiesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -1598,7 +1700,7 @@ DetectImageCodesResponse Alibabacloud_Imm20200930::Client::detectImageCodesWithO
   shared_ptr<DetectImageCodesShrinkRequest> request = make_shared<DetectImageCodesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -1637,7 +1739,7 @@ DetectImageCroppingResponse Alibabacloud_Imm20200930::Client::detectImageCroppin
   shared_ptr<DetectImageCroppingShrinkRequest> request = make_shared<DetectImageCroppingShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aspectRatios)) {
@@ -1679,7 +1781,7 @@ DetectImageFacesResponse Alibabacloud_Imm20200930::Client::detectImageFacesWithO
   shared_ptr<DetectImageFacesShrinkRequest> request = make_shared<DetectImageFacesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -1718,7 +1820,7 @@ DetectImageLabelsResponse Alibabacloud_Imm20200930::Client::detectImageLabelsWit
   shared_ptr<DetectImageLabelsShrinkRequest> request = make_shared<DetectImageLabelsShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -1760,7 +1862,7 @@ DetectImageScoreResponse Alibabacloud_Imm20200930::Client::detectImageScoreWithO
   shared_ptr<DetectImageScoreShrinkRequest> request = make_shared<DetectImageScoreShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -2040,7 +2142,7 @@ GetMediaMetaResponse Alibabacloud_Imm20200930::Client::getMediaMetaWithOptions(s
   shared_ptr<GetMediaMetaShrinkRequest> request = make_shared<GetMediaMetaShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -2206,7 +2308,7 @@ GetVideoPlaylistResponse Alibabacloud_Imm20200930::Client::getVideoPlaylistWithO
   shared_ptr<GetVideoPlaylistShrinkRequest> request = make_shared<GetVideoPlaylistShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<GetVideoPlaylistRequestSourceSubtitles>>(tmpReq->sourceSubtitles)) {
     request->sourceSubtitlesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sourceSubtitles, make_shared<string>("SourceSubtitles"), make_shared<string>("json")));
@@ -2272,16 +2374,16 @@ GetWebofficeURLResponse Alibabacloud_Imm20200930::Client::getWebofficeURLWithOpt
   shared_ptr<GetWebofficeURLShrinkRequest> request = make_shared<GetWebofficeURLShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<WebofficePermission>(tmpReq->permission)) {
-    request->permissionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->permission->toMap()), make_shared<string>("Permission"), make_shared<string>("json")));
+    request->permissionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->permission, make_shared<string>("Permission"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<WebofficeUser>(tmpReq->user)) {
-    request->userShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->user->toMap()), make_shared<string>("User"), make_shared<string>("json")));
+    request->userShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->user, make_shared<string>("User"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<WebofficeWatermark>(tmpReq->watermark)) {
-    request->watermarkShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->watermark->toMap()), make_shared<string>("Watermark"), make_shared<string>("json")));
+    request->watermarkShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->watermark, make_shared<string>("Watermark"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->cachePreview)) {
@@ -2356,7 +2458,7 @@ IndexFileMetaResponse Alibabacloud_Imm20200930::Client::indexFileMetaWithOptions
   shared_ptr<IndexFileMetaShrinkRequest> request = make_shared<IndexFileMetaShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<FileForReq>(tmpReq->file)) {
-    request->fileShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->file->toMap()), make_shared<string>("File"), make_shared<string>("json")));
+    request->fileShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->file, make_shared<string>("File"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
@@ -2534,10 +2636,10 @@ ListTasksResponse Alibabacloud_Imm20200930::Client::listTasksWithOptions(shared_
   shared_ptr<ListTasksShrinkRequest> request = make_shared<ListTasksShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->endTimeRange)) {
-    request->endTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->endTimeRange->toMap()), make_shared<string>("EndTimeRange"), make_shared<string>("json")));
+    request->endTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->endTimeRange, make_shared<string>("EndTimeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->startTimeRange)) {
-    request->startTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->startTimeRange->toMap()), make_shared<string>("StartTimeRange"), make_shared<string>("json")));
+    request->startTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->startTimeRange, make_shared<string>("StartTimeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->taskTypes)) {
     request->taskTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->taskTypes, make_shared<string>("TaskTypes"), make_shared<string>("json")));
@@ -2600,7 +2702,7 @@ LiveTranscodingResponse Alibabacloud_Imm20200930::Client::liveTranscodingWithOpt
   shared_ptr<LiveTranscodingShrinkRequest> request = make_shared<LiveTranscodingShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
@@ -2691,10 +2793,10 @@ QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureCluster
   shared_ptr<QueryFigureClustersShrinkRequest> request = make_shared<QueryFigureClustersShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->createTimeRange)) {
-    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->createTimeRange->toMap()), make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
+    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->createTimeRange, make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->updateTimeRange)) {
-    request->updateTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->updateTimeRange->toMap()), make_shared<string>("UpdateTimeRange"), make_shared<string>("json")));
+    request->updateTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->updateTimeRange, make_shared<string>("UpdateTimeRange"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->createTimeRangeShrink)) {
@@ -2746,21 +2848,111 @@ QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureCluster
   return queryFigureClustersWithOptions(request, runtime);
 }
 
+QueryLocationDateClustersResponse Alibabacloud_Imm20200930::Client::queryLocationDateClustersWithOptions(shared_ptr<QueryLocationDateClustersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryLocationDateClustersShrinkRequest> request = make_shared<QueryLocationDateClustersShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<Address>(tmpReq->address)) {
+    request->addressShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->address, make_shared<string>("Address"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->createTimeRange)) {
+    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->createTimeRange, make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->locationDateClusterEndTimeRange)) {
+    request->locationDateClusterEndTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->locationDateClusterEndTimeRange, make_shared<string>("LocationDateClusterEndTimeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->locationDateClusterLevels)) {
+    request->locationDateClusterLevelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->locationDateClusterLevels, make_shared<string>("LocationDateClusterLevels"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->locationDateClusterStartTimeRange)) {
+    request->locationDateClusterStartTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->locationDateClusterStartTimeRange, make_shared<string>("LocationDateClusterStartTimeRange"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->updateTimeRange)) {
+    request->updateTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->updateTimeRange, make_shared<string>("UpdateTimeRange"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressShrink)) {
+    query->insert(pair<string, string>("Address", *request->addressShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->createTimeRangeShrink)) {
+    query->insert(pair<string, string>("CreateTimeRange", *request->createTimeRangeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customLabels)) {
+    query->insert(pair<string, string>("CustomLabels", *request->customLabels));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
+    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationDateClusterEndTimeRangeShrink)) {
+    query->insert(pair<string, string>("LocationDateClusterEndTimeRange", *request->locationDateClusterEndTimeRangeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationDateClusterLevelsShrink)) {
+    query->insert(pair<string, string>("LocationDateClusterLevels", *request->locationDateClusterLevelsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->locationDateClusterStartTimeRangeShrink)) {
+    query->insert(pair<string, string>("LocationDateClusterStartTimeRange", *request->locationDateClusterStartTimeRangeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->objectId)) {
+    query->insert(pair<string, string>("ObjectId", *request->objectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    query->insert(pair<string, string>("Sort", *request->sort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->updateTimeRangeShrink)) {
+    query->insert(pair<string, string>("UpdateTimeRange", *request->updateTimeRangeShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryLocationDateClusters"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryLocationDateClustersResponse(callApi(params, req, runtime));
+}
+
+QueryLocationDateClustersResponse Alibabacloud_Imm20200930::Client::queryLocationDateClusters(shared_ptr<QueryLocationDateClustersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryLocationDateClustersWithOptions(request, runtime);
+}
+
 QueryStoriesResponse Alibabacloud_Imm20200930::Client::queryStoriesWithOptions(shared_ptr<QueryStoriesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryStoriesShrinkRequest> request = make_shared<QueryStoriesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->createTimeRange)) {
-    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->createTimeRange->toMap()), make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
+    request->createTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->createTimeRange, make_shared<string>("CreateTimeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->figureClusterIds)) {
     request->figureClusterIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->figureClusterIds, make_shared<string>("FigureClusterIds"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->storyEndTimeRange)) {
-    request->storyEndTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->storyEndTimeRange->toMap()), make_shared<string>("StoryEndTimeRange"), make_shared<string>("json")));
+    request->storyEndTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storyEndTimeRange, make_shared<string>("StoryEndTimeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<TimeRange>(tmpReq->storyStartTimeRange)) {
-    request->storyStartTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->storyStartTimeRange->toMap()), make_shared<string>("StoryStartTimeRange"), make_shared<string>("json")));
+    request->storyStartTimeRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->storyStartTimeRange, make_shared<string>("StoryStartTimeRange"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->createTimeRangeShrink)) {
@@ -2838,7 +3030,7 @@ RefreshWebofficeTokenResponse Alibabacloud_Imm20200930::Client::refreshWeboffice
   shared_ptr<RefreshWebofficeTokenShrinkRequest> request = make_shared<RefreshWebofficeTokenShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CredentialConfig>(tmpReq->credentialConfig)) {
-    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->credentialConfig->toMap()), make_shared<string>("CredentialConfig"), make_shared<string>("json")));
+    request->credentialConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->credentialConfig, make_shared<string>("CredentialConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
@@ -2999,7 +3191,7 @@ SimpleQueryResponse Alibabacloud_Imm20200930::Client::simpleQueryWithOptions(sha
     request->aggregationsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->aggregations, make_shared<string>("Aggregations"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SimpleQuery>(tmpReq->query)) {
-    request->queryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->query->toMap()), make_shared<string>("Query"), make_shared<string>("json")));
+    request->queryShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->query, make_shared<string>("Query"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
     request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
@@ -3148,7 +3340,7 @@ UpdateFigureClusterResponse Alibabacloud_Imm20200930::Client::updateFigureCluste
   shared_ptr<UpdateFigureClusterShrinkRequest> request = make_shared<UpdateFigureClusterShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<FigureClusterForReq>(tmpReq->figureCluster)) {
-    request->figureClusterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->figureCluster->toMap()), make_shared<string>("FigureCluster"), make_shared<string>("json")));
+    request->figureClusterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->figureCluster, make_shared<string>("FigureCluster"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
@@ -3187,7 +3379,7 @@ UpdateFileMetaResponse Alibabacloud_Imm20200930::Client::updateFileMetaWithOptio
   shared_ptr<UpdateFileMetaShrinkRequest> request = make_shared<UpdateFileMetaShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<FileForReq>(tmpReq->file)) {
-    request->fileShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->file->toMap()), make_shared<string>("File"), make_shared<string>("json")));
+    request->fileShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->file, make_shared<string>("File"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
@@ -3219,6 +3411,54 @@ UpdateFileMetaResponse Alibabacloud_Imm20200930::Client::updateFileMetaWithOptio
 UpdateFileMetaResponse Alibabacloud_Imm20200930::Client::updateFileMeta(shared_ptr<UpdateFileMetaRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateFileMetaWithOptions(request, runtime);
+}
+
+UpdateLocationDateClusterResponse Alibabacloud_Imm20200930::Client::updateLocationDateClusterWithOptions(shared_ptr<UpdateLocationDateClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateLocationDateClusterShrinkRequest> request = make_shared<UpdateLocationDateClusterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->customLabels)) {
+    request->customLabelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customLabels, make_shared<string>("CustomLabels"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->customId)) {
+    query->insert(pair<string, string>("CustomId", *request->customId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customLabelsShrink)) {
+    query->insert(pair<string, string>("CustomLabels", *request->customLabelsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
+    query->insert(pair<string, string>("DatasetName", *request->datasetName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->objectId)) {
+    query->insert(pair<string, string>("ObjectId", *request->objectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
+    query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("Title", *request->title));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateLocationDateCluster"))},
+    {"version", boost::any(string("2020-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateLocationDateClusterResponse(callApi(params, req, runtime));
+}
+
+UpdateLocationDateClusterResponse Alibabacloud_Imm20200930::Client::updateLocationDateCluster(shared_ptr<UpdateLocationDateClusterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateLocationDateClusterWithOptions(request, runtime);
 }
 
 UpdateProjectResponse Alibabacloud_Imm20200930::Client::updateProjectWithOptions(shared_ptr<UpdateProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3287,7 +3527,7 @@ UpdateStoryResponse Alibabacloud_Imm20200930::Client::updateStoryWithOptions(sha
   shared_ptr<UpdateStoryShrinkRequest> request = make_shared<UpdateStoryShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateStoryRequestCover>(tmpReq->cover)) {
-    request->coverShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->cover->toMap()), make_shared<string>("Cover"), make_shared<string>("json")));
+    request->coverShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->cover, make_shared<string>("Cover"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->customLabels)) {
     request->customLabelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customLabels, make_shared<string>("CustomLabels"), make_shared<string>("json")));
