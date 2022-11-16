@@ -6467,11 +6467,63 @@ public:
 
   virtual ~DetectLivingFaceResponseBodyDataElementsResultsFrames() = default;
 };
+class DetectLivingFaceResponseBodyDataElementsResultsRect : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<long> left{};
+  shared_ptr<long> top{};
+  shared_ptr<long> width{};
+
+  DetectLivingFaceResponseBodyDataElementsResultsRect() {}
+
+  explicit DetectLivingFaceResponseBodyDataElementsResultsRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (left) {
+      res["Left"] = boost::any(*left);
+    }
+    if (top) {
+      res["Top"] = boost::any(*top);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Left") != m.end() && !m["Left"].empty()) {
+      left = make_shared<long>(boost::any_cast<long>(m["Left"]));
+    }
+    if (m.find("Top") != m.end() && !m["Top"].empty()) {
+      top = make_shared<long>(boost::any_cast<long>(m["Top"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~DetectLivingFaceResponseBodyDataElementsResultsRect() = default;
+};
 class DetectLivingFaceResponseBodyDataElementsResults : public Darabonba::Model {
 public:
   shared_ptr<vector<DetectLivingFaceResponseBodyDataElementsResultsFrames>> frames{};
   shared_ptr<string> label{};
+  shared_ptr<string> messageTips{};
   shared_ptr<double> rate{};
+  shared_ptr<DetectLivingFaceResponseBodyDataElementsResultsRect> rect{};
   shared_ptr<string> suggestion{};
 
   DetectLivingFaceResponseBodyDataElementsResults() {}
@@ -6494,8 +6546,14 @@ public:
     if (label) {
       res["Label"] = boost::any(*label);
     }
+    if (messageTips) {
+      res["MessageTips"] = boost::any(*messageTips);
+    }
     if (rate) {
       res["Rate"] = boost::any(*rate);
+    }
+    if (rect) {
+      res["Rect"] = rect ? boost::any(rect->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (suggestion) {
       res["Suggestion"] = boost::any(*suggestion);
@@ -6520,8 +6578,18 @@ public:
     if (m.find("Label") != m.end() && !m["Label"].empty()) {
       label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
+    if (m.find("MessageTips") != m.end() && !m["MessageTips"].empty()) {
+      messageTips = make_shared<string>(boost::any_cast<string>(m["MessageTips"]));
+    }
     if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
       rate = make_shared<double>(boost::any_cast<double>(m["Rate"]));
+    }
+    if (m.find("Rect") != m.end() && !m["Rect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rect"].type()) {
+        DetectLivingFaceResponseBodyDataElementsResultsRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rect"]));
+        rect = make_shared<DetectLivingFaceResponseBodyDataElementsResultsRect>(model1);
+      }
     }
     if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
       suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
@@ -6533,6 +6601,7 @@ public:
 };
 class DetectLivingFaceResponseBodyDataElements : public Darabonba::Model {
 public:
+  shared_ptr<long> faceNumber{};
   shared_ptr<string> imageURL{};
   shared_ptr<vector<DetectLivingFaceResponseBodyDataElementsResults>> results{};
   shared_ptr<string> taskId{};
@@ -6547,6 +6616,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (faceNumber) {
+      res["FaceNumber"] = boost::any(*faceNumber);
+    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -6564,6 +6636,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceNumber") != m.end() && !m["FaceNumber"].empty()) {
+      faceNumber = make_shared<long>(boost::any_cast<long>(m["FaceNumber"]));
+    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -8709,511 +8784,6 @@ public:
 
 
   virtual ~ExtractPedestrianFeatureAttrResponse() = default;
-};
-class ExtractPedestrianFeatureAttributeRequestUrlList : public Darabonba::Model {
-public:
-  shared_ptr<string> url{};
-
-  ExtractPedestrianFeatureAttributeRequestUrlList() {}
-
-  explicit ExtractPedestrianFeatureAttributeRequestUrlList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeRequestUrlList() = default;
-};
-class ExtractPedestrianFeatureAttributeRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-  shared_ptr<string> mode{};
-  shared_ptr<vector<ExtractPedestrianFeatureAttributeRequestUrlList>> urlList{};
-
-  ExtractPedestrianFeatureAttributeRequest() {}
-
-  explicit ExtractPedestrianFeatureAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    if (mode) {
-      res["Mode"] = boost::any(*mode);
-    }
-    if (urlList) {
-      vector<boost::any> temp1;
-      for(auto item1:*urlList){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["UrlList"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
-      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
-    }
-    if (m.find("UrlList") != m.end() && !m["UrlList"].empty()) {
-      if (typeid(vector<boost::any>) == m["UrlList"].type()) {
-        vector<ExtractPedestrianFeatureAttributeRequestUrlList> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["UrlList"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ExtractPedestrianFeatureAttributeRequestUrlList model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        urlList = make_shared<vector<ExtractPedestrianFeatureAttributeRequestUrlList>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeRequest() = default;
-};
-class ExtractPedestrianFeatureAttributeResponseBodyDataElements : public Darabonba::Model {
-public:
-  shared_ptr<string> age{};
-  shared_ptr<double> ageScore{};
-  shared_ptr<string> feature{};
-  shared_ptr<string> gender{};
-  shared_ptr<double> genderScore{};
-  shared_ptr<string> hair{};
-  shared_ptr<double> hairScore{};
-  shared_ptr<string> lowerColor{};
-  shared_ptr<double> lowerColorScore{};
-  shared_ptr<string> lowerType{};
-  shared_ptr<double> lowerTypeScore{};
-  shared_ptr<string> objType{};
-  shared_ptr<double> objTypeScore{};
-  shared_ptr<double> qualityScore{};
-  shared_ptr<string> upperColor{};
-  shared_ptr<double> upperColorScore{};
-  shared_ptr<string> upperType{};
-  shared_ptr<double> upperTypeScore{};
-
-  ExtractPedestrianFeatureAttributeResponseBodyDataElements() {}
-
-  explicit ExtractPedestrianFeatureAttributeResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (age) {
-      res["Age"] = boost::any(*age);
-    }
-    if (ageScore) {
-      res["AgeScore"] = boost::any(*ageScore);
-    }
-    if (feature) {
-      res["Feature"] = boost::any(*feature);
-    }
-    if (gender) {
-      res["Gender"] = boost::any(*gender);
-    }
-    if (genderScore) {
-      res["GenderScore"] = boost::any(*genderScore);
-    }
-    if (hair) {
-      res["Hair"] = boost::any(*hair);
-    }
-    if (hairScore) {
-      res["HairScore"] = boost::any(*hairScore);
-    }
-    if (lowerColor) {
-      res["LowerColor"] = boost::any(*lowerColor);
-    }
-    if (lowerColorScore) {
-      res["LowerColorScore"] = boost::any(*lowerColorScore);
-    }
-    if (lowerType) {
-      res["LowerType"] = boost::any(*lowerType);
-    }
-    if (lowerTypeScore) {
-      res["LowerTypeScore"] = boost::any(*lowerTypeScore);
-    }
-    if (objType) {
-      res["ObjType"] = boost::any(*objType);
-    }
-    if (objTypeScore) {
-      res["ObjTypeScore"] = boost::any(*objTypeScore);
-    }
-    if (qualityScore) {
-      res["QualityScore"] = boost::any(*qualityScore);
-    }
-    if (upperColor) {
-      res["UpperColor"] = boost::any(*upperColor);
-    }
-    if (upperColorScore) {
-      res["UpperColorScore"] = boost::any(*upperColorScore);
-    }
-    if (upperType) {
-      res["UpperType"] = boost::any(*upperType);
-    }
-    if (upperTypeScore) {
-      res["UpperTypeScore"] = boost::any(*upperTypeScore);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Age") != m.end() && !m["Age"].empty()) {
-      age = make_shared<string>(boost::any_cast<string>(m["Age"]));
-    }
-    if (m.find("AgeScore") != m.end() && !m["AgeScore"].empty()) {
-      ageScore = make_shared<double>(boost::any_cast<double>(m["AgeScore"]));
-    }
-    if (m.find("Feature") != m.end() && !m["Feature"].empty()) {
-      feature = make_shared<string>(boost::any_cast<string>(m["Feature"]));
-    }
-    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
-      gender = make_shared<string>(boost::any_cast<string>(m["Gender"]));
-    }
-    if (m.find("GenderScore") != m.end() && !m["GenderScore"].empty()) {
-      genderScore = make_shared<double>(boost::any_cast<double>(m["GenderScore"]));
-    }
-    if (m.find("Hair") != m.end() && !m["Hair"].empty()) {
-      hair = make_shared<string>(boost::any_cast<string>(m["Hair"]));
-    }
-    if (m.find("HairScore") != m.end() && !m["HairScore"].empty()) {
-      hairScore = make_shared<double>(boost::any_cast<double>(m["HairScore"]));
-    }
-    if (m.find("LowerColor") != m.end() && !m["LowerColor"].empty()) {
-      lowerColor = make_shared<string>(boost::any_cast<string>(m["LowerColor"]));
-    }
-    if (m.find("LowerColorScore") != m.end() && !m["LowerColorScore"].empty()) {
-      lowerColorScore = make_shared<double>(boost::any_cast<double>(m["LowerColorScore"]));
-    }
-    if (m.find("LowerType") != m.end() && !m["LowerType"].empty()) {
-      lowerType = make_shared<string>(boost::any_cast<string>(m["LowerType"]));
-    }
-    if (m.find("LowerTypeScore") != m.end() && !m["LowerTypeScore"].empty()) {
-      lowerTypeScore = make_shared<double>(boost::any_cast<double>(m["LowerTypeScore"]));
-    }
-    if (m.find("ObjType") != m.end() && !m["ObjType"].empty()) {
-      objType = make_shared<string>(boost::any_cast<string>(m["ObjType"]));
-    }
-    if (m.find("ObjTypeScore") != m.end() && !m["ObjTypeScore"].empty()) {
-      objTypeScore = make_shared<double>(boost::any_cast<double>(m["ObjTypeScore"]));
-    }
-    if (m.find("QualityScore") != m.end() && !m["QualityScore"].empty()) {
-      qualityScore = make_shared<double>(boost::any_cast<double>(m["QualityScore"]));
-    }
-    if (m.find("UpperColor") != m.end() && !m["UpperColor"].empty()) {
-      upperColor = make_shared<string>(boost::any_cast<string>(m["UpperColor"]));
-    }
-    if (m.find("UpperColorScore") != m.end() && !m["UpperColorScore"].empty()) {
-      upperColorScore = make_shared<double>(boost::any_cast<double>(m["UpperColorScore"]));
-    }
-    if (m.find("UpperType") != m.end() && !m["UpperType"].empty()) {
-      upperType = make_shared<string>(boost::any_cast<string>(m["UpperType"]));
-    }
-    if (m.find("UpperTypeScore") != m.end() && !m["UpperTypeScore"].empty()) {
-      upperTypeScore = make_shared<double>(boost::any_cast<double>(m["UpperTypeScore"]));
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeResponseBodyDataElements() = default;
-};
-class ExtractPedestrianFeatureAttributeResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> age{};
-  shared_ptr<double> ageScore{};
-  shared_ptr<vector<ExtractPedestrianFeatureAttributeResponseBodyDataElements>> elements{};
-  shared_ptr<string> feature{};
-  shared_ptr<string> gender{};
-  shared_ptr<double> genderScore{};
-  shared_ptr<string> hair{};
-  shared_ptr<double> hairScore{};
-  shared_ptr<string> lowerColor{};
-  shared_ptr<double> lowerColorScore{};
-  shared_ptr<string> lowerType{};
-  shared_ptr<double> lowerTypeScore{};
-  shared_ptr<string> objType{};
-  shared_ptr<double> objTypeScore{};
-  shared_ptr<double> qualityScore{};
-  shared_ptr<string> upperColor{};
-  shared_ptr<double> upperColorScore{};
-  shared_ptr<string> upperType{};
-  shared_ptr<double> upperTypeScore{};
-
-  ExtractPedestrianFeatureAttributeResponseBodyData() {}
-
-  explicit ExtractPedestrianFeatureAttributeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (age) {
-      res["Age"] = boost::any(*age);
-    }
-    if (ageScore) {
-      res["AgeScore"] = boost::any(*ageScore);
-    }
-    if (elements) {
-      vector<boost::any> temp1;
-      for(auto item1:*elements){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Elements"] = boost::any(temp1);
-    }
-    if (feature) {
-      res["Feature"] = boost::any(*feature);
-    }
-    if (gender) {
-      res["Gender"] = boost::any(*gender);
-    }
-    if (genderScore) {
-      res["GenderScore"] = boost::any(*genderScore);
-    }
-    if (hair) {
-      res["Hair"] = boost::any(*hair);
-    }
-    if (hairScore) {
-      res["HairScore"] = boost::any(*hairScore);
-    }
-    if (lowerColor) {
-      res["LowerColor"] = boost::any(*lowerColor);
-    }
-    if (lowerColorScore) {
-      res["LowerColorScore"] = boost::any(*lowerColorScore);
-    }
-    if (lowerType) {
-      res["LowerType"] = boost::any(*lowerType);
-    }
-    if (lowerTypeScore) {
-      res["LowerTypeScore"] = boost::any(*lowerTypeScore);
-    }
-    if (objType) {
-      res["ObjType"] = boost::any(*objType);
-    }
-    if (objTypeScore) {
-      res["ObjTypeScore"] = boost::any(*objTypeScore);
-    }
-    if (qualityScore) {
-      res["QualityScore"] = boost::any(*qualityScore);
-    }
-    if (upperColor) {
-      res["UpperColor"] = boost::any(*upperColor);
-    }
-    if (upperColorScore) {
-      res["UpperColorScore"] = boost::any(*upperColorScore);
-    }
-    if (upperType) {
-      res["UpperType"] = boost::any(*upperType);
-    }
-    if (upperTypeScore) {
-      res["UpperTypeScore"] = boost::any(*upperTypeScore);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Age") != m.end() && !m["Age"].empty()) {
-      age = make_shared<string>(boost::any_cast<string>(m["Age"]));
-    }
-    if (m.find("AgeScore") != m.end() && !m["AgeScore"].empty()) {
-      ageScore = make_shared<double>(boost::any_cast<double>(m["AgeScore"]));
-    }
-    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
-      if (typeid(vector<boost::any>) == m["Elements"].type()) {
-        vector<ExtractPedestrianFeatureAttributeResponseBodyDataElements> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ExtractPedestrianFeatureAttributeResponseBodyDataElements model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        elements = make_shared<vector<ExtractPedestrianFeatureAttributeResponseBodyDataElements>>(expect1);
-      }
-    }
-    if (m.find("Feature") != m.end() && !m["Feature"].empty()) {
-      feature = make_shared<string>(boost::any_cast<string>(m["Feature"]));
-    }
-    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
-      gender = make_shared<string>(boost::any_cast<string>(m["Gender"]));
-    }
-    if (m.find("GenderScore") != m.end() && !m["GenderScore"].empty()) {
-      genderScore = make_shared<double>(boost::any_cast<double>(m["GenderScore"]));
-    }
-    if (m.find("Hair") != m.end() && !m["Hair"].empty()) {
-      hair = make_shared<string>(boost::any_cast<string>(m["Hair"]));
-    }
-    if (m.find("HairScore") != m.end() && !m["HairScore"].empty()) {
-      hairScore = make_shared<double>(boost::any_cast<double>(m["HairScore"]));
-    }
-    if (m.find("LowerColor") != m.end() && !m["LowerColor"].empty()) {
-      lowerColor = make_shared<string>(boost::any_cast<string>(m["LowerColor"]));
-    }
-    if (m.find("LowerColorScore") != m.end() && !m["LowerColorScore"].empty()) {
-      lowerColorScore = make_shared<double>(boost::any_cast<double>(m["LowerColorScore"]));
-    }
-    if (m.find("LowerType") != m.end() && !m["LowerType"].empty()) {
-      lowerType = make_shared<string>(boost::any_cast<string>(m["LowerType"]));
-    }
-    if (m.find("LowerTypeScore") != m.end() && !m["LowerTypeScore"].empty()) {
-      lowerTypeScore = make_shared<double>(boost::any_cast<double>(m["LowerTypeScore"]));
-    }
-    if (m.find("ObjType") != m.end() && !m["ObjType"].empty()) {
-      objType = make_shared<string>(boost::any_cast<string>(m["ObjType"]));
-    }
-    if (m.find("ObjTypeScore") != m.end() && !m["ObjTypeScore"].empty()) {
-      objTypeScore = make_shared<double>(boost::any_cast<double>(m["ObjTypeScore"]));
-    }
-    if (m.find("QualityScore") != m.end() && !m["QualityScore"].empty()) {
-      qualityScore = make_shared<double>(boost::any_cast<double>(m["QualityScore"]));
-    }
-    if (m.find("UpperColor") != m.end() && !m["UpperColor"].empty()) {
-      upperColor = make_shared<string>(boost::any_cast<string>(m["UpperColor"]));
-    }
-    if (m.find("UpperColorScore") != m.end() && !m["UpperColorScore"].empty()) {
-      upperColorScore = make_shared<double>(boost::any_cast<double>(m["UpperColorScore"]));
-    }
-    if (m.find("UpperType") != m.end() && !m["UpperType"].empty()) {
-      upperType = make_shared<string>(boost::any_cast<string>(m["UpperType"]));
-    }
-    if (m.find("UpperTypeScore") != m.end() && !m["UpperTypeScore"].empty()) {
-      upperTypeScore = make_shared<double>(boost::any_cast<double>(m["UpperTypeScore"]));
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeResponseBodyData() = default;
-};
-class ExtractPedestrianFeatureAttributeResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<ExtractPedestrianFeatureAttributeResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  ExtractPedestrianFeatureAttributeResponseBody() {}
-
-  explicit ExtractPedestrianFeatureAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        ExtractPedestrianFeatureAttributeResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<ExtractPedestrianFeatureAttributeResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeResponseBody() = default;
-};
-class ExtractPedestrianFeatureAttributeResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ExtractPedestrianFeatureAttributeResponseBody> body{};
-
-  ExtractPedestrianFeatureAttributeResponse() {}
-
-  explicit ExtractPedestrianFeatureAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ExtractPedestrianFeatureAttributeResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ExtractPedestrianFeatureAttributeResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ExtractPedestrianFeatureAttributeResponse() = default;
 };
 class FaceBeautyRequest : public Darabonba::Model {
 public:
@@ -19153,8 +18723,6 @@ public:
   ExtractPedestrianFeatureAttrResponse extractPedestrianFeatureAttrWithOptions(shared_ptr<ExtractPedestrianFeatureAttrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExtractPedestrianFeatureAttrResponse extractPedestrianFeatureAttr(shared_ptr<ExtractPedestrianFeatureAttrRequest> request);
   ExtractPedestrianFeatureAttrResponse extractPedestrianFeatureAttrAdvance(shared_ptr<ExtractPedestrianFeatureAttrAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ExtractPedestrianFeatureAttributeResponse extractPedestrianFeatureAttributeWithOptions(shared_ptr<ExtractPedestrianFeatureAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ExtractPedestrianFeatureAttributeResponse extractPedestrianFeatureAttribute(shared_ptr<ExtractPedestrianFeatureAttributeRequest> request);
   FaceBeautyResponse faceBeautyWithOptions(shared_ptr<FaceBeautyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FaceBeautyResponse faceBeauty(shared_ptr<FaceBeautyRequest> request);
   FaceBeautyResponse faceBeautyAdvance(shared_ptr<FaceBeautyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -391,7 +391,7 @@ BeautifyBodyResponse Alibabacloud_Facebody20191230::Client::beautifyBodyWithOpti
   shared_ptr<BeautifyBodyShrinkRequest> request = make_shared<BeautifyBodyShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<BeautifyBodyRequestAgeRange>(tmpReq->ageRange)) {
-    request->ageRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ageRange, make_shared<string>("AgeRange"), make_shared<string>("json")));
+    request->ageRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ageRange->toMap()), make_shared<string>("AgeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<BeautifyBodyRequestBodyBoxes>>(tmpReq->bodyBoxes)) {
     request->bodyBoxesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bodyBoxes, make_shared<string>("BodyBoxes"), make_shared<string>("json")));
@@ -2469,40 +2469,6 @@ ExtractPedestrianFeatureAttrResponse Alibabacloud_Facebody20191230::Client::extr
   }
   shared_ptr<ExtractPedestrianFeatureAttrResponse> extractPedestrianFeatureAttrResp = make_shared<ExtractPedestrianFeatureAttrResponse>(extractPedestrianFeatureAttrWithOptions(extractPedestrianFeatureAttrReq, runtime));
   return *extractPedestrianFeatureAttrResp;
-}
-
-ExtractPedestrianFeatureAttributeResponse Alibabacloud_Facebody20191230::Client::extractPedestrianFeatureAttributeWithOptions(shared_ptr<ExtractPedestrianFeatureAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->imageURL)) {
-    body->insert(pair<string, string>("ImageURL", *request->imageURL));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
-    body->insert(pair<string, string>("Mode", *request->mode));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<ExtractPedestrianFeatureAttributeRequestUrlList>>(request->urlList)) {
-    body->insert(pair<string, vector<ExtractPedestrianFeatureAttributeRequestUrlList>>("UrlList", *request->urlList));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ExtractPedestrianFeatureAttribute"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ExtractPedestrianFeatureAttributeResponse(callApi(params, req, runtime));
-}
-
-ExtractPedestrianFeatureAttributeResponse Alibabacloud_Facebody20191230::Client::extractPedestrianFeatureAttribute(shared_ptr<ExtractPedestrianFeatureAttributeRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return extractPedestrianFeatureAttributeWithOptions(request, runtime);
 }
 
 FaceBeautyResponse Alibabacloud_Facebody20191230::Client::faceBeautyWithOptions(shared_ptr<FaceBeautyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
