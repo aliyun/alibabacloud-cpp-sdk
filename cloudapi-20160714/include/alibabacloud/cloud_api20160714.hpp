@@ -32919,6 +32919,692 @@ public:
 
   virtual ~EnableInstanceAccessControlResponse() = default;
 };
+class ImportOASRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> authType{};
+  shared_ptr<string> backendName{};
+  shared_ptr<string> data{};
+  shared_ptr<string> groupId{};
+  shared_ptr<bool> ignoreWarning{};
+  shared_ptr<string> OASVersion{};
+  shared_ptr<bool> overwrite{};
+  shared_ptr<string> requestMode{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<bool> skipDryRun{};
+
+  ImportOASRequest() {}
+
+  explicit ImportOASRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
+    if (backendName) {
+      res["BackendName"] = boost::any(*backendName);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ignoreWarning) {
+      res["IgnoreWarning"] = boost::any(*ignoreWarning);
+    }
+    if (OASVersion) {
+      res["OASVersion"] = boost::any(*OASVersion);
+    }
+    if (overwrite) {
+      res["Overwrite"] = boost::any(*overwrite);
+    }
+    if (requestMode) {
+      res["RequestMode"] = boost::any(*requestMode);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (skipDryRun) {
+      res["SkipDryRun"] = boost::any(*skipDryRun);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("BackendName") != m.end() && !m["BackendName"].empty()) {
+      backendName = make_shared<string>(boost::any_cast<string>(m["BackendName"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("IgnoreWarning") != m.end() && !m["IgnoreWarning"].empty()) {
+      ignoreWarning = make_shared<bool>(boost::any_cast<bool>(m["IgnoreWarning"]));
+    }
+    if (m.find("OASVersion") != m.end() && !m["OASVersion"].empty()) {
+      OASVersion = make_shared<string>(boost::any_cast<string>(m["OASVersion"]));
+    }
+    if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
+      overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
+    }
+    if (m.find("RequestMode") != m.end() && !m["RequestMode"].empty()) {
+      requestMode = make_shared<string>(boost::any_cast<string>(m["RequestMode"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("SkipDryRun") != m.end() && !m["SkipDryRun"].empty()) {
+      skipDryRun = make_shared<bool>(boost::any_cast<bool>(m["SkipDryRun"]));
+    }
+  }
+
+
+  virtual ~ImportOASRequest() = default;
+};
+class ImportOASResponseBodyErrorMessages : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> errorMessage{};
+
+  ImportOASResponseBodyErrorMessages() {}
+
+  explicit ImportOASResponseBodyErrorMessages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ErrorMessage"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ErrorMessage"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      errorMessage = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyErrorMessages() = default;
+};
+class ImportOASResponseBodyFailedApisFailedApi : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> httpMethod{};
+  shared_ptr<string> path{};
+
+  ImportOASResponseBodyFailedApisFailedApi() {}
+
+  explicit ImportOASResponseBodyFailedApisFailedApi(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpMethod) {
+      res["HttpMethod"] = boost::any(*httpMethod);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("HttpMethod") != m.end() && !m["HttpMethod"].empty()) {
+      httpMethod = make_shared<string>(boost::any_cast<string>(m["HttpMethod"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyFailedApisFailedApi() = default;
+};
+class ImportOASResponseBodyFailedApis : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImportOASResponseBodyFailedApisFailedApi>> failedApi{};
+
+  ImportOASResponseBodyFailedApis() {}
+
+  explicit ImportOASResponseBodyFailedApis(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failedApi) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedApi){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedApi"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedApi") != m.end() && !m["FailedApi"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedApi"].type()) {
+        vector<ImportOASResponseBodyFailedApisFailedApi> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedApi"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImportOASResponseBodyFailedApisFailedApi model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedApi = make_shared<vector<ImportOASResponseBodyFailedApisFailedApi>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyFailedApis() = default;
+};
+class ImportOASResponseBodyFailedModelsFailedModel : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> modelName{};
+
+  ImportOASResponseBodyFailedModelsFailedModel() {}
+
+  explicit ImportOASResponseBodyFailedModelsFailedModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMsg) {
+      res["ErrorMsg"] = boost::any(*errorMsg);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMsg") != m.end() && !m["ErrorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["ErrorMsg"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyFailedModelsFailedModel() = default;
+};
+class ImportOASResponseBodyFailedModels : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImportOASResponseBodyFailedModelsFailedModel>> failedModel{};
+
+  ImportOASResponseBodyFailedModels() {}
+
+  explicit ImportOASResponseBodyFailedModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failedModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*failedModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailedModel"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedModel") != m.end() && !m["FailedModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailedModel"].type()) {
+        vector<ImportOASResponseBodyFailedModelsFailedModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailedModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImportOASResponseBodyFailedModelsFailedModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failedModel = make_shared<vector<ImportOASResponseBodyFailedModelsFailedModel>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyFailedModels() = default;
+};
+class ImportOASResponseBodySuccessApisSuccessApi : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<string> apiOperation{};
+  shared_ptr<string> httpMethod{};
+  shared_ptr<string> path{};
+
+  ImportOASResponseBodySuccessApisSuccessApi() {}
+
+  explicit ImportOASResponseBodySuccessApisSuccessApi(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (apiOperation) {
+      res["ApiOperation"] = boost::any(*apiOperation);
+    }
+    if (httpMethod) {
+      res["HttpMethod"] = boost::any(*httpMethod);
+    }
+    if (path) {
+      res["Path"] = boost::any(*path);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("ApiOperation") != m.end() && !m["ApiOperation"].empty()) {
+      apiOperation = make_shared<string>(boost::any_cast<string>(m["ApiOperation"]));
+    }
+    if (m.find("HttpMethod") != m.end() && !m["HttpMethod"].empty()) {
+      httpMethod = make_shared<string>(boost::any_cast<string>(m["HttpMethod"]));
+    }
+    if (m.find("Path") != m.end() && !m["Path"].empty()) {
+      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodySuccessApisSuccessApi() = default;
+};
+class ImportOASResponseBodySuccessApis : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImportOASResponseBodySuccessApisSuccessApi>> successApi{};
+
+  ImportOASResponseBodySuccessApis() {}
+
+  explicit ImportOASResponseBodySuccessApis(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (successApi) {
+      vector<boost::any> temp1;
+      for(auto item1:*successApi){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SuccessApi"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SuccessApi") != m.end() && !m["SuccessApi"].empty()) {
+      if (typeid(vector<boost::any>) == m["SuccessApi"].type()) {
+        vector<ImportOASResponseBodySuccessApisSuccessApi> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SuccessApi"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImportOASResponseBodySuccessApisSuccessApi model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        successApi = make_shared<vector<ImportOASResponseBodySuccessApisSuccessApi>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodySuccessApis() = default;
+};
+class ImportOASResponseBodySuccessModelsSuccessModel : public Darabonba::Model {
+public:
+  shared_ptr<string> groupId{};
+  shared_ptr<string> modelName{};
+  shared_ptr<string> modelOperation{};
+  shared_ptr<string> modelUid{};
+
+  ImportOASResponseBodySuccessModelsSuccessModel() {}
+
+  explicit ImportOASResponseBodySuccessModelsSuccessModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (modelName) {
+      res["ModelName"] = boost::any(*modelName);
+    }
+    if (modelOperation) {
+      res["ModelOperation"] = boost::any(*modelOperation);
+    }
+    if (modelUid) {
+      res["ModelUid"] = boost::any(*modelUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("ModelName") != m.end() && !m["ModelName"].empty()) {
+      modelName = make_shared<string>(boost::any_cast<string>(m["ModelName"]));
+    }
+    if (m.find("ModelOperation") != m.end() && !m["ModelOperation"].empty()) {
+      modelOperation = make_shared<string>(boost::any_cast<string>(m["ModelOperation"]));
+    }
+    if (m.find("ModelUid") != m.end() && !m["ModelUid"].empty()) {
+      modelUid = make_shared<string>(boost::any_cast<string>(m["ModelUid"]));
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodySuccessModelsSuccessModel() = default;
+};
+class ImportOASResponseBodySuccessModels : public Darabonba::Model {
+public:
+  shared_ptr<vector<ImportOASResponseBodySuccessModelsSuccessModel>> successModel{};
+
+  ImportOASResponseBodySuccessModels() {}
+
+  explicit ImportOASResponseBodySuccessModels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (successModel) {
+      vector<boost::any> temp1;
+      for(auto item1:*successModel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SuccessModel"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SuccessModel") != m.end() && !m["SuccessModel"].empty()) {
+      if (typeid(vector<boost::any>) == m["SuccessModel"].type()) {
+        vector<ImportOASResponseBodySuccessModelsSuccessModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SuccessModel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ImportOASResponseBodySuccessModelsSuccessModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        successModel = make_shared<vector<ImportOASResponseBodySuccessModelsSuccessModel>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodySuccessModels() = default;
+};
+class ImportOASResponseBodyWarningMessages : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> warningMessage{};
+
+  ImportOASResponseBodyWarningMessages() {}
+
+  explicit ImportOASResponseBodyWarningMessages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (warningMessage) {
+      res["WarningMessage"] = boost::any(*warningMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WarningMessage") != m.end() && !m["WarningMessage"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WarningMessage"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WarningMessage"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      warningMessage = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ImportOASResponseBodyWarningMessages() = default;
+};
+class ImportOASResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<ImportOASResponseBodyErrorMessages> errorMessages{};
+  shared_ptr<ImportOASResponseBodyFailedApis> failedApis{};
+  shared_ptr<ImportOASResponseBodyFailedModels> failedModels{};
+  shared_ptr<string> operationId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<ImportOASResponseBodySuccessApis> successApis{};
+  shared_ptr<ImportOASResponseBodySuccessModels> successModels{};
+  shared_ptr<ImportOASResponseBodyWarningMessages> warningMessages{};
+
+  ImportOASResponseBody() {}
+
+  explicit ImportOASResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessages) {
+      res["ErrorMessages"] = errorMessages ? boost::any(errorMessages->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (failedApis) {
+      res["FailedApis"] = failedApis ? boost::any(failedApis->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (failedModels) {
+      res["FailedModels"] = failedModels ? boost::any(failedModels->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (operationId) {
+      res["OperationId"] = boost::any(*operationId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successApis) {
+      res["SuccessApis"] = successApis ? boost::any(successApis->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (successModels) {
+      res["SuccessModels"] = successModels ? boost::any(successModels->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (warningMessages) {
+      res["WarningMessages"] = warningMessages ? boost::any(warningMessages->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessages") != m.end() && !m["ErrorMessages"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ErrorMessages"].type()) {
+        ImportOASResponseBodyErrorMessages model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ErrorMessages"]));
+        errorMessages = make_shared<ImportOASResponseBodyErrorMessages>(model1);
+      }
+    }
+    if (m.find("FailedApis") != m.end() && !m["FailedApis"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FailedApis"].type()) {
+        ImportOASResponseBodyFailedApis model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FailedApis"]));
+        failedApis = make_shared<ImportOASResponseBodyFailedApis>(model1);
+      }
+    }
+    if (m.find("FailedModels") != m.end() && !m["FailedModels"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FailedModels"].type()) {
+        ImportOASResponseBodyFailedModels model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FailedModels"]));
+        failedModels = make_shared<ImportOASResponseBodyFailedModels>(model1);
+      }
+    }
+    if (m.find("OperationId") != m.end() && !m["OperationId"].empty()) {
+      operationId = make_shared<string>(boost::any_cast<string>(m["OperationId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessApis") != m.end() && !m["SuccessApis"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SuccessApis"].type()) {
+        ImportOASResponseBodySuccessApis model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SuccessApis"]));
+        successApis = make_shared<ImportOASResponseBodySuccessApis>(model1);
+      }
+    }
+    if (m.find("SuccessModels") != m.end() && !m["SuccessModels"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SuccessModels"].type()) {
+        ImportOASResponseBodySuccessModels model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SuccessModels"]));
+        successModels = make_shared<ImportOASResponseBodySuccessModels>(model1);
+      }
+    }
+    if (m.find("WarningMessages") != m.end() && !m["WarningMessages"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WarningMessages"].type()) {
+        ImportOASResponseBodyWarningMessages model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WarningMessages"]));
+        warningMessages = make_shared<ImportOASResponseBodyWarningMessages>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponseBody() = default;
+};
+class ImportOASResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ImportOASResponseBody> body{};
+
+  ImportOASResponse() {}
+
+  explicit ImportOASResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ImportOASResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ImportOASResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ImportOASResponse() = default;
+};
 class ImportSwaggerRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -42479,6 +43165,8 @@ public:
   DryRunSwaggerResponse dryRunSwagger(shared_ptr<DryRunSwaggerRequest> request);
   EnableInstanceAccessControlResponse enableInstanceAccessControlWithOptions(shared_ptr<EnableInstanceAccessControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableInstanceAccessControlResponse enableInstanceAccessControl(shared_ptr<EnableInstanceAccessControlRequest> request);
+  ImportOASResponse importOASWithOptions(shared_ptr<ImportOASRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ImportOASResponse importOAS(shared_ptr<ImportOASRequest> request);
   ImportSwaggerResponse importSwaggerWithOptions(shared_ptr<ImportSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportSwaggerResponse importSwagger(shared_ptr<ImportSwaggerRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

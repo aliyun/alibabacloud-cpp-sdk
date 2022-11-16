@@ -4467,6 +4467,63 @@ EnableInstanceAccessControlResponse Alibabacloud_CloudAPI20160714::Client::enabl
   return enableInstanceAccessControlWithOptions(request, runtime);
 }
 
+ImportOASResponse Alibabacloud_CloudAPI20160714::Client::importOASWithOptions(shared_ptr<ImportOASRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authType)) {
+    query->insert(pair<string, string>("AuthType", *request->authType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->backendName)) {
+    query->insert(pair<string, string>("BackendName", *request->backendName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreWarning)) {
+    query->insert(pair<string, bool>("IgnoreWarning", *request->ignoreWarning));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->OASVersion)) {
+    query->insert(pair<string, string>("OASVersion", *request->OASVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->overwrite)) {
+    query->insert(pair<string, bool>("Overwrite", *request->overwrite));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestMode)) {
+    query->insert(pair<string, string>("RequestMode", *request->requestMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->skipDryRun)) {
+    query->insert(pair<string, bool>("SkipDryRun", *request->skipDryRun));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->data)) {
+    body->insert(pair<string, string>("Data", *request->data));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ImportOAS"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ImportOASResponse(callApi(params, req, runtime));
+}
+
+ImportOASResponse Alibabacloud_CloudAPI20160714::Client::importOAS(shared_ptr<ImportOASRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return importOASWithOptions(request, runtime);
+}
+
 ImportSwaggerResponse Alibabacloud_CloudAPI20160714::Client::importSwaggerWithOptions(shared_ptr<ImportSwaggerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ImportSwaggerShrinkRequest> request = make_shared<ImportSwaggerShrinkRequest>();
