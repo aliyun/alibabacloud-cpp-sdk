@@ -3719,6 +3719,42 @@ public:
 
   virtual ~CreateHybridClusterRequestNodes() = default;
 };
+class CreateHybridClusterRequestOpenldapPar : public Darabonba::Model {
+public:
+  shared_ptr<string> baseDn{};
+  shared_ptr<string> ldapServerIp{};
+
+  CreateHybridClusterRequestOpenldapPar() {}
+
+  explicit CreateHybridClusterRequestOpenldapPar(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baseDn) {
+      res["BaseDn"] = boost::any(*baseDn);
+    }
+    if (ldapServerIp) {
+      res["LdapServerIp"] = boost::any(*ldapServerIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BaseDn") != m.end() && !m["BaseDn"].empty()) {
+      baseDn = make_shared<string>(boost::any_cast<string>(m["BaseDn"]));
+    }
+    if (m.find("LdapServerIp") != m.end() && !m["LdapServerIp"].empty()) {
+      ldapServerIp = make_shared<string>(boost::any_cast<string>(m["LdapServerIp"]));
+    }
+  }
+
+
+  virtual ~CreateHybridClusterRequestOpenldapPar() = default;
+};
 class CreateHybridClusterRequestPostInstallScript : public Darabonba::Model {
 public:
   shared_ptr<string> args{};
@@ -3755,6 +3791,56 @@ public:
 
   virtual ~CreateHybridClusterRequestPostInstallScript() = default;
 };
+class CreateHybridClusterRequestWinAdPar : public Darabonba::Model {
+public:
+  shared_ptr<string> adDc{};
+  shared_ptr<string> adIp{};
+  shared_ptr<string> adUser{};
+  shared_ptr<string> adUserPasswd{};
+
+  CreateHybridClusterRequestWinAdPar() {}
+
+  explicit CreateHybridClusterRequestWinAdPar(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adDc) {
+      res["AdDc"] = boost::any(*adDc);
+    }
+    if (adIp) {
+      res["AdIp"] = boost::any(*adIp);
+    }
+    if (adUser) {
+      res["AdUser"] = boost::any(*adUser);
+    }
+    if (adUserPasswd) {
+      res["AdUserPasswd"] = boost::any(*adUserPasswd);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDc") != m.end() && !m["AdDc"].empty()) {
+      adDc = make_shared<string>(boost::any_cast<string>(m["AdDc"]));
+    }
+    if (m.find("AdIp") != m.end() && !m["AdIp"].empty()) {
+      adIp = make_shared<string>(boost::any_cast<string>(m["AdIp"]));
+    }
+    if (m.find("AdUser") != m.end() && !m["AdUser"].empty()) {
+      adUser = make_shared<string>(boost::any_cast<string>(m["AdUser"]));
+    }
+    if (m.find("AdUserPasswd") != m.end() && !m["AdUserPasswd"].empty()) {
+      adUserPasswd = make_shared<string>(boost::any_cast<string>(m["AdUserPasswd"]));
+    }
+  }
+
+
+  virtual ~CreateHybridClusterRequestWinAdPar() = default;
+};
 class CreateHybridClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<CreateHybridClusterRequestEcsOrder> ecsOrder{};
@@ -3778,8 +3864,10 @@ public:
   shared_ptr<string> onPremiseVolumeMountPoint{};
   shared_ptr<string> onPremiseVolumeProtocol{};
   shared_ptr<string> onPremiseVolumeRemotePath{};
+  shared_ptr<CreateHybridClusterRequestOpenldapPar> openldapPar{};
   shared_ptr<string> osTag{};
   shared_ptr<string> password{};
+  shared_ptr<string> plugin{};
   shared_ptr<vector<CreateHybridClusterRequestPostInstallScript>> postInstallScript{};
   shared_ptr<string> remoteDirectory{};
   shared_ptr<string> resourceGroupId{};
@@ -3792,6 +3880,7 @@ public:
   shared_ptr<string> volumeProtocol{};
   shared_ptr<string> volumeType{};
   shared_ptr<string> vpcId{};
+  shared_ptr<CreateHybridClusterRequestWinAdPar> winAdPar{};
   shared_ptr<string> zoneId{};
 
   CreateHybridClusterRequest() {}
@@ -3875,11 +3964,17 @@ public:
     if (onPremiseVolumeRemotePath) {
       res["OnPremiseVolumeRemotePath"] = boost::any(*onPremiseVolumeRemotePath);
     }
+    if (openldapPar) {
+      res["OpenldapPar"] = openldapPar ? boost::any(openldapPar->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (osTag) {
       res["OsTag"] = boost::any(*osTag);
     }
     if (password) {
       res["Password"] = boost::any(*password);
+    }
+    if (plugin) {
+      res["Plugin"] = boost::any(*plugin);
     }
     if (postInstallScript) {
       vector<boost::any> temp1;
@@ -3920,6 +4015,9 @@ public:
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
+    }
+    if (winAdPar) {
+      res["WinAdPar"] = winAdPar ? boost::any(winAdPar->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -4015,11 +4113,21 @@ public:
     if (m.find("OnPremiseVolumeRemotePath") != m.end() && !m["OnPremiseVolumeRemotePath"].empty()) {
       onPremiseVolumeRemotePath = make_shared<string>(boost::any_cast<string>(m["OnPremiseVolumeRemotePath"]));
     }
+    if (m.find("OpenldapPar") != m.end() && !m["OpenldapPar"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OpenldapPar"].type()) {
+        CreateHybridClusterRequestOpenldapPar model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OpenldapPar"]));
+        openldapPar = make_shared<CreateHybridClusterRequestOpenldapPar>(model1);
+      }
+    }
     if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
       osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
     }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Plugin") != m.end() && !m["Plugin"].empty()) {
+      plugin = make_shared<string>(boost::any_cast<string>(m["Plugin"]));
     }
     if (m.find("PostInstallScript") != m.end() && !m["PostInstallScript"].empty()) {
       if (typeid(vector<boost::any>) == m["PostInstallScript"].type()) {
@@ -4066,6 +4174,13 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("WinAdPar") != m.end() && !m["WinAdPar"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WinAdPar"].type()) {
+        CreateHybridClusterRequestWinAdPar model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WinAdPar"]));
+        winAdPar = make_shared<CreateHybridClusterRequestWinAdPar>(model1);
+      }
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
