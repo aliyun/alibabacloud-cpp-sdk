@@ -3581,6 +3581,7 @@ public:
 class CreateRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> direction{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> listenerId{};
   shared_ptr<long> priority{};
@@ -3600,6 +3601,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -3633,6 +3637,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -13642,6 +13649,7 @@ public:
 };
 class ListRulesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> direction{};
   shared_ptr<vector<string>> listenerIds{};
   shared_ptr<vector<string>> loadBalancerIds{};
   shared_ptr<long> maxResults{};
@@ -13658,6 +13666,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
     if (listenerIds) {
       res["ListenerIds"] = boost::any(*listenerIds);
     }
@@ -13677,6 +13688,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
     if (m.find("ListenerIds") != m.end() && !m["ListenerIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ListenerIds"].type()) {

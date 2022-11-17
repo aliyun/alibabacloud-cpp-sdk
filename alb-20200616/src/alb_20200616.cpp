@@ -516,6 +516,9 @@ CreateRuleResponse Alibabacloud_Alb20200616::Client::createRuleWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -1721,6 +1724,9 @@ ListLoadBalancersResponse Alibabacloud_Alb20200616::Client::listLoadBalancers(sh
 ListRulesResponse Alibabacloud_Alb20200616::Client::listRulesWithOptions(shared_ptr<ListRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->listenerIds)) {
     query->insert(pair<string, vector<string>>("ListenerIds", *request->listenerIds));
   }
