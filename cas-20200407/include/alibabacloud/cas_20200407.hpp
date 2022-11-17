@@ -754,259 +754,6 @@ public:
 
   virtual ~CreateCertificateWithCsrRequestResponse() = default;
 };
-class CreateWHCertificateWithExtensionRequest : public Darabonba::Model {
-public:
-  shared_ptr<long> afterTime{};
-  shared_ptr<string> algorithmKeySize{};
-  shared_ptr<string> aliasName{};
-  shared_ptr<bool> appendCrl{};
-  shared_ptr<bool> basicConstraintsCritical{};
-  shared_ptr<long> beforeTime{};
-  shared_ptr<string> certType{};
-  shared_ptr<string> commonName{};
-  shared_ptr<string> countryCode{};
-  shared_ptr<string> csrPemString{};
-  shared_ptr<long> immediately{};
-  shared_ptr<string> locality{};
-  shared_ptr<string> organization{};
-  shared_ptr<string> organizationUnit{};
-  shared_ptr<string> parentIdentifier{};
-  shared_ptr<string> sans{};
-  shared_ptr<string> state{};
-
-  CreateWHCertificateWithExtensionRequest() {}
-
-  explicit CreateWHCertificateWithExtensionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (afterTime) {
-      res["AfterTime"] = boost::any(*afterTime);
-    }
-    if (algorithmKeySize) {
-      res["AlgorithmKeySize"] = boost::any(*algorithmKeySize);
-    }
-    if (aliasName) {
-      res["AliasName"] = boost::any(*aliasName);
-    }
-    if (appendCrl) {
-      res["AppendCrl"] = boost::any(*appendCrl);
-    }
-    if (basicConstraintsCritical) {
-      res["BasicConstraintsCritical"] = boost::any(*basicConstraintsCritical);
-    }
-    if (beforeTime) {
-      res["BeforeTime"] = boost::any(*beforeTime);
-    }
-    if (certType) {
-      res["CertType"] = boost::any(*certType);
-    }
-    if (commonName) {
-      res["CommonName"] = boost::any(*commonName);
-    }
-    if (countryCode) {
-      res["CountryCode"] = boost::any(*countryCode);
-    }
-    if (csrPemString) {
-      res["CsrPemString"] = boost::any(*csrPemString);
-    }
-    if (immediately) {
-      res["Immediately"] = boost::any(*immediately);
-    }
-    if (locality) {
-      res["Locality"] = boost::any(*locality);
-    }
-    if (organization) {
-      res["Organization"] = boost::any(*organization);
-    }
-    if (organizationUnit) {
-      res["OrganizationUnit"] = boost::any(*organizationUnit);
-    }
-    if (parentIdentifier) {
-      res["ParentIdentifier"] = boost::any(*parentIdentifier);
-    }
-    if (sans) {
-      res["Sans"] = boost::any(*sans);
-    }
-    if (state) {
-      res["State"] = boost::any(*state);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AfterTime") != m.end() && !m["AfterTime"].empty()) {
-      afterTime = make_shared<long>(boost::any_cast<long>(m["AfterTime"]));
-    }
-    if (m.find("AlgorithmKeySize") != m.end() && !m["AlgorithmKeySize"].empty()) {
-      algorithmKeySize = make_shared<string>(boost::any_cast<string>(m["AlgorithmKeySize"]));
-    }
-    if (m.find("AliasName") != m.end() && !m["AliasName"].empty()) {
-      aliasName = make_shared<string>(boost::any_cast<string>(m["AliasName"]));
-    }
-    if (m.find("AppendCrl") != m.end() && !m["AppendCrl"].empty()) {
-      appendCrl = make_shared<bool>(boost::any_cast<bool>(m["AppendCrl"]));
-    }
-    if (m.find("BasicConstraintsCritical") != m.end() && !m["BasicConstraintsCritical"].empty()) {
-      basicConstraintsCritical = make_shared<bool>(boost::any_cast<bool>(m["BasicConstraintsCritical"]));
-    }
-    if (m.find("BeforeTime") != m.end() && !m["BeforeTime"].empty()) {
-      beforeTime = make_shared<long>(boost::any_cast<long>(m["BeforeTime"]));
-    }
-    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
-      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
-    }
-    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
-      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
-    }
-    if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
-      countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
-    }
-    if (m.find("CsrPemString") != m.end() && !m["CsrPemString"].empty()) {
-      csrPemString = make_shared<string>(boost::any_cast<string>(m["CsrPemString"]));
-    }
-    if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
-      immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
-    }
-    if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
-      locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
-    }
-    if (m.find("Organization") != m.end() && !m["Organization"].empty()) {
-      organization = make_shared<string>(boost::any_cast<string>(m["Organization"]));
-    }
-    if (m.find("OrganizationUnit") != m.end() && !m["OrganizationUnit"].empty()) {
-      organizationUnit = make_shared<string>(boost::any_cast<string>(m["OrganizationUnit"]));
-    }
-    if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
-      parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
-    }
-    if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
-      sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
-    }
-    if (m.find("State") != m.end() && !m["State"].empty()) {
-      state = make_shared<string>(boost::any_cast<string>(m["State"]));
-    }
-  }
-
-
-  virtual ~CreateWHCertificateWithExtensionRequest() = default;
-};
-class CreateWHCertificateWithExtensionResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> certificate{};
-  shared_ptr<string> certificateChain{};
-  shared_ptr<string> identifier{};
-  shared_ptr<string> requestId{};
-
-  CreateWHCertificateWithExtensionResponseBody() {}
-
-  explicit CreateWHCertificateWithExtensionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (certificate) {
-      res["Certificate"] = boost::any(*certificate);
-    }
-    if (certificateChain) {
-      res["CertificateChain"] = boost::any(*certificateChain);
-    }
-    if (identifier) {
-      res["Identifier"] = boost::any(*identifier);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
-      certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
-    }
-    if (m.find("CertificateChain") != m.end() && !m["CertificateChain"].empty()) {
-      certificateChain = make_shared<string>(boost::any_cast<string>(m["CertificateChain"]));
-    }
-    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
-      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~CreateWHCertificateWithExtensionResponseBody() = default;
-};
-class CreateWHCertificateWithExtensionResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<CreateWHCertificateWithExtensionResponseBody> body{};
-
-  CreateWHCertificateWithExtensionResponse() {}
-
-  explicit CreateWHCertificateWithExtensionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        CreateWHCertificateWithExtensionResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<CreateWHCertificateWithExtensionResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~CreateWHCertificateWithExtensionResponse() = default;
-};
 class CreateWHClientCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<long> afterTime{};
@@ -2162,11 +1909,117 @@ public:
 
   virtual ~EncryptResponse() = default;
 };
+class GetCertWarehouseQuotaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalQuota{};
+  shared_ptr<long> useCount{};
+
+  GetCertWarehouseQuotaResponseBody() {}
+
+  explicit GetCertWarehouseQuotaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalQuota) {
+      res["TotalQuota"] = boost::any(*totalQuota);
+    }
+    if (useCount) {
+      res["UseCount"] = boost::any(*useCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalQuota") != m.end() && !m["TotalQuota"].empty()) {
+      totalQuota = make_shared<long>(boost::any_cast<long>(m["TotalQuota"]));
+    }
+    if (m.find("UseCount") != m.end() && !m["UseCount"].empty()) {
+      useCount = make_shared<long>(boost::any_cast<long>(m["UseCount"]));
+    }
+  }
+
+
+  virtual ~GetCertWarehouseQuotaResponseBody() = default;
+};
+class GetCertWarehouseQuotaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCertWarehouseQuotaResponseBody> body{};
+
+  GetCertWarehouseQuotaResponse() {}
+
+  explicit GetCertWarehouseQuotaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCertWarehouseQuotaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCertWarehouseQuotaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCertWarehouseQuotaResponse() = default;
+};
 class ListCertRequest : public Darabonba::Model {
 public:
   shared_ptr<long> currentPage{};
   shared_ptr<string> keyWord{};
   shared_ptr<long> showSize{};
+  shared_ptr<string> sourceType{};
   shared_ptr<string> status{};
   shared_ptr<long> warehouseId{};
 
@@ -2189,6 +2042,9 @@ public:
     if (showSize) {
       res["ShowSize"] = boost::any(*showSize);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -2207,6 +2063,9 @@ public:
     }
     if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
       showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -2784,18 +2643,34 @@ public:
   shared_ptr<long> certEndTime{};
   shared_ptr<long> certStartTime{};
   shared_ptr<string> certType{};
+  shared_ptr<long> certificateId{};
+  shared_ptr<string> city{};
+  shared_ptr<string> commonName{};
+  shared_ptr<string> country{};
   shared_ptr<string> domain{};
   shared_ptr<long> domainCount{};
   shared_ptr<string> domainType{};
+  shared_ptr<string> endDate{};
+  shared_ptr<bool> expired{};
+  shared_ptr<string> fingerprint{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> issuer{};
+  shared_ptr<string> name{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> orgName{};
   shared_ptr<string> partnerOrderId{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productName{};
+  shared_ptr<string> province{};
   shared_ptr<string> rootBrand{};
+  shared_ptr<string> sans{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> sha2{};
   shared_ptr<string> sourceType{};
+  shared_ptr<string> startDate{};
   shared_ptr<string> status{};
   shared_ptr<string> trusteeStatus{};
+  shared_ptr<bool> upload{};
   shared_ptr<long> wildDomainCount{};
 
   ListUserCertificateOrderResponseBodyCertificateOrderList() {}
@@ -2826,6 +2701,18 @@ public:
     if (certType) {
       res["CertType"] = boost::any(*certType);
     }
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
@@ -2835,11 +2722,29 @@ public:
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
     }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (expired) {
+      res["Expired"] = boost::any(*expired);
+    }
+    if (fingerprint) {
+      res["Fingerprint"] = boost::any(*fingerprint);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (issuer) {
+      res["Issuer"] = boost::any(*issuer);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
     }
     if (partnerOrderId) {
       res["PartnerOrderId"] = boost::any(*partnerOrderId);
@@ -2850,17 +2755,35 @@ public:
     if (productName) {
       res["ProductName"] = boost::any(*productName);
     }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
     if (rootBrand) {
       res["RootBrand"] = boost::any(*rootBrand);
     }
+    if (sans) {
+      res["Sans"] = boost::any(*sans);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (sha2) {
+      res["Sha2"] = boost::any(*sha2);
+    }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
     }
     if (status) {
       res["Status"] = boost::any(*status);
     }
     if (trusteeStatus) {
       res["TrusteeStatus"] = boost::any(*trusteeStatus);
+    }
+    if (upload) {
+      res["Upload"] = boost::any(*upload);
     }
     if (wildDomainCount) {
       res["WildDomainCount"] = boost::any(*wildDomainCount);
@@ -2887,6 +2810,18 @@ public:
     if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
       certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
     }
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<long>(boost::any_cast<long>(m["CertificateId"]));
+    }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
@@ -2896,11 +2831,29 @@ public:
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
     }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("Expired") != m.end() && !m["Expired"].empty()) {
+      expired = make_shared<bool>(boost::any_cast<bool>(m["Expired"]));
+    }
+    if (m.find("Fingerprint") != m.end() && !m["Fingerprint"].empty()) {
+      fingerprint = make_shared<string>(boost::any_cast<string>(m["Fingerprint"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
+      issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
     }
     if (m.find("PartnerOrderId") != m.end() && !m["PartnerOrderId"].empty()) {
       partnerOrderId = make_shared<string>(boost::any_cast<string>(m["PartnerOrderId"]));
@@ -2911,17 +2864,35 @@ public:
     if (m.find("ProductName") != m.end() && !m["ProductName"].empty()) {
       productName = make_shared<string>(boost::any_cast<string>(m["ProductName"]));
     }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
     if (m.find("RootBrand") != m.end() && !m["RootBrand"].empty()) {
       rootBrand = make_shared<string>(boost::any_cast<string>(m["RootBrand"]));
     }
+    if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
+      sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("Sha2") != m.end() && !m["Sha2"].empty()) {
+      sha2 = make_shared<string>(boost::any_cast<string>(m["Sha2"]));
+    }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TrusteeStatus") != m.end() && !m["TrusteeStatus"].empty()) {
       trusteeStatus = make_shared<string>(boost::any_cast<string>(m["TrusteeStatus"]));
+    }
+    if (m.find("Upload") != m.end() && !m["Upload"].empty()) {
+      upload = make_shared<bool>(boost::any_cast<bool>(m["Upload"]));
     }
     if (m.find("WildDomainCount") != m.end() && !m["WildDomainCount"].empty()) {
       wildDomainCount = make_shared<long>(boost::any_cast<long>(m["WildDomainCount"]));
@@ -3518,6 +3489,7 @@ public:
 };
 class UploadPCACertResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> identifier{};
   shared_ptr<string> requestId{};
 
   UploadPCACertResponseBody() {}
@@ -3530,6 +3502,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3537,6 +3512,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -3782,8 +3760,6 @@ public:
   CreateCertificateRequestResponse createCertificateRequest(shared_ptr<CreateCertificateRequestRequest> request);
   CreateCertificateWithCsrRequestResponse createCertificateWithCsrRequestWithOptions(shared_ptr<CreateCertificateWithCsrRequestRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCertificateWithCsrRequestResponse createCertificateWithCsrRequest(shared_ptr<CreateCertificateWithCsrRequestRequest> request);
-  CreateWHCertificateWithExtensionResponse createWHCertificateWithExtensionWithOptions(shared_ptr<CreateWHCertificateWithExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateWHCertificateWithExtensionResponse createWHCertificateWithExtension(shared_ptr<CreateWHCertificateWithExtensionRequest> request);
   CreateWHClientCertificateResponse createWHClientCertificateWithOptions(shared_ptr<CreateWHClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateWHClientCertificateResponse createWHClientCertificate(shared_ptr<CreateWHClientCertificateRequest> request);
   DecryptResponse decryptWithOptions(shared_ptr<DecryptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3798,6 +3774,8 @@ public:
   DescribePackageStateResponse describePackageState(shared_ptr<DescribePackageStateRequest> request);
   EncryptResponse encryptWithOptions(shared_ptr<EncryptRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EncryptResponse encrypt(shared_ptr<EncryptRequest> request);
+  GetCertWarehouseQuotaResponse getCertWarehouseQuotaWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCertWarehouseQuotaResponse getCertWarehouseQuota();
   ListCertResponse listCertWithOptions(shared_ptr<ListCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCertResponse listCert(shared_ptr<ListCertRequest> request);
   ListCertWarehouseResponse listCertWarehouseWithOptions(shared_ptr<ListCertWarehouseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -281,82 +281,6 @@ CreateCertificateWithCsrRequestResponse Alibabacloud_Cas20200407::Client::create
   return createCertificateWithCsrRequestWithOptions(request, runtime);
 }
 
-CreateWHCertificateWithExtensionResponse Alibabacloud_Cas20200407::Client::createWHCertificateWithExtensionWithOptions(shared_ptr<CreateWHCertificateWithExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->afterTime)) {
-    query->insert(pair<string, long>("AfterTime", *request->afterTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->algorithmKeySize)) {
-    query->insert(pair<string, string>("AlgorithmKeySize", *request->algorithmKeySize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->aliasName)) {
-    query->insert(pair<string, string>("AliasName", *request->aliasName));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->appendCrl)) {
-    query->insert(pair<string, bool>("AppendCrl", *request->appendCrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->basicConstraintsCritical)) {
-    query->insert(pair<string, bool>("BasicConstraintsCritical", *request->basicConstraintsCritical));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->beforeTime)) {
-    query->insert(pair<string, long>("BeforeTime", *request->beforeTime));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->certType)) {
-    query->insert(pair<string, string>("CertType", *request->certType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->commonName)) {
-    query->insert(pair<string, string>("CommonName", *request->commonName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->countryCode)) {
-    query->insert(pair<string, string>("CountryCode", *request->countryCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->csrPemString)) {
-    query->insert(pair<string, string>("CsrPemString", *request->csrPemString));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
-    query->insert(pair<string, long>("Immediately", *request->immediately));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->locality)) {
-    query->insert(pair<string, string>("Locality", *request->locality));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->organization)) {
-    query->insert(pair<string, string>("Organization", *request->organization));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->organizationUnit)) {
-    query->insert(pair<string, string>("OrganizationUnit", *request->organizationUnit));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->parentIdentifier)) {
-    query->insert(pair<string, string>("ParentIdentifier", *request->parentIdentifier));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sans)) {
-    query->insert(pair<string, string>("Sans", *request->sans));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
-    query->insert(pair<string, string>("State", *request->state));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateWHCertificateWithExtension"))},
-    {"version", boost::any(string("2020-04-07"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateWHCertificateWithExtensionResponse(callApi(params, req, runtime));
-}
-
-CreateWHCertificateWithExtensionResponse Alibabacloud_Cas20200407::Client::createWHCertificateWithExtension(shared_ptr<CreateWHCertificateWithExtensionRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createWHCertificateWithExtensionWithOptions(request, runtime);
-}
-
 CreateWHClientCertificateResponse Alibabacloud_Cas20200407::Client::createWHClientCertificateWithOptions(shared_ptr<CreateWHClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -619,6 +543,27 @@ EncryptResponse Alibabacloud_Cas20200407::Client::encrypt(shared_ptr<EncryptRequ
   return encryptWithOptions(request, runtime);
 }
 
+GetCertWarehouseQuotaResponse Alibabacloud_Cas20200407::Client::getCertWarehouseQuotaWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCertWarehouseQuota"))},
+    {"version", boost::any(string("2020-04-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCertWarehouseQuotaResponse(callApi(params, req, runtime));
+}
+
+GetCertWarehouseQuotaResponse Alibabacloud_Cas20200407::Client::getCertWarehouseQuota() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCertWarehouseQuotaWithOptions(runtime);
+}
+
 ListCertResponse Alibabacloud_Cas20200407::Client::listCertWithOptions(shared_ptr<ListCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -630,6 +575,9 @@ ListCertResponse Alibabacloud_Cas20200407::Client::listCertWithOptions(shared_pt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->showSize)) {
     query->insert(pair<string, long>("ShowSize", *request->showSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
