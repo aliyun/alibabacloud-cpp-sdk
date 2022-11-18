@@ -53,7 +53,7 @@ public:
 class ChangeSkyAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<string> replaceImageURL{};
+  shared_ptr<Darabonba::Stream> replaceImageURLObject{};
 
   ChangeSkyAdvanceRequest() {}
 
@@ -68,8 +68,8 @@ public:
     if (imageURLObject) {
       res["ImageURL"] = boost::any(*imageURLObject);
     }
-    if (replaceImageURL) {
-      res["ReplaceImageURL"] = boost::any(*replaceImageURL);
+    if (replaceImageURLObject) {
+      res["ReplaceImageURL"] = boost::any(*replaceImageURLObject);
     }
     return res;
   }
@@ -79,7 +79,7 @@ public:
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("ReplaceImageURL") != m.end() && !m["ReplaceImageURL"].empty()) {
-      replaceImageURL = make_shared<string>(boost::any_cast<string>(m["ReplaceImageURL"]));
+      replaceImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ReplaceImageURL"]));
     }
   }
 
