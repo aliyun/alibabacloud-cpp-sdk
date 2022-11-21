@@ -13145,6 +13145,175 @@ public:
 
   virtual ~GetIfEcsTypeSupportHtConfigResponse() = default;
 };
+class GetJobLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> execHost{};
+  shared_ptr<string> jobId{};
+  shared_ptr<long> offset{};
+  shared_ptr<long> size{};
+
+  GetJobLogRequest() {}
+
+  explicit GetJobLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (execHost) {
+      res["ExecHost"] = boost::any(*execHost);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (offset) {
+      res["Offset"] = boost::any(*offset);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ExecHost") != m.end() && !m["ExecHost"].empty()) {
+      execHost = make_shared<string>(boost::any_cast<string>(m["ExecHost"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
+      offset = make_shared<long>(boost::any_cast<long>(m["Offset"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+  }
+
+
+  virtual ~GetJobLogRequest() = default;
+};
+class GetJobLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorLog{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> outputLog{};
+  shared_ptr<string> requestId{};
+
+  GetJobLogResponseBody() {}
+
+  explicit GetJobLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorLog) {
+      res["ErrorLog"] = boost::any(*errorLog);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (outputLog) {
+      res["OutputLog"] = boost::any(*outputLog);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorLog") != m.end() && !m["ErrorLog"].empty()) {
+      errorLog = make_shared<string>(boost::any_cast<string>(m["ErrorLog"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("OutputLog") != m.end() && !m["OutputLog"].empty()) {
+      outputLog = make_shared<string>(boost::any_cast<string>(m["OutputLog"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetJobLogResponseBody() = default;
+};
+class GetJobLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetJobLogResponseBody> body{};
+
+  GetJobLogResponse() {}
+
+  explicit GetJobLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetJobLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetJobLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetJobLogResponse() = default;
+};
 class GetPostScriptsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -33191,6 +33360,8 @@ public:
   GetHybridClusterConfigResponse getHybridClusterConfig(shared_ptr<GetHybridClusterConfigRequest> request);
   GetIfEcsTypeSupportHtConfigResponse getIfEcsTypeSupportHtConfigWithOptions(shared_ptr<GetIfEcsTypeSupportHtConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIfEcsTypeSupportHtConfigResponse getIfEcsTypeSupportHtConfig(shared_ptr<GetIfEcsTypeSupportHtConfigRequest> request);
+  GetJobLogResponse getJobLogWithOptions(shared_ptr<GetJobLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJobLogResponse getJobLog(shared_ptr<GetJobLogRequest> request);
   GetPostScriptsResponse getPostScriptsWithOptions(shared_ptr<GetPostScriptsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPostScriptsResponse getPostScripts(shared_ptr<GetPostScriptsRequest> request);
   GetSchedulerInfoResponse getSchedulerInfoWithOptions(shared_ptr<GetSchedulerInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
