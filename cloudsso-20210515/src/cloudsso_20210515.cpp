@@ -2043,6 +2043,9 @@ UpdateMFAAuthenticationSettingsResponse Alibabacloud_Cloudsso20210515::Client::u
   if (!Darabonba_Util::Client::isUnset<string>(request->MFAAuthenticationSettings)) {
     query->insert(pair<string, string>("MFAAuthenticationSettings", *request->MFAAuthenticationSettings));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationForRiskLogin)) {
+    query->insert(pair<string, string>("OperationForRiskLogin", *request->operationForRiskLogin));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

@@ -11673,6 +11673,7 @@ class UpdateMFAAuthenticationSettingsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> directoryId{};
   shared_ptr<string> MFAAuthenticationSettings{};
+  shared_ptr<string> operationForRiskLogin{};
 
   UpdateMFAAuthenticationSettingsRequest() {}
 
@@ -11690,6 +11691,9 @@ public:
     if (MFAAuthenticationSettings) {
       res["MFAAuthenticationSettings"] = boost::any(*MFAAuthenticationSettings);
     }
+    if (operationForRiskLogin) {
+      res["OperationForRiskLogin"] = boost::any(*operationForRiskLogin);
+    }
     return res;
   }
 
@@ -11699,6 +11703,9 @@ public:
     }
     if (m.find("MFAAuthenticationSettings") != m.end() && !m["MFAAuthenticationSettings"].empty()) {
       MFAAuthenticationSettings = make_shared<string>(boost::any_cast<string>(m["MFAAuthenticationSettings"]));
+    }
+    if (m.find("OperationForRiskLogin") != m.end() && !m["OperationForRiskLogin"].empty()) {
+      operationForRiskLogin = make_shared<string>(boost::any_cast<string>(m["OperationForRiskLogin"]));
     }
   }
 
