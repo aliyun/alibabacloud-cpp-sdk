@@ -558,6 +558,9 @@ CreateTemplateScratchResponse Alibabacloud_ROS20190910::Client::createTemplateSc
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceTagShrink)) {
     query->insert(pair<string, string>("SourceTag", *request->sourceTagShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTemplateScratchShrinkRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<CreateTemplateScratchShrinkRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateScratchType)) {
     query->insert(pair<string, string>("TemplateScratchType", *request->templateScratchType));
   }
@@ -1938,6 +1941,9 @@ ListStackGroupsResponse Alibabacloud_ROS20190910::Client::listStackGroupsWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListStackGroupsRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListStackGroupsRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2316,6 +2322,9 @@ ListTemplateScratchesResponse Alibabacloud_ROS20190910::Client::listTemplateScra
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListTemplateScratchesRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<ListTemplateScratchesRequestTags>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateScratchId)) {
     query->insert(pair<string, string>("TemplateScratchId", *request->templateScratchId));
   }
@@ -2461,13 +2470,8 @@ MoveResourceGroupResponse Alibabacloud_ROS20190910::Client::moveResourceGroup(sh
   return moveResourceGroupWithOptions(request, runtime);
 }
 
-PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(shared_ptr<PreviewStackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<PreviewStackShrinkRequest> request = make_shared<PreviewStackShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackRequestResourceConfigRules>>(tmpReq->resourceConfigRules)) {
-    request->resourceConfigRulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->resourceConfigRules, make_shared<string>("ResourceConfigRules"), make_shared<string>("json")));
-  }
+PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(shared_ptr<PreviewStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -2475,17 +2479,17 @@ PreviewStackResponse Alibabacloud_ROS20190910::Client::previewStackWithOptions(s
   if (!Darabonba_Util::Client::isUnset<bool>(request->disableRollback)) {
     query->insert(pair<string, bool>("DisableRollback", *request->disableRollback));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enablePreConfig)) {
+    query->insert(pair<string, bool>("EnablePreConfig", *request->enablePreConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->parallelism)) {
     query->insert(pair<string, long>("Parallelism", *request->parallelism));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackShrinkRequestParameters>>(request->parameters)) {
-    query->insert(pair<string, vector<PreviewStackShrinkRequestParameters>>("Parameters", *request->parameters));
+  if (!Darabonba_Util::Client::isUnset<vector<PreviewStackRequestParameters>>(request->parameters)) {
+    query->insert(pair<string, vector<PreviewStackRequestParameters>>("Parameters", *request->parameters));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceConfigRulesShrink)) {
-    query->insert(pair<string, string>("ResourceConfigRules", *request->resourceConfigRulesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));

@@ -2636,6 +2636,42 @@ public:
 
   virtual ~CreateTemplateScratchRequestSourceTag() = default;
 };
+class CreateTemplateScratchRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateTemplateScratchRequestTags() {}
+
+  explicit CreateTemplateScratchRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchRequestTags() = default;
+};
 class CreateTemplateScratchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -2647,6 +2683,7 @@ public:
   shared_ptr<CreateTemplateScratchRequestSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<CreateTemplateScratchRequestSourceResources>> sourceResources{};
   shared_ptr<CreateTemplateScratchRequestSourceTag> sourceTag{};
+  shared_ptr<vector<CreateTemplateScratchRequestTags>> tags{};
   shared_ptr<string> templateScratchType{};
 
   CreateTemplateScratchRequest() {}
@@ -2693,6 +2730,13 @@ public:
     }
     if (sourceTag) {
       res["SourceTag"] = sourceTag ? boost::any(sourceTag->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateScratchType) {
       res["TemplateScratchType"] = boost::any(*templateScratchType);
@@ -2756,6 +2800,19 @@ public:
         sourceTag = make_shared<CreateTemplateScratchRequestSourceTag>(model1);
       }
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateTemplateScratchRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTemplateScratchRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateTemplateScratchRequestTags>>(expect1);
+      }
+    }
     if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
       templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
     }
@@ -2763,6 +2820,42 @@ public:
 
 
   virtual ~CreateTemplateScratchRequest() = default;
+};
+class CreateTemplateScratchShrinkRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateTemplateScratchShrinkRequestTags() {}
+
+  explicit CreateTemplateScratchShrinkRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateTemplateScratchShrinkRequestTags() = default;
 };
 class CreateTemplateScratchShrinkRequest : public Darabonba::Model {
 public:
@@ -2775,6 +2868,7 @@ public:
   shared_ptr<string> sourceResourceGroupShrink{};
   shared_ptr<string> sourceResourcesShrink{};
   shared_ptr<string> sourceTagShrink{};
+  shared_ptr<vector<CreateTemplateScratchShrinkRequestTags>> tags{};
   shared_ptr<string> templateScratchType{};
 
   CreateTemplateScratchShrinkRequest() {}
@@ -2814,6 +2908,13 @@ public:
     if (sourceTagShrink) {
       res["SourceTag"] = boost::any(*sourceTagShrink);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (templateScratchType) {
       res["TemplateScratchType"] = boost::any(*templateScratchType);
     }
@@ -2847,6 +2948,19 @@ public:
     }
     if (m.find("SourceTag") != m.end() && !m["SourceTag"].empty()) {
       sourceTagShrink = make_shared<string>(boost::any_cast<string>(m["SourceTag"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateTemplateScratchShrinkRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateTemplateScratchShrinkRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateTemplateScratchShrinkRequestTags>>(expect1);
+      }
     }
     if (m.find("TemplateScratchType") != m.end() && !m["TemplateScratchType"].empty()) {
       templateScratchType = make_shared<string>(boost::any_cast<string>(m["TemplateScratchType"]));
@@ -13305,6 +13419,42 @@ public:
 
   virtual ~ListStackGroupOperationsResponse() = default;
 };
+class ListStackGroupsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListStackGroupsRequestTags() {}
+
+  explicit ListStackGroupsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListStackGroupsRequestTags() = default;
+};
 class ListStackGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -13312,6 +13462,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListStackGroupsRequestTags>> tags{};
 
   ListStackGroupsRequest() {}
 
@@ -13338,6 +13489,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -13356,6 +13514,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListStackGroupsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListStackGroupsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListStackGroupsRequestTags>>(expect1);
+      }
     }
   }
 
@@ -13398,6 +13569,42 @@ public:
 
   virtual ~ListStackGroupsResponseBodyStackGroupsAutoDeployment() = default;
 };
+class ListStackGroupsResponseBodyStackGroupsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListStackGroupsResponseBodyStackGroupsTags() {}
+
+  explicit ListStackGroupsResponseBodyStackGroupsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListStackGroupsResponseBodyStackGroupsTags() = default;
+};
 class ListStackGroupsResponseBodyStackGroups : public Darabonba::Model {
 public:
   shared_ptr<ListStackGroupsResponseBodyStackGroupsAutoDeployment> autoDeployment{};
@@ -13409,6 +13616,7 @@ public:
   shared_ptr<string> stackGroupId{};
   shared_ptr<string> stackGroupName{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListStackGroupsResponseBodyStackGroupsTags>> tags{};
 
   ListStackGroupsResponseBodyStackGroups() {}
 
@@ -13447,6 +13655,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -13481,6 +13696,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListStackGroupsResponseBodyStackGroupsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListStackGroupsResponseBodyStackGroupsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListStackGroupsResponseBodyStackGroupsTags>>(expect1);
+      }
     }
   }
 
@@ -15967,12 +16195,49 @@ public:
 
   virtual ~ListTagValuesResponse() = default;
 };
+class ListTemplateScratchesRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTemplateScratchesRequestTags() {}
+
+  explicit ListTemplateScratchesRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesRequestTags() = default;
+};
 class ListTemplateScratchesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListTemplateScratchesRequestTags>> tags{};
   shared_ptr<string> templateScratchId{};
   shared_ptr<string> templateScratchType{};
 
@@ -15998,6 +16263,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
     }
@@ -16019,6 +16291,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListTemplateScratchesRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateScratchesRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListTemplateScratchesRequestTags>>(expect1);
+      }
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
@@ -16194,6 +16479,42 @@ public:
 
   virtual ~ListTemplateScratchesResponseBodyTemplateScratchesSourceTag() = default;
 };
+class ListTemplateScratchesResponseBodyTemplateScratchesTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTemplateScratchesResponseBodyTemplateScratchesTags() {}
+
+  explicit ListTemplateScratchesResponseBodyTemplateScratchesTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTemplateScratchesResponseBodyTemplateScratchesTags() = default;
+};
 class ListTemplateScratchesResponseBodyTemplateScratches : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
@@ -16206,6 +16527,7 @@ public:
   shared_ptr<ListTemplateScratchesResponseBodyTemplateScratchesSourceTag> sourceTag{};
   shared_ptr<string> status{};
   shared_ptr<string> statusReason{};
+  shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratchesTags>> tags{};
   shared_ptr<string> templateScratchId{};
   shared_ptr<string> templateScratchType{};
   shared_ptr<string> updateTime{};
@@ -16257,6 +16579,13 @@ public:
     }
     if (statusReason) {
       res["StatusReason"] = boost::any(*statusReason);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
@@ -16328,6 +16657,19 @@ public:
     }
     if (m.find("StatusReason") != m.end() && !m["StatusReason"].empty()) {
       statusReason = make_shared<string>(boost::any_cast<string>(m["StatusReason"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListTemplateScratchesResponseBodyTemplateScratchesTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTemplateScratchesResponseBodyTemplateScratchesTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListTemplateScratchesResponseBodyTemplateScratchesTags>>(expect1);
+      }
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
@@ -17282,62 +17624,14 @@ public:
 
   virtual ~PreviewStackRequestParameters() = default;
 };
-class PreviewStackRequestResourceConfigRules : public Darabonba::Model {
-public:
-  shared_ptr<string> identifier{};
-  shared_ptr<map<string, boost::any>> inputParameters{};
-  shared_ptr<string> resourceType{};
-
-  PreviewStackRequestResourceConfigRules() {}
-
-  explicit PreviewStackRequestResourceConfigRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (identifier) {
-      res["Identifier"] = boost::any(*identifier);
-    }
-    if (inputParameters) {
-      res["InputParameters"] = boost::any(*inputParameters);
-    }
-    if (resourceType) {
-      res["ResourceType"] = boost::any(*resourceType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
-      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
-    }
-    if (m.find("InputParameters") != m.end() && !m["InputParameters"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InputParameters"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      inputParameters = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
-      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
-    }
-  }
-
-
-  virtual ~PreviewStackRequestResourceConfigRules() = default;
-};
 class PreviewStackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> disableRollback{};
+  shared_ptr<bool> enablePreConfig{};
   shared_ptr<long> parallelism{};
   shared_ptr<vector<PreviewStackRequestParameters>> parameters{};
   shared_ptr<string> regionId{};
-  shared_ptr<vector<PreviewStackRequestResourceConfigRules>> resourceConfigRules{};
   shared_ptr<string> stackId{};
   shared_ptr<string> stackName{};
   shared_ptr<string> stackPolicyBody{};
@@ -17366,6 +17660,9 @@ public:
     if (disableRollback) {
       res["DisableRollback"] = boost::any(*disableRollback);
     }
+    if (enablePreConfig) {
+      res["EnablePreConfig"] = boost::any(*enablePreConfig);
+    }
     if (parallelism) {
       res["Parallelism"] = boost::any(*parallelism);
     }
@@ -17378,13 +17675,6 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
-    }
-    if (resourceConfigRules) {
-      vector<boost::any> temp1;
-      for(auto item1:*resourceConfigRules){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["ResourceConfigRules"] = boost::any(temp1);
     }
     if (stackId) {
       res["StackId"] = boost::any(*stackId);
@@ -17429,6 +17719,9 @@ public:
     if (m.find("DisableRollback") != m.end() && !m["DisableRollback"].empty()) {
       disableRollback = make_shared<bool>(boost::any_cast<bool>(m["DisableRollback"]));
     }
+    if (m.find("EnablePreConfig") != m.end() && !m["EnablePreConfig"].empty()) {
+      enablePreConfig = make_shared<bool>(boost::any_cast<bool>(m["EnablePreConfig"]));
+    }
     if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
       parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
     }
@@ -17447,19 +17740,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceConfigRules") != m.end() && !m["ResourceConfigRules"].empty()) {
-      if (typeid(vector<boost::any>) == m["ResourceConfigRules"].type()) {
-        vector<PreviewStackRequestResourceConfigRules> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceConfigRules"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            PreviewStackRequestResourceConfigRules model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        resourceConfigRules = make_shared<vector<PreviewStackRequestResourceConfigRules>>(expect1);
-      }
     }
     if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
       stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
@@ -17498,197 +17778,6 @@ public:
 
 
   virtual ~PreviewStackRequest() = default;
-};
-class PreviewStackShrinkRequestParameters : public Darabonba::Model {
-public:
-  shared_ptr<string> parameterKey{};
-  shared_ptr<string> parameterValue{};
-
-  PreviewStackShrinkRequestParameters() {}
-
-  explicit PreviewStackShrinkRequestParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (parameterKey) {
-      res["ParameterKey"] = boost::any(*parameterKey);
-    }
-    if (parameterValue) {
-      res["ParameterValue"] = boost::any(*parameterValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
-      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
-    }
-    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
-      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
-    }
-  }
-
-
-  virtual ~PreviewStackShrinkRequestParameters() = default;
-};
-class PreviewStackShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clientToken{};
-  shared_ptr<bool> disableRollback{};
-  shared_ptr<long> parallelism{};
-  shared_ptr<vector<PreviewStackShrinkRequestParameters>> parameters{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> resourceConfigRulesShrink{};
-  shared_ptr<string> stackId{};
-  shared_ptr<string> stackName{};
-  shared_ptr<string> stackPolicyBody{};
-  shared_ptr<string> stackPolicyURL{};
-  shared_ptr<string> templateBody{};
-  shared_ptr<string> templateId{};
-  shared_ptr<string> templateScratchId{};
-  shared_ptr<string> templateScratchRegionId{};
-  shared_ptr<string> templateURL{};
-  shared_ptr<string> templateVersion{};
-  shared_ptr<long> timeoutInMinutes{};
-
-  PreviewStackShrinkRequest() {}
-
-  explicit PreviewStackShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clientToken) {
-      res["ClientToken"] = boost::any(*clientToken);
-    }
-    if (disableRollback) {
-      res["DisableRollback"] = boost::any(*disableRollback);
-    }
-    if (parallelism) {
-      res["Parallelism"] = boost::any(*parallelism);
-    }
-    if (parameters) {
-      vector<boost::any> temp1;
-      for(auto item1:*parameters){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Parameters"] = boost::any(temp1);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (resourceConfigRulesShrink) {
-      res["ResourceConfigRules"] = boost::any(*resourceConfigRulesShrink);
-    }
-    if (stackId) {
-      res["StackId"] = boost::any(*stackId);
-    }
-    if (stackName) {
-      res["StackName"] = boost::any(*stackName);
-    }
-    if (stackPolicyBody) {
-      res["StackPolicyBody"] = boost::any(*stackPolicyBody);
-    }
-    if (stackPolicyURL) {
-      res["StackPolicyURL"] = boost::any(*stackPolicyURL);
-    }
-    if (templateBody) {
-      res["TemplateBody"] = boost::any(*templateBody);
-    }
-    if (templateId) {
-      res["TemplateId"] = boost::any(*templateId);
-    }
-    if (templateScratchId) {
-      res["TemplateScratchId"] = boost::any(*templateScratchId);
-    }
-    if (templateScratchRegionId) {
-      res["TemplateScratchRegionId"] = boost::any(*templateScratchRegionId);
-    }
-    if (templateURL) {
-      res["TemplateURL"] = boost::any(*templateURL);
-    }
-    if (templateVersion) {
-      res["TemplateVersion"] = boost::any(*templateVersion);
-    }
-    if (timeoutInMinutes) {
-      res["TimeoutInMinutes"] = boost::any(*timeoutInMinutes);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
-      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
-    }
-    if (m.find("DisableRollback") != m.end() && !m["DisableRollback"].empty()) {
-      disableRollback = make_shared<bool>(boost::any_cast<bool>(m["DisableRollback"]));
-    }
-    if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
-      parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
-    }
-    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
-      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
-        vector<PreviewStackShrinkRequestParameters> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Parameters"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            PreviewStackShrinkRequestParameters model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        parameters = make_shared<vector<PreviewStackShrinkRequestParameters>>(expect1);
-      }
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceConfigRules") != m.end() && !m["ResourceConfigRules"].empty()) {
-      resourceConfigRulesShrink = make_shared<string>(boost::any_cast<string>(m["ResourceConfigRules"]));
-    }
-    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
-      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
-    }
-    if (m.find("StackName") != m.end() && !m["StackName"].empty()) {
-      stackName = make_shared<string>(boost::any_cast<string>(m["StackName"]));
-    }
-    if (m.find("StackPolicyBody") != m.end() && !m["StackPolicyBody"].empty()) {
-      stackPolicyBody = make_shared<string>(boost::any_cast<string>(m["StackPolicyBody"]));
-    }
-    if (m.find("StackPolicyURL") != m.end() && !m["StackPolicyURL"].empty()) {
-      stackPolicyURL = make_shared<string>(boost::any_cast<string>(m["StackPolicyURL"]));
-    }
-    if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
-      templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
-    }
-    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
-      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
-    }
-    if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
-      templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
-    }
-    if (m.find("TemplateScratchRegionId") != m.end() && !m["TemplateScratchRegionId"].empty()) {
-      templateScratchRegionId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchRegionId"]));
-    }
-    if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
-      templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
-    }
-    if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
-      templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
-    }
-    if (m.find("TimeoutInMinutes") != m.end() && !m["TimeoutInMinutes"].empty()) {
-      timeoutInMinutes = make_shared<long>(boost::any_cast<long>(m["TimeoutInMinutes"]));
-    }
-  }
-
-
-  virtual ~PreviewStackShrinkRequest() = default;
 };
 class PreviewStackResponseBodyStackLogTerraformLogs : public Darabonba::Model {
 public:
@@ -17812,60 +17901,10 @@ public:
 
   virtual ~PreviewStackResponseBodyStackParameters() = default;
 };
-class PreviewStackResponseBodyStackResourcesConfigRuleEvaluations : public Darabonba::Model {
-public:
-  shared_ptr<string> annotation{};
-  shared_ptr<string> complianceType{};
-  shared_ptr<string> helpUrl{};
-  shared_ptr<string> identifier{};
-
-  PreviewStackResponseBodyStackResourcesConfigRuleEvaluations() {}
-
-  explicit PreviewStackResponseBodyStackResourcesConfigRuleEvaluations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (annotation) {
-      res["Annotation"] = boost::any(*annotation);
-    }
-    if (complianceType) {
-      res["ComplianceType"] = boost::any(*complianceType);
-    }
-    if (helpUrl) {
-      res["HelpUrl"] = boost::any(*helpUrl);
-    }
-    if (identifier) {
-      res["Identifier"] = boost::any(*identifier);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Annotation") != m.end() && !m["Annotation"].empty()) {
-      annotation = make_shared<string>(boost::any_cast<string>(m["Annotation"]));
-    }
-    if (m.find("ComplianceType") != m.end() && !m["ComplianceType"].empty()) {
-      complianceType = make_shared<string>(boost::any_cast<string>(m["ComplianceType"]));
-    }
-    if (m.find("HelpUrl") != m.end() && !m["HelpUrl"].empty()) {
-      helpUrl = make_shared<string>(boost::any_cast<string>(m["HelpUrl"]));
-    }
-    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
-      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
-    }
-  }
-
-
-  virtual ~PreviewStackResponseBodyStackResourcesConfigRuleEvaluations() = default;
-};
 class PreviewStackResponseBodyStackResources : public Darabonba::Model {
 public:
+  shared_ptr<string> acsResourceType{};
   shared_ptr<string> action{};
-  shared_ptr<vector<PreviewStackResponseBodyStackResourcesConfigRuleEvaluations>> configRuleEvaluations{};
   shared_ptr<string> description{};
   shared_ptr<string> logicalResourceId{};
   shared_ptr<map<string, boost::any>> properties{};
@@ -17884,15 +17923,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsResourceType) {
+      res["AcsResourceType"] = boost::any(*acsResourceType);
+    }
     if (action) {
       res["Action"] = boost::any(*action);
-    }
-    if (configRuleEvaluations) {
-      vector<boost::any> temp1;
-      for(auto item1:*configRuleEvaluations){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["ConfigRuleEvaluations"] = boost::any(temp1);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -17919,21 +17954,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsResourceType") != m.end() && !m["AcsResourceType"].empty()) {
+      acsResourceType = make_shared<string>(boost::any_cast<string>(m["AcsResourceType"]));
+    }
     if (m.find("Action") != m.end() && !m["Action"].empty()) {
       action = make_shared<string>(boost::any_cast<string>(m["Action"]));
-    }
-    if (m.find("ConfigRuleEvaluations") != m.end() && !m["ConfigRuleEvaluations"].empty()) {
-      if (typeid(vector<boost::any>) == m["ConfigRuleEvaluations"].type()) {
-        vector<PreviewStackResponseBodyStackResourcesConfigRuleEvaluations> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConfigRuleEvaluations"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            PreviewStackResponseBodyStackResourcesConfigRuleEvaluations model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        configRuleEvaluations = make_shared<vector<PreviewStackResponseBodyStackResourcesConfigRuleEvaluations>>(expect1);
-      }
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -21993,7 +22018,7 @@ public:
   ListTemplatesResponse listTemplates(shared_ptr<ListTemplatesRequest> request);
   MoveResourceGroupResponse moveResourceGroupWithOptions(shared_ptr<MoveResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MoveResourceGroupResponse moveResourceGroup(shared_ptr<MoveResourceGroupRequest> request);
-  PreviewStackResponse previewStackWithOptions(shared_ptr<PreviewStackRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PreviewStackResponse previewStackWithOptions(shared_ptr<PreviewStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PreviewStackResponse previewStack(shared_ptr<PreviewStackRequest> request);
   SetDeletionProtectionResponse setDeletionProtectionWithOptions(shared_ptr<SetDeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDeletionProtectionResponse setDeletionProtection(shared_ptr<SetDeletionProtectionRequest> request);
