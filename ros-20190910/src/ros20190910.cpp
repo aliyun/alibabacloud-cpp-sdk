@@ -1590,6 +1590,9 @@ GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTem
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->parametersKeyFilter)) {
     request->parametersKeyFilterShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parametersKeyFilter, make_shared<string>("ParametersKeyFilter"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->parametersOrder)) {
+    request->parametersOrderShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parametersOrder, make_shared<string>("ParametersOrder"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -1599,6 +1602,9 @@ GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTem
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parametersKeyFilterShrink)) {
     query->insert(pair<string, string>("ParametersKeyFilter", *request->parametersKeyFilterShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parametersOrderShrink)) {
+    query->insert(pair<string, string>("ParametersOrder", *request->parametersOrderShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

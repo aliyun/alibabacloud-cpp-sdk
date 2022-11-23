@@ -10753,6 +10753,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<vector<GetTemplateParameterConstraintsRequestParameters>> parameters{};
   shared_ptr<vector<string>> parametersKeyFilter{};
+  shared_ptr<vector<string>> parametersOrder{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
@@ -10781,6 +10782,9 @@ public:
     }
     if (parametersKeyFilter) {
       res["ParametersKeyFilter"] = boost::any(*parametersKeyFilter);
+    }
+    if (parametersOrder) {
+      res["ParametersOrder"] = boost::any(*parametersOrder);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -10826,6 +10830,16 @@ public:
         }
       }
       parametersKeyFilter = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersOrder") != m.end() && !m["ParametersOrder"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersOrder"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersOrder"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersOrder = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -10888,6 +10902,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<vector<GetTemplateParameterConstraintsShrinkRequestParameters>> parameters{};
   shared_ptr<string> parametersKeyFilterShrink{};
+  shared_ptr<string> parametersOrderShrink{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
@@ -10916,6 +10931,9 @@ public:
     }
     if (parametersKeyFilterShrink) {
       res["ParametersKeyFilter"] = boost::any(*parametersKeyFilterShrink);
+    }
+    if (parametersOrderShrink) {
+      res["ParametersOrder"] = boost::any(*parametersOrderShrink);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -10954,6 +10972,9 @@ public:
     }
     if (m.find("ParametersKeyFilter") != m.end() && !m["ParametersKeyFilter"].empty()) {
       parametersKeyFilterShrink = make_shared<string>(boost::any_cast<string>(m["ParametersKeyFilter"]));
+    }
+    if (m.find("ParametersOrder") != m.end() && !m["ParametersOrder"].empty()) {
+      parametersOrderShrink = make_shared<string>(boost::any_cast<string>(m["ParametersOrder"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -21600,6 +21621,7 @@ public:
 class ValidateTemplateResponseBodyOutputs : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> label{};
   shared_ptr<string> outputKey{};
 
   ValidateTemplateResponseBodyOutputs() {}
@@ -21615,6 +21637,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (outputKey) {
       res["OutputKey"] = boost::any(*outputKey);
     }
@@ -21624,6 +21649,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
     }
     if (m.find("OutputKey") != m.end() && !m["OutputKey"].empty()) {
       outputKey = make_shared<string>(boost::any_cast<string>(m["OutputKey"]));
