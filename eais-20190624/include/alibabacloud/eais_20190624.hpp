@@ -1264,6 +1264,7 @@ public:
   shared_ptr<string> jupyterUrl{};
   shared_ptr<string> regionId{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<DescribeEaisResponseBodyInstancesInstanceTags> tags{};
   shared_ptr<string> vSwitchId{};
@@ -1314,6 +1315,9 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -1366,6 +1370,9 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
