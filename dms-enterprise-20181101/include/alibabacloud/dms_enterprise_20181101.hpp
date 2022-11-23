@@ -12504,6 +12504,161 @@ public:
 
   virtual ~GetDataCorrectOrderDetailResponse() = default;
 };
+class GetDataCorrectRollbackFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetDataCorrectRollbackFileRequest() {}
+
+  explicit GetDataCorrectRollbackFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataCorrectRollbackFileRequest() = default;
+};
+class GetDataCorrectRollbackFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDataCorrectRollbackFileResponseBody() {}
+
+  explicit GetDataCorrectRollbackFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDataCorrectRollbackFileResponseBody() = default;
+};
+class GetDataCorrectRollbackFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDataCorrectRollbackFileResponseBody> body{};
+
+  GetDataCorrectRollbackFileResponse() {}
+
+  explicit GetDataCorrectRollbackFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDataCorrectRollbackFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDataCorrectRollbackFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataCorrectRollbackFileResponse() = default;
+};
 class GetDataCorrectSQLFileRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -12867,6 +13022,243 @@ public:
 
 
   virtual ~GetDataCorrectTaskDetailResponse() = default;
+};
+class GetDataCronClearConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetDataCronClearConfigRequest() {}
+
+  explicit GetDataCronClearConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataCronClearConfigRequest() = default;
+};
+class GetDataCronClearConfigResponseBodyDataCronClearConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> cronCallTimes{};
+  shared_ptr<string> cronFormat{};
+  shared_ptr<string> cronLastCallStartTime{};
+  shared_ptr<string> cronNextCallTime{};
+  shared_ptr<string> cronStatus{};
+  shared_ptr<long> currentClearTaskCount{};
+  shared_ptr<string> duration{};
+  shared_ptr<long> optimizeTableAfterEveryClearTimes{};
+
+  GetDataCronClearConfigResponseBodyDataCronClearConfig() {}
+
+  explicit GetDataCronClearConfigResponseBodyDataCronClearConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cronCallTimes) {
+      res["CronCallTimes"] = boost::any(*cronCallTimes);
+    }
+    if (cronFormat) {
+      res["CronFormat"] = boost::any(*cronFormat);
+    }
+    if (cronLastCallStartTime) {
+      res["CronLastCallStartTime"] = boost::any(*cronLastCallStartTime);
+    }
+    if (cronNextCallTime) {
+      res["CronNextCallTime"] = boost::any(*cronNextCallTime);
+    }
+    if (cronStatus) {
+      res["CronStatus"] = boost::any(*cronStatus);
+    }
+    if (currentClearTaskCount) {
+      res["CurrentClearTaskCount"] = boost::any(*currentClearTaskCount);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (optimizeTableAfterEveryClearTimes) {
+      res["OptimizeTableAfterEveryClearTimes"] = boost::any(*optimizeTableAfterEveryClearTimes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CronCallTimes") != m.end() && !m["CronCallTimes"].empty()) {
+      cronCallTimes = make_shared<string>(boost::any_cast<string>(m["CronCallTimes"]));
+    }
+    if (m.find("CronFormat") != m.end() && !m["CronFormat"].empty()) {
+      cronFormat = make_shared<string>(boost::any_cast<string>(m["CronFormat"]));
+    }
+    if (m.find("CronLastCallStartTime") != m.end() && !m["CronLastCallStartTime"].empty()) {
+      cronLastCallStartTime = make_shared<string>(boost::any_cast<string>(m["CronLastCallStartTime"]));
+    }
+    if (m.find("CronNextCallTime") != m.end() && !m["CronNextCallTime"].empty()) {
+      cronNextCallTime = make_shared<string>(boost::any_cast<string>(m["CronNextCallTime"]));
+    }
+    if (m.find("CronStatus") != m.end() && !m["CronStatus"].empty()) {
+      cronStatus = make_shared<string>(boost::any_cast<string>(m["CronStatus"]));
+    }
+    if (m.find("CurrentClearTaskCount") != m.end() && !m["CurrentClearTaskCount"].empty()) {
+      currentClearTaskCount = make_shared<long>(boost::any_cast<long>(m["CurrentClearTaskCount"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<string>(boost::any_cast<string>(m["Duration"]));
+    }
+    if (m.find("OptimizeTableAfterEveryClearTimes") != m.end() && !m["OptimizeTableAfterEveryClearTimes"].empty()) {
+      optimizeTableAfterEveryClearTimes = make_shared<long>(boost::any_cast<long>(m["OptimizeTableAfterEveryClearTimes"]));
+    }
+  }
+
+
+  virtual ~GetDataCronClearConfigResponseBodyDataCronClearConfig() = default;
+};
+class GetDataCronClearConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetDataCronClearConfigResponseBodyDataCronClearConfig> dataCronClearConfig{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDataCronClearConfigResponseBody() {}
+
+  explicit GetDataCronClearConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataCronClearConfig) {
+      res["DataCronClearConfig"] = dataCronClearConfig ? boost::any(dataCronClearConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataCronClearConfig") != m.end() && !m["DataCronClearConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DataCronClearConfig"].type()) {
+        GetDataCronClearConfigResponseBodyDataCronClearConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataCronClearConfig"]));
+        dataCronClearConfig = make_shared<GetDataCronClearConfigResponseBodyDataCronClearConfig>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDataCronClearConfigResponseBody() = default;
+};
+class GetDataCronClearConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDataCronClearConfigResponseBody> body{};
+
+  GetDataCronClearConfigResponse() {}
+
+  explicit GetDataCronClearConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDataCronClearConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDataCronClearConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataCronClearConfigResponse() = default;
 };
 class GetDataCronClearTaskDetailListRequest : public Darabonba::Model {
 public:
@@ -16230,6 +16622,161 @@ public:
 
 
   virtual ~GetOpLogResponse() = default;
+};
+class GetOrderAttachmentFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetOrderAttachmentFileRequest() {}
+
+  explicit GetOrderAttachmentFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetOrderAttachmentFileRequest() = default;
+};
+class GetOrderAttachmentFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetOrderAttachmentFileResponseBody() {}
+
+  explicit GetOrderAttachmentFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetOrderAttachmentFileResponseBody() = default;
+};
+class GetOrderAttachmentFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOrderAttachmentFileResponseBody> body{};
+
+  GetOrderAttachmentFileResponse() {}
+
+  explicit GetOrderAttachmentFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOrderAttachmentFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOrderAttachmentFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOrderAttachmentFileResponse() = default;
 };
 class GetOrderBaseInfoRequest : public Darabonba::Model {
 public:
@@ -34284,6 +34831,7 @@ class ListStandardGroupsResponseBodyStandardGroupList : public Darabonba::Model 
 public:
   shared_ptr<string> dbType{};
   shared_ptr<string> description{};
+  shared_ptr<long> groupId{};
   shared_ptr<string> groupMode{};
   shared_ptr<string> groupName{};
   shared_ptr<long> lastMenderId{};
@@ -34304,6 +34852,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
     if (groupMode) {
       res["GroupMode"] = boost::any(*groupMode);
     }
@@ -34322,6 +34873,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
     }
     if (m.find("GroupMode") != m.end() && !m["GroupMode"].empty()) {
       groupMode = make_shared<string>(boost::any_cast<string>(m["GroupMode"]));
@@ -47420,10 +47974,14 @@ public:
   GetDataCorrectBackupFilesResponse getDataCorrectBackupFiles(shared_ptr<GetDataCorrectBackupFilesRequest> request);
   GetDataCorrectOrderDetailResponse getDataCorrectOrderDetailWithOptions(shared_ptr<GetDataCorrectOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataCorrectOrderDetailResponse getDataCorrectOrderDetail(shared_ptr<GetDataCorrectOrderDetailRequest> request);
+  GetDataCorrectRollbackFileResponse getDataCorrectRollbackFileWithOptions(shared_ptr<GetDataCorrectRollbackFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDataCorrectRollbackFileResponse getDataCorrectRollbackFile(shared_ptr<GetDataCorrectRollbackFileRequest> request);
   GetDataCorrectSQLFileResponse getDataCorrectSQLFileWithOptions(shared_ptr<GetDataCorrectSQLFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataCorrectSQLFileResponse getDataCorrectSQLFile(shared_ptr<GetDataCorrectSQLFileRequest> request);
   GetDataCorrectTaskDetailResponse getDataCorrectTaskDetailWithOptions(shared_ptr<GetDataCorrectTaskDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataCorrectTaskDetailResponse getDataCorrectTaskDetail(shared_ptr<GetDataCorrectTaskDetailRequest> request);
+  GetDataCronClearConfigResponse getDataCronClearConfigWithOptions(shared_ptr<GetDataCronClearConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDataCronClearConfigResponse getDataCronClearConfig(shared_ptr<GetDataCronClearConfigRequest> request);
   GetDataCronClearTaskDetailListResponse getDataCronClearTaskDetailListWithOptions(shared_ptr<GetDataCronClearTaskDetailListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataCronClearTaskDetailListResponse getDataCronClearTaskDetailList(shared_ptr<GetDataCronClearTaskDetailListRequest> request);
   GetDataExportDownloadURLResponse getDataExportDownloadURLWithOptions(shared_ptr<GetDataExportDownloadURLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -47446,6 +48004,8 @@ public:
   GetMetaTableDetailInfoResponse getMetaTableDetailInfo(shared_ptr<GetMetaTableDetailInfoRequest> request);
   GetOpLogResponse getOpLogWithOptions(shared_ptr<GetOpLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOpLogResponse getOpLog(shared_ptr<GetOpLogRequest> request);
+  GetOrderAttachmentFileResponse getOrderAttachmentFileWithOptions(shared_ptr<GetOrderAttachmentFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOrderAttachmentFileResponse getOrderAttachmentFile(shared_ptr<GetOrderAttachmentFileRequest> request);
   GetOrderBaseInfoResponse getOrderBaseInfoWithOptions(shared_ptr<GetOrderBaseInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOrderBaseInfoResponse getOrderBaseInfo(shared_ptr<GetOrderBaseInfoRequest> request);
   GetOwnerApplyOrderDetailResponse getOwnerApplyOrderDetailWithOptions(shared_ptr<GetOwnerApplyOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
