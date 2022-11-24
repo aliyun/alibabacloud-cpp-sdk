@@ -1235,6 +1235,9 @@ RecognizeIdcardResponse Alibabacloud_Ocr-api20210707::Client::recognizeIdcardWit
   if (!Darabonba_Util::Client::isUnset<bool>(request->outputFigure)) {
     query->insert(pair<string, bool>("OutputFigure", *request->outputFigure));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputQualityInfo)) {
+    query->insert(pair<string, bool>("OutputQualityInfo", *request->outputQualityInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     query->insert(pair<string, string>("Url", *request->url));
   }
@@ -2360,5 +2363,79 @@ RecognizeWaybillResponse Alibabacloud_Ocr-api20210707::Client::recognizeWaybillW
 RecognizeWaybillResponse Alibabacloud_Ocr-api20210707::Client::recognizeWaybill(shared_ptr<RecognizeWaybillRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return recognizeWaybillWithOptions(request, runtime);
+}
+
+VerifyBusinessLicenseResponse Alibabacloud_Ocr-api20210707::Client::verifyBusinessLicenseWithOptions(shared_ptr<VerifyBusinessLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->companyName)) {
+    query->insert(pair<string, string>("CompanyName", *request->companyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->creditCode)) {
+    query->insert(pair<string, string>("CreditCode", *request->creditCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->legalPerson)) {
+    query->insert(pair<string, string>("LegalPerson", *request->legalPerson));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VerifyBusinessLicense"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VerifyBusinessLicenseResponse(callApi(params, req, runtime));
+}
+
+VerifyBusinessLicenseResponse Alibabacloud_Ocr-api20210707::Client::verifyBusinessLicense(shared_ptr<VerifyBusinessLicenseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return verifyBusinessLicenseWithOptions(request, runtime);
+}
+
+VerifyVATInvoiceResponse Alibabacloud_Ocr-api20210707::Client::verifyVATInvoiceWithOptions(shared_ptr<VerifyVATInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->invoiceCode)) {
+    query->insert(pair<string, string>("InvoiceCode", *request->invoiceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->invoiceDate)) {
+    query->insert(pair<string, string>("InvoiceDate", *request->invoiceDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->invoiceNo)) {
+    query->insert(pair<string, string>("InvoiceNo", *request->invoiceNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->invoiceSum)) {
+    query->insert(pair<string, string>("InvoiceSum", *request->invoiceSum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyCode)) {
+    query->insert(pair<string, string>("VerifyCode", *request->verifyCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VerifyVATInvoice"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VerifyVATInvoiceResponse(callApi(params, req, runtime));
+}
+
+VerifyVATInvoiceResponse Alibabacloud_Ocr-api20210707::Client::verifyVATInvoice(shared_ptr<VerifyVATInvoiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return verifyVATInvoiceWithOptions(request, runtime);
 }
 

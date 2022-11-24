@@ -5604,6 +5604,7 @@ public:
 class RecognizeIdcardRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> outputFigure{};
+  shared_ptr<bool> outputQualityInfo{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -5620,6 +5621,9 @@ public:
     if (outputFigure) {
       res["OutputFigure"] = boost::any(*outputFigure);
     }
+    if (outputQualityInfo) {
+      res["OutputQualityInfo"] = boost::any(*outputQualityInfo);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -5632,6 +5636,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
       outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
+    }
+    if (m.find("OutputQualityInfo") != m.end() && !m["OutputQualityInfo"].empty()) {
+      outputQualityInfo = make_shared<bool>(boost::any_cast<bool>(m["OutputQualityInfo"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -11041,6 +11048,302 @@ public:
 
   virtual ~RecognizeWaybillResponse() = default;
 };
+class VerifyBusinessLicenseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> companyName{};
+  shared_ptr<string> creditCode{};
+  shared_ptr<string> legalPerson{};
+
+  VerifyBusinessLicenseRequest() {}
+
+  explicit VerifyBusinessLicenseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (companyName) {
+      res["CompanyName"] = boost::any(*companyName);
+    }
+    if (creditCode) {
+      res["CreditCode"] = boost::any(*creditCode);
+    }
+    if (legalPerson) {
+      res["LegalPerson"] = boost::any(*legalPerson);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompanyName") != m.end() && !m["CompanyName"].empty()) {
+      companyName = make_shared<string>(boost::any_cast<string>(m["CompanyName"]));
+    }
+    if (m.find("CreditCode") != m.end() && !m["CreditCode"].empty()) {
+      creditCode = make_shared<string>(boost::any_cast<string>(m["CreditCode"]));
+    }
+    if (m.find("LegalPerson") != m.end() && !m["LegalPerson"].empty()) {
+      legalPerson = make_shared<string>(boost::any_cast<string>(m["LegalPerson"]));
+    }
+  }
+
+
+  virtual ~VerifyBusinessLicenseRequest() = default;
+};
+class VerifyBusinessLicenseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  VerifyBusinessLicenseResponseBody() {}
+
+  explicit VerifyBusinessLicenseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~VerifyBusinessLicenseResponseBody() = default;
+};
+class VerifyBusinessLicenseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VerifyBusinessLicenseResponseBody> body{};
+
+  VerifyBusinessLicenseResponse() {}
+
+  explicit VerifyBusinessLicenseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VerifyBusinessLicenseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VerifyBusinessLicenseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VerifyBusinessLicenseResponse() = default;
+};
+class VerifyVATInvoiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> invoiceCode{};
+  shared_ptr<string> invoiceDate{};
+  shared_ptr<string> invoiceNo{};
+  shared_ptr<string> invoiceSum{};
+  shared_ptr<string> verifyCode{};
+
+  VerifyVATInvoiceRequest() {}
+
+  explicit VerifyVATInvoiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (invoiceCode) {
+      res["InvoiceCode"] = boost::any(*invoiceCode);
+    }
+    if (invoiceDate) {
+      res["InvoiceDate"] = boost::any(*invoiceDate);
+    }
+    if (invoiceNo) {
+      res["InvoiceNo"] = boost::any(*invoiceNo);
+    }
+    if (invoiceSum) {
+      res["InvoiceSum"] = boost::any(*invoiceSum);
+    }
+    if (verifyCode) {
+      res["VerifyCode"] = boost::any(*verifyCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InvoiceCode") != m.end() && !m["InvoiceCode"].empty()) {
+      invoiceCode = make_shared<string>(boost::any_cast<string>(m["InvoiceCode"]));
+    }
+    if (m.find("InvoiceDate") != m.end() && !m["InvoiceDate"].empty()) {
+      invoiceDate = make_shared<string>(boost::any_cast<string>(m["InvoiceDate"]));
+    }
+    if (m.find("InvoiceNo") != m.end() && !m["InvoiceNo"].empty()) {
+      invoiceNo = make_shared<string>(boost::any_cast<string>(m["InvoiceNo"]));
+    }
+    if (m.find("InvoiceSum") != m.end() && !m["InvoiceSum"].empty()) {
+      invoiceSum = make_shared<string>(boost::any_cast<string>(m["InvoiceSum"]));
+    }
+    if (m.find("VerifyCode") != m.end() && !m["VerifyCode"].empty()) {
+      verifyCode = make_shared<string>(boost::any_cast<string>(m["VerifyCode"]));
+    }
+  }
+
+
+  virtual ~VerifyVATInvoiceRequest() = default;
+};
+class VerifyVATInvoiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> data{};
+  shared_ptr<string> requestId{};
+
+  VerifyVATInvoiceResponseBody() {}
+
+  explicit VerifyVATInvoiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~VerifyVATInvoiceResponseBody() = default;
+};
+class VerifyVATInvoiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<VerifyVATInvoiceResponseBody> body{};
+
+  VerifyVATInvoiceResponse() {}
+
+  explicit VerifyVATInvoiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        VerifyVATInvoiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<VerifyVATInvoiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~VerifyVATInvoiceResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -11193,6 +11496,10 @@ public:
   RecognizeVehicleRegistrationResponse recognizeVehicleRegistration(shared_ptr<RecognizeVehicleRegistrationRequest> request);
   RecognizeWaybillResponse recognizeWaybillWithOptions(shared_ptr<RecognizeWaybillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeWaybillResponse recognizeWaybill(shared_ptr<RecognizeWaybillRequest> request);
+  VerifyBusinessLicenseResponse verifyBusinessLicenseWithOptions(shared_ptr<VerifyBusinessLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VerifyBusinessLicenseResponse verifyBusinessLicense(shared_ptr<VerifyBusinessLicenseRequest> request);
+  VerifyVATInvoiceResponse verifyVATInvoiceWithOptions(shared_ptr<VerifyVATInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  VerifyVATInvoiceResponse verifyVATInvoice(shared_ptr<VerifyVATInvoiceRequest> request);
 
   virtual ~Client() = default;
 };
