@@ -11543,6 +11543,7 @@ public:
   shared_ptr<string> imageType{};
   shared_ptr<string> osType{};
   shared_ptr<string> imageCategory{};
+  shared_ptr<string> architecture{};
 
   DescribeKubernetesVersionMetadataResponseBodyImages() {}
 
@@ -11575,6 +11576,9 @@ public:
     if (imageCategory) {
       res["image_category"] = boost::any(*imageCategory);
     }
+    if (architecture) {
+      res["architecture"] = boost::any(*architecture);
+    }
     return res;
   }
 
@@ -11599,6 +11603,9 @@ public:
     }
     if (m.find("image_category") != m.end() && !m["image_category"].empty()) {
       imageCategory = make_shared<string>(boost::any_cast<string>(m["image_category"]));
+    }
+    if (m.find("architecture") != m.end() && !m["architecture"].empty()) {
+      architecture = make_shared<string>(boost::any_cast<string>(m["architecture"]));
     }
   }
 
@@ -14407,12 +14414,56 @@ public:
 
   virtual ~DescribeUserPermissionResponse() = default;
 };
+class DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota : public Darabonba::Model {
+public:
+  shared_ptr<long> bandwidth{};
+  shared_ptr<long> count{};
+  shared_ptr<long> period{};
+
+  DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota() {}
+
+  explicit DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bandwidth) {
+      res["bandwidth"] = boost::any(*bandwidth);
+    }
+    if (count) {
+      res["count"] = boost::any(*count);
+    }
+    if (period) {
+      res["period"] = boost::any(*period);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bandwidth") != m.end() && !m["bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["bandwidth"]));
+    }
+    if (m.find("count") != m.end() && !m["count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["count"]));
+    }
+    if (m.find("period") != m.end() && !m["period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["period"]));
+    }
+  }
+
+
+  virtual ~DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota() = default;
+};
 class DescribeUserQuotaResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> amkClusterQuota{};
   shared_ptr<long> askClusterQuota{};
   shared_ptr<long> clusterNodepoolQuota{};
   shared_ptr<long> clusterQuota{};
+  shared_ptr<DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota> edgeImprovedNodepoolQuota{};
   shared_ptr<long> nodeQuota{};
 
   DescribeUserQuotaResponseBody() {}
@@ -14437,6 +14488,9 @@ public:
     if (clusterQuota) {
       res["cluster_quota"] = boost::any(*clusterQuota);
     }
+    if (edgeImprovedNodepoolQuota) {
+      res["edge_improved_nodepool_quota"] = edgeImprovedNodepoolQuota ? boost::any(edgeImprovedNodepoolQuota->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (nodeQuota) {
       res["node_quota"] = boost::any(*nodeQuota);
     }
@@ -14455,6 +14509,13 @@ public:
     }
     if (m.find("cluster_quota") != m.end() && !m["cluster_quota"].empty()) {
       clusterQuota = make_shared<long>(boost::any_cast<long>(m["cluster_quota"]));
+    }
+    if (m.find("edge_improved_nodepool_quota") != m.end() && !m["edge_improved_nodepool_quota"].empty()) {
+      if (typeid(map<string, boost::any>) == m["edge_improved_nodepool_quota"].type()) {
+        DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["edge_improved_nodepool_quota"]));
+        edgeImprovedNodepoolQuota = make_shared<DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota>(model1);
+      }
     }
     if (m.find("node_quota") != m.end() && !m["node_quota"].empty()) {
       nodeQuota = make_shared<long>(boost::any_cast<long>(m["node_quota"]));
@@ -20966,6 +21027,140 @@ public:
 
   virtual ~UpgradeClusterAddonsResponse() = default;
 };
+class UpgradeClusterNodepoolRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> kubernetesVersion{};
+  shared_ptr<string> runtimeVersion{};
+
+  UpgradeClusterNodepoolRequest() {}
+
+  explicit UpgradeClusterNodepoolRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["image_id"] = boost::any(*imageId);
+    }
+    if (kubernetesVersion) {
+      res["kubernetes_version"] = boost::any(*kubernetesVersion);
+    }
+    if (runtimeVersion) {
+      res["runtime_version"] = boost::any(*runtimeVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("image_id") != m.end() && !m["image_id"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["image_id"]));
+    }
+    if (m.find("kubernetes_version") != m.end() && !m["kubernetes_version"].empty()) {
+      kubernetesVersion = make_shared<string>(boost::any_cast<string>(m["kubernetes_version"]));
+    }
+    if (m.find("runtime_version") != m.end() && !m["runtime_version"].empty()) {
+      runtimeVersion = make_shared<string>(boost::any_cast<string>(m["runtime_version"]));
+    }
+  }
+
+
+  virtual ~UpgradeClusterNodepoolRequest() = default;
+};
+class UpgradeClusterNodepoolResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpgradeClusterNodepoolResponseBody() {}
+
+  explicit UpgradeClusterNodepoolResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpgradeClusterNodepoolResponseBody() = default;
+};
+class UpgradeClusterNodepoolResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpgradeClusterNodepoolResponseBody> body{};
+
+  UpgradeClusterNodepoolResponse() {}
+
+  explicit UpgradeClusterNodepoolResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpgradeClusterNodepoolResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpgradeClusterNodepoolResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpgradeClusterNodepoolResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -21348,6 +21543,12 @@ public:
                                                                shared_ptr<UpgradeClusterAddonsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpgradeClusterNodepoolResponse upgradeClusterNodepool(shared_ptr<string> ClusterId, shared_ptr<string> NodepoolId, shared_ptr<UpgradeClusterNodepoolRequest> request);
+  UpgradeClusterNodepoolResponse upgradeClusterNodepoolWithOptions(shared_ptr<string> ClusterId,
+                                                                   shared_ptr<string> NodepoolId,
+                                                                   shared_ptr<UpgradeClusterNodepoolRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
