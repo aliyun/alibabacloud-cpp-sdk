@@ -100,6 +100,34 @@ string Alibabacloud_Viapi-regen20211119::Client::getEndpoint(shared_ptr<string> 
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CheckDatasetOssBucketCORSResponse Alibabacloud_Viapi-regen20211119::Client::checkDatasetOssBucketCORSWithOptions(shared_ptr<CheckDatasetOssBucketCORSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->labelsetId)) {
+    body->insert(pair<string, long>("LabelsetId", *request->labelsetId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckDatasetOssBucketCORS"))},
+    {"version", boost::any(string("2021-11-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckDatasetOssBucketCORSResponse(callApi(params, req, runtime));
+}
+
+CheckDatasetOssBucketCORSResponse Alibabacloud_Viapi-regen20211119::Client::checkDatasetOssBucketCORS(shared_ptr<CheckDatasetOssBucketCORSRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkDatasetOssBucketCORSWithOptions(request, runtime);
+}
+
 CreateDatasetResponse Alibabacloud_Viapi-regen20211119::Client::createDatasetWithOptions(shared_ptr<CreateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1411,6 +1439,27 @@ GetUploadPolicyResponse Alibabacloud_Viapi-regen20211119::Client::getUploadPolic
 GetUploadPolicyResponse Alibabacloud_Viapi-regen20211119::Client::getUploadPolicy(shared_ptr<GetUploadPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getUploadPolicyWithOptions(request, runtime);
+}
+
+GetUserInfoResponse Alibabacloud_Viapi-regen20211119::Client::getUserInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetUserInfo"))},
+    {"version", boost::any(string("2021-11-19"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetUserInfoResponse(callApi(params, req, runtime));
+}
+
+GetUserInfoResponse Alibabacloud_Viapi-regen20211119::Client::getUserInfo() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getUserInfoWithOptions(runtime);
 }
 
 GetWorkspaceResponse Alibabacloud_Viapi-regen20211119::Client::getWorkspaceWithOptions(shared_ptr<GetWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

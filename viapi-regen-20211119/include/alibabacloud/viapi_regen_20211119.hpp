@@ -15,6 +15,180 @@
 using namespace std;
 
 namespace Alibabacloud_Viapi-regen20211119 {
+class CheckDatasetOssBucketCORSRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> labelsetId{};
+
+  CheckDatasetOssBucketCORSRequest() {}
+
+  explicit CheckDatasetOssBucketCORSRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelsetId) {
+      res["LabelsetId"] = boost::any(*labelsetId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LabelsetId") != m.end() && !m["LabelsetId"].empty()) {
+      labelsetId = make_shared<long>(boost::any_cast<long>(m["LabelsetId"]));
+    }
+  }
+
+
+  virtual ~CheckDatasetOssBucketCORSRequest() = default;
+};
+class CheckDatasetOssBucketCORSResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> bucket{};
+  shared_ptr<string> ossBucketCORSConfigUrl{};
+  shared_ptr<bool> setOssBucketCORSFlag{};
+
+  CheckDatasetOssBucketCORSResponseBodyData() {}
+
+  explicit CheckDatasetOssBucketCORSResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (ossBucketCORSConfigUrl) {
+      res["OssBucketCORSConfigUrl"] = boost::any(*ossBucketCORSConfigUrl);
+    }
+    if (setOssBucketCORSFlag) {
+      res["SetOssBucketCORSFlag"] = boost::any(*setOssBucketCORSFlag);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("OssBucketCORSConfigUrl") != m.end() && !m["OssBucketCORSConfigUrl"].empty()) {
+      ossBucketCORSConfigUrl = make_shared<string>(boost::any_cast<string>(m["OssBucketCORSConfigUrl"]));
+    }
+    if (m.find("SetOssBucketCORSFlag") != m.end() && !m["SetOssBucketCORSFlag"].empty()) {
+      setOssBucketCORSFlag = make_shared<bool>(boost::any_cast<bool>(m["SetOssBucketCORSFlag"]));
+    }
+  }
+
+
+  virtual ~CheckDatasetOssBucketCORSResponseBodyData() = default;
+};
+class CheckDatasetOssBucketCORSResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CheckDatasetOssBucketCORSResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CheckDatasetOssBucketCORSResponseBody() {}
+
+  explicit CheckDatasetOssBucketCORSResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CheckDatasetOssBucketCORSResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CheckDatasetOssBucketCORSResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckDatasetOssBucketCORSResponseBody() = default;
+};
+class CheckDatasetOssBucketCORSResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckDatasetOssBucketCORSResponseBody> body{};
+
+  CheckDatasetOssBucketCORSResponse() {}
+
+  explicit CheckDatasetOssBucketCORSResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckDatasetOssBucketCORSResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckDatasetOssBucketCORSResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckDatasetOssBucketCORSResponse() = default;
+};
 class CreateDatasetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -7210,6 +7384,144 @@ public:
 
   virtual ~GetUploadPolicyResponse() = default;
 };
+class GetUserInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> parentUid{};
+  shared_ptr<string> userType{};
+
+  GetUserInfoResponseBodyData() {}
+
+  explicit GetUserInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parentUid) {
+      res["ParentUid"] = boost::any(*parentUid);
+    }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParentUid") != m.end() && !m["ParentUid"].empty()) {
+      parentUid = make_shared<string>(boost::any_cast<string>(m["ParentUid"]));
+    }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<string>(boost::any_cast<string>(m["UserType"]));
+    }
+  }
+
+
+  virtual ~GetUserInfoResponseBodyData() = default;
+};
+class GetUserInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetUserInfoResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetUserInfoResponseBody() {}
+
+  explicit GetUserInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetUserInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetUserInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetUserInfoResponseBody() = default;
+};
+class GetUserInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetUserInfoResponseBody> body{};
+
+  GetUserInfoResponse() {}
+
+  explicit GetUserInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetUserInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetUserInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetUserInfoResponse() = default;
+};
 class GetWorkspaceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -11456,6 +11768,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CheckDatasetOssBucketCORSResponse checkDatasetOssBucketCORSWithOptions(shared_ptr<CheckDatasetOssBucketCORSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckDatasetOssBucketCORSResponse checkDatasetOssBucketCORS(shared_ptr<CheckDatasetOssBucketCORSRequest> request);
   CreateDatasetResponse createDatasetWithOptions(shared_ptr<CreateDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDatasetResponse createDataset(shared_ptr<CreateDatasetRequest> request);
   CreateLabelsetResponse createLabelsetWithOptions(shared_ptr<CreateLabelsetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -11527,6 +11841,8 @@ public:
   GetTrainTaskEstimatedTimeResponse getTrainTaskEstimatedTime(shared_ptr<GetTrainTaskEstimatedTimeRequest> request);
   GetUploadPolicyResponse getUploadPolicyWithOptions(shared_ptr<GetUploadPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetUploadPolicyResponse getUploadPolicy(shared_ptr<GetUploadPolicyRequest> request);
+  GetUserInfoResponse getUserInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetUserInfoResponse getUserInfo();
   GetWorkspaceResponse getWorkspaceWithOptions(shared_ptr<GetWorkspaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetWorkspaceResponse getWorkspace(shared_ptr<GetWorkspaceRequest> request);
   ListDataReflowDatasResponse listDataReflowDatasWithOptions(shared_ptr<ListDataReflowDatasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
