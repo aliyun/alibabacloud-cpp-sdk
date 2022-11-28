@@ -238,13 +238,108 @@ public:
 
   virtual ~CreateUserHeaders() = default;
 };
+class CreateUserRequestCustomFields : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> fieldValue{};
+
+  CreateUserRequestCustomFields() {}
+
+  explicit CreateUserRequestCustomFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldName) {
+      res["fieldName"] = boost::any(*fieldName);
+    }
+    if (fieldValue) {
+      res["fieldValue"] = boost::any(*fieldValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fieldName") != m.end() && !m["fieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["fieldName"]));
+    }
+    if (m.find("fieldValue") != m.end() && !m["fieldValue"].empty()) {
+      fieldValue = make_shared<string>(boost::any_cast<string>(m["fieldValue"]));
+    }
+  }
+
+
+  virtual ~CreateUserRequestCustomFields() = default;
+};
+class CreateUserRequestPasswordInitializationConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> passwordForcedUpdateStatus{};
+  shared_ptr<string> passwordInitializationPolicyPriority{};
+  shared_ptr<string> passwordInitializationType{};
+  shared_ptr<vector<string>> userNotificationChannels{};
+
+  CreateUserRequestPasswordInitializationConfig() {}
+
+  explicit CreateUserRequestPasswordInitializationConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (passwordForcedUpdateStatus) {
+      res["passwordForcedUpdateStatus"] = boost::any(*passwordForcedUpdateStatus);
+    }
+    if (passwordInitializationPolicyPriority) {
+      res["passwordInitializationPolicyPriority"] = boost::any(*passwordInitializationPolicyPriority);
+    }
+    if (passwordInitializationType) {
+      res["passwordInitializationType"] = boost::any(*passwordInitializationType);
+    }
+    if (userNotificationChannels) {
+      res["userNotificationChannels"] = boost::any(*userNotificationChannels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("passwordForcedUpdateStatus") != m.end() && !m["passwordForcedUpdateStatus"].empty()) {
+      passwordForcedUpdateStatus = make_shared<string>(boost::any_cast<string>(m["passwordForcedUpdateStatus"]));
+    }
+    if (m.find("passwordInitializationPolicyPriority") != m.end() && !m["passwordInitializationPolicyPriority"].empty()) {
+      passwordInitializationPolicyPriority = make_shared<string>(boost::any_cast<string>(m["passwordInitializationPolicyPriority"]));
+    }
+    if (m.find("passwordInitializationType") != m.end() && !m["passwordInitializationType"].empty()) {
+      passwordInitializationType = make_shared<string>(boost::any_cast<string>(m["passwordInitializationType"]));
+    }
+    if (m.find("userNotificationChannels") != m.end() && !m["userNotificationChannels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["userNotificationChannels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["userNotificationChannels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      userNotificationChannels = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateUserRequestPasswordInitializationConfig() = default;
+};
 class CreateUserRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateUserRequestCustomFields>> customFields{};
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> email{};
   shared_ptr<bool> emailVerified{};
   shared_ptr<string> password{};
+  shared_ptr<CreateUserRequestPasswordInitializationConfig> passwordInitializationConfig{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> phoneNumberVerified{};
   shared_ptr<string> phoneRegion{};
@@ -262,6 +357,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customFields) {
+      vector<boost::any> temp1;
+      for(auto item1:*customFields){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customFields"] = boost::any(temp1);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -276,6 +378,9 @@ public:
     }
     if (password) {
       res["password"] = boost::any(*password);
+    }
+    if (passwordInitializationConfig) {
+      res["passwordInitializationConfig"] = passwordInitializationConfig ? boost::any(passwordInitializationConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (phoneNumber) {
       res["phoneNumber"] = boost::any(*phoneNumber);
@@ -299,6 +404,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("customFields") != m.end() && !m["customFields"].empty()) {
+      if (typeid(vector<boost::any>) == m["customFields"].type()) {
+        vector<CreateUserRequestCustomFields> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customFields"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateUserRequestCustomFields model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customFields = make_shared<vector<CreateUserRequestCustomFields>>(expect1);
+      }
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
@@ -313,6 +431,13 @@ public:
     }
     if (m.find("password") != m.end() && !m["password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("passwordInitializationConfig") != m.end() && !m["passwordInitializationConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["passwordInitializationConfig"].type()) {
+        CreateUserRequestPasswordInitializationConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["passwordInitializationConfig"]));
+        passwordInitializationConfig = make_shared<CreateUserRequestPasswordInitializationConfig>(model1);
+      }
     }
     if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
@@ -605,6 +730,184 @@ public:
 
 
   virtual ~DeleteUserResponse() = default;
+};
+class DisableUserHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  DisableUserHeaders() {}
+
+  explicit DisableUserHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~DisableUserHeaders() = default;
+};
+class DisableUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  DisableUserResponse() {}
+
+  explicit DisableUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~DisableUserResponse() = default;
+};
+class EnableUserHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  EnableUserHeaders() {}
+
+  explicit EnableUserHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~EnableUserHeaders() = default;
+};
+class EnableUserResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  EnableUserResponse() {}
+
+  explicit EnableUserResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~EnableUserResponse() = default;
 };
 class GenerateDeviceCodeRequest : public Darabonba::Model {
 public:
@@ -1550,6 +1853,42 @@ public:
 
   virtual ~GetUserHeaders() = default;
 };
+class GetUserResponseBodyCustomFields : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> fieldValue{};
+
+  GetUserResponseBodyCustomFields() {}
+
+  explicit GetUserResponseBodyCustomFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldName) {
+      res["fieldName"] = boost::any(*fieldName);
+    }
+    if (fieldValue) {
+      res["fieldValue"] = boost::any(*fieldValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fieldName") != m.end() && !m["fieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["fieldName"]));
+    }
+    if (m.find("fieldValue") != m.end() && !m["fieldValue"].empty()) {
+      fieldValue = make_shared<string>(boost::any_cast<string>(m["fieldValue"]));
+    }
+  }
+
+
+  virtual ~GetUserResponseBodyCustomFields() = default;
+};
 class GetUserResponseBodyOrganizationalUnits : public Darabonba::Model {
 public:
   shared_ptr<string> organizationalUnitId{};
@@ -1597,6 +1936,7 @@ class GetUserResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> accountExpireTime{};
   shared_ptr<long> createTime{};
+  shared_ptr<vector<GetUserResponseBodyCustomFields>> customFields{};
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> email{};
@@ -1604,6 +1944,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<long> lockExpireTime{};
   shared_ptr<vector<GetUserResponseBodyOrganizationalUnits>> organizationalUnits{};
+  shared_ptr<bool> passwordSet{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> phoneNumberVerified{};
   shared_ptr<string> phoneRegion{};
@@ -1633,6 +1974,13 @@ public:
     if (createTime) {
       res["createTime"] = boost::any(*createTime);
     }
+    if (customFields) {
+      vector<boost::any> temp1;
+      for(auto item1:*customFields){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customFields"] = boost::any(temp1);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -1657,6 +2005,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["organizationalUnits"] = boost::any(temp1);
+    }
+    if (passwordSet) {
+      res["passwordSet"] = boost::any(*passwordSet);
     }
     if (phoneNumber) {
       res["phoneNumber"] = boost::any(*phoneNumber);
@@ -1704,6 +2055,19 @@ public:
     if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
     }
+    if (m.find("customFields") != m.end() && !m["customFields"].empty()) {
+      if (typeid(vector<boost::any>) == m["customFields"].type()) {
+        vector<GetUserResponseBodyCustomFields> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customFields"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetUserResponseBodyCustomFields model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customFields = make_shared<vector<GetUserResponseBodyCustomFields>>(expect1);
+      }
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }
@@ -1734,6 +2098,9 @@ public:
         }
         organizationalUnits = make_shared<vector<GetUserResponseBodyOrganizationalUnits>>(expect1);
       }
+    }
+    if (m.find("passwordSet") != m.end() && !m["passwordSet"].empty()) {
+      passwordSet = make_shared<bool>(boost::any_cast<bool>(m["passwordSet"]));
     }
     if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
@@ -3121,6 +3488,7 @@ public:
   shared_ptr<bool> emailVerified{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> lockExpireTime{};
+  shared_ptr<bool> passwordSet{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> phoneNumberVerified{};
   shared_ptr<string> phoneRegion{};
@@ -3166,6 +3534,9 @@ public:
     }
     if (lockExpireTime) {
       res["lockExpireTime"] = boost::any(*lockExpireTime);
+    }
+    if (passwordSet) {
+      res["passwordSet"] = boost::any(*passwordSet);
     }
     if (phoneNumber) {
       res["phoneNumber"] = boost::any(*phoneNumber);
@@ -3227,6 +3598,9 @@ public:
     }
     if (m.find("lockExpireTime") != m.end() && !m["lockExpireTime"].empty()) {
       lockExpireTime = make_shared<long>(boost::any_cast<long>(m["lockExpireTime"]));
+    }
+    if (m.find("passwordSet") != m.end() && !m["passwordSet"].empty()) {
+      passwordSet = make_shared<bool>(boost::any_cast<bool>(m["passwordSet"]));
     }
     if (m.find("phoneNumber") != m.end() && !m["phoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["phoneNumber"]));
@@ -3544,8 +3918,52 @@ public:
 
   virtual ~PatchUserHeaders() = default;
 };
+class PatchUserRequestCustomFields : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldName{};
+  shared_ptr<string> fieldValue{};
+  shared_ptr<string> operator_{};
+
+  PatchUserRequestCustomFields() {}
+
+  explicit PatchUserRequestCustomFields(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldName) {
+      res["fieldName"] = boost::any(*fieldName);
+    }
+    if (fieldValue) {
+      res["fieldValue"] = boost::any(*fieldValue);
+    }
+    if (operator_) {
+      res["operator"] = boost::any(*operator_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fieldName") != m.end() && !m["fieldName"].empty()) {
+      fieldName = make_shared<string>(boost::any_cast<string>(m["fieldName"]));
+    }
+    if (m.find("fieldValue") != m.end() && !m["fieldValue"].empty()) {
+      fieldValue = make_shared<string>(boost::any_cast<string>(m["fieldValue"]));
+    }
+    if (m.find("operator") != m.end() && !m["operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
+    }
+  }
+
+
+  virtual ~PatchUserRequestCustomFields() = default;
+};
 class PatchUserRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<PatchUserRequestCustomFields>> customFields{};
   shared_ptr<string> displayName{};
   shared_ptr<string> email{};
   shared_ptr<bool> emailVerified{};
@@ -3564,6 +3982,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (customFields) {
+      vector<boost::any> temp1;
+      for(auto item1:*customFields){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["customFields"] = boost::any(temp1);
+    }
     if (displayName) {
       res["displayName"] = boost::any(*displayName);
     }
@@ -3589,6 +4014,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("customFields") != m.end() && !m["customFields"].empty()) {
+      if (typeid(vector<boost::any>) == m["customFields"].type()) {
+        vector<PatchUserRequestCustomFields> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["customFields"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PatchUserRequestCustomFields model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customFields = make_shared<vector<PatchUserRequestCustomFields>>(expect1);
+      }
+    }
     if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
     }
@@ -3809,6 +4247,18 @@ public:
                                            shared_ptr<string> applicationId,
                                            shared_ptr<string> userId,
                                            shared_ptr<DeleteUserHeaders> headers,
+                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisableUserResponse disableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  DisableUserResponse disableUserWithOptions(shared_ptr<string> instanceId,
+                                             shared_ptr<string> applicationId,
+                                             shared_ptr<string> userId,
+                                             shared_ptr<DisableUserHeaders> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableUserResponse enableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  EnableUserResponse enableUserWithOptions(shared_ptr<string> instanceId,
+                                           shared_ptr<string> applicationId,
+                                           shared_ptr<string> userId,
+                                           shared_ptr<EnableUserHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateDeviceCodeResponse generateDeviceCode(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateDeviceCodeRequest> request);
   GenerateDeviceCodeResponse generateDeviceCodeWithOptions(shared_ptr<string> instanceId,
