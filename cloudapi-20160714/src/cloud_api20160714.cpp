@@ -330,6 +330,9 @@ CreateAccessControlListResponse Alibabacloud_CloudAPI20160714::Client::createAcc
   if (!Darabonba_Util::Client::isUnset<string>(request->aclName)) {
     query->insert(pair<string, string>("AclName", *request->aclName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIPVersion)) {
+    query->insert(pair<string, string>("AddressIPVersion", *request->addressIPVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
@@ -1919,6 +1922,9 @@ DescribeAccessControlListsResponse Alibabacloud_CloudAPI20160714::Client::descri
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aclName)) {
     query->insert(pair<string, string>("AclName", *request->aclName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIPVersion)) {
+    query->insert(pair<string, string>("AddressIPVersion", *request->addressIPVersion));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -3680,6 +3686,61 @@ DescribeModelsResponse Alibabacloud_CloudAPI20160714::Client::describeModels(sha
   return describeModelsWithOptions(request, runtime);
 }
 
+DescribePluginApisResponse Alibabacloud_CloudAPI20160714::Client::describePluginApisWithOptions(shared_ptr<DescribePluginApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiId)) {
+    query->insert(pair<string, string>("ApiId", *request->apiId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiName)) {
+    query->insert(pair<string, string>("ApiName", *request->apiName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->method)) {
+    query->insert(pair<string, string>("Method", *request->method));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
+    query->insert(pair<string, string>("Path", *request->path));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pluginId)) {
+    query->insert(pair<string, string>("PluginId", *request->pluginId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribePluginApis"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribePluginApisResponse(callApi(params, req, runtime));
+}
+
+DescribePluginApisResponse Alibabacloud_CloudAPI20160714::Client::describePluginApis(shared_ptr<DescribePluginApisRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describePluginApisWithOptions(request, runtime);
+}
+
 DescribePluginSchemasResponse Alibabacloud_CloudAPI20160714::Client::describePluginSchemasWithOptions(shared_ptr<DescribePluginSchemasRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4352,6 +4413,9 @@ DisableInstanceAccessControlResponse Alibabacloud_CloudAPI20160714::Client::disa
   if (!Darabonba_Util::Client::isUnset<string>(request->aclId)) {
     query->insert(pair<string, string>("AclId", *request->aclId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIPVersion)) {
+    query->insert(pair<string, string>("AddressIPVersion", *request->addressIPVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -4438,6 +4502,9 @@ EnableInstanceAccessControlResponse Alibabacloud_CloudAPI20160714::Client::enabl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->aclType)) {
     query->insert(pair<string, string>("AclType", *request->aclType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIPVersion)) {
+    query->insert(pair<string, string>("AddressIPVersion", *request->addressIPVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
